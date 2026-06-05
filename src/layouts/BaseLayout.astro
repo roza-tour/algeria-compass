@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SchemaGraph from '../components/SchemaGraph.astro';
+import Analytics from '../components/Analytics.astro';
+import StickyContact from '../components/StickyContact.astro';
+export interface Props {
+  title: string; description: string; image?: string; type?: string;
+  region?: string; schema?: any[]; sticky?: boolean;
+}
+const { title, description, image, type, region, schema = [], sticky = false } = Astro.props;
+---
+<!doctype html>
+<html lang="en" data-region={region}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap" />
+  <Seo title={title} description={description} image={image} type={type} />
+  <SchemaGraph nodes={schema} />
+  <Analytics />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <Header />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer />
+  {sticky && <StickyContact />}
+</body>
+</html>

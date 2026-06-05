@@ -1,0 +1,17 @@
+---
+export interface Row { item: string; budget?: string; mid?: string; high?: string; }
+export interface Props { rows: Row[]; currency?: string; caption?: string; note?: string; }
+const { rows, currency = '', caption = 'Indicative costs', note } = Astro.props;
+---
+{rows.length > 0 && (
+  <div class="ai-block cost-table">
+    <div class="tbl-scroll">
+      <table>
+        <caption>{caption}{currency ? ` (${currency})` : ''}</caption>
+        <thead><tr><th scope="col">Item</th><th scope="col">Budget</th><th scope="col">Mid-range</th><th scope="col">High-end</th></tr></thead>
+        <tbody>{rows.map(r => (<tr><th scope="row">{r.item}</th><td>{r.budget ?? '—'}</td><td>{r.mid ?? '—'}</td><td>{r.high ?? '—'}</td></tr>))}</tbody>
+      </table>
+    </div>
+    {note && <p class="ai-note">{note}</p>}
+  </div>
+)}

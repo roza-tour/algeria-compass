@@ -1,0 +1,13 @@
+---
+export interface Props { heading?: string; text?: string; interest?: string; }
+const { heading = 'Planning a trip to Algeria?', text = 'Algeria Compass is an independent guide first. When you are ready to travel, we can also help you shape a route or arrange a guided journey with trusted local operators.', interest = '' } = Astro.props;
+const href = interest ? `/contact/?i=${encodeURIComponent(interest)}` : '/contact/';
+---
+<section class="section"><div class="wrap">
+  <div class="cta">
+    <div class="eyebrow" style="color:var(--gold-l)">Travel planning</div>
+    <h2>{heading}</h2>
+    <p>{text}</p>
+    <a class="btn btn-gold" href={href} data-evt="cta_plan">Plan a journey &rarr;</a>
+  </div>
+</div></section>

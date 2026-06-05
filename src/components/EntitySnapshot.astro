@@ -1,0 +1,27 @@
+---
+// Machine-readable fact card for a single entity.
+import type { Entity } from '../data/algeria';
+import { getEntity } from '../lib/graph';
+export interface Props { entity: Entity; href?: string; }
+const { entity: e, href } = Astro.props;
+const region = e.region ? getEntity(e.region) : undefined;
+const parent = e.parent ? getEntity(e.parent) : undefined;
+const typeLabel = e.type.replace(/-/g, ' ');
+const unescoSrc = e.sources?.find(s => s.type === 'unesco');
+---
+<article class="entity-snapshot" data-entity-id={e.id} data-entity-type={e.type}>
+  <header>
+    <span class="es-type">{typeLabel}</span>
+    {href ? <a href={href} class="es-name">{e.name}</a> : <span class="es-name">{e.name}</span>}
+  </header>
+  <p class="es-desc">{e.description}</p>
+  <dl class="es-facts">
+    {region && <><dt>Region</dt><dd>{region.name}</dd></>}
+    {e.type === 'province' && e.capital && <><dt>Capital</dt><dd>{e.capital}</dd></>}
+    {e.type === 'province' && e.wilayaNumber && <><dt>Wilaya №</dt><dd>{e.wilayaNumber}</dd></>}
+    {parent && e.type !== 'province' && e.type !== 'region' && <><dt>Located in</dt><dd>{parent.name}</dd></>}
+    {e.coordinates && <><dt>Coordinates</dt><dd>{e.coordinates.lat.toFixed(3)}, {e.coordinates.lng.toFixed(3)}</dd></>}
+    {unescoSrc && <><dt>Status</dt><dd>UNESCO World Heritage</dd></>}
+  </dl>
+  {e.sameAs?.length ? <p class="es-links">{e.sameAs.map((u,i)=>(<a href={u} rel="noopener" target="_blank">{i===0?'Reference ↗':'↗'}</a>))}</p> : null}
+</article>

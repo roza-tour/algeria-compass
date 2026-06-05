@@ -1,0 +1,18 @@
+---
+export interface Factor { label: string; level: number; }
+export interface Props { level: number; label?: string; factors?: Factor[]; }
+const { level, label, factors = [] } = Astro.props;
+const L = Math.max(1, Math.min(5, level));
+const words = ['', 'Easy', 'Easy–moderate', 'Moderate', 'Demanding', 'Expedition-level'];
+---
+<div class="ai-block difficulty" role="group" aria-label={`Difficulty ${L} of 5`}>
+  <div class="diff-head"><span class="diff-label">{label ?? 'Difficulty'}</span>
+    <span class="diff-pips" aria-hidden="true">{[1,2,3,4,5].map(n => <i class={n<=L?'on':''}></i>)}</span>
+    <span class="diff-word">{words[L]}</span>
+  </div>
+  {factors.length > 0 && (
+    <ul class="diff-factors">{factors.map(f => (
+      <li><span>{f.label}</span><span class="diff-pips sm" aria-label={`${f.level} of 5`}>{[1,2,3,4,5].map(n => <i class={n<=Math.min(5,f.level)?'on':''}></i>)}</span></li>
+    ))}</ul>
+  )}
+</div>

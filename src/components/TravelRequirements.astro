@@ -1,0 +1,14 @@
+---
+export interface Req { label: string; value: string; required?: boolean; }
+export interface Props { items: Req[]; heading?: string; note?: string; }
+const { items, heading = 'Requirements', note } = Astro.props;
+---
+{items.length > 0 && (
+  <div class="ai-block requirements">
+    <h3>{heading}</h3>
+    <ul>{items.map(i => (
+      <li class={i.required ? 'req-yes' : ''}><span class="rq-label">{i.label}</span><span class="rq-val">{i.value}</span></li>
+    ))}</ul>
+    {note && <p class="ai-note">{note}</p>}
+  </div>
+)}

@@ -1,0 +1,596 @@
+{
+ "files": [
+  {
+   "coll": "article",
+   "file": "algeria-safety-guide.md",
+   "words": 1223,
+   "scores": {
+    "publishing": 100,
+    "authority": 100,
+    "ai": 100,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 0
+  },
+  {
+   "coll": "article",
+   "file": "algeria-transportation-guide.md",
+   "words": 1082,
+   "scores": {
+    "publishing": 100,
+    "authority": 100,
+    "ai": 100,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 0
+  },
+  {
+   "coll": "article",
+   "file": "algeria-visa-guide.md",
+   "words": 1464,
+   "scores": {
+    "publishing": 100,
+    "authority": 100,
+    "ai": 100,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 0
+  },
+  {
+   "coll": "article",
+   "file": "algerian-food-guide.md",
+   "words": 111,
+   "scores": {
+    "publishing": 50,
+    "authority": 15,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 2,
+   "warn": 5
+  },
+  {
+   "coll": "article",
+   "file": "algerian-handicrafts.md",
+   "words": 74,
+   "scores": {
+    "publishing": 50,
+    "authority": 15,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 2,
+   "warn": 5
+  },
+  {
+   "coll": "article",
+   "file": "algerian-sahara-travel-guide.md",
+   "words": 134,
+   "scores": {
+    "publishing": 50,
+    "authority": 15,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 2,
+   "warn": 5
+  },
+  {
+   "coll": "article",
+   "file": "best-time-to-visit-algeria.md",
+   "words": 1135,
+   "scores": {
+    "publishing": 100,
+    "authority": 100,
+    "ai": 100,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 0
+  },
+  {
+   "coll": "article",
+   "file": "complete-algeria-travel-guide.md",
+   "words": 1518,
+   "scores": {
+    "publishing": 100,
+    "authority": 100,
+    "ai": 100,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 0
+  },
+  {
+   "coll": "article",
+   "file": "mzab-valley-le-corbusier.md",
+   "words": 168,
+   "scores": {
+    "publishing": 50,
+    "authority": 15,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 2,
+   "warn": 5
+  },
+  {
+   "coll": "destination",
+   "file": "casbah-of-algiers.md",
+   "words": 178,
+   "scores": {
+    "publishing": 69,
+    "authority": 60,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 1,
+   "warn": 4
+  },
+  {
+   "coll": "destination",
+   "file": "constantine.md",
+   "words": 122,
+   "scores": {
+    "publishing": 50,
+    "authority": 15,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 2,
+   "warn": 5
+  },
+  {
+   "coll": "destination",
+   "file": "djanet.md",
+   "words": 129,
+   "scores": {
+    "publishing": 50,
+    "authority": 15,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 2,
+   "warn": 5
+  },
+  {
+   "coll": "destination",
+   "file": "djemila.md",
+   "words": 214,
+   "scores": {
+    "publishing": 69,
+    "authority": 60,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 1,
+   "warn": 4
+  },
+  {
+   "coll": "destination",
+   "file": "tassili-najjer.md",
+   "words": 166,
+   "scores": {
+    "publishing": 69,
+    "authority": 60,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 1,
+   "warn": 4
+  },
+  {
+   "coll": "destination",
+   "file": "tlemcen.md",
+   "words": 124,
+   "scores": {
+    "publishing": 50,
+    "authority": 15,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 2,
+   "warn": 5
+  },
+  {
+   "coll": "editorial",
+   "file": "ai-usage-policy.md",
+   "words": 354,
+   "scores": {
+    "publishing": 80,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 5
+  },
+  {
+   "coll": "editorial",
+   "file": "author-guidelines.md",
+   "words": 383,
+   "scores": {
+    "publishing": 84,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "editorial",
+   "file": "content-review-process.md",
+   "words": 359,
+   "scores": {
+    "publishing": 84,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "editorial",
+   "file": "content-update-policy.md",
+   "words": 346,
+   "scores": {
+    "publishing": 80,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 5
+  },
+  {
+   "coll": "editorial",
+   "file": "corrections-policy.md",
+   "words": 368,
+   "scores": {
+    "publishing": 84,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "editorial",
+   "file": "editorial-policy.md",
+   "words": 520,
+   "scores": {
+    "publishing": 84,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "editorial",
+   "file": "fact-checking-policy.md",
+   "words": 391,
+   "scores": {
+    "publishing": 84,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "editorial",
+   "file": "research-methodology.md",
+   "words": 509,
+   "scores": {
+    "publishing": 80,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 5
+  },
+  {
+   "coll": "editorial",
+   "file": "sources-policy.md",
+   "words": 344,
+   "scores": {
+    "publishing": 80,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 5
+  },
+  {
+   "coll": "editorial",
+   "file": "transparency-policy.md",
+   "words": 374,
+   "scores": {
+    "publishing": 84,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "experience",
+   "file": "andalusian-kingdom-journey.md",
+   "words": 17,
+   "scores": {
+    "publishing": 35,
+    "authority": 15,
+    "ai": 55,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 3,
+   "warn": 5
+  },
+  {
+   "coll": "experience",
+   "file": "bou-saada-oasis-escape.md",
+   "words": 200,
+   "scores": {
+    "publishing": 54,
+    "authority": 60,
+    "ai": 55,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 2,
+   "warn": 4
+  },
+  {
+   "coll": "experience",
+   "file": "city-of-bridges-expedition.md",
+   "words": 18,
+   "scores": {
+    "publishing": 35,
+    "authority": 15,
+    "ai": 55,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 3,
+   "warn": 5
+  },
+  {
+   "coll": "experience",
+   "file": "tassili-odyssey.md",
+   "words": 30,
+   "scores": {
+    "publishing": 35,
+    "authority": 15,
+    "ai": 55,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 3,
+   "warn": 5
+  },
+  {
+   "coll": "province",
+   "file": "algiers.md",
+   "words": 1001,
+   "scores": {
+    "publishing": 84,
+    "authority": 60,
+    "ai": 100,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "province",
+   "file": "bejaia.md",
+   "words": 925,
+   "scores": {
+    "publishing": 84,
+    "authority": 60,
+    "ai": 100,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "province",
+   "file": "ghardaia.md",
+   "words": 943,
+   "scores": {
+    "publishing": 84,
+    "authority": 60,
+    "ai": 100,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "province",
+   "file": "oran.md",
+   "words": 768,
+   "scores": {
+    "publishing": 84,
+    "authority": 60,
+    "ai": 100,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "province",
+   "file": "setif.md",
+   "words": 1165,
+   "scores": {
+    "publishing": 84,
+    "authority": 60,
+    "ai": 100,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 0,
+   "warn": 4
+  },
+  {
+   "coll": "question",
+   "file": "do-i-need-a-visa-for-algeria.md",
+   "words": 81,
+   "scores": {
+    "publishing": 65,
+    "authority": 15,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 1,
+   "warn": 5
+  },
+  {
+   "coll": "question",
+   "file": "is-algeria-safe.md",
+   "words": 80,
+   "scores": {
+    "publishing": 65,
+    "authority": 15,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 1,
+   "warn": 5
+  },
+  {
+   "coll": "question",
+   "file": "what-languages-are-spoken-in-algeria.md",
+   "words": 77,
+   "scores": {
+    "publishing": 65,
+    "authority": 15,
+    "ai": 80,
+    "cluster": 100,
+    "entity": 70
+   },
+   "crit": 0,
+   "fail": 1,
+   "warn": 5
+  },
+  {
+   "coll": "reviewer",
+   "file": "editorial-review.md",
+   "words": 246,
+   "scores": {
+    "publishing": 73,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 1,
+   "warn": 3
+  },
+  {
+   "coll": "team",
+   "file": "editorial-team.md",
+   "words": 286,
+   "scores": {
+    "publishing": 73,
+    "authority": 45,
+    "ai": 70,
+    "cluster": 100,
+    "entity": 100
+   },
+   "crit": 0,
+   "fail": 1,
+   "warn": 3
+  }
+ ],
+ "portfolio": {
+  "publishing": 71.8,
+  "authority": 45.5,
+  "ai": 79.5,
+  "cluster": 100.0,
+  "entity": 80.0
+ }
+}

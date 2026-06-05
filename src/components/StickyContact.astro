@@ -1,0 +1,8 @@
+---
+import { CONTACT } from '../config';
+const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Hi Algeria Compass — I'd like help planning a trip to Algeria.")}`;
+---
+<div class="sticky-contact">
+  <a class="wa" href={wa} data-evt="whatsapp_click" aria-label="Chat on WhatsApp">&#128172; <span>WhatsApp</span></a>
+  <a class="pl" href="/contact/" data-evt="plan_click" aria-label="Plan your trip">&#9992; <span>Plan trip</span></a>
+</div>

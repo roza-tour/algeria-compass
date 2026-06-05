@@ -1,0 +1,95 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import CtaSection from '../components/CtaSection.astro';
+const provinces = (await getCollection('province')).slice(0,3);
+const experiences = (await getCollection('experience')).slice(0,3);
+const articles = (await getCollection('article')).slice(0,3);
+const hubs = [
+  { href: '/knowledge/sahara/', label: 'The Sahara' },
+  { href: '/knowledge/roman-heritage/', label: 'Roman Algeria' },
+  { href: '/knowledge/unesco/', label: 'UNESCO sites' },
+  { href: '/knowledge/coast/', label: 'The coast' },
+  { href: '/knowledge/cuisine/', label: 'Cuisine' },
+  { href: '/knowledge/history/', label: 'History' },
+];
+---
+<BaseLayout
+  title="Algeria Compass — The Definitive Guide to Discovering Algeria"
+  description="Algeria Compass is an independent travel-intelligence platform dedicated entirely to Algeria: researched guides to 58 provinces, the 7 UNESCO sites, the Sahara, Roman cities and Amazigh culture — reviewed, sourced and connected by a knowledge graph.">
+  <Hero
+    title="Discover Algeria, in depth"
+    eyebrow="An independent travel-intelligence platform"
+    text="From the rock art of the Tassili to the Roman cities of the north and the oasis towns of the M'Zab — Algeria Compass is the definitive, independent guide to the largest country in Africa: researched, reviewed and openly sourced."
+    image="/images/sahara-dunes-tadrart.jpg" alt="Red dunes of the Algerian Sahara near Djanet">
+    <p style="margin-top:1rem"><a class="btn btn-gold" href="/destinations/">Start exploring &rarr;</a> <a class="btn btn-ghost" href="/knowledge/" style="color:#fff;border-color:rgba(255,255,255,.5)">The knowledge graph</a></p>
+  </Hero>
+
+  <section class="section"><div class="wrap">
+    <div class="positioning">
+      <div class="pos-lead">
+        <h2>What Algeria Compass is</h2>
+        <p>A reference platform devoted entirely to one country. We map all 58 provinces, the seven UNESCO World Heritage Sites, the deserts, mountains and coast, and the food, history and cultures that connect them &mdash; so you can understand Algeria, not just book a trip. Every guide is written to a published editorial standard, independently reviewed, and backed by named sources.</p>
+      </div>
+      <ul class="trust-row">
+        <li><a href="/editorial/"><strong>Independent</strong><span>No sponsored placements</span></a></li>
+        <li><a href="/editorial/research-methodology/"><strong>Researched</strong><span>Open methodology</span></a></li>
+        <li><a href="/editorial/content-review-process/"><strong>Reviewed</strong><span>Independent review</span></a></li>
+        <li><a href="/editorial/sources-policy/"><strong>Sourced</strong><span>Citations on key pages</span></a></li>
+      </ul>
+    </div>
+    <div class="discover-row">
+      <span class="dr-label">Start with a theme</span>
+      {hubs.map(h => <a class="dr-pill" href={h.href}>{h.label}</a>)}
+      <a class="dr-pill dr-all" href="/knowledge/">All hubs &rarr;</a>
+    </div>
+  </div></section>
+
+  <section class="section" style="background:var(--wash)"><div class="wrap">
+    <div class="eyebrow">Provinces</div>
+    <h2>Where to go</h2>
+    <div class="grid" style="margin-top:1.2rem">
+      {provinces.map(p => <Card href={`/provinces/${p.slug}/`} title={p.data.name} image={p.data.image} alt={p.data.imageAlt} tag={p.data.region} text={p.data.quickAnswer} />)}
+    </div>
+    <p style="margin-top:1.2rem"><a class="btn" href="/knowledge/provinces/">All 58 provinces &rarr;</a></p>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="eyebrow">Journeys</div>
+    <h2>Ways to travel Algeria</h2>
+    <p style="color:var(--text-m);max-width:680px">Curated multi-day itineraries that show how the country fits together &mdash; from Saharan expeditions to the Roman north-east.</p>
+    <div class="grid" style="margin-top:1.2rem">
+      {experiences.map(e => <Card href={`/experiences/${e.slug}/`} title={e.data.name} image={e.data.image} alt={e.data.imageAlt} tag={`${e.data.durationDays} days`} text={e.data.tagline} />)}
+    </div>
+    <p style="margin-top:1.2rem"><a class="btn" href="/experiences/">All journeys &rarr;</a></p>
+  </div></section>
+
+  <section class="section" style="background:var(--wash)"><div class="wrap">
+    <div class="eyebrow">The Algeria Journal</div>
+    <h2>Read &amp; understand</h2>
+    <div class="grid" style="margin-top:1.2rem">
+      {articles.map(a => <Card href={`/blog/${a.slug}/`} title={a.data.title} image={a.data.image} alt={a.data.imageAlt} tag={a.data.category} text={a.data.excerpt} />)}
+    </div>
+  </div></section>
+
+  <CtaSection />
+</BaseLayout>
+
+<style>
+.positioning{display:grid;grid-template-columns:1.4fr 1fr;gap:2rem;align-items:start}
+.pos-lead h2{margin-bottom:.4rem}
+.pos-lead p{color:var(--text-m)}
+.trust-row{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.trust-row a{display:flex;flex-direction:column;padding:.7rem .85rem;border:1px solid var(--border);border-radius:10px;background:var(--wash);color:var(--text)}
+.trust-row a:hover{border-color:var(--gold)}
+.trust-row strong{font-size:.95rem}
+.trust-row span{font-size:.76rem;color:var(--text-l)}
+.discover-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--border)}
+.dr-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-l);margin-right:.3rem}
+.dr-pill{padding:.34rem .8rem;border:1px solid var(--border);border-radius:999px;font-size:.85rem;background:var(--bg);color:var(--text)}
+.dr-pill:hover{border-color:var(--gold);color:var(--green-d)}
+.dr-all{border-color:var(--green-d);color:var(--green-d);font-weight:700}
+@media(max-width:760px){.positioning{grid-template-columns:1fr}}
+</style>

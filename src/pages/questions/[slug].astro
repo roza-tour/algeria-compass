@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import Byline from '../../components/Byline.astro';
+import SourceList from '../../components/SourceList.astro';
+import EditorialMeta from '../../components/EditorialMeta.astro';
+import { resolveAuthor, resolveReviewer, authorNode, reviewerNode, citationNodes } from '../../lib/authorship';
+export async function getStaticPaths() {
+  const items = await getCollection('question');
+  return items.map(item => ({ params: { slug: item.slug }, props: { item } }));
+}
+const { item } = Astro.props;
+const d = item.data;
+const { Content } = await item.render();
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const qa = {
+  "@type": "QAPage",
+  "@id": `${site}/questions/${item.slug}/#qa`,
+  "mainEntity": {
+    "@type": "Question", "name": d.question,
+    "acceptedAnswer": { "@type": "Answer", "text": d.shortAnswer }
+  }
+};
+const speak = { "@type":"WebPage", "speakable": { "@type":"SpeakableSpecification", "cssSelector": [".qbox",".prose"] } };
+const author = await resolveAuthor(d.author);
+const reviewer = await resolveReviewer(d.reviewedBy);
+const authorEntity = authorNode(site, author.entry);
+const reviewerEntity = reviewerNode(site, reviewer.entry);
+(qa as any).author = { "@id": (authorEntity as any)["@id"] };
+(qa as any).reviewedBy = { "@id": (reviewerEntity as any)["@id"] };
+(qa as any).dateModified = d.updated.toISOString();
+const cites = citationNodes(d.sources);
+if (cites.length) (qa as any).citation = cites;
+---
+<BaseLayout title={d.seo.title} description={d.seo.description} schema={[qa, speak, authorEntity, reviewerEntity]}>
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Questions',href:'/questions/'},{name:d.category}]} />
+  <article class="section"><div class="wrap" style="max-width:760px">
+    <span class="eyebrow">{d.category}</span>
+    <h1 style="margin:.4rem 0">{d.question}</h1>
+    <Byline authorName={author.name} authorHref={author.href} reviewerName={reviewer.name} reviewerHref={reviewer.href} updated={d.updated} lastReviewed={d.lastReviewed} />
+    <div class="qbox"><b>Quick answer</b><p>{d.shortAnswer}</p></div>
+    <div class="prose"><Content /></div>
+    <KeyFacts facts={d.keyFacts} />
+    <SourceList sources={d.sources} />
+    <EditorialMeta sourceCount={d.sources.length} reviewerName={reviewer.name} reviewerHref={reviewer.href} lastReviewed={d.lastReviewed} />
+  </div></article>
+  <CtaSection />
+</BaseLayout>

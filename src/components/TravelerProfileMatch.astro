@@ -1,0 +1,14 @@
+---
+export interface Profile { type: string; fit: 'great' | 'good' | 'limited'; note?: string; }
+export interface Props { profiles: Profile[]; heading?: string; }
+const { profiles, heading = 'Who it suits' } = Astro.props;
+const icon = { great: '●●●', good: '●●○', limited: '●○○' } as const;
+---
+{profiles.length > 0 && (
+  <div class="ai-block profile-match">
+    <h3>{heading}</h3>
+    <ul>{profiles.map(p => (
+      <li class={`pm-${p.fit}`}><span class="pm-fit" aria-label={p.fit}>{icon[p.fit]}</span><span class="pm-type">{p.type}</span>{p.note && <span class="pm-note">{p.note}</span>}</li>
+    ))}</ul>
+  </div>
+)}

@@ -1,0 +1,21 @@
+---
+import { typeLabel } from '../data/sources';
+export interface Props { sources?: { title:string; publisher?:string; url?:string; type?:string; note?:string }[]; }
+const { sources = [] } = Astro.props;
+---
+{sources.length > 0 && (
+  <section class="sources" id="sources" aria-labelledby="sources-h">
+    <h2 id="sources-h">Sources</h2>
+    <p class="sources-note">Key facts on this page are checked against the following sources. See our <a href="/editorial/sources-policy/">Sources Policy</a> and <a href="/editorial/fact-checking-policy/">Fact-Checking Policy</a>.</p>
+    <ol>
+      {sources.map(s => (
+        <li>
+          {s.url ? <a href={s.url} target="_blank" rel="noopener nofollow">{s.title}</a> : <span>{s.title}</span>}
+          {s.publisher && <span class="src-pub"> — {s.publisher}</span>}
+          {s.type && <span class="src-type"> · {typeLabel(s.type)}</span>}
+          {s.note && <span class="src-note"> ({s.note})</span>}
+        </li>
+      ))}
+    </ol>
+  </section>
+)}

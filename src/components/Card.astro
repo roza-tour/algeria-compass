@@ -1,0 +1,13 @@
+---
+export interface Props { href: string; title: string; image: string; alt: string; tag?: string; text?: string; meta?: string; }
+const { href, title, image, alt, tag, text, meta } = Astro.props;
+---
+<a class="card" href={href}>
+  <div class="ci"><img src={image} alt={alt} loading="lazy" width="400" height="250" /></div>
+  <div class="cb">
+    {tag && <span class="tag">{tag}</span>}
+    <h3>{title}</h3>
+    {text && <p>{text}</p>}
+    {meta && <div class="meta">{meta}</div>}
+  </div>
+</a>

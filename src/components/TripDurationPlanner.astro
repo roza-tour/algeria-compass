@@ -1,0 +1,13 @@
+---
+export interface Option { days: string; summary: string; includes?: string[]; }
+export interface Props { options: Option[]; heading?: string; }
+const { options, heading = 'How many days?' } = Astro.props;
+---
+{options.length > 0 && (
+  <div class="ai-block duration-planner">
+    <h3>{heading}</h3>
+    <div class="dp-grid">{options.map(o => (
+      <div class="dp-card"><span class="dp-days">{o.days}</span><p class="dp-sum">{o.summary}</p>{o.includes && o.includes.length>0 && <ul>{o.includes.map(x => <li>{x}</li>)}</ul>}</div>
+    ))}</div>
+  </div>
+)}

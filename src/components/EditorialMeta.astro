@@ -1,0 +1,12 @@
+---
+// Compact trust box: verification status + source count + standards links.
+export interface Props { sourceCount?: number; reviewerName?: string; reviewerHref?: string; lastReviewed?: Date; }
+const { sourceCount = 0, reviewerName, reviewerHref, lastReviewed } = Astro.props;
+const fmt = (d?: Date) => d ? d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : null;
+---
+<aside class="ed-meta" aria-label="Editorial information">
+  <div class="ed-row"><span class="ed-k">Status</span><span class="ed-v">Reviewed &amp; fact-checked{reviewerName && <> by <a href={reviewerHref}>{reviewerName}</a></>}</span></div>
+  {lastReviewed && <div class="ed-row"><span class="ed-k">Last reviewed</span><span class="ed-v">{fmt(lastReviewed)}</span></div>}
+  <div class="ed-row"><span class="ed-k">Sources</span><span class="ed-v">{sourceCount > 0 ? <a href="#sources">{sourceCount} cited source{sourceCount===1?'':'s'}</a> : 'Researched per our methodology'}</span></div>
+  <div class="ed-row"><span class="ed-k">Standards</span><span class="ed-v"><a href="/editorial/">Editorial standards</a> · <a href="/editorial/corrections-policy/">Report an error</a></span></div>
+</aside>

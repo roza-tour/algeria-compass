@@ -1,0 +1,758 @@
+{
+ "agg": {
+  "province": {
+   "n": 5,
+   "avg_words": 960,
+   "faqs": 40,
+   "sources": 10,
+   "src_pages": 5,
+   "auth": 0,
+   "rev": 0,
+   "qa": 5,
+   "avg_links": 0.0
+  },
+  "destination": {
+   "n": 6,
+   "avg_words": 156,
+   "faqs": 12,
+   "sources": 3,
+   "src_pages": 3,
+   "auth": 0,
+   "rev": 0,
+   "qa": 6,
+   "avg_links": 0.0
+  },
+  "experience": {
+   "n": 4,
+   "avg_words": 66,
+   "faqs": 8,
+   "sources": 1,
+   "src_pages": 1,
+   "auth": 0,
+   "rev": 0,
+   "qa": 4,
+   "avg_links": 0.0
+  },
+  "article": {
+   "n": 6,
+   "avg_words": 112,
+   "faqs": 12,
+   "sources": 0,
+   "src_pages": 0,
+   "auth": 0,
+   "rev": 0,
+   "qa": 6,
+   "avg_links": 0.0
+  },
+  "question": {
+   "n": 3,
+   "avg_words": 79,
+   "faqs": 0,
+   "sources": 0,
+   "src_pages": 0,
+   "auth": 0,
+   "rev": 0,
+   "qa": 0,
+   "avg_links": 0.0
+  },
+  "editorial": {
+   "n": 10,
+   "avg_words": 395,
+   "faqs": 0,
+   "sources": 0,
+   "src_pages": 0,
+   "auth": 0,
+   "rev": 0,
+   "qa": 0,
+   "avg_links": 3.4
+  },
+  "team": {
+   "n": 1,
+   "avg_words": 286,
+   "faqs": 0,
+   "sources": 0,
+   "src_pages": 0,
+   "auth": 0,
+   "rev": 0,
+   "qa": 0,
+   "avg_links": 3.0
+  },
+  "reviewer": {
+   "n": 1,
+   "avg_words": 246,
+   "faqs": 0,
+   "sources": 0,
+   "src_pages": 0,
+   "auth": 0,
+   "rev": 0,
+   "qa": 0,
+   "avg_links": 3.0
+  }
+ },
+ "detail": {
+  "province": [
+   [
+    "algiers",
+    {
+     "words": 1001,
+     "faqs": 8,
+     "sources": 2,
+     "keyFacts": 8,
+     "gallery": 6,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": true,
+     "has_quickAnswer": true,
+     "h2": 12,
+     "internal_links": 0
+    }
+   ],
+   [
+    "bejaia",
+    {
+     "words": 925,
+     "faqs": 8,
+     "sources": 2,
+     "keyFacts": 8,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": true,
+     "has_quickAnswer": true,
+     "h2": 12,
+     "internal_links": 0
+    }
+   ],
+   [
+    "ghardaia",
+    {
+     "words": 943,
+     "faqs": 8,
+     "sources": 2,
+     "keyFacts": 8,
+     "gallery": 5,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": true,
+     "has_quickAnswer": true,
+     "h2": 12,
+     "internal_links": 0
+    }
+   ],
+   [
+    "oran",
+    {
+     "words": 768,
+     "faqs": 8,
+     "sources": 2,
+     "keyFacts": 8,
+     "gallery": 6,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": true,
+     "has_quickAnswer": true,
+     "h2": 11,
+     "internal_links": 0
+    }
+   ],
+   [
+    "setif",
+    {
+     "words": 1165,
+     "faqs": 8,
+     "sources": 2,
+     "keyFacts": 8,
+     "gallery": 5,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": true,
+     "has_quickAnswer": true,
+     "h2": 11,
+     "internal_links": 0
+    }
+   ]
+  ],
+  "destination": [
+   [
+    "casbah-of-algiers",
+    {
+     "words": 178,
+     "faqs": 2,
+     "sources": 1,
+     "keyFacts": 5,
+     "gallery": 1,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": true,
+     "has_quickAnswer": true,
+     "h2": 3,
+     "internal_links": 0
+    }
+   ],
+   [
+    "constantine",
+    {
+     "words": 122,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 5,
+     "gallery": 6,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 4,
+     "internal_links": 0
+    }
+   ],
+   [
+    "djanet",
+    {
+     "words": 129,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 5,
+     "gallery": 2,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 4,
+     "internal_links": 0
+    }
+   ],
+   [
+    "djemila",
+    {
+     "words": 214,
+     "faqs": 2,
+     "sources": 1,
+     "keyFacts": 6,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": true,
+     "has_quickAnswer": true,
+     "h2": 3,
+     "internal_links": 0
+    }
+   ],
+   [
+    "tassili-najjer",
+    {
+     "words": 166,
+     "faqs": 2,
+     "sources": 1,
+     "keyFacts": 5,
+     "gallery": 4,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": true,
+     "has_quickAnswer": true,
+     "h2": 3,
+     "internal_links": 0
+    }
+   ],
+   [
+    "tlemcen",
+    {
+     "words": 124,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 5,
+     "gallery": 6,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 4,
+     "internal_links": 0
+    }
+   ]
+  ],
+  "experience": [
+   [
+    "andalusian-kingdom-journey",
+    {
+     "words": 17,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 5,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 0,
+     "internal_links": 0
+    }
+   ],
+   [
+    "bou-saada-oasis-escape",
+    {
+     "words": 200,
+     "faqs": 2,
+     "sources": 1,
+     "keyFacts": 0,
+     "gallery": 1,
+     "sections": 0,
+     "stops": 5,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": true,
+     "has_quickAnswer": true,
+     "h2": 2,
+     "internal_links": 0
+    }
+   ],
+   [
+    "city-of-bridges-expedition",
+    {
+     "words": 18,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 1,
+     "sections": 0,
+     "stops": 5,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 0,
+     "internal_links": 0
+    }
+   ],
+   [
+    "tassili-odyssey",
+    {
+     "words": 30,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 5,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 0,
+     "internal_links": 0
+    }
+   ]
+  ],
+  "article": [
+   [
+    "algeria-safety-guide",
+    {
+     "words": 108,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 3,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 3,
+     "internal_links": 0
+    }
+   ],
+   [
+    "algerian-food-guide",
+    {
+     "words": 111,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 3,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 3,
+     "internal_links": 0
+    }
+   ],
+   [
+    "algerian-handicrafts",
+    {
+     "words": 74,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 3,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 2,
+     "internal_links": 0
+    }
+   ],
+   [
+    "algerian-sahara-travel-guide",
+    {
+     "words": 134,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 4,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 4,
+     "internal_links": 0
+    }
+   ],
+   [
+    "best-time-to-visit-algeria",
+    {
+     "words": 80,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 3,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 4,
+     "internal_links": 0
+    }
+   ],
+   [
+    "mzab-valley-le-corbusier",
+    {
+     "words": 168,
+     "faqs": 2,
+     "sources": 0,
+     "keyFacts": 5,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": true,
+     "h2": 3,
+     "internal_links": 0
+    }
+   ]
+  ],
+  "question": [
+   [
+    "do-i-need-a-visa-for-algeria",
+    {
+     "words": 81,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 4,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 0,
+     "internal_links": 0
+    }
+   ],
+   [
+    "is-algeria-safe",
+    {
+     "words": 80,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 3,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 0,
+     "internal_links": 0
+    }
+   ],
+   [
+    "what-languages-are-spoken-in-algeria",
+    {
+     "words": 77,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 4,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 0,
+     "internal_links": 0
+    }
+   ]
+  ],
+  "editorial": [
+   [
+    "ai-usage-policy",
+    {
+     "words": 354,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 5,
+     "internal_links": 1
+    }
+   ],
+   [
+    "author-guidelines",
+    {
+     "words": 383,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 7,
+     "internal_links": 5
+    }
+   ],
+   [
+    "content-review-process",
+    {
+     "words": 359,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 4,
+     "internal_links": 4
+    }
+   ],
+   [
+    "content-update-policy",
+    {
+     "words": 346,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 7,
+     "internal_links": 1
+    }
+   ],
+   [
+    "corrections-policy",
+    {
+     "words": 368,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 6,
+     "internal_links": 3
+    }
+   ],
+   [
+    "editorial-policy",
+    {
+     "words": 520,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 7,
+     "internal_links": 4
+    }
+   ],
+   [
+    "fact-checking-policy",
+    {
+     "words": 391,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 7,
+     "internal_links": 3
+    }
+   ],
+   [
+    "research-methodology",
+    {
+     "words": 509,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 6,
+     "internal_links": 2
+    }
+   ],
+   [
+    "sources-policy",
+    {
+     "words": 344,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 5,
+     "internal_links": 2
+    }
+   ],
+   [
+    "transparency-policy",
+    {
+     "words": 374,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 6,
+     "internal_links": 9
+    }
+   ]
+  ],
+  "team": [
+   [
+    "editorial-team",
+    {
+     "words": 286,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 4,
+     "internal_links": 3
+    }
+   ]
+  ],
+  "reviewer": [
+   [
+    "editorial-review",
+    {
+     "words": 246,
+     "faqs": 0,
+     "sources": 0,
+     "keyFacts": 0,
+     "gallery": 0,
+     "sections": 0,
+     "stops": 0,
+     "has_author": false,
+     "has_reviewedBy": false,
+     "has_lastReviewed": false,
+     "has_quickAnswer": false,
+     "h2": 4,
+     "internal_links": 3
+    }
+   ]
+  ]
+ }
+}

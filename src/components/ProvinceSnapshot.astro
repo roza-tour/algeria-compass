@@ -1,0 +1,14 @@
+---
+export interface Props { name: string; capital?: string; region?: string; bestTime?: string; gettingThere?: string; knownFor?: string[]; }
+const { name, capital, region, bestTime, gettingThere, knownFor = [] } = Astro.props;
+---
+<aside class="ai-block snapshot" aria-label={`${name} snapshot`}>
+  <h3>{name} at a glance</h3>
+  <dl>
+    {region && <><dt>Region</dt><dd>{region}</dd></>}
+    {capital && <><dt>Capital</dt><dd>{capital}</dd></>}
+    {bestTime && <><dt>Best time</dt><dd>{bestTime}</dd></>}
+    {gettingThere && <><dt>Getting there</dt><dd>{gettingThere}</dd></>}
+    {knownFor.length > 0 && <><dt>Known for</dt><dd>{knownFor.join(', ')}</dd></>}
+  </dl>
+</aside>

@@ -1,0 +1,13 @@
+---
+export interface Props { bestTime?: string; daysNeeded?: string; suitedTo?: string; pairWith?: string[]; }
+const { bestTime, daysNeeded, suitedTo, pairWith = [] } = Astro.props;
+---
+<aside class="ai-block plan-block" aria-label="Trip planning">
+  <h3>Plan it</h3>
+  <dl>
+    {daysNeeded && <><dt>Days needed</dt><dd>{daysNeeded}</dd></>}
+    {bestTime && <><dt>Best time</dt><dd>{bestTime}</dd></>}
+    {suitedTo && <><dt>Suited to</dt><dd>{suitedTo}</dd></>}
+    {pairWith.length > 0 && <><dt>Pair with</dt><dd>{pairWith.join(', ')}</dd></>}
+  </dl>
+</aside>

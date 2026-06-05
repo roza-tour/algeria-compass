@@ -1,0 +1,13 @@
+---
+export interface SeasonRow { season: string; rating: number; note?: string; }
+export interface Props { seasons: SeasonRow[]; heading?: string; }
+const { seasons, heading = 'Best time to go' } = Astro.props;
+---
+{seasons.length > 0 && (
+  <div class="ai-block season-rec">
+    <h3>{heading}</h3>
+    <ul>{seasons.map(s => (
+      <li><span class="sr-name">{s.season}</span><span class="sr-pips" aria-label={`${Math.min(5,s.rating)} of 5`}>{[1,2,3,4,5].map(n => <i class={n<=Math.min(5,s.rating)?'on':''}></i>)}</span>{s.note && <span class="sr-note">{s.note}</span>}</li>
+    ))}</ul>
+  </div>
+)}

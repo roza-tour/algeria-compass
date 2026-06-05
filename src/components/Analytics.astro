@@ -1,0 +1,27 @@
+---
+import { ANALYTICS } from '../config';
+const { plausibleDomain, ga4 } = ANALYTICS;
+---
+{plausibleDomain && (
+  <script defer data-domain={plausibleDomain} src="https://plausible.io/js/script.tagged-events.js" is:inline></script>
+)}
+{ga4 && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`} is:inline></script>
+    <script is:inline define:vars={{ ga4 }}>
+      window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+      gtag('js',new Date());gtag('config',ga4);
+    </script>
+  </>
+)}
+{(plausibleDomain || ga4) && (
+  <script is:inline>
+    // Track tagged CTA/WhatsApp clicks + inquiry submissions in either provider.
+    document.addEventListener('click',function(e){
+      var t=e.target.closest('[data-evt]'); if(!t) return; var name=t.getAttribute('data-evt');
+      if(window.plausible) window.plausible(name);
+      if(window.gtag) window.gtag('event',name);
+    });
+    window.trackEvent=function(name){ if(window.plausible)window.plausible(name); if(window.gtag)window.gtag('event',name); };
+  </script>
+)}

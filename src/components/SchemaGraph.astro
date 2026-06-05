@@ -1,0 +1,43 @@
+---
+// Linked JSON-LD graph. Country is now a real @id entity; SearchAction removed (no search endpoint exists yet).
+export interface Props { nodes?: any[]; }
+const { nodes = [] } = Astro.props;
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const org = {
+  "@type": "Organization",
+  "@id": site + "/#organization",
+  "name": "Algeria Compass",
+  "description": "Algeria Compass is an independent travel-intelligence platform dedicated entirely to Algeria — researched guides, deep cultural and historical context, and a connected knowledge graph of the country.",
+  "slogan": "The definitive guide to discovering Algeria.",
+  "url": site + "/",
+  "logo": site + "/images/brand-algeria.jpg",
+  "image": site + "/images/brand-algeria.jpg",
+  "email": "hello@algeriacompass.com",
+  "areaServed": { "@id": site + "/#algeria" },
+  "knowsAbout": ["Algeria travel","Sahara desert","UNESCO World Heritage Algeria","Roman Algeria","Amazigh culture","M'Zab Valley"],
+  "publishingPrinciples": site + "/editorial/editorial-policy/",
+  "actionableFeedbackPolicy": site + "/editorial/corrections-policy/",
+  "ethicsPolicy": site + "/editorial/transparency-policy/",
+  "subOrganization": [{ "@id": site + "/#editorial-team" }, { "@id": site + "/#editorial-review" }],
+  "contactPoint": { "@type": "ContactPoint", "telephone": "+213784193176", "contactType": "customer service", "availableLanguage": ["English","French","Arabic"] }
+};
+const country = {
+  "@type": "Country",
+  "@id": site + "/#algeria",
+  "name": "Algeria",
+  "alternateName": "People's Democratic Republic of Algeria",
+  "sameAs": ["https://en.wikipedia.org/wiki/Algeria","https://www.wikidata.org/wiki/Q262"]
+};
+const website = {
+  "@type": "WebSite",
+  "@id": site + "/#website",
+  "url": site + "/",
+  "name": "Algeria Compass",
+  "alternateName": "The definitive guide to discovering Algeria",
+  "description": "An independent travel-intelligence platform dedicated entirely to Algeria.",
+  "publisher": { "@id": site + "/#organization" },
+  "inLanguage": "en"
+};
+const graph = { "@context": "https://schema.org", "@graph": [org, country, website, ...nodes] };
+---
+<script type="application/ld+json" set:html={JSON.stringify(graph)} is:inline />

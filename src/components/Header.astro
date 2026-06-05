@@ -1,0 +1,34 @@
+---
+const nav = [
+  { href: '/destinations/', label: 'Destinations' },
+  { href: '/provinces/', label: 'Provinces' },
+  { href: '/experiences/', label: 'Experiences' },
+  { href: '/travel-guides/', label: 'Guides' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/questions/', label: 'Q&A' },
+  { href: '/culture/', label: 'Culture' },
+  { href: '/about/', label: 'About' }
+];
+---
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Algeria Compass home"><span class="mk" aria-hidden="true"><svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="16" r="13"></circle><polygon points="16,6 19.2,16 16,26 12.8,16" fill="currentColor" stroke="none"></polygon><circle cx="16" cy="16" r="1.7" fill="#fff" stroke="none"></circle></svg></span>Algeria <b>Compass</b></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">&#9776;</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      {nav.map(n => <a href={n.href}>{n.label}</a>)}
+    </nav>
+  </div>
+</header>
+<div class="id-band" aria-hidden="true"></div>
+<script is:inline>
+  (function(){
+    var b=document.getElementById('navToggle'), n=document.getElementById('primary-nav');
+    if(!b||!n) return;
+    b.addEventListener('click',function(){
+      var open=n.getAttribute('data-open')==='true';
+      n.setAttribute('data-open', String(!open));
+      b.setAttribute('aria-expanded', String(!open));
+      b.setAttribute('aria-label', open?'Open menu':'Close menu');
+    });
+  })();
+</script>

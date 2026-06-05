@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuickAnswer from '../components/QuickAnswer.astro';
+import CtaSection from '../components/CtaSection.astro';
+---
+<BaseLayout title="Algerian Food | Algeria Compass" description="Couscous, tagines, chorba, fresh bread and mint tea — a traveller’s guide to the Maghrebi table." region="mzab">
+  <Hero title="Algerian Food" eyebrow="Knowledge hub" text="Couscous, tagines, chorba, fresh bread and mint tea — a traveller’s guide to the Maghrebi table." image="/images/traditional-dining-tea.jpg" alt="A traditional Algerian shared meal with tea" />
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algerian Food'}]} />
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <QuickAnswer text="Algerian cuisine is a Maghrebi tradition built on couscous — the national dish, eaten on Fridays — alongside slow tagines, hearty soups like chorba, fresh bread and sweet mint tea. It blends Amazigh, Arab, Ottoman, Andalusian and French influences, and changes character from the coast to the Sahara." />
+    <div class="prose">
+      <p>Algerian cuisine is a Maghrebi tradition built on couscous — the national dish, eaten on Fridays — alongside slow tagines, hearty soups like chorba, fresh bread and sweet mint tea. It blends Amazigh, Arab, Ottoman, Andalusian and French influences, and changes character from the coast to the Sahara.</p>
+      <h2>Explore further</h2>
+      <ul><li><a href="/blog/algerian-food-guide/">Full Algerian food guide</a></li><li><a href="/blog/algerian-handicrafts/">Crafts & markets</a></li></ul>
+    </div>
+  </div></section>
+  <CtaSection />
+</BaseLayout>

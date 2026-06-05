@@ -1,0 +1,22 @@
+---
+// Historical timeline block (schema-friendly ordered list of periods/events).
+export interface Item { era: string; title: string; text?: string; href?: string; }
+export interface Props { items: Item[]; heading?: string; }
+const { items, heading } = Astro.props;
+---
+{items.length > 0 && (
+  <section class="section timeline-block"><div class="wrap">
+    {heading && <h2>{heading}</h2>}
+    <ol class="timeline">
+      {items.map(it => (
+        <li>
+          <span class="tl-era">{it.era}</span>
+          <div class="tl-body">
+            <strong>{it.href ? <a href={it.href}>{it.title}</a> : it.title}</strong>
+            {it.text && <p>{it.text}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div></section>
+)}

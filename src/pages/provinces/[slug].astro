@@ -1,0 +1,81 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import QuickAnswer from '../../components/QuickAnswer.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import RelatedGrid from '../../components/RelatedGrid.astro';
+import PhotoGallery from '../../components/PhotoGallery.astro';
+import EntityLinks from '../../components/EntityLinks.astro';
+import Byline from '../../components/Byline.astro';
+import SourceList from '../../components/SourceList.astro';
+import EditorialMeta from '../../components/EditorialMeta.astro';
+import { related, toCard } from '../../lib/related';
+import { resolveAuthor, resolveReviewer, authorNode, reviewerNode, citationNodes } from '../../lib/authorship';
+import { entityForContent } from '../../lib/graph';
+import { discoveryGroups } from '../../lib/entitySchema';
+
+export async function getStaticPaths() {
+  const items = await getCollection('province');
+  return items.map(item => ({ params: { slug: item.slug }, props: { item } }));
+}
+const { item } = Astro.props;
+const d = item.data;
+const { Content } = await item.render();
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const _ent = entityForContent('province', item.slug);
+const _groups = _ent ? discoveryGroups(site, _ent.id) : [];
+const author = await resolveAuthor(d.author);
+const reviewer = await resolveReviewer(d.reviewedBy);
+const authorEntity = authorNode(site, author.entry);
+const reviewerEntity = reviewerNode(site, reviewer.entry);
+
+const attractions = await related('destination', { region: d.region, exclude: '', preferSlugs: d.featuredAttractions, limit: 3 });
+const experiences = await related('experience', { region: d.region, preferSlugs: d.featuredExperiences, limit: 3 });
+const articles = await related('article', { region: d.region, preferSlugs: d.featuredArticles, limit: 3 });
+const provinces = await related('province', { region: d.region, exclude: item.slug, preferSlugs: d.related.map((r:any)=>r.slug), limit: 3 });
+
+const place: any = {
+  "@type": "TouristDestination",
+  "@id": `${site}/provinces/${item.slug}/#place`,
+  "name": d.name + ", Algeria",
+  "description": d.quickAnswer,
+  "url": `${site}/provinces/${item.slug}/`,
+  "image": site + d.image,
+  "containedInPlace": { "@id": site + "/#algeria" },
+  "isPartOf": { "@id": site + "/#website" }
+};
+if (d.coordinates) place.geo = { "@type": "GeoCoordinates", "latitude": d.coordinates.lat, "longitude": d.coordinates.lng };
+if (d.sameAs?.length) place.sameAs = d.sameAs;
+place.author = { "@id": (authorEntity as any)["@id"] };
+place.reviewedBy = { "@id": (reviewerEntity as any)["@id"] };
+place.dateModified = d.updated.toISOString();
+const cites = citationNodes(d.sources);
+if (cites.length) place.citation = cites;
+const schemaNodes = [place, authorEntity, reviewerEntity];
+---
+<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} region={d.region} schema={schemaNodes} sticky={true}>
+  <Hero title={d.name} eyebrow={`Wilaya${d.wilayaNumber ? ' ' + d.wilayaNumber : ''} · Algeria`} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
+    <a class="btn btn-gold" href={`/contact/?i=${encodeURIComponent(d.name)}`} data-evt="cta_plan">Plan a trip to {d.name} →</a>
+  </Hero>
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Provinces',href:'/provinces/'},{name:d.name}]} />
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <Byline authorName={author.name} authorHref={author.href} reviewerName={reviewer.name} reviewerHref={reviewer.href} updated={d.updated} lastReviewed={d.lastReviewed} />
+    <QuickAnswer text={d.quickAnswer} />
+    <KeyFacts facts={d.keyFacts} />
+    <article class="prose"><Content /></article>
+    <SourceList sources={d.sources} />
+    <EditorialMeta sourceCount={d.sources.length} reviewerName={reviewer.name} reviewerHref={reviewer.href} lastReviewed={d.lastReviewed} />
+  </div></section>
+  <PhotoGallery images={d.gallery} heading={`${d.name} in pictures`} />
+  <RelatedGrid heading={`Things to see in & around ${d.name}`} items={attractions.map(e => toCard(e,'/destinations/'))} />
+  <RelatedGrid heading="Experiences in this region" items={experiences.map(e => toCard(e,'/experiences/'))} />
+  <RelatedGrid heading="From the Algeria Journal" items={articles.map(e => toCard(e,'/blog/'))} />
+  <RelatedGrid heading="Nearby provinces" items={provinces.map(e => toCard(e,'/provinces/'))} />
+  <FaqSection faqs={d.faqs} />
+  <CtaSection heading={`See ${d.name} with a local guide`} interest={d.name} />
+  <EntityLinks groups={_groups} heading="Explore across Algeria" />
+</BaseLayout>

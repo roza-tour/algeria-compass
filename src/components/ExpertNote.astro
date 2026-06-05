@@ -1,0 +1,9 @@
+---
+export interface Props { text: string; by?: string; }
+const { text, by = 'Algeria Compass' } = Astro.props;
+---
+<aside class="ai-block expert-note">
+  <span class="en-tag">Expert note</span>
+  <p>{text}</p>
+  <span class="en-by">— {by}</span>
+</aside>

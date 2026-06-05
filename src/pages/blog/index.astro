@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Card from '../../components/Card.astro';
+import CtaSection from '../../components/CtaSection.astro';
+const items = await getCollection('article');
+---
+<BaseLayout title="The Algeria Journal" description="Guides, history, food and field notes from across all 58 wilayas.">
+  <Hero title="The Algeria Journal" eyebrow="Algeria" text="Guides, history, food and field notes from across all 58 wilayas." image="/images/brand-algeria.jpg" alt="Algeria" />
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'The Algeria Journal'}]} />
+  <section class="section"><div class="wrap">
+    <div class="grid">
+      {items.map(it => (
+        <Card href={`/blog/${it.slug}/`}
+          title={it.data.title}
+          image={it.data.image ?? '/images/brand-algeria.jpg'}
+          alt={it.data.imageAlt ?? it.data.title}
+          tag={it.data.category}
+          text={it.data.excerpt} />
+      ))}
+    </div>
+  </div></section>
+  <CtaSection />
+</BaseLayout>

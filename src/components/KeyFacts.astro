@@ -1,0 +1,12 @@
+---
+export interface Props { facts: { label: string; value: string }[]; }
+const { facts } = Astro.props;
+---
+{facts.length > 0 && (
+  <div class="facts">
+    <h3>Key facts</h3>
+    <table><tbody>
+      {facts.map(f => <tr><td>{f.label}</td><td>{f.value}</td></tr>)}
+    </tbody></table>
+  </div>
+)}

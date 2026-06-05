@@ -1,0 +1,13 @@
+---
+export interface Item { mistake: string; instead: string; }
+export interface Props { items: Item[]; heading?: string; }
+const { items, heading = 'Common mistakes' } = Astro.props;
+---
+{items.length > 0 && (
+  <div class="ai-block mistakes">
+    <h3>{heading}</h3>
+    <ul>{items.map(i => (
+      <li><span class="mk-bad">{i.mistake}</span><span class="mk-good">{i.instead}</span></li>
+    ))}</ul>
+  </div>
+)}

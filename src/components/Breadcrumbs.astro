@@ -1,0 +1,18 @@
+---
+export interface Props { items: { name: string; href?: string }[]; }
+const { items } = Astro.props;
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const ld = {
+  "@context": "https://schema.org", "@type": "BreadcrumbList",
+  "itemListElement": items.map((it, i) => ({
+    "@type": "ListItem", "position": i + 1, "name": it.name,
+    ...(it.href ? { "item": site + it.href } : {})
+  }))
+};
+---
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  {items.map((it, i) => (
+    <span>{i > 0 ? ' › ' : ''}{it.href ? <a href={it.href}>{it.name}</a> : <span>{it.name}</span>}</span>
+  ))}
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(ld)} is:inline />

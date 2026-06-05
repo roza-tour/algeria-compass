@@ -1,0 +1,21 @@
+---
+// Entity-based discovery: grouped pill links. No random linking — caller builds groups from the graph.
+export interface LinkItem { name: string; href: string; }
+export interface Group { label: string; items: LinkItem[]; }
+export interface Props { groups: Group[]; heading?: string; }
+const { groups, heading } = Astro.props;
+const shown = groups.filter(g => g.items.length > 0);
+---
+{shown.length > 0 && (
+  <section class="section entity-links"><div class="wrap">
+    {heading && <h2>{heading}</h2>}
+    <div class="el-groups">
+      {shown.map(g => (
+        <div class="el-group">
+          <h3>{g.label}</h3>
+          <ul>{g.items.map(it => <li><a href={it.href}>{it.name}</a></li>)}</ul>
+        </div>
+      ))}
+    </div>
+  </div></section>
+)}

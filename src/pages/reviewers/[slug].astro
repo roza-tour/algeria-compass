@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { reviewerNode } from '../../lib/authorship';
+export async function getStaticPaths(){
+  const revs = await getCollection('reviewer');
+  return revs.map(item=>({ params:{slug:item.slug}, props:{item} }));
+}
+const { item } = Astro.props; const d=item.data; const { Content } = await item.render();
+const site=(Astro.site?.toString()||'https://algeriacompass.com').replace(/\/$/,'');
+const entity = reviewerNode(site, item);
+const schema=[{"@type":"ProfilePage","@id":site+`/reviewers/${item.slug}/#profilepage`,"name":d.name,"about":{"@id":site+"/#organization"},"isPartOf":{"@id":site+"/#website"},"mainEntity":entity}];
+const def=[["Authority",d.authorityLevel],["Role",d.role]].filter(x=>x[1]);
+---
+<BaseLayout title={(d.seo?.title)||`${d.name} — Algeria Compass`} description={d.seo?.description||d.shortBio} schema={schema}>
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Editorial',href:'/editorial/'},{name:'Review',href:'/reviewers/'},{name:d.name}]} />
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <div class="profile-head">
+      {d.image && <img src={d.image} alt={d.name} width="96" height="96" />}
+      <div><div class="eyebrow">Editorial review</div><h1 style="margin:.2rem 0">{d.name}</h1><p style="color:var(--text-m);margin:0">{d.role}</p></div>
+    </div>
+    <p style="margin-top:1rem;color:var(--text-m)">{d.shortBio}</p>
+    {def.length>0 && <div class="def-grid">{def.map(([k,v])=> <div><div class="k">{k}</div><div class="v">{v}</div></div>)}</div>}
+    {d.reviewAreas?.length>0 && (<><h2>Review areas</h2><div class="chips-list">{d.reviewAreas.map((e:string)=> <span>{e}</span>)}</div></>)}
+    {d.factCheckDomains?.length>0 && (<><h2>Fact-checking domains</h2><div class="chips-list">{d.factCheckDomains.map((e:string)=> <span>{e}</span>)}</div></>)}
+    {d.verificationProcess && (<><h2>Verification process</h2><p style="color:var(--text-m)">{d.verificationProcess}</p></>)}
+    {d.reviewStandards && (<><h2>Review standards</h2><p style="color:var(--text-m)">{d.reviewStandards}</p></>)}
+    <article class="prose"><Content /></article>
+  </div></section>
+</BaseLayout>

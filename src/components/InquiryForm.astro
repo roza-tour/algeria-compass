@@ -1,0 +1,106 @@
+---
+import { CONTACT, FORMSPREE_ID } from '../config';
+export interface Props { defaultInterest?: string; context?: string; compact?: boolean; }
+const { defaultInterest = '', context = '' } = Astro.props;
+const action = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : `mailto:${CONTACT.email}`;
+const interests = ['Sahara','Roman ruins','Andalusian heritage','Kabylie & coast','Food','Culture','Photography','Family','Luxury'];
+---
+<form class="inq" id="inqForm" method="POST" action={action} enctype="text/plain"
+      data-wa={CONTACT.whatsapp} data-email={CONTACT.email} data-formspree={FORMSPREE_ID} data-context={context}>
+  <div class="steps-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+
+  <fieldset class="step active" data-step="0">
+    <legend><strong>Step 1 · Your trip</strong></legend>
+    <div class="row">
+      <div>
+        <label for="f-when">When are you thinking of travelling?</label>
+        <input id="f-when" name="when" type="text" placeholder="e.g. October, or flexible" />
+      </div>
+      <div>
+        <label for="f-days">How many days?</label>
+        <input id="f-days" name="days" type="text" placeholder="e.g. 10" />
+      </div>
+      <div>
+        <label for="f-people">How many travellers?</label>
+        <input id="f-people" name="people" type="number" min="1" placeholder="2" />
+      </div>
+    </div>
+    <div class="nav-row"><span></span><button type="button" class="btn" data-next>Continue →</button></div>
+  </fieldset>
+
+  <fieldset class="step" data-step="1">
+    <legend><strong>Step 2 · What interests you?</strong></legend>
+    <p class="form-note" style="margin-top:0">Tap all that apply.</p>
+    <div class="chips" id="chips">
+      {interests.map(i => <button type="button" class="chip" data-chip={i} aria-pressed={i===defaultInterest ? 'true' : 'false'}>{i}</button>)}
+    </div>
+    <input type="hidden" name="interests" id="f-interests" value={defaultInterest} />
+    <div class="nav-row"><button type="button" class="btn btn-ghost" data-prev>← Back</button><button type="button" class="btn" data-next>Continue →</button></div>
+  </fieldset>
+
+  <fieldset class="step" data-step="2">
+    <legend><strong>Step 3 · How do we reach you?</strong></legend>
+    <div class="row">
+      <div><label for="f-name">Your name</label><input id="f-name" name="name" type="text" required /></div>
+      <div><label for="f-country">Country</label><input id="f-country" name="country" type="text" placeholder="Where you're travelling from" /></div>
+    </div>
+    <div style="margin-top:.8rem"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required /></div>
+    <div style="margin-top:.8rem"><label for="f-msg">Anything else?</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
+    <div class="nav-row">
+      <button type="button" class="btn btn-ghost" data-prev>← Back</button>
+      <button type="submit" class="btn" id="inqSubmit" data-evt="inquiry_submit">Send my request via WhatsApp</button>
+    </div>
+    <p class="form-note">Opens WhatsApp with your details pre-filled to {CONTACT.phoneDisplay}. Prefer email? <a id="emailLink" href={`mailto:${CONTACT.email}`}>Send by email instead</a>. We reply within a few hours.</p>
+  </fieldset>
+</form>
+
+<script is:inline>
+(function(){
+  var f=document.getElementById('inqForm'); if(!f) return;
+  var steps=[].slice.call(f.querySelectorAll('.step'));
+  var dots=[].slice.call(f.querySelectorAll('.steps-dots i'));
+  var cur=0;
+  function show(i){cur=i;steps.forEach(function(s,n){s.classList.toggle('active',n===i);});dots.forEach(function(d,n){d.classList.toggle('on',n<=i);});}
+  f.querySelectorAll('[data-next]').forEach(function(b){b.addEventListener('click',function(){if(cur<steps.length-1)show(cur+1);});});
+  f.querySelectorAll('[data-prev]').forEach(function(b){b.addEventListener('click',function(){if(cur>0)show(cur-1);});});
+  // chips
+  var chips=[].slice.call(f.querySelectorAll('.chip')); var hidden=document.getElementById('f-interests');
+  function sync(){var on=chips.filter(function(c){return c.getAttribute('aria-pressed')==='true';}).map(function(c){return c.getAttribute('data-chip');});hidden.value=on.join(', ');}
+  chips.forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');sync();});});
+  sync();
+  // pre-fill from ?i= (page context)
+  try{
+    var q=new URLSearchParams(location.search).get('i');
+    if(q){
+      f.setAttribute('data-context',q);
+      chips.forEach(function(c){ if(c.getAttribute('data-chip').toLowerCase()===q.toLowerCase()) c.setAttribute('aria-pressed','true'); });
+      sync();
+    }
+  }catch(e){}
+  function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+  function buildMessage(){
+    var ctx=f.getAttribute('data-context')||'';
+    var lines=['Hello Algeria Compass, I would like to plan a trip to Algeria.'];
+    if(ctx) lines.push('Interested in: '+ctx);
+    if(val('f-when')) lines.push('When: '+val('f-when'));
+    if(val('f-days')) lines.push('Duration: '+val('f-days')+' days');
+    if(val('f-people')) lines.push('Travellers: '+val('f-people'));
+    if(hidden.value) lines.push('Interests: '+hidden.value);
+    if(val('f-name')) lines.push('Name: '+val('f-name'));
+    if(val('f-country')) lines.push('From: '+val('f-country'));
+    if(val('f-email')) lines.push('Email: '+val('f-email'));
+    if(val('f-msg')) lines.push('Notes: '+val('f-msg'));
+    return lines.join('\n');
+  }
+  // keep email fallback in sync
+  var emailLink=document.getElementById('emailLink');
+  f.addEventListener('input',function(){if(emailLink)emailLink.setAttribute('href','mailto:'+f.getAttribute('data-email')+'?subject='+encodeURIComponent('Algeria trip inquiry')+'&body='+encodeURIComponent(buildMessage()));});
+  f.addEventListener('submit',function(e){
+    if(!val('f-name')||!val('f-email')){return;} // let native required validation handle it
+    e.preventDefault();
+    if(window.trackEvent)window.trackEvent('inquiry_submit');
+    var wa='https://wa.me/'+f.getAttribute('data-wa')+'?text='+encodeURIComponent(buildMessage());
+    window.open(wa,'_blank');
+  });
+})();
+</script>

@@ -1,0 +1,11 @@
+---
+export interface Row { label: string; value: string; }
+export interface Props { rows: Row[]; title?: string; }
+const { rows, title = 'Practical information' } = Astro.props;
+---
+{rows.length > 0 && (
+  <aside class="ai-block practical-box" aria-label={title}>
+    <h3>{title}</h3>
+    <dl>{rows.map(r => (<><dt>{r.label}</dt><dd>{r.value}</dd></>))}</dl>
+  </aside>
+)}

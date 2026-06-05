@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuickAnswer from '../components/QuickAnswer.astro';
+import CtaSection from '../components/CtaSection.astro';
+---
+<BaseLayout title="Algerian Culture | Algeria Compass" description="Amazigh, Arab, Ottoman and Andalusian: the layered cultural identity of Algeria, from language and music to dress and daily life." region="kabylie">
+  <Hero title="Algerian Culture" eyebrow="Knowledge hub" text="Amazigh, Arab, Ottoman and Andalusian: the layered cultural identity of Algeria, from language and music to dress and daily life." image="/images/cultural-museum-visit.jpg" alt="A cultural museum visit in Algeria" />
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algerian Culture'}]} />
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <QuickAnswer text="Algerian culture is a layering of civilisations. Its indigenous Amazigh (Berber) foundation runs beneath Arab, Ottoman, Andalusian and French influences, producing a country where Tamazight and Arabic are both official, where Andalusian music survives in Tlemcen, and where desert and coast keep distinct traditions of dress, craft and cuisine." />
+    <div class="prose">
+      <p>Algerian culture is a layering of civilisations. Its indigenous Amazigh (Berber) foundation runs beneath Arab, Ottoman, Andalusian and French influences, producing a country where Tamazight and Arabic are both official, where Andalusian music survives in Tlemcen, and where desert and coast keep distinct traditions of dress, craft and cuisine.</p>
+      <h2>Explore further</h2>
+      <ul><li><a href="/blog/algerian-food-guide/">Algerian food: a traveller’s guide</a></li><li><a href="/provinces/">Browse provinces</a></li></ul>
+    </div>
+  </div></section>
+  <CtaSection />
+</BaseLayout>

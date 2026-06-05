@@ -1,0 +1,17 @@
+---
+// Comparison block for AI extraction. columns = attribute labels; rows = { label, href?, cells[] }.
+export interface Row { label: string; href?: string; cells: string[]; }
+export interface Props { columns: string[]; rows: Row[]; caption?: string; }
+const { columns, rows, caption } = Astro.props;
+---
+<div class="comparison-wrap">
+  <table class="comparison">
+    {caption && <caption>{caption}</caption>}
+    <thead><tr><th scope="col">&nbsp;</th>{columns.map(c => <th scope="col">{c}</th>)}</tr></thead>
+    <tbody>
+      {rows.map(r => (
+        <tr><th scope="row">{r.href ? <a href={r.href}>{r.label}</a> : r.label}</th>{r.cells.map(c => <td>{c}</td>)}</tr>
+      ))}
+    </tbody>
+  </table>
+</div>

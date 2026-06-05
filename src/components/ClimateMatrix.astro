@@ -1,0 +1,16 @@
+---
+export interface MonthRow { month: string; tempC?: string; rain?: string; verdict?: string; }
+export interface Props { months: MonthRow[]; place?: string; }
+const { months, place } = Astro.props;
+---
+{months.length > 0 && (
+  <div class="ai-block climate-matrix">
+    <div class="tbl-scroll">
+      <table>
+        <caption>{place ? `Monthly climate — ${place}` : 'Monthly climate'}</caption>
+        <thead><tr><th scope="col">Month</th><th scope="col">Temp</th><th scope="col">Rain</th><th scope="col">Verdict</th></tr></thead>
+        <tbody>{months.map(m => (<tr><th scope="row">{m.month}</th><td>{m.tempC ?? '—'}</td><td>{m.rain ?? '—'}</td><td>{m.verdict ?? '—'}</td></tr>))}</tbody>
+      </table>
+    </div>
+  </div>
+)}

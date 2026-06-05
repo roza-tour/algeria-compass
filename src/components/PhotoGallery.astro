@@ -1,0 +1,14 @@
+---
+export interface Props { images?: { src:string; alt:string }[]; heading?: string; }
+const { images = [], heading } = Astro.props;
+---
+{images.length > 0 && (
+  <section class="section photo-gallery"><div class="wrap">
+    {heading && <h2>{heading}</h2>}
+    <div class="pgrid">
+      {images.map(im => (
+        <figure><img src={im.src} alt={im.alt} loading="lazy" decoding="async" /><figcaption>{im.alt}</figcaption></figure>
+      ))}
+    </div>
+  </div></section>
+)}

@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const revs=(await getCollection('reviewer')).sort((a,b)=>a.data.order-b.data.order);
+const site=(Astro.site?.toString()||'https://algeriacompass.com').replace(/\/$/,'');
+const schema=[{"@type":"CollectionPage","@id":site+"/reviewers/#page","name":"Editorial Review & Fact-Checking","about":{"@id":site+"/#organization"},"isPartOf":{"@id":site+"/#website"}}];
+---
+<BaseLayout title="Editorial Review & Fact-Checking — Algeria Compass" description="How Algeria Compass verifies and reviews its Algeria content, and who is responsible for fact-checking." schema={schema}>
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Editorial',href:'/editorial/'},{name:'Review'}]} />
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <div class="eyebrow">Editorial</div>
+    <h1>Review &amp; fact-checking</h1>
+    <p style="color:var(--text-m)">Reviewers verify information independently of the writers who produced it. See our <a href="/editorial/fact-checking-policy/">Fact-Checking Policy</a> and <a href="/editorial/content-review-process/">Content Review Process</a>.</p>
+    <div class="policy-list">
+      {revs.map(t => (<a href={`/reviewers/${t.slug}/`}><div class="pt">{t.data.name}</div><div class="ps">{t.data.role} — {t.data.shortBio}</div></a>))}
+    </div>
+    <p style="margin-top:1.4rem;font-size:.9rem;color:var(--text-l)">As the team grows, individual reviewers and subject-matter checkers will be credited by name.</p>
+  </div></section>
+</BaseLayout>

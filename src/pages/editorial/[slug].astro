@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+export async function getStaticPaths(){
+  const policies = await getCollection('editorial');
+  return policies.map(item=>({ params:{slug:item.slug}, props:{item} }));
+}
+const { item } = Astro.props; const d=item.data; const { Content } = await item.render();
+const site=(Astro.site?.toString()||'https://algeriacompass.com').replace(/\/$/,'');
+const fmt=(x:Date)=>x.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+const schema=[{"@type":"WebPage","@id":site+`/editorial/${item.slug}/#page`,"name":d.title,"description":d.summary,"url":site+`/editorial/${item.slug}/`,"dateModified":d.updated.toISOString(),"isPartOf":{"@id":site+"/#website"},"publisher":{"@id":site+"/#organization"},"about":{"@id":site+"/#organization"}}];
+---
+<BaseLayout title={(d.seo?.title)||`${d.title} — Algeria Compass`} description={d.seo?.description||d.summary} schema={schema}>
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Editorial',href:'/editorial/'},{name:d.title}]} />
+  <article class="section"><div class="wrap" style="max-width:760px">
+    <div class="eyebrow">Editorial policy</div>
+    <h1 style="margin:.2rem 0 .3rem">{d.title}</h1>
+    <p style="color:var(--text-l);font-size:.85rem">Last updated {fmt(d.updated)} · Maintained by the Algeria Compass editorial team</p>
+    <p style="color:var(--text-m);font-size:1.02rem;margin:.8rem 0 1.2rem">{d.summary}</p>
+    <div class="prose"><Content /></div>
+    <p style="margin-top:2rem;font-size:.9rem;color:var(--text-l)">See all <a href="/editorial/">editorial standards</a> · Report an error via our <a href="/editorial/corrections-policy/">Corrections Policy</a>.</p>
+  </div></article>
+</BaseLayout>

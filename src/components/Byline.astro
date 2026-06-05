@@ -1,0 +1,16 @@
+---
+// Reusable attribution line. Driven by resolved author/reviewer entries.
+export interface Props {
+  authorName: string; authorHref: string;
+  reviewerName?: string; reviewerHref?: string;
+  updated?: Date; lastReviewed?: Date;
+}
+const { authorName, authorHref, reviewerName, reviewerHref, updated, lastReviewed } = Astro.props;
+const fmt = (d?: Date) => d ? d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : null;
+---
+<div class="byline">
+  <span class="b-item">Written by <a href={authorHref} rel="author">{authorName}</a></span>
+  {reviewerName && <span class="b-item">Reviewed by <a href={reviewerHref}>{reviewerName}</a></span>}
+  {lastReviewed && <span class="b-item">Last reviewed {fmt(lastReviewed)}</span>}
+  {updated && <span class="b-item">Updated {fmt(updated)}</span>}
+</div>

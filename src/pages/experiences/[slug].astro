@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import QuickAnswer from '../../components/QuickAnswer.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import RelatedGrid from '../../components/RelatedGrid.astro';
+import PhotoGallery from '../../components/PhotoGallery.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+import Byline from '../../components/Byline.astro';
+import SourceList from '../../components/SourceList.astro';
+import EditorialMeta from '../../components/EditorialMeta.astro';
+import { related, toCard } from '../../lib/related';
+import { resolveAuthor, resolveReviewer, authorNode, reviewerNode, citationNodes } from '../../lib/authorship';
+export async function getStaticPaths() {
+  const items = await getCollection('experience');
+  return items.map(item => ({ params: { slug: item.slug }, props: { item } }));
+}
+const { item } = Astro.props;
+const d = item.data;
+const { Content } = await item.render();
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const dests = await related('destination', { region: d.region, limit: 3 });
+const exps = await related('experience', { region: d.region, exclude: item.slug, limit: 3 });
+const author = await resolveAuthor(d.author);
+const reviewer = await resolveReviewer(d.reviewedBy);
+const authorEntity = authorNode(site, author.entry);
+const reviewerEntity = reviewerNode(site, reviewer.entry);
+const trip: any = {
+  "@type": "TouristTrip",
+  "@id": `${site}/experiences/${item.slug}/#trip`,
+  "name": d.name,
+  "description": d.quickAnswer,
+  "url": `${site}/experiences/${item.slug}/`,
+  "image": site + d.image,
+  "provider": { "@id": site + "/#organization" },
+  "touristType": d.region
+};
+if (d.priceFrom) trip.offers = { "@type": "Offer", "price": d.priceFrom, "priceCurrency": d.currency, "availability": "https://schema.org/InStock", "url": `${site}/experiences/${item.slug}/` };
+trip.author = { "@id": (authorEntity as any)["@id"] };
+trip.reviewedBy = { "@id": (reviewerEntity as any)["@id"] };
+trip.dateModified = d.updated.toISOString();
+const cites = citationNodes(d.sources);
+if (cites.length) trip.citation = cites;
+const schemaNodes = [trip, authorEntity, reviewerEntity];
+---
+<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} region={d.region} schema={schemaNodes} sticky={true}>
+  <Hero title={d.name} eyebrow={`${d.durationDays} days · ${d.region}`} text={d.tagline} image={d.image} alt={d.imageAlt}>
+    <a class="btn btn-gold" href="#request" data-evt="cta_plan">Request this itinerary →</a>
+  </Hero>
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Experiences',href:'/experiences/'},{name:d.name}]} />
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <Byline authorName={author.name} authorHref={author.href} reviewerName={reviewer.name} reviewerHref={reviewer.href} updated={d.updated} lastReviewed={d.lastReviewed} />
+    <QuickAnswer text={d.quickAnswer} />
+    {d.priceFrom && <p><strong>From {d.currency} {d.priceFrom}</strong> per person · {d.durationDays} days</p>}
+    {d.highlights.length > 0 && (<><h2>Highlights</h2><ul class="prose">{d.highlights.map((h:string) => <li>{h}</li>)}</ul></>)}
+    {d.itinerary.length > 0 && (<><h2>Day by day</h2>{d.itinerary.map((s:any) => (<div style="margin:.6rem 0"><strong>{s.day} — {s.title}</strong><p style="color:var(--text-m)">{s.text}</p></div>))}</>)}
+    <article class="prose"><Content /></article>
+    <SourceList sources={d.sources} />
+    <EditorialMeta sourceCount={d.sources.length} reviewerName={reviewer.name} reviewerHref={reviewer.href} lastReviewed={d.lastReviewed} />
+  </div></section>
+  {d.stops.length > 0 && (
+    <section class="section"><div class="wrap">
+      <h2>Where this journey goes</h2>
+      <p style="color:var(--text-m);max-width:720px">Every stop below is part of this itinerary.</p>
+      <div class="pgrid">
+        {d.stops.map((stp:any) => (
+          <figure><img src={stp.image} alt={stp.alt} loading="lazy" decoding="async" /><figcaption><strong>{stp.name}</strong>{stp.note ? ' — ' + stp.note : ''}</figcaption></figure>
+        ))}
+      </div>
+    </div></section>
+  )}
+  <PhotoGallery images={d.gallery} heading="From this journey" />
+  <RelatedGrid heading="Other journeys you may like" items={exps.map(e => toCard(e,'/experiences/'))} />
+  <FaqSection faqs={d.faqs} />
+  <section class="section" id="request"><div class="wrap" style="max-width:640px">
+    <div class="eyebrow">Make it real</div>
+    <h2>Request the {d.name}</h2>
+    <p style="color:var(--text-m);margin:.4rem 0 1rem">Tell us your dates and we tailor this journey to you. No payment now.</p>
+    <InquiryForm defaultInterest={d.region} context={d.name} />
+  </div></section>
+</BaseLayout>

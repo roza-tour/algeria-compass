@@ -1,0 +1,13 @@
+---
+export interface Stop { name: string; nights?: string; note?: string; }
+export interface Props { stops: Stop[]; mode?: string; totalDistanceKm?: number; heading?: string; }
+const { stops, mode, totalDistanceKm, heading = 'Suggested route' } = Astro.props;
+---
+{stops.length > 0 && (
+  <div class="ai-block route-planner">
+    <h3>{heading}{mode ? ` · ${mode}` : ''}{totalDistanceKm ? ` · ~${totalDistanceKm} km` : ''}</h3>
+    <ol class="route">{stops.map(s => (
+      <li><strong>{s.name}</strong>{s.nights && <span class="rp-nights">{s.nights}</span>}{s.note && <span class="rp-note">{s.note}</span>}</li>
+    ))}</ol>
+  </div>
+)}

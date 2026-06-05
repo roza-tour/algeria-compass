@@ -1,0 +1,10 @@
+---
+export interface Props { items: string[]; heading?: string; }
+const { items, heading = 'Key takeaways' } = Astro.props;
+---
+{items.length > 0 && (
+  <aside class="ai-block key-takeaways" aria-label={heading}>
+    <h3>{heading}</h3>
+    <ul>{items.map(i => <li>{i}</li>)}</ul>
+  </aside>
+)}

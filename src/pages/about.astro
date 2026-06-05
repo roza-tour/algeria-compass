@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaSection from '../components/CtaSection.astro';
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const aboutSchema = {
+  '@type': 'AboutPage', '@id': `${site}/about/#about`,
+  name: 'About Algeria Compass', url: `${site}/about/`,
+  about: { '@id': `${site}/#organization` }, isPartOf: { '@id': `${site}/#website` },
+};
+const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
+  {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
+  {'@type':'ListItem',position:2,name:'About',item:`${site}/about/`}]};
+---
+<BaseLayout
+  title="About Algeria Compass"
+  description="How Algeria Compass researches, reviews, updates and corrects its independent guides to Algeria — our editorial standards, knowledge standards, mission and long-term vision."
+  schema={[aboutSchema, breadcrumb]}>
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'About'}]} />
+  <section class="section"><div class="wrap" style="max-width:760px">
+    <div class="eyebrow">About</div>
+    <h1>The definitive guide to discovering Algeria</h1>
+    <div class="prose" style="margin-top:1rem">
+      <p>Algeria Compass is an independent travel-intelligence platform dedicated entirely to one country. We exist to make Algeria — the largest country in Africa, and one of the least documented in English — genuinely understandable to travellers, researchers and the simply curious.</p>
+      <p>We are not a brochure and not a listings site. We map Algeria as a connected whole: all 58 provinces, the seven UNESCO World Heritage Sites, the Roman cities of the north, the oasis worlds of the M'Zab and the Souf, the Kabyle mountains and the Mediterranean coast — and the food, history, languages and traditions that tie them together.</p>
+
+      <h2>Why we exist</h2>
+      <p>Reliable, in-depth English-language information about Algeria is scarce and often out of date. Algeria Compass was created to fix that: to build, page by page, a trustworthy reference that treats the country with the seriousness it deserves and helps visitors travel with understanding and respect.</p>
+
+      <h2>How we research</h2>
+      <p>Every guide begins with research against primary and authoritative sources — UNESCO, recognised reference works, and established cultural and historical scholarship — set out in our <a href="/editorial/research-methodology/">research methodology</a>. Where a claim matters, we cite where it comes from; our approach to sourcing is described in our <a href="/editorial/sources-policy/">sources policy</a>.</p>
+
+      <h2>How content is reviewed</h2>
+      <p>Drafts are checked for accuracy before publication and pass through an independent <a href="/editorial/content-review-process/">review process</a>, separate from the writing, handled by our <a href="/reviewers/">review function</a>. Our wider standards are published in full in the <a href="/editorial/editorial-policy/">editorial policy</a>.</p>
+
+      <h2>How we update and correct</h2>
+      <p>Travel information ages. We revisit and refresh guides under a defined <a href="/editorial/content-update-policy/">update policy</a>, and when we get something wrong we fix it openly: anyone can flag an error through our <a href="/editorial/corrections-policy/">corrections policy</a>. We are transparent about how the platform works, including our limited and disclosed use of AI tooling — see our <a href="/editorial/transparency-policy/">transparency</a> and <a href="/editorial/ai-usage-policy/">AI-usage</a> policies.</p>
+
+      <h2>Knowledge standards</h2>
+      <p>Beneath the guides sits a structured <a href="/knowledge/">knowledge graph</a> of Algeria — provinces, heritage sites, landscapes, food and culture, modelled as connected entities so the relationships between places and themes are explicit and machine-readable. It is the backbone that keeps the platform consistent as it grows.</p>
+
+      <h2>Who is behind it</h2>
+      <p>Algeria Compass is produced by an independent editorial team of Algeria specialists, working to the standards above. As we add named contributors and subject reviewers, they will appear on our <a href="/team/">editorial team</a> and <a href="/reviewers/">reviewers</a> pages, each shown against the work they are responsible for. We do not publish anonymous claims of expertise we cannot stand behind.</p>
+
+      <h2>Mission and long-term vision</h2>
+      <p>Our mission is simple: to become the most trusted, in-depth and respectful guide to Algeria in any language — the first place people turn to understand the country, and a reference that does justice to its history, landscapes and people. Over time we are building toward complete, sourced coverage of all 58 provinces and the major sites within them.</p>
+
+      <p style="color:var(--text-l);font-size:.9rem">When you are ready to travel, Algeria Compass can also help you plan a route or arrange a guided journey with trusted local operators — but the guide comes first, and it stands on its own. <a href="/contact/">Get in touch</a>.</p>
+      <p><!-- TODO: add only verified credentials (operator licence no., insurer, named editors/reviewers) once confirmed. --></p>
+    </div>
+  </div></section>
+  <CtaSection />
+</BaseLayout>
