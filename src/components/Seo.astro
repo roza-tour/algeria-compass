@@ -3,7 +3,7 @@ export interface Props {
   title: string; description: string; canonical?: string;
   image?: string; type?: string;
 }
-const { title, description, image = '/images/brand-algeria.jpg', type = 'website' } = Astro.props;
+const { title, description, image = '/assets/img/og-image.png', type = 'website' } = Astro.props;
 const BRAND = 'Algeria Compass';
 const fullTitle = title.includes(BRAND) ? title : `${title} | ${BRAND}`;
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';

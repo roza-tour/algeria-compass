@@ -262,9 +262,10 @@
 </script>
 
 <!-- FAVICON & APP ICONS -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
-<link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
+<link rel="icon" href="/assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/img/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon-180.png">
 
 <!-- FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -279,7 +280,7 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'Nunito',sans-serif;background:#FAFAF5;color:#1A1A1A;overflow-x:hidden;line-height:1.7;-webkit-font-smoothing:antialiased}
+body{font-family:'Nunito',sans-serif;background:#F6EFE0;color:#1c2620;overflow-x:hidden;line-height:1.7;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block;height:auto}
 a{text-decoration:none;color:inherit;transition:color .2s}
 button{font-family:inherit;cursor:pointer}
@@ -289,9 +290,9 @@ button{font-family:inherit;cursor:pointer}
 
 /* ─── BRAND TOKENS ─── */
 :root{
-  --green:#1A5C3A;--green-d:#0E3D24;--green-l:#2D8A5A;
-  --gold:#C8920A;--red:#C92B34;--cream:#FAFAF5;--white:#FFF;
-  --text:#1A1A1A;--text-m:#4A4A4A;--text-l:#888;--border:#E0D8CC;
+  --green:#0B3D2E;--green-d:#07261C;--green-l:#11543D;
+  --gold:#C9A24B;--gold-l:#E0C879;--gold-d:#A9842F;--red:#C92B34;--cream:#F6EFE0;--white:#FFF;
+  --text:#1c2620;--text-m:#4A4A4A;--text-l:#888;--border:#e6ddc8;
 
   /* Tour-specific palettes */
   --sahara1:#C8680A;--sahara2:#E8A020;--sahara3:#D4A860;--sahara-n:#0A1228;
@@ -317,27 +318,25 @@ button{font-family:inherit;cursor:pointer}
 .topbar-langs a.active{background:rgba(200,146,10,.2);color:#fff}
 
 /* ─── NAVIGATION ─── */
-.nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:300;box-shadow:0 2px 16px rgba(26,92,58,.06)}
+.nav{background:var(--green);border-bottom:1px solid rgba(201,162,75,.22);position:sticky;top:0;z-index:300;box-shadow:0 2px 16px rgba(7,38,28,.18)}
 .nav-inner{max-width:1360px;margin:0 auto;display:flex;align-items:center;height:68px;padding:0;gap:0}
-.nav-logo-link{display:flex;align-items:center;gap:.7rem;padding:0 2rem;border-right:1px solid var(--border);height:100%;white-space:nowrap;flex-shrink:0}
-.nav-logo-svg{width:42px;height:42px;flex-shrink:0}
-.logo-name{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;color:var(--green-d);letter-spacing:.06em;line-height:1}
-.logo-accent{color:var(--gold)}
-.logo-sub{display:block;font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-l);margin-top:.2rem}
+.nav-logo-link{display:flex;align-items:center;gap:.7rem;padding:0 2rem;border-right:1px solid rgba(246,239,224,.12);height:100%;white-space:nowrap;flex-shrink:0}
+.brand-logo{display:block;width:auto;height:54px}
+.brand-logo-emblem{height:40px;display:none}
 .nav-links{display:flex;flex:1;list-style:none;height:100%;gap:0;padding:0 .5rem}
 .nav-links>li{position:relative;display:flex;align-items:center}
-.nav-links>li>a{display:flex;align-items:center;gap:.25rem;height:100%;padding:0 .85rem;font-size:.82rem;font-weight:500;color:var(--text-m);border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;cursor:pointer}
-.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--green);border-bottom-color:var(--green)}
+.nav-links>li>a{display:flex;align-items:center;gap:.25rem;height:100%;padding:0 .85rem;font-size:.82rem;font-weight:600;color:rgba(246,239,224,.82);border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;cursor:pointer}
+.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--gold-l);border-bottom-color:var(--gold)}
 .nav-arr{font-size:.6rem;opacity:.4}
 .drop{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-radius:0 0 12px 12px;box-shadow:0 8px 28px rgba(0,0,0,.08);min-width:240px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .2s;z-index:400}
 .nav-links>li:hover .drop{opacity:1;visibility:visible;transform:translateY(0)}
 .drop a{display:block;padding:.6rem 1.1rem;font-size:.8rem;color:var(--text-m);border-left:3px solid transparent;cursor:pointer}
 .drop a:hover{color:var(--green);border-left-color:var(--green);background:rgba(26,92,58,.03)}
-.nav-cta{display:flex;align-items:center;gap:.5rem;padding:0 1.2rem;border-left:1px solid var(--border);height:100%;flex-shrink:0}
+.nav-cta{display:flex;align-items:center;gap:.5rem;padding:0 1.2rem;border-left:1px solid rgba(246,239,224,.12);height:100%;flex-shrink:0}
 .btn-wa{background:#25D366;color:#fff;padding:.5rem .9rem;border-radius:8px;font-size:.78rem;font-weight:600;transition:background .2s;display:flex;align-items:center;gap:.3rem}
 .btn-wa:hover{background:#1EAA52}
-.btn-book{background:var(--green);color:#fff;padding:.55rem 1.1rem;border-radius:8px;font-size:.8rem;font-weight:700;transition:all .15s;cursor:pointer;border:none}
-.btn-book:hover{background:var(--green-d);transform:translateY(-1px)}
+.btn-book{background:var(--gold);color:#07261C;padding:.55rem 1.1rem;border-radius:8px;font-size:.8rem;font-weight:700;transition:all .15s;cursor:pointer;border:none}
+.btn-book:hover{background:var(--gold-l);transform:translateY(-1px)}
 
 /* Mobile nav toggle */
 .nav-toggle{display:none;background:transparent;border:none;color:var(--green);font-size:1.5rem;padding:0 1rem}
@@ -843,10 +842,11 @@ button{font-family:inherit;cursor:pointer}
 footer{background:#0A0F0A;padding:4rem 2rem 1.5rem}
 .footer-wrap{max-width:1360px;margin:0 auto}
 .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:2.2rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:1.5rem}
-.f-brand-name{font-family:'Cinzel',serif;font-size:1.35rem;font-weight:900;color:#fff;letter-spacing:.07em}
-.f-brand-tifi{font-size:.75rem;color:rgba(255,255,255,.25);margin-bottom:.8rem}
+.f-brandblock{text-align:center}
+.f-logo{display:block;width:220px;max-width:100%;height:auto;margin:0 auto .55rem}
+.f-tagline{font-style:italic;color:#C9A24B;font-size:.95rem;margin-bottom:1rem}
 .f-desc{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.7;font-weight:300;max-width:240px;margin-bottom:1.2rem}
-.f-socials{display:flex;gap:.5rem;flex-wrap:wrap}
+.f-socials{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
 .fs{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.72rem;font-weight:700;transition:all .2s}
 .fs:hover{background:var(--green);border-color:var(--green);color:#fff}
 .fcol h4{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);font-weight:700;margin-bottom:1rem}
@@ -912,14 +912,17 @@ footer{background:#0A0F0A;padding:4rem 2rem 1.5rem}
   .tour-sidebar{position:static}
 }
 @media(max-width:900px){
-  .nav-links{display:none;position:fixed;top:73px;left:0;right:0;background:#fff;flex-direction:column;padding:1rem;box-shadow:0 4px 24px rgba(0,0,0,.1);max-height:80vh;overflow-y:auto}
+  .nav-links{display:none;position:fixed;top:73px;left:0;right:0;background:var(--green-d);flex-direction:column;padding:1rem;box-shadow:0 4px 24px rgba(7,38,28,.3);max-height:80vh;overflow-y:auto}
   .nav-links.mobile-open{display:flex}
   .nav-links>li{width:100%;display:block}
   .nav-links>li>a{padding:.8rem 1rem;border-bottom:none;border-radius:8px;width:100%}
-  .nav-links>li>a:hover{background:rgba(26,92,58,.06)}
+  .nav-links>li>a:hover{background:rgba(246,239,224,.08)}
   .drop{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;min-width:0;border-radius:0}
-  .drop a{padding-left:2rem;font-size:.78rem}
+  .drop a{padding-left:2rem;font-size:.78rem;color:rgba(246,239,224,.7)}
+  .drop a:hover{background:rgba(246,239,224,.08)}
   .nav-toggle{display:block}
+  .brand-logo-full{display:none}
+  .brand-logo-emblem{display:block}
   .slide-content{padding:2rem 1.8rem}
   .tifi-stamp{display:none}
   .tour-hero-content{padding:2rem 1.5rem 3rem}
@@ -947,7 +950,7 @@ footer{background:#0A0F0A;padding:4rem 2rem 1.5rem}
 /* ════════ ALGERIAN VISUAL IDENTITY — CLEAN ACCENT SYSTEM ════════ */
 /* Photos + whitespace lead. Patterns appear ONLY as deliberate accents,
    never tiled behind body text (that was the clutter). */
-body{background-color:#FAF7EF;background-image:none;}
+body{background-color:#F6EFE0;background-image:none;}
 .page{position:relative;background:transparent;}
 
 /* Each region = one quiet palette wash at the very top of the page only,
@@ -1099,11 +1102,8 @@ footer{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fw
 <nav class="nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
   <div class="nav-inner">
     <a class="nav-logo-link" data-go="home" aria-label="Algeria Compass — Home">
-      <img loading="lazy" class="nav-logo-svg" src="assets/img/logo-mark.png" width="44" height="44" alt="Algeria Compass" style="border-radius:10px;object-fit:cover">
-      <div>
-        <span class="logo-name">Algeria<span class="logo-accent"> Compass</span></span>
-        <span class="logo-sub">Algeria Revealed</span>
-      </div>
+      <img class="brand-logo brand-logo-full" src="assets/img/logo-full.png" width="71" height="54" alt="Algeria Compass">
+      <img class="brand-logo brand-logo-emblem" src="assets/img/logo-emblem.png" width="70" height="40" alt="Algeria Compass">
     </a>
 
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">☰</button>
@@ -2900,9 +2900,9 @@ footer{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fw
 <footer>
   <div class="footer-wrap">
     <div class="footer-grid">
-      <div>
-        <div class="f-brand-name">DJAZAÏR<span style="color:var(--gold)"> TOURS</span></div>
-        <div class="f-brand-tifi">ⴷⵊⴰⵣⴰⵉⵔ ⵜⵓⵔⵣ</div>
+      <div class="f-brandblock">
+        <img class="f-logo" src="assets/img/logo-full.png" width="220" height="167" alt="Algeria Compass">
+        <p class="f-tagline">Explore Algeria in Elite Luxury</p>
         <p class="f-desc">Algeria's specialist tour operator. Local Algerian guides and authentic, private journeys. We reveal the real Algeria to the world.</p>
         <p style="font-size:.74rem;color:rgba(255,255,255,.3);margin-bottom:1rem">📞 +213 784 193 176<br>✉ hello@algeriacompass.com</p>
         <div class="f-socials">

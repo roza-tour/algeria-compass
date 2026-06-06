@@ -1,9 +1,10 @@
 /* ===== Algeria Compass — design tokens (migrated) ===== */
 :root{
-  --green:#1A5C3A; --green-d:#0E3D24; --green-l:#2D8A5A; --gold:#C8920A; --gold-l:#E0A92A;
-  --red:#C92B34; --cream:#FAFAF5; --white:#fff;
-  --ink:#1c1c1c; --text:#1A1A1A; --text-m:#4A4A4A; --text-l:#888; --border:#E0D8CC;
-  --bg:#FAF7EF; --card:#ffffff;
+  /* global chrome palette (Algeria Compass — emerald + gold) */
+  --green:#0B3D2E; --green-d:#07261C; --green-l:#11543D; --gold:#C9A24B; --gold-l:#E0C879;
+  --red:#C92B34; --cream:#F6EFE0; --white:#fff;
+  --ink:#1c2620; --text:#1c2620; --text-m:#4A4A4A; --text-l:#888; --border:#e6ddc8;
+  --bg:#F6EFE0; --card:#ffffff;
   --maxw:1180px; --r:16px;
   --serif:'Cinzel',Georgia,'Times New Roman',serif;
   --sans:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
@@ -34,23 +35,21 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--green-d);font-w
 .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
 /* ===== header / nav (rebrand chrome) ===== */
 .id-band{height:12px;width:100%;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'32'%20height%3D'16'%20viewBox%3D'0%200%2032%2016'%3E%20%3Cg%20fill%3D'none'%20stroke%3D'%23C8920A'%20stroke-width%3D'1.3'%20opacity%3D'0.9'%3E%20%3Cpath%20d%3D'M0%208%20L8%201%20L16%208%20L24%201%20L32%208'%2F%3E%3Cpath%20d%3D'M0%2015%20L8%208%20L16%2015%20L24%208%20L32%2015'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x center/24px 12px;background-color:#0E3D24}
-.nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:300;box-shadow:0 2px 16px rgba(26,92,58,.06)}
+.nav{background:var(--green);border-bottom:1px solid rgba(201,162,75,.22);position:sticky;top:0;z-index:300;box-shadow:0 2px 16px rgba(7,38,28,.18)}
 .nav-inner{max-width:1360px;margin:0 auto;display:flex;align-items:center;height:68px;padding:0;gap:0}
-.nav-logo-link{display:flex;align-items:center;gap:.7rem;padding:0 2rem;border-right:1px solid var(--border);height:100%;white-space:nowrap;flex-shrink:0}
-.nav-logo-svg{width:42px;height:42px;flex-shrink:0}
-.logo-name{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;color:var(--green-d);letter-spacing:.06em;line-height:1}
-.logo-accent{color:var(--gold)}
-.logo-sub{display:block;font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-l);margin-top:.2rem}
+.nav-logo-link{display:flex;align-items:center;gap:.7rem;padding:0 2rem;border-right:1px solid rgba(246,239,224,.12);height:100%;white-space:nowrap;flex-shrink:0}
+.brand-logo{display:block;width:auto;height:54px}
+.brand-logo-emblem{height:40px;display:none}
 .nav-links{display:flex;flex:1;list-style:none;height:100%;gap:0;padding:0 .5rem;margin:0}
 .nav-links>li{position:relative;display:flex;align-items:center}
-.nav-links>li>a{display:flex;align-items:center;gap:.25rem;height:100%;padding:0 .85rem;font-size:.82rem;font-weight:600;color:var(--text-m);border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;cursor:pointer}
-.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--green);border-bottom-color:var(--green);text-decoration:none}
-.nav-cta{display:flex;align-items:center;gap:.5rem;padding:0 1.2rem;border-left:1px solid var(--border);height:100%;flex-shrink:0}
+.nav-links>li>a{display:flex;align-items:center;gap:.25rem;height:100%;padding:0 .85rem;font-size:.82rem;font-weight:600;color:rgba(246,239,224,.82);border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;cursor:pointer}
+.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--gold-l);border-bottom-color:var(--gold);text-decoration:none}
+.nav-cta{display:flex;align-items:center;gap:.5rem;padding:0 1.2rem;border-left:1px solid rgba(246,239,224,.12);height:100%;flex-shrink:0}
 .btn-wa{background:#25D366;color:#fff;padding:.5rem .9rem;border-radius:8px;font-size:.78rem;font-weight:700;transition:background .2s;display:flex;align-items:center;gap:.3rem}
 .btn-wa:hover{background:#1EAA52;text-decoration:none}
-.btn-book{background:var(--green);color:#fff;padding:.55rem 1.1rem;border-radius:8px;font-size:.8rem;font-weight:700;transition:all .15s;cursor:pointer;border:none;white-space:nowrap}
-.btn-book:hover{background:var(--green-d);transform:translateY(-1px);text-decoration:none}
-.nav-toggle{display:none;background:transparent;border:none;color:var(--green);font-size:1.5rem;padding:0 1rem;cursor:pointer}
+.btn-book{background:var(--gold);color:#07261C;padding:.55rem 1.1rem;border-radius:8px;font-size:.8rem;font-weight:700;transition:all .15s;cursor:pointer;border:none;white-space:nowrap}
+.btn-book:hover{background:var(--gold-l);transform:translateY(-1px);text-decoration:none}
+.nav-toggle{display:none;background:transparent;border:none;color:var(--gold-l);font-size:1.5rem;padding:0 1rem;cursor:pointer}
 /* hero */
 .hero{position:relative;min-height:62vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,25,18,.82),rgba(8,25,18,.25) 70%)}
@@ -104,10 +103,11 @@ footer{position:relative;padding:4rem 2rem 1.5rem;margin-top:3rem;background-ima
 .footer-wrap{max-width:1360px;margin:0 auto}
 .footer-inner{position:relative;z-index:2}
 .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:2.2rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:1.5rem}
-.f-brand-name{font-family:'Cinzel',serif;font-size:1.35rem;font-weight:900;color:#fff;letter-spacing:.07em}
-.f-brand-tifi{font-size:.75rem;color:rgba(255,255,255,.25);margin-bottom:.8rem}
+.f-brandblock{text-align:center}
+.f-logo{display:block;width:220px;max-width:100%;height:auto;margin:0 auto .55rem}
+.f-tagline{font-style:italic;color:#C9A24B;font-size:.95rem;margin-bottom:1rem}
 .f-desc{font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:1rem}
-.f-socials{display:flex;gap:.5rem}
+.f-socials{display:flex;gap:.5rem;justify-content:center}
 .fs{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.72rem;font-weight:700;transition:all .2s}
 .fs:hover{background:var(--green);border-color:var(--green);color:#fff;text-decoration:none}
 .fcol h4{color:#fff;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);font-weight:700;margin-bottom:1rem}
@@ -122,7 +122,7 @@ footer{position:relative;padding:4rem 2rem 1.5rem;margin-top:3rem;background-ima
 @media(max-width:640px){.hero{min-height:54vh}}
 
 /* ===== Accessibility ===== */
-:root{ --gold-d:#8A6308; } /* AA-contrast gold for small text on white */
+:root{ --gold-d:#A9842F; } /* deep gold for small text on white */
 .eyebrow{color:var(--gold-d)}
 [data-region] .eyebrow{color:var(--accent)}
 .hero .eyebrow{color:var(--gold-l)}
@@ -137,11 +137,13 @@ label{display:block;font-size:.82rem;font-weight:600;color:var(--text-m);margin-
 @media(max-width:980px){
   .nav-toggle{display:block;margin-left:auto}
   .nav-logo-link{padding:0 1rem;border-right:none}
-  .nav-links{display:none;position:fixed;top:80px;left:0;right:0;background:#fff;flex-direction:column;flex:none;padding:1rem;box-shadow:0 4px 24px rgba(0,0,0,.1);max-height:80vh;overflow-y:auto;z-index:300}
+  .brand-logo-full{display:none}
+  .brand-logo-emblem{display:block}
+  .nav-links{display:none;position:fixed;top:80px;left:0;right:0;background:var(--green-d);flex-direction:column;flex:none;padding:1rem;box-shadow:0 4px 24px rgba(7,38,28,.3);max-height:80vh;overflow-y:auto;z-index:300}
   .nav-links.mobile-open{display:flex}
   .nav-links>li{width:100%;display:block}
   .nav-links>li>a{padding:.8rem 1rem;border-bottom:none;border-radius:8px;width:100%}
-  .nav-links>li>a:hover,.nav-links>li>a.active{background:rgba(26,92,58,.06);border-bottom-color:transparent}
+  .nav-links>li>a:hover,.nav-links>li>a.active{background:rgba(246,239,224,.08);border-bottom-color:transparent}
   .nav-cta{padding:0 1rem;border-left:none;gap:.4rem}
   .footer-grid{grid-template-columns:1fr 1fr}
 }

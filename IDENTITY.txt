@@ -1,0 +1,18 @@
+ALGERIA COMPASS — LOGO & IDENTITY
+Tagline: "Explore Algeria in Elite Luxury"   |   9 years in tourism   |   hello@algeriacompass.com
+
+LOGO FILES (assets/img/) — all TRANSPARENT PNG (no background, safe on any color):
+  logo-full.png        emblem + "ALGERIA COMPASS" wordmark (master, ~1023x776)
+  logo-300/600/900.png header/footer sizes (transparent)
+  logo-emblem.png      compass emblem only (master)
+  logo-emblem-512.png  emblem only, transparent 512 (for use on any bg)
+  favicon-32/180/512.png + favicon.ico  (emblem on emerald rounded icon)
+  og-image.png         1200x630 social card (logo on emerald)
+
+COLORS:  emerald #0B3D2E / dark #07261C / light #11543D
+         gold #C9A24B / light #E0C879 / deep #A9842F
+         cream #F6EFE0  ·  ink #1c2620  ·  border #e6ddc8
+FONTS:   Headings Cinzel (serif) · body clean sans · tagline italic gold
+
+USE: logo is transparent gold — put logo-full.png on the emerald header & footer; it stays
+crisp on light sections too. Never background-remove or recolor it.

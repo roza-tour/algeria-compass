@@ -1,5 +1,5 @@
 ---
-// Unified site header — matches the rebrand homepage chrome (logo-mark + nav).
+// Unified site header — matches the rebrand homepage chrome (logo + nav).
 // All links are real URLs so the same header works across every Astro route.
 const nav = [
   { href: '/destinations/', label: 'Destinations' },
@@ -18,11 +18,8 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 <nav class="nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
   <div class="nav-inner">
     <a class="nav-logo-link" href="/" aria-label="Algeria Compass — Home">
-      <img class="nav-logo-svg" src="/assets/img/logo-mark.png" width="44" height="44" alt="Algeria Compass" style="border-radius:10px;object-fit:cover" />
-      <div>
-        <span class="logo-name">Algeria<span class="logo-accent"> Compass</span></span>
-        <span class="logo-sub">Algeria Revealed</span>
-      </div>
+      <img class="brand-logo brand-logo-full" src="/assets/img/logo-full.png" width="71" height="54" alt="Algeria Compass" />
+      <img class="brand-logo brand-logo-emblem" src="/assets/img/logo-emblem.png" width="70" height="40" alt="Algeria Compass" />
     </a>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">&#9776;</button>
