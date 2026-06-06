@@ -2,15 +2,14 @@
 // Unified site header — matches the rebrand homepage chrome (logo + nav).
 // All links are real URLs so the same header works across every Astro route.
 const nav = [
+  { href: '/', label: 'Home' },
   { href: '/tours/', label: 'Tours' },
   { href: '/destinations/', label: 'Destinations' },
   { href: '/provinces/', label: 'Provinces' },
-  { href: '/experiences/', label: 'Experiences' },
-  { href: '/travel-guides/', label: 'Guides' },
-  { href: '/blog/', label: 'Blog' },
-  { href: '/questions/', label: 'Q&A' },
   { href: '/culture/', label: 'Culture' },
-  { href: '/about/', label: 'About' }
+  { href: '/questions/', label: 'FAQ' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' }
 ];
 const path = Astro.url.pathname;
 const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
@@ -19,8 +18,8 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 <nav class="nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
   <div class="nav-inner">
     <a class="nav-logo-link" href="/" aria-label="Algeria Compass — Home">
-      <img class="brand-logo brand-logo-full" src="/assets/img/logo-full.png" width="71" height="54" alt="Algeria Compass" />
-      <img class="brand-logo brand-logo-emblem" src="/assets/img/logo-emblem.png" width="70" height="40" alt="Algeria Compass" />
+      <img class="brand-mark" src="/assets/img/logo-emblem.png" width="70" height="40" alt="" />
+      <span class="brand-name">Algeria <b>Compass</b></span>
     </a>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">&#9776;</button>

@@ -38,8 +38,9 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--green-d);font-w
 .nav{background:var(--green);border-bottom:1px solid rgba(201,162,75,.22);position:sticky;top:0;z-index:300;box-shadow:0 2px 16px rgba(7,38,28,.18)}
 .nav-inner{max-width:1360px;margin:0 auto;display:flex;align-items:center;height:68px;padding:0;gap:0}
 .nav-logo-link{display:flex;align-items:center;gap:.7rem;padding:0 2rem;border-right:1px solid rgba(246,239,224,.12);height:100%;white-space:nowrap;flex-shrink:0}
-.brand-logo{display:block;width:auto;height:54px}
-.brand-logo-emblem{height:40px;display:none}
+.brand-mark{display:block;width:auto;height:40px;flex-shrink:0}
+.brand-name{font-family:'Cinzel',serif;font-weight:800;font-size:1.15rem;letter-spacing:.04em;color:#F6EFE0;white-space:nowrap}
+.brand-name b{color:var(--gold-l);font-weight:800}
 .nav-links{display:flex;flex:1;list-style:none;height:100%;gap:0;padding:0 .5rem;margin:0}
 .nav-links>li{position:relative;display:flex;align-items:center}
 .nav-links>li>a{display:flex;align-items:center;gap:.25rem;height:100%;padding:0 .85rem;font-size:.82rem;font-weight:600;color:rgba(246,239,224,.82);border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;cursor:pointer}
@@ -137,8 +138,6 @@ label{display:block;font-size:.82rem;font-weight:600;color:var(--text-m);margin-
 @media(max-width:980px){
   .nav-toggle{display:block;margin-left:auto}
   .nav-logo-link{padding:0 1rem;border-right:none}
-  .brand-logo-full{display:none}
-  .brand-logo-emblem{display:block}
   .nav-links{display:none;position:fixed;top:80px;left:0;right:0;background:var(--green-d);flex-direction:column;flex:none;padding:1rem;box-shadow:0 4px 24px rgba(7,38,28,.3);max-height:80vh;overflow-y:auto;z-index:300}
   .nav-links.mobile-open{display:flex}
   .nav-links>li{width:100%;display:block}
@@ -147,7 +146,8 @@ label{display:block;font-size:.82rem;font-weight:600;color:var(--text-m);margin-
   .nav-cta{padding:0 1rem;border-left:none;gap:.4rem}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:560px){.footer-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr}.brand-name{font-size:1rem}}
+@media(max-width:400px){.brand-name{display:none}}
 
 /* ===== Sticky contact (long pages) ===== */
 .sticky-contact{position:fixed;right:16px;bottom:16px;z-index:90;display:flex;gap:.5rem}
