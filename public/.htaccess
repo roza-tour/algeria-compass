@@ -1,5 +1,6 @@
-# ---- Algeria Compass static site (Astro) on cPanel/Apache ----
+# ---- Algeria Compass — unified site on cPanel/Apache (LiteSpeed) ----
 Options -Indexes
+DirectoryIndex index.html
 ErrorDocument 404 /404.html
 
 # Force HTTPS
@@ -18,6 +19,7 @@ ErrorDocument 404 /404.html
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"

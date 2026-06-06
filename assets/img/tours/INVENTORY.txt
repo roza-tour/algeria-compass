@@ -1,0 +1,18 @@
+ALGERIA COMPASS — tour image library (assets/img/tours/)
+Naming: <wilaya>-<n>.jpg   |   clients-<n>.jpg = curated client/trip photos (gallery)
+
+algiers-1..13        Algiers / Casbah / Bardo / Martyrs' Memorial
+tipaza-1..10         Tipaza & Cherchell (Roman coast)
+oran-1..13           Oran / Mostaganem
+tlemcen-1..13        Tlemcen (Andalusian heritage)
+djanet-1..13         Djanet / Tadrart / Sahara
+ghardaia-1..10       Ghardaïa / M'Zab valley
+bousaada-1..13       Bou Saâda
+bejaia-1..12         Béjaïa
+constantine-1..13    Constantine
+setif-1..13          Sétif
+djemila-1..10        Djémila (Roman)
+batna-timgad-1..13   Batna / Timgad (Roman)
+clients-1..24        Curated client trip photos (consent confirmed) — for gallery
+
+NOTE: no dedicated Timimoun photos yet -> tour #9 uses djanet/ghardaia (desert) until supplied.

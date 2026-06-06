@@ -1,45 +1,69 @@
 ---
+// Unified footer — rebrand dark styling, preserving every existing content link.
 const year = new Date().getFullYear();
 ---
-<footer class="site-foot">
-  <div class="wrap">
-    <div class="foot-grid">
+<footer>
+  <div class="footer-wrap footer-inner">
+    <div class="footer-grid">
       <div>
-        <h4>Algeria Compass</h4>
-        <p style="font-size:.86rem">Algeria Revealed. Local Algerian guides and authentic, private journeys across all 58 wilayas.</p>
-        <p style="font-size:.86rem;margin-top:.6rem">&#9742; +213 784 193 176<br/>&#9993; hello@algeriacompass.com</p>
+        <div class="f-brand-name">Algeria<span style="color:var(--gold)"> Compass</span></div>
+        <div class="f-brand-tifi">&#11765;&#11722;&#11712;&#11750;&#11717;&#11744;&#11746; &#11744;&#11762;&#11746;&#11787;</div>
+        <p class="f-desc">Algeria Revealed. Local Algerian guides and authentic, private journeys across all 58 wilayas.</p>
+        <p style="font-size:.74rem;color:rgba(255,255,255,.3);margin-bottom:1rem">&#128222; +213 784 193 176<br/>&#9993; hello@algeriacompass.com</p>
+        <div class="f-socials">
+          <a href="https://wa.me/213784193176" target="_blank" rel="noopener" class="fs" aria-label="WhatsApp">WA</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="fs" aria-label="Instagram">IG</a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="fs" aria-label="Facebook">FB</a>
+        </div>
       </div>
-      <div><h4>Explore</h4><ul>
-        <li><a href="/destinations/">Destinations</a></li>
-        <li><a href="/provinces/">Provinces</a></li>
-        <li><a href="/experiences/">Experiences</a></li>
-        <li><a href="/blog/">Blog</a></li>
-      </ul></div>
-      <div><h4>Knowledge</h4><ul>
-        <li><a href="/questions/">Questions &amp; Answers</a></li>
-        <li><a href="/culture/">Culture</a></li>
-        <li><a href="/history/">History</a></li>
-        <li><a href="/food/">Food</a></li>
-        <li><a href="/unesco/">UNESCO Sites</a></li>
-      </ul></div>
-      <div><h4>Plan</h4><ul>
-        <li><a href="/travel-guides/">Travel Guides</a></li>
-        <li><a href="/knowledge/">Knowledge graph</a></li>
-        <li><a href="/clusters/">Content clusters</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/contact/">Contact &amp; Inquiry</a></li>
-      </ul></div>
-      <div><h4>Editorial</h4><ul>
-        <li><a href="/editorial/">Editorial standards</a></li>
-        <li><a href="/team/">Editorial team</a></li>
-        <li><a href="/reviewers/">Review &amp; fact-checking</a></li>
-        <li><a href="/editorial/corrections-policy/">Corrections</a></li>
-        <li><a href="/editorial/ai-usage-policy/">AI usage</a></li>
-      </ul></div>
+      <div class="fcol">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/destinations/">Destinations</a></li>
+          <li><a href="/provinces/">Provinces</a></li>
+          <li><a href="/experiences/">Experiences</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/discover/">Discover Algeria</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Knowledge</h4>
+        <ul>
+          <li><a href="/questions/">Questions &amp; Answers</a></li>
+          <li><a href="/culture/">Culture</a></li>
+          <li><a href="/history/">History</a></li>
+          <li><a href="/food/">Food</a></li>
+          <li><a href="/unesco/">UNESCO Sites</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Plan</h4>
+        <ul>
+          <li><a href="/travel-guides/">Travel Guides</a></li>
+          <li><a href="/knowledge/">Knowledge graph</a></li>
+          <li><a href="/clusters/">Content clusters</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact &amp; Inquiry</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Editorial</h4>
+        <ul>
+          <li><a href="/editorial/">Editorial standards</a></li>
+          <li><a href="/team/">Editorial team</a></li>
+          <li><a href="/reviewers/">Review &amp; fact-checking</a></li>
+          <li><a href="/editorial/corrections-policy/">Corrections</a></li>
+          <li><a href="/editorial/ai-usage-policy/">AI usage</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="foot-bottom">
-      <span>&copy; {year} Algeria Compass. All rights reserved.</span>
-      <span>&#10548;&#10547;&#9961;&#10551;&#10518;&#9961; (Algeria)</span>
+    <div class="footer-bottom">
+      <p>&copy; {year} Algeria Compass. All rights reserved. (Algeria)</p>
+      <div class="fcerts">
+        <span class="fcert">&#129517; Private Guided Tours</span>
+        <span class="fcert">&#127465;&#127487; Local Algerian Experts</span>
+        <span class="fcert">&#128274; SSL Secured</span>
+      </div>
     </div>
   </div>
 </footer>

@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://algeriacompass.com',
   trailingSlash: 'always',
-  build: { format: 'directory' },
+  build: { format: 'directory', assets: 'assets' },
   output: 'static',
   compressHTML: true
 });
