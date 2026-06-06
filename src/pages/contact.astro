@@ -4,12 +4,12 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import InquiryForm from '../components/InquiryForm.astro';
 import { CONTACT } from '../config';
 ---
-<BaseLayout title="Plan a Journey to Algeria | Algeria Compass" description="Planning a trip to Algeria? Tell us your dates, interests and party size and we will help you shape a route or arrange a guided journey with trusted local operators.">
+<BaseLayout title="Plan a Journey to Algeria | Algeria Compass" description="Planning a trip to Algeria? Tell us your dates, interests and party size and we will craft your private, guided tour of Algeria.">
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Plan a journey'}]} />
   <section class="section"><div class="wrap" style="max-width:640px">
     <div class="eyebrow">Travel planning</div>
     <h1>Plan a journey to Algeria</h1>
-    <p style="color:var(--text-m);margin:.6rem 0 1.4rem">Algeria Compass is an independent guide first. If you are ready to travel, tell us a little and we can help you shape a route, or arrange a guided journey with trusted local operators. No payment at this stage.</p>
+    <p style="color:var(--text-m);margin:.6rem 0 1.4rem">Algeria Compass is a licensed Algerian tour operator. Tell us your dates, interests and party size and we will craft your private, guided tour of Algeria.</p>
     <InquiryForm />
     <p style="margin-top:1.4rem">Prefer to talk now? <a href={`https://wa.me/${CONTACT.whatsapp}`} data-evt="whatsapp_click">WhatsApp us</a> · <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> · {CONTACT.phoneDisplay}</p>
   </div></section>

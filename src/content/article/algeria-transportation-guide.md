@@ -1,7 +1,7 @@
 ---
 title: "Getting Around Algeria: The Complete Transportation Guide"
 category: "Practical Guide"
-image: "/images/setif-tram-centre.jpg"
+image: "/assets/img/setif-tram-centre.jpg"
 imageAlt: "A modern tram on a tree-lined avenue in central Sétif, Algeria"
 excerpt: "How to move around Africa's largest country: domestic flights, trains, buses, shared taxis, trams, private drivers and desert 4x4 — with routes, travel times, costs and booking advice."
 quickAnswer: "Use domestic flights to cross Algeria's long distances, especially to the Sahara (Djanet, Tamanrasset); trains and intercity buses connect the northern cities; shared taxis (louages) fill the gaps; and Algiers, Oran and Constantine have modern trams. The deep desert is travelled only by guided 4x4. Carry cash and allow generous time."

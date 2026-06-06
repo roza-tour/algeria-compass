@@ -2,7 +2,7 @@
 title: "The M'Zab Valley: The Desert Cities That Astonished Le Corbusier"
 category: "Mozabite Culture"
 region: "mzab"
-image: "/images/ghardaia-ksar-lane.jpg"
+image: "/assets/img/ghardaia-ksar-lane.jpg"
 imageAlt: "Ochre lane in the old ksar of the M Zab valley, Ghardaïa"
 excerpt: "Five fortified desert cities, an 11th-century blueprint for living, and an urban design so radical the 20th century's most famous architect kept coming back to study it."
 quickAnswer: "The M'Zab Valley is a group of five fortified oasis towns in the Algerian Sahara, founded by the Ibadi Mozabites around the 11th century and inscribed by UNESCO in 1982. It is famous for its pyramidal urban planning, which influenced modern architects including Le Corbusier."

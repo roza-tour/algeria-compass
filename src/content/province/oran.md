@@ -2,15 +2,15 @@
 name: "Oran"
 wilayaNumber: 31
 region: "andalusian"
-image: "/images/oran-bay-santa-cruz.jpg"
+image: "/assets/img/oran-bay-santa-cruz.jpg"
 imageAlt: "Aerial view of Oran bay with the Santa Cruz chapel"
 gallery:
-  - { src: "/images/oran-santa-cruz-chapel.jpg", alt: "The Santa Cruz chapel above the bay of Oran" }
-  - { src: "/images/oran-place-1er-novembre.jpg", alt: "Place du 1er Novembre with its monument and theatre, Oran" }
-  - { src: "/images/oran-hotel-de-ville.jpg", alt: "Hispano-Moorish Hotel de Ville with lion statues, Oran" }
-  - { src: "/images/oran-striped-tower.jpg", alt: "Distinctive striped neo-Moorish tower building in Oran" }
-  - { src: "/images/oran-cathedral.jpg", alt: "The former Sacre-Coeur cathedral, now a library, in Oran" }
-  - { src: "/images/oran-port-aerial.jpg", alt: "Aerial view of the port and city of Oran" }
+  - { src: "/assets/img/oran-santa-cruz-chapel.jpg", alt: "The Santa Cruz chapel above the bay of Oran" }
+  - { src: "/assets/img/oran-place-1er-novembre.jpg", alt: "Place du 1er Novembre with its monument and theatre, Oran" }
+  - { src: "/assets/img/oran-hotel-de-ville.jpg", alt: "Hispano-Moorish Hotel de Ville with lion statues, Oran" }
+  - { src: "/assets/img/oran-striped-tower.jpg", alt: "Distinctive striped neo-Moorish tower building in Oran" }
+  - { src: "/assets/img/oran-cathedral.jpg", alt: "The former Sacre-Coeur cathedral, now a library, in Oran" }
+  - { src: "/assets/img/oran-port-aerial.jpg", alt: "Aerial view of the port and city of Oran" }
 coordinates: { lat: 35.6970, lng: -0.6331 }
 quickAnswer: "Oran is Algeria's vibrant second city — a Mediterranean port on the west coast with a strong Spanish and Andalusian imprint, the birthplace of raï music, the Spanish-built Santa Cruz fort above the bay, a lively seafront, and easy access to the Andalusian heritage of Tlemcen and the western beaches."
 keyFacts:

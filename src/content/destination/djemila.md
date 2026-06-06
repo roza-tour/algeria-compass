@@ -2,7 +2,7 @@
 name: "Djémila (Cuicul)"
 province: "Sétif"
 region: "roman"
-image: "/images/ksar-mural-art.jpg"
+image: "/assets/img/ksar-mural-art.jpg"
 imageAlt: "Ancient Roman ruins evoking Djémila in north-eastern Algeria"
 coordinates: { lat: 36.3206, lng: 5.7367 }
 sameAs: ["https://en.wikipedia.org/wiki/Djémila"]

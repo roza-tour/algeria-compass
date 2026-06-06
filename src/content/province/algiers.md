@@ -2,15 +2,15 @@
 name: "Algiers"
 wilayaNumber: 16
 region: "coast"
-image: "/images/algiers-white-city-aerial.jpg"
+image: "/assets/img/algiers-white-city-aerial.jpg"
 imageAlt: "Aerial view of the white city of Algiers above its bay"
 gallery:
-  - { src: "/images/algiers-great-mosque.jpg", alt: "The Great Mosque of Algiers at dusk over the bay" }
-  - { src: "/images/algiers-martyrs-memorial.jpg", alt: "Maqam Echahid, the Martyrs Memorial, at sunset in Algiers" }
-  - { src: "/images/algiers-emir-fountain.jpg", alt: "Equestrian statue and fountain in a square in Algiers" }
-  - { src: "/images/algiers-boulevards-aerial.jpg", alt: "Aerial view of the French-colonial boulevards of Algiers" }
-  - { src: "/images/algiers-colonial-corner.jpg", alt: "Grand colonial-era building in central Algiers" }
-  - { src: "/images/algiers-martyrs-trees.jpg", alt: "The Martyrs Memorial framed by trees, Algiers" }
+  - { src: "/assets/img/algiers-great-mosque.jpg", alt: "The Great Mosque of Algiers at dusk over the bay" }
+  - { src: "/assets/img/algiers-martyrs-memorial.jpg", alt: "Maqam Echahid, the Martyrs Memorial, at sunset in Algiers" }
+  - { src: "/assets/img/algiers-emir-fountain.jpg", alt: "Equestrian statue and fountain in a square in Algiers" }
+  - { src: "/assets/img/algiers-boulevards-aerial.jpg", alt: "Aerial view of the French-colonial boulevards of Algiers" }
+  - { src: "/assets/img/algiers-colonial-corner.jpg", alt: "Grand colonial-era building in central Algiers" }
+  - { src: "/assets/img/algiers-martyrs-trees.jpg", alt: "The Martyrs Memorial framed by trees, Algiers" }
 coordinates: { lat: 36.7538, lng: 3.0588 }
 quickAnswer: "Algiers (El Djazaïr) is Algeria's capital and largest city — a Mediterranean port famous for its UNESCO-listed Ottoman Casbah, white tiered waterfront, French-colonial boulevards, the vast new Great Mosque of Algiers, and grand monuments like Notre-Dame d'Afrique and the Maqam Echahid. It's the country's main gateway and a city best explored on foot, with a guide for the Casbah."
 keyFacts:

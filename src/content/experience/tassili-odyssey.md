@@ -5,14 +5,14 @@ region: "sahara"
 durationDays: 8
 priceFrom: 1290
 currency: "USD"
-image: "/images/sahara-camp-sunset.jpg"
+image: "/assets/img/sahara-camp-sunset.jpg"
 imageAlt: "Desert camp at sunset among rock formations, Algerian Sahara"
 stops:
-  - { name: "Djanet oasis", image: "/images/djanet-guelta-palms.jpg", alt: "A guelta, a desert pool, fringed with palms near Djanet", note: "your gateway and first night" }
-  - { name: "Tassili n'Ajjer rock art", image: "/images/tassili-rock-art.jpg", alt: "Prehistoric rock engravings in the Tassili n Ajjer, Algeria", note: "UNESCO prehistoric galleries" }
-  - { name: "Tadrart Rouge dunes", image: "/images/tassili-dune-rocks.jpg", alt: "Sand dune and sandstone formations in the Tassili near Djanet", note: "red dunes by 4x4" }
-  - { name: "Tadrart rock arches", image: "/images/sahara-rock-arch.jpg", alt: "Natural sandstone arch in the Tadrart, Algerian Sahara", note: "natural sandstone arches" }
-  - { name: "Desert camp", image: "/images/sahara-tea-campfire.jpg", alt: "Tea brewing on a campfire at dusk in the Algerian Sahara", note: "nights under dark skies" }
+  - { name: "Djanet oasis", image: "/assets/img/djanet-guelta-palms.jpg", alt: "A guelta, a desert pool, fringed with palms near Djanet", note: "your gateway and first night" }
+  - { name: "Tassili n'Ajjer rock art", image: "/assets/img/tassili-rock-art.jpg", alt: "Prehistoric rock engravings in the Tassili n Ajjer, Algeria", note: "UNESCO prehistoric galleries" }
+  - { name: "Tadrart Rouge dunes", image: "/assets/img/tassili-dune-rocks.jpg", alt: "Sand dune and sandstone formations in the Tassili near Djanet", note: "red dunes by 4x4" }
+  - { name: "Tadrart rock arches", image: "/assets/img/sahara-rock-arch.jpg", alt: "Natural sandstone arch in the Tadrart, Algerian Sahara", note: "natural sandstone arches" }
+  - { name: "Desert camp", image: "/assets/img/sahara-tea-campfire.jpg", alt: "Tea brewing on a campfire at dusk in the Algerian Sahara", note: "nights under dark skies" }
 highlights:
   - "Tassili n'Ajjer UNESCO rock art with Tuareg guides"
   - "Red dunes and arches of the Tadrart Rouge by 4x4"

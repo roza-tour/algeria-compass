@@ -1,7 +1,7 @@
 ---
 title: "Algerian Food: A Traveller's Guide to Couscous, Tagines and Mint Tea"
 category: "Food"
-image: "/images/traditional-dining-tea.jpg"
+image: "/assets/img/traditional-dining-tea.jpg"
 imageAlt: "A traditional Algerian shared meal with tea"
 excerpt: "Algerian cooking sits at a crossroads of Amazigh, Arab, Ottoman, Andalusian and French influences. Here are the dishes to seek out."
 quickAnswer: "Algerian cuisine is a Maghrebi tradition built on couscous (the national dish, eaten on Fridays), slow tagines, fresh bread and sweet mint tea. It blends Amazigh, Arab, Ottoman, Andalusian and French influences."

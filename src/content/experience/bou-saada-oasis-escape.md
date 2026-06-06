@@ -4,16 +4,16 @@ tagline: "Two days in the City of Happiness — a palm oasis on the edge of the 
 region: "sahara"
 durationDays: 2
 currency: "USD"
-image: "/images/bou-saada-town-aerial.jpg"
+image: "/assets/img/bou-saada-town-aerial.jpg"
 imageAlt: "Aerial view of the oasis town of Bou Saada and its domed zawiya, Algeria"
 stops:
-  - { name: "The palm oasis", image: "/images/bou-saada-oasis.jpg", alt: "Palm oasis and pool at Bou Saada, Algeria", note: "the heart of the town" }
-  - { name: "The old ksar & town", image: "/images/bou-saada-town-park.jpg", alt: "The town of Bou Saada with a park and pavilion, Algeria", note: "ochre lanes and squares" }
-  - { name: "The zawiya", image: "/images/bou-saada-zawiya.jpg", alt: "Ornate mosque and zawiya in Bou Saada, Algeria", note: "Bou Saada's religious heritage" }
-  - { name: "Moulin Ferrero & the oued", image: "/images/bou-saada-gorge.jpg", alt: "Rocky gorge and oued near Bou Saada, Algeria", note: "the gorge and old mill" }
-  - { name: "Sunset over the steppe", image: "/images/bou-saada-oued-sunset.jpg", alt: "Sandstone oued with water pools at sunset, Bou Saada", note: "golden light at the desert's edge" }
+  - { name: "The palm oasis", image: "/assets/img/bou-saada-oasis.jpg", alt: "Palm oasis and pool at Bou Saada, Algeria", note: "the heart of the town" }
+  - { name: "The old ksar & town", image: "/assets/img/bou-saada-town-park.jpg", alt: "The town of Bou Saada with a park and pavilion, Algeria", note: "ochre lanes and squares" }
+  - { name: "The zawiya", image: "/assets/img/bou-saada-zawiya.jpg", alt: "Ornate mosque and zawiya in Bou Saada, Algeria", note: "Bou Saada's religious heritage" }
+  - { name: "Moulin Ferrero & the oued", image: "/assets/img/bou-saada-gorge.jpg", alt: "Rocky gorge and oued near Bou Saada, Algeria", note: "the gorge and old mill" }
+  - { name: "Sunset over the steppe", image: "/assets/img/bou-saada-oued-sunset.jpg", alt: "Sandstone oued with water pools at sunset, Bou Saada", note: "golden light at the desert's edge" }
 gallery:
-  - { src: "/images/bou-saada-palm-grove.jpg", alt: "Palm grove and village at Bou Saada, Algeria" }
+  - { src: "/assets/img/bou-saada-palm-grove.jpg", alt: "Palm grove and village at Bou Saada, Algeria" }
 highlights:
   - "The palm oasis and the Moulin Ferrero gorge"
   - "The old ksar and the town's ochre lanes"

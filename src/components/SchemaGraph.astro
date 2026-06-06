@@ -4,14 +4,14 @@ export interface Props { nodes?: any[]; }
 const { nodes = [] } = Astro.props;
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const org = {
-  "@type": "Organization",
+  "@type": "TravelAgency",
   "@id": site + "/#organization",
   "name": "Algeria Compass",
-  "description": "Algeria Compass is an independent travel-intelligence platform dedicated entirely to Algeria — researched guides, deep cultural and historical context, and a connected knowledge graph of the country.",
-  "slogan": "The definitive guide to discovering Algeria.",
+  "description": "Algeria Compass is a licensed Algerian tour operator specialising in luxury private, guided tours across Algeria — Sahara safaris, the UNESCO Casbah of Algiers, Roman cities, the M'Zab Valley and the Kabyle coast.",
+  "slogan": "Luxury private guided tours across Algeria.",
   "url": site + "/",
-  "logo": site + "/images/brand-algeria.jpg",
-  "image": site + "/images/brand-algeria.jpg",
+  "logo": site + "/assets/img/logo-full.png",
+  "image": site + "/assets/img/og-image.png",
   "email": "hello@algeriacompass.com",
   "areaServed": { "@id": site + "/#algeria" },
   "knowsAbout": ["Algeria travel","Sahara desert","UNESCO World Heritage Algeria","Roman Algeria","Amazigh culture","M'Zab Valley"],
@@ -33,8 +33,8 @@ const website = {
   "@id": site + "/#website",
   "url": site + "/",
   "name": "Algeria Compass",
-  "alternateName": "The definitive guide to discovering Algeria",
-  "description": "An independent travel-intelligence platform dedicated entirely to Algeria.",
+  "alternateName": "Luxury private guided tours across Algeria",
+  "description": "Luxury private guided tours across Algeria.",
   "publisher": { "@id": site + "/#organization" },
   "inLanguage": "en"
 };

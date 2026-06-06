@@ -1,7 +1,7 @@
 ---
 title: "Algerian Handicrafts: Pottery, Brass and the Desert Craft Markets"
 category: "Travel Guides"
-image: "/images/ghardaia-mzab-carpets.jpg"
+image: "/assets/img/ghardaia-mzab-carpets.jpg"
 imageAlt: "Colourful carpets and textiles in the Ghardaïa market, M Zab"
 excerpt: "From turquoise M'Zab pottery to engraved brass and woven baskets, Algeria's craft traditions are alive and affordable."
 quickAnswer: "Algerian handicrafts include hand-painted pottery (M'Zab and Kabylie), engraved copper and brass, leatherwork, woven palm baskets, silver Amazigh jewellery and woollen carpets. The best places to buy are regional markets and cooperatives."

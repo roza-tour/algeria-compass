@@ -2,10 +2,10 @@
 name: "The Casbah of Algiers"
 province: "Algiers"
 region: "coast"
-image: "/images/casbah-old-city-mosque.jpg"
+image: "/assets/img/casbah-old-city-mosque.jpg"
 imageAlt: "White domed mosque and Algerian flag in the old city of Algiers"
 gallery:
-  - { src: "/images/casbah-old-street.jpg", alt: "Street in the old lower city near the Casbah of Algiers" }
+  - { src: "/assets/img/casbah-old-street.jpg", alt: "Street in the old lower city near the Casbah of Algiers" }
 coordinates: { lat: 36.7833, lng: 3.0603 }
 sameAs: ["https://en.wikipedia.org/wiki/Casbah_of_Algiers"]
 quickAnswer: "The Casbah of Algiers is the city's historic Ottoman citadel and old town — a steep maze of whitewashed houses, palaces, mosques and covered lanes overlooking the bay. A UNESCO World Heritage Site since 1992, it is best explored on foot with a local guide."

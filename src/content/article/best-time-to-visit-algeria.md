@@ -1,7 +1,7 @@
 ---
 title: "The Best Time to Visit Algeria: A Month-by-Month Guide"
 category: "Travel Planning"
-image: "/images/sahara-plateau-sunset.jpg"
+image: "/assets/img/sahara-plateau-sunset.jpg"
 imageAlt: "Low sun over a Saharan plateau and dunes in southern Algeria"
 excerpt: "Algeria has three climates at once. This month-by-month and region-by-region guide shows exactly when to go for the coast, the cities, the mountains and the Sahara — and which months to avoid."
 quickAnswer: "Spring (March–May) and autumn (September–November) are the best all-round times to visit Algeria. The Sahara is a winter destination (November–February); the Mediterranean coast is best for swimming May–October; and the deep desert should be avoided in summer, when heat is dangerous."

@@ -3,7 +3,7 @@ name: "Algeria Compass Editorial Review"
 role: "Fact verification & editorial review"
 isOrganization: true
 shortBio: "The editorial review function at Algeria Compass verifies factual claims and reviews guides before and after publication. Review is performed independently of the writing stage, against documented fact-checking standards."
-image: "/images/brand-algeria.jpg"
+image: "/assets/img/brand-algeria.jpg"
 reviewExpertise: ["fact verification","source evaluation","heritage and historical accuracy","practical-information accuracy (transport, visas, geography)"]
 reviewAreas: ["province guides","destination pages","experiences","blog articles","questions and answers"]
 factCheckDomains: ["UNESCO World Heritage status and dates","historical claims","geographic facts and distances","cultural and religious sensitivity","practical travel logistics"]

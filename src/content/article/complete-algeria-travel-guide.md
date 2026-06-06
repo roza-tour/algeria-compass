@@ -1,7 +1,7 @@
 ---
 title: "The Complete Algeria Travel Guide (2026)"
 category: "Travel Guide"
-image: "/images/sahara-dunes-tadrart.jpg"
+image: "/assets/img/sahara-dunes-tadrart.jpg"
 imageAlt: "Red sandstone formations and dunes of the Tadrart in Algeria's deep Sahara"
 excerpt: "Africa's largest country, from the Mediterranean coast to the deep Sahara: when to go, how to get in and around, what it costs, and how to plan a first trip with confidence."
 quickAnswer: "Algeria is Africa's largest country and one of its least-visited. Most travellers need a visa, the north is the easiest region to start in, and spring (March–May) and autumn (September–November) are the best all-round seasons; the Sahara is a winter destination. Allow 10–14 days to combine the Roman north, the coast and one desert region."

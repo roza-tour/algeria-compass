@@ -42,7 +42,7 @@ export function toCard(e: AnyEntry, base: string) {
   return {
     href: `${base}${e.slug}/`,
     title: d.title ?? d.name ?? d.question,
-    image: d.image ?? '/images/brand-algeria.jpg',
+    image: d.image ?? '/assets/img/brand-algeria.jpg',
     alt: d.imageAlt ?? (d.title ?? d.name ?? 'Algeria'),
     tag: isArticle ? d.category : (d.durationDays ? `${d.durationDays} days` : d.region),
     text: isArticle ? d.excerpt : d.quickAnswer,

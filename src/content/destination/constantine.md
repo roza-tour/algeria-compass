@@ -2,15 +2,15 @@
 name: "Constantine"
 province: "Constantine"
 region: "highlands"
-image: "/images/constantine-sidi-mcid-bridge.jpg"
+image: "/assets/img/constantine-sidi-mcid-bridge.jpg"
 imageAlt: "The Sidi M Cid suspension bridge over the Rhumel gorge, Constantine"
 gallery:
-  - { src: "/images/constantine-footbridge.jpg", alt: "Pedestrian footbridge across the gorge in Constantine" }
-  - { src: "/images/constantine-monument-morts.jpg", alt: "The Monument aux Morts war memorial, Constantine" }
-  - { src: "/images/constantine-emir-mosque.jpg", alt: "The Emir Abdelkader Mosque with a passing tram, Constantine" }
-  - { src: "/images/constantine-ahmed-bey-courtyard.jpg", alt: "Ornate courtyard of the Ahmed Bey Palace, Constantine" }
-  - { src: "/images/constantine-gorge.jpg", alt: "The Rhumel gorge and cliffs of Constantine" }
-  - { src: "/images/constantine-ahmed-bey-gallery.jpg", alt: "Arcaded gallery of the Ahmed Bey Palace, Constantine" }
+  - { src: "/assets/img/constantine-footbridge.jpg", alt: "Pedestrian footbridge across the gorge in Constantine" }
+  - { src: "/assets/img/constantine-monument-morts.jpg", alt: "The Monument aux Morts war memorial, Constantine" }
+  - { src: "/assets/img/constantine-emir-mosque.jpg", alt: "The Emir Abdelkader Mosque with a passing tram, Constantine" }
+  - { src: "/assets/img/constantine-ahmed-bey-courtyard.jpg", alt: "Ornate courtyard of the Ahmed Bey Palace, Constantine" }
+  - { src: "/assets/img/constantine-gorge.jpg", alt: "The Rhumel gorge and cliffs of Constantine" }
+  - { src: "/assets/img/constantine-ahmed-bey-gallery.jpg", alt: "Arcaded gallery of the Ahmed Bey Palace, Constantine" }
 quickAnswer: "Constantine is the 'City of Bridges', a dramatic highland city in north-east Algeria built across a deep gorge above the Rhumel River and spanned by spectacular bridges. It is one of the oldest continuously inhabited cities on earth."
 keyFacts:
   - { label: "Region", value: "High Plateaus / north-east" }

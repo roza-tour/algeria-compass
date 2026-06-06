@@ -1,7 +1,7 @@
 ---
 title: "Is Algeria Safe in 2026? An Evidence-Based Guide"
 category: "Safety"
-image: "/images/algiers-boulevards-aerial.jpg"
+image: "/assets/img/algiers-boulevards-aerial.jpg"
 imageAlt: "Aerial view of the busy boulevards and squares of central Algiers"
 excerpt: "A calm, evidence-based look at safety in Algeria: crime, road and desert risks, women and family travel, regional differences, scams, emergencies and what official advisories actually say."
 quickAnswer: "For ordinary travel, the northern cities, the Roman east, the western heritage towns and the organised southern desert are generally safe, with petty crime the main concern. Governments maintain warnings for some border zones and remote desert areas, and the far south is travelled with licensed guides and permits. Check your government's current advisory and plan routes accordingly."

@@ -1,7 +1,7 @@
 ---
 title: "Algeria Visa Guide (2026): Types, Documents, Process"
 category: "Practical Guide"
-image: "/images/algiers-white-city-aerial.jpg"
+image: "/assets/img/algiers-white-city-aerial.jpg"
 imageAlt: "Aerial view of the white tiered buildings of Algiers above the Mediterranean"
 excerpt: "Who needs a visa for Algeria, which type to apply for, the documents and fees involved, processing times, the special case of the far-south desert, and how to avoid the common reasons for refusal."
 quickAnswer: "Most travellers need a visa for Algeria, applied for in advance at the Algerian consulate that serves their country of residence. The usual tourist application needs a passport, form, photos, proof of accommodation or an invitation/voucher from a licensed Algerian agency, a return ticket and proof of funds. Some organised desert tours to the far south use a simplified entry arranged by the agency. Rules change — always confirm with the consulate."

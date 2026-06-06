@@ -2,7 +2,7 @@
 name: "Béjaïa"
 wilayaNumber: 6
 region: "kabylie"
-image: "/images/oued-canyon-palms.jpg"
+image: "/assets/img/oued-canyon-palms.jpg"
 imageAlt: "Green mountains meeting the Mediterranean near Béjaïa in Kabylie, Algeria"
 coordinates: { lat: 36.7509, lng: 5.0567 }
 quickAnswer: "Béjaïa is a coastal province in Kabylie where the Djurdjura mountains plunge straight into the Mediterranean. It's known for Gouraya National Park, the clifftop Cap Carbon lighthouse, the scenic Corniche beaches, deep Kabyle (Amazigh) culture, the dramatic Kherrata gorges, and a layered history — including its medieval role in transmitting Arabic numerals to Europe and the pivotal Soummam Congress of 1956."

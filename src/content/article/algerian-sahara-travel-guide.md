@@ -2,7 +2,7 @@
 title: "Algerian Sahara Travel Guide: Djanet, Timimoun and the Tadrart"
 category: "Sahara Travel"
 region: "sahara"
-image: "/images/sahara-plateau-sunset.jpg"
+image: "/assets/img/sahara-plateau-sunset.jpg"
 imageAlt: "Sunset over the Tassili plateau, Algerian Sahara"
 excerpt: "Algeria holds the largest slice of the Sahara of any country on earth — and almost no crowds. Here is how to actually experience it."
 quickAnswer: "The Algerian Sahara is the largest desert area of any country, covering over 80% of Algeria. Highlights include the Tassili n'Ajjer plateau (UNESCO, ~15,000 prehistoric rock paintings), the red Tadrart dunes near Djanet, and the red oasis of Timimoun."

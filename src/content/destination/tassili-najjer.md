@@ -2,13 +2,13 @@
 name: "Tassili n'Ajjer"
 province: "Djanet"
 region: "sahara"
-image: "/images/tassili-dune-rocks.jpg"
+image: "/assets/img/tassili-dune-rocks.jpg"
 imageAlt: "Sand dune and sandstone formations in the Tassili near Djanet"
 gallery:
-  - { src: "/images/tassili-rock-art.jpg", alt: "Prehistoric rock engravings in the Tassili n Ajjer, Algeria" }
-  - { src: "/images/tassili-rock-pinnacles.jpg", alt: "Eroded sandstone pinnacles in the Tassili, Algerian Sahara" }
-  - { src: "/images/sahara-tea-campfire.jpg", alt: "Tea brewing on a campfire at dusk in the Algerian Sahara" }
-  - { src: "/images/sahara-rock-arch.jpg", alt: "Natural sandstone arch in the Tadrart, Algerian Sahara" }
+  - { src: "/assets/img/tassili-rock-art.jpg", alt: "Prehistoric rock engravings in the Tassili n Ajjer, Algeria" }
+  - { src: "/assets/img/tassili-rock-pinnacles.jpg", alt: "Eroded sandstone pinnacles in the Tassili, Algerian Sahara" }
+  - { src: "/assets/img/sahara-tea-campfire.jpg", alt: "Tea brewing on a campfire at dusk in the Algerian Sahara" }
+  - { src: "/assets/img/sahara-rock-arch.jpg", alt: "Natural sandstone arch in the Tadrart, Algerian Sahara" }
 coordinates: { lat: 24.5, lng: 9.5 }
 sameAs: ["https://en.wikipedia.org/wiki/Tassili_n%27Ajjer"]
 quickAnswer: "Tassili n'Ajjer is a vast sandstone plateau in south-east Algeria, a UNESCO World Heritage Site holding around 15,000 prehistoric engravings and paintings that record a once-green Sahara. Reached from Djanet, it is one of the world's greatest open-air galleries of rock art."

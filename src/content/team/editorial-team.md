@@ -4,7 +4,7 @@ role: "Research & writing"
 kind: "team"
 isOrganization: true
 shortBio: "The Algeria Compass editorial team researches, writes and maintains every guide on this site. We are an Algeria-focused travel-writing operation working in English, French and Arabic, with on-the-ground knowledge of the country's regions and a commitment to accuracy over marketing."
-image: "/images/brand-algeria.jpg"
+image: "/assets/img/brand-algeria.jpg"
 expertise: ["Algeria travel","UNESCO World Heritage in Algeria","Roman North Africa","Saharan travel","Amazigh (Berber) culture","Andalusian heritage","practical travel logistics"]
 regions: ["Sahara","Kabylie","Roman north-east","Andalusian west","M'Zab","Mediterranean coast","High Plateaus"]
 researchFocus: "Accurate, practical, well-sourced English-language guidance on travelling in Algeria — its heritage sites, regions, culture, food and logistics."

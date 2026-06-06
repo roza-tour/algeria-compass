@@ -2,11 +2,11 @@
 name: "Djanet"
 province: "Djanet"
 region: "sahara"
-image: "/images/djanet-guelta-palms.jpg"
+image: "/assets/img/djanet-guelta-palms.jpg"
 imageAlt: "A guelta, a desert pool, fringed with palms near Djanet"
 gallery:
-  - { src: "/images/djanet-oasis-pool.jpg", alt: "Rocky peak above a green desert pool near Djanet" }
-  - { src: "/images/djanet-canyon-green.jpg", alt: "Green canyon with water in the desert near Djanet" }
+  - { src: "/assets/img/djanet-oasis-pool.jpg", alt: "Rocky peak above a green desert pool near Djanet" }
+  - { src: "/assets/img/djanet-canyon-green.jpg", alt: "Green canyon with water in the desert near Djanet" }
 quickAnswer: "Djanet is an oasis town in south-east Algeria, the gateway to the Tassili n'Ajjer plateau (UNESCO) and the red dunes of the Tadrart Rouge — Algeria's premier Sahara destination."
 keyFacts:
   - { label: "Region", value: "Deep Sahara (south-east)" }

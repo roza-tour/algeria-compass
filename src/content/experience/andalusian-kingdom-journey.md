@@ -5,14 +5,14 @@ region: "andalusian"
 durationDays: 5
 priceFrom: 720
 currency: "USD"
-image: "/images/tlemcen-andalusian-gallery.jpg"
+image: "/assets/img/tlemcen-andalusian-gallery.jpg"
 imageAlt: "Ornate Andalusian arcaded gallery, Tlemcen"
 stops:
-  - { name: "Oran — Santa Cruz", image: "/images/oran-santa-cruz-chapel.jpg", alt: "The Santa Cruz chapel above the bay of Oran", note: "the bay and the Spanish fort" }
-  - { name: "Oran — Place du 1er Novembre", image: "/images/oran-place-1er-novembre.jpg", alt: "Place du 1er Novembre with its monument and theatre, Oran", note: "the lively western port" }
-  - { name: "Tlemcen — El Mechouar", image: "/images/tlemcen-mechouar-pool.jpg", alt: "Reflecting pool and Andalusian pavilion at El Mechouar, Tlemcen", note: "the royal Andalusian palace" }
-  - { name: "Tlemcen — Mansourah", image: "/images/tlemcen-minaret.jpg", alt: "Andalusian minaret framed by palms, Tlemcen", note: "the great minaret and ruins" }
-  - { name: "Tlemcen — Sidi Boumediene", image: "/images/tlemcen-andalusian-arches.jpg", alt: "Hispano-Moorish arches and garden, Tlemcen", note: "Hispano-Moorish art" }
+  - { name: "Oran — Santa Cruz", image: "/assets/img/oran-santa-cruz-chapel.jpg", alt: "The Santa Cruz chapel above the bay of Oran", note: "the bay and the Spanish fort" }
+  - { name: "Oran — Place du 1er Novembre", image: "/assets/img/oran-place-1er-novembre.jpg", alt: "Place du 1er Novembre with its monument and theatre, Oran", note: "the lively western port" }
+  - { name: "Tlemcen — El Mechouar", image: "/assets/img/tlemcen-mechouar-pool.jpg", alt: "Reflecting pool and Andalusian pavilion at El Mechouar, Tlemcen", note: "the royal Andalusian palace" }
+  - { name: "Tlemcen — Mansourah", image: "/assets/img/tlemcen-minaret.jpg", alt: "Andalusian minaret framed by palms, Tlemcen", note: "the great minaret and ruins" }
+  - { name: "Tlemcen — Sidi Boumediene", image: "/assets/img/tlemcen-andalusian-arches.jpg", alt: "Hispano-Moorish arches and garden, Tlemcen", note: "Hispano-Moorish art" }
 highlights:
   - "The Great Mosque of Tlemcen and Mansourah"
   - "Sidi Boumediene's Hispano-Moorish art"

@@ -2,14 +2,14 @@
 name: "Sétif"
 wilayaNumber: 19
 region: "roman"
-image: "/images/setif-tram-centre.jpg"
+image: "/assets/img/setif-tram-centre.jpg"
 imageAlt: "Modern tram in central Sétif, Algeria"
 gallery:
-  - { src: "/images/setif-ain-el-fouara.jpg", alt: "The Ain El Fouara fountain, the emblem of Sétif, Algeria" }
-  - { src: "/images/setif-parc-lake.jpg", alt: "Lake at the leisure park in Sétif, Algeria" }
-  - { src: "/images/setif-golden-flower.jpg", alt: "Golden flower sculpture and the Sétif city sign in a park" }
-  - { src: "/images/setif-lake-modern.jpg", alt: "Park lake and modern architecture in Sétif, Algeria" }
-  - { src: "/images/setif-winter-street.jpg", alt: "Snow-covered street in winter, Sétif, Algeria" }
+  - { src: "/assets/img/setif-ain-el-fouara.jpg", alt: "The Ain El Fouara fountain, the emblem of Sétif, Algeria" }
+  - { src: "/assets/img/setif-parc-lake.jpg", alt: "Lake at the leisure park in Sétif, Algeria" }
+  - { src: "/assets/img/setif-golden-flower.jpg", alt: "Golden flower sculpture and the Sétif city sign in a park" }
+  - { src: "/assets/img/setif-lake-modern.jpg", alt: "Park lake and modern architecture in Sétif, Algeria" }
+  - { src: "/assets/img/setif-winter-street.jpg", alt: "Snow-covered street in winter, Sétif, Algeria" }
 coordinates: { lat: 36.1898, lng: 5.4108 }
 quickAnswer: "Sétif is a highland province in north-eastern Algeria, best known for Djémila — one of the world's best-preserved Roman cities and a UNESCO World Heritage Site since 1982. It sits at around 1,100 m on the High Plateaus, has a cool four-season climate, the cedar forests of Babor, the landmark Ain El Fouara fountain, and a defining place in Algeria's road to independence."
 keyFacts:

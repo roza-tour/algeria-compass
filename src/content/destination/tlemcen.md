@@ -2,15 +2,15 @@
 name: "Tlemcen"
 province: "Tlemcen"
 region: "andalusian"
-image: "/images/tlemcen-mechouar-pool.jpg"
+image: "/assets/img/tlemcen-mechouar-pool.jpg"
 imageAlt: "Reflecting pool and Andalusian pavilion at El Mechouar, Tlemcen"
 gallery:
-  - { src: "/images/tlemcen-minaret.jpg", alt: "Andalusian minaret framed by palms, Tlemcen" }
-  - { src: "/images/tlemcen-andalusian-arches.jpg", alt: "Hispano-Moorish arches and garden, Tlemcen" }
-  - { src: "/images/tlemcen-el-ourit-falls.jpg", alt: "The El Ourit waterfalls near Tlemcen" }
-  - { src: "/images/tlemcen-tiled-courtyard.jpg", alt: "Tiled Andalusian palace courtyard, Tlemcen" }
-  - { src: "/images/tlemcen-lalla-setti.jpg", alt: "Monument on the Lalla Setti plateau above Tlemcen" }
-  - { src: "/images/tlemcen-el-ourit-gorge.jpg", alt: "The El Ourit gorge and falls near Tlemcen" }
+  - { src: "/assets/img/tlemcen-minaret.jpg", alt: "Andalusian minaret framed by palms, Tlemcen" }
+  - { src: "/assets/img/tlemcen-andalusian-arches.jpg", alt: "Hispano-Moorish arches and garden, Tlemcen" }
+  - { src: "/assets/img/tlemcen-el-ourit-falls.jpg", alt: "The El Ourit waterfalls near Tlemcen" }
+  - { src: "/assets/img/tlemcen-tiled-courtyard.jpg", alt: "Tiled Andalusian palace courtyard, Tlemcen" }
+  - { src: "/assets/img/tlemcen-lalla-setti.jpg", alt: "Monument on the Lalla Setti plateau above Tlemcen" }
+  - { src: "/assets/img/tlemcen-el-ourit-gorge.jpg", alt: "The El Ourit gorge and falls near Tlemcen" }
 quickAnswer: "Tlemcen is a historic city in north-west Algeria, the country's great centre of Andalusian and Islamic heritage — famous for the Great Mosque, the ruins of Mansourah, and refined Hispano-Moorish art and music."
 keyFacts:
   - { label: "Region", value: "North-west / Andalusian" }

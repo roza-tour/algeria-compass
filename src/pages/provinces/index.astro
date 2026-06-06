@@ -8,14 +8,14 @@ import CtaSection from '../../components/CtaSection.astro';
 const items = await getCollection('province');
 ---
 <BaseLayout title="Algeria Provinces" description="Authoritative travel guides to the wilayas of Algeria — history, culture, food, attractions and how to visit.">
-  <Hero title="Algeria Provinces" eyebrow="Algeria" text="Authoritative travel guides to the wilayas of Algeria — history, culture, food, attractions and how to visit." image="/images/brand-algeria.jpg" alt="Algeria" />
+  <Hero title="Algeria Provinces" eyebrow="Algeria" text="Authoritative travel guides to the wilayas of Algeria — history, culture, food, attractions and how to visit." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algeria Provinces'}]} />
   <section class="section"><div class="wrap">
     <div class="grid">
       {items.map(it => (
         <Card href={`/provinces/${it.slug}/`}
           title={it.data.name}
-          image={it.data.image ?? '/images/brand-algeria.jpg'}
+          image={it.data.image ?? '/assets/img/brand-algeria.jpg'}
           alt={it.data.imageAlt ?? it.data.name}
           tag={it.data.region}
           text={it.data.quickAnswer} />

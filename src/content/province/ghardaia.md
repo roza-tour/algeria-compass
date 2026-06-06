@@ -2,14 +2,14 @@
 name: "Ghardaïa"
 wilayaNumber: 47
 region: "mzab"
-image: "/images/ghardaia-mzab-panorama.jpg"
+image: "/assets/img/ghardaia-mzab-panorama.jpg"
 imageAlt: "Panorama of a tiered M Zab town and its arcaded square, Ghardaïa"
 gallery:
-  - { src: "/images/ghardaia-mzab-minaret.jpg", alt: "Pyramidal Mozabite minaret above the M Zab valley, Ghardaïa" }
-  - { src: "/images/ghardaia-tiered-town.jpg", alt: "Tiered white-and-ochre houses of a M Zab town, Ghardaïa" }
-  - { src: "/images/ghardaia-ksar-alley.jpg", alt: "Stepped alley in the old ksar of the M Zab, Ghardaïa" }
-  - { src: "/images/ghardaia-mzab-mosque.jpg", alt: "Fortified Mozabite mosque in the M Zab valley, Ghardaïa" }
-  - { src: "/images/ghardaia-market-square.jpg", alt: "The arcaded market square of Ghardaïa with hanging carpets" }
+  - { src: "/assets/img/ghardaia-mzab-minaret.jpg", alt: "Pyramidal Mozabite minaret above the M Zab valley, Ghardaïa" }
+  - { src: "/assets/img/ghardaia-tiered-town.jpg", alt: "Tiered white-and-ochre houses of a M Zab town, Ghardaïa" }
+  - { src: "/assets/img/ghardaia-ksar-alley.jpg", alt: "Stepped alley in the old ksar of the M Zab, Ghardaïa" }
+  - { src: "/assets/img/ghardaia-mzab-mosque.jpg", alt: "Fortified Mozabite mosque in the M Zab valley, Ghardaïa" }
+  - { src: "/assets/img/ghardaia-market-square.jpg", alt: "The arcaded market square of Ghardaïa with hanging carpets" }
 coordinates: { lat: 32.4910, lng: 3.6736 }
 quickAnswer: "Ghardaïa is the gateway to the M'Zab Valley — a group of five fortified oasis towns built by the Ibadi Mozabites from around the 11th century and inscribed by UNESCO in 1982. Its tiered, pyramidal towns, palm groves and arcaded markets are among Algeria's most distinctive sights, and the M'Zab's radical, egalitarian urban design famously influenced 20th-century architects including Le Corbusier."
 keyFacts:
