@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import data from '../../data/tours.json';
+import { TOUR_VISUALS } from '../../data/tour-visuals';
 
 const tours = (data as any).tours || (data as any);
 
@@ -32,8 +33,13 @@ try {
 
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const url = `${site}/tours/${tour.id}/`;
-const hero = `/assets/img/tours/${gallery[0] || tour.image_slugs[0] + '-1.jpg'}`;
 const region = REGION[tour.theme] ?? '';
+// Per-tour visual identity: distinct correct hero + accent token (see tour-visuals.ts)
+const visual = TOUR_VISUALS[tour.id] || { hero: `${tour.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
+const needsImage = !!visual.needsImage || !visual.hero;
+const hero = needsImage ? '' : `/assets/img/tours/${visual.hero}`;
+const accent = visual.accent;
+const ogImage = hero || '/assets/img/og-image.png';
 const priceLabel = `${tour.price_from ? 'From ' : ''}€${tour.price_eur} / ${tour.per}`;
 const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to book the "${tour.title}".`);
 const days = (tour.itinerary || []).length;
@@ -44,7 +50,7 @@ const schema = [
     name: tour.title,
     description: tour.summary,
     url,
-    image: site + hero,
+    image: site + ogImage,
     touristType: tour.theme,
     ...(days ? { duration: `P${days}D` } : {}),
     provider: { '@id': site + '/#organization' },
@@ -76,13 +82,14 @@ const schema = [
 <BaseLayout
   title={`${tour.title} | Algeria Compass`}
   description={tour.summary}
-  image={hero}
+  image={ogImage}
   region={region}
   schema={schema}
   sticky={true}>
 
-  <section class="hero" data-region={region}>
-    <img src={hero} alt={tour.title} width="1600" height="900" />
+  <div class="tour" style={`--accent:${accent}`}>
+  <section class={`hero${needsImage ? ' hero-gradient' : ''}`} data-region={region}>
+    {!needsImage && <img src={hero} alt={`${tour.title} — Algeria`} width="1600" height="900" />}
     <div class="hero-in wrap">
       <div class="eyebrow">Private guided tour · {tour.duration}</div>
       <h1>{tour.title}</h1>
@@ -130,7 +137,7 @@ const schema = [
     </aside>
   </div></section>
 
-  {gallery.length > 0 &&
+  {!needsImage && gallery.length > 0 &&
     <section class="section" style="background:var(--wash)"><div class="wrap photo-gallery">
       <h2>Gallery</h2>
       <div class="pgrid">
@@ -139,13 +146,14 @@ const schema = [
         ))}
       </div>
     </div></section>}
+  </div>
 
 </BaseLayout>
 
 <style>
 .tour-highlights{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}
 .tour-highlights li{padding-left:1.6rem;position:relative;color:var(--text-m)}
-.tour-highlights li::before{content:"✦";position:absolute;left:0;color:var(--gold-d)}
+.tour-highlights li::before{content:"✦";position:absolute;left:0;color:var(--accent)}
 .itinerary{list-style:none;padding:0;margin:1rem 0;border-left:2px solid var(--border)}
 .itinerary li{position:relative;padding:0 0 1.4rem 1.3rem}
 .itinerary li::before{content:"";position:absolute;left:-7px;top:.3rem;width:12px;height:12px;border-radius:50%;background:var(--accent)}
@@ -159,6 +167,15 @@ const schema = [
 .book-widget{position:sticky;top:90px;background:var(--green-d);color:#fff;border:1px solid rgba(201,162,75,.3);border-radius:14px;padding:1.3rem}
 .bw-price{font-family:var(--serif);font-size:1.6rem;font-weight:800;color:var(--gold-l)}
 .bw-meta{font-size:.85rem;color:rgba(255,255,255,.75);margin-top:.3rem}
+/* ===== per-tour accent identity ===== */
+.tour h2{color:var(--accent)}
+.tour .crumbs a{color:var(--accent)}
+.tour .btn-gold{background:var(--accent);color:#fff}
+.tour .btn-gold:hover{background:var(--accent);filter:brightness(1.1)}
+.tour .book-widget{border-top:4px solid var(--accent)}
+.tour .bw-price{color:#fff}
+.hero-gradient{background:linear-gradient(135deg,var(--accent),var(--green-d))}
+.hero-gradient::after{background:linear-gradient(90deg,rgba(7,38,28,.5),rgba(7,38,28,.12) 70%)}
 @media(max-width:820px){
   .section .wrap[style]{grid-template-columns:1fr !important}
   .book-widget{position:static}
