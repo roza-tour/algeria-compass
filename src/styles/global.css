@@ -173,6 +173,14 @@ label{display:block;font-size:.82rem;font-weight:600;color:var(--text-m);margin-
 .steps-dots i{width:28px;height:4px;border-radius:2px;background:var(--border)}
 .steps-dots i.on{background:var(--green)}
 .form-note{font-size:.82rem;color:var(--text-l);margin-top:.8rem}
+.inq .req{color:var(--red)}
+.inq .nav-row{align-items:center;gap:.6rem}
+.btn-wa-2{background:#25D366;color:#fff}
+.btn-wa-2:hover{background:#1EAA52;text-decoration:none}
+.inq-error{background:#fdecec;border:1px solid #f3b9b9;color:#9b1c1c;border-radius:10px;padding:.7rem .9rem;font-size:.88rem;margin-top:1rem}
+.inq-success{background:var(--wash);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:12px;padding:1.4rem 1.5rem;margin-top:.5rem}
+.inq-success h3{color:var(--green-d);margin:0 0 .4rem}
+.inq-success p{color:var(--text-m);margin:0}
 
 /* ===== Related / cross-link blocks ===== */
 .related{background:var(--wash);}
