@@ -40,6 +40,12 @@ const needsImage = !!visual.needsImage || !visual.hero;
 const hero = needsImage ? '' : `/assets/img/tours/${visual.hero}`;
 const accent = visual.accent;
 const ogImage = hero || '/assets/img/og-image.png';
+// "Where you'll be" map — uses the tour's real coordinates (tour.map)
+const m = tour.map || { lat: 36.7538, lng: 3.0588 };
+const bbox = `${(m.lng - 0.9).toFixed(4)},${(m.lat - 0.55).toFixed(4)},${(m.lng + 0.9).toFixed(4)},${(m.lat + 0.55).toFixed(4)}`;
+const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${m.lat}%2C${m.lng}`;
+const mapLink = `https://www.openstreetmap.org/?mlat=${m.lat}&mlon=${m.lng}#map=7/${m.lat}/${m.lng}`;
+const wilayaNames = (tour.wilayas || []).map((w: string) => w.replace(/-/g, ' '));
 const priceLabel = `${tour.price_from ? 'From ' : ''}€${tour.price_eur} / ${tour.per}`;
 const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to book the "${tour.title}".`);
 const days = (tour.itinerary || []).length;
@@ -146,6 +152,13 @@ const schema = [
         ))}
       </div>
     </div></section>}
+
+  <section class="section"><div class="wrap">
+    <h2>Where you'll be</h2>
+    <p class="map-route">Starts in <strong>{tour.start}</strong>. This itinerary covers <span class="caps">{wilayaNames.join(', ')}</span>.</p>
+    <iframe class="tour-map" title={`Map of ${tour.title}`} src={mapSrc} loading="lazy" width="100%" height="320"></iframe>
+    <p style="margin-top:.5rem;font-size:.85rem"><a href={mapLink} target="_blank" rel="noopener">View larger map →</a></p>
+  </div></section>
   </div>
 
 </BaseLayout>
@@ -176,6 +189,9 @@ const schema = [
 .tour .bw-price{color:#fff}
 .hero-gradient{background:linear-gradient(135deg,var(--accent),var(--green-d))}
 .hero-gradient::after{background:linear-gradient(90deg,rgba(7,38,28,.5),rgba(7,38,28,.12) 70%)}
+.tour-map{border:1px solid var(--border);border-radius:12px;width:100%;display:block}
+.map-route{color:var(--text-m);margin:.3rem 0 1rem}
+.caps{text-transform:capitalize}
 @media(max-width:820px){
   .section .wrap[style]{grid-template-columns:1fr !important}
   .book-widget{position:static}
