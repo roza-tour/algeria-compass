@@ -1,0 +1,134 @@
+---
+import fs from 'node:fs';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import data from '../../data/tours.json';
+
+const tours = (data as any).tours || (data as any);
+
+// theme -> accent region (reuses the [data-region] system in global.css)
+const REGION: Record<string,string> = {
+  culture: '', sahara: 'sahara', mzab: 'mzab', west: 'andalusian',
+  city: 'coast', east: 'roman', coast: 'coast', roman: 'roman'
+};
+
+export async function getStaticPaths() {
+  const list = ((data as any).tours || (data as any)) as any[];
+  return list.map(t => ({ params: { slug: t.id }, props: { tour: t } }));
+}
+
+const { tour } = Astro.props as { tour: any };
+
+// Build the gallery from real files on disk: assets/img/tours/<slug>-N.jpg
+let gallery: string[] = [];
+try {
+  const files = fs.readdirSync('public/assets/img/tours');
+  for (const s of tour.image_slugs) {
+    const matches = files
+      .filter((f: string) => /^.+-\d+\.jpg$/i.test(f) && f.toLowerCase().startsWith(s.toLowerCase() + '-'))
+      .sort((a: string, b: string) => (parseInt(a.match(/-(\d+)\./)![1]) - parseInt(b.match(/-(\d+)\./)![1])));
+    gallery.push(...matches.map((f: string) => f));
+  }
+} catch (e) { gallery = []; }
+
+const hero = `/assets/img/tours/${gallery[0] || tour.image_slugs[0] + '-1.jpg'}`;
+const region = REGION[tour.theme] ?? '';
+const priceLabel = `${tour.price_from ? 'From ' : ''}€${tour.price_eur} / ${tour.per}`;
+const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to book the "${tour.title}".`);
+const schema = [{
+  '@context': 'https://schema.org', '@type': 'TouristTrip', name: tour.title,
+  description: tour.summary, touristType: tour.theme,
+  offers: { '@type': 'Offer', price: tour.price_eur, priceCurrency: 'EUR' }
+}];
+---
+<BaseLayout
+  title={`${tour.title} | Algeria Compass`}
+  description={tour.summary}
+  image={hero}
+  region={region}
+  schema={schema}
+  sticky={true}>
+
+  <section class="hero" data-region={region}>
+    <img src={hero} alt={tour.title} width="1600" height="900" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">Private guided tour · {tour.duration}</div>
+      <h1>{tour.title}</h1>
+      <p>{tour.summary}</p>
+      <p style="margin-top:1rem">
+        <a class="btn btn-gold" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">Book on WhatsApp</a>
+        <a class="btn btn-ghost" href="/contact/" style="color:#fff;border-color:rgba(255,255,255,.5)">Request a quote</a>
+      </p>
+    </div>
+  </section>
+
+  <nav class="crumbs wrap" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/tours/">Tours</a> › {tour.title}</nav>
+
+  <section class="section"><div class="wrap" style="display:grid;grid-template-columns:1fr 320px;gap:2rem;align-items:start">
+    <div>
+      <h2>Highlights</h2>
+      <ul class="tour-highlights">
+        {tour.highlights.map((h: string) => <li>{h}</li>)}
+      </ul>
+
+      <h2 style="margin-top:2rem">Day-by-day itinerary</h2>
+      <ol class="itinerary">
+        {tour.itinerary.map((d: any) => (
+          <li>
+            <span class="iday-num">Day {d.day}</span>
+            <strong>{d.title}</strong>
+            <p>{d.body}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div class="incl-grid">
+        <div class="facts"><h3>What's included</h3><ul>{tour.includes.map((i: string) => <li>{i}</li>)}</ul></div>
+        {tour.excludes && tour.excludes.length > 0 &&
+          <div class="facts"><h3>Not included</h3><ul>{tour.excludes.map((i: string) => <li>{i}</li>)}</ul></div>}
+      </div>
+    </div>
+
+    <aside class="book-widget">
+      <div class="bw-price">{priceLabel}</div>
+      <div class="bw-meta">{tour.duration}</div>
+      <div class="bw-meta">Starts: {tour.start}</div>
+      <a class="btn btn-gold" style="width:100%;text-align:center;margin-top:.8rem" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">Book on WhatsApp</a>
+      <a class="btn" style="width:100%;text-align:center;margin-top:.5rem" href="/contact/">Request a custom quote</a>
+    </aside>
+  </div></section>
+
+  {gallery.length > 0 &&
+    <section class="section" style="background:var(--wash)"><div class="wrap photo-gallery">
+      <h2>Gallery</h2>
+      <div class="pgrid">
+        {gallery.slice(0, 18).map((f: string) => (
+          <figure><img src={`/assets/img/thumbs/tours/${f}`} alt={tour.title} width="400" height="400" loading="lazy" /></figure>
+        ))}
+      </div>
+    </div></section>}
+
+</BaseLayout>
+
+<style>
+.tour-highlights{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}
+.tour-highlights li{padding-left:1.6rem;position:relative;color:var(--text-m)}
+.tour-highlights li::before{content:"✦";position:absolute;left:0;color:var(--gold-d)}
+.itinerary{list-style:none;padding:0;margin:1rem 0;border-left:2px solid var(--border)}
+.itinerary li{position:relative;padding:0 0 1.4rem 1.3rem}
+.itinerary li::before{content:"";position:absolute;left:-7px;top:.3rem;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.iday-num{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.itinerary strong{display:block;margin:.1rem 0 .2rem;color:var(--green-d)}
+.itinerary p{color:var(--text-m);margin:0}
+.incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.facts ul{list-style:none;padding:0;margin:0}
+.facts li{padding:.25rem 0 .25rem 1.3rem;position:relative;font-size:.9rem;color:var(--text-m)}
+.facts li::before{content:"✓";position:absolute;left:0;color:var(--green)}
+.book-widget{position:sticky;top:90px;background:var(--green-d);color:#fff;border:1px solid rgba(201,162,75,.3);border-radius:14px;padding:1.3rem}
+.bw-price{font-family:var(--serif);font-size:1.6rem;font-weight:800;color:var(--gold-l)}
+.bw-meta{font-size:.85rem;color:rgba(255,255,255,.75);margin-top:.3rem}
+@media(max-width:820px){
+  .section .wrap[style]{grid-template-columns:1fr !important}
+  .book-widget{position:static}
+  .incl-grid{grid-template-columns:1fr}
+}
+</style>

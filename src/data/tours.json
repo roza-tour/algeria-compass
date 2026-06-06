@@ -1,0 +1,1319 @@
+{
+  "currency": "EUR",
+  "whatsapp": "213784193176",
+  "note": "Prices are +20% over base, clean. Facts rewritten from operator's own tour data.",
+  "tours": [
+    {
+      "id": "algeria-cultural-tour",
+      "title": "Algeria Cultural Tour — 5 Days",
+      "theme": "culture",
+      "wilayas": [
+        "algiers",
+        "tipaza",
+        "ghardaia"
+      ],
+      "image_slugs": [
+        "algiers",
+        "tipaza",
+        "ghardaia"
+      ],
+      "duration": "5 days · 4 nights",
+      "price_eur": 900,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Houari Boumediene Airport",
+      "summary": "Five days across the heart of Algeria — the UNESCO Casbah of Algiers, the Roman coast at Tipaza, and the timeless M'Zab Valley on the edge of the Sahara, with a private licensed guide throughout.",
+      "highlights": [
+        "Walk the UNESCO-listed Casbah of Algiers",
+        "Roman Tipaza and the Royal Mausoleum of Mauretania",
+        "Cherchell Archaeological Museum and Mediterranean views",
+        "A Sahara afternoon around Ghardaïa",
+        "The historic M'Zab towns, including El Atteuf",
+        "Authentic Algerian food and everyday culture"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Algiers",
+          "body": "Welcome at Houari Boumediene Airport and a private transfer to your hotel. Settle in and rest; overnight in Algiers."
+        },
+        {
+          "day": 2,
+          "title": "Tipaza & Cherchell",
+          "body": "After breakfast, drive the coast to the Royal Mausoleum of Mauretania and the Roman ruins of Tipaza. Lunch by the Mediterranean, then the Cherchell Archaeological Museum. Return for the night in Algiers."
+        },
+        {
+          "day": 3,
+          "title": "Algiers city & flight to Ghardaïa",
+          "body": "Explore the UNESCO Casbah, the Bardo Museum and the Martyrs' Memorial. In the evening, fly south to Ghardaïa for the night."
+        },
+        {
+          "day": 4,
+          "title": "Sahara around Ghardaïa",
+          "body": "A desert day near Ghardaïa with a traditional lunch and time in the dunes. Overnight in Ghardaïa."
+        },
+        {
+          "day": 5,
+          "title": "M'Zab Valley & return",
+          "body": "Visit El Atteuf and the Sidi Brahim mausoleum, lunch in Ghardaïa, then fly back to Algiers."
+        }
+      ],
+      "includes": [
+        "Accommodation with breakfast",
+        "Private transfers",
+        "English-speaking guide",
+        "Traditional lunches",
+        "Desert excursion"
+      ],
+      "excludes": [
+        "International flights",
+        "Visa fees",
+        "Personal expenses",
+        "Tips"
+      ],
+      "map": {
+        "lat": 28.033886,
+        "lng": 1.659626
+      }
+    },
+    {
+      "id": "djanet-sahara-safari",
+      "title": "Djanet Sahara Safari — 5-Day Tadrart Rouge",
+      "theme": "sahara",
+      "wilayas": [
+        "djanet"
+      ],
+      "image_slugs": [
+        "djanet"
+      ],
+      "duration": "5 days · 4 nights",
+      "price_eur": 828,
+      "price_from": true,
+      "per": "person",
+      "start": "Djanet",
+      "summary": "Five days deep in the Algerian Sahara around Djanet — the red sandstone of the Tadrart, golden dunes, prehistoric rock art, and nights under the stars with a local Tuareg team.",
+      "highlights": [
+        "The sculpted landscapes of Tadrart Rouge",
+        "Ancient rock engravings and formations",
+        "Walks across golden dunes",
+        "Unforgettable Sahara sunsets",
+        "Nights in desert camps under the stars",
+        "Tuareg hospitality and tea rituals"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival & into the desert",
+          "body": "Meet your desert team in Djanet, then a 4×4 drive into the Sahara. Sunset over the dunes and a first night at desert camp."
+        },
+        {
+          "day": 2,
+          "title": "Tadrart Rouge",
+          "body": "Drive through the Tadrart's red rock and sand valleys with photo stops, ending the day with sunset and a desert camp."
+        },
+        {
+          "day": 3,
+          "title": "Dunes & rock art",
+          "body": "Explore the great dunes and ancient engravings on foot, pause for tea, watch the sunset and overnight in camp."
+        },
+        {
+          "day": 4,
+          "title": "Deep desert",
+          "body": "Travel further into remote desert, into the silence and wide horizons of the Sahara; final night at camp."
+        },
+        {
+          "day": 5,
+          "title": "Return to Djanet",
+          "body": "Breakfast in the desert and a scenic drive back to Djanet, where the journey ends."
+        }
+      ],
+      "includes": [
+        "Pick-up and drop-off in Djanet",
+        "4×4 desert vehicle throughout",
+        "Professional desert driver",
+        "Local Tuareg guide",
+        "Full board (breakfast, lunch, dinner)",
+        "Camping equipment",
+        "Bottled water"
+      ],
+      "excludes": [
+        "International and domestic flights",
+        "Visa fees",
+        "Personal expenses",
+        "Tips (optional)",
+        "Travel insurance"
+      ],
+      "map": {
+        "lat": 24.553921,
+        "lng": 9.48507
+      }
+    },
+    {
+      "id": "ghardaia-guided-tour",
+      "title": "Ghardaïa — 3-Day M'Zab Valley Tour",
+      "theme": "mzab",
+      "wilayas": [
+        "ghardaia"
+      ],
+      "image_slugs": [
+        "ghardaia"
+      ],
+      "duration": "3 days · 2 nights",
+      "price_eur": 330,
+      "price_from": true,
+      "per": "person",
+      "start": "Ghardaïa Airport",
+      "summary": "Three days in the M'Zab Valley — the fortified hill-towns of Ghardaïa and Beni Isguen, the ancient foggara water system, palm oases, and a 4×4 desert evening under the stars.",
+      "highlights": [
+        "The mud-brick hill-town of Ghardaïa in the M'Zab Valley",
+        "The fortified village of Beni Isguen",
+        "The ancestral 'foggara' water-sharing system",
+        "Palm oases and traditional crafts",
+        "A 4×4 desert safari toward El Guerrara",
+        "Dinner under the desert stars"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Ghardaïa & the oasis",
+          "body": "Met at Ghardaïa airport and taken to your accommodation. Explore the hill-town's narrow alleys and lively market, lunch in a restored heritage house, then a palm oasis and the foggara channels. Dinner and overnight in Ghardaïa."
+        },
+        {
+          "day": 2,
+          "title": "Beni Isguen & desert safari",
+          "body": "Morning in the fortified village of Beni Isguen and the Tafilelt eco-town, with panoramic valley views. After a traditional lunch, a 4×4 safari toward El Guerrara and dinner in the open desert under the stars."
+        },
+        {
+          "day": 3,
+          "title": "Departure",
+          "body": "A relaxed breakfast, then transfer back to the airport — the end of a journey through Algeria's Saharan heart."
+        }
+      ],
+      "includes": [
+        "Private transport",
+        "Accommodation",
+        "Local guide",
+        "All taxes and fees",
+        "Meals"
+      ],
+      "excludes": [
+        "Domestic flight (optional)",
+        "Tipping"
+      ],
+      "map": {
+        "lat": 32.502571,
+        "lng": 3.68305
+      }
+    },
+    {
+      "id": "oran-mostaganem-tlemcen",
+      "title": "Western Algeria — Oran, Mostaganem & Tlemcen (5 Days)",
+      "theme": "west",
+      "wilayas": [
+        "oran",
+        "tlemcen"
+      ],
+      "image_slugs": [
+        "oran",
+        "tlemcen"
+      ],
+      "duration": "5 days · 4 nights",
+      "price_eur": 768,
+      "price_from": true,
+      "per": "person",
+      "start": "Oran",
+      "summary": "Five days across the Algerian west — the lively port city of Oran, the beaches of Mostaganem, and the deep Andalusian heritage of Tlemcen, with its great mosque, palace and waterfalls.",
+      "highlights": [
+        "Santa Cruz Fort and the panorama over Oran",
+        "Place du 1er Novembre and Oran's historic arena",
+        "The Mediterranean coast at Mostaganem",
+        "Tlemcen's Great Mosque and El Mechouar Palace",
+        "The Lalla Setti plateau and city views",
+        "Tlemcen National Park and the El Ourit waterfalls"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Oran",
+          "body": "Arrive in Oran and check in. Climb to Santa Cruz Fort for the view over the Mediterranean, then explore Place du 1er Novembre and the city's historic Roman-era arena."
+        },
+        {
+          "day": 2,
+          "title": "Oran",
+          "body": "Visit the Ahmed Zabana National Museum, the Sacré-Cœur, and walk Oran's seafront."
+        },
+        {
+          "day": 3,
+          "title": "Mostaganem",
+          "body": "Travel to Mostaganem for its beaches and the historic Bordj Ettork, with a relaxed Mediterranean afternoon."
+        },
+        {
+          "day": 4,
+          "title": "Tlemcen",
+          "body": "Discover Tlemcen's Andalusian heritage — the Great Mosque, El Mechouar Palace, and the Lalla Setti plateau."
+        },
+        {
+          "day": 5,
+          "title": "Tlemcen",
+          "body": "Visit Tlemcen National Park and the El Ourit waterfalls before departure."
+        }
+      ],
+      "includes": [
+        "Private transportation",
+        "Professional guide",
+        "Hotel pick-up and drop-off",
+        "Sightseeing per the itinerary"
+      ],
+      "excludes": [
+        "Flights",
+        "Personal expenses",
+        "Meals and drinks",
+        "Entrance fees (if required)"
+      ],
+      "map": {
+        "lat": 35.6971,
+        "lng": -0.6308
+      }
+    },
+    {
+      "id": "algierstour-hammagarden-notredame-dafrique",
+      "title": "Algiers Day Tour — Hamma Garden, Notre-Dame d'Afrique & Army Museum",
+      "theme": "city",
+      "wilayas": [
+        "algiers"
+      ],
+      "image_slugs": [
+        "algiers"
+      ],
+      "duration": "1 day",
+      "price_eur": 74,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Airport / hotel pickup",
+      "summary": "A relaxed private day in the capital taking in three of its landmarks — the botanical Jardin d'Essai du Hamma, the hilltop basilica of Notre-Dame d'Afrique above the bay, and the Army Museum — rounded off with a traditional Algerian lunch.",
+      "highlights": [
+        "The historic Hamma botanical garden",
+        "Sea views from Notre-Dame d'Afrique",
+        "Algeria's military history at the Army Museum",
+        "A traditional Algerian lunch",
+        "Private guiding with hotel pickup"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Hamma Garden, Notre-Dame d'Afrique & Army Museum",
+          "body": "Pickup from your hotel or the airport, then a guided day across three sights: the botanical Hamma garden, the basilica of Notre-Dame d'Afrique on its hill above the Mediterranean, and the Army Museum, with a traditional lunch along the way before returning."
+        }
+      ],
+      "includes": [
+        "Hotel/airport pickup and drop-off",
+        "Air-conditioned vehicle",
+        "Professional local guide",
+        "Entrance fees to the sites",
+        "Traditional Algerian lunch",
+        "Bottled water and snacks"
+      ],
+      "excludes": [
+        "Tips",
+        "Personal expenses"
+      ],
+      "map": {
+        "lat": 36.7538,
+        "lng": 3.0588
+      }
+    },
+    {
+      "id": "algiers-city-tour-casbah-bardo-martyrsmemorial",
+      "title": "Algiers Full-Day — Casbah, Bardo & Martyrs' Memorial",
+      "theme": "city",
+      "wilayas": [
+        "algiers"
+      ],
+      "image_slugs": [
+        "algiers"
+      ],
+      "duration": "1 day",
+      "price_eur": 83,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Airport / hotel pickup",
+      "summary": "A full day through the heart of Algiers — the UNESCO-listed Casbah, the Bardo National Museum, and the Martyrs' Memorial with its sweeping view over the city and the sea, with a traditional lunch included.",
+      "highlights": [
+        "The UNESCO Casbah, its alleys and old mosques",
+        "Archaeology and history at the Bardo Museum",
+        "The Martyrs' Memorial and its panorama",
+        "A traditional Algerian lunch",
+        "Views over Algiers and the Mediterranean"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Casbah, Bardo Museum & Martyrs' Memorial",
+          "body": "A guided full-day loop through the old Casbah quarter, the collections of the Bardo National Museum, and the Martyrs' Memorial, with a traditional lunch at a local restaurant between visits."
+        }
+      ],
+      "includes": [
+        "Hotel/airport pickup and drop-off",
+        "Air-conditioned vehicle",
+        "Professional local guide",
+        "Entrance fees",
+        "Traditional Algerian lunch",
+        "Water and snacks"
+      ],
+      "excludes": [
+        "Tips",
+        "Personal expenses"
+      ],
+      "map": {
+        "lat": 36.7538,
+        "lng": 3.0588
+      }
+    },
+    {
+      "id": "djanet-ghardaia-desert-2-days",
+      "title": "Djanet & Ghardaïa — 6-Day Desert & Heritage",
+      "theme": "sahara",
+      "wilayas": [
+        "djanet",
+        "ghardaia"
+      ],
+      "image_slugs": [
+        "djanet",
+        "ghardaia"
+      ],
+      "duration": "6 days · 5 nights",
+      "price_eur": 930,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Airport",
+      "summary": "Six days pairing the great southern desert of Djanet with the M'Zab Valley — the red rock of the Tadrart, the rock art of Tassili n'Ajjer, desert camps under the stars, and the fortified villages of Ghardaïa.",
+      "highlights": [
+        "Tadrart Rouge and its red rock formations",
+        "Prehistoric rock art at Tassili n'Ajjer (UNESCO)",
+        "Nights camping in the Sahara",
+        "Tuareg culture and a tea ceremony",
+        "The UNESCO M'Zab Valley villages",
+        "4x4 desert driving and dune sunsets"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Djanet",
+          "body": "Met at Djanet airport and transferred to a guesthouse or desert camp, with a sunset excursion to nearby dunes and a traditional Saharan dinner."
+        },
+        {
+          "day": 2,
+          "title": "Tadrart Rouge",
+          "body": "A 4x4 day into the Tadrart, exploring rock formations and ancient engravings, a desert picnic, sunset over the red dunes, and a night camping under the stars."
+        },
+        {
+          "day": 3,
+          "title": "Tassili n'Ajjer",
+          "body": "Discover the Tassili plateau and its cave paintings, walking through canyons and sandstone landscapes, with dinner and a night in camp."
+        },
+        {
+          "day": 4,
+          "title": "Oases & desert culture",
+          "body": "Visit a local oasis and palm groves, meet a Tuareg community over a tea ceremony, and return to Djanet for the night."
+        },
+        {
+          "day": 5,
+          "title": "Transfer to Ghardaïa",
+          "body": "Travel to Ghardaïa in the M'Zab Valley, check in at a traditional guesthouse, and take an evening walk through the old town."
+        },
+        {
+          "day": 6,
+          "title": "M'Zab Valley & departure",
+          "body": "Visit Beni Isguen, El Atteuf and Melika, their mosques, souks and workshops, with lunch before the transfer to the airport."
+        }
+      ],
+      "includes": [
+        "Airport/hotel pickup and drop-off",
+        "Air-conditioned vehicle / 4x4",
+        "Professional local guide",
+        "Accommodation as per program",
+        "Meals as mentioned (lunch & dinner)",
+        "Entrance fees to the sites",
+        "Desert excursion in Djanet"
+      ],
+      "excludes": [
+        "Domestic and international flights",
+        "Personal expenses",
+        "Drinks not mentioned",
+        "Tips"
+      ],
+      "map": {
+        "lat": 24.553921,
+        "lng": 9.48507
+      }
+    },
+    {
+      "id": "algeria-eastern-sahara-discovery",
+      "title": "Eastern Algeria & Sahara Discovery — 6 Days",
+      "theme": "east",
+      "wilayas": [
+        "constantine",
+        "setif",
+        "djanet"
+      ],
+      "image_slugs": [
+        "constantine",
+        "setif",
+        "djanet"
+      ],
+      "duration": "6 days · 5 nights",
+      "price_eur": 912,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Airport",
+      "summary": "A six-day arc across Algeria's east — the bridges of Constantine, the Roman cities of Djémila and Timgad, a Saharan gateway at Bou Saada, and a Mediterranean day at Béjaïa.",
+      "highlights": [
+        "The suspension bridges of Constantine",
+        "The Roman ruins of Djémila and Timgad (UNESCO)",
+        "Oasis and desert landscapes around Bou Saada",
+        "The Mediterranean coast at Béjaïa",
+        "Algiers, the historic capital"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Algiers to Constantine",
+          "body": "Arrive in Algiers and transfer to Constantine, with its suspension bridges, the Emir Abdelkader Mosque and the old town; overnight in Constantine."
+        },
+        {
+          "day": 2,
+          "title": "Constantine to Sétif",
+          "body": "Travel to Sétif and the UNESCO Roman ruins of Djémila, then explore the city center; overnight in Sétif."
+        },
+        {
+          "day": 3,
+          "title": "Sétif to Batna",
+          "body": "Continue to Batna and the UNESCO Roman city of Timgad, with time at local heritage sites; overnight in Batna."
+        },
+        {
+          "day": 4,
+          "title": "Batna to Biskra to Bou Saada",
+          "body": "Cross to Biskra, the gateway to the Sahara, for its palm groves and oasis scenery, then on to Bou Saada and its traditional markets; overnight in Bou Saada."
+        },
+        {
+          "day": 5,
+          "title": "Bou Saada to Algiers",
+          "body": "Visit Zaouia El Hamel and nearby heritage, then transfer to Algiers for a free evening; overnight in Algiers."
+        },
+        {
+          "day": 6,
+          "title": "Béjaïa & departure",
+          "body": "A day trip to Béjaïa for its fortress, Cap Carbon and coastal views, then the transfer to the airport."
+        }
+      ],
+      "includes": [
+        "Airport meet & assist and transfers",
+        "Air-conditioned vehicle",
+        "5 nights hotel accommodation",
+        "Daily breakfast",
+        "Licensed tour guide",
+        "All entrance fees",
+        "Béjaïa day excursion"
+      ],
+      "excludes": [
+        "International flights",
+        "Lunches and dinners",
+        "Personal expenses",
+        "Travel insurance",
+        "Tips"
+      ],
+      "map": {
+        "lat": 36.365,
+        "lng": 6.6147
+      }
+    },
+    {
+      "id": "algeria-tour",
+      "title": "Complete Algeria — 10-Day Grand Tour",
+      "theme": "culture",
+      "wilayas": [
+        "algiers",
+        "tipaza",
+        "djemila"
+      ],
+      "image_slugs": [
+        "algiers",
+        "tipaza",
+        "djemila"
+      ],
+      "duration": "10 days · 9 nights",
+      "price_eur": 1176,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Airport",
+      "summary": "Ten days from coast to desert — the Roman sites of Tipaza, Djémila and Timgad, the Casbah of Algiers, Constantine's bridges, and the M'Zab Valley at Ghardaïa.",
+      "highlights": [
+        "Roman cities: Tipaza, Djémila and Timgad",
+        "The UNESCO Casbah of Algiers",
+        "Constantine's suspension bridges",
+        "The M'Zab Valley at Ghardaïa",
+        "Traditional architecture and cuisine"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Algiers",
+          "body": "Airport welcome, hotel check-in and a welcome dinner."
+        },
+        {
+          "day": 2,
+          "title": "Tipaza & Cherchell",
+          "body": "A coastal day at the Roman ruins of Tipaza — amphitheatre and mausoleum — with the Cherchell museum and sea views."
+        },
+        {
+          "day": 3,
+          "title": "Algiers historical tour",
+          "body": "The Casbah, the Martyrs' Memorial and the National Army Museum."
+        },
+        {
+          "day": 4,
+          "title": "Travel to Sétif",
+          "body": "Transfer east and visit the UNESCO Roman ruins of Djémila."
+        },
+        {
+          "day": 5,
+          "title": "Constantine",
+          "body": "City tour of Constantine — its suspension bridges, mosque and palace."
+        },
+        {
+          "day": 6,
+          "title": "Batna & Timgad",
+          "body": "Travel to Batna and explore the UNESCO Roman city of Timgad."
+        },
+        {
+          "day": 7,
+          "title": "Journey to Ghardaïa",
+          "body": "Travel south to the M'Zab Valley and check in at a guesthouse."
+        },
+        {
+          "day": 8,
+          "title": "Ghardaïa cultural tour",
+          "body": "The fortified villages, traditional mosques, souks and local cuisine of the M'Zab."
+        },
+        {
+          "day": 9,
+          "title": "Return to Algiers",
+          "body": "Travel back to the capital, with the Hamma botanical garden, the Bardo Museum and Notre-Dame d'Afrique."
+        },
+        {
+          "day": 10,
+          "title": "Departure",
+          "body": "Breakfast and transfer to the airport."
+        }
+      ],
+      "includes": [
+        "Airport pickup and drop-off",
+        "Air-conditioned transfers",
+        "Hotel and guesthouse accommodation",
+        "Daily breakfast and welcome dinner",
+        "Local professional guide",
+        "Entrance fees to the sites listed",
+        "Ghardaïa cultural visits"
+      ],
+      "excludes": [
+        "International and domestic flights",
+        "Visa fees",
+        "Most meals",
+        "Personal expenses",
+        "Tips"
+      ],
+      "map": {
+        "lat": 36.7538,
+        "lng": 3.0588
+      }
+    },
+    {
+      "id": "timimoun-desert-escape",
+      "title": "Timimoun Desert Escape — 5 Days",
+      "theme": "sahara",
+      "wilayas": [
+        "djanet",
+        "ghardaia"
+      ],
+      "image_slugs": [
+        "djanet",
+        "ghardaia"
+      ],
+      "duration": "5 days · 4 nights",
+      "price_eur": 492,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Airport",
+      "summary": "Five days in the red oasis country of Timimoun — its ksour and palm groves, the ancient foggara channels, great dunes, and a night of desert camp dining under the stars.",
+      "highlights": [
+        "The red ksour and palm groves of the Gourara",
+        "The ancestral foggara irrigation system",
+        "A 4x4 safari across the great dunes",
+        "A 'Merdoum' dinner under the stars",
+        "Timimoun's traditional market",
+        "Cultural evenings with traditional music"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Timimoun",
+          "body": "Welcome at Timimoun and transfer to the Ti Massin guesthouse, with time to settle in before a traditional dinner and overnight stay."
+        },
+        {
+          "day": 2,
+          "title": "Charouine — ksour & palm groves",
+          "body": "An excursion to Charouine for Ksar Guentour and its palm grove, an open-air lunch, and the ksar and oasis at Tala, returning for a dune sunset and a festive evening with music."
+        },
+        {
+          "day": 3,
+          "title": "Aghlad & Ouled Saïd — foggaras",
+          "body": "Visit the gardens and ancient foggara channels of Ouled Saïd, a palm-grove picnic with tea at Beni Aïssi and its ksar, and sunset over the large dunes."
+        },
+        {
+          "day": 4,
+          "title": "Desert adventure & star dinner",
+          "body": "The Ighzer site in the morning, then an afternoon 4x4 safari across golden dunes to a panoramic sunset, followed by a desert-camp 'Merdoum' dinner under the stars."
+        },
+        {
+          "day": 5,
+          "title": "Market & departure",
+          "body": "Visit Timimoun's traditional market for spices and handicrafts, then the return transfer toward Algiers."
+        }
+      ],
+      "includes": [
+        "Pickup and drop-off in Timimoun",
+        "Air-conditioned vehicle / 4x4 for excursions",
+        "4 nights at the Ti Massin guesthouse",
+        "Daily breakfast",
+        "Lunches and dinners as per program",
+        "Traditional 'Merdoum' desert dinner",
+        "Professional local guide",
+        "Entrance fees and local taxes"
+      ],
+      "excludes": [
+        "International and domestic flights",
+        "Lunch on day 5",
+        "Personal expenses",
+        "Drinks outside meals",
+        "Travel insurance",
+        "Tips"
+      ],
+      "map": {
+        "lat": 29.2639,
+        "lng": 0.241
+      }
+    },
+    {
+      "id": "tour-bejaia-historic",
+      "title": "Béjaïa — Historic City by the Sea (Day Trip)",
+      "theme": "coast",
+      "wilayas": [
+        "bejaia"
+      ],
+      "image_slugs": [
+        "bejaia"
+      ],
+      "duration": "1 day",
+      "price_eur": 114,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Airport / hotel pickup",
+      "summary": "A coastal day at Béjaïa — its historic fortress and museum, the rugged Cap Carbon corniche, and time on the sand at Les Aiguades, with a traditional lunch by the Mediterranean.",
+      "highlights": [
+        "The historic fortress of Béjaïa and its sea views",
+        "Museum exhibits on the region's history",
+        "The dramatic Cap Carbon coastline",
+        "Beach time at Les Aiguades",
+        "Authentic local Algerian cuisine"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Béjaïa fortress, Cap Carbon & the coast",
+          "body": "Pickup from Algiers, a guided visit of the historic fortress and its museum, a walk along the Cap Carbon corniche, beach time at Les Aiguades, and a traditional lunch before the return transfer."
+        }
+      ],
+      "includes": [
+        "Air-conditioned vehicle transport",
+        "Multilingual tour guide",
+        "Fortress and museum entrance fees",
+        "Traditional Algerian lunch",
+        "Rest stops along the way"
+      ],
+      "excludes": [
+        "Drinks outside the included meal",
+        "Optional beach activities",
+        "Travel insurance",
+        "Tips"
+      ],
+      "map": {
+        "lat": 36.7509,
+        "lng": 5.0567
+      }
+    },
+    {
+      "id": "private-guided-tour",
+      "title": "Tipaza & Cherchell — Private Roman Day Tour",
+      "theme": "roman",
+      "wilayas": [
+        "tipaza"
+      ],
+      "image_slugs": [
+        "tipaza"
+      ],
+      "duration": "1 day",
+      "price_eur": 95,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — hotel pickup",
+      "summary": "A private full day on the Roman coast west of Algiers — the seaside ruins of Tipaza and the museum of ancient Caesarea at Cherchell, at your own pace with a personal guide.",
+      "highlights": [
+        "The seaside Roman ruins of Tipaza (UNESCO)",
+        "Forum, baths and residential quarters",
+        "The Cherchell Archaeological Museum",
+        "A private, personalised pace",
+        "A walk through Cherchell's old harbour"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Tipaza ruins & Cherchell museum",
+          "body": "Hotel pickup and a private drive to Tipaza for a guided tour of its forum, baths and ancient quarters, then on to Cherchell — ancient Caesarea — for its museum of Roman statues and mosaics and a short walk in the old town, before the return transfer."
+        }
+      ],
+      "includes": [
+        "Professional local guide (Arabic/English/French/Spanish)",
+        "Entrance fees to Tipaza and Cherchell",
+        "Private guided tour",
+        "Hotel pickup and drop-off",
+        "Instant confirmation"
+      ],
+      "excludes": [
+        "Lunch (optional)",
+        "Food and drinks",
+        "Personal expenses",
+        "Tips"
+      ],
+      "map": {
+        "lat": 36.5894,
+        "lng": 2.447
+      }
+    },
+    {
+      "id": "bousaada-desert-tour",
+      "title": "Bou Saada — 2-Day Oasis Escape",
+      "theme": "sahara",
+      "wilayas": [
+        "bousaada"
+      ],
+      "image_slugs": [
+        "bousaada"
+      ],
+      "duration": "2 days · 1 night",
+      "price_eur": 288,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers",
+      "summary": "Two days at Bou Saada, the 'City of Happiness' — its natural waterfall and the historic Ferrero Mill, lively craft markets, a Bedouin-style dinner with music, and the Sufi shrine of El Hamel.",
+      "highlights": [
+        "Bou Saada, the 'City of Happiness'",
+        "The natural waterfall and the historic Ferrero Mill",
+        "Traditional craft markets",
+        "A Bedouin-style dinner with live music",
+        "The Sufi zawiya of El Hamel"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Algiers to Bou Saada",
+          "body": "Morning departure from Algiers by tourist vehicle, hotel check-in, then an afternoon at the natural waterfall, the historic Ferrero Mill and the traditional markets, with a Bedouin-style dinner and local music in the evening."
+        },
+        {
+          "day": 2,
+          "title": "El Hamel Zawiya & return",
+          "body": "After breakfast, visit the mountain Sufi shrine of El Hamel with time for photos and the landscape, a local lunch in Bou Saada, then the afternoon return to Algiers."
+        }
+      ],
+      "includes": [
+        "Accommodation at the Kerdada Hotel or similar",
+        "Visit to the natural waterfall",
+        "Guided visit of the Ferrero Mill",
+        "Traditional markets",
+        "Bedouin-style dinner with music",
+        "Visit to El Hamel Zawiya",
+        "Lunch on day 2",
+        "Round-trip transport from Algiers",
+        "Multilingual guide"
+      ],
+      "excludes": [
+        "Personal expenses",
+        "Travel insurance",
+        "Tips"
+      ],
+      "map": {
+        "lat": 35.2058,
+        "lng": 4.1772
+      }
+    },
+    {
+      "id": "algeria-intensive-discovery-tour",
+      "title": "Algeria Intensive Discovery — 5 Days",
+      "theme": "culture",
+      "wilayas": [
+        "algiers",
+        "tipaza",
+        "constantine"
+      ],
+      "image_slugs": [
+        "algiers",
+        "tipaza",
+        "constantine"
+      ],
+      "duration": "5 days · 4 nights",
+      "price_eur": 732,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Airport",
+      "summary": "Five fast-moving days across Algeria's headline sights — the Casbah of Algiers, Roman Tipaza and Cherchell, Constantine's bridges, the Roman cities of Timgad and Djémila, and a desert taste at Bou Saada.",
+      "highlights": [
+        "The Casbah, Bardo Museum and Martyrs' Memorial",
+        "Roman Tipaza, Cherchell and Cleopatra Selene's mausoleum",
+        "Constantine's suspension bridges and palaces",
+        "The UNESCO Roman sites of Timgad and Djémila",
+        "A desert excursion at Bou Saada"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Algiers city tour",
+          "body": "Airport welcome and transfer, then the Bardo National Museum, a walk through the UNESCO Casbah, and the Martyrs' Memorial with its view over the capital."
+        },
+        {
+          "day": 2,
+          "title": "Tipaza & Cherchell",
+          "body": "West along the coast to the Roman ruins of Tipaza and the Royal Mausoleum of Mauretania, then Cherchell's museum and old harbour."
+        },
+        {
+          "day": 3,
+          "title": "Constantine & Timgad",
+          "body": "East to Constantine — its suspension bridges and Ahmed Bey Palace — and on to the Roman city of Timgad."
+        },
+        {
+          "day": 4,
+          "title": "Djémila & Sétif",
+          "body": "The UNESCO Roman city of Djémila with its forum, theatre and mosaics, then the Aïn El Fouara fountain at Sétif."
+        },
+        {
+          "day": 5,
+          "title": "Bou Saada & return",
+          "body": "South to Bou Saada, gateway to the Sahara, for its oasis and a desert excursion among the dunes, before the road back to Algiers."
+        }
+      ],
+      "includes": [
+        "Airport meet & assist and transfers",
+        "Air-conditioned tourist vehicle",
+        "Accommodation in selected hotels",
+        "All meals during the tour",
+        "Licensed tour guide",
+        "Entrance fees to the sites",
+        "Desert excursion at Bou Saada"
+      ],
+      "excludes": [
+        "International flights",
+        "Personal expenses"
+      ],
+      "map": {
+        "lat": 36.7538,
+        "lng": 3.0588
+      }
+    },
+    {
+      "id": "day-tour-algeria-culture",
+      "title": "Algiers Culture Walk — Casbah Day Tour",
+      "theme": "city",
+      "wilayas": [
+        "algiers"
+      ],
+      "image_slugs": [
+        "algiers"
+      ],
+      "duration": "1 day",
+      "price_eur": 30,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — lower Casbah, by the sea",
+      "summary": "A guided walk up through the UNESCO Casbah of Algiers — from the seafront and Martyrs' Square to Mustafa Pasha Palace, the citadel and the house of Ali La Pointe, ending at the seaside Rais Palace.",
+      "highlights": [
+        "The narrow streets and old mosques of the Casbah",
+        "Mustafa Pasha Palace and Ottoman architecture",
+        "Panoramic terraces over the bay",
+        "The Casbah citadel and Ali La Pointe's house",
+        "The seaside Rais Palace (Bastion 23)"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Walking tour of the Casbah",
+          "body": "Meet your guide by the sea at the foot of the Casbah and climb through Martyrs' Square and its historic mosque, Mustafa Pasha Palace, a panoramic terrace, the citadel and the home of independence figure Ali La Pointe, ending at the seaside Rais Palace."
+        }
+      ],
+      "includes": [
+        "Professional guide (English, French or Arabic)",
+        "Entrance fees to the included landmarks",
+        "Transport during the tour",
+        "Guided walking tour of the Casbah"
+      ],
+      "excludes": [
+        "Meals and drinks",
+        "Hotel pickup/drop-off (unless arranged)",
+        "Optional activities and personal expenses"
+      ],
+      "map": {
+        "lat": 36.7838,
+        "lng": 3.0606
+      }
+    },
+    {
+      "id": "the-beauty-of-algeria",
+      "title": "Constantine & Timgad — 2-Day Tour",
+      "theme": "roman",
+      "wilayas": [
+        "constantine",
+        "batna-timgad"
+      ],
+      "image_slugs": [
+        "constantine",
+        "batna-timgad"
+      ],
+      "duration": "2 days · 1 night",
+      "price_eur": 216,
+      "price_from": true,
+      "per": "person",
+      "start": "Constantine",
+      "summary": "Two days pairing Constantine, the dramatic city of bridges above the Rhumel gorge, with Timgad, one of the best-preserved Roman cities in North Africa.",
+      "highlights": [
+        "Constantine's bridges and the Rhumel gorge",
+        "Ahmed Bey Palace and the Cirta Museum",
+        "Constantine's old city and markets",
+        "The Roman city of Timgad",
+        "Trajan's Arch, theatre and forum"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Constantine",
+          "body": "The Sidi M'Cid and Sidi Rached bridges over the Rhumel gorge, Ahmed Bey Palace, the Cirta National Museum, and the old city and traditional markets."
+        },
+        {
+          "day": 2,
+          "title": "Timgad",
+          "body": "The Roman city of Timgad — Trajan's Arch, the theatre, forum and public library, its grid plan, baths and temples."
+        }
+      ],
+      "includes": [
+        "Accommodation in 4-star hotels with breakfast",
+        "Entrance tickets",
+        "Tour guide",
+        "Transportation"
+      ],
+      "excludes": [
+        "Additional programs and activities",
+        "Meals"
+      ],
+      "map": {
+        "lat": 36.365,
+        "lng": 6.6147
+      }
+    },
+    {
+      "id": "algeria-through-time-and-tradition",
+      "title": "Roman Algeria — Tipaza, Djémila & Timgad (3 Days)",
+      "theme": "roman",
+      "wilayas": [
+        "djemila",
+        "batna-timgad",
+        "tipaza"
+      ],
+      "image_slugs": [
+        "djemila",
+        "batna-timgad",
+        "tipaza"
+      ],
+      "duration": "3 days · 2 nights",
+      "price_eur": 384,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers",
+      "summary": "Three days through Algeria's finest Roman heritage — the seaside ruins of Tipaza and Cherchell, the hillside city of Djémila, and the grid-planned streets of Timgad.",
+      "highlights": [
+        "The coastal Roman ruins of Tipaza",
+        "Caesarea (Cherchell) and its museum",
+        "Djémila's colonnaded streets and theatre",
+        "Mosaic floors and monumental gateways",
+        "Timgad's Roman grid and theatre"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Tipaza & Cherchell",
+          "body": "The Roman streets, bathhouses, temples and necropolis of Tipaza, then Caesarea (Cherchell) and its archaeological museum."
+        },
+        {
+          "day": 2,
+          "title": "Djémila (Cuicul)",
+          "body": "Djémila's colonnaded streets, monumental gateways, Roman theatre, religious complexes and mosaic-floored houses, with the local museum."
+        },
+        {
+          "day": 3,
+          "title": "Timgad",
+          "body": "The Roman theatre, forum and public library of Timgad, its famous grid plan, baths and temples."
+        }
+      ],
+      "includes": [],
+      "excludes": [],
+      "map": {
+        "lat": 36.3206,
+        "lng": 5.7361
+      }
+    },
+    {
+      "id": "the-soul-of-algeria",
+      "title": "The Soul of Algeria — 4 Days",
+      "theme": "culture",
+      "wilayas": [
+        "algiers",
+        "tipaza",
+        "constantine"
+      ],
+      "image_slugs": [
+        "algiers",
+        "tipaza",
+        "constantine"
+      ],
+      "duration": "4 days · 3 nights",
+      "price_eur": 504,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers",
+      "summary": "A four-day blend of capital culture, Roman coast and desert charm — the museums and Casbah of Algiers, the ruins of Tipaza and Cherchell, and the oasis town of Bou Saada, with accommodation included.",
+      "highlights": [
+        "The Bardo Museum and Notre-Dame d'Afrique",
+        "The Martyrs' Memorial and the UNESCO Casbah",
+        "Roman Tipaza and the Cherchell museum",
+        "The oasis town of Bou Saada",
+        "A short journey across cultures and landscapes"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Algiers",
+          "body": "The Bardo Museum and its mosaics, Notre-Dame d'Afrique above the bay, and the Martyrs' Memorial."
+        },
+        {
+          "day": 2,
+          "title": "Tipaza & Cherchell",
+          "body": "The Royal Mausoleum of Mauretania, the Roman archaeological park of Tipaza, and the Cherchell museum."
+        },
+        {
+          "day": 3,
+          "title": "Bou Saada",
+          "body": "South to Bou Saada for its fortress and panoramas, the town museum of crafts and relics, and its historic mosque."
+        },
+        {
+          "day": 4,
+          "title": "Algiers",
+          "body": "Back to Algiers for the UNESCO Casbah, the Hamma botanical garden, and the Museum of the Mujahideen."
+        }
+      ],
+      "includes": [
+        "Accommodation in 4-star hotels with breakfast",
+        "Traditional lunch",
+        "Private transportation",
+        "Local tour guide"
+      ],
+      "excludes": [],
+      "map": {
+        "lat": 36.7538,
+        "lng": 3.0588
+      }
+    },
+    {
+      "id": "the-culture-and-heritage-of-algeria",
+      "title": "Culture & Heritage of Algeria — 8 Days",
+      "theme": "culture",
+      "wilayas": [
+        "algiers",
+        "tipaza",
+        "constantine"
+      ],
+      "image_slugs": [
+        "algiers",
+        "tipaza",
+        "constantine"
+      ],
+      "duration": "8 days · 7 nights",
+      "price_eur": 1044,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Airport",
+      "summary": "Eight days across Algeria's culture and history — the capital and its Casbah, Roman Tipaza and Djémila, the bridges of Constantine, and the oasis town of Bou Saada.",
+      "highlights": [
+        "Algiers, its museums and the historic Casbah",
+        "Roman Tipaza, Cherchell and Djémila",
+        "Constantine and its suspension bridge",
+        "The oasis charm of Bou Saada",
+        "A blend of culture, history and landscape"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Algiers",
+          "body": "Airport welcome, check-in at a city-center hotel, an evening city tour and dinner."
+        },
+        {
+          "day": 2,
+          "title": "Algiers cultural tour",
+          "body": "The Bardo Museum, the UNESCO Casbah, and the Martyrs' Memorial (Makam Echahid)."
+        },
+        {
+          "day": 3,
+          "title": "Tipaza & Cherchell",
+          "body": "The Royal Mausoleum of Mauretania, the Tipaza archaeological park, and the Cherchell museum."
+        },
+        {
+          "day": 4,
+          "title": "Constantine",
+          "body": "The Sidi M'Cid bridge, Ahmed Bey Palace, the Emir Abdelkader Mosque, and a city walk."
+        },
+        {
+          "day": 5,
+          "title": "Djémila",
+          "body": "The UNESCO Roman site of Djémila — its theatre and temples — with a local lunch."
+        },
+        {
+          "day": 6,
+          "title": "To Bou Saada",
+          "body": "The road from Constantine to Bou Saada, check-in and free time, and a traditional dinner with local music."
+        },
+        {
+          "day": 7,
+          "title": "Bou Saada & return",
+          "body": "The Bou Saada waterfall, the Ferrero Mill, and the El Hamel zawiya, then the return to Algiers."
+        },
+        {
+          "day": 8,
+          "title": "Departure",
+          "body": "Breakfast, check-out and transfer to Algiers airport."
+        }
+      ],
+      "includes": [
+        "Accommodation in 4-star hotels with breakfast",
+        "Private transportation",
+        "Traditional lunch",
+        "All taxes and fees"
+      ],
+      "excludes": [],
+      "map": {
+        "lat": 36.7538,
+        "lng": 3.0588
+      }
+    },
+    {
+      "id": "algeria-beyond-expectations",
+      "title": "Algeria Beyond Expectations — 10 Days",
+      "theme": "culture",
+      "wilayas": [
+        "algiers",
+        "tipaza",
+        "setif"
+      ],
+      "image_slugs": [
+        "algiers",
+        "tipaza",
+        "setif"
+      ],
+      "duration": "10 days · 9 nights",
+      "price_eur": 1176,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers — Airport",
+      "summary": "Ten days from the Mediterranean to the M'Zab — Algiers and Roman Tipaza, the Roman cities of Djémila and Timgad, Constantine's bridges, and the desert villages of Ghardaïa with a Saharan excursion.",
+      "highlights": [
+        "Algiers and the Roman ruins of Tipaza",
+        "Constantine, the city of bridges",
+        "Sétif, Djémila and the Roman city of Timgad",
+        "The M'Zab Valley desert culture at Ghardaïa",
+        "A Saharan excursion with quad, camel and sandboarding"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Algiers",
+          "body": "Airport reception, hotel check-in and a welcome dinner."
+        },
+        {
+          "day": 2,
+          "title": "Tipaza & Cherchell",
+          "body": "The Roman ruins and amphitheatre of Tipaza, the Royal Mausoleum of Mauretania, the Cherchell museum and coastal views."
+        },
+        {
+          "day": 3,
+          "title": "Algiers historical tour",
+          "body": "The UNESCO Casbah, the Martyrs' Memorial, and the National Army Museum."
+        },
+        {
+          "day": 4,
+          "title": "Travel to Sétif",
+          "body": "Transfer to Sétif and the Roman ruins of Djémila; overnight in Sétif."
+        },
+        {
+          "day": 5,
+          "title": "Constantine",
+          "body": "The suspension bridges of Constantine, the Emir Abdelkader Mosque and Ahmed Bey Palace; overnight in Constantine."
+        },
+        {
+          "day": 6,
+          "title": "Batna & Timgad",
+          "body": "Travel to Batna and the UNESCO Roman city of Timgad, with local heritage; overnight in Batna."
+        },
+        {
+          "day": 7,
+          "title": "Journey to Ghardaïa",
+          "body": "Travel south to the M'Zab Valley and check in at a traditional guesthouse, with a free evening."
+        },
+        {
+          "day": 8,
+          "title": "Ghardaïa cultural tour",
+          "body": "The villages of El Atteuf, Beni Isguen and Melika, their mosques and architecture, the souks and a lunch with a local family."
+        },
+        {
+          "day": 9,
+          "title": "Return to Algiers",
+          "body": "Travel back to Algiers, with the Hamma botanical garden, the Bardo Museum and Notre-Dame d'Afrique."
+        },
+        {
+          "day": 10,
+          "title": "Departure",
+          "body": "Breakfast and transfer to the airport."
+        }
+      ],
+      "includes": [
+        "Accommodation in 4-star hotels with breakfast",
+        "Air-conditioned tourist transport",
+        "Accompanying tour guide",
+        "Private local guide at major sites",
+        "All meals during the desert excursion",
+        "Desert activities: quad biking, camel riding, sandboarding"
+      ],
+      "excludes": [
+        "Additional programs and activities",
+        "Tips",
+        "Lunch and dinner on other days"
+      ],
+      "map": {
+        "lat": 36.7538,
+        "lng": 3.0588
+      }
+    }
+  ]
+}

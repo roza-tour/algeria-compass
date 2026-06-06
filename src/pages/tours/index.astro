@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import data from '../../data/tours.json';
+const tours = ((data as any).tours || (data as any)) as any[];
+const card = (t: any) => `/assets/img/thumbs/tours/${t.image_slugs[0]}-1.jpg`;
+---
+<BaseLayout
+  title="Algeria Tours & Private Journeys | Algeria Compass"
+  description="Private, guided Algeria tours — Sahara safaris, the UNESCO Casbah, Roman cities, the M'Zab Valley and the Kabyle coast. 20 curated itineraries from €30.">
+  <section class="hero" style="min-height:42vh">
+    <img src="/assets/img/tours/djanet-1.jpg" alt="Algeria tours" width="1600" height="900" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">20 private itineraries</div>
+      <h1>Tours of Algeria</h1>
+      <p>Private, locally-guided journeys across all of Algeria — from the deep Sahara to the Roman north and the Mediterranean coast.</p>
+    </div>
+  </section>
+
+  <section class="section"><div class="wrap">
+    <div class="grid">
+      {tours.map((t) => (
+        <a class="card" href={`/tours/${t.id}/`}>
+          <div class="ci"><img src={card(t)} alt={t.title} width="400" height="250" loading="lazy" /></div>
+          <div class="cb">
+            <span class="tag">{t.duration}</span>
+            <h3>{t.title}</h3>
+            <p>{t.summary}</p>
+            <div class="meta">{t.price_from ? 'From ' : ''}€{t.price_eur} / {t.per}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div></section>
+</BaseLayout>

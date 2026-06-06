@@ -2,12 +2,13 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { hubs } from '../data/hubs';
 import { clusters } from '../data/clusters';
+import toursData from '../data/tours.json';
 
 const SITE = (import.meta.env.SITE || 'https://algeriacompass.com').replace(/\/$/, '');
 const today = new Date().toISOString().slice(0, 10);
 
 export const GET: APIRoute = async () => {
-  const statics = ['', 'discover/', 'destinations/', 'provinces/', 'experiences/', 'blog/',
+  const statics = ['', 'discover/', 'tours/', 'destinations/', 'provinces/', 'experiences/', 'blog/',
     'questions/', 'culture/', 'history/', 'food/', 'unesco/', 'travel-guides/',
     'about/', 'contact/', 'editorial/', 'team/', 'reviewers/', 'knowledge/', 'knowledge/provinces/', 'knowledge/graph/', 'clusters/'];
   const colls: [string, string][] = [
@@ -16,6 +17,8 @@ export const GET: APIRoute = async () => {
     ['editorial', 'editorial'], ['team', 'team'], ['reviewer', 'reviewers'],
   ];
   const rows: { loc: string; pri: string }[] = statics.map(s => ({ loc: `${SITE}/${s}`, pri: s === '' ? '1.0' : '0.7' }));
+  const tourList = (toursData as any).tours || (toursData as any);
+  for (const t of tourList) rows.push({ loc: `${SITE}/tours/${t.id}/`, pri: '0.8' });
   for (const h of hubs) rows.push({ loc: `${SITE}/knowledge/${h.slug}/`, pri: '0.7' });
   for (const c of clusters) rows.push({ loc: `${SITE}/clusters/${c.id}/`, pri: '0.6' });
   for (const [coll, base] of colls) {

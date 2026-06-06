@@ -1,0 +1,93 @@
+---
+import fs from 'node:fs';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../data/tours.json';
+const tours = ((data as any).tours || (data as any)) as any[];
+
+// curated featured tours (fall back to first 6)
+const featuredIds = ['djanet-sahara-safari','algiers-city-tour-casbah-bardo-martyrsmemorial','algeria-through-time-and-tradition','tour-bejaia-historic','ghardaia-guided-tour','oran-mostaganem-tlemcen'];
+const featured = featuredIds.map(id => tours.find(t => t.id === id)).filter(Boolean);
+const card = (t: any) => `/assets/img/thumbs/tours/${t.image_slugs[0]}-1.jpg`;
+
+// "Moments from our trips" — real client photos on disk
+let moments: string[] = [];
+try {
+  moments = fs.readdirSync('public/assets/img/thumbs/clients')
+    .filter((f: string) => /^client-\d+\.jpg$/i.test(f))
+    .sort((a, b) => parseInt(a.match(/\d+/)![0]) - parseInt(b.match(/\d+/)![0]))
+    .slice(0, 12);
+} catch (e) { moments = []; }
+
+const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Algeria tour.");
+---
+<BaseLayout
+  title="Algeria Compass — Private Algeria Tours, Sahara Safaris & Cultural Journeys"
+  description="Algeria Compass is a specialist tour operator: private, locally-guided journeys across Algeria — Sahara safaris, the UNESCO Casbah of Algiers, Roman cities, the M'Zab Valley and the Kabyle coast. Tours from €30."
+  sticky={true}>
+
+  <section class="hero" style="min-height:68vh">
+    <img src="/assets/img/tours/djanet-1.jpg" alt="The Algerian Sahara near Djanet" width="1600" height="900" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">Algeria Revealed · Specialist Tour Operator</div>
+      <h1>Explore Algeria in Elite Luxury</h1>
+      <p>Private, locally-guided journeys across the largest country in Africa — the Sahara, the UNESCO Casbah, Roman cities, the M'Zab Valley and the Mediterranean coast.</p>
+      <p style="margin-top:1rem">
+        <a class="btn btn-gold" href="/tours/">Browse all tours →</a>
+        <a class="btn btn-ghost" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,.5)">💬 WhatsApp us</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section"><div class="wrap">
+    <div class="eyebrow">Private journeys</div>
+    <h2>Featured tours</h2>
+    <div class="grid" style="margin-top:1.2rem">
+      {featured.map((t: any) => (
+        <a class="card" href={`/tours/${t.id}/`}>
+          <div class="ci"><img src={card(t)} alt={t.title} width="400" height="250" loading="lazy" /></div>
+          <div class="cb">
+            <span class="tag">{t.duration}</span>
+            <h3>{t.title}</h3>
+            <p>{t.summary}</p>
+            <div class="meta">{t.price_from ? 'From ' : ''}€{t.price_eur} / {t.per}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+    <p style="margin-top:1.4rem"><a class="btn" href="/tours/">All 20 tours →</a></p>
+  </div></section>
+
+  <section class="section" style="background:var(--wash)"><div class="wrap">
+    <div class="eyebrow">The country</div>
+    <h2>Plan your Algeria trip</h2>
+    <div class="grid" style="margin-top:1.2rem">
+      <a class="card" href="/destinations/"><div class="cb"><h3>Destinations</h3><p>Casbah of Algiers, Tassili n'Ajjer, Constantine, Djémila and more.</p></div></a>
+      <a class="card" href="/provinces/"><div class="cb"><h3>All 58 provinces</h3><p>Region-by-region guides across the whole country.</p></div></a>
+      <a class="card" href="/travel-guides/"><div class="cb"><h3>Travel guides</h3><p>Visa, safety, best time to visit, food and transport.</p></div></a>
+      <a class="card" href="/discover/"><div class="cb"><h3>Discover Algeria</h3><p>Our independent, researched guide to the country.</p></div></a>
+    </div>
+  </div></section>
+
+  {moments.length > 0 &&
+    <section class="section"><div class="wrap photo-gallery">
+      <div class="eyebrow">Moments from our trips</div>
+      <h2>Real journeys, real travellers</h2>
+      <div class="pgrid" style="margin-top:1.2rem">
+        {moments.map((f: string) => (
+          <figure><img src={`/assets/img/thumbs/clients/${f}`} alt="Algeria Compass trip" width="400" height="400" loading="lazy" /></figure>
+        ))}
+      </div>
+    </div></section>}
+
+  <section class="section" style="background:var(--wash)"><div class="wrap" style="text-align:center">
+    <div class="cta">
+      <h2>Ready to see Algeria?</h2>
+      <p style="margin-top:.5rem">Tell us your dates and interests — we'll craft a private itinerary.</p>
+      <p style="margin-top:1rem">
+        <a class="btn btn-gold" href="/contact/">Plan a trip</a>
+        <a class="btn" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="background:#25D366">💬 WhatsApp</a>
+      </p>
+    </div>
+  </div></section>
+
+</BaseLayout>
