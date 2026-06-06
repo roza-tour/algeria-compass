@@ -28,6 +28,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       {nav.map(n => (
         <li><a href={n.href} class={isActive(n.href) ? 'active' : undefined}>{n.label}</a></li>
       ))}
+      <li class="nav-mobile-only"><a href="https://wa.me/213784193176" target="_blank" rel="noopener">&#128172; WhatsApp us</a></li>
     </ul>
 
     <div class="nav-cta">
