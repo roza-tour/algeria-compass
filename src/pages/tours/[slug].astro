@@ -30,15 +30,48 @@ try {
   }
 } catch (e) { gallery = []; }
 
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/tours/${tour.id}/`;
 const hero = `/assets/img/tours/${gallery[0] || tour.image_slugs[0] + '-1.jpg'}`;
 const region = REGION[tour.theme] ?? '';
 const priceLabel = `${tour.price_from ? 'From ' : ''}€${tour.price_eur} / ${tour.per}`;
 const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to book the "${tour.title}".`);
-const schema = [{
-  '@context': 'https://schema.org', '@type': 'TouristTrip', name: tour.title,
-  description: tour.summary, touristType: tour.theme,
-  offers: { '@type': 'Offer', price: tour.price_eur, priceCurrency: 'EUR' }
-}];
+const days = (tour.itinerary || []).length;
+const schema = [
+  {
+    '@type': 'TouristTrip',
+    '@id': url + '#trip',
+    name: tour.title,
+    description: tour.summary,
+    url,
+    image: site + hero,
+    touristType: tour.theme,
+    ...(days ? { duration: `P${days}D` } : {}),
+    provider: { '@id': site + '/#organization' },
+    offers: {
+      '@type': 'Offer',
+      price: tour.price_eur,
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      url
+    },
+    itinerary: {
+      '@type': 'ItemList',
+      numberOfItems: days,
+      itemListElement: (tour.itinerary || []).map((d: any) => ({
+        '@type': 'ListItem', position: d.day, name: `Day ${d.day}: ${d.title}`, description: d.body
+      }))
+    }
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Tours', item: site + '/tours/' },
+      { '@type': 'ListItem', position: 3, name: tour.title, item: url }
+    ]
+  }
+];
 ---
 <BaseLayout
   title={`${tour.title} | Algeria Compass`}
