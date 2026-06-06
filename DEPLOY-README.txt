@@ -1,10 +1,13 @@
 ALGERIA COMPASS — UNIFIED DEPLOY PACKAGE
 ================================================================
-File: algeriacompass-UNIFIED-DEPLOY.zip   (~124 MB, 1601 files)
+File: algeriacompass-UNIFIED-DEPLOY.zip   (~122 MB, 1628 files, 113 pages)
 
-ONE complete website: the rebranded homepage + trips + galleries AND the full
-Astro content site (blog, destinations, provinces, guides, knowledge, editorial,
-etc.) — all sharing one brand identity (logo, header, footer, colors, fonts).
+ONE complete Astro-built website. Single template/chrome for every page
+(homepage, 20 tour pages at /tours/<slug>/, blog, destinations, provinces,
+guides, knowledge, editorial, etc.) — one logo/header/footer/palette.
+The old 4.67MB monolithic homepage has been retired; the homepage and each
+tour are now real Astro pages. Build is self-contained: `npm run build`
+emits the full dist/ (all assets live in public/).
 
 This is a COMPLETE, STANDALONE package for a CLEAN install on an EMPTY document
 root. It does NOT depend on any file from a previous deployment.
