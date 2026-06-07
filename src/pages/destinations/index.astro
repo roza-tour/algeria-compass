@@ -6,21 +6,49 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Card from '../../components/Card.astro';
 import CtaSection from '../../components/CtaSection.astro';
 const items = await getCollection('destination');
+
+// The 7 UNESCO World Heritage Sites are the primary feature, in inscription order.
+const UNESCO_ORDER = ['tassili-najjer','mzab-valley','djemila','timgad','tipaza','beni-hammad','casbah-of-algiers'];
+const bySlug = Object.fromEntries(items.map(i => [i.slug, i]));
+const unesco = UNESCO_ORDER.map(s => bySlug[s]).filter(Boolean);
+const others = items.filter(i => !UNESCO_ORDER.includes(i.slug));
 ---
-<BaseLayout title="Algeria Destinations" description="Iconic Algerian places — desert, Roman ruins, oasis cities and the Mediterranean coast.">
-  <Hero title="Algeria Destinations" eyebrow="Algeria" text="Iconic Algerian places — desert, Roman ruins, oasis cities and the Mediterranean coast." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
+<BaseLayout title="Algeria Destinations & the 7 UNESCO World Heritage Sites" description="Algeria's seven UNESCO World Heritage Sites — the Casbah of Algiers, Djémila, Timgad, Tipaza, the M'Zab Valley, Tassili n'Ajjer and Al Qal'a of Beni Hammad — plus more iconic places to visit.">
+  <Hero title="Algeria Destinations" eyebrow="Algeria" text="Seven UNESCO World Heritage Sites and the iconic places around them — Roman cities, Saharan rock art, oasis towns and the Mediterranean coast." image="/assets/img/timgad-trajan-arch.jpg" alt="The Arch of Trajan at the Roman city of Timgad, Algeria" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algeria Destinations'}]} />
+
   <section class="section"><div class="wrap">
-    <div class="grid">
-      {items.map(it => (
+    <div class="eyebrow">The headline sites</div>
+    <h2>Algeria's 7 UNESCO World Heritage Sites</h2>
+    <p style="color:var(--text-m);max-width:760px;margin-top:.4rem">From the prehistoric rock art of the Sahara to the best-preserved Roman cities in the world and the living oasis towns of the M'Zab — these seven sites are the heart of any Algeria itinerary.</p>
+    <div class="grid" style="margin-top:1.3rem">
+      {unesco.map(it => (
         <Card href={`/destinations/${it.slug}/`}
           title={it.data.name}
           image={it.data.image ?? '/assets/img/brand-algeria.jpg'}
           alt={it.data.imageAlt ?? it.data.name}
-          tag={it.data.region}
+          tag="UNESCO"
           text={it.data.quickAnswer} />
       ))}
     </div>
   </div></section>
+
+  {others.length > 0 && (
+    <section class="section" style="background:var(--wash)"><div class="wrap">
+      <div class="eyebrow">More to explore</div>
+      <h2>Other iconic destinations</h2>
+      <div class="grid" style="margin-top:1.3rem">
+        {others.map(it => (
+          <Card href={`/destinations/${it.slug}/`}
+            title={it.data.name}
+            image={it.data.image ?? '/assets/img/brand-algeria.jpg'}
+            alt={it.data.imageAlt ?? it.data.name}
+            tag={it.data.region}
+            text={it.data.quickAnswer} />
+        ))}
+      </div>
+    </div></section>
+  )}
+
   <CtaSection />
 </BaseLayout>
