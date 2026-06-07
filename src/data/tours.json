@@ -184,6 +184,26 @@
       "per": "person",
       "start": "Ghardaïa Airport",
       "summary": "Three days in the M'Zab Valley — the fortified hill-towns of Ghardaïa and Beni Isguen, the ancient foggara water system, palm oases, and a 4×4 desert evening under the stars.",
+      "hook": "Three days in the M'Zab — the thousand-year-old hill-towns of the Mozabites, their secret water channels, and a night in the open desert.",
+      "overview": "The M'Zab Valley is one of the most extraordinary places in the Sahara: five fortified towns built by the Ibadi Mozabites from the 11th century, each climbing to a mosque-watchtower, ringed by palm groves and fed by an ingenious foggara water system. Over three days you explore the market-town of Ghardaïa and the holy walled village of Beni Isguen, see the eco-town of Tafilelt and the palm oases, and head out by 4×4 for dinner under the desert stars. It is living UNESCO heritage, not a museum.",
+      "whyDifferent": [
+        { "t": "A UNESCO valley, still alive", "d": "The M'Zab's medieval towns are inhabited and used exactly as they were built." },
+        { "t": "Inside Beni Isguen", "d": "The holy walled town is visited with a local guide and its own customs — rare access." },
+        { "t": "Desert nights", "d": "A 4×4 evening toward El Guerrara and dinner under the stars." },
+        { "t": "Water in the desert", "d": "See the ancestral foggara channels that made oasis life possible." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "October–April (cooler desert weather)" },
+        { "label": "Pace", "value": "Easy to moderate" },
+        { "label": "Style", "value": "Private, guided, 2 nights — accommodation & meals included" },
+        { "label": "Bring", "value": "Modest dress (conservative community), sun protection, a warm layer for desert nights" }
+      ],
+      "faqs": [
+        { "q": "Is the M'Zab Valley UNESCO-listed?", "a": "Yes — the M'Zab (Ghardaïa) was inscribed by UNESCO in 1982." },
+        { "q": "Do I need to dress conservatively?", "a": "Yes — it is a conservative religious community; modest dress and asking before photographing people are expected, and a guide is required for Beni Isguen." },
+        { "q": "How do I reach Ghardaïa?", "a": "The tour starts at Ghardaïa airport (domestic flights from Algiers); transfers are included." },
+        { "q": "Are meals and accommodation included?", "a": "Yes — the tour includes accommodation, meals, a local guide and private transport." }
+      ],
       "highlights": [
         "The mud-brick hill-town of Ghardaïa in the M'Zab Valley",
         "The fortified village of Beni Isguen",
@@ -243,6 +263,26 @@
       "per": "person",
       "start": "Oran",
       "summary": "Five days across the Algerian west — the lively port city of Oran, the beaches of Mostaganem, and the deep Andalusian heritage of Tlemcen, with its great mosque, palace and waterfalls.",
+      "hook": "Five days across the Algerian west — raï-city Oran, the beaches of Mostaganem, and the deep Andalusian soul of Tlemcen.",
+      "overview": "The west is Algeria's Andalusian heart. From the lively port of Oran — Santa Cruz fort on its mountain, the grand Place du 1er Novembre, the seafront and museums — you follow the Mediterranean to the beaches of Mostaganem, then climb to Tlemcen, the old capital of Andalusian Algeria, with its Great Mosque, the El Mechouar palace, the Lalla Setti plateau and the El Ourit waterfalls. Five days of coast, culture and craft, paced to enjoy each city.",
+      "whyDifferent": [
+        { "t": "The Andalusian west", "d": "Tlemcen is the richest Andalusian-heritage city in Algeria — mosques, palaces and music." },
+        { "t": "Oran, home of raï", "d": "The country's vibrant second city, from Santa Cruz fort to the seafront." },
+        { "t": "Coast and mountains", "d": "Mediterranean beaches at Mostaganem and the green plateau and falls above Tlemcen." },
+        { "t": "Unhurried", "d": "Five days lets each city breathe, rather than rushing the west in one." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn (mild); summer for the beaches" },
+        { "label": "Pace", "value": "Moderate, city-based with day trips" },
+        { "label": "Style", "value": "Private, guided, 4 nights — hotels & transfers included" },
+        { "label": "Bring", "value": "Comfortable shoes, modest dress for mosques, swimwear in summer" }
+      ],
+      "faqs": [
+        { "q": "Where does the tour start and end?", "a": "It starts in Oran; the route runs Oran → Mostaganem → Tlemcen." },
+        { "q": "What is Tlemcen known for?", "a": "Its Andalusian heritage — the Great Mosque, the El Mechouar palace, the Lalla Setti plateau and the El Ourit waterfalls." },
+        { "q": "Is Oran worth the time?", "a": "Yes — Santa Cruz fort, Place du 1er Novembre, the Zabana museum and the seafront make it a highlight, and it is the home of raï music." },
+        { "q": "Are hotels included?", "a": "Yes — the tour includes hotels, private transport and a professional guide per the itinerary." }
+      ],
       "highlights": [
         "Santa Cruz Fort and the panorama over Oran",
         "Place du 1er Novembre and Oran's historic arena",
@@ -358,6 +398,26 @@
       "per": "person",
       "start": "Algiers — Airport / hotel pickup",
       "summary": "A full day through the heart of Algiers — the UNESCO-listed Casbah, the Bardo National Museum, and the Martyrs' Memorial with its sweeping view over the city and the sea, with a traditional lunch included.",
+      "hook": "A full day through the white city — the Ottoman Casbah, a great museum, and the monument that crowns Algiers, with a real Algerian lunch in between.",
+      "overview": "Algiers wears its history on the hillside. In a single day you climb through the UNESCO-listed Casbah — the dense Ottoman medina of stepped lanes, courtyard houses and old mosques above the bay — take in the archaeology and art of the Bardo National Museum, and stand beneath the soaring Martyrs' Memorial for the city's best view over the white houses and the Mediterranean. A traditional lunch breaks the day. It is the ideal first day in Algeria: the capital's layers, read end to end with a local guide.",
+      "whyDifferent": [
+        { "t": "The Casbah with someone who knows it", "d": "A UNESCO maze of alleys best understood with a local guide who can open its history." },
+        { "t": "One day, the whole arc", "d": "Ottoman medina, national museum and modern memorial — the city's full story in a single loop." },
+        { "t": "A real lunch, not a tourist stop", "d": "A traditional Algerian meal at a local restaurant between visits." },
+        { "t": "Door to door", "d": "Airport or hotel pickup and an air-conditioned vehicle throughout." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn (mild); pleasant most of the year" },
+        { "label": "Pace", "value": "Easy, with walking and steps in the Casbah" },
+        { "label": "Style", "value": "Private, guided full-day tour" },
+        { "label": "Bring", "value": "Comfortable shoes, sun protection, modest dress for mosques" }
+      ],
+      "faqs": [
+        { "q": "Is the Casbah safe to visit?", "a": "Yes — with a local guide it is a rewarding, welcoming walk; the lanes are steep, so wear good shoes." },
+        { "q": "Is lunch included?", "a": "Yes — a traditional Algerian lunch at a local restaurant is part of the day." },
+        { "q": "Can you collect me from the airport?", "a": "Yes — pickup and drop-off at your Algiers hotel or the airport is included." },
+        { "q": "How much walking is there?", "a": "A fair amount, much of it on the Casbah's steps and slopes, at an easy pace with stops." }
+      ],
       "highlights": [
         "The UNESCO Casbah, its alleys and old mosques",
         "Archaeology and history at the Bardo Museum",
@@ -739,6 +799,26 @@
       "per": "person",
       "start": "Algiers — Airport / hotel pickup",
       "summary": "A coastal day at Béjaïa — its historic fortress and museum, the rugged Cap Carbon corniche, and time on the sand at Les Aiguades, with a traditional lunch by the Mediterranean.",
+      "hook": "A Mediterranean day in Kabylie — a clifftop fortress, the wild Cap Carbon corniche, and a beach lunch where the mountains meet the sea.",
+      "overview": "Béjaïa is where the green Djurdjura mountains drop straight into a deep-blue Mediterranean. In a day from Algiers you visit its historic fortress and museum, drive the dramatic Cap Carbon corniche above the cliffs, and unwind on the sand at Les Aiguades, with a traditional lunch by the water. It is the easiest way to taste the Kabyle coast — history, scenery and sea in one relaxed loop.",
+      "whyDifferent": [
+        { "t": "Mountains into the sea", "d": "One of the most beautiful coastlines in Algeria, with the Djurdjura as a backdrop." },
+        { "t": "History and beach in a day", "d": "A historic fortress and museum, then time on the sand at Les Aiguades." },
+        { "t": "The Cap Carbon drive", "d": "A clifftop corniche to one of the Mediterranean's most striking headlands." },
+        { "t": "Lunch by the water", "d": "A traditional Algerian meal on the coast." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "May–October for the beach; spring & autumn for walking" },
+        { "label": "Pace", "value": "Easy, with a long road day each way" },
+        { "label": "Style", "value": "Private, guided day tour with transfer from Algiers" },
+        { "label": "Bring", "value": "Swimwear in summer, sun protection, comfortable shoes" }
+      ],
+      "faqs": [
+        { "q": "Where does the tour start?", "a": "With pickup in Algiers; the drive to Béjaïa runs through the Kabylie mountains." },
+        { "q": "Is lunch included?", "a": "Yes — a traditional Algerian lunch on the coast." },
+        { "q": "Can we swim at Les Aiguades?", "a": "In the warm months, yes — bring swimwear; in cooler months it is a scenic stop." },
+        { "q": "Is it a long day?", "a": "Yes — a full coastal day with road time each way, so an early start is worth it." }
+      ],
       "highlights": [
         "The historic fortress of Béjaïa and its sea views",
         "Museum exhibits on the region's history",
@@ -1065,6 +1145,26 @@
       "per": "person",
       "start": "Algiers",
       "summary": "Three days through Algeria's finest Roman heritage — the seaside ruins of Tipaza and Cherchell, the hillside city of Djémila, and the grid-planned streets of Timgad.",
+      "hook": "Three days, three of the greatest Roman cities on Earth — by the sea at Tipaza, on the hillside at Djémila, and across the grid of Timgad.",
+      "overview": "Algeria holds some of the best-preserved Roman cities anywhere, and this journey strings together the finest. You begin on the coast at Tipaza, where temples and bathhouses meet the Mediterranean, and at Caesarea (Cherchell) with its museum of statuary and mosaics. You cross to Djémila, draped over its hillside with colonnaded streets, monumental gateways and mosaic floors, and finish at Timgad — the textbook grid city Trajan founded for his veterans, with its theatre, forum and famous library. Three UNESCO-calibre sites, almost without crowds.",
+      "whyDifferent": [
+        { "t": "The Roman triple crown", "d": "Tipaza, Djémila and Timgad in one trip — few itineraries anywhere match it." },
+        { "t": "Ruins without the queues", "d": "These world-class sites are often near-empty; you explore at your own pace." },
+        { "t": "Sea, hill and plain", "d": "Three completely different Roman settings, from the Mediterranean coast to the edge of the Aurès." },
+        { "t": "Read by an expert", "d": "A guide turns scattered stones into a living city as you walk." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn — comfortable on exposed sites" },
+        { "label": "Pace", "value": "Moderate — walking on uneven ancient ground" },
+        { "label": "Style", "value": "Private, guided, 2 nights" },
+        { "label": "Bring", "value": "Sun protection, water, sturdy shoes, a hat" }
+      ],
+      "faqs": [
+        { "q": "Are these sites UNESCO-listed?", "a": "Tipaza, Djémila and Timgad are all UNESCO World Heritage Sites; Cherchell (Caesarea) is the related Roman capital." },
+        { "q": "How much driving is involved?", "a": "It is a touring itinerary across northern Algeria, with scenic road transfers between the sites." },
+        { "q": "Is it suited to keen history travellers?", "a": "Ideal — it is one of the most complete Roman itineraries in North Africa." },
+        { "q": "When is the best time to go?", "a": "Spring and autumn; the sites are open and exposed, so summer midday heat is best avoided." }
+      ],
       "highlights": [
         "The coastal Roman ruins of Tipaza",
         "Caesarea (Cherchell) and its museum",
