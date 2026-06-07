@@ -13,6 +13,7 @@ import EntityLinks from '../../components/EntityLinks.astro';
 import Byline from '../../components/Byline.astro';
 import SourceList from '../../components/SourceList.astro';
 import EditorialMeta from '../../components/EditorialMeta.astro';
+import { DEST_SKIN } from '../../data/civSkins.mjs';
 import { related, toCard } from '../../lib/related';
 import { resolveAuthor, resolveReviewer, authorNode, reviewerNode, citationNodes } from '../../lib/authorship';
 import { entityForContent } from '../../lib/graph';
@@ -52,7 +53,7 @@ const cites = citationNodes(d.sources);
 if (cites.length) attr.citation = cites;
 const schemaNodes = [attr, authorEntity, reviewerEntity];
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} region={d.region} schema={schemaNodes} sticky={true}>
+<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} region={d.region} civ={DEST_SKIN[item.slug]} schema={schemaNodes} sticky={true}>
   <Hero title={d.name} eyebrow={d.province ? d.province + ' · Algeria' : 'Algeria'} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
     <a class="btn btn-gold" href={`/contact/?i=${encodeURIComponent(d.name)}`} data-evt="cta_plan">Visit {d.name} →</a>
   </Hero>

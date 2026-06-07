@@ -17,6 +17,7 @@ import { related, toCard } from '../../lib/related';
 import { resolveAuthor, resolveReviewer, authorNode, reviewerNode, citationNodes } from '../../lib/authorship';
 import { entityForContent } from '../../lib/graph';
 import { discoveryGroups } from '../../lib/entitySchema';
+import { PROVINCE_SKIN } from '../../data/civSkins.mjs';
 
 export async function getStaticPaths() {
   const items = await getCollection('province');
@@ -57,7 +58,7 @@ const cites = citationNodes(d.sources);
 if (cites.length) place.citation = cites;
 const schemaNodes = [place, authorEntity, reviewerEntity];
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} region={d.region} schema={schemaNodes} sticky={true}>
+<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} region={d.region} civ={PROVINCE_SKIN[item.slug]} schema={schemaNodes} sticky={true}>
   <Hero title={d.name} eyebrow={`State${d.wilayaNumber ? ' ' + d.wilayaNumber : ''} · Algeria`} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
     <a class="btn btn-gold" href={`/contact/?i=${encodeURIComponent(d.name)}`} data-evt="cta_plan">Plan a trip to {d.name} →</a>
   </Hero>

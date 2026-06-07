@@ -12,3 +12,6 @@ dist
 
 # Phase A temp image extraction
 .tmp-images
+
+# screenshot scratch (Phase B QA)
+.shots
