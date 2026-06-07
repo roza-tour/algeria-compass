@@ -23,6 +23,26 @@
       "per": "person",
       "start": "Algiers — Houari Boumediene Airport",
       "summary": "Five days across the heart of Algeria — the UNESCO Casbah of Algiers, the Roman coast at Tipaza, and the timeless M'Zab Valley on the edge of the Sahara, with a private licensed guide throughout.",
+      "hook": "Five days from the Casbah to the Sahara — Algiers, Roman Tipaza, and the timeless M'Zab Valley, with a private licensed guide throughout.",
+      "overview": "This is Algeria in miniature: the white capital, the Roman coast and the desert, in five unhurried days. You walk the UNESCO Casbah of Algiers, follow the Mediterranean to the seaside ruins of Tipaza and the museum at Cherchell, then fly south to Ghardaïa to step into the M'Zab Valley — five fortified oasis towns built by the Ibadi Mozabites a thousand years ago. Coast, culture and Sahara, with a private guide and real Algerian food along the way.",
+      "whyDifferent": [
+        { "t": "Three Algerias in five days", "d": "Capital, Roman coast and Saharan oasis — the country's full range without rushing." },
+        { "t": "The M'Zab up close", "d": "The thousand-year-old Mozabite towns, a living UNESCO site few travellers reach." },
+        { "t": "Private and licensed", "d": "Your own guide and transfers throughout, paced to you." },
+        { "t": "Real culture, not just sights", "d": "Everyday food and life alongside the headline monuments." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "October–April (comfortable in the Sahara)" },
+        { "label": "Pace", "value": "Moderate, with an internal flight to Ghardaïa" },
+        { "label": "Style", "value": "Private, guided, 4 nights — accommodation & breakfast included" },
+        { "label": "Bring", "value": "Modest dress for the Casbah & M'Zab, sun protection, comfortable shoes" }
+      ],
+      "faqs": [
+        { "q": "Do we fly within Algeria?", "a": "Yes — a domestic flight links Algiers and Ghardaïa; transfers are included." },
+        { "q": "Is the M'Zab Valley UNESCO-listed?", "a": "Yes — Ghardaïa's M'Zab was inscribed in 1982; modest dress and a local guide are expected." },
+        { "q": "What's included?", "a": "Accommodation with breakfast, private transfers, an English-speaking guide, traditional lunches and the desert excursion." },
+        { "q": "Is this good for a first visit?", "a": "Ideal — it samples the capital, the Roman coast and the Sahara in one trip." }
+      ],
       "highlights": [
         "Walk the UNESCO-listed Casbah of Algiers",
         "Roman Tipaza and the Royal Mausoleum of Mauretania",
@@ -351,6 +371,26 @@
       "per": "person",
       "start": "Algiers — Airport / hotel pickup",
       "summary": "A relaxed private day in the capital taking in three of its landmarks — the botanical Jardin d'Essai du Hamma, the hilltop basilica of Notre-Dame d'Afrique above the bay, and the Army Museum — rounded off with a traditional Algerian lunch.",
+      "hook": "A gentle private day among the capital's landmarks — a famous botanical garden, a basilica above the bay, and a great museum, with lunch.",
+      "overview": "A relaxed alternative to the Casbah day, this private tour takes in three Algiers landmarks at an easy pace: the lush Jardin d'Essai du Hamma, one of the great botanical gardens of the Mediterranean; the hilltop basilica of Notre-Dame d'Afrique with its sweeping view over the bay; and the Army Museum's account of Algeria's history. A traditional lunch rounds it off, with hotel pickup throughout.",
+      "whyDifferent": [
+        { "t": "The green side of Algiers", "d": "The Hamma garden is a tranquil, beautiful counterpoint to the busy city." },
+        { "t": "A view worth the climb", "d": "Notre-Dame d'Afrique looks out over the whole bay." },
+        { "t": "Easy and private", "d": "A gentle pace with your own guide and vehicle — ideal for a first or relaxed day." },
+        { "t": "Lunch included", "d": "A traditional Algerian meal between the sights." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Year-round; spring & autumn mildest" },
+        { "label": "Pace", "value": "Easy, mostly low-walking" },
+        { "label": "Style", "value": "Private, guided day tour with pickup" },
+        { "label": "Bring", "value": "Comfortable shoes, modest dress for the basilica, camera" }
+      ],
+      "faqs": [
+        { "q": "Is this easier than the Casbah tour?", "a": "Yes — it's a gentler day among gardens and viewpoints, with less climbing." },
+        { "q": "Is lunch included?", "a": "Yes — a traditional Algerian lunch." },
+        { "q": "Are entrance fees covered?", "a": "Yes — entrance to the three sites is included." },
+        { "q": "Can it be combined with the Casbah day?", "a": "Yes — many visitors pair the two over two days; ask us to arrange it." }
+      ],
       "highlights": [
         "The historic Hamma botanical garden",
         "Sea views from Notre-Dame d'Afrique",
@@ -467,6 +507,26 @@
       "per": "person",
       "start": "Algiers — Airport",
       "summary": "Six days pairing the great southern desert of Djanet with the M'Zab Valley — the red rock of the Tadrart, the rock art of Tassili n'Ajjer, desert camps under the stars, and the fortified villages of Ghardaïa.",
+      "hook": "Six days across two deserts — the red Tadrart and the rock art of Tassili around Djanet, then the thousand-year-old M'Zab towns of Ghardaïa.",
+      "overview": "The definitive Algerian Sahara journey, pairing the country's two great desert worlds. Around Djanet you explore the sculpted red rock of the Tadrart, the prehistoric galleries of Tassili n'Ajjer, and nights in desert camps with a Tuareg team. Then you transfer north to Ghardaïa and the UNESCO M'Zab Valley, where fortified oasis towns have kept their medieval life intact. Two UNESCO Saharas in one trip, by 4×4 and under the stars.",
+      "whyDifferent": [
+        { "t": "Two UNESCO Saharas", "d": "Tassili's rock art and the M'Zab's oasis towns in a single journey." },
+        { "t": "The Tadrart by 4×4", "d": "Red rock arches, dunes and camps in Algeria's most beautiful desert." },
+        { "t": "Travel with Tuareg", "d": "Local guides, tea on the sand, and nights under the stars." },
+        { "t": "Living heritage", "d": "The Mozabite towns are inhabited exactly as built a thousand years ago." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "November–February" },
+        { "label": "Pace", "value": "Moderate — 4×4 days and short desert walks" },
+        { "label": "Style", "value": "Private, guided, 5 nights; meals as listed" },
+        { "label": "Bring", "value": "Warm layers for desert nights, headtorch, sun protection, modest dress for the M'Zab" }
+      ],
+      "faqs": [
+        { "q": "How do I reach Djanet?", "a": "By domestic flight from Algiers (flights not included); we advise on timings." },
+        { "q": "Are both areas UNESCO sites?", "a": "Yes — Tassili n'Ajjer (1982) and the M'Zab Valley (1982)." },
+        { "q": "Where do we sleep?", "a": "Desert camps around Djanet and accommodation in or near Ghardaïa." },
+        { "q": "Is it physically demanding?", "a": "Moderate — mostly 4×4 travel with short walks and dune climbs at your pace." }
+      ],
       "highlights": [
         "Tadrart Rouge and its red rock formations",
         "Prehistoric rock art at Tassili n'Ajjer (UNESCO)",
@@ -547,6 +607,26 @@
       "per": "person",
       "start": "Algiers — Airport",
       "summary": "A six-day arc across Algeria's east — the bridges of Constantine, the Roman cities of Djémila and Timgad, a Saharan gateway at Bou Saada, and a Mediterranean day at Béjaïa.",
+      "hook": "Six days across Algeria's east — Constantine's bridges, the Roman cities of Djémila and Timgad, a Saharan gateway at Bou Saada, and the Béjaïa coast.",
+      "overview": "A grand loop through the Algerian east, where Roman cities, dramatic gorges, desert gateways and the Mediterranean sit within a day's drive of each other. You take in Constantine, the vertiginous city of bridges; the UNESCO Roman cities of Djémila and Timgad; the oasis edge around Bou Saada and Biskra; and a final coastal day at Béjaïa. It's the richest single route through the country's north-east.",
+      "whyDifferent": [
+        { "t": "The east in one arc", "d": "Roman cities, gorges, oasis and coast on one route." },
+        { "t": "Two UNESCO Roman cities", "d": "Djémila and Timgad, often near-empty." },
+        { "t": "Constantine's bridges", "d": "A city built across a deep gorge, unlike anywhere else." },
+        { "t": "Desert and sea", "d": "From the Saharan edge at Bou Saada to the Mediterranean at Béjaïa." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn" },
+        { "label": "Pace", "value": "Moderate to active — touring with daily drives" },
+        { "label": "Style", "value": "Private, guided, 5 nights with breakfast" },
+        { "label": "Bring", "value": "Sun protection, sturdy shoes, a hat" }
+      ],
+      "faqs": [
+        { "q": "Which UNESCO sites are included?", "a": "The Roman cities of Djémila and Timgad." },
+        { "q": "Is there a lot of driving?", "a": "Yes — it's a touring route across the east, with scenic transfers each day." },
+        { "q": "Is the desert part deep-desert camping?", "a": "No — you reach the Saharan gateway around Bou Saada and Biskra rather than deep-desert camps." },
+        { "q": "Is breakfast included?", "a": "Yes — daily breakfast, plus the Béjaïa excursion and entrance fees." }
+      ],
       "highlights": [
         "The suspension bridges of Constantine",
         "The Roman ruins of Djémila and Timgad (UNESCO)",
@@ -627,6 +707,26 @@
       "per": "person",
       "start": "Algiers — Airport",
       "summary": "Ten days from coast to desert — the Roman sites of Tipaza, Djémila and Timgad, the Casbah of Algiers, Constantine's bridges, and the M'Zab Valley at Ghardaïa.",
+      "hook": "Ten days, coast to desert — the great Roman cities, the Casbah, Constantine's bridges, and the M'Zab Valley, in one complete journey.",
+      "overview": "The full sweep of Algeria in ten days. From Algiers and the seaside Roman ruins of Tipaza, you trace the country's Roman heartland — Djémila and Timgad — cross to Constantine's gorge and bridges, and finish deep in the Sahara at Ghardaïa's M'Zab Valley. Four UNESCO sites, the capital, the highlands and the desert, paced to take it all in without rushing.",
+      "whyDifferent": [
+        { "t": "The complete Algeria", "d": "Coast, Roman cities, the capital and the Sahara in one trip." },
+        { "t": "Four UNESCO sites", "d": "Tipaza, Djémila, Timgad and the M'Zab, plus the Casbah of Algiers." },
+        { "t": "North to deep south", "d": "The full geographic and historical range of the country." },
+        { "t": "Ten unhurried days", "d": "Time to absorb each region rather than rushing." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn; October–April comfortable in the south" },
+        { "label": "Pace", "value": "Moderate — a touring itinerary with internal travel" },
+        { "label": "Style", "value": "Private, guided, 9 nights with breakfast & a welcome dinner" },
+        { "label": "Bring", "value": "Layers, sun protection, modest dress for the Casbah & M'Zab" }
+      ],
+      "faqs": [
+        { "q": "How many UNESCO sites does it cover?", "a": "Five: Tipaza, Djémila, Timgad, the M'Zab Valley and the Casbah of Algiers." },
+        { "q": "Is it a lot of travelling?", "a": "Yes — ten days from coast to desert, with comfortable transfers between regions." },
+        { "q": "What accommodation is used?", "a": "Hotels and guesthouses, with daily breakfast and a welcome dinner." },
+        { "q": "Is this your most complete tour?", "a": "Yes — it's our broadest single itinerary across the country." }
+      ],
       "highlights": [
         "Roman cities: Tipaza, Djémila and Timgad",
         "The UNESCO Casbah of Algiers",
@@ -725,6 +825,26 @@
       "per": "person",
       "start": "Algiers — Airport",
       "summary": "Five days in the red oasis country of Timimoun — its ksour and palm groves, the ancient foggara channels, great dunes, and a night of desert camp dining under the stars.",
+      "hook": "Five days in the red oasis country of Timimoun — ksour and palm groves, ancient water channels, great dunes, and dinner under the stars.",
+      "overview": "Timimoun, the 'Red Oasis', is the heart of the Gourara — a Saharan world of ochre ksour, vast palm groves and the ingenious foggara channels that carry water for miles underground. Over five days you explore Charouine and its ksour, the oases of Aghlad and Ouled Saïd, ride a 4×4 across the great dunes, and share a traditional 'Merdoum' dinner under the stars, with evenings of local music. It's one of Algeria's most atmospheric and least-visited corners.",
+      "whyDifferent": [
+        { "t": "The Red Oasis", "d": "Timimoun's ochre architecture and palm groves are unlike anywhere else in the Sahara." },
+        { "t": "Living water heritage", "d": "The foggara channels are an ancient engineering marvel still in use." },
+        { "t": "Dunes and stars", "d": "A 4×4 dune safari and a Merdoum dinner under open sky." },
+        { "t": "Real Gourara culture", "d": "Markets, ksour and evenings of traditional music." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "October–March" },
+        { "label": "Pace", "value": "Easy to moderate" },
+        { "label": "Style", "value": "Private, guided, 4 nights at a guesthouse; meals as listed" },
+        { "label": "Bring", "value": "Warm layers for night, sun protection, modest dress" }
+      ],
+      "faqs": [
+        { "q": "Where is Timimoun?", "a": "In the Gourara region of the central Algerian Sahara; reached by domestic flight." },
+        { "q": "What is a foggara?", "a": "An ancestral underground channel system that brings water to the oases — you'll see how it works." },
+        { "q": "Is accommodation included?", "a": "Yes — four nights at the Ti Massin guesthouse with daily breakfast and the listed meals." },
+        { "q": "What is the 'Merdoum' dinner?", "a": "A traditional desert meal shared under the stars, part of the trip." }
+      ],
       "highlights": [
         "The red ksour and palm groves of the Gourara",
         "The ancestral foggara irrigation system",
@@ -867,6 +987,26 @@
       "per": "person",
       "start": "Algiers — hotel pickup",
       "summary": "A private full day on the Roman coast west of Algiers — the seaside ruins of Tipaza and the museum of ancient Caesarea at Cherchell, at your own pace with a personal guide.",
+      "hook": "A private day on the Roman coast — the seaside ruins of Tipaza and the museum of ancient Caesarea, entirely at your own pace.",
+      "overview": "Tipaza is one of the most beautiful ancient sites in the Mediterranean, its Roman forum, baths and houses spread along the sea about 70 km west of Algiers. On this private day you explore the UNESCO ruins at your own pace, then visit the archaeological museum at Cherchell — Roman Caesarea — rich in statuary and mosaics. With a personal guide and hotel pickup, it's the relaxed way to see the Roman coast.",
+      "whyDifferent": [
+        { "t": "Entirely private", "d": "Your own guide and pace, with no group to keep up with." },
+        { "t": "Ruins by the sea", "d": "Tipaza's setting on the Mediterranean is unmatched." },
+        { "t": "Two sites in one", "d": "The ruins of Tipaza and the museum of Caesarea (Cherchell)." },
+        { "t": "Easy from Algiers", "d": "A comfortable day trip with hotel pickup." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn" },
+        { "label": "Pace", "value": "Easy, with walking on uneven ground" },
+        { "label": "Style", "value": "Private day tour (Arabic / English / French / Spanish)" },
+        { "label": "Bring", "value": "Sun protection, water, comfortable shoes" }
+      ],
+      "faqs": [
+        { "q": "Is Tipaza UNESCO-listed?", "a": "Yes — inscribed in 1982." },
+        { "q": "How far is it from Algiers?", "a": "About 70 km west, roughly 1.5 hours." },
+        { "q": "What languages are available?", "a": "The guide works in Arabic, English, French or Spanish." },
+        { "q": "Are entrance fees included?", "a": "Yes — to both Tipaza and the Cherchell museum." }
+      ],
       "highlights": [
         "The seaside Roman ruins of Tipaza (UNESCO)",
         "Forum, baths and residential quarters",
@@ -915,6 +1055,26 @@
       "per": "person",
       "start": "Algiers",
       "summary": "Two days at Bou Saada, the 'City of Happiness' — its natural waterfall and the historic Ferrero Mill, lively craft markets, a Bedouin-style dinner with music, and the Sufi shrine of El Hamel.",
+      "hook": "Two days at Bou Saada, the 'City of Happiness' — a desert waterfall, craft markets, a Bedouin dinner with music, and a famous Sufi shrine.",
+      "overview": "Bou Saada, long known as the 'City of Happiness', is the classic gateway between the High Plateaus and the Sahara. Over two days you visit its natural waterfall and the historic Ferrero Mill, wander lively craft markets, share a Bedouin-style dinner with live music, and see the Sufi zawiya of El Hamel. It's an easy, atmospheric taste of southern Algeria, a few hours from Algiers.",
+      "whyDifferent": [
+        { "t": "The City of Happiness", "d": "A storied oasis town that drew painters and writers." },
+        { "t": "Desert without the long haul", "d": "A genuine taste of the south within reach of Algiers." },
+        { "t": "Music and markets", "d": "A Bedouin-style dinner with live music and craft souks." },
+        { "t": "A living Sufi shrine", "d": "The zawiya of El Hamel, an important spiritual centre." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "October–April" },
+        { "label": "Pace", "value": "Easy" },
+        { "label": "Style", "value": "Private, guided, 1 night with hotel & meals" },
+        { "label": "Bring", "value": "Modest dress, sun protection, comfortable shoes" }
+      ],
+      "faqs": [
+        { "q": "How far is Bou Saada from Algiers?", "a": "A few hours by road; round-trip transport is included." },
+        { "q": "Is accommodation included?", "a": "Yes — one night at the Kerdada Hotel or similar, with a day-2 lunch." },
+        { "q": "What is El Hamel?", "a": "A historic Sufi zawiya — a shrine and religious school — near Bou Saada." },
+        { "q": "Is it a good short desert taster?", "a": "Yes — it's the easiest southern escape from the capital." }
+      ],
       "highlights": [
         "Bou Saada, the 'City of Happiness'",
         "The natural waterfall and the historic Ferrero Mill",
@@ -975,6 +1135,26 @@
       "per": "person",
       "start": "Algiers — Airport",
       "summary": "Five fast-moving days across Algeria's headline sights — the Casbah of Algiers, Roman Tipaza and Cherchell, Constantine's bridges, the Roman cities of Timgad and Djémila, and a desert taste at Bou Saada.",
+      "hook": "Five fast-moving days across Algeria's headline sights — the Casbah, Roman Tipaza, Constantine, Timgad, Djémila and a desert taste at Bou Saada.",
+      "overview": "For travellers short on time but long on curiosity, this intensive five days hits Algeria's greatest sights: the Casbah, Bardo Museum and Martyrs' Memorial in Algiers; the Roman coast at Tipaza and Cherchell; Constantine's bridges; the UNESCO Roman cities of Timgad and Djémila; and a desert excursion at Bou Saada. It moves briskly, with a licensed guide and all meals, to pack the country's icons into one trip.",
+      "whyDifferent": [
+        { "t": "The greatest hits", "d": "The capital, Roman cities, gorges and a desert taste in five days." },
+        { "t": "Two UNESCO Roman cities", "d": "Timgad and Djémila on one route." },
+        { "t": "Full-board and guided", "d": "All meals and a licensed guide throughout." },
+        { "t": "Efficient by design", "d": "A brisk pace for travellers with limited time." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn" },
+        { "label": "Pace", "value": "Active — full days with daily transfers" },
+        { "label": "Style", "value": "Private, guided, 4 nights; all meals included" },
+        { "label": "Bring", "value": "Comfortable shoes, sun protection, modest dress for the Casbah" }
+      ],
+      "faqs": [
+        { "q": "Is the pace demanding?", "a": "Yes — it's intensive by design, with early starts and daily travel." },
+        { "q": "Which UNESCO sites are included?", "a": "Timgad, Djémila and the Casbah of Algiers." },
+        { "q": "Are meals included?", "a": "Yes — all meals during the tour, plus entrance fees and the Bou Saada excursion." },
+        { "q": "Can the pace be eased?", "a": "Yes — tell us and we can extend it into a more relaxed itinerary." }
+      ],
       "highlights": [
         "The Casbah, Bardo Museum and Martyrs' Memorial",
         "Roman Tipaza, Cherchell and Cleopatra Selene's mausoleum",
@@ -1043,6 +1223,26 @@
       "per": "person",
       "start": "Algiers — lower Casbah, by the sea",
       "summary": "A guided walk up through the UNESCO Casbah of Algiers — from the seafront and Martyrs' Square to Mustafa Pasha Palace, the citadel and the house of Ali La Pointe, ending at the seaside Rais Palace.",
+      "hook": "A guided climb through the UNESCO Casbah — Ottoman palaces, hidden terraces, and the lanes of the independence war, ending by the sea.",
+      "overview": "The Casbah of Algiers is one of the great historic quarters of the Mediterranean, and this walk reads it from bottom to top. From the seafront and Martyrs' Square you climb through narrow lanes to Mustafa Pasha Palace, the Ottoman citadel and the house of Ali La Pointe — a key site of the independence war — before descending to the seaside Rais Palace (Bastion 23). A compact, atmospheric introduction to old Algiers.",
+      "whyDifferent": [
+        { "t": "The Casbah on foot", "d": "The only way to truly read this UNESCO maze." },
+        { "t": "Ottoman to independence", "d": "Palaces, citadel and the lanes of the 1957 battle in one walk." },
+        { "t": "Local guiding", "d": "A guide who knows the quarter's history and people." },
+        { "t": "Great value", "d": "A rich half-to-full day for a modest price." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn" },
+        { "label": "Pace", "value": "Moderate — steep steps and slopes" },
+        { "label": "Style", "value": "Guided walking tour (English / French / Arabic)" },
+        { "label": "Bring", "value": "Comfortable shoes, water, modest dress" }
+      ],
+      "faqs": [
+        { "q": "Is the Casbah safe with a guide?", "a": "Yes — it's a rewarding, welcoming walk; wear good shoes for the steps." },
+        { "q": "How long is the walk?", "a": "A guided walk through the quarter, mostly uphill at an easy pace with stops." },
+        { "q": "Are entrance fees included?", "a": "Yes — to the included landmarks." },
+        { "q": "Who was Ali La Pointe?", "a": "A figure of the Algerian independence war; his Casbah house is part of the route." }
+      ],
       "highlights": [
         "The narrow streets and old mosques of the Casbah",
         "Mustafa Pasha Palace and Ottoman architecture",
@@ -1091,6 +1291,26 @@
       "per": "person",
       "start": "Constantine",
       "summary": "Two days pairing Constantine, the dramatic city of bridges above the Rhumel gorge, with Timgad, one of the best-preserved Roman cities in North Africa.",
+      "hook": "Two days, two icons of the east — Constantine above its gorge, and Timgad, the best-preserved Roman city in North Africa.",
+      "overview": "This short eastern pairing joins two unforgettable sights. Constantine is the dramatic 'city of bridges', built across the deep Rhumel gorge, with the Ahmed Bey Palace and the Cirta Museum. An hour or so south lies Timgad, the UNESCO Roman colony Trajan founded — its arch, theatre, forum and famous library laid out on a perfect grid. Two days, two of Algeria's most striking places.",
+      "whyDifferent": [
+        { "t": "A city across a gorge", "d": "Constantine's bridges and ravine are unlike anywhere else." },
+        { "t": "The Pompeii of Africa", "d": "Timgad's complete Roman grid, often near-empty." },
+        { "t": "Palace and museum", "d": "Ahmed Bey Palace and the Cirta collections in Constantine." },
+        { "t": "Compact and rich", "d": "Two headline sights in a tidy two-day loop." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn" },
+        { "label": "Pace", "value": "Moderate" },
+        { "label": "Style", "value": "Guided, 1 night in 4-star hotels with breakfast" },
+        { "label": "Bring", "value": "Sun protection, comfortable shoes, a hat for Timgad" }
+      ],
+      "faqs": [
+        { "q": "Is Timgad UNESCO-listed?", "a": "Yes — inscribed in 1982." },
+        { "q": "Where does the tour start?", "a": "In Constantine; Timgad is a short drive south via Batna." },
+        { "q": "Is accommodation included?", "a": "Yes — one night in a 4-star hotel with breakfast, plus tickets and guide." },
+        { "q": "Why is Constantine famous?", "a": "For its setting across the Rhumel gorge and its many dramatic bridges." }
+      ],
       "highlights": [
         "Constantine's bridges and the Rhumel gorge",
         "Ahmed Bey Palace and the Cirta Museum",
@@ -1216,6 +1436,26 @@
       "per": "person",
       "start": "Algiers",
       "summary": "A four-day blend of capital culture, Roman coast and desert charm — the museums and Casbah of Algiers, the ruins of Tipaza and Cherchell, and the oasis town of Bou Saada, with accommodation included.",
+      "hook": "Four days of capital, Roman coast and desert charm — the Casbah and museums of Algiers, the ruins of Tipaza, and the oasis of Bou Saada.",
+      "overview": "A balanced four-day introduction to Algeria's range. You take in the Bardo Museum, Notre-Dame d'Afrique, the Martyrs' Memorial and the UNESCO Casbah in Algiers; the seaside Roman ruins of Tipaza and the Cherchell museum; and the oasis town of Bou Saada on the Saharan edge. Culture, antiquity and desert in a short, comfortable trip with hotels included.",
+      "whyDifferent": [
+        { "t": "Three worlds in four days", "d": "Capital, Roman coast and oasis without the long haul." },
+        { "t": "The Casbah and the Bardo", "d": "The capital's headline culture in one stay." },
+        { "t": "A desert taste", "d": "Bou Saada brings the Sahara within reach." },
+        { "t": "Comfortable pace", "d": "Four nights with hotels and a traditional lunch." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn; October–April for Bou Saada" },
+        { "label": "Pace", "value": "Moderate" },
+        { "label": "Style", "value": "Private, guided, 3 nights in 4-star hotels with breakfast" },
+        { "label": "Bring", "value": "Modest dress for the Casbah, sun protection, comfortable shoes" }
+      ],
+      "faqs": [
+        { "q": "Which UNESCO sites are included?", "a": "Tipaza and the Casbah of Algiers." },
+        { "q": "Is Bou Saada far?", "a": "A few hours south of Algiers; transport is included." },
+        { "q": "Is accommodation included?", "a": "Yes — 4-star hotels with breakfast and a traditional lunch." },
+        { "q": "Is this good for a short trip?", "a": "Yes — it samples three regions in four days." }
+      ],
       "highlights": [
         "The Bardo Museum and Notre-Dame d'Afrique",
         "The Martyrs' Memorial and the UNESCO Casbah",
@@ -1277,6 +1517,26 @@
       "per": "person",
       "start": "Algiers — Airport",
       "summary": "Eight days across Algeria's culture and history — the capital and its Casbah, Roman Tipaza and Djémila, the bridges of Constantine, and the oasis town of Bou Saada.",
+      "hook": "Eight days through Algeria's culture and history — the capital and its Casbah, Roman Tipaza and Djémila, Constantine's bridges, and the oasis of Bou Saada.",
+      "overview": "A deeper cultural circuit, eight days long. From Algiers and its Casbah you follow the Roman coast at Tipaza and Cherchell, cross to Constantine and its gorge, walk the hillside Roman city of Djémila, and finish in the oasis calm of Bou Saada. It blends three UNESCO-calibre sites with living cities and the desert edge, at a pace that leaves room to understand each.",
+      "whyDifferent": [
+        { "t": "Culture in depth", "d": "Eight days to absorb the capital, the Roman cities and the desert." },
+        { "t": "Three great sites", "d": "The Casbah, Tipaza and Djémila on one route." },
+        { "t": "City and oasis", "d": "From Constantine's bridges to the calm of Bou Saada." },
+        { "t": "Unhurried", "d": "Time at each stop rather than a dash." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "Spring & autumn" },
+        { "label": "Pace", "value": "Moderate, touring" },
+        { "label": "Style", "value": "Private, guided, 7 nights in 4-star hotels with breakfast" },
+        { "label": "Bring", "value": "Comfortable shoes, modest dress for the Casbah, sun protection" }
+      ],
+      "faqs": [
+        { "q": "Which UNESCO sites are included?", "a": "Tipaza, Djémila and the Casbah of Algiers." },
+        { "q": "How much travel is involved?", "a": "It's a touring itinerary across the north and the Saharan edge, with comfortable transfers." },
+        { "q": "Is accommodation included?", "a": "Yes — 4-star hotels with breakfast, private transport and a traditional lunch." },
+        { "q": "How does it differ from the 10-day tour?", "a": "It focuses on the north and Bou Saada rather than reaching the M'Zab." }
+      ],
       "highlights": [
         "Algiers, its museums and the historic Casbah",
         "Roman Tipaza, Cherchell and Djémila",
@@ -1358,6 +1618,26 @@
       "per": "person",
       "start": "Algiers — Airport",
       "summary": "Ten days from the Mediterranean to the M'Zab — Algiers and Roman Tipaza, the Roman cities of Djémila and Timgad, Constantine's bridges, and the desert villages of Ghardaïa with a Saharan excursion.",
+      "hook": "Ten days from the Mediterranean to the M'Zab — Roman cities, Constantine's bridges, the Casbah, and a Saharan adventure of quad, camel and sandboarding.",
+      "overview": "Our most adventurous grand tour. Across ten days you join Algiers and Roman Tipaza, the Roman cities of Djémila and Timgad, Sétif's highlands and Constantine's bridges, and finish in the M'Zab Valley at Ghardaïa — capped by a Saharan excursion with quad biking, camel riding and sandboarding. Four UNESCO sites and the full north-to-desert sweep, with adventure and culture in equal measure.",
+      "whyDifferent": [
+        { "t": "Culture plus adventure", "d": "The grand circuit, finished with quad, camel and sandboarding in the Sahara." },
+        { "t": "Four UNESCO sites", "d": "Tipaza, Djémila, Timgad and the M'Zab, plus the Casbah." },
+        { "t": "Coast to deep desert", "d": "The full range of Algerian landscapes in ten days." },
+        { "t": "Active desert finale", "d": "A hands-on Saharan excursion at Ghardaïa." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "October–April (best for the Sahara)" },
+        { "label": "Pace", "value": "Active — touring plus desert activities" },
+        { "label": "Style", "value": "Private, guided, 9 nights in 4-star hotels with breakfast" },
+        { "label": "Bring", "value": "Layers, closed shoes for desert activities, sun protection, modest dress" }
+      ],
+      "faqs": [
+        { "q": "What desert activities are included?", "a": "Quad biking, camel riding and sandboarding on the Saharan excursion, with all meals during it." },
+        { "q": "Which UNESCO sites are covered?", "a": "Tipaza, Djémila, Timgad and the M'Zab Valley, plus the Casbah of Algiers." },
+        { "q": "Is it suitable for active travellers?", "a": "Yes — it pairs cultural touring with a hands-on desert finale." },
+        { "q": "How does it compare to the 10-day 'Algeria Tour'?", "a": "Same broad sweep, but with an activity-focused Saharan excursion at Ghardaïa." }
+      ],
       "highlights": [
         "Algiers and the Roman ruins of Tipaza",
         "Constantine, the city of bridges",
