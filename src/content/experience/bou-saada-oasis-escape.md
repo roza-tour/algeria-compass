@@ -22,9 +22,9 @@ highlights:
 itinerary:
   - { day: "Day 1", title: "Arrive Bou Saada", text: "Settle into the oasis, walk the palm grove and the old town, sunset over the steppe." }
   - { day: "Day 2", title: "Gorge, ksar & the painter's town", text: "The Moulin Ferrero gorge, the old ksar, the Dinet legacy, then onward travel." }
-quickAnswer: "The Bou Saada Oasis Escape is a two-day private trip to Bou Saada, an oasis town on the edge of the Algerian Sahara in M'Sila province, taking in its palm grove, old ksar, the Moulin Ferrero gorge and the legacy of the painter Nasreddine Dinet."
+quickAnswer: "The Bou Saada Oasis Escape is a two-day private trip to Bou Saada, an oasis town on the edge of the Algerian Sahara in M'Sila state, taking in its palm grove, old ksar, the Moulin Ferrero gorge and the legacy of the painter Nasreddine Dinet."
 faqs:
-  - { q: "Where is Bou Saada?", a: "In M'Sila province, on the steppe between the High Plateaus and the Sahara, around four to five hours by road from Algiers. It has long been known as a gateway to the desert." }
+  - { q: "Where is Bou Saada?", a: "In M'Sila state, on the steppe between the High Plateaus and the Sahara, around four to five hours by road from Algiers. It has long been known as a gateway to the desert." }
   - { q: "Who was Nasreddine Dinet?", a: "Étienne Dinet (Nasreddine Dinet) was a French Orientalist painter who settled in Bou Saada, embraced Islam, and is buried in the town; his work made Bou Saada famous as a place of southern light." }
 sources:
   - { title: "Bou Saada", publisher: "Encyclopaedia Britannica", url: "https://www.britannica.com/place/Bou-Saada", type: "reference" }

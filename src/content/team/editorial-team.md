@@ -21,7 +21,7 @@ seo:
 updated: 2026-06-03
 ---
 
-The Algeria Compass editorial team is responsible for every guide, province page, destination and answer published on this site. We are a small, Algeria-focused editorial operation rather than a content farm: we write about places we research carefully, in English, French and Arabic, for an international audience that wants to understand and travel Algeria well.
+The Algeria Compass editorial team is responsible for every guide, state page, destination and answer published on this site. We are a small, Algeria-focused editorial operation rather than a content farm: we write about places we research carefully, in English, French and Arabic, for an international audience that wants to understand and travel Algeria well.
 
 ## What we cover
 Our work spans the whole country — the Sahara and the Tassili plateaus, the UNESCO Roman cities of the north-east, the Kabylie coast and mountains, the Andalusian west around Tlemcen and Oran, the M'Zab valley, and the Mediterranean coast and capital. We focus on heritage, history, culture, food and the practical logistics of getting around.

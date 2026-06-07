@@ -6,7 +6,7 @@ export interface Props { entity: Entity; href?: string; }
 const { entity: e, href } = Astro.props;
 const region = e.region ? getEntity(e.region) : undefined;
 const parent = e.parent ? getEntity(e.parent) : undefined;
-const typeLabel = e.type.replace(/-/g, ' ');
+const typeLabel = (e.type === 'province' ? 'state' : e.type).replace(/-/g, ' ');
 const unescoSrc = e.sources?.find(s => s.type === 'unesco');
 ---
 <article class="entity-snapshot" data-entity-id={e.id} data-entity-type={e.type}>
@@ -18,7 +18,7 @@ const unescoSrc = e.sources?.find(s => s.type === 'unesco');
   <dl class="es-facts">
     {region && <><dt>Region</dt><dd>{region.name}</dd></>}
     {e.type === 'province' && e.capital && <><dt>Capital</dt><dd>{e.capital}</dd></>}
-    {e.type === 'province' && e.wilayaNumber && <><dt>Wilaya №</dt><dd>{e.wilayaNumber}</dd></>}
+    {e.type === 'province' && e.wilayaNumber && <><dt>State №</dt><dd>{e.wilayaNumber}</dd></>}
     {parent && e.type !== 'province' && e.type !== 'region' && <><dt>Located in</dt><dd>{parent.name}</dd></>}
     {e.coordinates && <><dt>Coordinates</dt><dd>{e.coordinates.lat.toFixed(3)}, {e.coordinates.lng.toFixed(3)}</dd></>}
     {unescoSrc && <><dt>Status</dt><dd>UNESCO World Heritage</dd></>}

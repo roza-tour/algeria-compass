@@ -6,12 +6,12 @@ image: "/assets/img/ksar-mural-art.jpg"
 imageAlt: "Ancient Roman ruins evoking Djémila in north-eastern Algeria"
 coordinates: { lat: 36.3206, lng: 5.7367 }
 sameAs: ["https://en.wikipedia.org/wiki/Djémila"]
-quickAnswer: "Djémila, ancient Cuicul, is one of the best-preserved Roman cities in the world and a UNESCO World Heritage Site since 1982. Set on a mountain spur in Sétif province, it preserves temples, forums, a theatre, the Arch of Caracalla and outstanding mosaics."
+quickAnswer: "Djémila, ancient Cuicul, is one of the best-preserved Roman cities in the world and a UNESCO World Heritage Site since 1982. Set on a mountain spur in Sétif state, it preserves temples, forums, a theatre, the Arch of Caracalla and outstanding mosaics."
 keyFacts:
   - { label: "Type", value: "Roman city (UNESCO 1982)" }
   - { label: "Ancient name", value: "Cuicul" }
   - { label: "Founded", value: "c. 96–98 AD under Nerva" }
-  - { label: "Province", value: "Sétif (north-east Algeria)" }
+  - { label: "State", value: "Sétif (north-east Algeria)" }
   - { label: "Highlights", value: "Mosaic museum, Arch of Caracalla" }
   - { label: "Time needed", value: "Half a day" }
 
@@ -35,7 +35,7 @@ intent: "educational"
 ---
 
 ## Overview
-**Djémila** — the Roman **Cuicul** — is the jewel of Algeria's Roman north-east and, for many visitors, the single most impressive ancient site in the country. It sits high on a narrow mountain spur in **Sétif** province, and because it was largely abandoned after antiquity rather than built over, the city survives with rare completeness.
+**Djémila** — the Roman **Cuicul** — is the jewel of Algeria's Roman north-east and, for many visitors, the single most impressive ancient site in the country. It sits high on a narrow mountain spur in **Sétif** state, and because it was largely abandoned after antiquity rather than built over, the city survives with rare completeness.
 
 ## What to see
 Founded around 96–98 AD as a colony for Roman veterans, Cuicul grew from a tight military grid into a prosperous town that spilled beyond its original plan to fit the terrain. Today you can walk the **Cardo**, stand in the old and new **forums**, climb to the **theatre** cut into the hillside, and pass beneath the **Arch of Caracalla**. The **Severan temple** dominates the newer forum, and a later **Christian basilica complex** records the city's final centuries. The standout is the **mosaic museum** on site, whose lifted floors — mythological scenes, hunts, the toilette of Venus — are among the finest in the Roman world.

@@ -57,7 +57,7 @@ const schema=[dataset];
           <g>
             <circle cx={n.x} cy={n.y} r={Math.max(9, Math.min(34, 7 + Math.sqrt(n.count)*4))} fill={n.color} opacity="0.9" />
             <text x={n.x} y={n.y+4} text-anchor="middle" fill="#fff" font-size="11" font-weight="700">{n.count}</text>
-            <text x={n.lx} y={n.ly} text-anchor={n.anchor} fill="var(--text-m)" font-size="10.5">{n.t.replace(/-/g,' ')}</text>
+            <text x={n.lx} y={n.ly} text-anchor={n.anchor} fill="var(--text-m)" font-size="10.5">{(n.t === 'province' ? 'state' : n.t).replace(/-/g,' ')}</text>
           </g>
         ))}
       </svg>
@@ -81,7 +81,7 @@ const schema=[dataset];
     <ul class="audit">
       <li><strong>Orphan entities:</strong> {stats.orphans.length === 0 ? 'none — every entity is connected ✓' : stats.orphans.map(o=>o.name).join(', ')}</li>
       <li><strong>Empty hubs:</strong> {emptyHubs.length === 0 ? 'none — every hub aggregates entities ✓' : emptyHubs.map(h=>h.title).join(', ')}</li>
-      <li><strong>Provinces mapped to a full guide:</strong> {entitiesByType('province').filter(p=>p.contentSlug).length} / 58 (others are inventoried and ready to expand)</li>
+      <li><strong>States mapped to a full guide:</strong> {entitiesByType('province').filter(p=>p.contentSlug).length} / 58 (others are inventoried and ready to expand)</li>
     </ul>
     <h3 class="grp">Entities per hub</h3>
     <div class="hub-bars">

@@ -15,7 +15,7 @@ Travel information goes out of date. This policy explains how Algeria Compass ke
 A guide that was accurate when written can mislead a year later if transport, access, entry requirements or prices have changed. We treat maintenance as part of publishing, not an afterthought. Every page carries a visible "last updated" date so you can judge how current it is.
 
 ## Review schedule
-Published pages are reviewed on a recurring schedule, with priority given to the pages where information changes fastest and where errors would matter most — practical logistics, transport and any entry or visa guidance. Cornerstone pages such as our flagship province guides are reviewed regularly; reference content that changes slowly is reviewed less often but is still revisited.
+Published pages are reviewed on a recurring schedule, with priority given to the pages where information changes fastest and where errors would matter most — practical logistics, transport and any entry or visa guidance. Cornerstone pages such as our flagship state guides are reviewed regularly; reference content that changes slowly is reviewed less often but is still revisited.
 
 ## What triggers an out-of-cycle update
 Beyond the schedule, we update a page promptly when: a reader or authority reports a change; a relevant official source changes (for example, a change in heritage-site arrangements or transport); we become aware of new, better-sourced information; or significant events affect travel in a region.

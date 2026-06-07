@@ -95,7 +95,7 @@ export function discoveryGroups(site: string, entityId: string) {
   return [
     { label: 'Related attractions', items: m(d.attractions) },
     { label: 'UNESCO sites', items: m(d.unesco) },
-    { label: 'Nearby provinces', items: m(d.provinces) },
+    { label: 'Nearby states', items: m(d.provinces) },
     { label: 'Travel themes', items: m(d.themes) },
     { label: 'Historical periods', items: m(d.historicalPeriods) },
     { label: 'Cultural traditions', items: m(d.traditions) },

@@ -5,10 +5,10 @@ region: "kabylie"
 image: "/assets/img/oued-canyon-palms.jpg"
 imageAlt: "Green mountains meeting the Mediterranean near Béjaïa in Kabylie, Algeria"
 coordinates: { lat: 36.7509, lng: 5.0567 }
-quickAnswer: "Béjaïa is a coastal province in Kabylie where the Djurdjura mountains plunge straight into the Mediterranean. It's known for Gouraya National Park, the clifftop Cap Carbon lighthouse, the scenic Corniche beaches, deep Kabyle (Amazigh) culture, the dramatic Kherrata gorges, and a layered history — including its medieval role in transmitting Arabic numerals to Europe and the pivotal Soummam Congress of 1956."
+quickAnswer: "Béjaïa is a coastal state in Kabylie where the Djurdjura mountains plunge straight into the Mediterranean. It's known for Gouraya National Park, the clifftop Cap Carbon lighthouse, the scenic Corniche beaches, deep Kabyle (Amazigh) culture, the dramatic Kherrata gorges, and a layered history — including its medieval role in transmitting Arabic numerals to Europe and the pivotal Soummam Congress of 1956."
 keyFacts:
   - { label: "Region", value: "Kabylie coast" }
-  - { label: "Wilaya number", value: "6" }
+  - { label: "State number", value: "6" }
   - { label: "Kabyle name", value: "Bgayet" }
   - { label: "Highlights", value: "Gouraya NP · Cap Carbon · Kherrata gorges" }
   - { label: "Culture", value: "Kabyle / Amazigh" }
@@ -23,8 +23,8 @@ faqs:
   - { q: "Is Béjaïa good for nature and hiking?", a: "Very — Gouraya National Park rises straight above the city with trails to the Yemma Gouraya shrine, the Pic des Singes and hidden coves, while the Kherrata gorges and the Djurdjura beyond offer some of Algeria's best mountain scenery. Spring and early autumn are ideal for walking." }
   - { q: "What language is spoken in Béjaïa?", a: "Kabyle (a Tamazight/Berber language) is widely spoken alongside Arabic, and French is common. A few words of Kabyle or French are warmly received." }
   - { q: "When is the best time to visit Béjaïa?", a: "May to October for warm weather and swimming; spring and early autumn (April–June, September) are best for hiking without the summer heat or crowds. Winters are mild but wetter on this coast." }
-  - { q: "What is the Soummam Congress?", a: "A landmark meeting of the Algerian independence movement held in the Soummam valley (Béjaïa province) in August 1956, which reorganised the liberation struggle. The site at Ifri is an important place of national memory and an interesting historical stop." }
-  - { q: "Do I need a car in Béjaïa?", a: "Yes, a car is genuinely useful here. The Corniche, Gouraya National Park, the Kherrata gorges and the Soummam valley are spread out and public transport is limited, so a car or hired driver makes the province far easier to explore." }
+  - { q: "What is the Soummam Congress?", a: "A landmark meeting of the Algerian independence movement held in the Soummam valley (Béjaïa state) in August 1956, which reorganised the liberation struggle. The site at Ifri is an important place of national memory and an interesting historical stop." }
+  - { q: "Do I need a car in Béjaïa?", a: "Yes, a car is genuinely useful here. The Corniche, Gouraya National Park, the Kherrata gorges and the Soummam valley are spread out and public transport is limited, so a car or hired driver makes the state far easier to explore." }
   - { q: "Are there good beaches near Béjaïa?", a: "Yes — the coast east and west of the city has sheltered coves and longer strands, with popular spots like Les Aiguades near Cap Carbon and the beaches around Tichy and Aokas along the Corniche." }
   - { q: "Is Béjaïa connected by air?", a: "Béjaïa has a small airport (Soummam–Abane Ramdane) with domestic flights, and is reachable by road from Algiers in roughly 3.5–4 hours through the Kabylie mountains." }
 
@@ -46,17 +46,17 @@ intent: "navigation"
 ---
 
 ## Why visit Béjaïa
-Béjaïa (Kabyle: *Bgayet*) is where Kabylie's green mountains drop straight into a deep-blue Mediterranean — arguably the most beautiful natural setting of any Algerian city. It's a historic Amazigh port wrapped around a working harbour, backed by the forested heights of **Gouraya National Park** and fringed by some of the country's best coastline. For travellers it offers a rare combination in North Africa: mountains, sea, forest, gorges and a strong living culture, all within one compact province.
+Béjaïa (Kabyle: *Bgayet*) is where Kabylie's green mountains drop straight into a deep-blue Mediterranean — arguably the most beautiful natural setting of any Algerian city. It's a historic Amazigh port wrapped around a working harbour, backed by the forested heights of **Gouraya National Park** and fringed by some of the country's best coastline. For travellers it offers a rare combination in North Africa: mountains, sea, forest, gorges and a strong living culture, all within one compact state.
 
 ## A surprisingly grand history
 Béjaïa's past is far grander than its quiet present suggests. In the **medieval period** it was a major Mediterranean port and a celebrated centre of learning under the Hammadid dynasty and later rulers. It was here, around 1200, that the Italian mathematician **Leonardo of Pisa — Fibonacci** — studied and encountered the Hindu–Arabic numeral system he would later popularise across Europe, a small fact with enormous consequences. The city passed through Hammadid, Almohad, Hafsid, Spanish and Ottoman hands before the French period, each leaving a trace in its layered old town.
 
-The province is also central to modern Algeria: the **Soummam Congress of August 1956**, held at **Ifri** in the Soummam valley, reorganised the independence movement at a decisive moment. The site is now a place of national memory and a thoughtful stop for visitors interested in the country's recent history.
+The state is also central to modern Algeria: the **Soummam Congress of August 1956**, held at **Ifri** in the Soummam valley, reorganised the independence movement at a decisive moment. The site is now a place of national memory and a thoughtful stop for visitors interested in the country's recent history.
 
 ## Landscape and nature
 **Gouraya National Park** rises directly above the city, crowned by the shrine of **Yemma Gouraya** on a peak with panoramic views over the bay. Trails lead through Mediterranean forest to **Cap Carbon**, where a lighthouse perched on dramatic sea cliffs ranks among the most striking on the Mediterranean, and down to hidden coves and beaches such as **Les Aiguades**. The **Pic des Singes** (Monkey Peak) is home to wild **Barbary macaques**, and the coastal road — the **Corniche** — strings together beaches and viewpoints in one of the great scenic drives of the Algerian coast.
 
-Inland, the province delivers more drama. The **Kherrata gorges** (Chabet el-Akhra), on the road toward Sétif, cut a deep, cliff-walled passage that is spectacular by car, while the **Soummam valley** and the foothills of the **Djurdjura** open up classic Kabylie mountain country.
+Inland, the state delivers more drama. The **Kherrata gorges** (Chabet el-Akhra), on the road toward Sétif, cut a deep, cliff-walled passage that is spectacular by car, while the **Soummam valley** and the foothills of the **Djurdjura** open up classic Kabylie mountain country.
 
 ## Culture and people
 This is the heart of **Kabylie**, one of the strongholds of Amazigh (Berber) identity in Algeria. The Kabyle language, music, poetry and a fiercely independent spirit are central to daily life, and the New Year festival of **Yennayer** is celebrated with real warmth. Hospitality is generous and food-centred, and **olive oil** from the surrounding hills is a point of regional pride. Visitors quickly notice the bilingual rhythm of Kabyle and Arabic and a culture that wears its heritage openly.

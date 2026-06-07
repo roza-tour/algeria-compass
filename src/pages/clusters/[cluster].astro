@@ -26,7 +26,7 @@ const TYPE_LABEL = {
   'french-site':'Colonial heritage','historical-building':'Monuments',museum:'Museums',city:'Towns','national-park':'National parks',
   'sahara-area':'Desert regions','mountain-area':'Mountains','coast-area':'Coast','historical-period':'Historical periods',
   tradition:'Traditions',food:'Food',architecture:'Architecture',festival:'Festivals',season:'Seasons',transport:'Transport',
-  accommodation:'Where to stay','travel-style':'Travel styles',province:'Provinces',
+  accommodation:'Where to stay','travel-style':'Travel styles',province:'States',
 };
 const groups = {};
 for (const x of ents) { (groups[x.entity.type] ||= []).push({ name:x.entity.name, href:entityUrl(site, x.entity) }); }
@@ -81,7 +81,7 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {contentCount > 0 && (
     <section class="section"><div class="wrap">
       <h2>Pages in this cluster</h2>
-      {provC.length>0 && <><h3 class="grp">Provinces</h3><div class="grid grid-3">{provC.map(p => <Card href={`/provinces/${p.slug}/`} title={p.data.name} image={p.data.image} alt={p.data.imageAlt} tag={p.data.region} text={p.data.quickAnswer} />)}</div></>}
+      {provC.length>0 && <><h3 class="grp">States</h3><div class="grid grid-3">{provC.map(p => <Card href={`/provinces/${p.slug}/`} title={p.data.name} image={p.data.image} alt={p.data.imageAlt} tag={p.data.region} text={p.data.quickAnswer} />)}</div></>}
       {destC.length>0 && <><h3 class="grp">Destinations</h3><div class="grid grid-3">{destC.map(d => <Card href={`/destinations/${d.slug}/`} title={d.data.name} image={d.data.image} alt={d.data.imageAlt} tag={d.data.region} text={d.data.quickAnswer} />)}</div></>}
       {expC.length>0 && <><h3 class="grp">Journeys</h3><div class="grid grid-3">{expC.map(e => <Card href={`/experiences/${e.slug}/`} title={e.data.name} image={e.data.image} alt={e.data.imageAlt} tag={`${e.data.durationDays} days`} text={e.data.tagline} />)}</div></>}
       {artC.length>0 && <><h3 class="grp">Guides</h3><div class="grid grid-3">{artC.map(a => <Card href={`/blog/${a.slug}/`} title={a.data.title} image={a.data.image} alt={a.data.imageAlt} tag={a.data.category} text={a.data.excerpt} />)}</div></>}

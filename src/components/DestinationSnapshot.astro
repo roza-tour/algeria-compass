@@ -6,7 +6,7 @@ const { name, type, province, bestTime, timeNeeded, knownFor = [] } = Astro.prop
   <h3>{name} at a glance</h3>
   <dl>
     {type && <><dt>Type</dt><dd>{type}</dd></>}
-    {province && <><dt>Province</dt><dd>{province}</dd></>}
+    {province && <><dt>State</dt><dd>{province}</dd></>}
     {bestTime && <><dt>Best time</dt><dd>{bestTime}</dd></>}
     {timeNeeded && <><dt>Time needed</dt><dd>{timeNeeded}</dd></>}
     {knownFor.length > 0 && <><dt>Known for</dt><dd>{knownFor.join(', ')}</dd></>}

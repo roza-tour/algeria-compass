@@ -14,7 +14,7 @@ coordinates: { lat: 32.4910, lng: 3.6736 }
 quickAnswer: "Ghardaïa is the gateway to the M'Zab Valley — a group of five fortified oasis towns built by the Ibadi Mozabites from around the 11th century and inscribed by UNESCO in 1982. Its tiered, pyramidal towns, palm groves and arcaded markets are among Algeria's most distinctive sights, and the M'Zab's radical, egalitarian urban design famously influenced 20th-century architects including Le Corbusier."
 keyFacts:
   - { label: "Region", value: "Northern Sahara / M'Zab" }
-  - { label: "Wilaya number", value: "47" }
+  - { label: "State number", value: "47" }
   - { label: "UNESCO site", value: "M'Zab Valley (1982)" }
   - { label: "The pentapolis", value: "Ghardaïa · Beni Isguen · Melika · Bounoura · El Atteuf" }
   - { label: "Culture", value: "Ibadi Mozabite (Amazigh)" }

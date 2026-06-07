@@ -9,7 +9,7 @@ seo:
 updated: 2026-06-03
 ---
 
-Algeria Compass publishes travel guidance about Algeria. This policy sets out the principles that govern everything we publish, the standards every contributor works to, and the line we hold between editorial work and commercial interest. It applies to every province guide, destination page, experience, article and answer on this site.
+Algeria Compass publishes travel guidance about Algeria. This policy sets out the principles that govern everything we publish, the standards every contributor works to, and the line we hold between editorial work and commercial interest. It applies to every state guide, destination page, experience, article and answer on this site.
 
 ## Our purpose
 Our purpose is to be the most accurate and genuinely useful English-language source on travelling in Algeria. We write for an international audience that often has little prior information about the country, so the responsibility to get things right — about safety, logistics, heritage and culture — is real. A guide's first job is to be correct and useful, not to sell.

@@ -11,8 +11,8 @@ stops:
   - { name: "Constantine — Sidi M'Cid bridge", image: "/assets/img/constantine-sidi-mcid-bridge.jpg", alt: "The Sidi M Cid suspension bridge over the Rhumel gorge, Constantine", note: "the gorge and suspension bridges" }
   - { name: "Palace of Ahmed Bey", image: "/assets/img/constantine-ahmed-bey-courtyard.jpg", alt: "Ornate courtyard of the Ahmed Bey Palace, Constantine", note: "Ottoman Constantine" }
   - { name: "Constantine medina", image: "/assets/img/constantine-footbridge.jpg", alt: "Pedestrian footbridge across the gorge in Constantine", note: "old quarters and footbridges" }
-  - { name: "Timgad — Trajan's Arch", image: "/assets/img/timgad-trajan-arch.jpg", alt: "The triumphal arch at Timgad, a UNESCO Roman city in Batna province", note: "the Roman north-east excursion" }
-  - { name: "Timgad — Roman city", image: "/assets/img/timgad-ruins-columns.jpg", alt: "Rows of columns among the Roman ruins of Timgad, Batna province, Algeria", note: "one of the great Roman sites of Africa" }
+  - { name: "Timgad — Trajan's Arch", image: "/assets/img/timgad-trajan-arch.jpg", alt: "The triumphal arch at Timgad, a UNESCO Roman city in Batna state", note: "the Roman north-east excursion" }
+  - { name: "Timgad — Roman city", image: "/assets/img/timgad-ruins-columns.jpg", alt: "Rows of columns among the Roman ruins of Timgad, Batna state, Algeria", note: "one of the great Roman sites of Africa" }
 gallery:
   - { src: "/assets/img/timgad-theatre.jpg", alt: "The Roman theatre and ruins of Timgad, Algeria" }
 highlights:

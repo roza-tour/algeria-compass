@@ -9,7 +9,7 @@ readMinutes: 24
 keyFacts:
   - { label: "Capital", value: "Algiers" }
   - { label: "Size", value: "2.38 million km² (largest in Africa)" }
-  - { label: "Provinces", value: "58 wilayas" }
+  - { label: "States", value: "58" }
   - { label: "UNESCO sites", value: "7" }
   - { label: "Languages", value: "Arabic & Tamazight (official); French widely used" }
   - { label: "Currency", value: "Algerian dinar (DZD)" }
@@ -24,7 +24,7 @@ stats:
   - { value: "2.38M km²", label: "land area" }
   - { value: "~1,600 km", label: "Mediterranean coast" }
   - { value: "7", label: "UNESCO World Heritage Sites" }
-  - { value: "58", label: "provinces (wilayas)" }
+  - { value: "58", label: "states" }
 travelerProfiles:
   - { type: "History & ruins travellers", fit: "great", note: "Some of the world's best-preserved Roman cities, with few crowds." }
   - { type: "Desert & adventure travellers", fit: "great", note: "Tassili and the Tadrart are world-class, guided expeditions." }
@@ -95,7 +95,7 @@ Algeria is the largest country in Africa and one of the least travelled in the M
 Algeria offers what much of the Mediterranean has lost: scale, authenticity and space. Its Roman cities — Timgad, Djémila and Tipasa — are among the best preserved anywhere, yet you may walk them nearly alone. Its desert is not a single dune field but a continent-sized world of sandstone massifs, painted rock art and oasis towns. Its cities layer Ottoman, Andalusian and French histories into living medinas. And because so few foreign visitors come, hospitality is genuine rather than transactional. This is a destination for travellers who value substance over polish.
 
 ## Country overview
-A republic on the southern Mediterranean, Algeria borders Tunisia and Libya to the east, Niger, Mali and Mauritania to the south, Western Sahara and Morocco to the west. Its population is concentrated in the northern coastal and highland strip, while the vast south is sparsely peopled. Arabic and Tamazight (Berber) are official languages; French remains widely used in administration, business and signage. The country is divided into 58 provinces, or *wilayas* — you can browse all of them in our [province directory](/knowledge/provinces/).
+A republic on the southern Mediterranean, Algeria borders Tunisia and Libya to the east, Niger, Mali and Mauritania to the south, Western Sahara and Morocco to the west. Its population is concentrated in the northern coastal and highland strip, while the vast south is sparsely peopled. Arabic and Tamazight (Berber) are official languages; French remains widely used in administration, business and signage. The country is divided into 58 states — you can browse all of them in our [state directory](/knowledge/provinces/).
 
 ## Geography
 Three broad bands define the land. The **Tell** — a fertile coastal and mountainous strip along the Mediterranean — holds most cities and farmland. Behind it rise the **High Plateaus** and the Saharan Atlas, a semi-arid steppe. South of that begins the **Sahara**, roughly 80% of the country, ranging from great sand seas (the Grand Erg Oriental and Occidental) to the volcanic Hoggar massif and the rock-art plateau of the Tassili n'Ajjer near [Djanet](/destinations/djanet/). Understanding these bands is the key to planning, because each has its own season and logistics.

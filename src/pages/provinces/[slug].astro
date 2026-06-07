@@ -58,10 +58,10 @@ if (cites.length) place.citation = cites;
 const schemaNodes = [place, authorEntity, reviewerEntity];
 ---
 <BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} region={d.region} schema={schemaNodes} sticky={true}>
-  <Hero title={d.name} eyebrow={`Wilaya${d.wilayaNumber ? ' ' + d.wilayaNumber : ''} · Algeria`} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
+  <Hero title={d.name} eyebrow={`State${d.wilayaNumber ? ' ' + d.wilayaNumber : ''} · Algeria`} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
     <a class="btn btn-gold" href={`/contact/?i=${encodeURIComponent(d.name)}`} data-evt="cta_plan">Plan a trip to {d.name} →</a>
   </Hero>
-  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Provinces',href:'/provinces/'},{name:d.name}]} />
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'States',href:'/provinces/'},{name:d.name}]} />
   <section class="section"><div class="wrap" style="max-width:820px">
     <Byline authorName={author.name} authorHref={author.href} reviewerName={reviewer.name} reviewerHref={reviewer.href} updated={d.updated} lastReviewed={d.lastReviewed} />
     <QuickAnswer text={d.quickAnswer} />
@@ -74,7 +74,7 @@ const schemaNodes = [place, authorEntity, reviewerEntity];
   <RelatedGrid heading={`Things to see in & around ${d.name}`} items={attractions.map(e => toCard(e,'/destinations/'))} />
   <RelatedGrid heading="Experiences in this region" items={experiences.map(e => toCard(e,'/experiences/'))} />
   <RelatedGrid heading="From the Algeria Journal" items={articles.map(e => toCard(e,'/blog/'))} />
-  <RelatedGrid heading="Nearby provinces" items={provinces.map(e => toCard(e,'/provinces/'))} />
+  <RelatedGrid heading="Nearby states" items={provinces.map(e => toCard(e,'/provinces/'))} />
   <FaqSection faqs={d.faqs} />
   <CtaSection heading={`See ${d.name} with a local guide`} interest={d.name} />
   <EntityLinks groups={_groups} heading="Explore across Algeria" />

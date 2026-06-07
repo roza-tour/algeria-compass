@@ -15,7 +15,7 @@ coordinates: { lat: 36.7538, lng: 3.0588 }
 quickAnswer: "Algiers (El Djazaïr) is Algeria's capital and largest city — a Mediterranean port famous for its UNESCO-listed Ottoman Casbah, white tiered waterfront, French-colonial boulevards, the vast new Great Mosque of Algiers, and grand monuments like Notre-Dame d'Afrique and the Maqam Echahid. It's the country's main gateway and a city best explored on foot, with a guide for the Casbah."
 keyFacts:
   - { label: "Region", value: "Mediterranean coast" }
-  - { label: "Wilaya number", value: "16" }
+  - { label: "State number", value: "16" }
   - { label: "Nicknames", value: "Alger la Blanche · El-Bahdja" }
   - { label: "UNESCO site", value: "Casbah of Algiers (1992)" }
   - { label: "Main airport", value: "Houari Boumediene (ALG)" }

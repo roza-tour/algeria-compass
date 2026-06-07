@@ -7,9 +7,9 @@ import Card from '../../components/Card.astro';
 import CtaSection from '../../components/CtaSection.astro';
 const items = await getCollection('province');
 ---
-<BaseLayout title="Algeria Provinces" description="Authoritative travel guides to the wilayas of Algeria — history, culture, food, attractions and how to visit.">
-  <Hero title="Algeria Provinces" eyebrow="Algeria" text="Authoritative travel guides to the wilayas of Algeria — history, culture, food, attractions and how to visit." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
-  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algeria Provinces'}]} />
+<BaseLayout title="Algeria States" description="Authoritative travel guides to the states of Algeria — history, culture, food, attractions and how to visit.">
+  <Hero title="Algeria States" eyebrow="Algeria" text="Authoritative travel guides to the states of Algeria — history, culture, food, attractions and how to visit." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algeria States'}]} />
   <section class="section"><div class="wrap">
     <div class="grid">
       {items.map(it => (

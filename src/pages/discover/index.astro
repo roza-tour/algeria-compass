@@ -18,7 +18,7 @@ const hubs = [
 ---
 <BaseLayout
   title="Discover Algeria, in depth — Algeria Compass"
-  description="Algeria Compass is a licensed Algerian tour operator: in-depth guides to 58 provinces, the 7 UNESCO sites, the Sahara, Roman cities and Amazigh culture to help you plan your private, guided tour.">
+  description="Algeria Compass is a licensed Algerian tour operator: in-depth guides to 58 states, the 7 UNESCO sites, the Sahara, Roman cities and Amazigh culture to help you plan your private, guided tour.">
   <Hero
     title="Discover Algeria, in depth"
     eyebrow="Luxury private guided tours across Algeria"
@@ -31,7 +31,7 @@ const hubs = [
     <div class="positioning">
       <div class="pos-lead">
         <h2>What Algeria Compass is</h2>
-        <p>A licensed Algerian tour operator devoted entirely to one country. We cover all 58 provinces, the seven UNESCO World Heritage Sites, the deserts, mountains and coast, and the food, history and cultures that connect them &mdash; so you understand Algeria before you travel, then we take you there on a private, guided tour. Every guide is researched, reviewed and backed by named sources.</p>
+        <p>A licensed Algerian tour operator devoted entirely to one country. We cover all 58 states, the seven UNESCO World Heritage Sites, the deserts, mountains and coast, and the food, history and cultures that connect them &mdash; so you understand Algeria before you travel, then we take you there on a private, guided tour. Every guide is researched, reviewed and backed by named sources.</p>
       </div>
       <ul class="trust-row">
         <li><a href="/about/"><strong>Licensed</strong><span>Algerian tour operator</span></a></li>
@@ -48,12 +48,12 @@ const hubs = [
   </div></section>
 
   <section class="section" style="background:var(--wash)"><div class="wrap">
-    <div class="eyebrow">Provinces</div>
+    <div class="eyebrow">States</div>
     <h2>Where to go</h2>
     <div class="grid" style="margin-top:1.2rem">
       {provinces.map(p => <Card href={`/provinces/${p.slug}/`} title={p.data.name} image={p.data.image} alt={p.data.imageAlt} tag={p.data.region} text={p.data.quickAnswer} />)}
     </div>
-    <p style="margin-top:1.2rem"><a class="btn" href="/provinces/">Province guides &rarr;</a></p>
+    <p style="margin-top:1.2rem"><a class="btn" href="/provinces/">State guides &rarr;</a></p>
   </div></section>
 
   <section class="section"><div class="wrap">

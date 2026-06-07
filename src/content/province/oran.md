@@ -15,7 +15,7 @@ coordinates: { lat: 35.6970, lng: -0.6331 }
 quickAnswer: "Oran is Algeria's vibrant second city — a Mediterranean port on the west coast with a strong Spanish and Andalusian imprint, the birthplace of raï music, the Spanish-built Santa Cruz fort above the bay, a lively seafront, and easy access to the Andalusian heritage of Tlemcen and the western beaches."
 keyFacts:
   - { label: "Region", value: "Western Mediterranean coast" }
-  - { label: "Wilaya number", value: "31" }
+  - { label: "State number", value: "31" }
   - { label: "Nickname", value: "El Bahia (The Radiant)" }
   - { label: "Famous for", value: "Raï music · Santa Cruz fort · the seafront" }
   - { label: "Heritage", value: "Spanish, Ottoman, French, Andalusian" }
