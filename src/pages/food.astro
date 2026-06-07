@@ -3,32 +3,201 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import QuickAnswer from '../components/QuickAnswer.astro';
-import PhotoGallery from '../components/PhotoGallery.astro';
 import CtaSection from '../components/CtaSection.astro';
+import data from '../data/tours.json';
 
-const dishes = [
-  { src: '/assets/img/cuisine/algeria-cuisine-01.jpg', alt: 'Festive couscous with seven vegetables' },
-  { src: '/assets/img/cuisine/algeria-cuisine-02.jpg', alt: 'Rechta — fine hand-pulled noodles in a white sauce' },
-  { src: '/assets/img/cuisine/algeria-cuisine-09.jpg', alt: 'Chorba — a hearty Algerian soup with chickpeas' },
-  { src: '/assets/img/cuisine/algeria-cuisine-06.jpg', alt: 'Bourek — crisp fried pastry rolls' },
-  { src: '/assets/img/cuisine/algeria-cuisine-10.jpg', alt: 'Mhadjeb — stuffed semolina flatbread' },
-  { src: '/assets/img/cuisine/algeria-cuisine-05.jpg', alt: 'Msemen flatbread served with mint tea' },
-  { src: '/assets/img/cuisine/algeria-cuisine-08.jpg', alt: 'Chakchouka and hmiss with grilled bread' },
-  { src: '/assets/img/cuisine/algeria-cuisine-11.jpg', alt: 'Hmiss — a roasted pepper and tomato dip' },
-  { src: '/assets/img/cuisine/algeria-cuisine-07.jpg', alt: 'Chicken tagine with couscous' },
+const tours = ((data as any).tours || (data as any)) as any[];
+const byId = (id: string) => tours.find(t => t.id === id);
+// tours with a real culinary moment in the itinerary
+const tasteTours = ['bousaada-desert-tour','timimoun-desert-escape','the-soul-of-algeria','djanet-sahara-safari']
+  .map(byId).filter(Boolean);
+
+const img = '/assets/img/cuisine';
+
+const influences = [
+  { name: 'Amazigh', note: 'The Berber foundation: semolina, couscous, barley breads and the rhythms of the land.' },
+  { name: 'Arab', note: 'Spice and sweetness — cinnamon, saffron, dried fruit and honeyed pastries.' },
+  { name: 'Ottoman', note: 'Turkish technique: bourek, stuffed vegetables (dolma) and rich pastry-craft.' },
+  { name: 'Andalusian', note: 'From exiled Al-Andalus: delicate sauces, almonds and the refined cooking of the western cities.' },
+  { name: 'French', note: 'The colonial echo — the baguette, café culture, flan and a love of good bread.' },
+  { name: 'Saharan', note: 'The desert table: dates, dried meats, flat breads baked in sand and tea poured high.' },
 ];
+
+// course -> dishes (photo where we genuinely have one; honest motif tile otherwise)
+const courses = [
+  {
+    heading: 'Soups, starters & small plates',
+    dishes: [
+      { name: 'Chorba & Loubia', origin: 'Nationwide · the evening table', src: `${img}/algeria-cuisine-09.jpg`,
+        desc: 'Chorba is the fragrant soup that opens the meal — frik or vermicelli, tomato, lamb and herbs — and the heart of the Ramadan iftar. Loubia, a slow white-bean stew, is its hearty everyday cousin.' },
+      { name: 'Bourek', origin: 'Ottoman heritage · a Ramadan staple', src: `${img}/algeria-cuisine-06.jpg`,
+        desc: 'Crisp golden cigars of thin warqa pastry rolled around spiced minced meat, egg or cheese, then fried — the sound of Ramadan kitchens across the country.' },
+      { name: 'Chakchouka & Hmiss', origin: 'Coast & interior · summer peppers', src: `${img}/algeria-cuisine-08.jpg`,
+        desc: 'Slow-cooked peppers, tomatoes and garlic, sometimes finished with egg (chakchouka); hmiss is its smoky roasted-pepper salad, scooped up with grilled bread.' },
+      { name: 'Hmiss dip', origin: 'A mezze of roasted peppers & tomato', src: `${img}/algeria-cuisine-11.jpg`,
+        desc: 'The roasted, chopped pepper-and-tomato relish that sits on almost every table — cooling, smoky and made to share with fresh bread.' },
+    ],
+  },
+  {
+    heading: 'Breads & street food',
+    dishes: [
+      { name: 'Msemen', origin: 'Maghreb-wide · breakfast & tea', src: `${img}/algeria-cuisine-05.jpg`,
+        desc: 'A square, laminated griddle-bread, flaky and tender, eaten warm with honey and butter — and never far from a glass of mint tea.' },
+      { name: 'Mhadjeb', origin: 'High Plateaus & centre · street food', src: `${img}/algeria-cuisine-10.jpg`,
+        desc: 'Thin semolina flatbread folded around a slow-cooked filling of tomato, onion and pepper, griddled to order — the classic Algerian street snack.' },
+    ],
+  },
+  {
+    heading: 'The big plates',
+    dishes: [
+      { name: 'Couscous', origin: 'Amazigh · the national dish, eaten Fridays', src: `${img}/algeria-cuisine-07.jpg`,
+        desc: 'Hand-rolled semolina steamed over a meat-and-vegetable broth — lamb or chicken, chickpeas, carrots, courgette and turnip. Friday lunch, weddings, mourning, welcome: couscous marks them all.' },
+      { name: 'Rechta', origin: 'Algiers & the centre · celebration dish', src: `${img}/algeria-cuisine-02.jpg`,
+        desc: 'Fine hand-pulled noodles in a pale, gently spiced chicken-and-chickpea sauce scented with cinnamon — a dish of Algiers for births, holidays and Mawlid.' },
+      { name: 'Festive couscous', origin: 'Across Algeria · the celebration table', src: `${img}/algeria-cuisine-01.jpg`,
+        desc: 'The grand, generous platter brought out for guests — couscous crowned with meat, vegetables and chickpeas, shared from the middle of the table.' },
+    ],
+  },
+];
+
+const tea = { name: 'Mint tea', origin: 'The Sahara & everywhere · hospitality', src: `${img}/algeria-cuisine-05.jpg`,
+  desc: 'Strong green tea with fresh mint and sugar, poured from a height to crown it with foam. In the desert it comes in three glasses — “bitter as life, sweet as love, gentle as death” — and is never to be rushed.' };
 ---
-<BaseLayout title="Algerian Food | Algeria Compass" description="Couscous, tagines, chorba, fresh bread and mint tea — a traveller’s guide to the Maghrebi table." image="/assets/img/cuisine/algeria-cuisine-04.jpg" region="mzab">
-  <Hero title="Algerian Food" eyebrow="Knowledge hub" text="Couscous, tagines, chorba, fresh bread and mint tea — a traveller’s guide to the Maghrebi table." image="/assets/img/cuisine/algeria-cuisine-04.jpg" alt="A platter of Algerian couscous with lamb shank and vegetables — the national dish" />
-  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algerian Food'}]} />
-  <section class="section"><div class="wrap" style="max-width:820px">
-    <QuickAnswer text="Algerian cuisine is a Maghrebi tradition built on couscous — the national dish, eaten on Fridays — alongside slow tagines, hearty soups like chorba, fresh bread and sweet mint tea. It blends Amazigh, Arab, Ottoman, Andalusian and French influences, and changes character from the coast to the Sahara." />
-    <div class="prose">
-      <p>Algerian cuisine is a Maghrebi tradition built on couscous — the national dish, eaten on Fridays — alongside slow tagines, hearty soups like chorba, fresh bread and sweet mint tea. It blends Amazigh, Arab, Ottoman, Andalusian and French influences, and changes character from the coast to the Sahara.</p>
-      <h2>Explore further</h2>
-      <ul><li><a href="/blog/algerian-food-guide/">Full Algerian food guide</a></li><li><a href="/blog/algerian-handicrafts/">Crafts & markets</a></li></ul>
+<BaseLayout
+  title="Algerian Food: Couscous, Rechta, Chorba & the Maghrebi Table | Algeria Compass"
+  description="A story-driven guide to Algerian cuisine — six layered influences and the dishes to seek out: couscous, rechta, chorba, bourek, mhadjeb, msemen, chakchouka, mint tea and Saharan dates."
+  image="/assets/img/cuisine/algeria-cuisine-04.jpg" region="mzab">
+  <Hero title="The Food of Algeria" eyebrow="Culture · Cuisine"
+    text="Six civilisations, one table — and couscous at the centre of it."
+    image="/assets/img/cuisine/algeria-cuisine-04.jpg"
+    alt="A platter of Algerian couscous with lamb shank, vegetables and chickpeas — the national dish" />
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Culture',href:'/culture/'},{name:'Food'}]} />
+
+  <div class="cuisine">
+  <section class="section"><div class="wrap" style="max-width:860px">
+    <QuickAnswer text="Algerian cuisine is a Maghrebi tradition built on couscous — the national dish, eaten on Fridays — alongside hearty soups like chorba, slow tagines, fresh breads and sweet mint tea. It layers Amazigh, Arab, Ottoman, Andalusian, French and Saharan influences, and changes character from the Mediterranean coast to the deep desert." />
+    <h2>Six influences on one table</h2>
+    <p class="lede">No single people made Algerian food. It is the sum of everyone who has lived on this land — the indigenous Imazighen, the Arab dynasties, three Ottoman centuries, the exiles of Al-Andalus, the French colonial era, and the Sahara itself. You taste all of them in a single week.</p>
+    <div class="infl-grid">
+      {influences.map(i => (
+        <div class="infl"><span class="infl-name">{i.name}</span><p>{i.note}</p></div>
+      ))}
     </div>
   </div></section>
-  <PhotoGallery images={dishes} heading="Dishes to look for" />
-  <CtaSection />
+
+  <section class="section feature"><div class="wrap feature-in">
+    <div class="feature-txt">
+      <span class="eyebrow">The national dish</span>
+      <h2>Couscous — the centre of everything</h2>
+      <p>If Algeria has one dish, it is <strong>couscous</strong>: hand-rolled semolina steamed light and fluffy over a broth of meat and seasonal vegetables. It is eaten at Friday lunch, pressed on every guest, and served at weddings and funerals alike. Berber in origin and Maghrebi to the core, it is less a recipe than a ritual of generosity.</p>
+      <p class="feature-note">Look for it topped with lamb shank in winter, with chicken and chickpeas year-round, and sweetened with raisins and cinnamon (<em>masfouf</em>) for celebrations.</p>
+    </div>
+    <figure class="feature-img">
+      <img src={`${img}/algeria-cuisine-04.jpg`} alt="Couscous with lamb shank, carrots, courgette and chickpeas" width="760" height="950" loading="lazy" />
+    </figure>
+  </div></section>
+
+  {courses.map(c => (
+    <section class="section"><div class="wrap">
+      <h2 class="course-h">{c.heading}</h2>
+      <div class="dish-grid">
+        {c.dishes.map(d => (
+          <article class="dish">
+            <div class="dish-img"><img src={d.src} alt={d.name} width="420" height="300" loading="lazy" /></div>
+            <div class="dish-b">
+              <h3>{d.name}</h3>
+              <span class="dish-origin">{d.origin}</span>
+              <p>{d.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div></section>
+  ))}
+
+  <section class="section"><div class="wrap">
+    <h2 class="course-h">The sweet finish & the ritual of tea</h2>
+    <div class="dish-grid">
+      <article class="dish">
+        <div class="dish-img"><img src={tea.src} alt="A glass of Algerian mint tea with msemen" width="420" height="300" loading="lazy" /></div>
+        <div class="dish-b"><h3>{tea.name}</h3><span class="dish-origin">{tea.origin}</span><p>{tea.desc}</p></div>
+      </article>
+      <article class="dish">
+        <div class="dish-img dish-motif" aria-hidden="true">
+          <svg viewBox="0 0 100 100" width="80" height="80"><g fill="none" stroke="currentColor" stroke-width="3"><path d="M50 14 C58 30 74 34 74 50 C74 66 62 84 50 88 C38 84 26 66 26 50 C26 34 42 30 50 14Z"/><line x1="50" y1="30" x2="50" y2="80"/></g></svg>
+        </div>
+        <div class="dish-b">
+          <h3>Dates</h3>
+          <span class="dish-origin">Saharan oases · Deglet Nour</span>
+          <p>The honey-coloured <strong>Deglet Nour</strong> of the southern oases — Biskra, Tolga, the Gourara — is among the finest in the world. Dates open hospitality, close a meal and fuel every desert journey. <em>(A dedicated photograph is being sourced.)</em></p>
+        </div>
+      </article>
+    </div>
+  </div></section>
+
+  <section class="section taste"><div class="wrap">
+    <span class="eyebrow">Taste it on the road</span>
+    <h2 class="course-h">Trips with a place at the table</h2>
+    <p class="lede">On our journeys the food is part of the route — a Bedouin dinner with music at Bou Saâda, a “Merdoum” feast under the stars in Timimoun, home cooking and market tastings across the north.</p>
+    <div class="dish-grid">
+      {tasteTours.map((t:any) => (
+        <a class="card" href={`/tours/${t.id}/`}>
+          <div class="cb">
+            <span class="tag">{t.duration}</span>
+            <h3>{t.title}</h3>
+            <p>{t.summary}</p>
+            <div class="meta">{t.price_from ? 'From ' : ''}€{t.price_eur} / {t.per}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+    <p style="margin-top:1.2rem"><a class="btn" href="/tours/">All Algeria tours &rarr;</a> <a class="btn btn-ghost" href="/blog/algerian-food-guide/">Read the full food guide &rarr;</a></p>
+  </div></section>
+  </div>
+
+  <CtaSection heading="Hungry for the real thing?" />
 </BaseLayout>
+
+<style>
+  /* warm spice background with a subtle geometric motif */
+  .cuisine{
+    background-color:#FAF3E6;
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'46'%20height%3D'46'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23B26B2E'%20stroke-width%3D'1.2'%20opacity%3D'.10'%3E%3Crect%20x%3D'12'%20y%3D'12'%20width%3D'22'%20height%3D'22'%2F%3E%3Crect%20x%3D'12'%20y%3D'12'%20width%3D'22'%20height%3D'22'%20transform%3D'rotate(45%2023%2023)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
+      linear-gradient(180deg,#FBF5EA,#F6E8D4);
+    background-attachment:scroll,fixed;
+  }
+  .cuisine .eyebrow{color:#B5602A}
+  .lede{font-size:1.08rem;color:#5a4632;max-width:760px;line-height:1.7;margin:.4rem 0 0}
+  .infl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.9rem;margin-top:1.4rem}
+  .infl{background:rgba(255,255,255,.7);border:1px solid #e6d3b6;border-top:3px solid #B5602A;border-radius:12px;padding:.9rem 1rem}
+  .infl-name{font-family:var(--serif);font-weight:700;color:#8a3f12;font-size:1.05rem}
+  .infl p{margin:.3rem 0 0;font-size:.88rem;color:#5a4632;line-height:1.5}
+  /* feature couscous band */
+  .feature{background:linear-gradient(120deg,#7a3b16,#9c5223);color:#fff}
+  .feature-in{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+  .feature h2{color:#fff;margin:.2rem 0 .6rem;font-size:clamp(1.5rem,3vw,2.1rem)}
+  .feature .eyebrow{color:#F2C98C}
+  .feature p{color:rgba(255,255,255,.92);max-width:560px}
+  .feature-note{font-size:.92rem;color:rgba(255,255,255,.8)!important;margin-top:.7rem}
+  .feature-img{margin:0;border-radius:16px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.3);border:3px solid rgba(242,201,140,.4)}
+  .feature-img img{width:100%;height:100%;max-height:440px;object-fit:cover;display:block}
+  /* dish cards */
+  .course-h{font-size:1.5rem;color:#7a3b16;position:relative;display:inline-block;padding-bottom:.2rem;border-bottom:2px solid rgba(178,107,46,.4)}
+  .dish-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem;margin-top:1.3rem}
+  .dish{background:#fff;border:1px solid #e6d3b6;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 20px rgba(122,59,22,.07);transition:.2s}
+  .dish:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(122,59,22,.14)}
+  .dish-img{aspect-ratio:7/5;overflow:hidden;background:#f3e6d0}
+  .dish-img img{width:100%;height:100%;object-fit:cover;transition:.4s}
+  .dish:hover .dish-img img{transform:scale(1.05)}
+  .dish-motif{display:flex;align-items:center;justify-content:center;color:#B5602A;background:linear-gradient(135deg,#f3e6d0,#e9d3b0)}
+  .dish-b{padding:.9rem 1.05rem 1.1rem;display:flex;flex-direction:column;flex:1}
+  .dish-b h3{font-family:var(--serif);color:#8a3f12;font-size:1.12rem;margin:0}
+  .dish-origin{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:#B5602A;font-weight:700;margin:.2rem 0 .45rem}
+  .dish-b p{font-size:.88rem;color:#534233;line-height:1.55;margin:0}
+  .taste .card{background:#fff;border-color:#e6d3b6;border-top:3px solid #B5602A}
+  .taste .card h3{color:#8a3f12;font-size:1rem}
+  @media(max-width:760px){
+    .feature-in{grid-template-columns:1fr}
+    .feature-img{order:-1}
+  }
+</style>
