@@ -1,0 +1,3 @@
+import http from 'node:http'; import { readFile } from 'node:fs/promises'; import { extname, join, normalize } from 'node:path';
+const root=process.cwd(); const types={'.html':'text/html','.css':'text/css','.js':'text/javascript','.json':'application/json','.jpg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.webp':'image/webp','.ico':'image/x-icon'};
+http.createServer(async (req,res)=>{let p=decodeURIComponent(req.url.split('?')[0]); if(p.endsWith('/'))p+='index.html'; const fp=join(root,normalize(p)); try{const b=await readFile(fp); res.writeHead(200,{'content-type':types[extname(fp)]||'application/octet-stream'}); res.end(b);}catch(e){res.writeHead(404);res.end('404');}}).listen(8099,()=>console.log('serving on 8099'));
