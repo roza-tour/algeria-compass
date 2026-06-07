@@ -3,30 +3,71 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import QuickAnswer from '../../components/QuickAnswer.astro';
 import CtaSection from '../../components/CtaSection.astro';
-const items = await getCollection('question');
+import { FAQ } from '../../data/faq';
+
+const detailed = (await getCollection('question')).sort((a,b)=>a.data.question.localeCompare(b.data.question));
+
+const site = (Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com');
+// FAQPage JSON-LD aggregating every categorized Q&A plus the detailed guides.
+const allQ = [
+  ...FAQ.flatMap(c => c.items.map(i => ({ q: i.q, a: i.a }))),
+  ...detailed.map(d => ({ q: d.data.question, a: d.data.shortAnswer })),
+];
 const faqSchema = {
   "@type": "FAQPage",
-  "@id": (Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com') + "/questions/#faq",
-  "mainEntity": items.map(it => ({
-    "@type": "Question",
-    "name": it.data.question,
-    "acceptedAnswer": { "@type": "Answer", "text": it.data.shortAnswer }
+  "@id": site + "/questions/#faq",
+  "mainEntity": allQ.map(x => ({
+    "@type": "Question", "name": x.q,
+    "acceptedAnswer": { "@type": "Answer", "text": x.a }
   }))
 };
 ---
-<BaseLayout title="Algeria Travel Questions & Answers" description="Direct answers to the most common questions about traveling to Algeria — safety, visas, costs, best time to visit and more." schema={[faqSchema]}>
-  <Hero title="Questions & Answers" eyebrow="Knowledge base" text="Direct, sourced answers to the most common questions about visiting Algeria." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
-  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Questions'}]} />
-  <section class="section"><div class="wrap" style="max-width:820px">
-    <div class="faq">
-      {items.map(it => (
-        <details>
-          <summary><a href={`/questions/${it.slug}/`}>{it.data.question}</a></summary>
-          <p>{it.data.shortAnswer}</p>
-        </details>
-      ))}
-    </div>
+<BaseLayout title="Algeria Travel FAQ — Safety, Visas, Costs, Sahara & More" description="A complete, categorized FAQ for travelling to Algeria: safety, visas, best time, costs, getting around, money, connectivity, food, women travellers, Sahara permits, photography, health, packing, booking and cancellation." schema={[faqSchema]}>
+  <Hero title="Algeria Travel: Questions & Answers" eyebrow="Knowledge base" text="Clear, practical answers to the most common questions about visiting Algeria — by category." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Questions & Answers'}]} />
+
+  <section class="section"><div class="wrap" style="max-width:880px">
+    <QuickAnswer text="Algeria needs a little planning: most visitors need a visa arranged in advance, the north is the easiest place to start, the Sahara is a guided winter experience with permits, and it is largely a cash economy. The answers below cover safety, entry, timing, money, the desert and booking." />
+
+    <nav class="faq-jump" aria-label="FAQ categories">
+      {FAQ.map(c => <a href={`#${c.id}`}>{c.title}</a>)}
+    </nav>
+
+    {FAQ.map(c => (
+      <section id={c.id} class="faq-cat">
+        <h2>{c.title}</h2>
+        <div class="faq">
+          {c.items.map(i => (
+            <details>
+              <summary>{i.q}</summary>
+              <p>{i.a}{i.href && <> <a href={i.href}>Read the full guide &rarr;</a></>}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    {detailed.length > 0 && (
+      <section class="faq-cat">
+        <h2>In-depth travel guides</h2>
+        <ul class="faq-guides">
+          {detailed.map(d => <li><a href={`/questions/${d.slug}/`}>{d.data.question}</a></li>)}
+        </ul>
+      </section>
+    )}
   </div></section>
+
   <CtaSection />
 </BaseLayout>
+
+<style>
+  .faq-jump{display:flex;flex-wrap:wrap;gap:.5rem;margin:.4rem 0 1.6rem}
+  .faq-jump a{font-size:.78rem;font-weight:600;padding:.35rem .7rem;border-radius:999px;background:var(--wash,#f2efe6);color:var(--brand-green,#0B3D2E);text-decoration:none;border:1px solid var(--border,#e7e2d6)}
+  .faq-jump a:hover{background:var(--brand-green,#0B3D2E);color:#fff}
+  .faq-cat{margin-top:2rem;scroll-margin-top:90px}
+  .faq-cat h2{color:var(--brand-green,#0B3D2E)}
+  .faq-guides{columns:2;gap:1.5rem;margin:1rem 0 0;padding-left:1.1rem}
+  @media(max-width:640px){.faq-guides{columns:1}}
+</style>

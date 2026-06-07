@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StatesStrip from '../components/StatesStrip.astro';
 import CultureSection from '../components/CultureSection.astro';
+import { FAQ } from '../data/faq';
 import data from '../data/tours.json';
 import { TOUR_VISUALS } from '../data/tour-visuals';
 const tours = ((data as any).tours || (data as any)) as any[];
@@ -23,6 +24,8 @@ try {
 } catch (e) { moments = []; }
 
 const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Algeria tour.");
+const faqPick = ['safety','visa','best-time','costs','getting-around','money']
+  .map(id => FAQ.find(c => c.id === id)?.items[0]).filter(Boolean) as {q:string;a:string}[];
 ---
 <BaseLayout
   title="Algeria Compass — Private Algeria Tours, Sahara Safaris & Cultural Journeys"
@@ -85,6 +88,15 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
         ))}
       </div>
     </div></section>}
+
+  <section class="section"><div class="wrap" style="max-width:880px">
+    <div class="eyebrow">Good to know</div>
+    <h2>Algeria travel FAQ</h2>
+    <div class="faq" style="margin-top:1.2rem">
+      {faqPick.map(i => <details><summary>{i.q}</summary><p>{i.a}</p></details>)}
+    </div>
+    <p style="margin-top:1.2rem"><a class="btn" href="/questions/">All travel questions &rarr;</a></p>
+  </div></section>
 
   <section class="section" style="background:var(--wash)"><div class="wrap" style="text-align:center">
     <div class="cta">
