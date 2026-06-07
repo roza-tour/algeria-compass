@@ -1,0 +1,73 @@
+---
+// Phase 2 — compact, auto-scrolling band of state thumbnail cards.
+// Each card: a real photo of that state + its name overlaid, linking to that
+// state's (or destination/experience) page. The band scrolls continuously,
+// pauses on hover/focus, and falls back to a manual scroll when the visitor
+// prefers reduced motion. Inline SVG/CSS only; per-card accent from [data-region].
+//
+// Only states with a real photo AND a real page are listed here. States we
+// operate in but cannot yet show (no photo / page not built) are tracked for
+// Phase 4: Tipaza, Batna, Mostaganem, Annaba, Blida, Timimoun.
+const states = [
+  { name: 'Algiers',     href: '/provinces/algiers/',                  img: '/assets/img/algiers-white-city-aerial.jpg',     alt: 'The white tiered city of Algiers above its bay',                 region: 'coast' },
+  { name: 'Oran',        href: '/provinces/oran/',                     img: '/assets/img/oran-bay-santa-cruz.jpg',           alt: 'Oran bay beneath the Santa Cruz fort',                           region: 'andalusian' },
+  { name: 'Constantine', href: '/destinations/constantine/',           img: '/assets/img/constantine-sidi-mcid-bridge.jpg',  alt: 'The Sidi M’Cid bridge spanning the gorge at Constantine',        region: 'roman' },
+  { name: 'Sétif',       href: '/provinces/setif/',                    img: '/assets/img/setif-ain-el-fouara.jpg',           alt: 'The Ain El Fouara fountain in central Sétif',                    region: 'roman' },
+  { name: 'Tlemcen',     href: '/destinations/tlemcen/',               img: '/assets/img/tlemcen-andalusian-arches.jpg',     alt: 'Andalusian arches in Tlemcen',                                   region: 'andalusian' },
+  { name: 'Béjaïa',      href: '/provinces/bejaia/',                   img: '/assets/img/oued-canyon-palms.jpg',             alt: 'Green Kabylie mountains meeting the sea near Béjaïa',             region: 'kabylie' },
+  { name: 'Ghardaïa',    href: '/provinces/ghardaia/',                 img: '/assets/img/ghardaia-mzab-panorama.jpg',        alt: 'Panorama of the tiered M’Zab town of Ghardaïa',                  region: 'mzab' },
+  { name: 'Bou Saada',   href: '/experiences/bou-saada-oasis-escape/', img: '/assets/img/bou-saada-oasis.jpg',               alt: 'The palm oasis of Bou Saada on the edge of the Sahara',          region: 'sahara' },
+  { name: 'Djanet',      href: '/destinations/djanet/',                img: '/assets/img/djanet-oasis-pool.jpg',             alt: 'A guelta pool among palms near Djanet',                          region: 'sahara' },
+];
+// Duplicate the set so the marquee loops seamlessly. Duplicate cards reuse the
+// same image src (served from cache — no extra download) and are hidden from AT.
+const loop = [...states, ...states];
+const N = states.length;
+---
+<section class="states-strip" aria-label="States we travel across Algeria">
+  <div class="ss-head wrap">
+    <span class="eyebrow">Where we travel</span>
+    <a class="ss-all" href="/provinces/">All states &rarr;</a>
+  </div>
+  <div class="ss-viewport">
+    <ul class="ss-track" role="list">
+      {loop.map((s, i) => (
+        <li class="ss-card" data-region={s.region} aria-hidden={i >= N ? 'true' : undefined}>
+          <a href={s.href} tabindex={i >= N ? -1 : undefined} aria-label={i >= N ? undefined : `${s.name} — explore`}>
+            <img src={s.img} alt={i >= N ? '' : s.alt} width="300" height="200" loading="lazy" decoding="async" />
+            <span class="ss-name">{s.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .states-strip{padding:1.1rem 0 .5rem;background:var(--wash,#f7f5ef)}
+  .ss-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.55rem}
+  .ss-all{font-size:.8rem;font-weight:700;color:var(--brand-green,#0B3D2E);text-decoration:none;white-space:nowrap}
+  .ss-all:hover{text-decoration:underline}
+  .ss-viewport{overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+  .ss-track{display:flex;gap:.8rem;width:max-content;margin:0;padding:.25rem .9rem;list-style:none;
+    animation:ss-scroll 50s linear infinite}
+  .ss-viewport:hover .ss-track,.ss-track:focus-within{animation-play-state:paused}
+  .ss-card{flex:0 0 auto}
+  .ss-card>a{position:relative;display:block;width:228px;height:150px;border-radius:14px;overflow:hidden;
+    box-shadow:0 6px 18px rgba(0,0,0,.13);outline-offset:3px;outline-color:var(--accent,#C19333)}
+  .ss-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .ss-card>a:hover img,.ss-card>a:focus-visible img{transform:scale(1.06)}
+  .ss-name{position:absolute;left:0;right:0;bottom:0;padding:.85rem .8rem .5rem;color:#fff;
+    font-family:'Cinzel',serif;font-weight:600;font-size:1.02rem;letter-spacing:.02em;
+    background:linear-gradient(transparent,rgba(0,0,0,.72));text-shadow:0 1px 4px rgba(0,0,0,.55)}
+  .ss-card>a::after{content:"";position:absolute;inset:0;border:2px solid transparent;border-radius:14px;
+    transition:border-color .3s;pointer-events:none}
+  .ss-card>a:hover::after,.ss-card>a:focus-visible::after{border-color:var(--accent,#C19333)}
+  @keyframes ss-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){
+    .ss-track{animation:none}
+    .ss-viewport{overflow-x:auto;mask-image:none;-webkit-mask-image:none}
+  }
+</style>
