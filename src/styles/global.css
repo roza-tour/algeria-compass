@@ -64,8 +64,8 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--green-d);font-w
 .nav{background:var(--green);border-bottom:1px solid rgba(201,162,75,.22);position:sticky;top:0;z-index:300;box-shadow:0 2px 16px rgba(7,38,28,.18)}
 .nav-inner{max-width:1360px;margin:0 auto;display:flex;align-items:center;height:68px;padding:0;gap:0}
 .nav-logo-link{display:flex;align-items:center;gap:.7rem;padding:0 2rem;border-right:1px solid rgba(246,239,224,.12);height:100%;white-space:nowrap;flex-shrink:0}
-.brand-mark{display:block;width:auto;height:40px;flex-shrink:0}
-.brand-name{font-family:'Cinzel',serif;font-weight:800;font-size:1.15rem;letter-spacing:.04em;color:#F6EFE0;white-space:nowrap}
+.brand-mark{display:block;width:auto;height:56px;flex-shrink:0}
+.brand-name{font-family:'Cinzel',serif;font-weight:800;font-size:1.32rem;letter-spacing:.04em;color:#F6EFE0;white-space:nowrap}
 .brand-name b{color:var(--gold-l);font-weight:800}
 .nav-links{display:flex;flex:1;list-style:none;height:100%;gap:0;padding:0 .5rem;margin:0}
 .nav-links>li{position:relative;display:flex;align-items:center}

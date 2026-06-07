@@ -2,8 +2,12 @@
 name: "Djémila (Cuicul)"
 province: "Sétif"
 region: "roman"
-image: "/assets/img/ksar-mural-art.jpg"
-imageAlt: "Ancient Roman ruins evoking Djémila in north-eastern Algeria"
+image: "/assets/img/tours/djemila-1.jpg"
+imageAlt: "The colonnaded Roman ruins of Djémila (Cuicul) on its hillside, north-eastern Algeria"
+gallery:
+  - { src: "/assets/img/tours/djemila-3.jpg", alt: "Roman temple and forum at Djémila, Algeria" }
+  - { src: "/assets/img/tours/djemila-5.jpg", alt: "The theatre and hillside ruins of Djémila" }
+  - { src: "/assets/img/tours/djemila-7.jpg", alt: "Roman streets and stonework at Djémila (Cuicul)" }
 coordinates: { lat: 36.3206, lng: 5.7367 }
 sameAs: ["https://en.wikipedia.org/wiki/Djémila"]
 quickAnswer: "Djémila, ancient Cuicul, is one of the best-preserved Roman cities in the world and a UNESCO World Heritage Site since 1982. Set on a mountain spur in Sétif state, it preserves temples, forums, a theatre, the Arch of Caracalla and outstanding mosaics."

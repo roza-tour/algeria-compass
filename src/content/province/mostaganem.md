@@ -2,11 +2,9 @@
 name: "Mostaganem"
 wilayaNumber: 27
 region: "coast"
-image: "/assets/img/tours/oran-11.jpg"
-imageAlt: "The Mediterranean coast of western Algeria, the region of Mostaganem"
-gallery:
-  - { src: "/assets/img/tours/oran-7.jpg", alt: "Western Algerian seafront on the Mediterranean" }
-  - { src: "/assets/img/tours/oran-9.jpg", alt: "Coastal town on the western Algerian Mediterranean" }
+image: "/assets/img/brand-algeria.jpg"
+imageAlt: "Algeria — a verified photograph of Mostaganem is being sourced"
+gallery: []
 coordinates: { lat: 35.9315, lng: 0.0892 }
 quickAnswer: "Mostaganem is a coastal state on the western Mediterranean of Algeria, east of Oran. A historic port with an Ottoman past, it is known for its long sandy beaches, the old quarter of Tigditt, the Bordj Ettork fortress, a rich theatrical tradition, and the fertile farmland of the Dahra and the Chelif plain behind the coast."
 keyFacts:
@@ -38,6 +36,8 @@ cluster: "algeria-beaches"
 secondaryClusters: ["algeria-culture", "algeria-coast"]
 intent: "navigation"
 ---
+
+> **Editor's note:** verified photographs of Mostaganem are being sourced; the image above is a neutral placeholder until then (we don't show another city's photo in its place).
 
 ## Why visit Mostaganem
 **Mostaganem** is the relaxed face of the Algerian west — a historic Mediterranean port with long sandy beaches, an atmospheric old town and a famous tradition of theatre and song. Quieter than neighbouring Oran, it makes an easy, sunny addition to a western itinerary, pairing coast and culture without the crowds.

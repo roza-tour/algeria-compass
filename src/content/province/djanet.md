@@ -2,12 +2,12 @@
 name: "Djanet"
 wilayaNumber: 56
 region: "sahara"
-image: "/assets/img/djanet-canyon-green.jpg"
-imageAlt: "Green palms in a canyon near Djanet in Algeria's far southern Sahara"
+image: "/assets/img/tours/djanet-2.jpg"
+imageAlt: "Red sandstone and dunes of the desert around Djanet, far southern Algeria"
 gallery:
-  - { src: "/assets/img/djanet-oasis-pool.jpg", alt: "A guelta pool among palms near Djanet" }
+  - { src: "/assets/img/tours/djanet-5.jpg", alt: "Sahara dunes and rock formations near Djanet" }
+  - { src: "/assets/img/tours/djanet-8.jpg", alt: "Desert landscape of the Tadrart near Djanet" }
   - { src: "/assets/img/tassili-rock-art.jpg", alt: "Prehistoric rock art in the Tassili n'Ajjer near Djanet" }
-  - { src: "/assets/img/djanet-guelta-palms.jpg", alt: "Palms at a desert spring near Djanet" }
 coordinates: { lat: 24.5539, lng: 9.4851 }
 quickAnswer: "Djanet is a desert state in Algeria's far south-east, the Tuareg gateway to the Sahara at its most spectacular. It is the base for the UNESCO Tassili n'Ajjer plateau and its prehistoric rock art, and for the red sandstone and dunes of the Tadrart — a region of guided 4x4 journeys, desert camps and some of the clearest night skies on Earth."
 keyFacts:
