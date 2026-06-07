@@ -5,8 +5,17 @@ import Hero from '../../components/Hero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaSection from '../../components/CtaSection.astro';
 const items = await getCollection('question');
+const faqSchema = {
+  "@type": "FAQPage",
+  "@id": (Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com') + "/questions/#faq",
+  "mainEntity": items.map(it => ({
+    "@type": "Question",
+    "name": it.data.question,
+    "acceptedAnswer": { "@type": "Answer", "text": it.data.shortAnswer }
+  }))
+};
 ---
-<BaseLayout title="Algeria Travel Questions & Answers" description="Direct answers to the most common questions about traveling to Algeria — safety, visas, costs, best time to visit and more.">
+<BaseLayout title="Algeria Travel Questions & Answers" description="Direct answers to the most common questions about traveling to Algeria — safety, visas, costs, best time to visit and more." schema={[faqSchema]}>
   <Hero title="Questions & Answers" eyebrow="Knowledge base" text="Direct, sourced answers to the most common questions about visiting Algeria." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Questions'}]} />
   <section class="section"><div class="wrap" style="max-width:820px">
