@@ -2,9 +2,15 @@
 name: "Mostaganem"
 wilayaNumber: 27
 region: "coast"
-image: "/assets/img/brand-algeria.jpg"
-imageAlt: "Algeria — a verified photograph of Mostaganem is being sourced"
-gallery: []
+image: "/assets/img/mostaganem/mostaganem-01.jpg"
+imageAlt: "Sea grotto and rock arch on the Mediterranean coast at Mostaganem"
+gallery:
+  - { src: "/assets/img/mostaganem/mostaganem-03.jpg", alt: "Sunset over a beach picnic on the Mostaganem coast" }
+  - { src: "/assets/img/mostaganem/mostaganem-05.jpg", alt: "White-and-blue houses of the old quarter of Mostaganem" }
+  - { src: "/assets/img/mostaganem/mostaganem-06.jpg", alt: "Clock-tower street in the historic centre of Mostaganem" }
+  - { src: "/assets/img/mostaganem/mostaganem-11.jpg", alt: "The grand mosque of Mostaganem" }
+  - { src: "/assets/img/mostaganem/mostaganem-12.jpg", alt: "Green-domed marabout with zellige tilework, Mostaganem" }
+  - { src: "/assets/img/mostaganem/mostaganem-07.jpg", alt: "Lake and gardens of a city park in Mostaganem" }
 coordinates: { lat: 35.9315, lng: 0.0892 }
 quickAnswer: "Mostaganem is a coastal state on the western Mediterranean of Algeria, east of Oran. A historic port with an Ottoman past, it is known for its long sandy beaches, the old quarter of Tigditt, the Bordj Ettork fortress, a rich theatrical tradition, and the fertile farmland of the Dahra and the Chelif plain behind the coast."
 keyFacts:
@@ -36,8 +42,6 @@ cluster: "algeria-beaches"
 secondaryClusters: ["algeria-culture", "algeria-coast"]
 intent: "navigation"
 ---
-
-> **Editor's note:** verified photographs of Mostaganem are being sourced; the image above is a neutral placeholder until then (we don't show another city's photo in its place).
 
 ## Why visit Mostaganem
 **Mostaganem** is the relaxed face of the Algerian west — a historic Mediterranean port with long sandy beaches, an atmospheric old town and a famous tradition of theatre and song. Quieter than neighbouring Oran, it makes an easy, sunny addition to a western itinerary, pairing coast and culture without the crowds.

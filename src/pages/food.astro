@@ -3,10 +3,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import QuickAnswer from '../components/QuickAnswer.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
 import CtaSection from '../components/CtaSection.astro';
+
+const dishes = [
+  { src: '/assets/img/cuisine/algeria-cuisine-01.jpg', alt: 'Festive couscous with seven vegetables' },
+  { src: '/assets/img/cuisine/algeria-cuisine-02.jpg', alt: 'Rechta — fine hand-pulled noodles in a white sauce' },
+  { src: '/assets/img/cuisine/algeria-cuisine-09.jpg', alt: 'Chorba — a hearty Algerian soup with chickpeas' },
+  { src: '/assets/img/cuisine/algeria-cuisine-06.jpg', alt: 'Bourek — crisp fried pastry rolls' },
+  { src: '/assets/img/cuisine/algeria-cuisine-10.jpg', alt: 'Mhadjeb — stuffed semolina flatbread' },
+  { src: '/assets/img/cuisine/algeria-cuisine-05.jpg', alt: 'Msemen flatbread served with mint tea' },
+  { src: '/assets/img/cuisine/algeria-cuisine-08.jpg', alt: 'Chakchouka and hmiss with grilled bread' },
+  { src: '/assets/img/cuisine/algeria-cuisine-11.jpg', alt: 'Hmiss — a roasted pepper and tomato dip' },
+  { src: '/assets/img/cuisine/algeria-cuisine-07.jpg', alt: 'Chicken tagine with couscous' },
+];
 ---
-<BaseLayout title="Algerian Food | Algeria Compass" description="Couscous, tagines, chorba, fresh bread and mint tea — a traveller’s guide to the Maghrebi table." image="/assets/img/traditional-dining-tea.jpg" region="mzab">
-  <Hero title="Algerian Food" eyebrow="Knowledge hub" text="Couscous, tagines, chorba, fresh bread and mint tea — a traveller’s guide to the Maghrebi table." image="/assets/img/traditional-dining-tea.jpg" alt="A traditional Algerian shared meal with tea" />
+<BaseLayout title="Algerian Food | Algeria Compass" description="Couscous, tagines, chorba, fresh bread and mint tea — a traveller’s guide to the Maghrebi table." image="/assets/img/cuisine/algeria-cuisine-04.jpg" region="mzab">
+  <Hero title="Algerian Food" eyebrow="Knowledge hub" text="Couscous, tagines, chorba, fresh bread and mint tea — a traveller’s guide to the Maghrebi table." image="/assets/img/cuisine/algeria-cuisine-04.jpg" alt="A platter of Algerian couscous with lamb shank and vegetables — the national dish" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algerian Food'}]} />
   <section class="section"><div class="wrap" style="max-width:820px">
     <QuickAnswer text="Algerian cuisine is a Maghrebi tradition built on couscous — the national dish, eaten on Fridays — alongside slow tagines, hearty soups like chorba, fresh bread and sweet mint tea. It blends Amazigh, Arab, Ottoman, Andalusian and French influences, and changes character from the coast to the Sahara." />
@@ -16,5 +29,6 @@ import CtaSection from '../components/CtaSection.astro';
       <ul><li><a href="/blog/algerian-food-guide/">Full Algerian food guide</a></li><li><a href="/blog/algerian-handicrafts/">Crafts & markets</a></li></ul>
     </div>
   </div></section>
+  <PhotoGallery images={dishes} heading="Dishes to look for" />
   <CtaSection />
 </BaseLayout>

@@ -38,7 +38,7 @@ const cuisine = { region: 'highlands', motif: 'dune', href: '/food/',
   </div>
 
   <a class="cuisine-card" href={cuisine.href} data-region={cuisine.region}>
-    <Motif name={cuisine.motif} class="cuisine-motif" size={64} />
+    <img class="cuisine-photo" src="/assets/img/cuisine/algeria-cuisine-04.jpg" alt="A platter of Algerian couscous with lamb shank and vegetables — the national dish" width="120" height="120" loading="lazy" decoding="async" />
     <div>
       <h3>Algerian cuisine</h3>
       <p>{cuisine.text}</p>
@@ -66,4 +66,6 @@ const cuisine = { region: 'highlands', motif: 'dune', href: '/food/',
   .cuisine-card>div{flex:1 1 320px}
   .cuisine-card .civ-more{color:#fff;margin-top:0;white-space:nowrap}
   .cuisine-motif{color:#fff;opacity:.5;flex:0 0 auto}
+  .cuisine-photo{flex:0 0 auto;width:120px;height:120px;object-fit:cover;border-radius:12px;
+    border:2px solid rgba(255,255,255,.35);box-shadow:0 6px 16px rgba(0,0,0,.25)}
 </style>

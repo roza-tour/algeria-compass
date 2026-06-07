@@ -14,8 +14,8 @@ export const TOUR_VISUALS: Record<string, TourVisual> = {
   'djanet-sahara-safari':            { hero: 'djanet-1.jpg',        accent: '#C8680A' },
   'djanet-ghardaia-desert-2-days':   { hero: 'djanet-6.jpg',        accent: '#C8680A' },
   'bousaada-desert-tour':            { hero: 'bousaada-1.jpg',      accent: '#C8680A' },
-  // Timimoun — NO correct image available → flagged, branded gradient hero
-  'timimoun-desert-escape':          { hero: '',                    accent: '#A03010', needsImage: true },
+  // Timimoun — real Gourara "Red Oasis" photos now supplied
+  'timimoun-desert-escape':          { hero: 'timimoun-1.jpg',      accent: '#A03010' },
   // M'Zab — amber
   'ghardaia-guided-tour':            { hero: 'ghardaia-1.jpg',      accent: '#B87A0A' },
   // West / Andalusian — teal-blue

@@ -271,10 +271,12 @@
       "theme": "west",
       "wilayas": [
         "oran",
+        "mostaganem",
         "tlemcen"
       ],
       "image_slugs": [
         "oran",
+        "mostaganem",
         "tlemcen"
       ],
       "duration": "5 days · 4 nights",
@@ -812,12 +814,10 @@
       "title": "Timimoun Desert Escape — 5 Days",
       "theme": "sahara",
       "wilayas": [
-        "djanet",
-        "ghardaia"
+        "timimoun"
       ],
       "image_slugs": [
-        "djanet",
-        "ghardaia"
+        "timimoun"
       ],
       "duration": "5 days · 4 nights",
       "price_eur": 492,

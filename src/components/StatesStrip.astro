@@ -7,16 +7,20 @@
 //
 // Only states with a real photo AND a real page are listed here. States we
 // operate in but cannot yet show (no photo / page not built) are tracked for
-// Phase 4: Tipaza, Batna, Mostaganem, Annaba, Blida, Timimoun.
+// a later phase: Tipaza, Batna.
 const states = [
   { name: 'Algiers',     href: '/provinces/algiers/',                  img: '/assets/img/algiers-white-city-aerial.jpg',     alt: 'The white tiered city of Algiers above its bay',                 region: 'coast' },
+  { name: 'Blida',       href: '/provinces/blida/',                    img: '/assets/img/blida/blida-01.jpg',                alt: 'The Moorish kiosk on the Place d’Armes of Blida',                region: 'coast' },
   { name: 'Oran',        href: '/provinces/oran/',                     img: '/assets/img/oran-bay-santa-cruz.jpg',           alt: 'Oran bay beneath the Santa Cruz fort',                           region: 'andalusian' },
+  { name: 'Mostaganem',  href: '/provinces/mostaganem/',               img: '/assets/img/mostaganem/mostaganem-01.jpg',      alt: 'Sea grotto and rock arch on the Mostaganem coast',               region: 'andalusian' },
+  { name: 'Tlemcen',     href: '/provinces/tlemcen/',                  img: '/assets/img/tlemcen-andalusian-arches.jpg',     alt: 'Andalusian arches in Tlemcen',                                   region: 'andalusian' },
   { name: 'Constantine', href: '/provinces/constantine/',           img: '/assets/img/constantine-sidi-mcid-bridge.jpg',  alt: 'The Sidi M’Cid bridge spanning the gorge at Constantine',        region: 'roman' },
   { name: 'Sétif',       href: '/provinces/setif/',                    img: '/assets/img/setif-ain-el-fouara.jpg',           alt: 'The Ain El Fouara fountain in central Sétif',                    region: 'roman' },
-  { name: 'Tlemcen',     href: '/provinces/tlemcen/',                  img: '/assets/img/tlemcen-andalusian-arches.jpg',     alt: 'Andalusian arches in Tlemcen',                                   region: 'andalusian' },
+  { name: 'Annaba',      href: '/provinces/annaba/',                   img: '/assets/img/annaba/annaba-11.jpg',              alt: 'The Basilica of St Augustine above Annaba',                      region: 'coast' },
   { name: 'Béjaïa',      href: '/provinces/bejaia/',                   img: '/assets/img/tours/bejaia-2.jpg',                alt: 'The Mediterranean bay and coast of Béjaïa',                      region: 'kabylie' },
   { name: 'Ghardaïa',    href: '/provinces/ghardaia/',                 img: '/assets/img/ghardaia-mzab-panorama.jpg',        alt: 'Panorama of the tiered M’Zab town of Ghardaïa',                  region: 'mzab' },
-  { name: 'Bou Saada',   href: '/provinces/bousaada/',                 img: '/assets/img/bou-saada-oasis.jpg',               alt: 'The palm oasis of Bou Saada on the edge of the Sahara',          region: 'sahara' },
+  { name: 'Bou Saada',   href: '/provinces/bousaada/',                 img: '/assets/img/msila-bousaada/msila-bousaada-07.jpg', alt: 'The oued and palms of the Bou Saada oasis canyon',            region: 'sahara' },
+  { name: 'Timimoun',    href: '/provinces/timimoun/',                 img: '/assets/img/timimoun/timimoun-06.jpg',          alt: 'Aerial of the red oasis town of Timimoun and its palm belt',     region: 'sahara' },
   { name: 'Djanet',      href: '/provinces/djanet/',                   img: '/assets/img/tours/djanet-2.jpg',                alt: 'Red sandstone and dunes of the desert near Djanet',              region: 'sahara' },
 ];
 // Duplicate the set so the marquee loops seamlessly. Duplicate cards reuse the

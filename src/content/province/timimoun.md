@@ -2,9 +2,15 @@
 name: "Timimoun"
 wilayaNumber: 54
 region: "sahara"
-image: "/assets/img/brand-algeria.jpg"
-imageAlt: "Algeria — a verified photograph of Timimoun is being sourced"
-gallery: []
+image: "/assets/img/timimoun/timimoun-06.jpg"
+imageAlt: "Aerial view of the red-ochre town of Timimoun and its palm belt, the Red Oasis of the Gourara"
+gallery:
+  - { src: "/assets/img/timimoun/timimoun-09.jpg", alt: "Red Sudanese-style mosque with conical pinnacles, Timimoun" }
+  - { src: "/assets/img/timimoun/timimoun-10.jpg", alt: "Red-ochre minaret of a Gourara mosque, Timimoun" }
+  - { src: "/assets/img/timimoun/timimoun-07.jpg", alt: "Ksour and palm groves below the desert plateau near Timimoun" }
+  - { src: "/assets/img/timimoun/timimoun-02.jpg", alt: "Red earthen alley in a ksar of the Gourara, Timimoun" }
+  - { src: "/assets/img/timimoun/timimoun-13.jpg", alt: "Golden Saharan dunes around Timimoun" }
+  - { src: "/assets/img/timimoun/timimoun-11.jpg", alt: "Palm grove and Saharan landscape of the Gourara, Timimoun" }
 coordinates: { lat: 29.2633, lng: 0.2411 }
 quickAnswer: "Timimoun is a Saharan state in south-western Algeria, the 'Red Oasis' at the heart of the Gourara. It is famous for its red Sudanese-style architecture, vast palm groves watered by the ancient foggara channel system, fortified ksour, a great salt lake (sebkha), and the Ahellil — a polyphonic Gourara song recognised by UNESCO as intangible heritage."
 keyFacts:
@@ -37,8 +43,6 @@ cluster: "algeria-sahara"
 secondaryClusters: ["algeria-culture", "algeria-architecture"]
 intent: "navigation"
 ---
-
-> **Editor's note:** verified photographs of Timimoun and the Gourara are being sourced; the image above is a neutral placeholder until then (we don't show another desert's photo in its place).
 
 ## Why visit Timimoun
 **Timimoun**, the **Red Oasis**, is one of the most atmospheric corners of the Algerian Sahara. Capital of the **Gourara**, it glows with the ochre-red of its Sudanese-style architecture, set against endless **palm groves**, fortified **ksour** and a shimmering **salt lake**. It is a place of deep traditions — water shared by ancient channels, and a collective song found nowhere else.

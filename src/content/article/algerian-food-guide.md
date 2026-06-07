@@ -1,8 +1,8 @@
 ---
 title: "Algerian Food: A Traveller's Guide to Couscous, Tagines and Mint Tea"
 category: "Food"
-image: "/assets/img/traditional-dining-tea.jpg"
-imageAlt: "A traditional Algerian shared meal with tea"
+image: "/assets/img/cuisine/algeria-cuisine-01.jpg"
+imageAlt: "A festive platter of Algerian couscous with seven vegetables"
 excerpt: "Algerian cooking sits at a crossroads of Amazigh, Arab, Ottoman, Andalusian and French influences. Here are the dishes to seek out."
 quickAnswer: "Algerian cuisine is a Maghrebi tradition built on couscous (the national dish, eaten on Fridays), slow tagines, fresh bread and sweet mint tea. It blends Amazigh, Arab, Ottoman, Andalusian and French influences."
 readMinutes: 6
@@ -30,8 +30,16 @@ Eating in Algeria is rarely a transaction and almost always hospitality. Sit dow
 ## The dishes
 **Couscous** — the national dish, eaten on Fridays. **Chorba** and **h'rira** — fragrant soups that anchor the evening meal. **Tagines** — slow stews with olives, prunes or quince. **Bread** is sacred, from baguette to flat kesra and flaky msemen.
 
+![Couscous topped with lamb shank, vegetables and chickpeas](/assets/img/cuisine/algeria-cuisine-04.jpg)
+
+Beyond couscous, look for **rechta** (fine hand-pulled noodles), **bourek** (crisp fried pastry rolls), **mhadjeb** (stuffed semolina flatbread) and **hmiss** (a roasted pepper and tomato dip) — everyday dishes that change from one region and family to the next.
+
+![Mhadjeb, bourek and other Algerian savoury pastries](/assets/img/cuisine/algeria-cuisine-10.jpg)
+
 ## The ritual of tea
 In the Sahara, three glasses of mint tea poured from a height are a ceremony, not a drink to rush.
+
+![Msemen flatbread served with a glass of mint tea](/assets/img/cuisine/algeria-cuisine-05.jpg)
 
 ## Practical notes
 - Food is predominantly halal; pork is not served

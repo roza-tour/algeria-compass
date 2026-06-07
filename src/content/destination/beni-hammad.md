@@ -2,9 +2,13 @@
 name: "Al Qal'a of Beni Hammad"
 province: "M'Sila"
 region: "highlands"
-image: "/assets/img/brand-algeria.jpg"
-imageAlt: "Algeria — a representative photograph of Al Qal'a of Beni Hammad is being sourced"
-gallery: []
+image: "/assets/img/beni-hammad/beni-hammad-02.jpg"
+imageAlt: "The square stone minaret of the Great Mosque standing among the ruins of Al Qal'a of Beni Hammad in the Hodna mountains"
+gallery:
+  - { src: "/assets/img/beni-hammad/beni-hammad-01.jpg", alt: "The Beni Hammad minaret framed by trees on the Hodna highland" }
+  - { src: "/assets/img/beni-hammad/beni-hammad-07.jpg", alt: "The minaret of Al Qal'a of Beni Hammad rising above the palace ruins" }
+  - { src: "/assets/img/beni-hammad/beni-hammad-05.jpg", alt: "The minaret amid spring wildflowers and the Hodna mountains" }
+  - { src: "/assets/img/beni-hammad/beni-hammad-04.jpg", alt: "View through an arched opening over the ruins of Beni Hammad" }
 coordinates: { lat: 35.8186, lng: 4.7906 }
 sameAs: ["https://en.wikipedia.org/wiki/Beni_Hammad_Fort"]
 quickAnswer: "Al Qal'a of Beni Hammad is a UNESCO World Heritage Site in the Hodna mountains of M'Sila state — the ruined first capital of the Hammadid dynasty, founded in 1007. Set at around 1,000 m, it preserves the largest mosque minaret in Algeria and the remains of palaces and fortifications, a vivid picture of a fortified Islamic city of the 11th century."
@@ -36,8 +40,6 @@ secondaryClusters: ["algeria-unesco"]
 intent: "inspirational"
 ---
 ---
-
-> **Editor's note:** we are sourcing a photograph of Al Qal'a of Beni Hammad; the image above is a placeholder until a verified one is added.
 
 ## What it is
 **Al Qal'a of Beni Hammad** (Qal'at Bani Hammad) is the ruined **first capital of the Hammadid dynasty**, founded in **1007** by **Hammad ibn Buluggin** in the **Hodna mountains** of **M'Sila state**, north-central Algeria. Set at around **1,000 m**, it was inscribed as a **UNESCO World Heritage Site in 1980** as an authentic picture of a fortified Muslim city of its age.
