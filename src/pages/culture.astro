@@ -4,17 +4,90 @@ import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import QuickAnswer from '../components/QuickAnswer.astro';
 import CtaSection from '../components/CtaSection.astro';
+import Motif from '../components/Motif.astro';
+
+// Civilisation blocks — real, sourced-style overviews with a region palette,
+// an inline-SVG motif and a link into deeper content on the site.
+const civs = [
+  { id: 'amazigh', title: 'Amazigh (Berber)', region: 'kabylie', motif: 'tifinagh',
+    body: "The Imazighen — the “free people” — are the indigenous population of Algeria and North Africa, present for more than three thousand years. Their language, Tamazight, is now official alongside Arabic and is written in the ancient Tifinagh script, whose yaz character ⵣ has become the emblem of Amazigh identity. The culture is strongest in Kabylie, the Aurès (Chaoui) and the M'Zab (Mozabite), each with its own dialect, music, jewellery and architecture. The Amazigh new year, Yennayer, is a national holiday.",
+    links: [{ t: 'History of Algeria', h: '/history/' }, { t: 'Béjaïa & Kabylie', h: '/provinces/bejaia/' }] },
+  { id: 'roman', title: 'Roman', region: 'roman', motif: 'roman-arch',
+    body: 'For roughly six centuries Rome governed the fertile north as the provinces of Africa, Numidia and Mauretania. Algeria preserves some of the finest Roman cities anywhere — Djémila (Cuicul), Timgad (Thamugadi) and coastal Tipaza — with triumphal arches, forums, theatres and exceptional in-situ mosaics, often set in open countryside with almost no crowds.',
+    links: [{ t: 'Djémila', h: '/destinations/djemila/' }, { t: 'UNESCO sites', h: '/unesco/' }] },
+  { id: 'arab-islamic', title: 'Arab & Islamic', region: 'mzab', motif: 'mzab-arch',
+    body: 'From the 7th century, successive Arab and Berber-Muslim dynasties brought Islam, the Arabic language and a great age of scholarship and building — mosques, madrasas and walled medinas. In the Sahara, the Ibadi Muslim community of the M’Zab Valley founded five fortified oasis towns around Ghardaïa from the 11th century, whose radical, egalitarian urban design later influenced modern architects including Le Corbusier.',
+    links: [{ t: 'Ghardaïa & the M’Zab', h: '/provinces/ghardaia/' }, { t: 'History of Algeria', h: '/history/' }] },
+  { id: 'andalusian', title: 'Andalusian', region: 'andalusian', motif: 'zellige',
+    body: 'The fall of Muslim Spain brought waves of Andalusi refugees — Muslims and Jews — to Tlemcen, Algiers, Blida and Constantine. They carried a refined urban culture: classical Andalusian music (the gharnati and malouf traditions still performed today), ornate woodwork and zellij tilework, and the cooking and dress of the western cities.',
+    links: [{ t: 'Tlemcen', h: '/destinations/tlemcen/' }, { t: 'Oran', h: '/provinces/oran/' }] },
+  { id: 'ottoman', title: 'Ottoman', region: 'coast', motif: 'zellige',
+    body: 'From the 16th to the 19th century, Algiers was the seat of a powerful Ottoman regency that dominated the western Mediterranean. Its most complete legacy is the UNESCO-listed Casbah of Algiers — a steep labyrinth of Ottoman houses, palaces, hammams and mosques rising above the bay — along with the great Ketchaoua and Djamaa el-Djedid mosques.',
+    links: [{ t: 'Casbah of Algiers', h: '/destinations/casbah-of-algiers/' }, { t: 'Algiers', h: '/provinces/algiers/' }] },
+  { id: 'saharan', title: 'Saharan & Tuareg', region: 'sahara', motif: 'tuareg-cross',
+    body: 'The deep south belongs to the Tuareg, the veiled “blue people” whose camel caravans once linked the Sahara to West Africa, and who keep a distinctive silverwork (the cross of Agadez), poetry and music. Their homeland around Djanet holds the Tassili n’Ajjer, one of the greatest open-air galleries of prehistoric rock art on Earth, recording a green Sahara of some 10,000 years ago.',
+    links: [{ t: 'Tassili n’Ajjer', h: '/destinations/tassili-najjer/' }, { t: 'Djanet', h: '/destinations/djanet/' }] },
+];
+
+const threads = [
+  { title: 'Music', motif: 'tifinagh', body: 'From the Andalusian gharnati of Tlemcen and the malouf of Constantine to chaâbi in the Algiers Casbah, Kabyle song, Tuareg desert blues and the world-famous raï of Oran — Algerian music is as regional as its food.' },
+  { title: 'Craft', motif: 'zellige', body: 'Zellij tilework and carved plaster in the cities, Kabyle and Tuareg silver jewellery, M’Zab carpets, pottery, leather and copperwork — every region has a signature craft, sold in its markets and souks.' },
+  { title: 'Cuisine', motif: 'dune', body: 'Couscous on Fridays, slow tagines, coastal grilled fish, Saharan dates, Kabyle olive oil and mint tea poured from a height. The table maps the country’s geography and history.' },
+];
 ---
-<BaseLayout title="Algerian Culture | Algeria Compass" description="Amazigh, Arab, Ottoman and Andalusian: the layered cultural identity of Algeria, from language and music to dress and daily life." region="kabylie">
-  <Hero title="Algerian Culture" eyebrow="Knowledge hub" text="Amazigh, Arab, Ottoman and Andalusian: the layered cultural identity of Algeria, from language and music to dress and daily life." image="/assets/img/cultural-museum-visit.jpg" alt="A cultural museum visit in Algeria" />
+<BaseLayout title="Algerian Culture: Civilisations, Music, Craft & Cuisine | Algeria Compass" description="Amazigh, Roman, Arab, Andalusian, Ottoman and Saharan: the layered cultural identity of Algeria — its languages, music, craft, architecture and food, region by region." region="kabylie">
+  <Hero title="Algerian Culture" eyebrow="Knowledge hub" text="Amazigh, Roman, Arab, Andalusian, Ottoman and Saharan — the civilisations that layered into modern Algeria, and the music, craft and cuisine they left behind." image="/assets/img/cultural-museum-visit.jpg" alt="A cultural museum visit in Algeria" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algerian Culture'}]} />
-  <section class="section"><div class="wrap" style="max-width:820px">
-    <QuickAnswer text="Algerian culture is a layering of civilisations. Its indigenous Amazigh (Berber) foundation runs beneath Arab, Ottoman, Andalusian and French influences, producing a country where Tamazight and Arabic are both official, where Andalusian music survives in Tlemcen, and where desert and coast keep distinct traditions of dress, craft and cuisine." />
-    <div class="prose">
-      <p>Algerian culture is a layering of civilisations. Its indigenous Amazigh (Berber) foundation runs beneath Arab, Ottoman, Andalusian and French influences, producing a country where Tamazight and Arabic are both official, where Andalusian music survives in Tlemcen, and where desert and coast keep distinct traditions of dress, craft and cuisine.</p>
-      <h2>Explore further</h2>
-      <ul><li><a href="/blog/algerian-food-guide/">Algerian food: a traveller’s guide</a></li><li><a href="/provinces/">Browse provinces</a></li></ul>
+
+  <section class="section"><div class="wrap" style="max-width:840px">
+    <QuickAnswer text="Algerian culture is a layering of civilisations. Its indigenous Amazigh (Berber) foundation runs beneath Arab-Islamic, Andalusian, Ottoman and French influences, with the Tuareg Sahara as a world of its own — producing a country where Tamazight and Arabic are both official, where Andalusian music survives in Tlemcen and raï was born in Oran, and where each region keeps its own dress, craft and cuisine." />
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="eyebrow">The civilisations</div>
+    <h2>Six worlds, one country</h2>
+    <div class="culture-hub-grid">
+      {civs.map(c => (
+        <article id={c.id} class="hub-card" data-region={c.region}>
+          <Motif name={c.motif} class="hub-motif" size={84} />
+          <h3>{c.title}</h3>
+          <p>{c.body}</p>
+          <p class="hub-links">{c.links.map((l, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={l.h}>{l.t}</a></>))}</p>
+        </article>
+      ))}
     </div>
   </div></section>
+
+  <section class="section" style="background:var(--wash)"><div class="wrap">
+    <div class="eyebrow">Living threads</div>
+    <h2>Music, craft &amp; cuisine</h2>
+    <div class="thread-grid">
+      {threads.map(t => (
+        <div class="thread-card">
+          <Motif name={t.motif} class="thread-motif" size={40} />
+          <h3>{t.title}</h3>
+          <p>{t.body}</p>
+        </div>
+      ))}
+    </div>
+    <p style="margin-top:1.2rem"><a class="btn" href="/food/">The food of Algeria &rarr;</a> <a class="btn btn-outline" href="/history/">Algeria’s history &rarr;</a></p>
+  </div></section>
+
   <CtaSection />
 </BaseLayout>
+
+<style>
+  .culture-hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.1rem;margin-top:1.3rem}
+  .hub-card{position:relative;overflow:hidden;padding:1.4rem 1.4rem 1.2rem;border-radius:16px;background:#fff;
+    border:1px solid var(--border,#e7e2d6);border-top:4px solid var(--accent,#0B3D2E)}
+  .hub-card h3{font-family:'Cinzel',serif;color:var(--accent,#0B3D2E);margin:0 0 .5rem;font-size:1.25rem}
+  .hub-card p{color:var(--text-m,#4a4a4a);font-size:.95rem;line-height:1.62;margin:0}
+  .hub-links{margin-top:.7rem !important;font-weight:600;font-size:.86rem}
+  .hub-links a{color:var(--accent,#0B3D2E)}
+  .hub-motif{position:absolute;top:-10px;right:-10px;color:var(--accent,#0B3D2E);opacity:.12;pointer-events:none}
+  .thread-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.3rem}
+  .thread-card{padding:1.1rem 1.2rem;border-radius:14px;background:#fff;border:1px solid var(--border,#e7e2d6)}
+  .thread-card h3{font-family:'Cinzel',serif;margin:.4rem 0 .35rem;font-size:1.1rem;color:var(--brand-green,#0B3D2E)}
+  .thread-card p{color:var(--text-m,#4a4a4a);font-size:.92rem;line-height:1.55;margin:0}
+  .thread-motif{color:var(--brand-gold,#C19333)}
+</style>

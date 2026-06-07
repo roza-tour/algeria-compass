@@ -1,0 +1,69 @@
+---
+// Phase 3 — homepage culture block: the civilisations that layered into Algeria,
+// plus cuisine. Each card carries its region palette ([data-region]) and an
+// inline-SVG motif (Phase 1), with real copy and a link into deeper content.
+import Motif from './Motif.astro';
+
+const civs = [
+  { title: 'Amazigh (Berber)', region: 'kabylie', motif: 'tifinagh', href: '/culture/',
+    text: "Algeria's indigenous foundation. For over three millennia the Imazighen — the “free people” — have held the mountains and oases, keeping a living language, Tamazight, now official beside Arabic. Their identity runs strongest in Kabylie, the Aurès and the M'Zab: poetry, silver, the Yennayer new year and the yaz symbol ⵣ." },
+  { title: 'Roman', region: 'roman', motif: 'roman-arch', href: '/destinations/djemila/',
+    text: 'Rome held the fertile north for six centuries and left some of the best-preserved Roman cities on Earth — Djémila, Timgad and Tipaza — with arches, forums, theatres and brilliant mosaics, often standing almost alone in the hills.' },
+  { title: 'Arab & Islamic', region: 'mzab', motif: 'mzab-arch', href: '/history/',
+    text: 'From the 7th century, Arab dynasties brought Islam, the Arabic language and a long age of learning and building — mosques, madrasas and walled medinas. In the M’Zab, the Ibadi community raised five fortified desert towns that still live by their medieval plan.' },
+  { title: 'Andalusian', region: 'andalusian', motif: 'zellige', href: '/destinations/tlemcen/',
+    text: 'Muslims and Jews expelled from Spain settled in Tlemcen, Algiers and Constantine, bringing Andalusian music — gharnati and malouf — refined architecture and the zellij tilework and craft that still define the western cities.' },
+  { title: 'Ottoman', region: 'coast', motif: 'zellige', href: '/destinations/casbah-of-algiers/',
+    text: 'For three centuries Algiers was a powerful Ottoman regency. The legacy survives most vividly in the UNESCO-listed Casbah — a steep maze of Ottoman houses, palaces and mosques climbing above the bay.' },
+  { title: 'Saharan & Tuareg', region: 'sahara', motif: 'tuareg-cross', href: '/destinations/tassili-najjer/',
+    text: 'The deep south is its own world. The Tuareg — the “blue people” of the veil — keep camel routes, silver crosses and a desert hospitality, against the rock-art galleries of Tassili n’Ajjer that record a green Sahara 10,000 years gone.' },
+];
+const cuisine = { region: 'highlands', motif: 'dune', href: '/food/',
+  text: 'Couscous on Fridays, slow tagines, fresh-grilled coastal fish, Saharan dates, olive oil from the Kabyle hills, and mint tea poured high — Algerian food maps the country’s geography and its layered history onto the plate.' };
+---
+<section class="section culture-sec"><div class="wrap">
+  <div class="eyebrow">A layered country</div>
+  <h2>Algeria's civilisations &amp; culture</h2>
+  <p class="culture-lead">Amazigh, Roman, Arab, Andalusian, Ottoman and Saharan worlds layered over three thousand years — and each region still carries its own palette, craft and table.</p>
+
+  <div class="civ-grid">
+    {civs.map(c => (
+      <a class="civ-card" href={c.href} data-region={c.region}>
+        <Motif name={c.motif} class="civ-motif" size={92} />
+        <h3>{c.title}</h3>
+        <p>{c.text}</p>
+        <span class="civ-more">Explore &rarr;</span>
+      </a>
+    ))}
+  </div>
+
+  <a class="cuisine-card" href={cuisine.href} data-region={cuisine.region}>
+    <Motif name={cuisine.motif} class="cuisine-motif" size={64} />
+    <div>
+      <h3>Algerian cuisine</h3>
+      <p>{cuisine.text}</p>
+    </div>
+    <span class="civ-more">The food of Algeria &rarr;</span>
+  </a>
+</div></section>
+
+<style>
+  .culture-lead{color:var(--text-m);max-width:760px;margin:.5rem 0 0}
+  .civ-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.4rem}
+  .civ-card{position:relative;display:block;overflow:hidden;padding:1.3rem 1.3rem 1.1rem;border-radius:16px;
+    background:var(--wash,#f7f5ef);border:1px solid var(--border,#e7e2d6);text-decoration:none;color:inherit;
+    border-top:4px solid var(--accent,#0B3D2E);transition:transform .25s ease,box-shadow .25s ease}
+  .civ-card:hover,.civ-card:focus-visible{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.1)}
+  .civ-card h3{font-family:'Cinzel',serif;color:var(--accent,#0B3D2E);margin:0 0 .4rem;font-size:1.18rem}
+  .civ-card p{color:var(--text-m,#4a4a4a);font-size:.93rem;line-height:1.55;margin:0}
+  .civ-more{display:inline-block;margin-top:.7rem;font-size:.8rem;font-weight:700;color:var(--accent,#0B3D2E)}
+  .civ-motif{position:absolute;top:-12px;right:-12px;color:var(--accent,#0B3D2E);opacity:.12;pointer-events:none}
+  .cuisine-card{position:relative;display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;margin-top:1rem;
+    padding:1.2rem 1.4rem;border-radius:16px;text-decoration:none;color:#fff;overflow:hidden;
+    background:linear-gradient(120deg,var(--accent,#5a6b2f),#2c3618)}
+  .cuisine-card h3{font-family:'Cinzel',serif;color:#fff;margin:0 0 .25rem;font-size:1.2rem}
+  .cuisine-card p{color:rgba(255,255,255,.92);font-size:.95rem;line-height:1.55;margin:0;max-width:680px}
+  .cuisine-card>div{flex:1 1 320px}
+  .cuisine-card .civ-more{color:#fff;margin-top:0;white-space:nowrap}
+  .cuisine-motif{color:#fff;opacity:.5;flex:0 0 auto}
+</style>
