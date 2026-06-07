@@ -1,15 +1,40 @@
-/* ===== Algeria Compass — design tokens (migrated) ===== */
+/* =====================================================================
+   ALGERIA COMPASS — DESIGN TOKENS (single source of truth)
+   Phase 0 brand lock: green #0B3D2E (primary), gold sampled from logo.
+   ===================================================================== */
 :root{
-  /* global chrome palette (Algeria Compass — emerald + gold) */
-  --green:#0B3D2E; --green-d:#07261C; --green-l:#11543D; --gold:#C9A24B; --gold-l:#E0C879;
-  --red:#C92B34; --cream:#F6EFE0; --white:#fff;
-  --ink:#1c2620; --text:#1c2620; --text-m:#4A4A4A; --text-l:#888; --border:#e6ddc8;
-  --bg:#F6EFE0; --card:#ffffff;
-  --maxw:1180px; --r:16px;
+  /* ---- Brand (locked green; gold sampled from logo-emblem.png = #C19333) ---- */
+  --brand-green:#0B3D2E;        /* primary, dominant, LOCKED */
+  --brand-green-700:#0A4D38;
+  --brand-green-300:#3C7A66;
+  --brand-gold:#C19333;         /* secondary — sampled (mean of 3,242 logo px) */
+  --brand-gold-300:#E4AD40;     /* sampled highlight */
+  --brand-gold-700:#8B6A22;     /* sampled shade (AA on paper) */
+
+  /* ---- Neutrals & surfaces ---- */
+  --ink:#1A1A1A; --paper:#FBF8F2; --muted:#6B6B63;
+
+  /* ---- Radius / shadow / spacing / layout ---- */
+  --radius-s:6px; --radius-m:14px; --radius-l:24px;
+  --shadow-card:0 6px 24px rgba(11,61,46,.08);
+  --space:clamp(16px,2vw,28px);
+  --maxw:1200px; --r:16px;
+
+  /* ---- Type ---- */
   --serif:'Cinzel',Georgia,'Times New Roman',serif;
   --sans:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  /* region defaults */
-  --accent:var(--green); --wash:#eef5ef; --motif:none;
+  --arabic:'Noto Naskh Arabic','Amiri','Segoe UI',serif;
+
+  /* ---- Aliases: existing component CSS consumes these (no breakage) ---- */
+  --green:var(--brand-green); --green-d:#07261C; --green-l:#11543D;
+  --gold:var(--brand-gold); --gold-l:var(--brand-gold-300); --gold-d:var(--brand-gold-700);
+  --red:#C92B34; --white:#fff;
+  --cream:var(--paper); --bg:var(--paper); --card:#ffffff;
+  --text:var(--ink); --text-m:#4A4A4A; --text-l:#7a7a72; --border:#e6ddc8;
+
+  /* ---- Region accent defaults (Phase 2 overrides per [data-region]) ---- */
+  --accent:var(--brand-green); --accent-2:var(--brand-gold); --accent-deep:var(--brand-green-700);
+  --wash:#eef5ef; --motif:none;
 }
 [data-region="roman"]     { --accent:#8B2020; --wash:#f7efe7; }
 [data-region="andalusian"]{ --accent:#0D5C7A; --wash:#eef6f8; }
@@ -118,7 +143,7 @@ footer{position:relative;padding:4rem 2rem 1.5rem;margin-top:3rem;background-ima
 .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:2.2rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:1.5rem}
 .f-brandblock{text-align:center}
 .f-logo{display:block;width:220px;max-width:100%;height:auto;margin:0 auto .55rem}
-.f-tagline{font-style:italic;color:#C9A24B;font-size:.95rem;margin-bottom:1rem}
+.f-tagline{font-style:italic;color:var(--gold);font-size:.95rem;margin-bottom:1rem}
 .f-desc{font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:1rem}
 .f-socials{display:flex;gap:.5rem;justify-content:center}
 .fs{width:42px;height:42px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.72rem;font-weight:700;transition:all .2s}
