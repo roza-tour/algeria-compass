@@ -92,6 +92,26 @@
       "per": "person",
       "start": "Djanet",
       "summary": "Five days deep in the Algerian Sahara around Djanet — the red sandstone of the Tadrart, golden dunes, prehistoric rock art, and nights under the stars with a local Tuareg team.",
+      "hook": "Five days in the most beautiful desert on Earth — blood-red sandstone, golden dunes and 10,000-year-old art, guided by the Tuareg who have always called it home.",
+      "overview": "The Tadrart Rouge is not the Sahara of postcards. It is a sunken cathedral of red sandstone — arches, towers and canyons carved by wind over millions of years, set against dunes so fine they pour like water. For five days you travel deep into Algeria's far south by 4×4, sleep in desert camps beneath a sky thick with stars, and walk among rock paintings made when this desert was green savanna. There are no crowds, no fences, no souvenir stalls — only the silence of the Sahara and a small Tuareg team who know every dune and spring by name.",
+      "whyDifferent": [
+        { "t": "The desert most travellers never reach", "d": "Djanet sits 2,000 km south of Algiers; the reward for the distance is a landscape that feels untouched." },
+        { "t": "You travel with Tuareg, not tour buses", "d": "Your guide and driver are local Tuareg; tea is brewed on the sand and navigation is by memory." },
+        { "t": "Nights that ruin every other night sky", "d": "Zero light pollution — the Milky Way casts shadows. You sleep in open desert camps, not hotels." },
+        { "t": "A living museum, 10,000 years old", "d": "The rock art of Tassili n'Ajjer records a green Sahara of giraffes, cattle and dancers." }
+      ],
+      "goodToKnow": [
+        { "label": "Best season", "value": "November–February (cool, clear)" },
+        { "label": "Fitness", "value": "Moderate — short walks and dune climbs; no technical experience needed" },
+        { "label": "Style", "value": "Private and tailor-made; small group size" },
+        { "label": "Bring", "value": "Warm layers (cold desert nights), headtorch, sunglasses, camera" }
+      ],
+      "faqs": [
+        { "q": "Is it safe?", "a": "Yes — the Djanet region and its organised desert routes are calm and welcoming, run with licensed local guides and the required permits." },
+        { "q": "Where do we sleep?", "a": "In desert camps under the stars; bedding and equipment are provided." },
+        { "q": "Do I need to be fit?", "a": "A normal level of fitness is enough; walks are short and at your pace." },
+        { "q": "How do we get to Djanet?", "a": "By domestic flight from Algiers; we advise on timings (flights are not included)." }
+      ],
       "highlights": [
         "The sculpted landscapes of Tadrart Rouge",
         "Ancient rock engravings and formations",
