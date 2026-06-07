@@ -1,0 +1,251 @@
+---
+// Phase D — "Civilisations of Algeria" homepage explorer.
+// A responsive grid of 8 skin-themed cards; clicking a card opens its themed
+// detail panel beneath (single-open accordion; first card open by default).
+// Replaces the older "Cultural Mosaic" block — one strong explorer.
+import { SKINS, SKIN_BY_ID } from '../data/civSkins.mjs';
+import data from '../data/tours.json';
+
+const tours = ((data as any).tours || (data as any)) as any[];
+const tour = (id: string) => tours.find(t => t.id === id);
+
+// existing province pages (chips link only when a page exists)
+const PROV = new Set(['algiers','batna','bejaia','bousaada','constantine','djanet','ghardaia','mostaganem','oran','setif','timimoun','tipaza','tlemcen','annaba','blida']);
+
+// content per civilisation (skin id -> editorial). Facts/prices kept true.
+const CIV: Record<string, any> = {
+  '01': {
+    photo: '/assets/img/tours/bejaia-2.jpg', photoAlt: 'The Mediterranean bay of Béjaïa in Kabylie',
+    hook: 'The indigenous soul of North Africa',
+    lead: "Long before Rome or Islam, the Imazighen — the 'free people' — held these mountains and oases and gave the land its oldest living language, Tamazight. Their script, silver, pottery and the Yennayer new year endure, strongest in Kabylie and the Aurès.",
+    fact: 'Tifinagh script and Berber pottery patterns are over 3,000 years old.',
+    states: [{ n: 'Béjaïa', s: 'bejaia' }, { n: 'Tizi Ouzou' }],
+    tours: ['the-soul-of-algeria', 'tour-bejaia-historic'],
+  },
+  '02': {
+    photo: '/assets/img/timimoun/timimoun-06.jpg', photoAlt: 'Red oasis town and dunes near Timimoun',
+    hook: 'Blue-veiled nomads, a sea of dunes',
+    lead: 'The deep south belongs to the Tuareg — the blue-veiled caravan people — and to a Sahara of vast dunes and rock-art plateaus. At Tassili n’Ajjer, thousands of paintings record a green Sahara that vanished millennia ago.',
+    fact: "Tassili n'Ajjer holds ~15,000 rock paintings, older than the pyramids.",
+    states: [{ n: 'Djanet', s: 'djanet' }, { n: 'Timimoun', s: 'timimoun' }],
+    tours: ['djanet-sahara-safari', 'timimoun-desert-escape'],
+  },
+  '03': {
+    photo: '/assets/img/ghardaia-mzab-panorama.jpg', photoAlt: 'The tiered M’Zab town of Ghardaïa',
+    hook: 'White ksour of the desert',
+    lead: 'In a dry valley of the northern Sahara, the Ibadi Mozabites raised five fortified white towns around watchtower-minarets. Their austere, ingenious urbanism has survived a thousand years — and shaped modern architecture.',
+    fact: "The M'Zab's cubist architecture inspired Le Corbusier; UNESCO since 1982.",
+    states: [{ n: 'Ghardaïa', s: 'ghardaia' }],
+    tours: ['ghardaia-guided-tour', 'djanet-ghardaia-desert-2-days'],
+  },
+  '04': {
+    photo: '/assets/img/annaba/annaba-12.jpg', photoAlt: 'Roman columns of Hippo Regius near Annaba',
+    hook: "Africa's Rome, frozen in stone",
+    lead: 'Before and during Rome, the Numidian kings and then the empire raised cities across the fertile north. Djémila, Timgad and Tipaza survive as some of the best-preserved Roman cities anywhere — forums, theatres and mosaics standing in open country.',
+    fact: 'Djémila and Timgad are among the best-preserved Roman cities on Earth.',
+    states: [{ n: 'Sétif', s: 'setif' }, { n: 'Batna', s: 'batna' }, { n: 'Tipaza', s: 'tipaza' }, { n: 'Annaba', s: 'annaba' }, { n: 'Constantine', s: 'constantine' }],
+    tours: ['algeria-through-time-and-tradition', 'the-beauty-of-algeria'],
+  },
+  '05': {
+    photo: '/assets/img/beni-hammad/beni-hammad-02.jpg', photoAlt: 'The minaret of Al Qal’a of Beni Hammad',
+    hook: 'Brick minarets of the first kingdoms',
+    lead: 'From the 10th century, Berber Muslim dynasties — Hammadid, Zirid and others — founded the first kingdoms of the central Maghreb, leaving brick minarets and ruined capitals across the high country.',
+    fact: "The Qal'a of Beni Hammad, first Hammadid capital, is UNESCO-listed (1980).",
+    states: [{ n: "M'Sila", s: 'bousaada' }, { n: 'Béjaïa', s: 'bejaia' }],
+    tours: ['algeria-eastern-sahara-discovery', 'bousaada-desert-tour'],
+  },
+  '06': {
+    photo: '/assets/img/tlemcen-andalusian-arches.jpg', photoAlt: 'Andalusian arches in Tlemcen',
+    hook: 'Andalusia in exile — arches & zellige',
+    lead: 'When Muslims and Jews were expelled from Spain, many settled in Tlemcen, Oran and the western cities, bringing Andalusian music, zellige tilework and refined architecture. Tlemcen, the Zianid capital, became their great refuge.',
+    fact: 'Tlemcen was the Zianid capital and a refuge for the exiles of Al-Andalus.',
+    states: [{ n: 'Tlemcen', s: 'tlemcen' }, { n: 'Oran', s: 'oran' }, { n: 'Mostaganem', s: 'mostaganem' }],
+    tours: ['oran-mostaganem-tlemcen'],
+  },
+  '07': {
+    photo: '/assets/img/algiers-white-city-aerial.jpg', photoAlt: 'The white tiered city of Algiers above its bay',
+    hook: 'Corsair palaces above the bay',
+    lead: 'For three centuries Algiers was the seat of Ottoman power in the Maghreb — a corsair city-state above its bay. Its legacy is clearest in the UNESCO-listed Casbah, a steep maze of palaces, mosques and Ottoman houses.',
+    fact: 'For 300 years Algiers led Ottoman Barbary; its Casbah is UNESCO-listed.',
+    states: [{ n: 'Algiers', s: 'algiers' }, { n: 'Constantine', s: 'constantine' }, { n: 'Blida', s: 'blida' }],
+    tours: ['algiers-city-tour-casbah-bardo-martyrsmemorial', 'algierstour-hammagarden-notredame-dafrique'],
+  },
+  '08': {
+    photo: '/assets/img/blida/blida-05.jpg', photoAlt: 'Snow on the cedar mountains of the Tell Atlas',
+    hook: 'The mountains that made a nation',
+    lead: 'Modern Algeria was forged in its mountains — above all the Aurès, where the 1954 war of independence began. This is the Algeria of resistance, of high plateaus and young cities, and of a republic still being written.',
+    fact: 'The Aurès mountains lit the spark of the 1954 war of independence.',
+    states: [{ n: 'Batna', s: 'batna' }, { n: 'Bou Saâda', s: 'bousaada' }],
+    tours: ['algeria-intensive-discovery-tour', 'algeria-eastern-sahara-discovery'],
+  },
+};
+
+// helpers: resolve skin SVG tokens + build data-uri; pick pill text colour
+const resolve = (svg: string, s: any) => svg.replaceAll('DDD', s.accent2).replaceAll('CCC', s.accent);
+const uri = (svg: string) => `data:image/svg+xml,${encodeURIComponent(svg)}`;
+const lum = (hex: string) => { const n = hex.replace('#',''); const [r,g,b] = [0,2,4].map(i => parseInt(n.slice(i,i+2),16)/255); return 0.2126*r + 0.7152*g + 0.5874*b; };
+
+const items = SKINS.map(s => ({
+  skin: s,
+  c: CIV[s.id],
+  emblem: resolve(s.emblem, s),
+  patternUri: uri(resolve(s.pattern, s)),
+  pillText: lum(s.accent) > 0.6 ? '#2a2018' : '#ffffff',
+}));
+---
+<section class="section civx"><div class="wrap">
+  <div class="eyebrow">A layered country</div>
+  <h2>Civilisations of Algeria</h2>
+  <p class="civx-lead">Eight worlds layered over three thousand years — Amazigh, Saharan, Mozabite, Roman, the first Islamic kingdoms, Andalusian, Ottoman and modern. Choose one to explore its states and the journeys that reach it.</p>
+
+  <div class="civx-grid" role="tablist" aria-label="Civilisations of Algeria">
+    {items.map((it, i) => (
+      <button
+        class={`civx-card${i === 0 ? ' active' : ''}`}
+        role="tab"
+        id={`civtab-${it.skin.id}`}
+        aria-controls={`civpanel-${it.skin.id}`}
+        aria-selected={i === 0 ? 'true' : 'false'}
+        data-civ-target={it.skin.id}
+        style={`--ca:${it.skin.accent};--ca2:${it.skin.accent2};color:${it.skin.ink};background-color:${it.skin.surface};background-image:url("${it.patternUri}");border:1px solid ${it.skin.accent}`}
+      >
+        <span class="civx-emblem" set:html={it.emblem} />
+        <span class="civx-label">Civilisation {it.skin.id}</span>
+        <span class="civx-name">{it.skin.name}</span>
+        <span class="civx-hook">{it.c.hook}</span>
+      </button>
+    ))}
+  </div>
+
+  {items.map((it, i) => {
+    const sk = it.skin; const c = it.c;
+    return (
+      <div
+        class="civx-panel"
+        id={`civpanel-${sk.id}`}
+        role="tabpanel"
+        aria-labelledby={`civtab-${sk.id}`}
+        data-civ-panel={sk.id}
+        hidden={i !== 0}
+        style={`--ca:${sk.accent};--ca2:${sk.accent2};--pill-text:${it.pillText};color:${sk.ink};background-color:${sk.surface};background-image:url("${it.patternUri}");border:1px solid ${sk.accent}`}
+      >
+        <figure class="civx-photo"><img src={c.photo} alt={c.photoAlt} width="520" height="360" loading="lazy" /></figure>
+        <div class="civx-body">
+          <div class="civx-head">
+            <span class="civx-emblem lg" set:html={it.emblem} />
+            <div>
+              <span class="civx-label">Civilisation {sk.id}</span>
+              <h3 class="civx-title">{sk.name}</h3>
+            </div>
+          </div>
+          <span class="civx-divider"></span>
+          <p class="civx-text">{c.lead}</p>
+          <p class="civx-fact"><span class="civx-star" aria-hidden="true">★</span> {c.fact}</p>
+
+          <div class="civx-states">
+            {c.states.map((st: any) => (
+              st.s && PROV.has(st.s)
+                ? <a class="civx-chip" href={`/provinces/${st.s}/`}>{st.n}</a>
+                : <span class="civx-chip is-static">{st.n}</span>
+            ))}
+          </div>
+
+          <div class="civx-tours">
+            {c.tours.map((id: string) => { const t = tour(id); return t && (
+              <a class="civx-tour" href={`/tours/${t.id}/`}>
+                <span class="civx-tour-meta"><strong>{t.title}</strong><em>{t.duration}</em></span>
+                <span class="civx-pill">{t.price_from ? 'From ' : ''}€{t.price_eur}</span>
+              </a>
+            ); })}
+          </div>
+        </div>
+      </div>
+    );
+  })}
+
+  <a class="civx-cuisine" href="/food/">
+    <img src="/assets/img/cuisine/algeria-cuisine-04.jpg" alt="A platter of Algerian couscous — the national dish" width="120" height="120" loading="lazy" />
+    <div>
+      <h3>And the table that ties them together</h3>
+      <p>Six civilisations meet on one plate — couscous, rechta, chorba, fresh bread and mint tea. Explore the food of Algeria.</p>
+    </div>
+    <span class="civx-more">The food of Algeria &rarr;</span>
+  </a>
+</div></section>
+
+<style>
+  .civx-lead{color:var(--text-m);max-width:780px;margin:.5rem 0 0}
+  .civx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem;margin:1.4rem 0 1rem}
+  .civx-card{position:relative;text-align:left;cursor:pointer;border-radius:14px;padding:.85rem .9rem 1rem;
+    font:inherit;display:flex;flex-direction:column;gap:.15rem;transition:transform .18s ease,box-shadow .18s ease;overflow:hidden}
+  .civx-card:hover,.civx-card:focus-visible{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.16)}
+  .civx-card.active{box-shadow:0 0 0 2px var(--ca),0 12px 26px rgba(0,0,0,.16)}
+  .civx-emblem{display:block;width:40px;height:40px;color:var(--ca)}
+  .civx-emblem :global(svg){width:100%;height:100%;display:block}
+  .civx-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ca);font-weight:800;margin-top:.35rem}
+  .civx-name{font-family:'Cinzel',serif;font-weight:700;font-size:1.02rem;line-height:1.15}
+  .civx-hook{font-size:.8rem;opacity:.82;line-height:1.35;margin-top:.1rem}
+  /* detail panel */
+  .civx-panel{display:grid;grid-template-columns:minmax(0,.85fr) 1.15fr;gap:1.4rem;border-radius:18px;
+    padding:1.3rem;margin-top:.4rem;align-items:stretch;animation:civx-in .28s ease}
+  .civx-panel[hidden]{display:none}
+  @keyframes civx-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .civx-photo{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--ca);min-height:220px}
+  .civx-photo img{width:100%;height:100%;min-height:220px;object-fit:cover;display:block}
+  .civx-head{display:flex;align-items:center;gap:.8rem}
+  .civx-emblem.lg{width:48px;height:48px}
+  .civx-title{font-family:'Cinzel',serif;font-size:1.45rem;margin:.1rem 0 0;color:inherit}
+  .civx-divider{display:block;width:56px;height:4px;border-radius:2px;background:var(--ca);margin:.8rem 0}
+  .civx-text{margin:0;line-height:1.6;opacity:.95}
+  .civx-fact{display:flex;gap:.5rem;align-items:flex-start;margin:.9rem 0 0;font-weight:600;font-size:.95rem}
+  .civx-star{color:var(--ca2);font-size:1.05rem;line-height:1.3}
+  .civx-states{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.1rem 0 0}
+  .civx-chip{display:inline-block;padding:.32rem .8rem;border:1px solid var(--ca);border-radius:999px;
+    font-size:.82rem;font-weight:600;color:inherit;text-decoration:none;background:transparent;transition:.15s}
+  a.civx-chip:hover{background:var(--ca);color:#fff}
+  .civx-chip.is-static{opacity:.7;cursor:default}
+  .civx-tours{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+  .civx-tour{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding:.6rem .8rem;border-radius:10px;background:rgba(0,0,0,.05);border:1px solid var(--ca);
+    text-decoration:none;color:inherit;transition:.15s}
+  .civx-tour:hover{background:rgba(0,0,0,.1)}
+  .civx-tour-meta{display:flex;flex-direction:column;line-height:1.25}
+  .civx-tour-meta strong{font-size:.92rem}
+  .civx-tour-meta em{font-style:normal;font-size:.76rem;opacity:.7}
+  .civx-pill{flex:0 0 auto;background:var(--ca);color:var(--pill-text);font-weight:800;font-size:.85rem;
+    padding:.32rem .7rem;border-radius:999px;white-space:nowrap}
+  /* cuisine closer */
+  .civx-cuisine{position:relative;display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;margin-top:1.2rem;
+    padding:1.1rem 1.3rem;border-radius:16px;text-decoration:none;color:#fff;overflow:hidden;
+    background:linear-gradient(120deg,#7a3b16,#9c5223)}
+  .civx-cuisine img{width:84px;height:84px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,.35);flex:0 0 auto}
+  .civx-cuisine h3{font-family:'Cinzel',serif;color:#fff;margin:0 0 .2rem;font-size:1.12rem}
+  .civx-cuisine p{color:rgba(255,255,255,.92);font-size:.9rem;margin:0;max-width:640px}
+  .civx-cuisine>div{flex:1 1 320px}
+  .civx-more{color:#fff;font-weight:700;font-size:.82rem;white-space:nowrap}
+  @media(max-width:760px){
+    .civx-panel{grid-template-columns:1fr}
+    .civx-photo{min-height:200px}
+  }
+</style>
+
+<script is:inline>
+  (function(){
+    const root = document.currentScript.previousElementSibling; // <style>
+    const sec = document.currentScript.closest('.civx');
+    if(!sec) return;
+    const cards = sec.querySelectorAll('.civx-card');
+    const panels = sec.querySelectorAll('.civx-panel');
+    function open(id){
+      cards.forEach(c => {
+        const on = c.getAttribute('data-civ-target') === id;
+        c.classList.toggle('active', on);
+        c.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(p => { p.hidden = p.getAttribute('data-civ-panel') !== id; });
+    }
+    cards.forEach(c => {
+      c.addEventListener('click', () => open(c.getAttribute('data-civ-target')));
+    });
+  })();
+</script>

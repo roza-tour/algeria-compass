@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StatesStrip from '../components/StatesStrip.astro';
-import CultureSection from '../components/CultureSection.astro';
+import CivilizationsExplorer from '../components/CivilizationsExplorer.astro';
 import { FAQ } from '../data/faq';
 import data from '../data/tours.json';
 import { TOUR_VISUALS } from '../data/tour-visuals';
@@ -76,7 +76,7 @@ const faqPick = ['safety','visa','best-time','costs','getting-around','money']
     </div>
   </div></section>
 
-  <CultureSection />
+  <CivilizationsExplorer />
 
   {moments.length > 0 &&
     <section class="section"><div class="wrap photo-gallery">
