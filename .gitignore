@@ -1,8 +1,10 @@
 node_modules
 .astro
 
-# dist/ is intentionally COMMITTED: main is the single source + production
-# branch. cPanel serves <repo>/dist directly via `git pull origin main`.
+# dist/ is the intermediate build output. The PRODUCTION files are staged
+# into the repo ROOT (the cPanel docroot) by `npm run deploy`, so dist/
+# itself is not committed.
+dist
 
 # Build artifacts / backups (not source)
 *.zip
