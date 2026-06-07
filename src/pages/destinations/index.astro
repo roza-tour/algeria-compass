@@ -13,7 +13,7 @@ const bySlug = Object.fromEntries(items.map(i => [i.slug, i]));
 const unesco = UNESCO_ORDER.map(s => bySlug[s]).filter(Boolean);
 const others = items.filter(i => !UNESCO_ORDER.includes(i.slug));
 ---
-<BaseLayout title="Algeria Destinations & the 7 UNESCO World Heritage Sites" description="Algeria's seven UNESCO World Heritage Sites — the Casbah of Algiers, Djémila, Timgad, Tipaza, the M'Zab Valley, Tassili n'Ajjer and Al Qal'a of Beni Hammad — plus more iconic places to visit.">
+<BaseLayout title="Algeria Destinations & the 7 UNESCO World Heritage Sites" description="Algeria's seven UNESCO World Heritage Sites — the Casbah of Algiers, Djémila, Timgad, Tipaza, the M'Zab Valley, Tassili n'Ajjer and Al Qal'a of Beni Hammad — plus more iconic places to visit." image="/assets/img/timgad-trajan-arch.jpg">
   <Hero title="Algeria Destinations" eyebrow="Algeria" text="Seven UNESCO World Heritage Sites and the iconic places around them — Roman cities, Saharan rock art, oasis towns and the Mediterranean coast." image="/assets/img/timgad-trajan-arch.jpg" alt="The Arch of Trajan at the Roman city of Timgad, Algeria" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algeria Destinations'}]} />
 

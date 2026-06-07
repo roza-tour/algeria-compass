@@ -7,7 +7,7 @@ import Card from '../../components/Card.astro';
 import CtaSection from '../../components/CtaSection.astro';
 const items = await getCollection('article');
 ---
-<BaseLayout title="The Algeria Journal" description="Guides, history, food and field notes from across Algeria.">
+<BaseLayout title="The Algeria Journal" description="Guides, history, food and field notes from across Algeria." image="/assets/img/brand-algeria.jpg">
   <Hero title="The Algeria Journal" eyebrow="Algeria" text="Guides, history, food and field notes from across Algeria." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'The Algeria Journal'}]} />
   <section class="section"><div class="wrap">
