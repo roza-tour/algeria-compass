@@ -1,6 +1,8 @@
 node_modules
-dist
 .astro
+
+# dist/ is intentionally COMMITTED: main is the single source + production
+# branch. cPanel serves <repo>/dist directly via `git pull origin main`.
 
 # Build artifacts / backups (not source)
 *.zip
