@@ -1,8 +1,10 @@
 ---
-// Phase E — "Honest Answers" homepage trust section.
+// Phase E + P3 — "Honest Answers" homepage trust section.
 // Disarms a hesitant traveller: real trust badges (no invented ratings/years —
 // those are clearly-marked owner placeholders) + a categorised objection
 // accordion condensed from the full FAQ, linking to /questions/.
+// P3: revamped visuals (gold motif, accent cards, per-category icons) and a
+// single-open accordion (exclusive-accordion `name` + JS fallback).
 
 const badges = [
   { icon: '🛡', label: 'Licensed Algerian operator' },
@@ -19,32 +21,42 @@ const placeholders = [
   { label: 'Travellers hosted', hint: 'add a real figure' },
 ];
 
+// minimal gold line-icons per category (premium, no emoji clutter)
+const ICONS: Record<string, string> = {
+  shield:  '<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/>',
+  passport:'<rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16h6"/>',
+  compass: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+  chat:    '<path d="M4 5h16v11H9l-4 3v-3H4z"/><path d="M8 9h8M8 12h5"/>',
+  map:     '<path d="M9 4L4 6v14l5-2 6 2 5-2V4l-5 2-6-2z"/><path d="M9 4v14M15 6v14"/>',
+  check:   '<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
+};
+
 const cats = [
-  { title: 'Safety & welcome', items: [
+  { title: 'Safety & welcome', icon: 'shield', items: [
     { q: 'Is Algeria actually safe to visit?', a: 'Yes. The north — Algiers, the coast, the Roman cities, Kabylie — is calm, and Algerians are famously hospitable to the few foreigners who come. You take the ordinary precautions of any new country. The deep south and borders are restricted, and we only travel them with permits and licensed guides.' },
     { q: 'Will I actually be welcome as a foreign tourist?', a: 'More than welcome. Algeria sees a tiny fraction of its neighbours’ visitors, so you arrive as a guest, not a number — expect curiosity, invitations to tea, and very little hassle.' },
     { q: 'Is it safe for solo and women travellers?', a: 'Generally yes, with modest dress and normal awareness; serious harassment is uncommon. Travelling privately with a local guide removes most of the friction women tell us they worry about.' },
   ]},
-  { title: 'Visa & entry', items: [
+  { title: 'Visa & entry', icon: 'passport', items: [
     { q: 'Do I need a visa, and is it hard?', a: 'Most nationalities need a tourist visa from an Algerian consulate before travel — and consulates require an invitation letter from a licensed Algerian agency. That is exactly the part we handle for you, free, with every booking.' },
     { q: 'Is there an e-visa or visa on arrival?', a: 'Not for ordinary tourism. The main exception is organised Sahara tourism entered via the south, where a simplified group entry can be arranged. We tell you honestly which route applies — and never promise what the rules don’t allow.' },
   ]},
-  { title: 'Why Algeria feels “hard” — and how we remove it', items: [
+  { title: 'Why Algeria feels “hard” — and how we remove it', icon: 'compass', items: [
     { q: 'Why does planning Algeria feel so difficult?', a: 'Because information is thin, English is patchy, the desert needs permits, and you can’t just book everything online. That gap is the whole reason we exist: one licensed operator handling visa paperwork, permits, flights, guides and logistics so you don’t stitch it together yourself.' },
     { q: 'Can’t I just do it independently?', a: 'In the north, with patience, yes — and we’ll say so. The Sahara, no: protected zones legally require a licensed operator, a 4x4 and permits. We’re upfront about where you need us and where you don’t.' },
     { q: 'What if something goes wrong on the ground?', a: 'You have a named local team and guide for the whole trip, reachable on WhatsApp. Nothing is “confirmed” until availability, transport and permits are actually checked — so what we promise is real.' },
   ]},
-  { title: 'Money, language & daily life', items: [
+  { title: 'Money, language & daily life', icon: 'chat', items: [
     { q: 'Can I pay by card, or is it cash?', a: 'Algeria runs on cash. Cards work in a few city hotels and foreign-card ATMs are unreliable, so bring euros or dollars to exchange on arrival. We’ll tell you roughly how much to carry.' },
     { q: 'What languages will I get by in?', a: 'Arabic and Tamazight are everyday, French is widely spoken, English less so outside tourism. Our guides bridge the gap in all four.' },
     { q: 'What’s daily life like for a visitor?', a: 'Relaxed, social and a little improvised. SIM cards are cheap, cities have wifi, the desert is gloriously off-grid — and you should stick to bottled water.' },
   ]},
-  { title: 'What to see & how long', items: [
+  { title: 'What to see & how long', icon: 'map', items: [
     { q: 'How long do I really need?', a: 'A long weekend covers Algiers and the Roman coast. A week adds the M’Zab Valley or a Sahara leg. Ten days lets you cross from the Mediterranean to the dunes. Every tour page lists exactly what’s included.' },
     { q: 'First trip — where should I go?', a: 'Most first-timers love the mix of the UNESCO Casbah of Algiers, the Roman cities (Tipaza, Djémila, Timgad) and a few nights of Sahara at Djanet or Timimoun. We tailor it to your dates and pace.' },
     { q: 'When should I come?', a: 'Spring and autumn for the north; November to February for the Sahara. We plan around the seasons and Ramadan so the trip actually works.' },
   ]},
-  { title: 'Why we’re legitimate', items: [
+  { title: 'Why we’re legitimate', icon: 'check', items: [
     { q: 'Who are Algeria Compass, exactly?', a: 'A licensed Algerian tour operator, run by locals, specialising only in Algeria — not a reseller bolting Algeria onto a global catalogue. The visa paperwork we issue is the kind consulates accept.' },
     { q: 'Why trust you over a random online listing?', a: 'Because we put our licence, our local guides and our real itineraries and prices in front of you, we confirm every trip by hand, and we’d rather tell you a hard truth than oversell. Independent ratings and traveller numbers will appear in the badges above once verified.' },
   ]},
@@ -66,9 +78,17 @@ const cats = [
   <div class="ha-cats">
     {cats.map(c => (
       <div class="ha-cat">
-        <h3>{c.title}</h3>
+        <div class="ha-cat-h">
+          <span class="ha-cat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[c.icon]} /></span>
+          <h3>{c.title}</h3>
+        </div>
         <div class="faq">
-          {c.items.map(i => <details><summary>{i.q}</summary><p>{i.a}</p></details>)}
+          {c.items.map(i => (
+            <details name="ha-faq">
+              <summary>{i.q}</summary>
+              <div class="ha-a"><p>{i.a}</p></div>
+            </details>
+          ))}
         </div>
       </div>
     ))}
@@ -81,26 +101,66 @@ const cats = [
 </div></section>
 
 <style>
-  .ha{background:linear-gradient(180deg,#0B3D2E,#07261C);color:#fff}
+  .ha{position:relative;overflow:hidden;color:#fff;
+    background:radial-gradient(120% 80% at 85% -10%, #11543D 0%, transparent 55%),
+               radial-gradient(90% 70% at 0% 110%, rgba(201,162,75,.16) 0%, transparent 50%),
+               linear-gradient(180deg,#0B3D2E,#07261C)}
+  /* subtle gold geometric motif */
+  .ha::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%23C19333' stroke-width='1' opacity='.10'%3E%3Cpath d='M30 2L58 30L30 58L2 30Z'/%3E%3Cpath d='M30 16L44 30L30 44L16 30Z'/%3E%3C/g%3E%3C/svg%3E")}
+  .ha .wrap{position:relative;z-index:1}
   .ha .eyebrow{color:var(--gold-l)}
   .ha-intro{max-width:760px}
   .ha h2{color:#fff;font-size:clamp(1.5rem,3.2vw,2.2rem)}
-  .ha-sub{color:rgba(255,255,255,.82);margin-top:.5rem;font-size:1.05rem}
+  .ha-sub{color:rgba(255,255,255,.85);margin-top:.5rem;font-size:1.05rem}
+  /* badges */
   .ha-badges{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.4rem 0 .4rem}
   .ha-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .9rem;border-radius:999px;
-    background:rgba(255,255,255,.08);border:1px solid rgba(201,162,75,.35);font-size:.85rem;font-weight:700;color:#fff}
+    background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.05));
+    border:1px solid rgba(201,162,75,.45);font-size:.85rem;font-weight:700;color:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.12)}
   .ha-ic{font-size:.95rem}
-  .ha-badge.is-ph{background:transparent;border:1px dashed rgba(255,255,255,.35);color:rgba(255,255,255,.6);font-weight:600}
+  .ha-badge.is-ph{background:transparent;border:1px dashed rgba(255,255,255,.35);color:rgba(255,255,255,.6);font-weight:600;box-shadow:none}
   .ha-badge.is-ph em{font-style:normal;font-size:.7rem;opacity:.7;font-weight:500;margin-left:.1rem}
-  .ha-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem 2rem;margin-top:1.6rem}
-  .ha-cat h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-l);
-    border-bottom:1px solid rgba(201,162,75,.3);padding-bottom:.5rem;margin-bottom:.3rem}
-  .ha .faq details{border-bottom:1px solid rgba(255,255,255,.12);padding:.7rem 0}
-  .ha .faq summary{font-weight:700;color:#fff;cursor:pointer;list-style:none;position:relative;padding-right:1.4rem}
+  /* category cards */
+  .ha-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.1rem;margin-top:1.7rem}
+  .ha-cat{background:rgba(255,255,255,.045);border:1px solid rgba(201,162,75,.2);border-radius:16px;
+    padding:1.1rem 1.2rem 1.3rem;backdrop-filter:blur(2px)}
+  .ha-cat-h{display:flex;align-items:center;gap:.6rem;margin-bottom:.4rem}
+  .ha-cat-ic{flex:0 0 auto;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    color:var(--gold-l);background:rgba(201,162,75,.14);border:1px solid rgba(201,162,75,.35)}
+  .ha-cat-ic svg{width:20px;height:20px}
+  .ha-cat-h h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-l);margin:0;line-height:1.25}
+  /* accordion items */
+  .ha .faq details{border-radius:10px;background:rgba(255,255,255,.04);margin-top:.5rem;
+    border:1px solid rgba(255,255,255,.08);transition:border-color .15s,background .15s}
+  .ha .faq details[open]{background:rgba(201,162,75,.1);border-color:rgba(201,162,75,.45)}
+  .ha .faq summary{font-weight:700;color:#fff;cursor:pointer;list-style:none;position:relative;
+    padding:.65rem 2rem .65rem .85rem;font-size:.92rem;line-height:1.4}
   .ha .faq summary::-webkit-details-marker{display:none}
-  .ha .faq summary::after{content:"+";position:absolute;right:0;top:-.05rem;color:var(--gold-l);font-weight:700;font-size:1.1rem}
+  .ha .faq summary::after{content:"+";position:absolute;right:.8rem;top:50%;transform:translateY(-50%);
+    color:var(--gold-l);font-weight:700;font-size:1.2rem;transition:transform .15s}
   .ha .faq details[open] summary::after{content:"–"}
-  .ha .faq p{color:rgba(255,255,255,.8);margin-top:.5rem;font-size:.92rem}
+  .ha .faq summary:focus-visible{outline:2px solid var(--gold-l);outline-offset:2px;border-radius:8px}
+  .ha-a{overflow:hidden}
+  .ha .faq details[open] .ha-a{animation:ha-rise .22s ease}
+  @keyframes ha-rise{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  .ha .faq p{color:rgba(255,255,255,.86);margin:0;padding:0 .85rem .8rem;font-size:.9rem;line-height:1.6}
   .ha-foot{margin-top:1.8rem;display:flex;gap:.7rem;flex-wrap:wrap}
   .ha-foot .btn-ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+  @media(prefers-reduced-motion:reduce){ .ha .faq details[open] .ha-a{animation:none} }
 </style>
+
+<script is:inline>
+  (function(){
+    // Single-open fallback for browsers without exclusive-accordion (name=) support.
+    var supportsName = (function(){ var d=document.createElement('details'); return 'name' in d; })();
+    if(supportsName) return;
+    var all = Array.prototype.slice.call(document.querySelectorAll('.ha .faq details'));
+    all.forEach(function(d){
+      d.addEventListener('toggle', function(){
+        if(d.open) all.forEach(function(o){ if(o!==d) o.open=false; });
+      });
+    });
+  })();
+</script>
