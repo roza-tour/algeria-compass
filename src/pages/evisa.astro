@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { CONTACT } from '../config';
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
+  {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
+  {'@type':'ListItem',position:2,name:'e-Visa & Entry',item:`${site}/evisa/`}]};
+const faqs = [
+  { q: 'Does Algeria have an e-Visa for tourists?', a: 'There is no general online tourist e-Visa for ordinary travel to Algeria. The two practical routes are a tourist visa from your local Algerian consulate, or — for organised Sahara tours entered via the south — a simplified visa on arrival at the southern airports. We handle the paperwork either way.' },
+  { q: 'What is the closest thing to an e-Visa?', a: 'The southern visa-on-arrival arrangement for organised desert tourism: rather than visiting a consulate, your authorisation is arranged in advance and issued on arrival at a southern gateway airport for qualifying itineraries. It applies only to organised Saharan travel.' },
+  { q: 'How do I actually enter Algeria?', a: 'Most visitors fly into Algiers (or another northern airport) on a consulate tourist visa, supported by our invitation letter. Travellers on organised southern desert tours may instead use the visa-on-arrival route at the southern airports. We confirm which applies to you.' },
+];
+const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
+  mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
+---
+<BaseLayout
+  title="Algeria e-Visa & Entry: How It Really Works | Algeria Compass"
+  description="Straight facts on entering Algeria: there is no general tourist e-Visa — the routes are a consulate tourist visa or visa on arrival for organised southern Sahara tours. How entry works and how our free visa support fits in."
+  schema={[breadcrumb, faqSchema]}>
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'e-Visa & Entry'}]} />
+  <section class="section"><div class="wrap" style="max-width:780px">
+    <div class="eyebrow">Entry to Algeria</div>
+    <h1>e-Visa &amp; entry to Algeria</h1>
+    <div class="prose" style="margin-top:1rem">
+      <p>Travellers often search for an "Algeria e-Visa". Here's the honest picture, so you plan on facts rather than hope.</p>
+
+      <h2>Is there an Algeria e-Visa?</h2>
+      <p>For ordinary tourism, <strong>there is no general online e-Visa</strong> you can simply apply for and print. Algeria's tourist entry works through two established routes instead — and we support both, free, with every booking.</p>
+
+      <h2>Route 1 — Consulate tourist visa (the north & most trips)</h2>
+      <p>You apply for a tourist visa at the <strong>Algerian consulate</strong> covering your country, normally in person. Consulates require an <strong>invitation letter / tourist voucher</strong> from a licensed Algerian agency — which we issue you, along with your hotel and tour confirmation and a checklist for your nationality. Allow roughly <strong>two to four weeks</strong>.</p>
+
+      <h2>Route 2 — Visa on arrival for organised Sahara tours</h2>
+      <p>This is the closest thing to an "online" route. For <strong>organised desert tours entered via the south</strong>, a simplified <strong>visa on arrival</strong> can be arranged at the southern gateway airports for qualifying itineraries — no consulate visit needed. It applies only to organised Saharan travel, and we arrange the authorisation in advance as part of your trip.</p>
+
+      <h2>How our visa support fits in</h2>
+      <p>Whichever route applies, we prepare the documentation consulates and authorities expect, free with your booking — see <a href="/visa-support/">Visa Support</a> for the full detail and required documents. We are your documentation partner; the consulate or government issues the visa.</p>
+
+      <h2>Verify before you travel</h2>
+      <p>Algerian entry rules <strong>vary by nationality and change over time</strong>. Always confirm the current requirements with your official Algerian consulate, and let us know your nationality so we can tell you exactly which route — consulate visa or southern visa on arrival — fits your trip.</p>
+
+      <p style="color:var(--text-l);font-size:.9rem">Not sure which route is yours? <a href="/contact/">Ask us</a> or message <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a> — we'll confirm and send your checklist.</p>
+      <!-- OWNER: if Algeria introduces an official tourist e-Visa portal, link it here and update Route framing. -->
+    </div>
+  </div></section>
+  <CtaSection heading="We handle the visa — you enjoy the trip" />
+</BaseLayout>

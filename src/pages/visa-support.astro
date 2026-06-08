@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { CONTACT } from '../config';
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
+  {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
+  {'@type':'ListItem',position:2,name:'Visa Support',item:`${site}/visa-support/`}]};
+const faqs = [
+  { q: 'Do I need a visa to visit Algeria?', a: 'Most nationalities need a tourist visa arranged before travel. The two routes are applying at your local Algerian consulate, or booking a tour with us so we provide the official invitation letter and documentation a consulate requires. Rules vary by nationality and change over time — always confirm with your consulate.' },
+  { q: 'What does Algeria Compass provide, and what does it cost?', a: 'Free with every booking: the official invitation letter / tourist voucher, your hotel and tour confirmation, the list of required documents and step-by-step guidance. We prepare the paperwork; the consulate issues the visa.' },
+  { q: 'How long does it take?', a: 'Allow roughly two to four weeks for a consulate tourist visa, though it varies by nationality and consulate. Apply early — once your trip is confirmed we send your documents quickly so you can submit.' },
+  { q: 'Is there a visa on arrival?', a: 'For organised Sahara tours entered via the south, a simplified entry (visa on arrival) can be arranged at the southern airports for qualifying desert itineraries. It does not apply to ordinary travel to the north. We confirm whether your trip qualifies and handle the authorisation.' },
+];
+const faqSchema = { '@type':'FAQPage', '@id':`${site}/visa-support/#faq`,
+  mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
+---
+<BaseLayout
+  title="Algeria Visa Support — Invitation Letter & Documentation | Algeria Compass"
+  description="Free visa support with every Algeria Compass booking: the official invitation letter and full documentation for your Algerian tourist visa, processing in about 2–4 weeks, plus the visa-on-arrival route for organised southern Sahara tours."
+  schema={[breadcrumb, faqSchema]}>
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Visa Support'}]} />
+  <section class="section"><div class="wrap" style="max-width:780px">
+    <div class="eyebrow">Before you travel</div>
+    <h1>Visa support for Algeria</h1>
+    <div class="prose" style="margin-top:1rem">
+      <p>A visa is the one piece of Algeria planning that puts people off — so we take it off your hands. As a <strong>licensed Algerian operator</strong> we provide the official paperwork consulates ask for, <strong>free with every booking</strong>. We don't issue the visa itself — the consulate or government does — but we make sure your application has everything it needs.</p>
+
+      <h2>Two ways to get your visa</h2>
+      <h3>1. Apply at your local Algerian consulate</h3>
+      <p>The standard route for visiting the north and most of the country. You submit a tourist-visa application to the Algerian consulate that covers your country, in person. Most consulates require an <strong>invitation letter / tourist voucher</strong> from a licensed Algerian agency — which is exactly what we issue you.</p>
+
+      <h3>2. Book with us and let us do the documentation</h3>
+      <p>When you book a tour, we provide — at no extra cost — the <strong>official invitation letter</strong>, your <strong>hotel and tour confirmation</strong>, the full list of required documents and clear, step-by-step guidance for your nationality. You take that package to the consulate; we stay on hand for questions.</p>
+
+      <h2>The visa-on-arrival route for the Sahara</h2>
+      <p>For <strong>organised desert tours entered via the south</strong>, Algeria allows a simplified <strong>visa on arrival</strong> at the southern gateway airports for qualifying itineraries — so you can skip the consulate visit. It applies only to organised Saharan travel, not to ordinary trips to the north. We confirm whether your itinerary qualifies and arrange the authorisation as part of your booking.</p>
+
+      <h2>What you'll typically need</h2>
+      <ul>
+        <li>A passport valid for at least <strong>six months</strong> beyond your entry date</li>
+        <li>A recent passport photo and the completed application form</li>
+        <li>A flight reservation</li>
+        <li>Our <strong>invitation letter and tour/hotel confirmation</strong></li>
+      </ul>
+      <p>Requirements vary by nationality — we send you the exact checklist for your country once your trip is confirmed.</p>
+
+      <h2>How long it takes</h2>
+      <p>Allow about <strong>two to four weeks</strong> for a consulate tourist visa, depending on your nationality and consulate; the southern visa-on-arrival route is faster. We recommend confirming your trip <strong>at least a month ahead</strong> so there's comfortable time to apply.</p>
+
+      <h2>Honest caveats</h2>
+      <p>Algerian visa rules <strong>vary by nationality and change over time</strong>. Always verify the current requirements with your official Algerian consulate before you rely on anything here — and treat us as your documentation partner, not the issuing authority. See our <a href="/evisa/">e-Visa &amp; entry page</a> and the <a href="/questions/">travel questions</a> for more.</p>
+
+      <p style="color:var(--text-l);font-size:.9rem">Ready to start? <a href="/contact/">Tell us your trip</a> or message us on <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a> and we'll send your visa checklist.</p>
+    </div>
+  </div></section>
+  <CtaSection heading="Plan your trip — visa support included" />
+</BaseLayout>
