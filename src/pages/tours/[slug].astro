@@ -140,6 +140,11 @@ if (tour.faqs && tour.faqs.length) schema.push({
             <span class="iday-num">Day {d.day}</span>
             <strong>{d.title}</strong>
             <p>{d.body}</p>
+            {d.stops && d.stops.length > 0 &&
+              <ul class="iday-stops">
+                {d.stops.map((s: any) => <li><strong>{s.place}</strong> — {s.text}</li>)}
+              </ul>}
+            {d.note && <p class="iday-note">{d.note}</p>}
           </li>
         ))}
       </ol>
@@ -246,8 +251,13 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .itinerary li{position:relative;padding:0 0 1.4rem 1.3rem}
 .itinerary li::before{content:"";position:absolute;left:-7px;top:.3rem;width:12px;height:12px;border-radius:50%;background:var(--accent)}
 .iday-num{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
-.itinerary strong{display:block;margin:.1rem 0 .2rem;color:var(--green-d)}
+.itinerary>li>strong{display:block;margin:.1rem 0 .2rem;color:var(--green-d)}
 .itinerary p{color:var(--text-m);margin:0}
+.iday-stops{list-style:none;margin:.6rem 0 0;padding:0;display:flex;flex-direction:column;gap:.45rem}
+.iday-stops li{position:relative;padding:0 0 0 1rem;color:var(--text-m);font-size:.92rem;line-height:1.55}
+.iday-stops li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.6}
+.iday-stops strong{display:inline;color:var(--green-d);font-weight:700}
+.iday-note{margin:.55rem 0 0 !important;font-size:.88rem;font-style:italic;color:var(--text-l)}
 .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
 .facts ul{list-style:none;padding:0;margin:0}
 .facts li{padding:.25rem 0 .25rem 1.3rem;position:relative;font-size:.9rem;color:var(--text-m)}
