@@ -18,3 +18,9 @@ dist
 
 # headless-chrome verification profiles
 .chrome-verify-*
+
+# Reviews: mutable, owner-moderated ON THE SERVER. Must stay UNTRACKED so the
+# deploy's `git reset --hard` never wipes approved/pending reviews. Created by
+# reviews.php / reviews-admin.php on first use. (data/.htaccess IS tracked.)
+/reviews-approved.json
+/data/*.jsonl

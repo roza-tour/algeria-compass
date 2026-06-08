@@ -1,0 +1,166 @@
+{
+  "generated": "2026-06-08T05:31:31.067Z",
+  "criteria": {
+    "minLandscapePx": 800,
+    "lowresBelowPx": 700,
+    "target": 20
+  },
+  "stats": {
+    "total": 556,
+    "landscapeQualifying": 61,
+    "lowResFlagged": 48,
+    "picked": 20
+  },
+  "slider": [
+    {
+      "src": "/assets/img/clients/client-12.jpg",
+      "w": 1100,
+      "h": 827
+    },
+    {
+      "src": "/assets/img/clients/client-53.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-83.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-106.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-197.jpg",
+      "w": 1080,
+      "h": 810
+    },
+    {
+      "src": "/assets/img/clients/client-201.jpg",
+      "w": 1080,
+      "h": 810
+    },
+    {
+      "src": "/assets/img/clients/client-309.jpg",
+      "w": 1080,
+      "h": 809
+    },
+    {
+      "src": "/assets/img/clients/client-358.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-365.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-368.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-372.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-376.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-383.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-387.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-391.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-395.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-435.jpg",
+      "w": 1080,
+      "h": 809
+    },
+    {
+      "src": "/assets/img/clients/client-563.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-579.jpg",
+      "w": 1100,
+      "h": 825
+    },
+    {
+      "src": "/assets/img/clients/client-598.jpg",
+      "w": 1100,
+      "h": 825
+    }
+  ],
+  "flaggedLowRes": [
+    "client-8.jpg (1100x618)",
+    "client-35.jpg (618x1100)",
+    "client-46.jpg (618x1100)",
+    "client-85.jpg (618x1100)",
+    "client-97.jpg (618x1100)",
+    "client-186.jpg (618x1100)",
+    "client-187.jpg (540x960)",
+    "client-188.jpg (540x960)",
+    "client-189.jpg (960x540)",
+    "client-277.jpg (618x1100)",
+    "client-404.jpg (540x960)",
+    "client-409.jpg (540x960)",
+    "client-492.jpg (540x960)",
+    "client-493.jpg (540x960)",
+    "client-494.jpg (540x960)",
+    "client-496.jpg (540x960)",
+    "client-498.jpg (540x960)",
+    "client-501.jpg (540x960)",
+    "client-502.jpg (540x960)",
+    "client-510.jpg (540x960)",
+    "client-511.jpg (540x960)",
+    "client-513.jpg (540x960)",
+    "client-516.jpg (540x960)",
+    "client-517.jpg (540x960)",
+    "client-518.jpg (540x960)",
+    "client-519.jpg (540x960)",
+    "client-521.jpg (540x960)",
+    "client-522.jpg (540x960)",
+    "client-523.jpg (540x960)",
+    "client-524.jpg (540x960)",
+    "client-525.jpg (540x960)",
+    "client-526.jpg (540x960)",
+    "client-527.jpg (540x960)",
+    "client-528.jpg (540x960)",
+    "client-529.jpg (540x960)",
+    "client-530.jpg (540x960)",
+    "client-531.jpg (540x960)",
+    "client-532.jpg (540x960)",
+    "client-533.jpg (540x960)",
+    "client-534.jpg (540x960)",
+    "client-535.jpg (540x960)",
+    "client-536.jpg (540x960)",
+    "client-537.jpg (540x960)",
+    "client-538.jpg (540x960)",
+    "client-539.jpg (540x960)",
+    "client-540.jpg (540x960)",
+    "client-541.jpg (540x960)",
+    "client-545.jpg (540x960)"
+  ]
+}

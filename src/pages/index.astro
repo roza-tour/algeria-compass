@@ -1,8 +1,9 @@
 ---
-import fs from 'node:fs';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StatesStrip from '../components/StatesStrip.astro';
 import CivilizationsExplorer from '../components/CivilizationsExplorer.astro';
+import TravellerSlider from '../components/TravellerSlider.astro';
+import Reviews from '../components/Reviews.astro';
 import HonestAnswers from '../components/HonestAnswers.astro';
 import data from '../data/tours.json';
 import { TOUR_VISUALS } from '../data/tour-visuals';
@@ -13,15 +14,6 @@ const vis = (t: any) => TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg
 const featuredIds = ['djanet-sahara-safari','algiers-city-tour-casbah-bardo-martyrsmemorial','algeria-through-time-and-tradition','tour-bejaia-historic','ghardaia-guided-tour','oran-mostaganem-tlemcen'];
 const featured = featuredIds.map(id => tours.find(t => t.id === id)).filter(Boolean);
 const card = (t: any) => `/assets/img/thumbs/tours/${t.image_slugs[0]}-1.jpg`;
-
-// "Moments from our trips" — real client photos on disk
-let moments: string[] = [];
-try {
-  moments = fs.readdirSync('public/assets/img/thumbs/clients')
-    .filter((f: string) => /^client-\d+\.jpg$/i.test(f))
-    .sort((a, b) => parseInt(a.match(/\d+/)![0]) - parseInt(b.match(/\d+/)![0]))
-    .slice(0, 12);
-} catch (e) { moments = []; }
 
 const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Algeria tour.");
 ---
@@ -79,16 +71,9 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
 
   <CivilizationsExplorer />
 
-  {moments.length > 0 &&
-    <section class="section"><div class="wrap photo-gallery">
-      <div class="eyebrow">Moments from our trips</div>
-      <h2>Real journeys, real travellers</h2>
-      <div class="pgrid" style="margin-top:1.2rem">
-        {moments.map((f: string) => (
-          <figure><img src={`/assets/img/thumbs/clients/${f}`} alt="Algeria Compass trip" width="400" height="400" loading="lazy" /></figure>
-        ))}
-      </div>
-    </div></section>}
+  <TravellerSlider />
+
+  <Reviews />
 
   <HonestAnswers />
 

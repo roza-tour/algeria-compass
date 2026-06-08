@@ -1,0 +1,108 @@
+---
+// P2 — "Real journeys, real travellers" auto-advancing slider.
+// Replaces the static photo grid. Uses curated high-res LANDSCAPE client
+// photos (see scripts/curate-traveller-photos.mjs). Smooth scroll-snap track
+// (natively swipeable on touch), auto-advance with pause-on-interaction,
+// prev/next controls, dots, and reduced-motion / keyboard support.
+import slider from '../data/traveller-slider.json';
+const photos = (slider as any).slider as { src:string; w:number; h:number }[];
+---
+<section class="section travx"><div class="wrap">
+  <div class="eyebrow">Moments from our trips</div>
+  <h2>Real journeys, real travellers</h2>
+  <p class="travx-sub">Unscripted photographs from recent Algeria Compass guests — every face here travelled with us.</p>
+
+  <div class="travx-wrap" aria-roledescription="carousel" aria-label="Photos from our travellers">
+    <button class="travx-nav prev" type="button" aria-label="Previous photo">‹</button>
+    <ul class="travx-track" tabindex="0">
+      {photos.map((p, i) => (
+        <li class="travx-slide" aria-roledescription="slide" aria-label={`Photo ${i+1} of ${photos.length}`}>
+          <img src={p.src} alt="An Algeria Compass traveller on tour in Algeria"
+               width={p.w} height={p.h}
+               loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+        </li>
+      ))}
+    </ul>
+    <button class="travx-nav next" type="button" aria-label="Next photo">›</button>
+  </div>
+  <div class="travx-dots" role="tablist" aria-label="Choose photo">
+    {photos.map((_, i) => (
+      <button class={`travx-dot${i===0?' active':''}`} type="button" data-i={i} aria-label={`Go to photo ${i+1}`}></button>
+    ))}
+  </div>
+</div></section>
+
+<style>
+  .travx-sub{color:var(--text-m);max-width:680px;margin:.4rem 0 0}
+  .travx-wrap{position:relative;margin-top:1.3rem}
+  .travx-track{list-style:none;display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;border-radius:16px;padding:2px;margin:0;
+    scrollbar-width:none;-ms-overflow-style:none}
+  .travx-track::-webkit-scrollbar{display:none}
+  .travx-track:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .travx-slide{flex:0 0 100%;scroll-snap-align:center;border-radius:14px;overflow:hidden;
+    background:#0c2c22;aspect-ratio:4/3}
+  .travx-slide img{width:100%;height:100%;object-fit:cover;display:block}
+  @media(min-width:760px){ .travx-slide{flex-basis:62%} }
+  @media(min-width:1100px){ .travx-slide{flex-basis:46%} }
+  .travx-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;
+    background:rgba(7,38,28,.78);color:#fff;font-size:1.7rem;line-height:1;
+    display:flex;align-items:center;justify-content:center;transition:background .15s, transform .15s;
+    box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .travx-nav:hover{background:var(--brand-green);transform:translateY(-50%) scale(1.06)}
+  .travx-nav.prev{left:-6px} .travx-nav.next{right:-6px}
+  @media(min-width:760px){ .travx-nav.prev{left:10px} .travx-nav.next{right:10px} }
+  .travx-dots{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .travx-dot{width:9px;height:9px;border-radius:50%;border:0;cursor:pointer;padding:0;
+    background:var(--border);transition:.2s}
+  .travx-dot.active{background:var(--brand-gold);transform:scale(1.35)}
+  @media(prefers-reduced-motion:reduce){ .travx-track{scroll-behavior:auto} }
+</style>
+
+<script is:inline>
+  (function(){
+    var sec = document.querySelector('.travx');
+    if(!sec) return;
+    var track = sec.querySelector('.travx-track');
+    var slides = Array.prototype.slice.call(sec.querySelectorAll('.travx-slide'));
+    var dots = Array.prototype.slice.call(sec.querySelectorAll('.travx-dot'));
+    if(!slides.length) return;
+    var idx = 0, timer = null;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function go(i){
+      idx = (i + slides.length) % slides.length;
+      var s = slides[idx];
+      track.scrollTo({ left: s.offsetLeft - track.offsetLeft - (track.clientWidth - s.clientWidth)/2, behavior: reduce ? 'auto' : 'smooth' });
+      dots.forEach(function(d,di){ d.classList.toggle('active', di===idx); d.setAttribute('aria-selected', di===idx?'true':'false'); });
+    }
+    function next(){ go(idx+1); }
+    function prev(){ go(idx-1); }
+
+    function start(){ if(reduce) return; stop(); timer = setInterval(next, 4500); }
+    function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+
+    sec.querySelector('.travx-nav.next').addEventListener('click', function(){ next(); start(); });
+    sec.querySelector('.travx-nav.prev').addEventListener('click', function(){ prev(); start(); });
+    dots.forEach(function(d){ d.addEventListener('click', function(){ go(+d.getAttribute('data-i')); start(); }); });
+
+    // keep dots in sync when the user swipes/scrolls manually
+    var raf;
+    track.addEventListener('scroll', function(){
+      if(raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function(){
+        var c = track.scrollLeft + track.clientWidth/2, best=0, bd=Infinity;
+        slides.forEach(function(s,i){ var sc = s.offsetLeft + s.clientWidth/2 - track.offsetLeft; var d=Math.abs(sc-c); if(d<bd){bd=d;best=i;} });
+        if(best!==idx){ idx=best; dots.forEach(function(d,di){ d.classList.toggle('active', di===idx); }); }
+      });
+    }, { passive:true });
+
+    // pause auto-advance while interacting
+    ['mouseenter','touchstart','focusin'].forEach(function(ev){ sec.addEventListener(ev, stop, { passive:true }); });
+    ['mouseleave','touchend','focusout'].forEach(function(ev){ sec.addEventListener(ev, start, { passive:true }); });
+    track.addEventListener('keydown', function(e){ if(e.key==='ArrowRight'){e.preventDefault();next();} else if(e.key==='ArrowLeft'){e.preventDefault();prev();} });
+
+    start();
+  })();
+</script>
