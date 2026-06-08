@@ -4,6 +4,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import data from '../../data/tours.json';
 import { TOUR_VISUALS } from '../../data/tour-visuals';
 import { skinForTour } from '../../data/civSkins.mjs';
+import InquiryForm from '../../components/InquiryForm.astro';
+import { CONTACT } from '../../config';
 
 const tours = (data as any).tours || (data as any);
 
@@ -97,7 +99,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
   region={region}
   civ={skinForTour(tour)}
   schema={schema}
-  sticky={true}>
+  sticky={false}>
 
   <div class="tour" style={`--accent:${accent}`}>
   <section class={`hero${needsImage ? ' hero-gradient' : ''}`} data-region={region}>
@@ -107,8 +109,8 @@ if (tour.faqs && tour.faqs.length) schema.push({
       <h1>{tour.title}</h1>
       <p>{tour.hook ?? tour.summary}</p>
       <p style="margin-top:1rem">
-        <a class="btn btn-gold" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">Book on WhatsApp</a>
-        <a class="btn btn-ghost" href="/contact/" style="color:#fff;border-color:rgba(255,255,255,.5)">Request a quote</a>
+        <a class="btn btn-gold" href="#book" data-evt="book_intent">Request to book →</a>
+        <a class="btn btn-ghost" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,.5)">💬 Book on WhatsApp</a>
       </p>
     </div>
   </section>
@@ -155,12 +157,18 @@ if (tour.faqs && tour.faqs.length) schema.push({
     </div>
 
     <aside class="book-widget">
-      <div class="bw-price">{priceLabel}</div>
-      <div class="bw-meta">{tour.duration}</div>
+      <div class="bw-price">{tour.price_from ? 'From ' : ''}€{tour.price_eur}</div>
+      <div class="bw-per">per person · {tour.duration}</div>
       <div class="bw-meta">Starts: {tour.start}</div>
       <div class="bw-meta">🇩🇿 Licensed Algerian operator</div>
-      <a class="btn btn-gold" style="width:100%;text-align:center;margin-top:.8rem" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">Book on WhatsApp</a>
-      <a class="btn" style="width:100%;text-align:center;margin-top:.5rem" href="/contact/">Request a custom quote</a>
+      {tour.includes && tour.includes.length > 0 &&
+        <ul class="bw-incl">
+          {tour.includes.slice(0, 4).map((i: string) => <li>{i}</li>)}
+          {tour.includes.length > 4 && <li class="bw-more">+ more — see what’s included below</li>}
+        </ul>}
+      <a class="btn btn-gold bw-cta" href="#book" data-evt="book_intent">Request to book</a>
+      <a class="btn btn-wa-2 bw-cta" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">💬 Book on WhatsApp</a>
+      <p class="bw-terms">No card needed now — a deposit by bank transfer or WhatsApp secures your trip; the balance is due before departure.</p>
     </aside>
   </div></section>
 
@@ -189,16 +197,42 @@ if (tour.faqs && tour.faqs.length) schema.push({
       </div>
     </div></section>}
 
-  <section class="section"><div class="wrap" style="text-align:center">
-    <div class="cta">
-      <h2>Ready to go?</h2>
-      <p style="margin-top:.5rem">{priceLabel} · {tour.duration} · Licensed Algerian operator.</p>
-      <p style="margin-top:1rem">
-        <a class="btn btn-gold" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">Book on WhatsApp</a>
-        <a class="btn" href="/contact/">Request a custom quote</a>
-      </p>
+  <!-- OWNER: card payments need a Stripe / CIB-SATIM gateway tied to your accounts.
+       Until then booking = request + deposit (bank transfer / WhatsApp). Set the
+       exact deposit % and bank details here once you confirm them. -->
+  <section id="book" class="section book-sec"><div class="wrap">
+    <div class="book-head">
+      <span class="eyebrow">Request to book</span>
+      <h2>Book this trip</h2>
+      <p class="book-lead"><strong>{tour.price_from ? 'From ' : ''}€{tour.price_eur} per person</strong> · {tour.duration} · {tour.title}. Send your dates and group below and we’ll confirm availability, permits and flights — usually within a few hours.</p>
+    </div>
+    <div class="book-grid">
+      <div class="book-terms">
+        <h3>How booking works</h3>
+        <ol class="book-steps">
+          <li><strong>Request</strong> — send the form (or WhatsApp). No payment at this stage.</li>
+          <li><strong>We confirm</strong> — availability, permits, domestic flights and your final price, by email or WhatsApp.</li>
+          <li><strong>A deposit secures it</strong> — paid by bank transfer or arranged on WhatsApp; the balance is due before departure.</li>
+        </ol>
+        <p class="book-note">We don’t take card payments online yet — booking is by request + deposit. Prefer to talk first? <a href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">Message us on WhatsApp</a> or email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.</p>
+        <div class="book-recap">
+          <div><h4>Your price includes</h4><ul>{tour.includes.slice(0,5).map((i:string)=><li>{i}</li>)}</ul></div>
+          {tour.excludes && tour.excludes.length > 0 &&
+            <div><h4>Not included</h4><ul>{tour.excludes.slice(0,4).map((i:string)=><li>{i}</li>)}</ul></div>}
+        </div>
+      </div>
+      <div class="book-form">
+        <h3>Your booking request</h3>
+        <InquiryForm context={`Booking request: ${tour.title}`} />
+      </div>
     </div>
   </div></section>
+  </div>
+
+  <div class="tour-sticky">
+    <span class="ts-price">{tour.price_from ? 'From ' : ''}€{tour.price_eur}<em>/person</em></span>
+    <a class="btn btn-gold" href="#book" data-evt="book_intent">Book this trip</a>
+    <a class="ts-wa" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" aria-label="Book on WhatsApp">💬</a>
   </div>
 
 </BaseLayout>
@@ -218,8 +252,34 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .facts li{padding:.25rem 0 .25rem 1.3rem;position:relative;font-size:.9rem;color:var(--text-m)}
 .facts li::before{content:"✓";position:absolute;left:0;color:var(--green)}
 .book-widget{position:sticky;top:90px;background:var(--green-d);color:#fff;border:1px solid rgba(201,162,75,.3);border-radius:14px;padding:1.3rem}
-.bw-price{font-family:var(--serif);font-size:1.6rem;font-weight:800;color:var(--gold-l)}
+.bw-price{font-family:var(--serif);font-size:2rem;font-weight:800;color:var(--gold-l);line-height:1}
+.bw-per{font-size:.82rem;color:rgba(255,255,255,.8);margin:.15rem 0 .6rem;font-weight:600}
 .bw-meta{font-size:.85rem;color:rgba(255,255,255,.75);margin-top:.3rem}
+.bw-incl{list-style:none;padding:.8rem 0 0;margin:.7rem 0 0;border-top:1px solid rgba(255,255,255,.14)}
+.bw-incl li{position:relative;padding:.18rem 0 .18rem 1.3rem;font-size:.82rem;color:rgba(255,255,255,.85)}
+.bw-incl li::before{content:"✓";position:absolute;left:0;color:var(--gold-l)}
+.bw-incl .bw-more{color:rgba(255,255,255,.6)}.bw-incl .bw-more::before{content:""}
+.bw-cta{width:100%;text-align:center;margin-top:.8rem}
+.bw-terms{font-size:.74rem;color:rgba(255,255,255,.65);margin-top:.8rem;line-height:1.45}
+/* ===== booking section ===== */
+.book-sec{scroll-margin-top:80px}
+.book-head{max-width:760px;margin-bottom:1.4rem}
+.book-lead{color:var(--text-m);margin-top:.4rem;font-size:1.02rem}
+.book-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:2.2rem;align-items:start}
+.book-terms h3,.book-form h3{font-size:1.15rem;margin-bottom:.6rem}
+.book-steps{list-style:none;counter-reset:bk;padding:0;margin:0 0 1rem;display:grid;gap:.6rem}
+.book-steps li{counter-increment:bk;position:relative;padding-left:2.2rem;color:var(--text-m);font-size:.92rem}
+.book-steps li::before{content:counter(bk);position:absolute;left:0;top:-.1rem;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+.book-steps strong{color:var(--green-d)}
+.book-note{font-size:.86rem;color:var(--text-m);background:var(--wash);border:1px solid var(--border);border-radius:10px;padding:.8rem 1rem}
+.book-recap{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}
+.book-recap h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:.4rem}
+.book-recap ul{list-style:none;padding:0;margin:0}
+.book-recap li{position:relative;padding:.18rem 0 .18rem 1.2rem;font-size:.84rem;color:var(--text-m)}
+.book-recap li::before{content:"•";position:absolute;left:.2rem;color:var(--accent)}
+.book-form{background:var(--wash);border:1px solid var(--border);border-top:4px solid var(--accent);border-radius:14px;padding:1.3rem}
+/* ===== mobile sticky book bar ===== */
+.tour-sticky{display:none}
 /* ===== per-tour accent identity ===== */
 .tour h2{color:var(--accent)}
 .tour .crumbs a{color:var(--accent)}
@@ -245,5 +305,17 @@ if (tour.faqs && tour.faqs.length) schema.push({
   .section .wrap[style]{grid-template-columns:1fr !important}
   .book-widget{position:static}
   .incl-grid{grid-template-columns:1fr}
+  .book-grid{grid-template-columns:1fr;gap:1.4rem}
+  .book-recap{grid-template-columns:1fr 1fr}
+  /* sticky "book this trip" bar on phones */
+  .tour-sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:120;align-items:center;gap:.6rem;
+    padding:.6rem .8rem;background:var(--green-d);border-top:1px solid rgba(201,162,75,.35);
+    box-shadow:0 -6px 20px rgba(0,0,0,.22)}
+  .tour-sticky .ts-price{color:#fff;font-weight:800;font-size:1.05rem;white-space:nowrap}
+  .tour-sticky .ts-price em{font-style:normal;font-weight:500;font-size:.72rem;color:rgba(255,255,255,.7)}
+  .tour-sticky .btn-gold{flex:1;text-align:center;background:var(--gold);color:#07261C}
+  .tour-sticky .ts-wa{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;
+    border-radius:10px;background:#25D366;color:#fff;font-size:1.1rem;text-decoration:none}
+  main{padding-bottom:64px} /* room for the sticky bar */
 }
 </style>
