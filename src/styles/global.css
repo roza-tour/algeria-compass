@@ -179,23 +179,39 @@ label{display:block;font-size:.82rem;font-weight:600;color:var(--text-m);margin-
 
 /* ===== Mobile navigation (rebrand chrome) ===== */
 @media(max-width:980px){
-  .nav-toggle{display:block;margin-left:auto}
+  /* P4 — compact the green header band on tablets/phones (was 68+12px) */
+  .id-band{height:6px}
+  .nav-inner{height:56px}
+  .brand-mark{height:40px}
+  .nav-toggle{display:block;margin-left:auto;font-size:1.35rem;padding:0 .8rem}
   .nav-logo-link{padding:0 1rem;border-right:none}
-  .nav-links{display:none;position:fixed;top:80px;left:0;right:0;background:var(--green-d);flex-direction:column;flex:none;padding:1rem;box-shadow:0 4px 24px rgba(7,38,28,.3);max-height:80vh;overflow-y:auto;z-index:300}
+  .nav-links{display:none;position:fixed;top:62px;left:0;right:0;background:var(--green-d);flex-direction:column;flex:none;padding:1rem;box-shadow:0 4px 24px rgba(7,38,28,.3);max-height:80vh;overflow-y:auto;z-index:300}
   .nav-links.mobile-open{display:flex}
   .nav-links>li{width:100%;display:block}
   .nav-links>li>a{padding:.8rem 1rem;border-bottom:none;border-radius:8px;width:100%}
   .nav-links>li>a:hover,.nav-links>li>a.active{background:rgba(246,239,224,.08);border-bottom-color:transparent}
   .nav-links>li.nav-mobile-only{display:block}
-  .nav-cta{padding:0 1rem;border-left:none;gap:.4rem}
+  .nav-cta{padding:0 .7rem;border-left:none;gap:.4rem}
+  .btn-book{padding:.45rem .8rem;font-size:.76rem;min-height:42px}
+  .btn-wa{padding:.45rem .7rem;font-size:.74rem;min-height:42px}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:560px){
   .footer-grid{grid-template-columns:1fr}
   .brand-name{display:none}            /* avoid header crowding on phones */
-  /* phone header = emblem + hamburger only; CTAs live in the menu + sticky pill */
-  .nav-cta{display:none}
+  .id-band{height:5px}
+  .nav-inner{height:52px}
+  .brand-mark{height:36px}
+  .nav-links{top:57px}
   .nav-logo-link{padding:0 .8rem}
+  /* phone: keep ONE compact WhatsApp icon button (44px tap target); Plan-a-Trip
+     lives in the menu + sticky pill. Band stays short. */
+  .nav-cta{display:flex;padding:0 .5rem;gap:.35rem}
+  .nav-cta .btn-book{display:none}
+  .nav-cta .btn-wa{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:.4rem .55rem;font-size:0;gap:0}
+  .nav-cta .btn-wa::before{content:"\1F4AC";font-size:1.15rem}
+  /* smaller hero buttons so the top of the homepage isn't dominated by CTAs */
+  .hero-compact .hero-cta .btn{padding:.6rem 1rem;font-size:.85rem}
 }
 
 /* ===== Sticky contact (long pages) ===== */

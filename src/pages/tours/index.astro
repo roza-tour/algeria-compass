@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import data from '../../data/tours.json';
-import { TOUR_VISUALS } from '../../data/tour-visuals';
+import TourCard from '../../components/TourCard.astro';
 const tours = ((data as any).tours || (data as any)) as any[];
-const vis = (t: any) => TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
 ---
 <BaseLayout
   title="Algeria Tours & Private Journeys | Algeria Compass"
@@ -21,19 +20,7 @@ const vis = (t: any) => TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg
 
   <section class="section"><div class="wrap">
     <div class="grid">
-      {tours.map((t) => { const v = vis(t); return (
-        <a class="card" href={`/tours/${t.id}/`}>
-          <div class="ci">{v.hero
-            ? <img src={`/assets/img/thumbs/tours/${v.hero}`} alt={t.title} width="400" height="250" loading="lazy" />
-            : <div class="ci-gradient" style={`--accent:${v.accent}`}></div>}</div>
-          <div class="cb">
-            <span class="tag">{t.duration}</span>
-            <h3>{t.title}</h3>
-            <p>{t.summary}</p>
-            <div class="meta">{t.price_from ? 'From ' : ''}€{t.price_eur} / {t.per}</div>
-          </div>
-        </a>
-      ); })}
+      {tours.map((t) => <TourCard tour={t} />)}
     </div>
   </div></section>
 </BaseLayout>

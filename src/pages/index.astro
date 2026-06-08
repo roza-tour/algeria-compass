@@ -5,15 +5,23 @@ import CivilizationsExplorer from '../components/CivilizationsExplorer.astro';
 import TravellerSlider from '../components/TravellerSlider.astro';
 import Reviews from '../components/Reviews.astro';
 import HonestAnswers from '../components/HonestAnswers.astro';
+import TourCard from '../components/TourCard.astro';
 import data from '../data/tours.json';
-import { TOUR_VISUALS } from '../data/tour-visuals';
 const tours = ((data as any).tours || (data as any)) as any[];
-const vis = (t: any) => TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
 
 // curated featured tours (fall back to first 6)
 const featuredIds = ['djanet-sahara-safari','algiers-city-tour-casbah-bardo-martyrsmemorial','algeria-through-time-and-tradition','tour-bejaia-historic','ghardaia-guided-tour','oran-mostaganem-tlemcen'];
 const featured = featuredIds.map(id => tours.find(t => t.id === id)).filter(Boolean);
-const card = (t: any) => `/assets/img/thumbs/tours/${t.image_slugs[0]}-1.jpg`;
+
+// "Plan your Algeria trip" — vibrant, joyful entry points (real pages only)
+const planCards = [
+  { href:'/tours/',        emoji:'🧭', title:'Browse tours',     text:'20 private, guided itineraries — Sahara, coast and Roman north.', a:'#0B3D2E', b:'#11543D' },
+  { href:'/destinations/', emoji:'🏛️', title:'Destinations',     text:"Casbah of Algiers, Tassili n'Ajjer, Constantine, Djémila and more.", a:'#8A3F2E', b:'#b4543b' },
+  { href:'/provinces/',    emoji:'🗺️', title:'States',           text:"Region-by-region guides to Algeria's 58 wilayas.", a:'#1E8C8C', b:'#27a9a9' },
+  { href:'/travel-guides/',emoji:'🛂', title:'Travel guides',    text:'Visa, safety, best time to visit, food and transport.', a:'#C19333', b:'#dba63c' },
+  { href:'/culture/',      emoji:'🍵', title:'Culture & food',   text:'Cuisine, crafts, music and the civilisations that shaped Algeria.', a:'#7a3b16', b:'#9c5223' },
+  { href:'/discover/',     emoji:'✨', title:'Discover Algeria', text:'Our in-depth, researched guide to the whole country.', a:'#4A2A6A', b:'#6b3f97' },
+];
 
 const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Algeria tour.");
 ---
@@ -41,31 +49,24 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
     <div class="eyebrow">Private journeys</div>
     <h2>Featured tours</h2>
     <div class="grid" style="margin-top:1.2rem">
-      {featured.map((t: any) => { const v = vis(t); return (
-        <a class="card" href={`/tours/${t.id}/`}>
-          <div class="ci">{v.hero
-            ? <img src={`/assets/img/thumbs/tours/${v.hero}`} alt={t.title} width="400" height="250" loading="lazy" />
-            : <div class="ci-gradient" style={`--accent:${v.accent}`}></div>}</div>
-          <div class="cb">
-            <span class="tag">{t.duration}</span>
-            <h3>{t.title}</h3>
-            <p>{t.summary}</p>
-            <div class="meta">{t.price_from ? 'From ' : ''}€{t.price_eur} / {t.per}</div>
-          </div>
-        </a>
-      ); })}
+      {featured.map((t: any) => <TourCard tour={t} />)}
     </div>
     <p style="margin-top:1.4rem"><a class="btn" href="/tours/">All 20 tours →</a></p>
   </div></section>
 
-  <section class="section" style="background:var(--wash)"><div class="wrap">
+  <section class="section plan-sec"><div class="wrap">
     <div class="eyebrow">The country</div>
     <h2>Plan your Algeria trip</h2>
-    <div class="grid" style="margin-top:1.2rem">
-      <a class="card" href="/destinations/"><div class="cb"><h3>Destinations</h3><p>Casbah of Algiers, Tassili n'Ajjer, Constantine, Djémila and more.</p></div></a>
-      <a class="card" href="/provinces/"><div class="cb"><h3>States</h3><p>Region-by-region guides to Algeria's states.</p></div></a>
-      <a class="card" href="/travel-guides/"><div class="cb"><h3>Travel guides</h3><p>Visa, safety, best time to visit, food and transport.</p></div></a>
-      <a class="card" href="/discover/"><div class="cb"><h3>Discover Algeria</h3><p>Our in-depth, researched guide to the country.</p></div></a>
+    <p class="plan-lead">Six ways into Algeria — pick a thread and pull.</p>
+    <div class="plan-grid">
+      {planCards.map(c => (
+        <a class="plan-card" href={c.href} style={`--a:${c.a};--b:${c.b}`}>
+          <span class="plan-emoji" aria-hidden="true">{c.emoji}</span>
+          <span class="plan-t">{c.title}</span>
+          <span class="plan-x">{c.text}</span>
+          <span class="plan-go" aria-hidden="true">→</span>
+        </a>
+      ))}
     </div>
   </div></section>
 
@@ -89,3 +90,23 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
   </div></section>
 
 </BaseLayout>
+
+<style>
+  /* P4 — "Plan your Algeria trip": vibrant, joyful entry cards */
+  .plan-sec{background:linear-gradient(180deg,#fbf8f2,#f3ede0)}
+  .plan-lead{color:var(--text-m);margin:.4rem 0 0}
+  .plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.3rem}
+  .plan-card{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:.3rem;
+    min-height:160px;padding:1.2rem 1.2rem 1.3rem;border-radius:18px;text-decoration:none;color:#fff;
+    background:linear-gradient(140deg,var(--a),var(--b));box-shadow:0 8px 24px rgba(11,61,46,.14);
+    transition:transform .18s ease,box-shadow .18s ease}
+  .plan-card::after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;
+    background:rgba(255,255,255,.12);transition:transform .3s ease}
+  .plan-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(11,61,46,.22)}
+  .plan-card:hover::after{transform:scale(1.5)}
+  .plan-emoji{font-size:1.7rem;position:relative;z-index:1}
+  .plan-t{font-family:'Cinzel',serif;font-weight:700;font-size:1.2rem;position:relative;z-index:1}
+  .plan-x{font-size:.86rem;color:rgba(255,255,255,.92);line-height:1.45;flex:1;position:relative;z-index:1}
+  .plan-go{font-size:1.3rem;font-weight:800;position:relative;z-index:1;transition:transform .18s ease}
+  .plan-card:hover .plan-go{transform:translateX(5px)}
+</style>
