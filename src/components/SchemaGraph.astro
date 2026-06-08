@@ -1,8 +1,10 @@
 ---
 // Linked JSON-LD graph. Country is now a real @id entity; SearchAction removed (no search endpoint exists yet).
+import { CONTACT } from '../config';
 export interface Props { nodes?: any[]; }
 const { nodes = [] } = Astro.props;
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const A = CONTACT.address;
 const org = {
   "@type": "TravelAgency",
   "@id": site + "/#organization",
@@ -12,8 +14,11 @@ const org = {
   "url": site + "/",
   "logo": site + "/assets/img/logo-full.png",
   "image": site + "/assets/img/og-image.png",
-  "email": "hello@algeriacompass.com",
-  "address": { "@type": "PostalAddress", "addressCountry": "DZ" },
+  "email": CONTACT.email,
+  "telephone": CONTACT.phoneE164,
+  "address": { "@type": "PostalAddress", "streetAddress": A.street, "addressLocality": A.locality, "addressRegion": A.region, "postalCode": A.postalCode, "addressCountry": A.countryCode },
+  "geo": { "@type": "GeoCoordinates", "latitude": CONTACT.geo.lat, "longitude": CONTACT.geo.lng },
+  "hasMap": CONTACT.mapShort,
   "areaServed": { "@id": site + "/#algeria" },
   "knowsAbout": ["Algeria travel","Sahara desert","UNESCO World Heritage Algeria","Roman Algeria","Amazigh culture","M'Zab Valley"],
   "publishingPrinciples": site + "/editorial/editorial-policy/",

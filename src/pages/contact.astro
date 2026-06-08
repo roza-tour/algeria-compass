@@ -11,6 +11,33 @@ import { CONTACT } from '../config';
     <h1>Plan a journey to Algeria</h1>
     <p style="color:var(--text-m);margin:.6rem 0 1.4rem">Algeria Compass is a licensed Algerian tour operator. Tell us your dates, interests and party size and we will craft your private, guided tour of Algeria.</p>
     <InquiryForm />
-    <p style="margin-top:1.4rem">Prefer to talk now? <a href={`https://wa.me/${CONTACT.whatsapp}`} data-evt="whatsapp_click">WhatsApp us</a> · <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> · {CONTACT.phoneDisplay}</p>
+    <p style="margin-top:1.4rem">Prefer to talk now? <a href={`https://wa.me/${CONTACT.whatsapp}`} data-evt="whatsapp_click">WhatsApp us</a> · <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> · <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a></p>
+  </div></section>
+
+  <section class="section" style="background:var(--wash)"><div class="wrap">
+    <div class="eyebrow">Find us</div>
+    <h2>Where we are</h2>
+    <div class="contact-find">
+      <address class="contact-nap">
+        <strong>Algeria Compass</strong><br/>
+        {CONTACT.address.full}<br/>
+        <span class="nap-line">&#128222; <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a></span><br/>
+        <span class="nap-line">&#9993; <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></span><br/>
+        <span class="nap-line">&#128172; <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp {CONTACT.phoneDisplay}</a></span>
+        <p class="nap-hours">Licensed Algerian tour operator · we reply within a few hours.</p>
+        <a class="btn" href={CONTACT.mapShort} target="_blank" rel="noopener" style="margin-top:.6rem">Open in Google Maps &rarr;</a>
+      </address>
+      <iframe class="contact-map" title="Algeria Compass location on Google Maps" src={CONTACT.mapEmbed} loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="360"></iframe>
+    </div>
   </div></section>
 </BaseLayout>
+
+<style>
+  .contact-find{display:grid;grid-template-columns:320px 1fr;gap:1.6rem;align-items:start;margin-top:1.2rem}
+  .contact-nap{font-style:normal;line-height:1.7;color:var(--text-m)}
+  .contact-nap strong{color:var(--green-d);font-size:1.05rem;font-family:var(--serif)}
+  .nap-line a{color:var(--green-d);font-weight:600}
+  .nap-hours{font-size:.85rem;color:var(--text-l);margin:.7rem 0 0}
+  .contact-map{border:1px solid var(--border);border-radius:12px;display:block;min-height:360px}
+  @media(max-width:760px){ .contact-find{grid-template-columns:1fr} }
+</style>
