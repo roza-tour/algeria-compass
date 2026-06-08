@@ -53,7 +53,7 @@ const cites = citationNodes(d.sources);
 if (cites.length) attr.citation = cites;
 const schemaNodes = [attr, authorEntity, reviewerEntity];
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} region={d.region} civ={DEST_SKIN[item.slug]} schema={schemaNodes} sticky={true}>
+<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} region={d.region} civ={DEST_SKIN[item.slug]} schema={schemaNodes} sticky={true}>
   <Hero title={d.name} eyebrow={d.province ? d.province + ' · Algeria' : 'Algeria'} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
     <a class="btn btn-gold" href={`/contact/?i=${encodeURIComponent(d.name)}`} data-evt="cta_plan">Visit {d.name} →</a>
   </Hero>

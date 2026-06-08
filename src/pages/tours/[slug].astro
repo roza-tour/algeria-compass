@@ -98,6 +98,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
   image={ogImage}
   region={region}
   civ={skinForTour(tour)}
+  keywords={[tour.title.split(' — ')[0], 'Algeria tour', ...((tour.wilayas||[]).map((w: string)=>w.replace(/-/g,' ')+' tour')), 'Algeria travel']}
   schema={schema}
   sticky={false}>
 

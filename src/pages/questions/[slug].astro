@@ -35,7 +35,7 @@ const reviewerEntity = reviewerNode(site, reviewer.entry);
 const cites = citationNodes(d.sources);
 if (cites.length) (qa as any).citation = cites;
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} schema={[qa, speak, authorEntity, reviewerEntity]}>
+<BaseLayout title={d.seo.title} description={d.seo.description} keywords={d.seo.keywords} schema={[qa, speak, authorEntity, reviewerEntity]}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Questions',href:'/questions/'},{name:d.category}]} />
   <article class="section"><div class="wrap" style="max-width:760px">
     <span class="eyebrow">{d.category}</span>

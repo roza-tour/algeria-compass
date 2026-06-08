@@ -10,6 +10,7 @@ const today = new Date().toISOString().slice(0, 10);
 export const GET: APIRoute = async () => {
   const statics = ['', 'discover/', 'tours/', 'destinations/', 'provinces/', 'experiences/', 'blog/',
     'questions/', 'culture/', 'history/', 'food/', 'unesco/', 'travel-guides/',
+    'visa-support/', 'evisa/', 'booking-terms/',
     'about/', 'contact/', 'editorial/', 'team/', 'reviewers/', 'knowledge/', 'knowledge/provinces/', 'knowledge/graph/', 'clusters/'];
   const colls: [string, string][] = [
     ['province', 'provinces'], ['destination', 'destinations'],
