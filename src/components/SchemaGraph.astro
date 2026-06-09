@@ -1,5 +1,6 @@
 ---
-// Linked JSON-LD graph. Country is now a real @id entity; SearchAction removed (no search endpoint exists yet).
+// Linked JSON-LD graph. Country is a real @id entity; WebSite carries a sitelinks
+// SearchAction wired to the real /search/ endpoint (P8).
 import { CONTACT } from '../config';
 export interface Props { nodes?: any[]; }
 const { nodes = [] } = Astro.props;
@@ -42,7 +43,12 @@ const website = {
   "alternateName": "Luxury private guided tours across Algeria",
   "description": "Luxury private guided tours across Algeria.",
   "publisher": { "@id": site + "/#organization" },
-  "inLanguage": "en"
+  "inLanguage": "en",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": { "@type": "EntryPoint", "urlTemplate": site + "/search/?q={search_term_string}" },
+    "query-input": "required name=search_term_string"
+  }
 };
 const graph = { "@context": "https://schema.org", "@graph": [org, country, website, ...nodes] };
 ---

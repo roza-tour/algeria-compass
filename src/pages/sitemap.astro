@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+import toursData from '../data/tours.json';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const breadcrumb = { '@type':'BreadcrumbList', '@id':`${site}/sitemap/#breadcrumb`, itemListElement:[
+  {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
+  {'@type':'ListItem',position:2,name:'Sitemap',item:`${site}/sitemap/`}]};
+
+type Link = { title: string; href: string };
+const sortByTitle = (a: Link, b: Link) => a.title.localeCompare(b.title);
+
+const tourList = ((toursData as any).tours || (toursData as any)) as any[];
+const tours: Link[] = tourList.map(t => ({ title: t.title, href: `/tours/${t.id}/` })).sort(sortByTitle);
+
+async function coll(name: string, base: string, field = 'name'): Promise<Link[]> {
+  const items = await getCollection(name as any);
+  return (items as any[])
+    .map(it => ({ title: it.data[field] || it.data.title || it.data.question || it.slug, href: `${base}${it.slug}/` }))
+    .sort(sortByTitle);
+}
+
+const states = await coll('province', '/provinces/');
+const destinations = await coll('destination', '/destinations/');
+const experiences = await coll('experience', '/experiences/');
+const articles = await coll('article', '/blog/', 'title');
+const questions = await coll('question', '/questions/', 'question');
+
+const groups: { heading: string; links: Link[] }[] = [
+  { heading: 'Main pages', links: [
+    { title: 'Home', href: '/' },
+    { title: 'Tours', href: '/tours/' },
+    { title: 'Destinations', href: '/destinations/' },
+    { title: 'States', href: '/provinces/' },
+    { title: 'Experiences', href: '/experiences/' },
+    { title: 'Discover Algeria', href: '/discover/' },
+    { title: 'Blog', href: '/blog/' },
+    { title: 'Questions & Answers', href: '/questions/' },
+    { title: 'Search', href: '/search/' },
+  ]},
+  { heading: 'Plan your trip', links: [
+    { title: 'Travel Guides', href: '/travel-guides/' },
+    { title: 'Visa Support', href: '/visa-support/' },
+    { title: 'e-Visa & Entry', href: '/evisa/' },
+    { title: 'Booking & Cancellation Terms', href: '/booking-terms/' },
+    { title: 'About', href: '/about/' },
+    { title: 'Contact', href: '/contact/' },
+  ]},
+  { heading: 'Knowledge & culture', links: [
+    { title: 'Culture', href: '/culture/' },
+    { title: 'History', href: '/history/' },
+    { title: 'Food', href: '/food/' },
+    { title: 'UNESCO Sites', href: '/unesco/' },
+    { title: 'Knowledge graph', href: '/knowledge/' },
+  ]},
+  { heading: 'Tours', links: tours },
+  { heading: 'States', links: states },
+  { heading: 'Destinations', links: destinations },
+  { heading: 'Experiences', links: experiences },
+  { heading: 'Blog articles', links: articles },
+  { heading: 'Questions', links: questions },
+  { heading: 'Editorial', links: [
+    { title: 'Editorial standards', href: '/editorial/' },
+    { title: 'Editorial team', href: '/team/' },
+    { title: 'Review & fact-checking', href: '/reviewers/' },
+  ]},
+].filter(g => g.links.length);
+---
+<BaseLayout
+  title="Sitemap — every page on Algeria Compass"
+  description="A full HTML sitemap of Algeria Compass: tours, states, destinations, experiences, guides, blog articles and answers."
+  schema={[breadcrumb]}>
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Sitemap'}]} />
+  <section class="section"><div class="wrap">
+    <div class="eyebrow">Sitemap</div>
+    <h1>Every page on Algeria Compass</h1>
+    <p style="color:var(--text-m);margin-top:.4rem;max-width:680px">A complete index of the site. Looking for the machine-readable version? <a href="/sitemap.xml">XML sitemap</a>.</p>
+
+    <div class="sm-grid">
+      {groups.map(g => (
+        <section class="sm-block">
+          <h2>{g.heading} <span class="sm-count">{g.links.length}</span></h2>
+          <ul>
+            {g.links.map(l => <li><a href={l.href}>{l.title}</a></li>)}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .sm-grid{columns:3 260px;column-gap:2rem;margin-top:1.6rem}
+  .sm-block{break-inside:avoid;margin:0 0 1.6rem;display:inline-block;width:100%}
+  .sm-block h2{font-size:1.05rem;color:var(--green-d);border-bottom:2px solid var(--border);padding-bottom:.35rem;margin:0 0 .6rem;display:flex;align-items:center;gap:.5rem}
+  .sm-count{font-size:.7rem;font-weight:700;color:var(--green-d);background:rgba(11,61,46,.08);border-radius:999px;padding:.05rem .5rem}
+  .sm-block ul{list-style:none;padding:0;margin:0;display:grid;gap:.25rem}
+  .sm-block a{color:var(--text-m);font-size:.92rem;text-decoration:none}
+  .sm-block a:hover{color:var(--green-d);text-decoration:underline}
+  @media(max-width:640px){ .sm-grid{columns:1} }
+</style>

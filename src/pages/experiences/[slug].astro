@@ -43,7 +43,11 @@ trip.reviewedBy = { "@id": (reviewerEntity as any)["@id"] };
 trip.dateModified = d.updated.toISOString();
 const cites = citationNodes(d.sources);
 if (cites.length) trip.citation = cites;
-const schemaNodes = [trip, authorEntity, reviewerEntity];
+const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/experiences/${item.slug}/#breadcrumb`, itemListElement:[
+  { "@type":"ListItem", position:1, name:"Home", item:`${site}/` },
+  { "@type":"ListItem", position:2, name:"Experiences", item:`${site}/experiences/` },
+  { "@type":"ListItem", position:3, name:d.name, item:`${site}/experiences/${item.slug}/` } ] };
+const schemaNodes = [trip, authorEntity, reviewerEntity, breadcrumb];
 ---
 <BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} region={d.region} schema={schemaNodes} sticky={true}>
   <Hero title={d.name} eyebrow={`${d.durationDays} days · ${d.region}`} text={d.tagline} image={d.image} alt={d.imageAlt}>

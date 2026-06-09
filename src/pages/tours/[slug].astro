@@ -85,6 +85,33 @@ const schema = [
       { '@type': 'ListItem', position: 2, name: 'Tours', item: site + '/tours/' },
       { '@type': 'ListItem', position: 3, name: tour.title, item: url }
     ]
+  },
+  {
+    '@type': 'Product',
+    '@id': url + '#product',
+    name: tour.title,
+    description: tour.summary,
+    image: site + ogImage,
+    category: 'Guided tour',
+    brand: { '@type': 'Brand', name: 'Algeria Compass' },
+    url,
+    offers: {
+      '@type': 'Offer',
+      price: tour.price_eur,
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      url,
+      seller: { '@id': site + '/#organization' }
+    }
+  },
+  {
+    '@type': 'ImageObject',
+    '@id': url + '#primaryimage',
+    url: site + ogImage,
+    contentUrl: site + ogImage,
+    width: 1600,
+    height: 900,
+    caption: `${tour.title} — Algeria`
   }
 ];
 if (tour.faqs && tour.faqs.length) schema.push({

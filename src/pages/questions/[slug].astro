@@ -34,8 +34,12 @@ const reviewerEntity = reviewerNode(site, reviewer.entry);
 (qa as any).dateModified = d.updated.toISOString();
 const cites = citationNodes(d.sources);
 if (cites.length) (qa as any).citation = cites;
+const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/questions/${item.slug}/#breadcrumb`, itemListElement:[
+  { "@type":"ListItem", position:1, name:"Home", item:`${site}/` },
+  { "@type":"ListItem", position:2, name:"Questions", item:`${site}/questions/` },
+  { "@type":"ListItem", position:3, name:d.question, item:`${site}/questions/${item.slug}/` } ] };
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} keywords={d.seo.keywords} schema={[qa, speak, authorEntity, reviewerEntity]}>
+<BaseLayout title={d.seo.title} description={d.seo.description} keywords={d.seo.keywords} schema={[qa, speak, authorEntity, reviewerEntity, breadcrumb]}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Questions',href:'/questions/'},{name:d.category}]} />
   <article class="section"><div class="wrap" style="max-width:760px">
     <span class="eyebrow">{d.category}</span>
