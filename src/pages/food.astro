@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import QuickAnswer from '../components/QuickAnswer.astro';
 import CtaSection from '../components/CtaSection.astro';
+import SweetsSection from '../components/SweetsSection.astro';
 import data from '../data/tours.json';
 
 const tours = ((data as any).tours || (data as any)) as any[];
@@ -114,6 +115,8 @@ const tea = { name: 'Mint tea', origin: 'The Sahara & everywhere · hospitality'
       </div>
     </div></section>
   ))}
+
+  <SweetsSection />
 
   <section class="section"><div class="wrap">
     <h2 class="course-h">The sweet finish & the ritual of tea</h2>

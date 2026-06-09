@@ -1,0 +1,50 @@
+---
+// P6 — compact, reusable "sweets" strip for the homepage culture area, food-
+// relevant tour pages and the food blog. A row of pastry thumbnails linking to
+// the full sweets section. Props: `tone` ("light" default | "wash"), `count`.
+import { SWEETS } from '../data/sweets.mjs';
+interface Props { tone?: 'light' | 'wash'; count?: number; heading?: string; }
+const { tone = 'light', count = 7, heading = 'A sweet finish' } = Astro.props as Props;
+const items = SWEETS.slice(0, count);
+---
+<section class={`section sws sws-${tone}`}><div class="wrap">
+  <div class="sws-top">
+    <div>
+      <span class="eyebrow">Culture · Pastries</span>
+      <h2>{heading}</h2>
+      <p class="sws-sub">Baklawa, makroud, qalb el louz, kaab el ghzal — the honeyed, almond-rich pastries of Algeria’s celebration tables.</p>
+    </div>
+    <a class="sws-link" href="/food/#sweets">Explore Algerian sweets <span aria-hidden="true">→</span></a>
+  </div>
+  <ul class="sws-row">
+    {items.map(d => (
+      <li class="sws-item">
+        <a href="/food/#sweets" aria-label={`${d.name} — see Algerian sweets`}>
+          <span class="sws-thumb"><img src={d.img} alt={d.name} width="160" height="160" loading="lazy" decoding="async" /></span>
+          <span class="sws-name">{d.name}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</div></section>
+
+<style>
+  .sws-light{background:#FBF1DC}
+  .sws-wash{background:var(--wash)}
+  .sws-top{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap}
+  .sws .eyebrow{color:#A9710F}
+  .sws h2{color:#7a4a12;font-size:clamp(1.3rem,2.6vw,1.8rem);margin:.1rem 0 .3rem}
+  .sws-sub{color:#5e4828;max-width:620px;margin:0;font-size:.95rem;line-height:1.55}
+  .sws-link{flex:0 0 auto;font-weight:800;color:#8a3f12;white-space:nowrap}
+  .sws-link:hover{color:#A9710F;text-decoration:none}
+  .sws-row{list-style:none;display:flex;gap:1rem;margin:1.2rem 0 0;padding:.2rem;overflow-x:auto;
+    scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x proximity}
+  .sws-row::-webkit-scrollbar{display:none}
+  .sws-item{flex:0 0 auto;scroll-snap-align:start}
+  .sws-item a{display:flex;flex-direction:column;align-items:center;gap:.45rem;text-decoration:none;width:104px}
+  .sws-thumb{width:96px;height:96px;border-radius:50%;overflow:hidden;border:3px solid #E4AD40;
+    box-shadow:0 6px 16px rgba(122,74,18,.18);transition:transform .18s ease}
+  .sws-item a:hover .sws-thumb{transform:translateY(-4px) scale(1.04)}
+  .sws-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .sws-name{font-size:.76rem;font-weight:700;color:#6b4a1f;text-align:center;line-height:1.2}
+</style>
