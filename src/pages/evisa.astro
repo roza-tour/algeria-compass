@@ -8,9 +8,13 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
   {'@type':'ListItem',position:2,name:'e-Visa & Entry',item:`${site}/evisa/`}]};
 const faqs = [
-  { q: 'Does Algeria have an e-Visa for tourists?', a: 'There is no general online tourist e-Visa for ordinary travel to Algeria. The two practical routes are a tourist visa from your local Algerian consulate, or — for organised Sahara tours entered via the south — a simplified visa on arrival at the southern airports. We handle the paperwork either way.' },
-  { q: 'What is the closest thing to an e-Visa?', a: 'The southern visa-on-arrival arrangement for organised desert tourism: rather than visiting a consulate, your authorisation is arranged in advance and issued on arrival at a southern gateway airport for qualifying itineraries. It applies only to organised Saharan travel.' },
-  { q: 'How do I actually enter Algeria?', a: 'Most visitors fly into Algiers (or another northern airport) on a consulate tourist visa, supported by our invitation letter. Travellers on organised southern desert tours may instead use the visa-on-arrival route at the southern airports. We confirm which applies to you.' },
+  { q: 'What is the Saharan e-Visa?', a: 'It is the visa-authorisation document we prepare for travellers on an organised Saharan program. As a licensed Algerian tour operator we issue an authorisation carrying a QR code that is verifiable on the Algerian Ministry of Interior’s portal. The visa itself is granted by the Algerian authorities — your sticker/stamp is issued on arrival; we handle every file in advance.' },
+  { q: 'How much does the Saharan e-Visa cost?', a: 'The visa-authorisation document is €40. Preparing all of the required files is completely free on our side. A separate visa sticker/stamp tax is payable to the authorities on arrival — the amount depends on your nationality, and we tell you the figure before you travel.' },
+  { q: 'Can I visit the north too, or only the desert?', a: 'Both. With our support a single trip can combine the north and the south, provided that roughly half of the journey is spent in a Saharan state (wilaya). We design the itinerary so it qualifies.' },
+  { q: 'Is the authorisation document official and verifiable?', a: 'Yes. It carries a QR code that can be checked on the Algerian Ministry of Interior’s portal. Issuance follows the official channels — we are your documentation partner; the Algerian authorities issue the visa.' },
+  { q: 'Do I need to book a full tour to get it?', a: 'Yes. The Saharan e-Visa authorisation is available when you book a complete program with us — it is part of arranging your organised trip, not a standalone service.' },
+  { q: 'Does Algeria have an e-Visa for tourists?', a: 'There is no general online tourist e-Visa for ordinary travel to Algeria. The two practical routes are a tourist visa from your local Algerian consulate, or — for organised Sahara tours entered via the south — the Saharan visa-authorisation we prepare, with the sticker issued on arrival. We handle the paperwork either way.' },
+  { q: 'How do I actually enter Algeria?', a: 'Most visitors fly into Algiers (or another northern airport) on a consulate tourist visa, supported by our invitation letter. Travellers on an organised Saharan program may instead use our visa-authorisation route, with the sticker issued on arrival at the southern gateway airports. We confirm which applies to you.' },
 ];
 const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
   mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
@@ -34,8 +38,8 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
       <h2>Route 1 — Consulate tourist visa (the north & most trips)</h2>
       <p>You apply for a tourist visa at the <strong>Algerian consulate</strong> covering your country, normally in person. Consulates require an <strong>invitation letter / tourist voucher</strong> from a licensed Algerian agency — which we issue you, along with your hotel and tour confirmation and a checklist for your nationality. Allow roughly <strong>two to four weeks</strong>.</p>
 
-      <h2>Route 2 — Visa on arrival for organised Sahara tours</h2>
-      <p>This is the closest thing to an "online" route. For <strong>organised desert tours entered via the south</strong>, a simplified <strong>visa on arrival</strong> can be arranged at the southern gateway airports for qualifying itineraries — no consulate visit needed. It applies only to organised Saharan travel, and we arrange the authorisation in advance as part of your trip.</p>
+      <h2>Route 2 — The Saharan e-Visa (organised desert programs)</h2>
+      <p>This is the closest thing to an "online" route. For an <strong>organised Saharan program</strong>, we prepare a <strong>visa-authorisation document</strong> in advance — no consulate visit needed — and your visa sticker is issued on arrival at the southern gateway airports. It applies only to organised Saharan travel. <a href="#saharan-evisa">See exactly how the Saharan e-Visa works ↓</a></p>
 
       <h2>How our visa support fits in</h2>
       <p>Whichever route applies, we prepare the documentation consulates and authorities expect, free with your booking — see <a href="/visa-support/">Visa Support</a> for the full detail and required documents. We are your documentation partner; the consulate or government issues the visa.</p>
@@ -47,5 +51,99 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
       <!-- OWNER: if Algeria introduces an official tourist e-Visa portal, link it here and update Route framing. -->
     </div>
   </div></section>
+
+  <!-- ===== Saharan e-Visa explainer (P7) ===== -->
+  <section class="section sev" id="saharan-evisa" data-region="sahara"><div class="wrap">
+    <div class="sev-head">
+      <span class="eyebrow">For organised Saharan programs</span>
+      <h2>The Saharan e-Visa — how it works</h2>
+      <p class="sev-lede">As a <strong>licensed Algerian tour operator</strong>, we can prepare your visa-authorisation document so you can travel through Algeria’s south. Issuance follows the official channels: we handle every file, and the Algerian authorities issue the visa. Here is exactly what that means — and what it costs.</p>
+    </div>
+
+    <ol class="sev-steps">
+      <li>
+        <span class="sev-n">1</span>
+        <div><strong>Book a complete program</strong>
+        <p>The Saharan e-Visa authorisation is available when you book a complete tour with us. We build your itinerary so that <strong>roughly half of the trip is spent in a Saharan state (wilaya)</strong> — which lets you combine the <strong>north and the south</strong> in one journey.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">2</span>
+        <div><strong>We prepare all the files — free</strong>
+        <p>Assembling every required document is <strong>completely free on our side</strong>. We tell you precisely what to send for your nationality and put the application together for you.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">3</span>
+        <div><strong>We issue your authorisation — €40</strong>
+        <p>You receive a <strong>visa-authorisation document carrying a QR code</strong> that is <strong>verifiable on the Algerian Ministry of Interior’s portal</strong>. The document costs <strong>€40</strong>.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">4</span>
+        <div><strong>Pay the sticker tax on arrival</strong>
+        <p>A <strong>visa sticker/stamp tax is payable on arrival</strong> to the Algerian authorities, who issue the visa. The amount depends on your nationality — we confirm the figure before you travel.</p></div>
+      </li>
+    </ol>
+
+    <div class="sev-facts">
+      <div class="sev-fact"><span class="sev-fig">€40</span><span class="sev-lab">Authorisation document</span></div>
+      <div class="sev-fact"><span class="sev-fig">Free</span><span class="sev-lab">We prepare every file</span></div>
+      <div class="sev-fact"><span class="sev-fig">QR-verified</span><span class="sev-lab">On the Ministry of Interior portal</span></div>
+      <div class="sev-fact"><span class="sev-fig">North + South</span><span class="sev-lab">≈ half the trip in a Saharan state</span></div>
+    </div>
+
+    <div class="sev-note">
+      <p><strong>One honest note:</strong> the visa sticker tax on arrival is a government charge, separate from our €40 document fee, and entry rules vary by nationality. Tell us your nationality and we’ll confirm both your eligibility and the exact arrival tax before you commit.</p>
+    </div>
+
+    <div class="sev-cta">
+      <a class="btn btn-gold" href="/tours/">Browse Saharan tours →</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hello Algeria Compass, I have a question about the Saharan e-Visa.')}`} target="_blank" rel="noopener">💬 Ask about the Saharan e-Visa</a>
+    </div>
+
+    <div class="sev-faq">
+      <h3>Saharan e-Visa — quick answers</h3>
+      <div class="faq">
+        {faqs.slice(0,5).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+      </div>
+    </div>
+  </div></section>
+
   <CtaSection heading="We handle the visa — you enjoy the trip" />
 </BaseLayout>
+
+<style>
+  /* ===== Saharan e-Visa explainer (P7) ===== */
+  .sev{
+    background-color:#F3E7CF;
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'48'%20height%3D'48'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23C2842B'%20stroke-width%3D'1'%20opacity%3D'.12'%3E%3Cpath%20d%3D'M24%203L45%2024L24%2045L3%2024Z'/%3E%3Ccircle%20cx%3D'24'%20cy%3D'24'%20r%3D'6'/%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(180deg,#FAF1DE,#F0E1C2);
+    scroll-margin-top:80px;
+  }
+  .sev .eyebrow{color:#A9651A}
+  .sev-head{max-width:780px}
+  .sev h2{color:#7a4513;font-size:clamp(1.5rem,3vw,2.1rem);margin:.2rem 0 .5rem}
+  .sev-lede{color:#574226;font-size:1.06rem;line-height:1.7;margin:0}
+  .sev-steps{list-style:none;padding:0;margin:1.8rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .sev-steps li{display:flex;gap:.85rem;background:#fffaf0;border:1px solid #e6cfa3;border-radius:14px;
+    padding:1.05rem 1.15rem;box-shadow:0 6px 18px rgba(122,69,19,.07)}
+  .sev-n{flex:0 0 auto;width:2rem;height:2rem;border-radius:50%;background:#B8730F;color:#fff;font-weight:800;
+    display:flex;align-items:center;justify-content:center;font-size:.95rem}
+  .sev-steps strong{display:block;color:#7a4513;font-size:1.04rem;margin-bottom:.2rem}
+  .sev-steps p{margin:0;color:#534233;font-size:.9rem;line-height:1.55}
+  .sev-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1.4rem 0 0}
+  .sev-fact{background:#7a4513;color:#fff;border-radius:13px;padding:1rem .9rem;text-align:center}
+  .sev-fig{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:800;color:#F4D58A;line-height:1.1}
+  .sev-lab{display:block;font-size:.78rem;color:rgba(255,255,255,.85);margin-top:.3rem;line-height:1.35}
+  .sev-note{margin:1.3rem 0 0;background:#fff6e6;border:1px solid #e6cfa3;border-left:4px solid #B8730F;
+    border-radius:10px;padding:.9rem 1.1rem}
+  .sev-note p{margin:0;color:#534233;font-size:.92rem;line-height:1.6}
+  .sev-cta{margin:1.5rem 0 0;display:flex;flex-wrap:wrap;gap:.7rem}
+  .sev-cta .btn-gold{background:#B8730F;color:#fff}
+  .sev-cta .btn-gold:hover{filter:brightness(1.08)}
+  .sev-cta .btn-ghost{border-color:#B8730F;color:#7a4513}
+  .sev-faq{margin:2rem 0 0;max-width:820px}
+  .sev-faq h3{color:#7a4513;font-size:1.2rem;margin:0 0 .6rem}
+  @media(max-width:760px){
+    .sev-steps{grid-template-columns:1fr}
+    .sev-facts{grid-template-columns:1fr 1fr}
+  }
+</style>

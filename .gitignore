@@ -24,3 +24,4 @@ dist
 # reviews.php / reviews-admin.php on first use. (data/.htaccess IS tracked.)
 /reviews-approved.json
 /data/*.jsonl
+shots/

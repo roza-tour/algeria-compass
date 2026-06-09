@@ -160,6 +160,13 @@ if (tour.faqs && tour.faqs.length) schema.push({
         <dl class="gtk">
           {tour.goodToKnow.map((g: any) => <><dt>{g.label}</dt><dd>{g.value}</dd></>)}
         </dl></>}
+
+      <aside class="visa-note">
+        <strong>🛂 Visa &amp; entry</strong>
+        {(tour.theme === 'sahara' || tour.theme === 'mzab')
+          ? <p>This trip heads into the Sahara, so the <a href="/evisa/#saharan-evisa">Saharan e-Visa</a> applies: as your licensed operator we prepare every file free and issue your QR-verified authorisation document (€40); the visa sticker tax is paid on arrival. <a href="/evisa/#saharan-evisa">See how it works →</a></p>
+          : <p>We support your visa, free, with every booking — and if your trip includes the desert you may qualify for the <a href="/evisa/#saharan-evisa">Saharan e-Visa</a>. <a href="/evisa/">How entry to Algeria works →</a></p>}
+      </aside>
     </div>
 
     <aside class="book-widget">
@@ -312,6 +319,10 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .gtk dt{font-weight:700;color:var(--accent);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
 .gtk dd{margin:0;color:var(--text-m)}
 .caps{text-transform:capitalize}
+.visa-note{margin-top:1.6rem;background:var(--wash);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1.1rem}
+.visa-note strong{display:block;color:var(--green-d);margin-bottom:.25rem}
+.visa-note p{margin:0;color:var(--text-m);font-size:.92rem;line-height:1.6}
+.visa-note a{color:var(--accent);font-weight:600}
 @media(max-width:820px){
   .section .wrap[style]{grid-template-columns:1fr !important}
   .book-widget{position:static}
