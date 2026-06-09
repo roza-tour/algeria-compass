@@ -131,7 +131,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
 
   <div class="tour" style={`--accent:${accent}`}>
   <section class={`hero${needsImage ? ' hero-gradient' : ''}`} data-region={region}>
-    {!needsImage && <img src={hero} alt={`${tour.title} — Algeria`} width="1600" height="900" />}
+    {!needsImage && <img src={hero} alt={`${tour.title} — Algeria`} width="1600" height="900" fetchpriority="high" decoding="async" />}
     <div class="hero-in wrap">
       <div class="eyebrow">Private guided tour · {tour.duration}</div>
       <h1>{tour.title}</h1>
