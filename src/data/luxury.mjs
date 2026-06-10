@@ -102,7 +102,7 @@ export const PROGRAMMES = [
     name: 'Sahara Heart',
     subtitle: 'Roman Ruins & Mozabite Pentapolis',
     tagline: 'From the ‘Pompeii of Africa’ to the fortified cities of the M’Zab — Roman empire meets living desert culture.',
-    accent: '#B26A2B', // saharan ochre
+    accent: '#8F5018', // saharan ochre (darkened for AA contrast)
     region: 'sahara',
     badges: ['8 Days / 7 Nights', 'Private Group', 'All-Inclusive · Sahara', '3 UNESCO Sites'],
     hero: '/assets/img/timgad-theatre.jpg',

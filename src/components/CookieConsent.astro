@@ -1,0 +1,60 @@
+---
+// L3 — GDPR cookie notice paired with Consent Mode v2 (see Analytics.astro).
+// Hidden by default; shown only when no choice is stored. Accept → analytics
+// consent granted; Decline → stays denied. Choice persisted in localStorage.
+import { ANALYTICS } from '../config';
+const enabled = !!ANALYTICS.ga4;
+---
+{enabled && (
+  <div id="cookie-consent" class="cc" role="dialog" aria-live="polite" aria-label="Cookie notice" hidden>
+    <div class="cc-in">
+      <p class="cc-txt">
+        We use cookies only to understand how visitors use the site (Google Analytics).
+        Nothing is set until you agree. See our <a href="/editorial/">privacy &amp; editorial standards</a>.
+      </p>
+      <div class="cc-btns">
+        <button type="button" class="cc-btn cc-decline" data-cc="denied">Decline</button>
+        <button type="button" class="cc-btn cc-accept" data-cc="granted">Accept analytics</button>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var el = document.getElementById('cookie-consent');
+      if (!el) return;
+      var stored = null;
+      try { stored = localStorage.getItem('ac-consent'); } catch (e) {}
+      if (!stored) { el.hidden = false; }
+
+      function choose(v) {
+        try { localStorage.setItem('ac-consent', v); } catch (e) {}
+        if (window.gtag) {
+          window.gtag('consent', 'update', {
+            analytics_storage: v === 'granted' ? 'granted' : 'denied'
+          });
+        }
+        el.hidden = true;
+      }
+      el.querySelectorAll('[data-cc]').forEach(function (b) {
+        b.addEventListener('click', function () { choose(b.getAttribute('data-cc')); });
+      });
+    })();
+  </script>
+
+  <style>
+    .cc{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:200;max-width:760px;margin:0 auto;
+      background:#07261C;color:#fff;border:1px solid rgba(201,162,75,.45);border-radius:14px;
+      box-shadow:0 12px 40px rgba(0,0,0,.4)}
+    .cc-in{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.2rem;padding:1rem 1.2rem}
+    .cc-txt{margin:0;flex:1 1 320px;font-size:.9rem;line-height:1.55;color:rgba(255,255,255,.92)}
+    .cc-txt a{color:#E0BE73;font-weight:600;text-decoration:underline}
+    .cc-btns{display:flex;gap:.6rem;flex:0 0 auto}
+    .cc-btn{font-weight:700;font-size:.88rem;padding:.55rem 1.1rem;border-radius:9px;border:0;cursor:pointer;min-height:40px}
+    .cc-decline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+    .cc-decline:hover{background:rgba(255,255,255,.12)}
+    .cc-accept{background:#C9A24B;color:#07261C}
+    .cc-accept:hover{filter:brightness(1.06)}
+    @media(max-width:520px){ .cc-btns{flex:1 1 100%} .cc-btn{flex:1} }
+  </style>
+)}

@@ -119,3 +119,12 @@
 [data-civ="08"] .card{border-color:rgba(178,58,42,0.3);border-top:3px solid var(--accent);}
 [data-civ="08"] .pgrid figure{border-color:rgba(178,58,42,0.4);}
 [data-civ="08"] .qbox{background:rgba(178,58,42,0.07);}
+
+/* L3 legibility — civ skins recolour all links by accent; keep BUTTON text
+   legible by re-asserting correct colours with higher specificity. */
+[data-civ] a.btn{color:#fff;}
+[data-civ] a.btn-gold{color:#1a1a1a;}
+[data-civ] .tour a.btn-gold,[data-civ] a.btn-gold.bw-cta{color:#fff;}
+[data-civ] a.btn-wa,[data-civ] a.btn-wa-2{color:#06351f;}
+[data-civ] a.btn-book{color:#07261C;}
+[data-civ] a.btn-ghost{color:inherit;}

@@ -24,8 +24,8 @@ export const CONTACT = {
 
 // Set ONE of these to turn analytics on. Leave blank to disable entirely (no tracking, no banner needed).
 export const ANALYTICS = {
-  plausibleDomain: '',   // e.g. 'algeriacompass.com'  (privacy-friendly, no cookie banner)
-  ga4: '',               // e.g. 'G-XXXXXXX'          (needs a cookie-consent banner in the EU)
+  plausibleDomain: '',            // e.g. 'algeriacompass.com'  (privacy-friendly, no cookie banner)
+  ga4: 'G-FH7BZFG1YM',            // Google Analytics 4 — loaded with Consent Mode v2 (denied by default)
 };
 
 // Optional email-backed form fallback. Leave blank to use WhatsApp/email handoff only.

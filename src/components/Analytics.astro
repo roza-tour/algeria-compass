@@ -1,4 +1,8 @@
 ---
+// L3 — Google Analytics 4 with Google Consent Mode v2 (GDPR).
+// Lives in <head>. Consent for analytics/ads defaults to DENIED, so GA loads in
+// privacy-preserving consent mode (no analytics cookies) until the visitor
+// accepts via the cookie banner (<CookieConsent/>, which calls consent 'update').
 import { ANALYTICS } from '../config';
 const { plausibleDomain, ga4 } = ANALYTICS;
 ---
@@ -7,10 +11,29 @@ const { plausibleDomain, ga4 } = ANALYTICS;
 )}
 {ga4 && (
   <>
+    <!-- Consent Mode v2 defaults — must run BEFORE gtag config -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      var __ac = null;
+      try { __ac = localStorage.getItem('ac-consent'); } catch (e) {}
+      var __granted = __ac === 'granted';
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: __granted ? 'granted' : 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+      gtag('js', new Date());
+    </script>
+    <!-- Google tag (gtag.js) -->
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`} is:inline></script>
     <script is:inline define:vars={{ ga4 }}>
-      window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-      gtag('js',new Date());gtag('config',ga4);
+      gtag('config', ga4, { anonymize_ip: true });
     </script>
   </>
 )}
