@@ -6,9 +6,9 @@
 // prefer reduced motion get a static, tidy grid instead. Photos are curated for
 // quality + variety (incl. desert/Sahara) by scripts/curate-traveller-photos.mjs.
 import slider from '../data/traveller-slider.json';
-// Cap at 24 tiles (12 per row × 2 rows) — enough for a seamless loop without
-// inflating the DOM. The marquee duplicates each row, so this renders 48 tiles.
-const photos = ((slider as any).slider as { src: string; w: number; h: number }[]).slice(0, 24);
+// Show 48 curated tiles (24 per row × 2 rows). The marquee duplicates each row
+// for the seamless loop, so this renders 96 lazy tiles across two strips.
+const photos = ((slider as any).slider as { src: string; w: number; h: number }[]).slice(0, 48);
 const mid = Math.ceil(photos.length / 2);
 const rowA = photos.slice(0, mid);
 const rowB = photos.slice(mid);
@@ -30,7 +30,7 @@ const loopB = [...rowB, ...rowB];
           <picture>
             <source srcset={p.src.replace(/\.(jpe?g|png)$/i, '.sm.webp')} type="image/webp" />
             <img src={p.src} alt={i >= rowA.length ? '' : 'An Algeria Compass traveller on tour in Algeria'}
-                 width="300" height="225" loading="lazy" decoding="async" />
+                 width={p.w} height={p.h} loading="lazy" decoding="async" />
           </picture>
         </li>
       ))}
@@ -41,7 +41,7 @@ const loopB = [...rowB, ...rowB];
           <picture>
             <source srcset={p.src.replace(/\.(jpe?g|png)$/i, '.sm.webp')} type="image/webp" />
             <img src={p.src} alt={i >= rowB.length ? '' : 'Algeria Compass guests exploring Algeria'}
-                 width="300" height="225" loading="lazy" decoding="async" />
+                 width={p.w} height={p.h} loading="lazy" decoding="async" />
           </picture>
         </li>
       ))}
@@ -63,10 +63,12 @@ const loopB = [...rowB, ...rowB];
   .tmq-right{animation:tmq-scroll-r 72s linear infinite}
   /* pause the whole marquee when a visitor hovers or tabs into it */
   .tmq:hover .tmq-row,.tmq:focus-within .tmq-row{animation-play-state:paused}
-  .tmq-tile{flex:0 0 auto;width:clamp(168px,22vw,232px);aspect-ratio:4/3;border-radius:14px;overflow:hidden;
+  /* film-strip: every tile is a fixed HEIGHT, native width — no cropping, so
+     portrait and landscape phone shots both show in full */
+  .tmq-tile{flex:0 0 auto;height:clamp(172px,24vw,224px);border-radius:14px;overflow:hidden;
     border:1px solid rgba(201,162,75,.28);box-shadow:0 8px 22px rgba(0,0,0,.3);background:#0c2c22}
-  .tmq-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
-  .tmq-tile:hover img{transform:scale(1.06)}
+  .tmq-tile img{height:100%;width:auto;display:block;transition:transform .4s ease}
+  .tmq-tile:hover img{transform:scale(1.05)}
   @keyframes tmq-scroll-l{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @keyframes tmq-scroll-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 
@@ -75,6 +77,6 @@ const loopB = [...rowB, ...rowB];
     .tmq-rows{mask-image:none;-webkit-mask-image:none;gap:.8rem}
     .tmq-row{animation:none;width:auto;flex-wrap:wrap;justify-content:center}
     .tmq-row [aria-hidden="true"]{display:none}
-    .tmq-tile{width:clamp(140px,30vw,200px)}
+    .tmq-tile{height:clamp(150px,32vw,188px)}
   }
 </style>

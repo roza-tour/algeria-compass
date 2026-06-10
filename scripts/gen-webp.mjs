@@ -24,10 +24,10 @@ const ss = readFileSync('src/components/StatesStrip.astro', 'utf8');
 const stateImgs = [...ss.matchAll(/img:\s*'([^']+\.(?:jpe?g|png))'/g)].map(m => m[1]);
 for (const web of stateImgs) { if (await make(PUB + web, PUB + webpOf(web, true), 460, 72)) made++; }
 
-// 2) Marquee client photos (displayed ~232px) -> 360w .sm.webp
+// 2) Marquee client photos (film-strip ~210px tall, retina) -> 440w .sm.webp @82
 try {
   const sj = JSON.parse(readFileSync('src/data/traveller-slider.json', 'utf8'));
-  for (const s of (sj.slider || [])) { if (await make(PUB + s.src, PUB + webpOf(s.src, true), 360, 72)) made++; }
+  for (const s of (sj.slider || [])) { if (await make(PUB + s.src, PUB + webpOf(s.src, true), 440, 82)) made++; }
 } catch (e) { console.warn('slider', e.message); }
 
 // 3) Tour thumbnails (displayed ~400px) -> same-size .webp (format win)
