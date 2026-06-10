@@ -1,0 +1,210 @@
+---
+// L1 — renders ONE 5-Star Collection programme (hero, overview, route,
+// day-by-day, accommodation, inclusions, pricing, booking CTA).
+import { LUX_PRICING } from '../data/luxury.mjs';
+import { CONTACT } from '../config';
+import Motif from './Motif.astro';
+export interface Props { prog: any; }
+const { prog } = Astro.props as { prog: any };
+const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hello Algeria Compass, I'd like to reserve the 5-Star journey “${prog.name}” (Programme ${prog.num}).`)}`;
+---
+<section class="lp" id={prog.id} data-region={prog.region} style={`--accent:${prog.accent}`}>
+  <!-- ===== programme hero ===== -->
+  <div class="lp-hero">
+    <img src={prog.hero} alt={`${prog.name} — luxury Algeria tour`} width="1600" height="900" loading="lazy" decoding="async" />
+    <div class="lp-hero-veil"></div>
+    <div class="wrap lp-hero-in">
+      <span class="lp-num">{prog.num}</span>
+      <span class="eyebrow lp-eyebrow">Programme {prog.num} · {prog.subtitle}</span>
+      <h2>{prog.name}</h2>
+      <p class="lp-tagline">{prog.tagline}</p>
+      <ul class="lp-badges">
+        {prog.badges.map((b: string) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap lp-body">
+    <!-- overview -->
+    <div class="lp-over">
+      <Motif name="zellige" size={54} class="lp-over-motif" />
+      <p class="lp-lead">{prog.heroLine}</p>
+      <p class="lp-overview">{prog.overview}</p>
+    </div>
+
+    <!-- route -->
+    <div class="lp-route" aria-label="Route">
+      {prog.route.map((r: any, i: number) => (
+        <>
+          <span class="lp-stop"><span class="lp-stop-place">{r.place}</span><span class="lp-stop-note">{r.note}</span></span>
+          {i < prog.route.length - 1 && <span class="lp-arrow" aria-hidden="true">→</span>}
+        </>
+      ))}
+    </div>
+
+    <!-- day-by-day -->
+    <h3 class="lp-h">Day by day</h3>
+    <ol class="lp-days">
+      {prog.days.map((d: any) => (
+        <li class="lp-day">
+          <figure class="lp-day-img">
+            <img src={d.img} alt={d.title} width="640" height="440" loading="lazy" decoding="async" />
+            <figcaption class="lp-day-tag">{d.label}</figcaption>
+            {d.flag && <span class="lp-flag" title={d.flag}>⚑ photo TBC</span>}
+          </figure>
+          <div class="lp-day-b">
+            <h4>{d.title}</h4>
+            <ol class="lp-exp">
+              {d.stops.map((s: any) => (
+                <li><span class="lp-exp-t">{s.t}</span><span class="lp-exp-d">{s.d}</span></li>
+              ))}
+            </ol>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <!-- accommodation + inclusions -->
+    <div class="lp-grid2">
+      <div class="lp-panel">
+        <h3 class="lp-h2">Accommodation</h3>
+        <ul class="lp-stay">
+          {prog.stay.map((s: any) => (
+            <li><span class="lp-stay-city">{s.city}</span><span class="lp-stay-nights">{s.nights}</span><span class="lp-stay-hotels">{s.hotels}</span></li>
+          ))}
+        </ul>
+        <p class="lp-stay-note">Specific properties are confirmed in writing with your booking, subject to availability.</p>
+      </div>
+      <div class="lp-panel lp-panel-dark">
+        <h3 class="lp-h2">All-inclusive</h3>
+        <ul class="lp-incl">
+          {prog.includes.map((i: string) => <li>{i}</li>)}
+        </ul>
+        <p class="lp-cancel">✓ Free cancellation up to 5 days before departure</p>
+      </div>
+    </div>
+
+    <!-- pricing -->
+    <h3 class="lp-h2 lp-price-h">Pricing · per person · EUR</h3>
+    <p class="lp-price-sub">Private group · all-inclusive. The more you travel together, the lower the per-person rate.</p>
+    <div class="lp-tiers">
+      {LUX_PRICING.tiers.map((t: any) => (
+        <div class="lp-tier">
+          <span class="lp-tier-pax">{t.pax}</span>
+          <span class="lp-tier-price">{t.price}</span>
+          <span class="lp-tier-note">{t.note}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="lp-cta">
+      <div class="lp-from">From <strong>{LUX_PRICING.fromLabel}</strong> <span>per person</span></div>
+      <div class="lp-cta-btns">
+        <a class="btn btn-gold" href="#reserve">Reserve this journey →</a>
+        <a class="btn btn-wa-2" href={wa} target="_blank" rel="noopener">💬 WhatsApp us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lp{--ink:#0B3D2E;position:relative}
+  .lp + .lp{margin-top:0}
+  /* hero */
+  .lp-hero{position:relative;min-height:clamp(320px,46vh,520px);display:flex;align-items:flex-end;overflow:hidden}
+  .lp-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .lp-hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,38,28,.35) 0%,rgba(7,38,28,.45) 40%,rgba(7,38,28,.88) 100%)}
+  .lp-hero-in{position:relative;padding:2.4rem 0 2.2rem;color:#fff}
+  .lp-num{font-family:'Cinzel',serif;font-size:clamp(3rem,8vw,5rem);font-weight:900;color:var(--accent);
+    line-height:.8;display:block;opacity:.95;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+  .lp-eyebrow{color:var(--gold-l,#E0BE73);margin-top:.4rem}
+  .lp-hero-in h2{font-family:'Cinzel',serif;color:#fff;font-size:clamp(1.9rem,5vw,3rem);margin:.2rem 0 .4rem;
+    line-height:1.05;text-shadow:0 2px 16px rgba(0,0,0,.35)}
+  .lp-tagline{color:rgba(255,255,255,.95);font-size:1.05rem;line-height:1.6;max-width:680px;margin:0}
+  .lp-badges{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:1rem 0 0}
+  .lp-badges li{font-size:.78rem;font-weight:700;letter-spacing:.02em;color:#fff;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.34);border-radius:999px;padding:.3rem .8rem;backdrop-filter:blur(2px)}
+  /* body */
+  .lp-body{padding:2.4rem 0 3rem}
+  .lp-over{position:relative;max-width:820px;margin:0 auto}
+  .lp-over-motif{color:var(--accent);opacity:.5;display:block;margin:0 auto .4rem}
+  .lp-lead{font-family:'Cinzel',serif;font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.45;color:var(--ink);
+    text-align:center;margin:0 0 1rem}
+  .lp-overview{color:#33433d;font-size:1.02rem;line-height:1.75;text-align:center;margin:0}
+  /* route */
+  .lp-route{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.4rem .55rem;margin:2rem 0 .5rem}
+  .lp-stop{display:inline-flex;flex-direction:column;align-items:center;background:var(--wash,#f7f5ef);
+    border:1px solid var(--border,#e4ddd0);border-top:3px solid var(--accent);border-radius:10px;padding:.4rem .7rem;min-width:74px}
+  .lp-stop-place{font-weight:800;color:var(--ink);font-size:.9rem}
+  .lp-stop-note{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);font-weight:700}
+  .lp-arrow{color:var(--accent);font-weight:800}
+  /* day-by-day */
+  .lp-h{font-family:'Cinzel',serif;color:var(--ink);font-size:1.5rem;text-align:center;margin:2.4rem 0 1.4rem;
+    position:relative}
+  .lp-h::after{content:"";display:block;width:60px;height:3px;background:var(--accent);margin:.5rem auto 0;border-radius:2px}
+  .lp-days{list-style:none;padding:0;margin:0;display:grid;gap:1.4rem}
+  .lp-day{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:1.4rem;align-items:stretch;
+    background:#FBF7EE;border:1px solid var(--border,#e4ddd0);border-radius:16px;overflow:hidden;
+    box-shadow:0 6px 18px rgba(11,61,46,.06)}
+  .lp-day:nth-child(even){grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+  .lp-day:nth-child(even) .lp-day-img{order:2}
+  .lp-day-img{position:relative;margin:0;min-height:230px}
+  .lp-day-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .lp-day-tag{position:absolute;left:0;bottom:0;background:var(--accent);color:#fff;font-size:.74rem;font-weight:800;
+    letter-spacing:.03em;padding:.35rem .7rem;border-top-right-radius:10px}
+  .lp-flag{position:absolute;top:.6rem;right:.6rem;background:#8a2f12;color:#fff;font-size:.66rem;font-weight:700;
+    padding:.2rem .5rem;border-radius:6px}
+  .lp-day-b{padding:1.4rem 1.5rem;display:flex;flex-direction:column}
+  .lp-day-b h4{font-family:'Cinzel',serif;color:var(--ink);font-size:1.2rem;margin:0 0 .8rem}
+  .lp-exp{list-style:none;counter-reset:exp;padding:0;margin:0;display:grid;gap:.85rem}
+  .lp-exp li{counter-increment:exp;position:relative;padding-left:2.1rem}
+  .lp-exp li::before{content:counter(exp);position:absolute;left:0;top:0;width:1.5rem;height:1.5rem;border-radius:50%;
+    background:var(--accent);color:#fff;font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center}
+  .lp-exp-t{display:block;font-weight:800;color:var(--ink);font-size:.96rem;margin-bottom:.1rem}
+  .lp-exp-d{display:block;color:#3a4a43;font-size:.9rem;line-height:1.55}
+  /* accommodation + inclusions */
+  .lp-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.4rem}
+  .lp-panel{background:#FBF7EE;border:1px solid var(--border,#e4ddd0);border-radius:16px;padding:1.4rem 1.5rem}
+  .lp-panel-dark{background:var(--ink);border-color:rgba(201,162,75,.3)}
+  .lp-h2{font-family:'Cinzel',serif;color:var(--ink);font-size:1.2rem;margin:0 0 .9rem}
+  .lp-panel-dark .lp-h2{color:var(--gold-l,#E0BE73)}
+  .lp-stay{list-style:none;padding:0;margin:0;display:grid;gap:.7rem}
+  .lp-stay li{display:grid;grid-template-columns:auto auto 1fr;gap:.2rem .7rem;align-items:baseline;
+    padding-bottom:.6rem;border-bottom:1px dashed var(--border,#e4ddd0)}
+  .lp-stay li:last-child{border-bottom:0;padding-bottom:0}
+  .lp-stay-city{font-weight:800;color:var(--ink)}
+  .lp-stay-nights{font-size:.78rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+  .lp-stay-hotels{grid-column:1/-1;color:#4a5a52;font-size:.9rem}
+  .lp-stay-note{margin:.9rem 0 0;font-size:.8rem;color:#5a6a62;line-height:1.5}
+  .lp-incl{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem .9rem}
+  .lp-incl li{position:relative;padding-left:1.3rem;color:rgba(255,255,255,.94);font-size:.92rem;line-height:1.45}
+  .lp-incl li::before{content:"◆";position:absolute;left:0;color:var(--gold-l,#E0BE73);font-size:.7rem;top:.2rem}
+  .lp-cancel{margin:1.1rem 0 0;font-size:.88rem;font-weight:700;color:#fff;background:rgba(201,162,75,.18);
+    border:1px solid rgba(201,162,75,.4);border-radius:8px;padding:.5rem .8rem}
+  /* pricing */
+  .lp-price-h{text-align:center;margin-top:2.6rem}
+  .lp-price-sub{text-align:center;color:#4a5a52;margin:.2rem auto 1.3rem;max-width:560px;font-size:.95rem}
+  .lp-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+  .lp-tier{background:var(--ink);border:1px solid rgba(201,162,75,.3);border-top:4px solid var(--accent);
+    border-radius:14px;padding:1.3rem 1rem;text-align:center;color:#fff}
+  .lp-tier-pax{display:block;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.03em}
+  .lp-tier-price{display:block;font-family:'Cinzel',serif;font-size:1.7rem;font-weight:800;color:var(--gold-l,#E0BE73);margin:.3rem 0 .2rem;line-height:1}
+  .lp-tier-note{display:block;font-size:.76rem;color:rgba(255,255,255,.7)}
+  /* cta */
+  .lp-cta{margin-top:1.6rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
+    background:linear-gradient(135deg,var(--ink),var(--accent));border-radius:16px;padding:1.4rem 1.6rem}
+  .lp-from{color:#fff;font-size:1.05rem}
+  .lp-from strong{font-family:'Cinzel',serif;font-size:1.7rem;color:var(--gold-l,#E0BE73)}
+  .lp-from span{color:rgba(255,255,255,.75);font-size:.9rem}
+  .lp-cta-btns{display:flex;flex-wrap:wrap;gap:.7rem}
+  .lp-cta .btn-gold{background:var(--gold,#C19333);color:#0B3D2E}
+  .lp-cta .btn-wa-2{background:#25D366;color:#06351f}
+  @media(max-width:820px){
+    .lp-day,.lp-day:nth-child(even){grid-template-columns:1fr}
+    .lp-day:nth-child(even) .lp-day-img{order:0}
+    .lp-day-img{min-height:200px;aspect-ratio:16/10}
+    .lp-grid2{grid-template-columns:1fr}
+    .lp-tiers{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:480px){ .lp-incl{grid-template-columns:1fr} }
+</style>

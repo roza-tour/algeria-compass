@@ -8,7 +8,7 @@ const SITE = (import.meta.env.SITE || 'https://algeriacompass.com').replace(/\/$
 const today = new Date().toISOString().slice(0, 10);
 
 export const GET: APIRoute = async () => {
-  const statics = ['', 'discover/', 'tours/', 'destinations/', 'provinces/', 'experiences/', 'blog/',
+  const statics = ['', 'discover/', 'tours/', 'luxury/', 'destinations/', 'provinces/', 'experiences/', 'blog/',
     'questions/', 'culture/', 'history/', 'food/', 'sweets/', 'unesco/', 'travel-guides/',
     'visa-support/', 'evisa/', 'booking-terms/', 'search/', 'sitemap/',
     'about/', 'contact/', 'editorial/', 'team/', 'reviewers/', 'knowledge/', 'knowledge/provinces/', 'knowledge/graph/', 'clusters/'];

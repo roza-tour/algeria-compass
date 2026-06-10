@@ -55,6 +55,18 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
     <p style="margin-top:1.4rem"><a class="btn" href="/tours/">All 20 tours →</a></p>
   </div></section>
 
+  <!-- L1 — Luxury 5-Star Collection banner -->
+  <section class="lux-band" aria-label="Luxury 5-Star Collection">
+    <a class="lux-band-in wrap" href="/luxury/">
+      <div class="lux-band-txt">
+        <span class="lux-band-eyebrow">★ The 5-Star Collection</span>
+        <h2>Luxury Algeria, privately yours</h2>
+        <p>Three signature, all-inclusive 8-day journeys — Roman ruins, UNESCO cities, the Sahara and the Andalusian west. Internal flights, 5-star hotels, private 4WD. From €1,615 / person.</p>
+        <span class="lux-band-cta">Discover the journeys →</span>
+      </div>
+    </a>
+  </section>
+
   <section class="section plan-sec"><div class="wrap">
     <div class="eyebrow">The country</div>
     <h2>Plan your Algeria trip</h2>
@@ -95,6 +107,23 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
 </BaseLayout>
 
 <style>
+  /* L1 — luxury banner */
+  .lux-band{background:#07261C}
+  .lux-band-in{display:block;text-decoration:none;position:relative;overflow:hidden;
+    padding:2.4rem 0;border-radius:0}
+  .lux-band{position:relative;overflow:hidden}
+  .lux-band::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(120% 100% at 90% -20%, rgba(201,162,75,.28), transparent 55%),
+    radial-gradient(90% 90% at -10% 120%, rgba(30,111,92,.5), transparent 55%),
+    linear-gradient(135deg,#0B3D2E,#07261C);pointer-events:none}
+  .lux-band-txt{position:relative;max-width:760px}
+  .lux-band-eyebrow{display:inline-block;color:#E0BE73;font-weight:800;font-size:.8rem;letter-spacing:.08em;
+    text-transform:uppercase;margin-bottom:.5rem}
+  .lux-band h2{font-family:'Cinzel',serif;color:#fff;font-size:clamp(1.5rem,3.4vw,2.3rem);margin:0 0 .5rem;line-height:1.1}
+  .lux-band p{color:rgba(255,255,255,.9);line-height:1.6;margin:0 0 1rem;max-width:640px}
+  .lux-band-cta{display:inline-block;background:#C9A24B;color:#07261C;font-weight:800;padding:.7rem 1.3rem;
+    border-radius:10px;transition:transform .15s ease,filter .15s ease}
+  .lux-band-in:hover .lux-band-cta{transform:translateY(-2px);filter:brightness(1.06)}
   /* P4 — "Plan your Algeria trip": vibrant, joyful entry cards */
   .plan-sec{background:linear-gradient(180deg,#fbf8f2,#f3ede0)}
   .plan-lead{color:var(--text-m);margin:.4rem 0 0}

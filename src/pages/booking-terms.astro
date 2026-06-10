@@ -9,7 +9,7 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:2,name:'Booking & Cancellation Terms',item:`${site}/booking-terms/`}]};
 const faqs = [
   { q: 'How do I pay, and is there a deposit?', a: 'Booking is by request. Once we confirm availability, permits and any flights, a deposit secures your dates and the balance is due before departure. Payment is by bank transfer or arranged on WhatsApp — we do not take card payments online yet.' },
-  { q: 'What is your refund policy if I cancel?', a: 'Cancel 15 or more days before departure and you receive a full refund. Cancel within 14 days of departure and 50% is refundable. Government visa fees, independently booked flights and travel insurance are never refundable, as they are paid to third parties.' },
+  { q: 'What is your refund policy if I cancel?', a: 'You can cancel free of charge up to 5 days before your tour departure date and receive a full refund. Within 5 days of departure, costs already committed on your behalf — hotels, internal flights, guides, drivers and suppliers — may no longer be recoverable, and we refund whatever remains. Government visa fees, independently booked flights and travel insurance are never refundable, as they are paid to third parties.' },
   { q: 'Can I change my dates?', a: 'Yes — date changes are free, subject to availability. Tell us as early as you can so we can re-arrange guides, transport and any permits.' },
 ];
 const faqSchema = { '@type':'FAQPage', '@id':`${site}/booking-terms/#faq`,
@@ -17,7 +17,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/booking-terms/#faq`,
 ---
 <BaseLayout
   title="Booking & Cancellation Terms | Algeria Compass"
-  description="How booking, deposits, payment, refunds and date changes work with Algeria Compass — full refund 15+ days before departure, 50% within 14 days, and free date changes subject to availability."
+  description="How booking, deposits, payment, refunds and date changes work with Algeria Compass — free cancellation up to 5 days before departure for a full refund, plus free date changes subject to availability."
   image="/assets/img/brand-algeria.jpg"
   keywords={["Algeria Compass booking terms","cancellation policy","refund policy","Algeria tour payment","Algeria tour deposit"]}
   schema={[breadcrumb, faqSchema]}>
@@ -36,8 +36,8 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/booking-terms/#faq`,
 
       <h2>Cancellations &amp; refunds</h2>
       <ul>
-        <li><strong>15 or more days before departure — full refund.</strong> We keep nothing.</li>
-        <li><strong>Within 14 days of departure — 50% refund.</strong> The balance covers commitments already made on your behalf to guides, drivers and suppliers.</li>
+        <li><strong>Free cancellation up to 5 days before departure — full refund.</strong> Cancel any time up to five days before your tour departure date and we refund you in full. We keep nothing.</li>
+        <li><strong>Within 5 days of departure.</strong> Costs already committed on your behalf — hotels, internal flights, guides, drivers and suppliers — may no longer be recoverable; we always refund whatever remains.</li>
       </ul>
       <p>Some costs are paid to third parties and are <strong>never refundable</strong> through us: visa fees paid to the Algerian government, international or domestic flights you booked independently, and travel-insurance premiums.</p>
 
@@ -51,10 +51,9 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/booking-terms/#faq`,
       <p>Contact us with your booking reference by email at <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> or on <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp ({CONTACT.phoneDisplay})</a>. We confirm within a day and process any refund promptly to your original payment method.</p>
 
       <p style="color:var(--text-l);font-size:.9rem">These terms apply to private tours booked directly with Algeria Compass. The specific terms for your trip are confirmed in writing at the time of booking.</p>
-      <!-- OWNER: confirm whether you want extra clauses to match rozatour-booking.com
-           (a 75% tier for 48h–14 days, a fixed force-majeure credit window, and a
-           date-change admin fee). Until confirmed, the published policy is the simpler
-           set you specified: full refund 15+ days, 50% within 14 days, free date changes. -->
+      <!-- OWNER: published cancellation policy = FREE CANCELLATION UP TO 5 DAYS before the
+           tour departure date (full refund). If you want a specific closer-in tier or fee
+           (rather than handling it case by case), tell me the exact figures and I'll add them. -->
     </div>
   </div></section>
   <CtaSection heading="Questions about a booking?" />

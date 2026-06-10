@@ -4,8 +4,8 @@
 // line, real trust cues, and a clear primary CTA.
 //
 // Trust cues are all TRUE for every tour: every itinerary is private + guided,
-// we are a licensed Algerian operator, and the booking terms give a full refund
-// 15+ days before departure (/booking-terms/).
+// we are a licensed Algerian operator, and the booking terms give free
+// cancellation up to 5 days before departure (/booking-terms/).
 //
 // "Best seller" is NEVER fabricated: it shows only when a tour has
 // `"bestseller": true` in src/data/tours.json. OWNER: set that flag on the
@@ -32,7 +32,7 @@ const benefit = t.hook || t.summary;
     <p class="tcard-benefit">{benefit}</p>
     <ul class="tcard-trust" aria-label="Why book this tour">
       <li>Licensed Algerian operator</li>
-      <li>Free cancellation 15+ days before</li>
+      <li>Free cancellation up to 5 days before</li>
     </ul>
     <div class="tcard-foot">
       <span class="tcard-price">

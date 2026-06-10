@@ -14,6 +14,8 @@ export const GET: APIRoute = async () => {
     rows.push({ t: t.title, u: `/tours/${t.id}/`, k: 'Tour', d: t.summary || t.hook || '' });
   }
 
+  rows.push({ t: 'Luxury 5-Star Collection', u: '/luxury/', k: 'Luxury', d: 'Three signature private, all-inclusive 8-day journeys — Roman ruins, UNESCO cities, the Sahara and the Andalusian west. From €1,615 per person.' });
+
   const map: [string, string, string][] = [
     ['province', '/provinces/', 'State'],
     ['destination', '/destinations/', 'Destination'],

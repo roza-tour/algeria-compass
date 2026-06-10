@@ -2,9 +2,9 @@
 // Rendered on /questions/ (with FAQPage JSON-LD) and a curated subset on the home page.
 // `href` links a question to its fuller dedicated guide where one exists.
 //
-// NOTE (flagged to owner): the booking/payment/cancellation answers are deliberately
-// general — confirm the real deposit %, payment methods and cancellation terms and
-// they can be made exact.
+// NOTE (flagged to owner): cancellation is now the confirmed policy — free
+// cancellation up to 5 days before the tour departure date. Deposit % and exact
+// payment methods are still general; confirm them to make those answers exact.
 
 export interface FaqItem { q: string; a: string; href?: string; }
 export interface FaqCategory { id: string; title: string; items: FaqItem[]; }
@@ -76,7 +76,7 @@ export const FAQ: FaqCategory[] = [
     { q: 'Is my booking confirmed immediately?', a: 'We confirm by email or WhatsApp once we have checked availability, transport and any required permits — not automatically, so that what we confirm is real.' },
   ]},
   { id: 'cancellation', title: 'Changes & cancellation', items: [
-    { q: 'What is your cancellation policy?', a: 'Terms are set out in writing when you book and depend on the tour and how far ahead you cancel, particularly where domestic flights and desert permits are involved. Contact us for the policy on a specific trip.' },
+    { q: 'What is your cancellation policy?', a: 'Free cancellation up to 5 days before your tour departure date — cancel any time before then and you receive a full refund. Within 5 days of departure, costs already committed on your behalf (hotels, internal flights, guides and suppliers) may no longer be recoverable, and we refund whatever remains. Government visa fees and independently booked flights are paid to third parties and are never refundable. Full terms are confirmed in writing when you book.' },
     { q: 'Can I change my dates or itinerary?', a: 'We will do our best to accommodate changes, subject to availability and any supplier or permit conditions. Tell us as early as possible so we can adjust the plan.' },
   ]},
 ];

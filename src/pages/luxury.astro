@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import LuxuryProgram from '../components/LuxuryProgram.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+import Motif from '../components/Motif.astro';
+import { PROGRAMMES, LUX_PRICING } from '../data/luxury.mjs';
+import { CONTACT } from '../config';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Hello Algeria Compass, I'd like to enquire about your 5-Star Collection luxury tours.")}`;
+
+const breadcrumb = { '@type':'BreadcrumbList', '@id':`${site}/luxury/#breadcrumb`, itemListElement:[
+  {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
+  {'@type':'ListItem',position:2,name:'Luxury 5-Star Collection',item:`${site}/luxury/`}]};
+
+// Travel-focused schema only: one TouristTrip per programme with an AggregateOffer
+// (price band, EUR). No Product/GTIN/brand/shipping — this is a travel service.
+const tripNodes = PROGRAMMES.map((p) => ({
+  '@type': 'TouristTrip',
+  '@id': `${site}/luxury/#${p.id}`,
+  name: `${p.name} — ${p.subtitle}`,
+  description: p.tagline,
+  url: `${site}/luxury/#${p.id}`,
+  image: site + p.hero,
+  touristType: ['Luxury travellers', 'Private groups'],
+  duration: 'P8D',
+  provider: { '@id': site + '/#organization' },
+  itinerary: {
+    '@type': 'ItemList',
+    numberOfItems: p.days.length,
+    itemListElement: p.days.map((d) => ({ '@type':'ListItem', position:d.n, name:`Day ${d.n}: ${d.title}` })),
+  },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'EUR',
+    lowPrice: LUX_PRICING.fromValue,
+    highPrice: 2290,
+    offerCount: LUX_PRICING.tiers.length,
+    availability: 'https://schema.org/InStock',
+    url: `${site}/luxury/#${p.id}`,
+    seller: { '@id': site + '/#organization' },
+  },
+}));
+
+const pillars = [
+  { icon: '🇩🇿', t: 'Licensed Algerian operator', d: 'Run on the ground by Algerians — every permit, road and door handled in-country.' },
+  { icon: '◆', t: 'Truly all-inclusive', d: 'Internal flights, all meals, 5-star hotels, a private 4WD fleet, guides and UNESCO fees — one price, no surprises.' },
+  { icon: '🗣️', t: 'Multilingual private guides', d: 'A dedicated tour leader who never leaves your group, plus expert local guides at each site.' },
+  { icon: '🛂', t: 'Visa support included', d: 'We prepare your visa documentation as part of the booking — see our e-Visa & visa support.' },
+  { icon: '🗓️', t: 'Free cancellation', d: 'Free cancellation up to 5 days before your tour departure date.' },
+  { icon: '★', t: 'Private, not packaged', d: 'Your own group only. Request-to-book, confirmed in writing before you pay — no instant-checkout, no crowds.' },
+];
+---
+<BaseLayout
+  title="Luxury Algeria Tours — The 5-Star Collection | Algeria Compass"
+  description="Three signature private, all-inclusive 8-day luxury tours of Algeria: Roman ruins, UNESCO cities, the Sahara and the Andalusian west. Internal flights, 5-star hotels, private 4WD and multilingual guides. From €1,615 per person."
+  image="/assets/img/tours/djemila-1.jpg"
+  imageAlt="Djemila's UNESCO Roman ruins — Algeria Compass luxury tours"
+  keywords={["Algeria luxury tours","5-star Algeria","private Algeria tours","luxury Sahara Algeria","luxury Algeria travel","Algeria UNESCO tours","all-inclusive Algeria tour"]}
+  schema={[breadcrumb, ...tripNodes]}
+  sticky={true}>
+
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Luxury 5-Star Collection'}]} />
+
+  <!-- ===== page hero ===== -->
+  <section class="lux-hero">
+    <div class="lux-hero-bg" aria-hidden="true"></div>
+    <Motif name="zellige" size={120} class="lux-hero-motif" />
+    <div class="wrap lux-hero-in">
+      <span class="eyebrow lux-eyebrow">Algeria Revealed · The 5-Star Collection</span>
+      <h1>Luxury Algeria, <span class="lux-gold">privately yours</span></h1>
+      <p class="lux-sub">Three signature private journeys — eight unhurried days each, fully all-inclusive, across Roman ruins, UNESCO cities, the living Sahara and the Andalusian west. Internal flights, 5-star hotels, a private 4WD fleet and a tour leader who never leaves your side.</p>
+      <div class="lux-stats">
+        <div><strong>3</strong><span>signature journeys</span></div>
+        <div><strong>8</strong><span>days · 7 nights</span></div>
+        <div><strong>All-in</strong><span>flights · hotels · meals</span></div>
+        <div><strong>€{LUX_PRICING.fromValue.toLocaleString('en-US')}</strong><span>from / person</span></div>
+      </div>
+      <p class="lux-hero-cta">
+        <a class="btn btn-gold" href="#programmes">Explore the journeys ↓</a>
+        <a class="btn btn-ghost lux-ghost" href={wa} target="_blank" rel="noopener">💬 Talk to a specialist</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== what makes it 5-star ===== -->
+  <section class="section lux-pillars"><div class="wrap">
+    <div class="lux-h"><span class="eyebrow">What makes it 5-star</span><h2>The Algeria Compass standard</h2>
+      <p class="lux-h-sub">Every claim below is simply how we operate — a licensed Algerian house running private, all-inclusive travel. No metrics we can’t stand behind.</p>
+    </div>
+    <div class="lux-pillar-grid">
+      {pillars.map(p => (
+        <div class="lux-pillar">
+          <span class="lux-pillar-i" aria-hidden="true">{p.icon}</span>
+          <h3>{p.t}</h3>
+          <p>{p.d}</p>
+        </div>
+      ))}
+    </div>
+  </div></section>
+
+  <!-- ===== programmes ===== -->
+  <div id="programmes">
+    {PROGRAMMES.map(p => <LuxuryProgram prog={p} />)}
+  </div>
+
+  <!-- ===== reserve ===== -->
+  <section class="section lux-reserve" id="reserve"><div class="wrap">
+    <div class="lux-reserve-grid">
+      <div class="lux-reserve-copy">
+        <span class="eyebrow">Reserve your journey</span>
+        <h2>Begin your 5-Star Collection trip</h2>
+        <p>Tell us which programme draws you — <strong>Classical Algeria</strong>, <strong>Sahara Heart</strong> or <strong>Four Seasons</strong> — your dates and group size. We confirm availability, internal flights and your final per-person price in writing, usually within a few hours.</p>
+        <ul class="lux-reserve-pts">
+          <li>Private, request-to-book — no payment to enquire</li>
+          <li>From <strong>{LUX_PRICING.fromLabel}</strong> per person, all-inclusive</li>
+          <li>Free cancellation up to 5 days before departure</li>
+          <li>Prefer to talk? <a href={wa} target="_blank" rel="noopener">Message us on WhatsApp</a> or email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+        </ul>
+      </div>
+      <div class="lux-reserve-form">
+        <h3>Request your private journey</h3>
+        <InquiryForm context="Luxury 5-Star Collection enquiry" defaultInterest="Luxury" />
+      </div>
+    </div>
+  </div></section>
+</BaseLayout>
+
+<style>
+  /* ===== page hero ===== */
+  .lux-hero{position:relative;overflow:hidden;background:#07261C;color:#fff}
+  .lux-hero-bg{position:absolute;inset:0;background:
+    radial-gradient(120% 90% at 80% -10%, rgba(201,162,75,.22), transparent 55%),
+    radial-gradient(90% 80% at 0% 110%, rgba(30,111,92,.45), transparent 55%),
+    linear-gradient(160deg,#0B3D2E 0%,#07261C 70%)}
+  .lux-hero-motif{position:absolute;right:-20px;top:30px;color:#C9A24B;opacity:.10}
+  .lux-hero-in{position:relative;padding:3.6rem 0 3.2rem;max-width:820px}
+  .lux-eyebrow{color:#E0BE73}
+  .lux-hero-in h1{font-family:'Cinzel',serif;font-size:clamp(2.2rem,6vw,3.7rem);line-height:1.04;margin:.6rem 0 .6rem;
+    text-shadow:0 2px 20px rgba(0,0,0,.3)}
+  .lux-gold{color:#E0BE73}
+  .lux-sub{font-size:clamp(1.02rem,2vw,1.18rem);line-height:1.65;color:rgba(255,255,255,.92);max-width:700px}
+  .lux-stats{display:flex;flex-wrap:wrap;gap:1.6rem;margin:1.6rem 0}
+  .lux-stats div{display:flex;flex-direction:column}
+  .lux-stats strong{font-family:'Cinzel',serif;font-size:1.7rem;color:#E0BE73;line-height:1}
+  .lux-stats span{font-size:.82rem;color:rgba(255,255,255,.75);margin-top:.2rem}
+  .lux-hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin:0}
+  .lux-hero-cta .btn-gold{background:#C9A24B;color:#07261C}
+  .lux-ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+  .lux-ghost:hover{background:rgba(255,255,255,.12)}
+  /* ===== pillars ===== */
+  .lux-pillars{background:var(--wash,#f7f5ef)}
+  .lux-h{text-align:center;max-width:680px;margin:0 auto 1.8rem}
+  .lux-h .eyebrow{color:var(--gold,#C19333)}
+  .lux-h h2{font-family:'Cinzel',serif;color:#0B3D2E;font-size:clamp(1.6rem,3vw,2.2rem);margin:.1rem 0 .4rem}
+  .lux-h-sub{color:#4a5a52;margin:0;line-height:1.6}
+  .lux-pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  .lux-pillar{background:#fff;border:1px solid var(--border,#e4ddd0);border-radius:14px;padding:1.3rem 1.4rem;
+    border-top:3px solid var(--gold,#C19333)}
+  .lux-pillar-i{font-size:1.5rem;display:block;margin-bottom:.4rem}
+  .lux-pillar h3{font-family:'Cinzel',serif;color:#0B3D2E;font-size:1.08rem;margin:0 0 .35rem}
+  .lux-pillar p{color:#42524a;font-size:.92rem;line-height:1.55;margin:0}
+  /* ===== reserve ===== */
+  .lux-reserve{background:#0B3D2E;color:#fff}
+  .lux-reserve-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:2.2rem;align-items:start}
+  .lux-reserve-copy .eyebrow{color:#E0BE73}
+  .lux-reserve-copy h2{font-family:'Cinzel',serif;color:#fff;font-size:clamp(1.5rem,3vw,2rem);margin:.1rem 0 .6rem}
+  .lux-reserve-copy p{color:rgba(255,255,255,.9);line-height:1.7}
+  .lux-reserve-pts{list-style:none;padding:0;margin:1.1rem 0 0;display:grid;gap:.55rem}
+  .lux-reserve-pts li{position:relative;padding-left:1.6rem;color:rgba(255,255,255,.92);font-size:.95rem;line-height:1.5}
+  .lux-reserve-pts li::before{content:"✦";position:absolute;left:0;color:#E0BE73}
+  .lux-reserve-pts a{color:#E0BE73;font-weight:600}
+  .lux-reserve-form{background:#fff;border-radius:16px;border-top:4px solid var(--gold,#C19333);padding:1.5rem}
+  .lux-reserve-form h3{font-family:'Cinzel',serif;color:#0B3D2E;font-size:1.2rem;margin:0 0 .8rem}
+  @media(max-width:860px){
+    .lux-pillar-grid{grid-template-columns:1fr 1fr}
+    .lux-reserve-grid{grid-template-columns:1fr;gap:1.4rem}
+  }
+  @media(max-width:560px){ .lux-pillar-grid{grid-template-columns:1fr} .lux-stats{gap:1.1rem} }
+</style>
