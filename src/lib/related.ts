@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { REGION_AFFINITY } from './recommend';
 
 type AnyEntry = { slug: string; data: any };
 
@@ -27,6 +28,11 @@ export async function related(
     if (picked.length >= limit) break;
     if (e.data.region === region && !picked.includes(e)) picked.push(e);
   }
+  // 3b) affinity region (e.g. sahara <-> mzab) before the generic fallback
+  if (region) { const aff = REGION_AFFINITY[region] || []; if (aff.length) for (const e of pool) {
+    if (picked.length >= limit) break;
+    if (aff.includes(e.data.region) && !picked.includes(e)) picked.push(e);
+  } }
   // 4) fallback: fill with anything remaining
   for (const e of pool) {
     if (picked.length >= limit) break;

@@ -63,6 +63,14 @@ export function recommend(ctx: RecoContext): Recommendations {
   return { entityId: eid, entities, clusters, aiBlocks, faqTypes, schemaTypes, citationHints };
 }
 
+// Thematic-region affinity: regions that belong to the same broad family score
+// as "related" even when not identical. The M'Zab (Ghardaïa) sits in the
+// northern Sahara, so sahara and mzab are mutually Saharan.
+export const REGION_AFFINITY: Record<string, string[]> = {
+  sahara: ['mzab'],
+  mzab: ['sahara'],
+};
+
 // Rank a content entry's relevance to a context (shared primary cluster > shared cluster >
 // shared region/theme > shared entity neighbourhood). Used to auto-build "related content".
 export function scoreContent(ctx: RecoContext, data: any): number {
@@ -73,7 +81,10 @@ export function scoreContent(ctx: RecoContext, data: any): number {
   if (pc && dc === pc) s += 6;
   if (pc && dsec.includes(pc)) s += 3;
   for (const c of ctx.secondaryClusters || []) { if (dc === c) s += 2; if (dsec.includes(c)) s += 1; }
-  if (ctx.region && data.region === ctx.region) s += 2;
+  if (ctx.region && data.region) {
+    if (data.region === ctx.region) s += 2;
+    else if ((REGION_AFFINITY[ctx.region] || []).includes(data.region)) s += 1;
+  }
   if (ctx.intent && data.intent === ctx.intent) s += 1;
   return s;
 }

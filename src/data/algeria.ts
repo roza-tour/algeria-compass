@@ -941,7 +941,11 @@ export const entities: Entity[] = [
 "slug": "ghardaia"
 },
 "themes": [
-"theme:road-trips"
+"theme:sahara",
+"theme:road-trips",
+"theme:unesco",
+"theme:architecture",
+"theme:cultural"
 ]
 },
 {
