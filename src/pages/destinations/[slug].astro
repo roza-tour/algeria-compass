@@ -42,7 +42,8 @@ const attr: any = {
   "description": d.quickAnswer,
   "url": `${site}/destinations/${item.slug}/`,
   "image": site + d.image,
-  "containedInPlace": { "@id": site + "/#algeria" }
+  "containedInPlace": { "@id": site + "/#algeria" },
+  "isPartOf": { "@id": site + "/#website" }
 };
 if (d.coordinates) attr.geo = { "@type": "GeoCoordinates", "latitude": d.coordinates.lat, "longitude": d.coordinates.lng };
 if (d.sameAs?.length) attr.sameAs = d.sameAs;
