@@ -39,7 +39,22 @@ if (existsSync(TH)) {
   }
 }
 
-// 4) Nav logo emblem -> small webp (referenced directly as .webp)
+// 4) CivilizationsExplorer photos (displayed ~520px) -> 620w .sm.webp
+const cx = readFileSync('src/components/CivilizationsExplorer.astro', 'utf8');
+const cxImgs = [...cx.matchAll(/(?:photo|src):?\s*['"]([^'"]+\.(?:jpe?g|png))['"]/g)].map(m => m[1])
+  .concat([...cx.matchAll(/src="([^"]+\.(?:jpe?g|png))"/g)].map(m => m[1]));
+for (const web of [...new Set(cxImgs)]) { if (await make(PUB + web, PUB + webpOf(web, true), 620, 74)) made++; }
+
+// 5) Sweets photos (strip thumbnails + cards) -> 480w .sm.webp
+const SW = 'public/assets/img/sweets';
+if (existsSync(SW)) {
+  for (const f of readdirSync(SW)) {
+    if (!/\.(jpe?g|png)$/i.test(f)) continue;
+    if (await make(path.join(SW, f), path.join(SW, webpOf(f, true)), 480, 74)) made++;
+  }
+}
+
+// 6) Nav logo emblem -> small webp (referenced directly as .webp)
 await make('public/assets/img/logo-emblem-gold.png', 'public/assets/img/logo-emblem-gold.webp', 130, 88);
 
 console.log('[webp] generated/verified', made, 'display-sized webp (+ logo)');

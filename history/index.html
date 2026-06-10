@@ -21,11 +21,11 @@
       s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ga4;
       document.head.appendChild(s);
     }
+    // Load only on the FIRST real user interaction — keeps gtag.js (~65 KiB)
+    // out of the initial/critical path entirely (and out of an idle Lighthouse run).
     ['scroll','click','keydown','pointerdown','touchstart'].forEach(function(ev){
       window.addEventListener(ev, __loadGA, { once: true, passive: true });
     });
-    if ('requestIdleCallback' in window) { requestIdleCallback(__loadGA, { timeout: 6000 }); }
-    else { setTimeout(__loadGA, 5000); }
   })();</script><script>
     document.addEventListener('click',function(e){
       var t=e.target.closest('[data-evt]'); if(!t) return; var name=t.getAttribute('data-evt');

@@ -114,10 +114,20 @@ const tours = (((data as any).tours || data) as any[]).map(t => t.title).sort();
       });
       list.innerHTML = html;
 
-      // 2) inject AggregateRating + Review JSON-LD — ONLY from real approved data
+      // 2) inject AggregateRating + Review JSON-LD — ONLY from real approved data.
+      // Uses the SAME @id as the sitewide Organization so Google MERGES the rating
+      // onto the one TravelAgency entity; the recommended LocalBusiness fields
+      // (telephone, priceRange, address, image) are included so the node is also
+      // complete if evaluated on its own (Rich Results: 0 warnings).
       var ld = {
         "@context":"https://schema.org", "@type":"TravelAgency",
+        "@id":"https://algeriacompass.com/#organization",
         "name":"Algeria Compass", "url":"https://algeriacompass.com/",
+        "image":"https://algeriacompass.com/assets/img/og-image.png",
+        "telephone":"+213784193176",
+        "priceRange":"€30–€2,290 per person",
+        "address":{ "@type":"PostalAddress", "streetAddress":"Rue Larbi Ben M’Hidi",
+          "addressLocality":"Alger-Centre", "addressRegion":"Algiers", "postalCode":"16000", "addressCountry":"DZ" },
         "aggregateRating":{ "@type":"AggregateRating", "ratingValue":avg.toFixed(1),
           "reviewCount":rs.length, "bestRating":5, "worstRating":1 },
         "review": rs.slice(-12).map(function(x){ return {

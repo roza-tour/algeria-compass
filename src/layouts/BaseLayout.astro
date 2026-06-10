@@ -32,6 +32,7 @@ const { title, description, image, imageAlt, type, region, civ, schema = [], sti
   <Seo title={title} description={description} image={image} imageAlt={imageAlt} type={type} keywords={keywords} />
   <SchemaGraph nodes={schema} />
   <Analytics />
+  <slot name="head" />
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>

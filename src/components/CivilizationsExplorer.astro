@@ -129,7 +129,7 @@ const items = SKINS.map(s => ({
         hidden={i !== 0}
         style={`--ca:${sk.accent};--ca2:${sk.accent2};--pill-text:${it.pillText};color:${sk.ink};background-color:${sk.surface};background-image:url("${it.patternUri}");border:1px solid ${sk.accent}`}
       >
-        <figure class="civx-photo"><img src={c.photo} alt={c.photoAlt} width="520" height="360" loading="lazy" /></figure>
+        <figure class="civx-photo"><picture><source srcset={c.photo.replace(/\.(jpe?g|png)$/i, '.sm.webp')} type="image/webp" /><img src={c.photo} alt={c.photoAlt} width="520" height="360" loading="lazy" decoding="async" /></picture></figure>
         <div class="civx-body">
           <div class="civx-head">
             <span class="civx-emblem lg" set:html={it.emblem} />
@@ -164,7 +164,7 @@ const items = SKINS.map(s => ({
   })}
 
   <a class="civx-cuisine" href="/food/">
-    <img src="/assets/img/cuisine/algeria-cuisine-04.jpg" alt="A platter of Algerian couscous — the national dish" width="120" height="120" loading="lazy" />
+    <picture><source srcset="/assets/img/cuisine/algeria-cuisine-04.sm.webp" type="image/webp" /><img src="/assets/img/cuisine/algeria-cuisine-04.jpg" alt="A platter of Algerian couscous — the national dish" width="120" height="120" loading="lazy" decoding="async" /></picture>
     <div>
       <h3>And the table that ties them together</h3>
       <p>Six civilisations meet on one plate — couscous, rechta, chorba, fresh bread and mint tea. Explore the food of Algeria.</p>
