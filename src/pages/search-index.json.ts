@@ -38,6 +38,7 @@ export const GET: APIRoute = async () => {
   const hubs: Row[] = [
     { t: 'Algerian Culture', u: '/culture/', k: 'Guide', d: 'Civilizations, identity and traditions of Algeria.' },
     { t: 'Algerian Food & Cuisine', u: '/food/', k: 'Guide', d: 'The dishes, pastries and food culture of Algeria.' },
+    { t: 'Algerian Sweets & Pastries', u: '/sweets/', k: 'Guide', d: 'Baklawa, qalb el louz, griwech, kaab el ghzal and more — a fun guide to Algeria’s honeyed pastries.' },
     { t: 'History of Algeria', u: '/history/', k: 'Guide', d: 'From Numidia and Rome to independence.' },
     { t: 'UNESCO World Heritage Sites', u: '/unesco/', k: 'Guide', d: "Algeria's seven UNESCO World Heritage sites." },
     { t: 'e-Visa & Entry to Algeria', u: '/evisa/', k: 'Guide', d: 'How entry works, including the Saharan e-Visa.' },

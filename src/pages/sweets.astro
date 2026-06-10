@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { SWEETS } from '../data/sweets.mjs';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+
+// Playful personality layered on top of the factual SWEETS data (keyed by name).
+const FUN: Record<string, { emoji: string; quip: string; meter: number }> = {
+  'Baklawa': { emoji: '💎', quip: 'Counts its layers in the dozens. Half the Mediterranean claims it — Algeria just quietly perfects it.', meter: 5 },
+  'Makroud el louz': { emoji: '🍃', quip: 'Looks like a tiny leaf, melts like a little cloud of almond.', meter: 4 },
+  'Qalb el louz': { emoji: '🌙', quip: '“Heart of the almond” — the most romantic thing you’ll order all Ramadan.', meter: 5 },
+  'Samsa': { emoji: '🔺', quip: 'Crunchy triangles, scientifically engineered for maximum honey retention.', meter: 4 },
+  'Griwech': { emoji: '🌹', quip: 'Folded into roses, fried into glory. Reigning “you can’t eat just one” champion.', meter: 5 },
+  'Tcharek (kaab el ghzal)': { emoji: '🦌', quip: '“Gazelle horns” — elegant enough for a wedding, sneaky enough to vanish before the photos.', meter: 3 },
+  'Dziriette': { emoji: '👑', quip: 'The petit-four that dresses up for grand occasions and weddings.', meter: 4 },
+  'Ghribia (montecaos)': { emoji: '☁️', quip: 'Dissolves the instant it touches your tongue. Zero chewing required.', meter: 3 },
+  'Mhalbi': { emoji: '🥛', quip: 'The cool-down: rose-scented pudding for when the honey gets serious.', meter: 2 },
+};
+
+const sweets = SWEETS.map(s => ({ ...s, ...(FUN[s.name] || { emoji: '🍯', quip: '', meter: 3 }) }));
+
+// Spare photos (not used as a dish card) for the fun gallery ribbon.
+const gallery = [4, 5, 6, 7, 8, 12, 15, 17, 18, 19, 21].map(n => `/assets/img/sweets/algeria-sweets-${String(n).padStart(2, '0')}.jpg`);
+
+const occasions = [
+  { emoji: '🌙', t: 'Eid', d: 'Trays stacked higher than the kids, doors open, everyone “just trying one”.' },
+  { emoji: '💍', t: 'Weddings', d: 'Baklawa as the centrepiece, dziriette for elegance, and far too many to count.' },
+  { emoji: '🕌', t: 'Ramadan nights', d: 'Qalb el louz and griwech after iftar, with mint tea poured from a great height.' },
+  { emoji: '🍵', t: 'Tea o’clock', d: 'Honestly? Any excuse. A guest at the door is reason enough.' },
+];
+
+const faqs = [
+  { q: 'Are Algerian sweets really *that* sweet?', a: 'Gloriously, yes — most are soaked in honey or orange-blossom syrup. That’s exactly why they’re served in small pieces with unsweetened mint tea or bitter coffee to balance them out.' },
+  { q: 'Can I take some home with me?', a: 'Absolutely. Drier pastries like baklawa, ghribia, griwech and kaab el ghzal travel well in a tin for a week or more. Your guide can point you to the best pâtisserie in town to stock up.' },
+  { q: 'Are any of them vegetarian or nut-free?', a: 'Most are vegetarian (almond, semolina, honey, butter). Nut-free is harder — almonds and walnuts star in many — but rice-flour mhalbi and some shortbreads are good bets. Tell us about allergies and we’ll plan around them.' },
+  { q: 'Where can I taste these on a tour?', a: 'On our food-leaning itineraries we build in pâtisserie and tea-house stops, plus home or market tastings where it fits. See the food page and our tours to plan a deliciously sticky trip.' },
+];
+const faqSchema = { '@type':'FAQPage', '@id':`${site}/sweets/#faq`,
+  mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q.replace(/\*/g,''), acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
+const breadcrumb = { '@type':'BreadcrumbList', '@id':`${site}/sweets/#breadcrumb`, itemListElement:[
+  {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
+  {'@type':'ListItem',position:2,name:'Algerian Sweets',item:`${site}/sweets/`}]};
+const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Algerian sweets & pastries',
+  itemListElement: sweets.map((s, i) => ({ '@type':'ListItem', position:i+1, name:s.name, image: site + s.img })) };
+---
+<BaseLayout
+  title="Algerian Sweets & Pastries — A Deliciously Sticky Guide | Algeria Compass"
+  description="Meet Algeria's honeyed, almond-rich pastries: baklawa, qalb el louz, griwech, kaab el ghzal and more — what they are, when they're eaten, and where to taste them. Bring stretchy trousers."
+  image="/assets/img/sweets/algeria-sweets-20.jpg"
+  imageAlt="A tray of glossy Algerian baklawa diamonds soaked in honey"
+  keywords={["Algerian sweets","Algerian pastries","baklawa","qalb el louz","griwech","kaab el ghzal","Algeria desserts"]}
+  schema={[breadcrumb, faqSchema, itemList]}>
+
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algerian Sweets'}]} />
+
+  <!-- ===== playful hero ===== -->
+  <section class="sx-hero">
+    <div class="sx-hero-deco" aria-hidden="true">🍯🌙💎🌹🍵✨</div>
+    <div class="wrap sx-hero-in">
+      <div class="sx-badge">Warning: stretchy trousers recommended</div>
+      <h1>Algeria’s sweet side <span class="sx-wave">🍯</span></h1>
+      <p class="sx-lede">Honey, almonds, orange blossom and a heroic amount of syrup. These are the pastries Algerians pile onto trays for Eid, weddings and Ramadan nights — and quietly demolish with mint tea the rest of the year.</p>
+      <p class="sx-cta">
+        <a class="btn btn-gold" href="#meet">Meet the pastries ↓</a>
+        <a class="btn btn-ghost sx-ghost" href="/food/">The full food story →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== the golden rule ===== -->
+  <section class="section sx-rule"><div class="wrap">
+    <p>🍵 <strong>The golden rule:</strong> the sweets are sweet on purpose. They come in small pieces, with <em>unsweetened</em> tea or bitter coffee to keep you upright. Pace yourself. (You won’t.)</p>
+  </div></section>
+
+  <!-- ===== the pastries ===== -->
+  <section class="section sx-meet" id="meet"><div class="wrap">
+    <div class="sx-h">
+      <span class="eyebrow">The starting nine</span>
+      <h2>The pastries, ranked by stickiness</h2>
+      <p class="sx-sub">Every one is real, traditional and worth the sugar. The “sticky meter” is purely for fun — and entirely accurate.</p>
+    </div>
+    <div class="sx-grid">
+      {sweets.map(s => (
+        <article class="sx-card">
+          <div class="sx-img">
+            <img src={s.img} alt={`${s.name} — Algerian pastry`} width="420" height="320" loading="lazy" decoding="async" />
+            <span class="sx-emoji" aria-hidden="true">{s.emoji}</span>
+          </div>
+          <div class="sx-b">
+            <h3>{s.name}</h3>
+            <span class="sx-origin">{s.origin}</span>
+            <p class="sx-desc">{s.desc}</p>
+            {s.quip && <p class="sx-quip">{s.quip}</p>}
+            <div class="sx-meter" title={`Stickiness: ${s.meter}/5`} aria-label={`Stickiness ${s.meter} out of 5`}>
+              <span class="sx-meter-lab">Sticky-o-meter</span>
+              <span class="sx-drops" aria-hidden="true">{'🍯'.repeat(s.meter)}<span class="sx-faded">{'🍯'.repeat(5 - s.meter)}</span></span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div></section>
+
+  <!-- ===== when the trays come out ===== -->
+  <section class="section sx-occ"><div class="wrap">
+    <div class="sx-h sx-h-center">
+      <span class="eyebrow">When the trays come out</span>
+      <h2>Sweet o’clock in Algeria 🕰️</h2>
+    </div>
+    <div class="sx-occ-grid">
+      {occasions.map(o => (
+        <div class="sx-occ-card">
+          <span class="sx-occ-emoji" aria-hidden="true">{o.emoji}</span>
+          <h3>{o.t}</h3>
+          <p>{o.d}</p>
+        </div>
+      ))}
+    </div>
+  </div></section>
+
+  <!-- ===== fun gallery ribbon ===== -->
+  <section class="section sx-gal"><div class="wrap">
+    <div class="sx-h"><span class="eyebrow">Eye candy</span><h2>Just look at them 😍</h2></div>
+    <div class="sx-ribbon">
+      {gallery.map((g, i) => (
+        <figure class="sx-rib-item"><img src={g} alt={`Algerian pastries close-up ${i+1}`} width="300" height="300" loading="lazy" decoding="async" /></figure>
+      ))}
+    </div>
+  </div></section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section sx-faq"><div class="wrap" style="max-width:820px">
+    <div class="sx-h"><span class="eyebrow">Sweet questions</span><h2>Before you dig in</h2></div>
+    <div class="faq">
+      {faqs.map(f => <details><summary set:html={f.q.replace(/\*([^*]+)\*/g,'<em>$1</em>')}></summary><p>{f.a}</p></details>)}
+    </div>
+    <p class="sx-foot">Hungry yet? Plan a trip that tastes as good as it looks — <a href="/tours/">browse our tours</a> or read <a href="/food/">the full Algerian food story</a>.</p>
+  </div></section>
+
+  <CtaSection heading="Come for the dunes, stay for the dessert" />
+</BaseLayout>
+
+<style>
+  /* ===== hero ===== */
+  .sx-hero{position:relative;overflow:hidden;color:#fff;
+    background:linear-gradient(135deg,#7a2f12 0%,#B8730F 38%,#E0992B 64%,#D86A8E 100%)}
+  .sx-hero-deco{position:absolute;inset:0;font-size:3.2rem;line-height:2.4;letter-spacing:1.5rem;
+    opacity:.12;transform:rotate(-12deg) scale(1.4);pointer-events:none;user-select:none;white-space:pre-wrap}
+  .sx-hero-in{position:relative;padding:3.4rem 0 3rem;max-width:760px}
+  .sx-badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;padding:.3rem .9rem;font-size:.78rem;font-weight:800;letter-spacing:.02em;backdrop-filter:blur(2px)}
+  .sx-hero h1{font-size:clamp(2.1rem,6vw,3.4rem);margin:.7rem 0 .5rem;line-height:1.05;text-shadow:0 2px 14px rgba(0,0,0,.22)}
+  .sx-wave{display:inline-block;animation:sx-wave 2.4s ease-in-out infinite;transform-origin:70% 70%}
+  @keyframes sx-wave{0%,60%,100%{transform:rotate(0)}15%{transform:rotate(16deg)}30%{transform:rotate(-8deg)}45%{transform:rotate(12deg)}}
+  .sx-lede{font-size:1.1rem;line-height:1.65;color:rgba(255,255,255,.95);max-width:620px}
+  .sx-cta{margin-top:1.3rem;display:flex;gap:.7rem;flex-wrap:wrap}
+  .sx-cta .btn-gold{background:#fff;color:#8a3f12}
+  .sx-cta .btn-gold:hover{background:#fff;filter:brightness(.96)}
+  .sx-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+  .sx-ghost:hover{background:rgba(255,255,255,.12)}
+
+  /* ===== golden rule ===== */
+  .sx-rule{background:#FFF6E6;padding:1.3rem 0}
+  .sx-rule p{margin:0;text-align:center;color:#5e4828;font-size:1.05rem;line-height:1.6;max-width:760px;margin-inline:auto}
+  .sx-rule strong{color:#8a3f12}
+
+  /* ===== shared headings ===== */
+  .sx-meet,.sx-gal,.sx-faq{background:#FBF1DC}
+  .sx-h .eyebrow{color:#A9710F}
+  .sx-h h2{color:#7a4a12;font-size:clamp(1.5rem,3vw,2.1rem);margin:.1rem 0 .4rem}
+  .sx-sub{color:#5e4828;max-width:640px;margin:0;font-size:1rem;line-height:1.6}
+  .sx-h-center{text-align:center}.sx-h-center .sx-sub{margin-inline:auto}
+
+  /* ===== pastry cards ===== */
+  .sx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.4rem;margin-top:1.7rem}
+  .sx-card{background:#fffaf1;border:1px solid #e8d3a8;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;
+    box-shadow:0 8px 22px rgba(122,74,18,.10);transition:transform .2s ease,box-shadow .2s ease}
+  .sx-card:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 18px 38px rgba(122,74,18,.22)}
+  .sx-img{position:relative;aspect-ratio:7/5;overflow:hidden;background:#f0ddb8}
+  .sx-img img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+  .sx-card:hover .sx-img img{transform:scale(1.08)}
+  .sx-emoji{position:absolute;bottom:-14px;right:14px;font-size:2rem;background:#fffaf1;border-radius:50%;
+    width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(122,74,18,.25);
+    transition:transform .2s ease}
+  .sx-card:hover .sx-emoji{transform:scale(1.15) rotate(8deg)}
+  .sx-b{padding:1.2rem 1.15rem 1.15rem;display:flex;flex-direction:column;flex:1}
+  .sx-b h3{font-family:var(--serif);color:#8a3f12;font-size:1.25rem;margin:0}
+  .sx-origin{font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:#A9710F;font-weight:800;margin:.25rem 0 .5rem}
+  .sx-desc{font-size:.9rem;color:#534233;line-height:1.55;margin:0}
+  .sx-quip{font-size:.88rem;color:#8a3f12;font-style:italic;line-height:1.5;margin:.6rem 0 0;
+    border-left:3px solid #E4AD40;padding-left:.7rem}
+  .sx-meter{margin-top:auto;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+  .sx-meter-lab{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;font-weight:800;color:#A9710F}
+  .sx-drops{font-size:.85rem;letter-spacing:1px}
+  .sx-faded{opacity:.22}
+
+  /* ===== occasions ===== */
+  .sx-occ{background:linear-gradient(180deg,#fff,#FBF1DC)}
+  .sx-occ-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.1rem;margin-top:1.6rem}
+  .sx-occ-card{background:#fffaf1;border:1px solid #e8d3a8;border-radius:16px;padding:1.4rem 1.2rem;text-align:center;
+    transition:transform .18s ease}
+  .sx-occ-card:hover{transform:translateY(-4px)}
+  .sx-occ-emoji{font-size:2.4rem;display:block;margin-bottom:.4rem}
+  .sx-occ-card h3{font-family:var(--serif);color:#8a3f12;font-size:1.2rem;margin:0 0 .3rem}
+  .sx-occ-card p{font-size:.9rem;color:#534233;line-height:1.5;margin:0}
+
+  /* ===== gallery ribbon ===== */
+  .sx-ribbon{display:flex;gap:1rem;margin-top:1.4rem;padding:.3rem;overflow-x:auto;scroll-snap-type:x proximity;
+    scrollbar-width:none}
+  .sx-ribbon::-webkit-scrollbar{display:none}
+  .sx-rib-item{flex:0 0 auto;margin:0;width:200px;height:200px;border-radius:16px;overflow:hidden;scroll-snap-align:start;
+    border:3px solid #E4AD40;box-shadow:0 6px 16px rgba(122,74,18,.18);transition:transform .2s ease}
+  .sx-rib-item:hover{transform:scale(1.04) rotate(-1deg)}
+  .sx-rib-item img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ===== faq ===== */
+  .sx-faq .faq{margin-top:1.2rem}
+  .sx-foot{margin-top:1.4rem;color:#5e4828;font-size:1rem;line-height:1.6}
+  .sx-foot a{color:#8a3f12;font-weight:700}
+
+  @media(prefers-reduced-motion:reduce){ .sx-wave{animation:none} }
+  @media(max-width:600px){ .sx-hero-deco{letter-spacing:.8rem;font-size:2.4rem} }
+</style>
