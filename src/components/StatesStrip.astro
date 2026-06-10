@@ -38,7 +38,10 @@ const N = states.length;
       {loop.map((s, i) => (
         <li class="ss-card" data-region={s.region} aria-hidden={i >= N ? 'true' : undefined}>
           <a href={s.href} tabindex={i >= N ? -1 : undefined} aria-label={i >= N ? undefined : `${s.name} — explore`}>
-            <img src={s.img} alt={i >= N ? '' : s.alt} width="300" height="200" loading="lazy" decoding="async" />
+            <picture>
+              <source srcset={s.img.replace(/\.(jpe?g|png)$/i, '.sm.webp')} type="image/webp" />
+              <img src={s.img} alt={i >= N ? '' : s.alt} width="300" height="200" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding="async" />
+            </picture>
             <span class="ss-name">{s.name}</span>
           </a>
         </li>

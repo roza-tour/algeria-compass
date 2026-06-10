@@ -6,7 +6,9 @@
 // prefer reduced motion get a static, tidy grid instead. Photos are curated for
 // quality + variety (incl. desert/Sahara) by scripts/curate-traveller-photos.mjs.
 import slider from '../data/traveller-slider.json';
-const photos = (slider as any).slider as { src: string; w: number; h: number }[];
+// Cap at 24 tiles (12 per row × 2 rows) — enough for a seamless loop without
+// inflating the DOM. The marquee duplicates each row, so this renders 48 tiles.
+const photos = ((slider as any).slider as { src: string; w: number; h: number }[]).slice(0, 24);
 const mid = Math.ceil(photos.length / 2);
 const rowA = photos.slice(0, mid);
 const rowB = photos.slice(mid);
@@ -25,16 +27,22 @@ const loopB = [...rowB, ...rowB];
     <ul class="tmq-row tmq-left" role="list">
       {loopA.map((p, i) => (
         <li class="tmq-tile" aria-hidden={i >= rowA.length ? 'true' : undefined}>
-          <img src={p.src} alt={i >= rowA.length ? '' : 'An Algeria Compass traveller on tour in Algeria'}
-               width="300" height="225" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset={p.src.replace(/\.(jpe?g|png)$/i, '.sm.webp')} type="image/webp" />
+            <img src={p.src} alt={i >= rowA.length ? '' : 'An Algeria Compass traveller on tour in Algeria'}
+                 width="300" height="225" loading="lazy" decoding="async" />
+          </picture>
         </li>
       ))}
     </ul>
     <ul class="tmq-row tmq-right" role="list">
       {loopB.map((p, i) => (
         <li class="tmq-tile" aria-hidden={i >= rowB.length ? 'true' : undefined}>
-          <img src={p.src} alt={i >= rowB.length ? '' : 'Algeria Compass guests exploring Algeria'}
-               width="300" height="225" loading="lazy" decoding="async" />
+          <picture>
+            <source srcset={p.src.replace(/\.(jpe?g|png)$/i, '.sm.webp')} type="image/webp" />
+            <img src={p.src} alt={i >= rowB.length ? '' : 'Algeria Compass guests exploring Algeria'}
+                 width="300" height="225" loading="lazy" decoding="async" />
+          </picture>
         </li>
       ))}
     </ul>
@@ -42,7 +50,7 @@ const loopB = [...rowB, ...rowB];
 </section>
 
 <style>
-  .tmq{padding:2.4rem 0 2.8rem;background:#07261C;overflow:hidden}
+  .tmq{padding:2.4rem 0 2.8rem;background:#07261C;overflow:hidden;content-visibility:auto;contain-intrinsic-size:auto 520px}
   .tmq-head{text-align:center}
   .tmq .eyebrow{color:#E0BE73}
   .tmq h2{font-family:'Cinzel',serif;color:#fff;font-size:clamp(1.5rem,3vw,2.1rem);margin:.1rem 0 .4rem}

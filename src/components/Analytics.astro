@@ -1,8 +1,10 @@
 ---
-// L3 — Google Analytics 4 with Google Consent Mode v2 (GDPR).
-// Lives in <head>. Consent for analytics/ads defaults to DENIED, so GA loads in
-// privacy-preserving consent mode (no analytics cookies) until the visitor
-// accepts via the cookie banner (<CookieConsent/>, which calls consent 'update').
+// L3/perf — Google Analytics 4 with Consent Mode v2 (GDPR), loaded LAZILY.
+// The consent defaults + config are queued immediately (tiny inline JS), but the
+// heavy gtag.js download is deferred until the first user interaction or browser
+// idle — eliminating the render-blocking request, unused JS, and long tasks
+// Lighthouse flagged. Analytics consent defaults to DENIED until the visitor
+// accepts via <CookieConsent/>.
 import { ANALYTICS } from '../config';
 const { plausibleDomain, ga4 } = ANALYTICS;
 ---
@@ -10,36 +12,37 @@ const { plausibleDomain, ga4 } = ANALYTICS;
   <script defer data-domain={plausibleDomain} src="https://plausible.io/js/script.tagged-events.js" is:inline></script>
 )}
 {ga4 && (
-  <>
-    <!-- Consent Mode v2 defaults — must run BEFORE gtag config -->
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      window.gtag = gtag;
-      var __ac = null;
-      try { __ac = localStorage.getItem('ac-consent'); } catch (e) {}
-      var __granted = __ac === 'granted';
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: __granted ? 'granted' : 'denied',
-        functionality_storage: 'granted',
-        security_storage: 'granted',
-        wait_for_update: 500
-      });
-      gtag('js', new Date());
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`} is:inline></script>
-    <script is:inline define:vars={{ ga4 }}>
-      gtag('config', ga4, { anonymize_ip: true });
-    </script>
-  </>
+  <script is:inline define:vars={{ ga4 }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    var __granted = false;
+    try { __granted = localStorage.getItem('ac-consent') === 'granted'; } catch (e) {}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: __granted ? 'granted' : 'denied',
+      functionality_storage: 'granted', security_storage: 'granted', wait_for_update: 500
+    });
+    gtag('js', new Date());
+    gtag('config', ga4, { anonymize_ip: true });
+
+    // Defer the gtag.js download until the page is interactive/idle.
+    var __ga_loaded = false;
+    function __loadGA(){
+      if (__ga_loaded) return; __ga_loaded = true;
+      var s = document.createElement('script');
+      s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ga4;
+      document.head.appendChild(s);
+    }
+    ['scroll','click','keydown','pointerdown','touchstart'].forEach(function(ev){
+      window.addEventListener(ev, __loadGA, { once: true, passive: true });
+    });
+    if ('requestIdleCallback' in window) { requestIdleCallback(__loadGA, { timeout: 6000 }); }
+    else { setTimeout(__loadGA, 5000); }
+  </script>
 )}
 {(plausibleDomain || ga4) && (
   <script is:inline>
-    // Track tagged CTA/WhatsApp clicks + inquiry submissions in either provider.
     document.addEventListener('click',function(e){
       var t=e.target.closest('[data-evt]'); if(!t) return; var name=t.getAttribute('data-evt');
       if(window.plausible) window.plausible(name);

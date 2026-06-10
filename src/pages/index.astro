@@ -50,7 +50,7 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
     <div class="eyebrow">Private journeys</div>
     <h2>Featured tours</h2>
     <div class="grid" style="margin-top:1.2rem">
-      {featured.map((t: any) => <TourCard tour={t} />)}
+      {featured.map((t: any, i: number) => <TourCard tour={t} priority={i === 0} />)}
     </div>
     <p style="margin-top:1.4rem"><a class="btn" href="/tours/">All 20 tours →</a></p>
   </div></section>
@@ -99,7 +99,7 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
       <p style="margin-top:.5rem">Tell us your dates and interests — we'll craft a private itinerary.</p>
       <p style="margin-top:1rem">
         <a class="btn btn-gold" href="/contact/">Plan a trip</a>
-        <a class="btn" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="background:#25D366">💬 WhatsApp</a>
+        <a class="btn" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="background:#25D366;color:#06351f" aria-label="Plan your trip on WhatsApp">💬 WhatsApp</a>
       </p>
     </div>
   </div></section>

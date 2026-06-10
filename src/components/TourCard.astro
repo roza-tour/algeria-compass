@@ -11,7 +11,7 @@
 // `"bestseller": true` in src/data/tours.json. OWNER: set that flag on the
 // tours you actually sell most — until then no best-seller badges appear.
 import { TOUR_VISUALS } from '../data/tour-visuals';
-const { tour } = Astro.props as { tour: any };
+const { tour, priority = false } = Astro.props as { tour: any; priority?: boolean };
 const t = tour;
 const v = TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
 const benefit = t.hook || t.summary;
@@ -19,7 +19,10 @@ const benefit = t.hook || t.summary;
 <a class="tcard" href={`/tours/${t.id}/`} style={`--accent:${v.accent}`}>
   <div class="tcard-img">
     {v.hero
-      ? <img src={`/assets/img/thumbs/tours/${v.hero}`} alt={t.title} width="400" height="250" loading="lazy" decoding="async" />
+      ? <picture>
+          <source srcset={`/assets/img/thumbs/tours/${v.hero.replace(/\.(jpe?g|png)$/i, '.webp')}`} type="image/webp" />
+          <img src={`/assets/img/thumbs/tours/${v.hero}`} alt={t.title} width="400" height="250" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" />
+        </picture>
       : <div class="tcard-grad"></div>}
     <div class="tcard-badges">
       <span class="tcard-badge private">Private</span>

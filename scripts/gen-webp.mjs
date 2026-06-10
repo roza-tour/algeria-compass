@@ -1,0 +1,45 @@
+// Perf — generate display-sized WebP for the homepage image contexts that
+// Lighthouse flagged as oversized (served full-res, shown small). Tiny files,
+// wired via <picture> in StatesStrip / TravellerSlider / TourCard.
+//   node scripts/gen-webp.mjs
+import { readdirSync, existsSync, readFileSync } from 'node:fs';
+import path from 'node:path';
+import sharp from 'sharp';
+
+const PUB = 'public';
+async function make(src, out, width, q) {
+  if (!existsSync(src)) { console.warn('missing', src); return false; }
+  if (existsSync(out)) return true;
+  const img = sharp(src); const m = await img.metadata();
+  const pipe = m.width && m.width > width ? img.resize({ width }) : img;
+  await pipe.webp({ quality: q }).toFile(out);
+  return true;
+}
+const webpOf = (p, sm) => p.replace(/\.(jpe?g|png)$/i, sm ? '.sm.webp' : '.webp');
+
+let made = 0;
+
+// 1) StatesStrip images (displayed ~228px) -> 460w .sm.webp
+const ss = readFileSync('src/components/StatesStrip.astro', 'utf8');
+const stateImgs = [...ss.matchAll(/img:\s*'([^']+\.(?:jpe?g|png))'/g)].map(m => m[1]);
+for (const web of stateImgs) { if (await make(PUB + web, PUB + webpOf(web, true), 460, 72)) made++; }
+
+// 2) Marquee client photos (displayed ~232px) -> 360w .sm.webp
+try {
+  const sj = JSON.parse(readFileSync('src/data/traveller-slider.json', 'utf8'));
+  for (const s of (sj.slider || [])) { if (await make(PUB + s.src, PUB + webpOf(s.src, true), 360, 72)) made++; }
+} catch (e) { console.warn('slider', e.message); }
+
+// 3) Tour thumbnails (displayed ~400px) -> same-size .webp (format win)
+const TH = 'public/assets/img/thumbs/tours';
+if (existsSync(TH)) {
+  for (const f of readdirSync(TH)) {
+    if (!/\.(jpe?g|png)$/i.test(f)) continue;
+    if (await make(path.join(TH, f), path.join(TH, webpOf(f)), 480, 74)) made++;
+  }
+}
+
+// 4) Nav logo emblem -> small webp (referenced directly as .webp)
+await make('public/assets/img/logo-emblem-gold.png', 'public/assets/img/logo-emblem-gold.webp', 130, 88);
+
+console.log('[webp] generated/verified', made, 'display-sized webp (+ logo)');

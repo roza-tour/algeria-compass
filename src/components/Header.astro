@@ -18,24 +18,24 @@ const path = Astro.url.pathname;
 const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
 ---
 <div class="id-band" aria-hidden="true"></div>
-<nav class="nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
+<nav class="nav" aria-label="Primary" itemscope itemtype="https://schema.org/SiteNavigationElement">
   <div class="nav-inner">
     <a class="nav-logo-link" href="/" aria-label="Algeria Compass — Home">
-      <img class="brand-mark" src="/assets/img/logo-emblem-gold.png" width="60" height="63" alt="" />
+      <img class="brand-mark" src="/assets/img/logo-emblem-gold.webp" width="60" height="63" alt="" fetchpriority="high" />
       <span class="brand-name">Algeria <b>Compass</b></span>
     </a>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">&#9776;</button>
 
-    <ul class="nav-links" id="primary-nav" role="navigation" aria-label="Primary">
+    <ul class="nav-links" id="primary-nav">
       {nav.map(n => (
         <li><a href={n.href} class={isActive(n.href) ? 'active' : undefined}>{n.label}</a></li>
       ))}
-      <li class="nav-mobile-only"><a href="https://wa.me/213784193176" target="_blank" rel="noopener">&#128172; WhatsApp us</a></li>
+      <li class="nav-mobile-only"><a href="https://wa.me/213784193176" target="_blank" rel="noopener" aria-label="Message us on WhatsApp (mobile)">&#128172; WhatsApp us</a></li>
     </ul>
 
     <div class="nav-cta">
-      <a href="https://wa.me/213784193176" target="_blank" rel="noopener" class="btn-wa">&#128172; WhatsApp</a>
+      <a href="https://wa.me/213784193176" target="_blank" rel="noopener" class="btn-wa" aria-label="Message Algeria Compass on WhatsApp">&#128172; WhatsApp</a>
       <a href="/contact/" class="btn-book">Plan a Trip</a>
     </div>
   </div>

@@ -5,7 +5,13 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://algeriacompass.com',
   trailingSlash: 'always',
-  build: { format: 'directory', assets: 'assets' },
+  build: {
+    format: 'directory',
+    assets: 'assets',
+    // Inline ALL component CSS into <head> — removes the render-blocking
+    // external stylesheet requests Lighthouse flagged (about.css / index.css).
+    inlineStylesheets: 'always'
+  },
   output: 'static',
   compressHTML: true
 });
