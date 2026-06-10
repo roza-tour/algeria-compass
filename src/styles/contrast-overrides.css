@@ -1,0 +1,78 @@
+/* ============================================================
+   HIGH-CONTRAST OVERRIDES — hand-maintained, loaded AFTER civ-skins.css.
+   civ-skins.css is AUTO-GENERATED (scripts/gen-civ-skins.mjs); contrast
+   tweaks live here so they survive a regen.
+
+   Block 1 — Dark-navy Sahara TOUR pages
+   Scope: html[data-region="sahara"][data-civ="02"]  (body bg #1B2A4A)
+     Hits: Djanet, Timimoun, Djanet–Ghardaïa tours (+ Sahara destination
+           pages that share the skin).
+     Excludes by design: Bou Saada (civ 05), Ghardaïa (civ 03),
+           Roman / Cultural / Algiers tours.
+   The generated dark-skin block keeps text at minimum AA (cream @86% /
+   gold #E0A85A). This layer blankets ALL text inside the .tour wrapper to
+   a brighter, bolder read: gold headings, white bold, cream body. Higher
+   specificity than the generated rules, plus !important, so it wins.
+   ============================================================ */
+
+/* --- Headings -> bright desert gold --- */
+html[data-region="sahara"][data-civ="02"] .section h2,
+html[data-region="sahara"][data-civ="02"] .section h3,
+html[data-region="sahara"][data-civ="02"] .tour h2 {
+  color: #f5c842 !important;
+  font-weight: 800 !important;
+}
+
+/* --- Paragraphs, list items, spans, definition terms/data --- */
+html[data-region="sahara"][data-civ="02"] .tour p,
+html[data-region="sahara"][data-civ="02"] .tour li,
+html[data-region="sahara"][data-civ="02"] .tour span,
+html[data-region="sahara"][data-civ="02"] .tour dd,
+html[data-region="sahara"][data-civ="02"] .tour dt {
+  color: #e8dfc8 !important;
+  font-weight: 500 !important;
+}
+
+/* --- Bold / strong text -> white --- */
+html[data-region="sahara"][data-civ="02"] .tour strong {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* --- Breadcrumbs --- */
+html[data-region="sahara"][data-civ="02"] .crumbs,
+html[data-region="sahara"][data-civ="02"] .crumbs a {
+  color: #f5edd8 !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+/* --- Targeted exceptions to the blanket body rule. The extra `.tour `
+   ancestor lifts specificity above `.tour p`/`.tour span` so these win. --- */
+
+/* Itinerary day number -> stays gold */
+html[data-region="sahara"][data-civ="02"] .tour .iday-num {
+  color: #f5c842 !important;
+  font-weight: 800 !important;
+}
+
+/* Itinerary note -> distinct softer tone */
+html[data-region="sahara"][data-civ="02"] .tour .iday-note {
+  color: #e0d4b8 !important;
+  font-weight: 500 !important;
+}
+
+/* --- Booking section text (reinforces the blanket; .book-sec is in .tour) --- */
+html[data-region="sahara"][data-civ="02"] .book-lead,
+html[data-region="sahara"][data-civ="02"] .book-note,
+html[data-region="sahara"][data-civ="02"] .book-sec p,
+html[data-region="sahara"][data-civ="02"] .book-sec li {
+  color: #e8dfc8 !important;
+  font-weight: 500 !important;
+}
+
+/* --- Form notes -> dimmer small print (.tour bump beats the blanket .tour p) --- */
+html[data-region="sahara"][data-civ="02"] .tour .form-note {
+  color: #d0c8b0 !important;
+  opacity: 1 !important;
+}
