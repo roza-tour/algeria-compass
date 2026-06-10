@@ -12,6 +12,12 @@ const tours = (((data as any).tours || data) as any[]).map(t => t.title).sort();
   <h2>Reviews from our travellers</h2>
   <p class="rvx-sub">Real, verified reviews from people who travelled with us. We publish each one only after we’ve confirmed it — so what you read here is genuine.</p>
 
+  <a class="rvx-google" href="https://share.google/rEAjf9e2qvCwefa2X" target="_blank" rel="noopener" aria-label="Read Algeria Compass reviews on Google">
+    <span class="rvx-google-score">5.0</span>
+    <span class="rvx-google-stars" aria-hidden="true">★★★★★</span>
+    <span class="rvx-google-txt"><strong>5.0 on Google</strong> — from 9 five-star reviews · read them on Google →</span>
+  </a>
+
   <div class="rvx-grid">
     <div class="rvx-list" id="rvx-list" data-src="/reviews-approved.json" aria-live="polite">
       <p class="rvx-empty">Loading reviews…</p>
@@ -67,6 +73,15 @@ const tours = (((data as any).tours || data) as any[]).map(t => t.title).sort();
   .rvx-body{margin:0;color:var(--text);line-height:1.6}
   .rvx-agg{display:flex;align-items:center;gap:.6rem;margin:0 0 1rem;font-weight:700;color:var(--green-d)}
   .rvx-agg b{font-size:1.5rem} .rvx-agg .rvx-stars-out{font-size:1.15rem}
+  /* verified Google rating banner (server-rendered, links to the live profile) */
+  .rvx-google{display:inline-flex;align-items:center;gap:.7rem;margin:1rem 0 0;padding:.65rem 1.05rem;
+    border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:12px;background:var(--wash);
+    text-decoration:none;transition:box-shadow .2s,border-color .2s}
+  .rvx-google:hover{box-shadow:0 8px 22px rgba(11,61,46,.12);border-color:var(--gold)}
+  .rvx-google-score{font-family:'Cinzel',serif;font-weight:800;font-size:1.5rem;color:var(--green-d);line-height:1}
+  .rvx-google-stars{color:var(--gold);letter-spacing:2px;font-size:1.05rem}
+  .rvx-google-txt{color:var(--text-m);font-size:.92rem}
+  .rvx-google-txt strong{color:var(--green-d)}
   /* form */
   .rvx-form{background:linear-gradient(160deg,#0B3D2E,#07261C);color:#fff;border-radius:16px;padding:1.3rem 1.3rem 1.5rem;
     box-shadow:0 10px 30px rgba(7,38,28,.25)}
@@ -98,7 +113,7 @@ const tours = (((data as any).tours || data) as any[]).map(t => t.title).sort();
     var starStr = function(n){ n=Math.round(n); return '★★★★★'.slice(0,n) + '☆☆☆☆☆'.slice(0,5-n); };
 
     // 1) render approved reviews (no file yet === no reviews yet)
-    var emptyState = '<p class="rvx-empty">No reviews yet — be the first to share your Algeria journey.</p>';
+    var emptyState = '<p class="rvx-empty">We’re publishing our travellers’ reviews here shortly — meanwhile, read our verified five-star reviews on Google above, or be the first to leave one here.</p>';
     fetch(list.getAttribute('data-src'), { cache:'no-store' })
       .then(function(r){ return r.ok ? r.json() : { reviews:[] }; })
       .then(function(d){

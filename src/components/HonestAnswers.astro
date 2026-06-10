@@ -13,12 +13,12 @@ const badges = [
   { icon: '💬', label: 'Arabic · Tamazight · French · English' },
 ];
 
-// OWNER PLACEHOLDERS — do NOT publish invented numbers. Fill these in and they
-// become live badges; until then they render as obvious "to add" chips.
-const placeholders = [
-  { label: 'Independent rating', hint: 'add platform + score' },
-  { label: 'Years in operation', hint: 'add founding year' },
-  { label: 'Travellers hosted', hint: 'add a real figure' },
+// Real, verifiable trust metrics — no invented numbers. The rating links out to
+// the live Google profile so anyone can check it; "7+ years" is the operator's
+// real time in Algerian tourism.
+const metrics = [
+  { value: '5.0★', label: 'on Google', sub: '9 five-star reviews', href: 'https://share.google/rEAjf9e2qvCwefa2X' },
+  { value: '7+', label: 'years guiding Algeria', sub: 'in Algerian tourism' },
 ];
 
 // minimal gold line-icons per category (premium, no emoji clutter)
@@ -58,7 +58,7 @@ const cats = [
   ]},
   { title: 'Why we’re legitimate', icon: 'check', items: [
     { q: 'Who are Algeria Compass, exactly?', a: 'A licensed Algerian tour operator, run by locals, specialising only in Algeria — not a reseller bolting Algeria onto a global catalogue. The visa paperwork we issue is the kind consulates accept.' },
-    { q: 'Why trust you over a random online listing?', a: 'Because we put our licence, our local guides and our real itineraries and prices in front of you, we confirm every trip by hand, and we’d rather tell you a hard truth than oversell. Independent ratings and traveller numbers will appear in the badges above once verified.' },
+    { q: 'Why trust you over a random online listing?', a: 'Because we put our licence, our local guides and our real itineraries and prices in front of you, we confirm every trip by hand, and we’d rather tell you a hard truth than oversell. We’ve worked in Algerian tourism for over seven years and hold a 5.0 rating from genuine five-star reviews on Google — both shown in the badges above, and the rating links straight to the source.' },
   ]},
 ];
 ---
@@ -71,8 +71,11 @@ const cats = [
 
   <div class="ha-badges" aria-label="What we can honestly promise">
     {badges.map(b => <span class="ha-badge"><span class="ha-ic" aria-hidden="true">{b.icon}</span>{b.label}</span>)}
-    {/* OWNER: fill these in (see component) — they are placeholders, not claims */}
-    {placeholders.map(p => <span class="ha-badge is-ph" title="Placeholder for the owner to confirm"><span class="ha-ic" aria-hidden="true">＋</span>{p.label}<em>{p.hint}</em></span>)}
+    {metrics.map(m => (
+      m.href
+        ? <a class="ha-badge ha-metric" href={m.href} target="_blank" rel="noopener" title="See our reviews on Google"><strong>{m.value}</strong>{m.label}<em>{m.sub}</em></a>
+        : <span class="ha-badge ha-metric"><strong>{m.value}</strong>{m.label}<em>{m.sub}</em></span>
+    ))}
   </div>
 
   <div class="ha-cats">
@@ -120,8 +123,11 @@ const cats = [
     border:1px solid rgba(201,162,75,.45);font-size:.85rem;font-weight:700;color:#fff;
     box-shadow:0 2px 10px rgba(0,0,0,.12)}
   .ha-ic{font-size:.95rem}
-  .ha-badge.is-ph{background:transparent;border:1px dashed rgba(255,255,255,.35);color:rgba(255,255,255,.6);font-weight:600;box-shadow:none}
-  .ha-badge.is-ph em{font-style:normal;font-size:.7rem;opacity:.7;font-weight:500;margin-left:.1rem}
+  /* real metric badges (rating + years) */
+  .ha-badge.ha-metric{gap:.3rem;text-decoration:none;border-color:rgba(201,162,75,.6)}
+  a.ha-badge.ha-metric:hover{border-color:var(--gold-l);background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.07))}
+  .ha-badge.ha-metric strong{color:var(--gold-l);font-weight:800;font-size:.92rem}
+  .ha-badge.ha-metric em{font-style:normal;font-size:.7rem;opacity:.72;font-weight:500;margin-left:.15rem}
   /* category cards */
   .ha-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.1rem;margin-top:1.7rem}
   .ha-cat{background:rgba(255,255,255,.045);border:1px solid rgba(201,162,75,.2);border-radius:16px;

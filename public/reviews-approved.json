@@ -1,0 +1,4 @@
+{
+  "_note": "Approved, displayed reviews. Each entry renders as a card AND feeds the AggregateRating/Review JSON-LD (Reviews.astro). Add ONLY real, verbatim reviews — never invent. Schema is emitted only from what is shown here. Fields: name, country, tour, date (YYYY-MM-DD), rating (1-5), comment.",
+  "reviews": []
+}

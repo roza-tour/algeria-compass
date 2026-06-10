@@ -6,9 +6,11 @@ export interface Props { nodes?: any[]; }
 const { nodes = [] } = Astro.props;
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const A = CONTACT.address;
-// OWNER: paste your real social profile URLs here (Instagram, Facebook, etc.)
-// for the Organization `sameAs`. Left empty until confirmed — never fabricated.
-const SAMEAS: string[] = [];
+// Organization `sameAs` — the brand's real, owner-confirmed social profiles.
+const SAMEAS: string[] = [
+  "https://www.instagram.com/algeria_compass/",
+  "https://www.facebook.com/profile.php?id=61590718167514",
+];
 const org: any = {
   "@type": "TravelAgency",
   "@id": site + "/#organization",
