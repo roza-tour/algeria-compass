@@ -1,129 +1,202 @@
 {
-  "generated": "2026-06-08T05:31:31.067Z",
+  "generated": "2026-06-10T03:22:17.681Z",
   "criteria": {
-    "minLandscapePx": 800,
-    "lowresBelowPx": 700,
-    "target": 20
+    "minTilePx": 600,
+    "lowresBelowPx": 600,
+    "target": 36
   },
   "stats": {
     "total": 556,
-    "landscapeQualifying": 61,
-    "lowResFlagged": 48,
-    "picked": 20
+    "qualifying": 515,
+    "lowResFlagged": 41,
+    "picked": 36
   },
   "slider": [
     {
-      "src": "/assets/img/clients/client-12.jpg",
-      "w": 1100,
-      "h": 827
+      "src": "/assets/img/clients/client-1.jpg",
+      "w": 827,
+      "h": 1100
     },
     {
-      "src": "/assets/img/clients/client-53.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-16.jpg",
+      "w": 827,
+      "h": 1100
     },
     {
-      "src": "/assets/img/clients/client-83.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-30.jpg",
+      "w": 768,
+      "h": 1024
     },
     {
-      "src": "/assets/img/clients/client-106.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-45.jpg",
+      "w": 825,
+      "h": 1100
     },
     {
-      "src": "/assets/img/clients/client-197.jpg",
-      "w": 1080,
-      "h": 810
-    },
-    {
-      "src": "/assets/img/clients/client-201.jpg",
-      "w": 1080,
-      "h": 810
-    },
-    {
-      "src": "/assets/img/clients/client-309.jpg",
-      "w": 1080,
-      "h": 809
-    },
-    {
-      "src": "/assets/img/clients/client-358.jpg",
+      "src": "/assets/img/clients/client-59.jpg",
       "w": 1100,
       "h": 825
     },
     {
-      "src": "/assets/img/clients/client-365.jpg",
+      "src": "/assets/img/clients/client-73.jpg",
+      "w": 768,
+      "h": 1024
+    },
+    {
+      "src": "/assets/img/clients/client-87.jpg",
+      "w": 825,
+      "h": 1100
+    },
+    {
+      "src": "/assets/img/clients/client-101.jpg",
+      "w": 825,
+      "h": 1100
+    },
+    {
+      "src": "/assets/img/clients/client-115.jpg",
+      "w": 825,
+      "h": 1100
+    },
+    {
+      "src": "/assets/img/clients/client-129.jpg",
+      "w": 768,
+      "h": 1024
+    },
+    {
+      "src": "/assets/img/clients/client-154.jpg",
+      "w": 810,
+      "h": 1080
+    },
+    {
+      "src": "/assets/img/clients/client-192.jpg",
+      "w": 768,
+      "h": 1024
+    },
+    {
+      "src": "/assets/img/clients/client-206.jpg",
+      "w": 825,
+      "h": 1100
+    },
+    {
+      "src": "/assets/img/clients/client-220.jpg",
+      "w": 768,
+      "h": 1024
+    },
+    {
+      "src": "/assets/img/clients/client-239.jpg",
+      "w": 768,
+      "h": 1024
+    },
+    {
+      "src": "/assets/img/clients/client-269.jpg",
+      "w": 825,
+      "h": 1100
+    },
+    {
+      "src": "/assets/img/clients/client-285.jpg",
+      "w": 825,
+      "h": 1100
+    },
+    {
+      "src": "/assets/img/clients/client-299.jpg",
+      "w": 768,
+      "h": 1024
+    },
+    {
+      "src": "/assets/img/clients/client-313.jpg",
+      "w": 768,
+      "h": 1024
+    },
+    {
+      "src": "/assets/img/clients/client-328.jpg",
+      "w": 768,
+      "h": 1024
+    },
+    {
+      "src": "/assets/img/clients/client-342.jpg",
+      "w": 1024,
+      "h": 768
+    },
+    {
+      "src": "/assets/img/clients/client-356.jpg",
+      "w": 825,
+      "h": 1100
+    },
+    {
+      "src": "/assets/img/clients/client-370.jpg",
       "w": 1100,
       "h": 825
     },
     {
-      "src": "/assets/img/clients/client-368.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-384.jpg",
+      "w": 825,
+      "h": 1100
     },
     {
-      "src": "/assets/img/clients/client-372.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-398.jpg",
+      "w": 825,
+      "h": 1100
     },
     {
-      "src": "/assets/img/clients/client-376.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-414.jpg",
+      "w": 768,
+      "h": 1024
     },
     {
-      "src": "/assets/img/clients/client-383.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-437.jpg",
+      "w": 768,
+      "h": 1024
     },
     {
-      "src": "/assets/img/clients/client-387.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-452.jpg",
+      "w": 768,
+      "h": 1024
     },
     {
-      "src": "/assets/img/clients/client-391.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-468.jpg",
+      "w": 768,
+      "h": 1024
     },
     {
-      "src": "/assets/img/clients/client-395.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-484.jpg",
+      "w": 768,
+      "h": 1024
     },
     {
-      "src": "/assets/img/clients/client-435.jpg",
-      "w": 1080,
-      "h": 809
+      "src": "/assets/img/clients/client-508.jpg",
+      "w": 768,
+      "h": 1024
     },
     {
-      "src": "/assets/img/clients/client-563.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-555.jpg",
+      "w": 825,
+      "h": 1100
     },
     {
-      "src": "/assets/img/clients/client-579.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-572.jpg",
+      "w": 825,
+      "h": 1100
     },
     {
-      "src": "/assets/img/clients/client-598.jpg",
-      "w": 1100,
-      "h": 825
+      "src": "/assets/img/clients/client-587.jpg",
+      "w": 825,
+      "h": 1100
+    },
+    {
+      "src": "/assets/img/clients/client-601.jpg",
+      "w": 825,
+      "h": 1100
+    },
+    {
+      "src": "/assets/img/clients/client-616.jpg",
+      "w": 825,
+      "h": 1100
     }
   ],
   "flaggedLowRes": [
-    "client-8.jpg (1100x618)",
-    "client-35.jpg (618x1100)",
-    "client-46.jpg (618x1100)",
-    "client-85.jpg (618x1100)",
-    "client-97.jpg (618x1100)",
-    "client-186.jpg (618x1100)",
     "client-187.jpg (540x960)",
     "client-188.jpg (540x960)",
     "client-189.jpg (960x540)",
-    "client-277.jpg (618x1100)",
     "client-404.jpg (540x960)",
     "client-409.jpg (540x960)",
     "client-492.jpg (540x960)",
