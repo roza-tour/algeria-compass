@@ -5,6 +5,7 @@ import LuxuryProgram from '../components/LuxuryProgram.astro';
 import InquiryForm from '../components/InquiryForm.astro';
 import { PROGRAMMES, LUX_PRICING } from '../data/luxury.mjs';
 import { CONTACT } from '../config';
+import '../styles/luxury-overrides.css';
 
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Hello Algeria Compass, I'd like to enquire about your 5-Star Collection luxury tours.")}`;
