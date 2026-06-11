@@ -7,15 +7,15 @@
 // size) and the product is sold as a private request-to-book journey.
 
 export const LUX_PRICING = {
-  fromLabel: '€1,938',
-  fromValue: 1938,
-  highValue: 2748,
+  fromLabel: '€1,615',
+  fromValue: 1615,
+  highValue: 2290,
   currency: 'EUR',
   tiers: [
-    { pax: '2–9 pax', price: '€2,748', note: 'Private & intimate' },
-    { pax: '10–15 pax', price: '€2,244', note: '+ 1 leader free' },
-    { pax: '16–22 pax', price: '€2,040', note: 'Group rate' },
-    { pax: '22+ pax', price: '€1,938', note: 'Large group' },
+    { pax: '2–9 pax', price: '€2,290', note: 'Private & intimate' },
+    { pax: '10–15 pax', price: '€1,870', note: '+ 1 leader free' },
+    { pax: '16–22 pax', price: '€1,700', note: 'Group rate' },
+    { pax: '22+ pax', price: '€1,615', note: 'Large group' },
   ],
 };
 
