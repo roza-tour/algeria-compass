@@ -1,30 +1,28 @@
 ---
-// The 5-Star Collection — each programme is one compact, elegant "chapter":
-// a single cinematic header image (the only photo in the block), a calm intro,
-// a gold route ribbon, a tight click-to-expand day-by-day list (collapsed by
-// default — no per-day images, no scroll motion), a cream accommodation panel
-// for rhythm, and a gold-framed pricing card.
+// The 5-Star Collection — LIGHT luxury. Each programme is one compact, scannable
+// chapter on warm ivory: a single bright cinematic header, one intro line, a neat
+// row of small gold-framed route thumbnails, a tight click-to-expand day list
+// (small thumbnail + "Day 0X" + short highlight), a prominent hotel/inclusions
+// panel, and a gold-framed pricing card. No dark sections, no scroll motion.
 import { LUX_PRICING } from '../data/luxury.mjs';
 import { CONTACT } from '../config';
 export interface Props { prog: any; }
 const { prog } = Astro.props as { prog: any };
 const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hello Algeria Compass, I'd like to reserve the 5-Star journey “${prog.name}” (Programme ${prog.num}).`)}`;
 const pad = (n: number) => String(n).padStart(2, '0');
+const place = (t: string) => t.split('·')[0].trim();
+// route stops, image-forward: take the journey's days as the visual route
+const routeStops = prog.days.filter((d: any) => d.n !== 8);
 ---
 <section class="lp" id={prog.id}>
-  <!-- ===== cinematic chapter header (the one image in this block) ===== -->
+  <!-- ===== bright cinematic chapter header ===== -->
   <header class="lp-chapter">
-    <div class="lp-chapter-media">
-      <img class="lp-chapter-img lux-graded" src={prog.hero} alt={`${prog.name} — luxury Algeria tour`} width="1600" height="900" loading="lazy" decoding="async" />
-      <div class="lp-grade" aria-hidden="true"></div>
-      <div class="lp-chapter-veil" aria-hidden="true"></div>
-    </div>
+    <img class="lp-chapter-img lux-graded" src={prog.hero} alt={`${prog.name} — luxury Algeria tour`} width="1600" height="900" loading="lazy" decoding="async" />
+    <div class="lp-chapter-veil" aria-hidden="true"></div>
     <div class="lp-chapter-in">
       <span class="lp-chapter-num" aria-hidden="true">{prog.num}</span>
-      <span class="lp-eyebrow">Programme {prog.num} · {prog.subtitle}</span>
+      <span class="lp-eyebrow lp-eyebrow-light">Programme {prog.num} · {prog.subtitle}</span>
       <h2 class="lp-chapter-title">{prog.name}</h2>
-      <span class="lp-flourish" aria-hidden="true"></span>
-      <p class="lp-chapter-tagline">{prog.tagline}</p>
       <ul class="lp-badges">
         {prog.badges.map((b: string) => <li>{b}</li>)}
       </ul>
@@ -32,35 +30,31 @@ const pad = (n: number) => String(n).padStart(2, '0');
   </header>
 
   <div class="lp-body">
-    <!-- calm centred intro -->
-    <div class="lp-intro">
-      <p class="lp-lead">{prog.heroLine}</p>
-      <p class="lp-overview">{prog.overview}</p>
-    </div>
+    <!-- one intro line -->
+    <p class="lp-lead">{prog.tagline}</p>
+    <span class="lp-flourish" aria-hidden="true"></span>
 
-    <!-- gold route ribbon -->
-    <div class="lp-route" aria-label="Route">
-      {prog.route.map((r: any, i: number) => (
-        <>
-          <span class="lp-stop"><span class="lp-stop-place">{r.place}</span><span class="lp-stop-note">{r.note}</span></span>
-          {i < prog.route.length - 1 && <span class="lp-arrow" aria-hidden="true"></span>}
-        </>
+    <!-- neat row of small gold-framed route thumbnails -->
+    <div class="lp-route" aria-label="The route">
+      {routeStops.map((d: any) => (
+        <figure class="lp-route-stop">
+          <span class="lp-thumb"><img class="lux-graded" src={d.img} alt={d.title} width="200" height="150" loading="lazy" decoding="async" /></span>
+          <figcaption>{place(d.title)}</figcaption>
+        </figure>
       ))}
     </div>
 
-    <!-- compact day-by-day — click to expand, collapsed by default -->
-    <p class="lp-eyebrow lp-eyebrow-c">The Itinerary</p>
+    <!-- compact day-by-day: thumbnail + Day 0X + short highlight, click to expand -->
+    <p class="lp-eyebrow lp-eyebrow-c">The Itinerary · 8 Days</p>
     <h3 class="lp-section-h">Day by Day</h3>
     <ol class="lp-days">
       {prog.days.map((d: any) => (
         <li>
           <details class="lp-day">
             <summary class="lp-day-sum">
-              <span class="lp-day-n" aria-hidden="true">{pad(d.n)}</span>
-              <span class="lp-day-main">
-                <span class="lp-day-title">{d.title}</span>
-                <span class="lp-day-hi">{d.stops.map((s: any) => s.t).join('  ·  ')}</span>
-              </span>
+              <span class="lp-thumb lp-thumb-sm"><img class="lux-graded" src={d.img} alt="" width="120" height="90" loading="lazy" decoding="async" /></span>
+              <span class="lp-day-n" aria-hidden="true">Day {pad(d.n)}</span>
+              <span class="lp-day-hi">{d.title}</span>
               <span class="lp-day-chev" aria-hidden="true"></span>
             </summary>
             <ol class="lp-exp">
@@ -74,11 +68,11 @@ const pad = (n: number) => String(n).padStart(2, '0');
     </ol>
   </div>
 
-  <!-- ===== cream panel: accommodation + inclusions ===== -->
-  <div class="lp-cream">
-    <div class="lp-cream-in">
+  <!-- ===== hotels + inclusions (hotel level is prominent) ===== -->
+  <div class="lp-body">
+    <div class="lp-panel">
       <div class="lp-panel-col">
-        <p class="lp-eyebrow lp-eyebrow-dark">Accommodation</p>
+        <p class="lp-eyebrow lp-eyebrow-c">Where You Stay · 5-Star</p>
         <ul class="lp-stay">
           {prog.stay.map((s: any) => (
             <li class="lp-stay-row">
@@ -88,10 +82,10 @@ const pad = (n: number) => String(n).padStart(2, '0');
             </li>
           ))}
         </ul>
-        <p class="lp-stay-note">Specific properties are confirmed in writing with your booking, subject to availability.</p>
+        <p class="lp-stay-note">Specific properties confirmed in writing with your booking, subject to availability.</p>
       </div>
       <div class="lp-panel-col">
-        <p class="lp-eyebrow lp-eyebrow-dark">All-Inclusive</p>
+        <p class="lp-eyebrow lp-eyebrow-c">All-Inclusive</p>
         <ul class="lp-incl">
           {prog.includes.map((i: string) => <li>{i}</li>)}
         </ul>
@@ -105,7 +99,6 @@ const pad = (n: number) => String(n).padStart(2, '0');
     <div class="lp-pricing">
       <p class="lp-eyebrow lp-eyebrow-c">Pricing · Per Person · EUR</p>
       <h3 class="lp-section-h">Private, all-inclusive</h3>
-      <p class="lp-price-sub">The more you travel together, the lower the per-person rate — every tier private and request-to-book.</p>
       <div class="lp-tiers">
         {LUX_PRICING.tiers.map((t: any) => (
           <div class={`lp-tier${t.pax === '22+ pax' ? ' is-rec' : ''}`}>
@@ -128,156 +121,143 @@ const pad = (n: number) => String(n).padStart(2, '0');
 </section>
 
 <style>
-  .lp{position:relative;z-index:2;color:var(--lux-cream);font-family:var(--lux-sans)}
+  .lp{position:relative;color:var(--lux-ink);font-family:var(--lux-sans)}
 
-  /* shared cinematic colour grade — unifies the header photos */
-  .lux-graded{filter:saturate(1.06) contrast(1.05) brightness(.95)}
-  .lp-grade{position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(150deg,rgba(193,147,51,.14),transparent 44%),linear-gradient(0deg,rgba(7,38,28,.4),transparent 55%);
-    mix-blend-mode:soft-light}
+  /* warm, consistent grade — bright for light luxury */
+  .lux-graded{filter:saturate(1.1) contrast(1.02) brightness(1.02) sepia(.05)}
 
-  /* shared gold eyebrow */
+  /* shared eyebrow + heading */
   .lp-eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--lux-label);font-weight:600;
-    font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--lux-gold)}
+    font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:var(--lux-gold-ink)}
+  .lp-eyebrow-light{color:var(--lux-cream)}
   .lp-eyebrow-c{display:flex;justify-content:center;text-align:center;width:100%}
-  .lp-eyebrow-dark{color:var(--lux-gold-deep)}
-  .lp-section-h{font-family:var(--lux-display);font-weight:600;text-align:center;color:var(--lux-cream);
-    font-size:clamp(1.8rem,4vw,2.7rem);letter-spacing:.07em;line-height:1.12;margin:.5rem 0 0}
+  .lp-section-h{font-family:var(--lux-display);font-weight:600;text-align:center;color:var(--lux-emerald);
+    font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:.06em;line-height:1.12;margin:.4rem 0 0}
 
   /* ============================ CHAPTER HEADER ============================ */
-  .lp-chapter{position:relative;min-height:clamp(380px,66vh,600px);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
-  .lp-chapter-media{position:absolute;inset:0;z-index:0}
-  .lp-chapter-img{width:100%;height:100%;object-fit:cover}
-  .lp-chapter-veil{position:absolute;inset:0;background:
-    radial-gradient(120% 80% at 50% 30%,transparent 32%,rgba(7,15,11,.55) 82%),
-    linear-gradient(180deg,rgba(7,15,11,.5) 0%,transparent 28%,rgba(7,15,11,.4) 60%,var(--lux-black) 100%)}
-  .lp-chapter-in{position:relative;z-index:2;text-align:center;padding:0 1.4rem 3.4rem;max-width:880px}
+  .lp-chapter{position:relative;min-height:clamp(360px,58vh,540px);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+  .lp-chapter-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .lp-chapter-veil{position:absolute;inset:0;z-index:1;background:
+    linear-gradient(180deg,rgba(30,18,6,.32) 0%,transparent 24%,transparent 46%,rgba(20,12,4,.55) 100%)}
+  .lp-chapter-in{position:relative;z-index:2;text-align:center;padding:0 1.4rem 2.8rem;max-width:860px}
   .lp-chapter-num{display:block;font-family:var(--lux-display);font-weight:700;
-    font-size:clamp(4rem,14vw,9.5rem);line-height:.8;letter-spacing:.02em;
-    color:transparent;-webkit-text-stroke:1.4px rgba(193,147,51,.85);margin-bottom:.5rem}
-  .lp-chapter-title{font-family:var(--lux-display);font-weight:700;color:var(--lux-cream);letter-spacing:.08em;
-    font-size:clamp(2.2rem,5.8vw,4.2rem);line-height:1.04;margin:.7rem 0 0;text-shadow:0 4px 40px rgba(0,0,0,.6)}
-  .lp-flourish{display:block;width:120px;height:14px;margin:1.2rem auto;position:relative}
+    font-size:clamp(3.4rem,12vw,8rem);line-height:.82;letter-spacing:.02em;
+    color:var(--lux-gold-bright);text-shadow:0 2px 24px rgba(0,0,0,.45);margin-bottom:.35rem}
+  .lp-chapter-title{font-family:var(--lux-display);font-weight:700;color:#fff;letter-spacing:.08em;
+    font-size:clamp(2.1rem,5.4vw,3.9rem);line-height:1.05;margin:.5rem 0 0;text-shadow:0 3px 30px rgba(0,0,0,.55)}
+  .lp-badges{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;padding:0;margin:1.2rem 0 0}
+  .lp-badges li{font-family:var(--lux-label);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:#fff;border:1px solid rgba(255,255,255,.6);border-radius:999px;padding:.42rem 1rem;background:rgba(11,61,46,.35);backdrop-filter:blur(3px)}
+
+  /* ============================ BODY ============================ */
+  .lp-body{max-width:1000px;margin:0 auto;padding:clamp(2.4rem,5vw,3.8rem) clamp(1.2rem,4vw,2.4rem) 0}
+  .lp-lead{font-family:var(--lux-serif);font-style:italic;font-weight:400;text-align:center;
+    font-size:clamp(1.4rem,2.8vw,2rem);line-height:1.4;color:var(--lux-emerald);max-width:780px;margin:0 auto}
+  .lp-flourish{display:block;width:130px;height:14px;margin:1.4rem auto 0;position:relative}
   .lp-flourish::before{content:"";position:absolute;top:50%;left:0;right:0;height:1px;
     background:linear-gradient(90deg,transparent,var(--lux-gold) 35%,var(--lux-gold) 65%,transparent)}
   .lp-flourish::after{content:"";position:absolute;top:50%;left:50%;width:8px;height:8px;
     transform:translate(-50%,-50%) rotate(45deg);background:var(--lux-gold)}
-  .lp-chapter-tagline{font-family:var(--lux-serif);font-style:italic;font-weight:400;color:var(--lux-cream-dim);
-    font-size:clamp(1.1rem,2.3vw,1.45rem);line-height:1.55;max-width:640px;margin:0 auto 1.4rem}
-  .lp-badges{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;padding:0;margin:0}
-  .lp-badges li{font-family:var(--lux-label);font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--lux-cream);border:1px solid rgba(193,147,51,.5);border-radius:999px;padding:.42rem 1rem;background:rgba(7,38,28,.4)}
 
-  /* ============================ BODY ============================ */
-  .lp-body{max-width:1000px;margin:0 auto;padding:clamp(2.6rem,6vw,4.4rem) clamp(1.2rem,4vw,2.4rem) 0}
-  .lp-intro{max-width:740px;margin:0 auto;text-align:center}
-  .lp-lead{font-family:var(--lux-serif);font-style:italic;font-weight:400;font-size:clamp(1.4rem,2.9vw,2rem);
-    line-height:1.4;color:var(--lux-gold-bright);margin:0 0 1.1rem}
-  .lp-overview{color:var(--lux-cream-dim);font-family:var(--lux-serif);font-size:clamp(1.1rem,1.7vw,1.25rem);line-height:1.7;font-weight:400;margin:0}
+  /* gold-framed thumbnail (shared) */
+  .lp-thumb{display:block;position:relative;overflow:hidden;border-radius:3px;
+    border:1px solid var(--lux-gold);box-shadow:0 0 0 3px rgba(184,138,46,.12)}
+  .lp-thumb img{display:block;width:100%;height:100%;object-fit:cover}
 
-  /* gold route ribbon */
-  .lp-route{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem .9rem;margin:clamp(2.2rem,5vw,3.4rem) auto 0;max-width:880px}
-  .lp-stop{display:inline-flex;flex-direction:column;align-items:center}
-  .lp-stop-place{font-family:var(--lux-display);font-weight:500;font-size:clamp(.95rem,1.8vw,1.15rem);color:var(--lux-cream);letter-spacing:.05em}
-  .lp-stop-note{font-family:var(--lux-label);font-size:.54rem;text-transform:uppercase;letter-spacing:.2em;color:var(--lux-gold);margin-top:.22rem}
-  .lp-arrow{width:26px;height:1px;background:linear-gradient(90deg,transparent,var(--lux-gold),transparent);position:relative;top:-7px}
+  /* route thumbnail strip */
+  .lp-route{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.8rem,2vw,1.4rem);margin:clamp(2rem,4vw,3rem) auto 0;max-width:920px}
+  .lp-route-stop{margin:0;width:clamp(78px,12vw,104px);text-align:center}
+  .lp-route-stop .lp-thumb{aspect-ratio:4/3}
+  .lp-route-stop figcaption{margin-top:.5rem;font-family:var(--lux-label);font-size:.58rem;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--lux-ink-dim);line-height:1.3}
 
   /* ============================ COMPACT DAY LIST ============================ */
-  .lp-days{list-style:none;margin:clamp(1.8rem,4vw,2.6rem) 0 0;padding:0;
-    border-top:1px solid rgba(193,147,51,.3)}
-  .lp-days>li{border-bottom:1px solid rgba(193,147,51,.18)}
-  .lp-day{position:relative}
-  .lp-day-sum{list-style:none;display:grid;grid-template-columns:auto 1fr auto;gap:1.2rem;align-items:center;
-    padding:1.05rem .3rem;cursor:pointer;transition:background .2s ease}
+  .lp-days{list-style:none;margin:clamp(1.6rem,3vw,2.4rem) 0 0;padding:0;border-top:1px solid var(--lux-gold-line)}
+  .lp-days>li{border-bottom:1px solid var(--lux-gold-line)}
+  .lp-day-sum{list-style:none;display:grid;grid-template-columns:auto auto 1fr auto;gap:1rem;align-items:center;
+    padding:.7rem .3rem;cursor:pointer;transition:background .2s ease}
   .lp-day-sum::-webkit-details-marker{display:none}
-  .lp-day-sum:hover{background:rgba(193,147,51,.06)}
-  .lp-day-n{font-family:var(--lux-display);font-weight:600;font-size:1.5rem;color:var(--lux-gold);letter-spacing:.03em;min-width:2.4ch;text-align:center}
-  .lp-day-main{min-width:0}
-  .lp-day-title{display:block;font-family:var(--lux-display);font-weight:600;font-size:1.02rem;color:var(--lux-cream);letter-spacing:.04em}
-  .lp-day-hi{display:block;font-family:var(--lux-serif);font-style:italic;font-size:.97rem;color:var(--lux-cream-faint);margin-top:.2rem;line-height:1.4}
-  .lp-day-chev{position:relative;width:13px;height:13px;flex-shrink:0}
+  .lp-day-sum:hover{background:rgba(184,138,46,.07)}
+  .lp-day-sum .lp-thumb-sm{width:64px;aspect-ratio:4/3}
+  .lp-day-n{font-family:var(--lux-label);font-weight:700;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lux-gold-ink);white-space:nowrap}
+  .lp-day-hi{font-family:var(--lux-display);font-weight:600;font-size:1.02rem;color:var(--lux-emerald);letter-spacing:.03em;min-width:0}
+  .lp-day-chev{position:relative;width:13px;height:13px;flex-shrink:0;justify-self:end}
   .lp-day-chev::before,.lp-day-chev::after{content:"";position:absolute;background:var(--lux-gold);transition:transform .25s ease,opacity .25s ease}
   .lp-day-chev::before{top:6px;left:0;width:13px;height:1.4px}
   .lp-day-chev::after{left:6px;top:0;width:1.4px;height:13px}
   .lp-day[open] .lp-day-chev::after{transform:scaleY(0);opacity:0}
-  .lp-exp{list-style:none;counter-reset:exp;padding:.2rem .3rem 1.5rem 3.6rem;margin:0;display:grid;gap:.9rem}
-  .lp-exp li{counter-increment:exp;position:relative;padding-left:2.4rem}
+  .lp-exp{list-style:none;counter-reset:exp;padding:.2rem .3rem 1.4rem 5.4rem;margin:0;display:grid;gap:.85rem}
+  .lp-exp li{counter-increment:exp;position:relative;padding-left:2.3rem}
   .lp-exp li::before{content:counter(exp,decimal-leading-zero);position:absolute;left:0;top:.05rem;
-    font-family:var(--lux-display);font-weight:600;font-size:.9rem;color:var(--lux-gold);
-    border-bottom:1px solid rgba(193,147,51,.45);padding-bottom:.1rem}
-  .lp-exp-t{display:block;font-family:var(--lux-serif);font-size:1.15rem;color:var(--lux-cream);margin-bottom:.18rem;letter-spacing:.01em}
-  .lp-exp-d{display:block;color:var(--lux-cream-dim);font-size:.94rem;line-height:1.65;font-weight:300}
+    font-family:var(--lux-display);font-weight:600;font-size:.88rem;color:var(--lux-gold-ink);
+    border-bottom:1px solid var(--lux-gold-line);padding-bottom:.1rem}
+  .lp-exp-t{display:block;font-family:var(--lux-serif);font-size:1.12rem;color:var(--lux-emerald);margin-bottom:.15rem;letter-spacing:.01em}
+  .lp-exp-d{display:block;color:var(--lux-ink-dim);font-size:.93rem;line-height:1.6;font-weight:400}
 
-  /* ============================ CREAM PANEL ============================ */
-  .lp-cream{position:relative;z-index:2;margin-top:clamp(2.6rem,6vw,4.4rem);
-    background:linear-gradient(180deg,var(--lux-paper),var(--lux-paper-2));
-    border-top:1px solid rgba(193,147,51,.45);border-bottom:1px solid rgba(193,147,51,.45)}
-  .lp-cream-in{max-width:1000px;margin:0 auto;padding:clamp(2.6rem,5vw,4rem) clamp(1.2rem,4vw,2.4rem);
-    display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,3.6rem)}
-  .lp-panel-col{position:relative}
-  .lp-panel-col + .lp-panel-col{padding-left:clamp(0px,3vw,2.4rem);border-left:1px solid rgba(193,147,51,.3)}
-  .lp-stay{list-style:none;padding:0;margin:1.3rem 0 0;border-top:1px solid rgba(193,147,51,.3)}
-  .lp-stay-row{display:grid;grid-template-columns:auto 1fr auto;gap:.4rem 1.2rem;align-items:center;
-    padding:.95rem .1rem;border-bottom:1px solid rgba(193,147,51,.3)}
-  .lp-stay-city{font-family:var(--lux-display);font-weight:600;font-size:1.1rem;color:var(--lux-ink);letter-spacing:.03em}
-  .lp-stay-hotels{color:var(--lux-ink-dim);font-size:.92rem;font-weight:400}
-  .lp-stay-nights{font-family:var(--lux-label);font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--lux-gold-deep);border:1px solid rgba(193,147,51,.6);border-radius:999px;padding:.3rem .8rem;white-space:nowrap}
-  .lp-stay-note{color:var(--lux-ink-faint);font-size:.82rem;font-weight:400;margin:1rem 0 0;font-style:italic}
-  .lp-incl{list-style:none;padding:0;margin:1.3rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:.75rem 1.4rem}
-  .lp-incl li{position:relative;padding-left:1.6rem;color:var(--lux-ink-dim);font-size:.96rem;line-height:1.5;font-weight:400}
-  .lp-incl li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;transform:rotate(45deg);background:var(--lux-gold)}
-  .lp-cancel{margin:1.4rem 0 0;font-family:var(--lux-label);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lux-gold-deep);font-weight:600}
+  /* ============================ HOTELS + INCLUSIONS ============================ */
+  .lp-panel{position:relative;background:var(--lux-ivory-2);border:1px solid var(--lux-gold-line);border-radius:6px;
+    box-shadow:0 1px 0 rgba(184,138,46,.15);display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3rem);
+    padding:clamp(1.8rem,4vw,2.8rem)}
+  .lp-panel-col + .lp-panel-col{padding-left:clamp(0px,3vw,2.4rem);border-left:1px solid var(--lux-gold-line)}
+  .lp-stay{list-style:none;padding:0;margin:1.1rem 0 0;border-top:1px solid var(--lux-gold-line)}
+  .lp-stay-row{display:grid;grid-template-columns:auto 1fr auto;gap:.3rem 1.1rem;align-items:center;
+    padding:.85rem .1rem;border-bottom:1px solid var(--lux-gold-line)}
+  .lp-stay-city{font-family:var(--lux-display);font-weight:600;font-size:1.02rem;color:var(--lux-emerald);letter-spacing:.03em}
+  .lp-stay-hotels{font-family:var(--lux-serif);color:var(--lux-ink);font-size:1.08rem;font-weight:600}
+  .lp-stay-nights{font-family:var(--lux-label);font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--lux-gold-ink);border:1px solid var(--lux-gold);border-radius:999px;padding:.3rem .7rem;white-space:nowrap}
+  .lp-stay-note{color:var(--lux-ink-dim);font-size:.8rem;font-weight:400;margin:.9rem 0 0;font-style:italic}
+  .lp-incl{list-style:none;padding:0;margin:1.1rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:.7rem 1.3rem}
+  .lp-incl li{position:relative;padding-left:1.6rem;color:var(--lux-ink);font-size:.95rem;line-height:1.45;font-weight:400}
+  .lp-incl li::before{content:"";position:absolute;left:0;top:.45em;width:7px;height:7px;transform:rotate(45deg);background:var(--lux-gold)}
+  .lp-cancel{margin:1.3rem 0 0;font-family:var(--lux-label);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lux-gold-ink);font-weight:700}
 
   /* ============================ PRICING CARD ============================ */
-  .lp-pricing{position:relative;margin-top:clamp(2.6rem,6vw,4.4rem);
-    background:radial-gradient(130% 100% at 50% 0%,rgba(11,61,46,.5),rgba(7,38,28,.92) 70%);
-    border:1px solid rgba(193,147,51,.4);border-radius:6px;box-shadow:inset 0 0 0 1px rgba(193,147,51,.12);
-    padding:clamp(2.4rem,5vw,3.6rem) clamp(1.3rem,4vw,3rem);text-align:center}
+  .lp-pricing{position:relative;background:var(--lux-ivory-2);border:1px solid var(--lux-gold);border-radius:6px;
+    box-shadow:inset 0 0 0 1px rgba(184,138,46,.14),0 10px 30px rgba(42,32,24,.06);
+    padding:clamp(2.2rem,4.5vw,3.2rem) clamp(1.3rem,4vw,3rem);text-align:center}
   .lp-pricing::before{content:"";position:absolute;top:-5px;left:50%;width:9px;height:9px;transform:translateX(-50%) rotate(45deg);
-    background:var(--lux-gold);box-shadow:0 0 0 4px var(--lux-black)}
-  .lp-price-sub{color:var(--lux-cream-dim);font-family:var(--lux-serif);font-size:1.1rem;max-width:600px;margin:.9rem auto 1.9rem;line-height:1.6}
-  .lp-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(193,147,51,.3);border-radius:5px;overflow:hidden}
-  .lp-tier{position:relative;background:rgba(7,15,11,.4);padding:1.9rem 1rem 1.6rem;text-align:center;
-    border-right:1px solid rgba(193,147,51,.22)}
+    background:var(--lux-gold);box-shadow:0 0 0 4px var(--lux-ivory)}
+  .lp-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--lux-gold-line);border-radius:5px;overflow:hidden;margin-top:1.6rem}
+  .lp-tier{position:relative;background:#fff;padding:1.8rem 1rem 1.5rem;text-align:center;border-right:1px solid var(--lux-gold-line)}
   .lp-tier:last-child{border-right:0}
-  .lp-tier.is-rec{background:linear-gradient(180deg,var(--lux-gold-bright),var(--lux-gold))}
-  .lp-tier-flag{position:absolute;top:-1px;left:50%;transform:translate(-50%,-50%);background:var(--lux-emerald-deep);color:var(--lux-gold);
-    font-family:var(--lux-label);font-size:.52rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-    padding:.3rem .8rem;border:1px solid var(--lux-gold);border-radius:999px;white-space:nowrap}
-  .lp-tier-pax{display:block;font-family:var(--lux-label);font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--lux-cream-faint)}
-  .lp-tier-price{display:block;font-family:var(--lux-display);font-weight:600;font-size:clamp(1.5rem,2.5vw,2rem);color:var(--lux-gold);margin:.5rem 0 .3rem;line-height:1}
-  .lp-tier-note{display:block;font-size:.74rem;color:var(--lux-cream-faint);font-weight:300}
-  .lp-tier.is-rec .lp-tier-pax,.lp-tier.is-rec .lp-tier-note{color:rgba(7,38,28,.72)}
-  .lp-tier.is-rec .lp-tier-price{color:var(--lux-emerald-deep)}
-  .lp-cta{margin-top:2.2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.3rem 2rem}
-  .lp-from{color:var(--lux-cream-dim);font-weight:300;font-size:1rem}
-  .lp-from strong{font-family:var(--lux-display);font-weight:700;font-size:clamp(1.9rem,3vw,2.5rem);color:var(--lux-gold);margin:0 .3rem;letter-spacing:.02em}
+  .lp-tier.is-rec{background:var(--lux-emerald)}
+  .lp-tier-flag{position:absolute;top:-1px;left:50%;transform:translate(-50%,-50%);background:var(--lux-gold);color:var(--lux-emerald-deep);
+    font-family:var(--lux-label);font-size:.52rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    padding:.3rem .8rem;border-radius:999px;white-space:nowrap}
+  .lp-tier-pax{display:block;font-family:var(--lux-label);font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lux-ink-dim)}
+  .lp-tier-price{display:block;font-family:var(--lux-display);font-weight:600;font-size:clamp(1.5rem,2.5vw,2rem);color:var(--lux-emerald);margin:.5rem 0 .3rem;line-height:1}
+  .lp-tier-note{display:block;font-size:.74rem;color:var(--lux-ink-dim);font-weight:400}
+  .lp-tier.is-rec .lp-tier-pax{color:rgba(251,248,242,.75)}
+  .lp-tier.is-rec .lp-tier-price{color:var(--lux-gold-bright)}
+  .lp-tier.is-rec .lp-tier-note{color:rgba(251,248,242,.7)}
+  .lp-cta{margin-top:2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.2rem 2rem}
+  .lp-from{color:var(--lux-ink-dim);font-weight:400;font-size:1rem}
+  .lp-from strong{font-family:var(--lux-display);font-weight:700;font-size:clamp(1.9rem,3vw,2.5rem);color:var(--lux-emerald);margin:0 .3rem;letter-spacing:.02em}
   .lp-cta-btns{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center}
   .lp-btn-gold,.lp-btn-ghost{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 1.9rem;border-radius:3px;
-    font-family:var(--lux-label);font-weight:600;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;
-    transition:background .3s ease,color .3s ease}
+    font-family:var(--lux-label);font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+    transition:background .3s ease,color .3s ease,box-shadow .3s ease}
   .lp-btn-gold{background:var(--lux-gold);color:var(--lux-emerald-deep)}
-  .lp-btn-gold:hover{background:var(--lux-gold-bright)}
-  .lp-btn-ghost{border:1px solid var(--lux-gold);color:var(--lux-gold)}
-  .lp-btn-ghost:hover{background:var(--lux-gold);color:var(--lux-emerald-deep)}
+  .lp-btn-gold:hover{background:var(--lux-gold-bright);box-shadow:0 12px 28px rgba(184,138,46,.28)}
+  .lp-btn-ghost{border:1px solid var(--lux-emerald);color:var(--lux-emerald)}
+  .lp-btn-ghost:hover{background:var(--lux-emerald);color:var(--lux-cream)}
 
   /* ============================ RESPONSIVE ============================ */
   @media(max-width:820px){
     .lp-tiers{grid-template-columns:1fr 1fr}
     .lp-tier:nth-child(2n){border-right:0}
-    .lp-tier:nth-child(-n+2){border-bottom:1px solid rgba(193,147,51,.22)}
-    .lp-cream-in{grid-template-columns:1fr;gap:2.2rem}
-    .lp-panel-col + .lp-panel-col{padding-left:0;border-left:0;border-top:1px solid rgba(193,147,51,.3);padding-top:2.2rem}
+    .lp-tier:nth-child(-n+2){border-bottom:1px solid var(--lux-gold-line)}
+    .lp-panel{grid-template-columns:1fr;gap:2rem}
+    .lp-panel-col + .lp-panel-col{padding-left:0;border-left:0;border-top:1px solid var(--lux-gold-line);padding-top:2rem}
     .lp-incl{grid-template-columns:1fr}
   }
   @media(max-width:520px){
-    .lp-day-sum{grid-template-columns:auto 1fr auto;gap:.8rem}
-    .lp-day-n{font-size:1.25rem;min-width:2ch}
-    .lp-exp{padding-left:2.6rem}
-    .lp-stay-row{grid-template-columns:1fr auto;row-gap:.2rem}
-    .lp-stay-hotels{grid-column:1/-1}
-    .lp-cta{flex-direction:column;gap:1.1rem}
+    .lp-day-sum{grid-template-columns:auto auto 1fr auto;gap:.7rem}
+    .lp-day-sum .lp-thumb-sm{width:52px}
+    .lp-day-n{font-size:.58rem}
+    .lp-exp{padding-left:1.4rem}
+    .lp-cta{flex-direction:column;gap:1rem}
   }
   @media(prefers-reduced-motion:reduce){.lp-day-chev::before,.lp-day-chev::after,.lp-day-sum{transition:none}}
 </style>
