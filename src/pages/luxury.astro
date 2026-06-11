@@ -3,12 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import LuxuryProgram from '../components/LuxuryProgram.astro';
 import InquiryForm from '../components/InquiryForm.astro';
-import Motif from '../components/Motif.astro';
 import { PROGRAMMES, LUX_PRICING } from '../data/luxury.mjs';
 import { CONTACT } from '../config';
 
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Hello Algeria Compass, I'd like to enquire about your 5-Star Collection luxury tours.")}`;
+const HERO = '/assets/img/sahara-plateau-sunset.jpg';
 
 const breadcrumb = { '@type':'BreadcrumbList', '@id':`${site}/luxury/#breadcrumb`, itemListElement:[
   {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
@@ -43,13 +43,29 @@ const tripNodes = PROGRAMMES.map((p) => ({
   },
 }));
 
+// SVG line icons (no emoji) — stroke uses currentColor (champagne gold).
+const ICONS: Record<string,string> = {
+  shield:  '<path d="M12 3l7 3v5c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6z"/>',
+  gem:     '<path d="M3 9h18l-9 12zM3 9l3-5h12l3 5M8 9l4 12 4-12"/>',
+  guide:   '<circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/>',
+  visa:    '<rect x="5.5" y="3" width="13" height="18" rx="1.5"/><circle cx="12" cy="9.5" r="2.8"/><path d="M8.5 16h7"/>',
+  calendar:'<rect x="4.5" y="5.5" width="15" height="14" rx="1.5"/><path d="M4.5 10h15M9 3.5v4M15 3.5v4"/>',
+  key:     '<rect x="6" y="10.5" width="12" height="9.5" rx="1.5"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/>',
+};
 const pillars = [
-  { icon: '🇩🇿', t: 'Licensed Algerian operator', d: 'Run on the ground by Algerians — every permit, road and door handled in-country.' },
-  { icon: '◆', t: 'Truly all-inclusive', d: 'Internal flights, all meals, 5-star hotels, a private 4WD fleet, guides and UNESCO fees — one price, no surprises.' },
-  { icon: '🗣️', t: 'Multilingual private guides', d: 'A dedicated tour leader who never leaves your group, plus expert local guides at each site.' },
-  { icon: '🛂', t: 'Visa support included', d: 'We prepare your visa documentation as part of the booking — see our e-Visa & visa support.' },
-  { icon: '🗓️', t: 'Free cancellation', d: 'Free cancellation up to 5 days before your tour departure date.' },
-  { icon: '★', t: 'Private, not packaged', d: 'Your own group only. Request-to-book, confirmed in writing before you pay — no instant-checkout, no crowds.' },
+  { icon: 'shield', t: 'Licensed Algerian operator', d: 'Run on the ground by Algerians — every permit, road and door handled in-country.' },
+  { icon: 'gem',    t: 'Truly all-inclusive', d: 'Internal flights, all meals, 5-star hotels, a private 4WD fleet, guides and UNESCO fees — one price, no surprises.' },
+  { icon: 'guide',  t: 'Multilingual private guides', d: 'A dedicated tour leader who never leaves your group, plus expert local guides at each site.' },
+  { icon: 'visa',   t: 'Visa support included', d: 'We prepare your visa documentation as part of the booking — see our e-Visa & visa support.' },
+  { icon: 'calendar', t: 'Free cancellation', d: 'Free cancellation up to five days before your tour departure date.' },
+  { icon: 'key',    t: 'Private, not packaged', d: 'Your own group only. Request-to-book, confirmed in writing before you pay — no instant-checkout, no crowds.' },
+];
+
+const stats = [
+  { v: '3', l: 'Signature journeys' },
+  { v: '8', l: 'Days · 7 nights' },
+  { v: 'All-in', l: 'Flights · hotels · meals' },
+  { v: `€${LUX_PRICING.fromValue.toLocaleString('en-US')}`, l: 'From / person' },
 ];
 ---
 <BaseLayout
@@ -59,147 +75,278 @@ const pillars = [
   imageAlt="Djemila's UNESCO Roman ruins — Algeria Compass luxury tours"
   keywords={["Algeria luxury tours","5-star Algeria","private Algeria tours","luxury Sahara Algeria","luxury Algeria travel","Algeria UNESCO tours","all-inclusive Algeria tour"]}
   schema={[breadcrumb, ...tripNodes]}
-  sticky={true}>
+  bodyClass="lux-page"
+  sticky={false}>
 
-  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Luxury 5-Star Collection'}]} />
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Montserrat:wght@500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Montserrat:wght@500;600&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Montserrat:wght@500;600&display=swap" /></noscript>
+  </Fragment>
 
-  <!-- ===== page hero ===== -->
-  <section class="lux-hero">
-    <div class="lux-hero-bg" aria-hidden="true"></div>
-    <Motif name="zellige" size={120} class="lux-hero-motif" />
-    <div class="wrap lux-hero-in">
-      <span class="eyebrow lux-eyebrow">Algeria Revealed · The 5-Star Collection</span>
-      <h1>Luxury Algeria, <span class="lux-gold">privately yours</span></h1>
-      <p class="lux-sub">Three signature private journeys — eight unhurried days each, fully all-inclusive, across Roman ruins, UNESCO cities, the living Sahara and the Andalusian west. Internal flights, 5-star hotels, a private 4WD fleet and a tour leader who never leaves your side.</p>
-      <div class="lux-stats">
-        <div><strong>3</strong><span>signature journeys</span></div>
-        <div><strong>8</strong><span>days · 7 nights</span></div>
-        <div><strong>All-in</strong><span>flights · hotels · meals</span></div>
-        <div><strong>€{LUX_PRICING.fromValue.toLocaleString('en-US')}</strong><span>from / person</span></div>
-      </div>
-      <p class="lux-hero-cta">
-        <a class="btn btn-gold" href="#programmes">Explore the journeys ↓</a>
-        <a class="btn btn-ghost lux-ghost" href={wa} target="_blank" rel="noopener">💬 Talk to a specialist</a>
-      </p>
-    </div>
-  </section>
+  <div class="lux-shimmer" aria-hidden="true"></div>
 
-  <!-- ===== what makes it 5-star ===== -->
-  <section class="section lux-pillars"><div class="wrap">
-    <div class="lux-h"><span class="eyebrow">What makes it 5-star</span><h2>The Algeria Compass standard</h2>
-      <p class="lux-h-sub">Every claim below is simply how we operate — a licensed Algerian house running private, all-inclusive travel. No metrics we can’t stand behind.</p>
-    </div>
-    <div class="lux-pillar-grid">
-      {pillars.map(p => (
-        <div class="lux-pillar">
-          <span class="lux-pillar-i" aria-hidden="true">{p.icon}</span>
-          <h3>{p.t}</h3>
-          <p>{p.d}</p>
+  <div class="lux">
+    <!-- ===================== HERO — full viewport ===================== -->
+    <section class="lux-hero">
+      <img class="lux-hero-img" src={HERO} alt="The Algerian Sahara at golden hour" width="720" height="1265" fetchpriority="high" decoding="async" />
+      <div class="lux-hero-veil" aria-hidden="true"></div>
+      <div class="lux-hero-in">
+        <span class="lux-eyebrow">The 5-Star Collection · Algeria</span>
+        <h1 class="lux-h1">Luxury Algeria,<br/><em>Privately Yours.</em></h1>
+        <span class="lux-hr" aria-hidden="true"></span>
+        <p class="lux-hero-line">Three private journeys through a country few ever see.</p>
+        <div class="lux-hero-cta">
+          <a class="lux-btn" href="#programmes">Explore the Journeys</a>
+          <a class="lux-btn" href={wa} target="_blank" rel="noopener">Speak to a Specialist</a>
         </div>
-      ))}
-    </div>
-  </div></section>
+      </div>
+      <a class="lux-scroll" href="#programmes" aria-label="Scroll to the journeys">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+    </section>
 
-  <!-- ===== programmes ===== -->
-  <div id="programmes">
-    {PROGRAMMES.map(p => <LuxuryProgram prog={p} />)}
+    <!-- ===================== TRUST / STATS BAR ===================== -->
+    <section class="lux-stats" id="stats">
+      <div class="lux-stats-in">
+        {stats.map(s => (
+          <div class="lux-stat reveal">
+            <span class="lux-stat-v">{s.v}</span>
+            <span class="lux-stat-l">{s.l}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ===================== WHAT MAKES IT 5-STAR ===================== -->
+    <section class="lux-sec lux-pillars">
+      <div class="lux-wrap">
+        <p class="lux-overline reveal">The Algeria Compass Standard</p>
+        <h2 class="lux-h2 reveal">What makes it five-star</h2>
+        <p class="lux-lead reveal">Every line below is simply how we operate — a licensed Algerian house running private, all-inclusive travel. Nothing we cannot stand behind.</p>
+        <div class="lux-pillar-grid">
+          {pillars.map(p => (
+            <div class="lux-pillar reveal">
+              <span class="lux-pillar-ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[p.icon]} />
+              </span>
+              <h3>{p.t}</h3>
+              <p>{p.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div class="lux-ornament" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ===================== PROGRAMMES ===================== -->
+    <div id="programmes">
+      {PROGRAMMES.map(p => <LuxuryProgram prog={p} />)}
+    </div>
+
+    <!-- ===================== RESERVE ===================== -->
+    <section class="lux-sec lux-reserve" id="reserve">
+      <div class="lux-wrap">
+        <p class="lux-overline reveal">Reserve Your Journey</p>
+        <h2 class="lux-h2 reveal">Begin your 5-Star Collection trip</h2>
+        <div class="lux-reserve-grid">
+          <div class="lux-reserve-copy reveal">
+            <p>Tell us which programme draws you — <em>Classical Algeria</em>, <em>Sahara Heart</em> or <em>Four Seasons</em> — your dates and group size. We confirm availability, internal flights and your final per-person price in writing, usually within a few hours.</p>
+            <ul class="lux-reserve-pts">
+              <li>Private, request-to-book — no payment to enquire</li>
+              <li>From <em>{LUX_PRICING.fromLabel}</em> per person, all-inclusive</li>
+              <li>Free cancellation up to five days before departure</li>
+              <li>Prefer to talk? <a href={wa} target="_blank" rel="noopener">Message us on WhatsApp</a> or email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+            </ul>
+          </div>
+          <div class="lux-reserve-form lux-form reveal">
+            <h3>Request your private journey</h3>
+            <InquiryForm context="Luxury 5-Star Collection enquiry" defaultInterest="Luxury" />
+          </div>
+        </div>
+        <p class="lux-crumbs-wrap"><Breadcrumbs items={[{name:'Home',href:'/'},{name:'Luxury 5-Star Collection'}]} /></p>
+      </div>
+    </section>
   </div>
 
-  <!-- ===== reserve ===== -->
-  <section class="section lux-reserve" id="reserve"><div class="wrap">
-    <div class="lux-reserve-grid">
-      <div class="lux-reserve-copy">
-        <span class="eyebrow">Reserve your journey</span>
-        <h2>Begin your 5-Star Collection trip</h2>
-        <p>Tell us which programme draws you — <strong>Classical Algeria</strong>, <strong>Sahara Heart</strong> or <strong>Four Seasons</strong> — your dates and group size. We confirm availability, internal flights and your final per-person price in writing, usually within a few hours.</p>
-        <ul class="lux-reserve-pts">
-          <li>Private, request-to-book — no payment to enquire</li>
-          <li>From <strong>{LUX_PRICING.fromLabel}</strong> per person, all-inclusive</li>
-          <li>Free cancellation up to 5 days before departure</li>
-          <li>Prefer to talk? <a href={wa} target="_blank" rel="noopener">Message us on WhatsApp</a> or email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
-        </ul>
-      </div>
-      <div class="lux-reserve-form">
-        <h3>Request your private journey</h3>
-        <InquiryForm context="Luxury 5-Star Collection enquiry" defaultInterest="Luxury" />
-      </div>
-    </div>
-  </div></section>
+  <script is:inline>
+    (function(){
+      var body = document.body;
+      // floating nav -> solid on scroll
+      var onScroll = function(){ body.classList.toggle('lux-scrolled', window.scrollY > 60); };
+      onScroll(); window.addEventListener('scroll', onScroll, { passive:true });
+      // scroll-reveal (fade + rise) — unhurried, premium
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = Array.prototype.slice.call(document.querySelectorAll('.reveal, .lp-reveal'));
+      if(reduce || !('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function(ents){
+        ents.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function(e){ io.observe(e); });
+    })();
+  </script>
 </BaseLayout>
 
+<!-- ===== global overrides: transparent floating nav + palette tokens on this page ===== -->
+<style is:global>
+  body.lux-page{
+    --lux-bg:#0A0A0A; --lux-char:#121110; --lux-char2:#191713; --lux-line:rgba(201,168,76,.22);
+    --lux-gold:#C9A84C; --lux-gold-soft:#b59440; --lux-gold-bright:#E4CD86;
+    --lux-ivory:#F5F0E8; --lux-ivory-dim:rgba(245,240,232,.74); --lux-ivory-faint:rgba(245,240,232,.52);
+    --lux-serif:'Cormorant Garamond',Georgia,serif; --lux-sans:'Jost',system-ui,sans-serif; --lux-label:'Montserrat',system-ui,sans-serif;
+    background:#0A0A0A;
+  }
+  /* hide the gold zellige strip; float the nav over the hero */
+  body.lux-page .id-band{display:none}
+  body.lux-page .nav{position:fixed;left:0;right:0;top:0;background:transparent;border-bottom:1px solid transparent;
+    box-shadow:none;transition:background .45s ease,border-color .45s ease,backdrop-filter .45s ease}
+  body.lux-page .nav::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(0,0,0,.55),transparent);opacity:1;transition:opacity .45s ease}
+  body.lux-page.lux-scrolled .nav{background:rgba(10,10,10,.9);border-bottom-color:var(--lux-line);backdrop-filter:blur(10px)}
+  body.lux-page.lux-scrolled .nav::before{opacity:0}
+  body.lux-page .nav-links>li>a{color:rgba(245,240,232,.82);font-family:var(--lux-label);font-weight:500;
+    letter-spacing:.04em;text-transform:uppercase;font-size:.72rem}
+  body.lux-page .nav-links>li>a:hover,body.lux-page .nav-links>li>a.active{color:var(--lux-gold);border-bottom-color:var(--lux-gold)}
+  body.lux-page .brand-name{color:var(--lux-ivory)}
+  body.lux-page .brand-name b{color:var(--lux-gold)}
+  body.lux-page .nav-toggle{color:var(--lux-gold)}
+  body.lux-page .nav-cta .btn-book{background:var(--lux-gold);color:#0A0A0A}
+  body.lux-page .nav-cta .btn-book:hover{background:var(--lux-gold-bright)}
+  /* WhatsApp button: drop the brand green on this page, use a gold outline */
+  body.lux-page .nav-cta .btn-wa,body.lux-page .nav-links .nav-mobile-only a{
+    background:transparent;color:var(--lux-gold);border:1px solid rgba(201,168,76,.55)}
+  body.lux-page .nav-cta .btn-wa:hover{background:var(--lux-gold);color:#0A0A0A}
+  body.lux-page .nav-links{ /* mobile dropdown */ background:#0A0A0A }
+  body.lux-page main{padding-top:0}
+  body.lux-page footer{background:#070707}
+  /* dark form fields inside the reserve card */
+  body.lux-page .lux-form label{color:var(--lux-ivory-dim);font-family:var(--lux-label);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+  body.lux-page .lux-form input,body.lux-page .lux-form select,body.lux-page .lux-form textarea{
+    background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.28);color:var(--lux-ivory);border-radius:3px}
+  body.lux-page .lux-form input::placeholder,body.lux-page .lux-form textarea::placeholder{color:rgba(245,240,232,.35)}
+  body.lux-page .lux-form input:focus,body.lux-page .lux-form select:focus,body.lux-page .lux-form textarea:focus{
+    border-color:var(--lux-gold);outline:none}
+  body.lux-page .lux-form .btn,body.lux-page .lux-form button[type=submit]{
+    background:var(--lux-gold);color:#0A0A0A;border:none;font-family:var(--lux-label);letter-spacing:.1em;text-transform:uppercase;font-size:.74rem}
+</style>
+
 <style>
-  /* ===== page hero — cinematic near-black emerald + champagne gold ===== */
-  .lux-hero{position:relative;overflow:hidden;background:#04140F;color:#fff;
-    border-bottom:1px solid rgba(224,190,115,.28)}
-  .lux-hero::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;z-index:3;
-    background:linear-gradient(90deg,transparent,#E7C66B 30%,#F4E3AE 50%,#E7C66B 70%,transparent)}
-  .lux-hero-bg{position:absolute;inset:0;background:
-    radial-gradient(130% 100% at 82% -15%, rgba(231,198,107,.26), transparent 52%),
-    radial-gradient(95% 85% at -5% 115%, rgba(30,111,92,.5), transparent 55%),
-    linear-gradient(165deg,#0B3D2E 0%,#072019 60%,#04140F 100%)}
-  .lux-hero-bg::after{content:"";position:absolute;inset:0;
-    background:radial-gradient(120% 120% at 50% 40%,transparent 55%,rgba(0,0,0,.45) 100%)}
-  .lux-hero-motif{position:absolute;right:-20px;top:30px;color:#C9A24B;opacity:.12}
-  .lux-hero-in{position:relative;padding:4.4rem 0 4rem;max-width:860px}
-  .lux-eyebrow{display:inline-flex;align-items:center;gap:.7rem;color:#E7C66B;
-    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
-  .lux-eyebrow::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,#E7C66B)}
-  .lux-hero-in h1{font-family:'Cinzel',serif;color:#fff;font-size:clamp(2.3rem,6.2vw,4rem);line-height:1.03;
-    margin:.9rem 0 .7rem;font-weight:700;text-shadow:0 2px 30px rgba(0,0,0,.4)}
-  .lux-gold{background:linear-gradient(90deg,#E7C66B,#F4E3AE 60%,#D7A94B);
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#E7C66B}
-  .lux-sub{font-size:clamp(1.04rem,2vw,1.2rem);line-height:1.7;color:rgba(255,255,255,.88);max-width:720px;font-weight:300}
-  .lux-stats{display:flex;flex-wrap:wrap;gap:0;margin:2rem 0;
-    border-top:1px solid rgba(224,190,115,.22);border-bottom:1px solid rgba(224,190,115,.22)}
-  .lux-stats div{display:flex;flex-direction:column;padding:1rem 1.7rem 1rem 0;margin-right:1.7rem;
-    border-right:1px solid rgba(224,190,115,.16)}
-  .lux-stats div:last-child{border-right:0;margin-right:0}
-  .lux-stats strong{font-family:'Cinzel',serif;font-size:1.85rem;color:#E7C66B;line-height:1;font-weight:700}
-  .lux-stats span{font-size:.78rem;letter-spacing:.04em;color:rgba(255,255,255,.66);margin-top:.35rem;text-transform:uppercase}
-  .lux-hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin:0}
-  .lux-hero-cta .btn-gold{background:linear-gradient(135deg,#E7C66B,#C9A24B);color:#05130D;font-weight:700;
-    box-shadow:0 10px 28px rgba(201,162,75,.3)}
-  .lux-hero-cta .btn-gold:hover{filter:brightness(1.07)}
-  .lux-ghost{color:#fff;border-color:rgba(231,198,107,.55)}
-  .lux-ghost:hover{background:rgba(231,198,107,.14);border-color:#E7C66B}
-  /* ===== pillars ===== */
-  .lux-pillars{background:
-    radial-gradient(120% 80% at 50% -20%, rgba(201,162,75,.07), transparent 60%),
-    var(--wash,#f7f5ef)}
-  .lux-h{text-align:center;max-width:680px;margin:0 auto 2.2rem}
-  .lux-h .eyebrow{display:inline-flex;align-items:center;gap:.6rem;color:var(--gold-d,#8B6A22);
-    letter-spacing:.2em;text-transform:uppercase;font-size:.74rem;font-weight:700}
-  .lux-h .eyebrow::before,.lux-h .eyebrow::after{content:"";width:26px;height:1px;background:currentColor;opacity:.5}
-  .lux-h h2{font-family:'Cinzel',serif;color:#0B3D2E;font-size:clamp(1.7rem,3vw,2.35rem);margin:.45rem 0 .4rem}
-  .lux-h-sub{color:#4a5a52;margin:0;line-height:1.6}
-  .lux-pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-  .lux-pillar{position:relative;background:#fff;border:1px solid var(--border,#e4ddd0);border-radius:16px;
-    padding:1.7rem 1.5rem 1.4rem;box-shadow:0 4px 16px rgba(11,61,46,.05);
-    transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
-  .lux-pillar::before{content:"";position:absolute;top:0;left:1.5rem;right:1.5rem;height:2px;
-    background:linear-gradient(90deg,#E7C66B,#C9A24B);border-radius:2px}
-  .lux-pillar:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(11,61,46,.13);border-color:rgba(201,162,75,.5)}
-  .lux-pillar-i{display:inline-flex;align-items:center;justify-content:center;width:2.7rem;height:2.7rem;
-    font-size:1.3rem;margin-bottom:.7rem;border-radius:50%;color:#0B3D2E;
-    background:radial-gradient(circle at 30% 25%,#F4E3AE,#E7C66B 60%,#C9A24B);
-    box-shadow:0 4px 12px rgba(201,162,75,.32)}
-  .lux-pillar h3{font-family:'Cinzel',serif;color:#0B3D2E;font-size:1.1rem;margin:0 0 .35rem}
-  .lux-pillar p{color:#42524a;font-size:.92rem;line-height:1.55;margin:0}
-  /* ===== reserve ===== */
-  .lux-reserve{background:#0B3D2E;color:#fff}
-  .lux-reserve-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:2.2rem;align-items:start}
-  .lux-reserve-copy .eyebrow{color:#E0BE73}
-  .lux-reserve-copy h2{font-family:'Cinzel',serif;color:#fff;font-size:clamp(1.5rem,3vw,2rem);margin:.1rem 0 .6rem}
-  .lux-reserve-copy p{color:rgba(255,255,255,.9);line-height:1.7}
-  .lux-reserve-pts{list-style:none;padding:0;margin:1.1rem 0 0;display:grid;gap:.55rem}
-  .lux-reserve-pts li{position:relative;padding-left:1.6rem;color:rgba(255,255,255,.92);font-size:.95rem;line-height:1.5}
-  .lux-reserve-pts li::before{content:"✦";position:absolute;left:0;color:#E0BE73}
-  .lux-reserve-pts a{color:#E0BE73;font-weight:600}
-  .lux-reserve-form{background:#fff;border-radius:16px;border-top:4px solid var(--gold,#C19333);padding:1.5rem}
-  .lux-reserve-form h3{font-family:'Cinzel',serif;color:#0B3D2E;font-size:1.2rem;margin:0 0 .8rem}
+  /* ============================ palette + base ============================ */
+  .lux{position:relative;background:var(--lux-bg);color:var(--lux-ivory);font-family:var(--lux-sans);overflow:hidden;
+    /* whisper-thin zellij arabesque, ~4% */
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='1' opacity='0.04'%3E%3Cpath d='M40 4l10 26 26 10-26 10-10 26-10-26L4 40l26-10z'/%3E%3Cpath d='M40 22l6 12 12 6-12 6-6 12-6-12-12-6 12-6z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:300px 300px}
+  .lux-wrap{max-width:1120px;margin:0 auto;padding:0 clamp(1.2rem,4vw,2.4rem)}
+  .lux em{font-style:italic}
+
+  /* ambient gold shimmer — subtle floating dots */
+  .lux-shimmer{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;
+    background-image:radial-gradient(rgba(201,168,76,.5) 1px,transparent 1.4px),radial-gradient(rgba(201,168,76,.35) 1px,transparent 1.4px);
+    background-size:240px 240px,360px 360px;background-position:0 0,80px 120px;
+    animation:lux-drift 38s linear infinite;mix-blend-mode:screen}
+  @keyframes lux-drift{from{background-position:0 0,80px 120px}to{background-position:0 -480px,80px -360px}}
+
+  /* shared overline:  ——— text ——— */
+  .lux-overline{display:flex;align-items:center;justify-content:center;gap:1rem;margin:0 auto .9rem;
+    font-family:var(--lux-label);font-weight:600;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--lux-gold);text-align:center}
+  .lux-overline::before,.lux-overline::after{content:"";width:clamp(28px,7vw,64px);height:1px;
+    background:linear-gradient(90deg,transparent,var(--lux-gold))}
+  .lux-overline::after{background:linear-gradient(90deg,var(--lux-gold),transparent)}
+
+  .lux-h2{font-family:var(--lux-serif);font-weight:300;font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.08;
+    text-align:center;color:var(--lux-ivory);margin:0 auto;letter-spacing:.01em}
+  .lux-lead{max-width:620px;margin:1rem auto 0;text-align:center;color:var(--lux-ivory-dim);
+    font-size:1.06rem;line-height:1.5;font-weight:300}
+
+  .lux-sec{position:relative;z-index:2;padding:clamp(3.4rem,8vw,6rem) 0}
+
+  /* gold ornament divider between major blocks */
+  .lux-ornament{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:1.2rem;padding:.4rem 0}
+  .lux-ornament::before,.lux-ornament::after{content:"";height:1px;width:min(32vw,360px);
+    background:linear-gradient(90deg,transparent,var(--lux-line))}
+  .lux-ornament::after{background:linear-gradient(90deg,var(--lux-line),transparent)}
+  .lux-ornament span{color:var(--lux-gold);font-size:.8rem}
+
+  /* scroll-reveal */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.lux-shimmer{animation:none}}
+
+  /* ============================ HERO ============================ */
+  .lux-hero{position:relative;height:100vh;min-height:560px;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;overflow:hidden;z-index:2}
+  .lux-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;z-index:0}
+  .lux-hero-veil{position:absolute;inset:0;z-index:1;background:
+    radial-gradient(120% 90% at 50% 42%, transparent 32%, rgba(10,10,10,.72) 78%, #0A0A0A 100%),
+    linear-gradient(180deg, rgba(10,10,10,.45) 0%, transparent 28%, transparent 55%, rgba(10,10,10,.9) 100%)}
+  .lux-hero-in{position:relative;z-index:2;padding:0 1.4rem;max-width:880px}
+  .lux-eyebrow{display:inline-block;font-family:var(--lux-label);font-weight:600;font-size:.72rem;
+    letter-spacing:.34em;text-transform:uppercase;color:var(--lux-gold);margin-bottom:1.6rem}
+  .lux-h1{font-family:var(--lux-serif);font-weight:300;color:var(--lux-ivory);letter-spacing:.04em;
+    font-size:clamp(3rem,11vw,7.2rem);line-height:.98;margin:0;text-shadow:0 4px 40px rgba(0,0,0,.5)}
+  .lux-h1 em{display:block;font-style:italic;color:var(--lux-gold-bright);font-weight:300}
+  .lux-hr{display:block;width:80px;height:1px;background:var(--lux-gold);margin:1.8rem auto 1.5rem;opacity:.9}
+  .lux-hero-line{font-family:var(--lux-serif);font-style:italic;font-weight:300;font-size:clamp(1.15rem,2.4vw,1.6rem);
+    color:var(--lux-ivory-dim);margin:0 auto 2.2rem;max-width:520px}
+  .lux-hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .lux-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 2rem;border-radius:3px;
+    border:1px solid var(--lux-gold);color:var(--lux-gold);background:transparent;
+    font-family:var(--lux-label);font-weight:600;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;
+    text-decoration:none;transition:background .3s ease,color .3s ease,box-shadow .3s ease}
+  .lux-btn:hover{background:var(--lux-gold);color:#0A0A0A;box-shadow:0 12px 34px rgba(201,168,76,.28)}
+  .lux-scroll{position:absolute;left:50%;bottom:2rem;transform:translateX(-50%);z-index:3;color:var(--lux-gold);
+    width:34px;height:34px;display:flex;align-items:center;justify-content:center;animation:lux-bob 2.2s ease-in-out infinite}
+  .lux-scroll svg{width:26px;height:26px}
+  @keyframes lux-bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,9px)}}
+  @media(prefers-reduced-motion:reduce){.lux-scroll{animation:none}}
+
+  /* ============================ STATS BAR ============================ */
+  .lux-stats{position:relative;z-index:2;background:#0A0A0A;border-top:1px solid var(--lux-line);border-bottom:1px solid var(--lux-line)}
+  .lux-stats-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+  .lux-stat{padding:clamp(1.8rem,4vw,2.8rem) 1rem;text-align:center;border-left:1px solid var(--lux-line)}
+  .lux-stat:first-child{border-left:0}
+  .lux-stat-v{display:block;font-family:var(--lux-serif);font-weight:400;color:var(--lux-gold);
+    font-size:clamp(1.8rem,4vw,3rem);line-height:1}
+  .lux-stat-l{display:block;margin-top:.6rem;font-family:var(--lux-label);font-weight:500;font-size:.62rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--lux-ivory-faint)}
+
+  /* ============================ PILLARS ============================ */
+  .lux-pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:2.6rem;
+    background:var(--lux-line);border:1px solid var(--lux-line)}
+  .lux-pillar{background:var(--lux-bg);padding:2.2rem 1.8rem;text-align:center;transition:background .4s ease}
+  .lux-pillar:hover{background:var(--lux-char)}
+  .lux-pillar-ic{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;color:var(--lux-gold);margin-bottom:1.1rem}
+  .lux-pillar-ic svg{width:30px;height:30px}
+  .lux-pillar h3{font-family:var(--lux-serif);font-weight:500;font-size:1.4rem;color:var(--lux-ivory);margin:0 0 .5rem;letter-spacing:.01em}
+  .lux-pillar p{color:var(--lux-ivory-dim);font-size:.95rem;line-height:1.55;font-weight:300;margin:0}
+
+  /* ============================ RESERVE ============================ */
+  .lux-reserve{background:
+    radial-gradient(100% 80% at 50% 0%, rgba(201,168,76,.05), transparent 60%), #0A0A0A}
+  .lux-reserve-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(1.6rem,4vw,3rem);align-items:start;margin-top:2.4rem}
+  .lux-reserve-copy p{color:var(--lux-ivory-dim);font-size:1.06rem;line-height:1.7;font-weight:300;margin:0}
+  .lux-reserve-copy em{color:var(--lux-gold-bright);font-style:italic}
+  .lux-reserve-pts{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.7rem}
+  .lux-reserve-pts li{position:relative;padding-left:1.5rem;color:var(--lux-ivory-dim);font-size:.96rem;line-height:1.5;font-weight:300}
+  .lux-reserve-pts li::before{content:"";position:absolute;left:0;top:.5em;width:7px;height:7px;transform:rotate(45deg);background:var(--lux-gold)}
+  .lux-reserve-pts em{color:var(--lux-gold-bright);font-style:italic}
+  .lux-reserve-pts a{color:var(--lux-gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.4)}
+  .lux-reserve-form{background:var(--lux-char);border:1px solid var(--lux-line);border-top:2px solid var(--lux-gold);
+    border-radius:4px;padding:1.6rem}
+  .lux-reserve-form h3{font-family:var(--lux-serif);font-weight:500;font-size:1.5rem;color:var(--lux-ivory);margin:0 0 1rem}
+  .lux-crumbs-wrap{margin-top:3rem;text-align:center;opacity:.5}
+
   @media(max-width:860px){
     .lux-pillar-grid{grid-template-columns:1fr 1fr}
-    .lux-reserve-grid{grid-template-columns:1fr;gap:1.4rem}
+    .lux-reserve-grid{grid-template-columns:1fr}
   }
-  @media(max-width:560px){ .lux-pillar-grid{grid-template-columns:1fr} .lux-stats{gap:1.1rem} }
+  @media(max-width:560px){
+    .lux-stats-in{grid-template-columns:1fr 1fr}
+    .lux-stat:nth-child(3),.lux-stat:nth-child(4){border-top:1px solid var(--lux-line)}
+    .lux-stat:nth-child(3){border-left:0}
+    .lux-pillar-grid{grid-template-columns:1fr}
+  }
 </style>
