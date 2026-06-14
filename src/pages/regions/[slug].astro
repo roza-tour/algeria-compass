@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { REGIONS } from '../../data/regions';
+import '../../styles/regions.css';
+
+export function getStaticPaths() {
+  return REGIONS.map(r => ({ params: { slug: r.id }, props: { r } }));
+}
+const { r } = Astro.props;
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/regions/${r.id}/`;
+const schema = [
+  {
+    '@type': 'TouristDestination',
+    '@id': url + '#region',
+    name: r.name + ', Algeria',
+    description: r.sub,
+    url,
+    image: site + r.hero,
+    containedInPlace: { '@id': site + '/#algeria' },
+    isPartOf: { '@id': site + '/#website' },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Regions', item: site + '/regions/' },
+      { '@type': 'ListItem', position: 3, name: r.name, item: url },
+    ],
+  },
+];
+const vars = `--rc:${r.rc};--rc-d:${r.rcD};--rc-l:${r.rcL};--rc-paper:${r.paper};--pat:${r.pat}`;
+const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a journey through ${r.name}.`);
+---
+<BaseLayout
+  title={r.seoTitle}
+  description={r.seoDesc}
+  image={r.hero}
+  imageAlt={`${r.name}, Algeria`}
+  region={r.id === 'roman' ? 'roman' : undefined}
+  schema={schema}
+  sticky={true}>
+
+  <div class="rg rg-page" style={vars}>
+    <nav class="rg-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> › <a href="/regions/">Regions</a> › {r.name}
+    </nav>
+
+    <!-- Parallax hero -->
+    <header class="rg-hero">
+      <img class="rg-hero__img" src={r.hero} alt={`${r.name} — Algeria`} width="1200" height="800" fetchpriority="high" decoding="async" />
+      <div class="rg-hero__pat" aria-hidden="true"></div>
+      <div class="rg-hero__scrim" aria-hidden="true"></div>
+      <div class="rg-hero__in">
+        <img class="rg-hero__em" src={r.emblem} alt="" width="74" height="74" />
+        <span class="rg-hero__kick">{r.kicker}</span>
+        <span class="rg-hero__ar" lang="ar">{r.ar}</span>
+        <h1 class="rg-hero__title">{r.name}</h1>
+        <p class="rg-hero__sub">{r.sub}</p>
+      </div>
+      <div class="rg-hero__cue" aria-hidden="true">Scroll to explore</div>
+    </header>
+
+    <!-- Intro -->
+    <section class="rg-section rg-wrap">
+      <div class="rg-intro">
+        <div>
+          <span class="rg-eyebrow">The dossier</span>
+          <h2 class="rg-h2">{r.name}</h2>
+          <p class="rg-lead" style="margin-top:1.2rem">{r.intro[0]}</p>
+          <p class="rg-p" style="margin-top:1rem">{r.intro[1]}</p>
+        </div>
+        <div class="rg-medallion"><img src={r.emblem} alt="" width="160" height="160" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <!-- 3D monuments -->
+    <section class="rg-monu rg-section">
+      <div class="rg-wrap">
+        <div class="rg-monu__head">
+          <span class="rg-eyebrow">Archaeological &amp; cultural sites</span>
+          <h2 class="rg-h2">What to see</h2>
+        </div>
+        <div class="rg-monu__grid">
+          {r.monuments.map(m => (
+            <div class="rg-mcard">
+              <div class="rg-mcard__in">
+                <img class="rg-mcard__img" src={m.img} alt={m.t} width="600" height="400" loading="lazy" decoding="async" />
+                <div class="rg-mcard__shine" aria-hidden="true"></div>
+                <div class="rg-mcard__plate">
+                  <div class="rg-mcard__n">{m.n}</div>
+                  <div class="rg-mcard__t">{m.t}</div>
+                  <div class="rg-mcard__d">{m.d}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Facets -->
+    <section class="rg-section rg-wrap">
+      <span class="rg-eyebrow">The character of the region</span>
+      <h2 class="rg-h2" style="margin-bottom:2.2rem">What defines it</h2>
+      <div class="rg-facets">
+        {r.facets.map(f => (
+          <div class="rg-facet">
+            <div class="rg-facet__n">{f[0]}</div>
+            <div><h3>{f[1]}</h3><p>{f[2]}</p></div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Ledger + gallery -->
+    <section class="rg-section rg-wrap" style="padding-top:0">
+      <div class="rg-two">
+        <div>
+          <span class="rg-eyebrow">Travel notes</span>
+          <h2 class="rg-h2" style="margin-bottom:1rem">At a glance</h2>
+          <div class="rg-ledger">
+            {r.facts.map(f => (
+              <div class="rg-ledger__row">
+                <span class="rg-ledger__k">{f[0]}</span>
+                <span class="rg-ledger__dots" aria-hidden="true"></span>
+                <span class="rg-ledger__v">{f[1]}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="rg-gal">
+          {r.gallery.map(g => (
+            <figure><img src={g} alt="" width="400" height="300" loading="lazy" decoding="async" /></figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore real pages + CTA -->
+    <section class="rg-section rg-wrap" style="padding-top:0">
+      <div class="rg-cta">
+        <div class="rg-cta__in">
+          <img class="rg-cta__em" src={r.emblem} alt="" width="54" height="54" />
+          <h2 class="rg-h2">Travel {r.name} with us</h2>
+          <p>Algeria Compass is a licensed Algerian tour operator. When you’re ready, we’ll craft a private, guided journey through this region with local Algerian guides.</p>
+          <div class="rg-links">
+            {r.links.map(l => <a href={l.href}>{l.label} →</a>)}
+          </div>
+          <div class="rg-actions">
+            <a class="rg-btn" href={`/contact/?i=${encodeURIComponent(r.name)}`}>Plan a journey →</a>
+            <a class="rg-btn rg-btn--ghost" href="/regions/">All regions</a>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:1.6rem"><a class="rg-back" href="/regions/">← Back to all regions</a></p>
+    </section>
+  </div>
+
+  <script is:inline>
+    /* Region page: parallax hero + 3D monument tilt. Pointer-only and
+       motion-gated; all content is static HTML and fully readable without JS. */
+    (function(){
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var noHover = matchMedia('(hover: none)').matches;
+      var hero = document.querySelector('.rg-hero');
+      var img = document.querySelector('.rg-hero__img');
+      var pat = document.querySelector('.rg-hero__pat');
+      var inr = document.querySelector('.rg-hero__in');
+      if(hero && img){
+        if(!noHover){
+          hero.addEventListener('mousemove', function(e){
+            var r = hero.getBoundingClientRect();
+            var px = (e.clientX - r.left) / r.width - 0.5;
+            var py = (e.clientY - r.top) / r.height - 0.5;
+            img.style.transform = 'translate(' + (px*-22).toFixed(1) + 'px,' + (py*-22).toFixed(1) + 'px) scale(1.08)';
+            if(pat) pat.style.transform = 'translate(' + (px*34).toFixed(1) + 'px,' + (py*34).toFixed(1) + 'px)';
+            if(inr) inr.style.transform = 'translate(' + (px*16).toFixed(1) + 'px,' + (py*10).toFixed(1) + 'px)';
+          });
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function(){
+          if(ticking) return; ticking = true;
+          requestAnimationFrame(function(){
+            var y = window.pageYOffset || 0;
+            if(y < 900){
+              img.style.transform = 'translateY(' + (y*0.18).toFixed(1) + 'px) scale(1.08)';
+              if(inr) inr.style.transform = 'translateY(' + (y*0.30).toFixed(1) + 'px)';
+            }
+            ticking = false;
+          });
+        }, { passive:true });
+      }
+      if(!noHover){
+        document.querySelectorAll('.rg-mcard').forEach(function(card){
+          var inner = card.querySelector('.rg-mcard__in');
+          if(!inner) return;
+          card.addEventListener('mousemove', function(e){
+            var r = card.getBoundingClientRect();
+            var px = (e.clientX - r.left) / r.width - 0.5;
+            var py = (e.clientY - r.top) / r.height - 0.5;
+            inner.style.transition = 'transform .1s linear';
+            inner.style.transform = 'perspective(1000px) rotateY(' + (px*14).toFixed(2) + 'deg) rotateX(' + (-py*14).toFixed(2) + 'deg)';
+            inner.style.setProperty('--gx', ((px+0.5)*100).toFixed(1) + '%');
+            inner.style.setProperty('--gy', ((py+0.5)*100).toFixed(1) + '%');
+          });
+          card.addEventListener('mouseleave', function(){
+            inner.style.transition = 'transform .6s cubic-bezier(.2,.7,.2,1)';
+            inner.style.transform = 'perspective(1000px) rotateY(0) rotateX(0)';
+          });
+        });
+      }
+    })();
+  </script>
+</BaseLayout>

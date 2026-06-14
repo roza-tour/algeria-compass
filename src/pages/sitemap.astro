@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 import toursData from '../data/tours.json';
+import { REGIONS } from '../data/regions';
 
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const breadcrumb = { '@type':'BreadcrumbList', '@id':`${site}/sitemap/#breadcrumb`, itemListElement:[
@@ -22,6 +23,7 @@ async function coll(name: string, base: string, field = 'name'): Promise<Link[]>
     .sort(sortByTitle);
 }
 
+const regions: Link[] = REGIONS.map(r => ({ title: r.name, href: `/regions/${r.id}/` }));
 const states = await coll('province', '/provinces/');
 const destinations = await coll('destination', '/destinations/');
 const experiences = await coll('experience', '/experiences/');
@@ -35,6 +37,7 @@ const groups: { heading: string; links: Link[] }[] = [
     { title: 'Luxury 5-Star Collection', href: '/luxury/' },
     { title: 'Destinations', href: '/destinations/' },
     { title: 'States', href: '/provinces/' },
+    { title: 'Regions', href: '/regions/' },
     { title: 'Experiences', href: '/experiences/' },
     { title: 'Discover Algeria', href: '/discover/' },
     { title: 'Blog', href: '/blog/' },
@@ -58,6 +61,7 @@ const groups: { heading: string; links: Link[] }[] = [
     { title: 'Knowledge graph', href: '/knowledge/' },
   ]},
   { heading: 'Tours', links: tours },
+  { heading: 'Regions', links: regions },
   { heading: 'States', links: states },
   { heading: 'Destinations', links: destinations },
   { heading: 'Experiences', links: experiences },

@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { REGIONS } from '../../data/regions';
+import '../../styles/regions.css';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const schema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Regions', item: site + '/regions/' },
+    ],
+  },
+  {
+    '@type': 'ItemList',
+    name: 'The regions of Algeria',
+    itemListElement: REGIONS.map((r, i) => ({
+      '@type': 'ListItem', position: i + 1, name: r.name, url: `${site}/regions/${r.id}/`,
+    })),
+  },
+];
+const vars = (r: any) => `--rc:${r.rc};--rc-d:${r.rcD};--rc-l:${r.rcL};--rc-paper:${r.paper};--pat:${r.pat}`;
+---
+<BaseLayout
+  title="The Regions of Algeria — One Country, Eight Worlds | Algeria Compass"
+  description="Algeria is the largest country in Africa, and no two corners feel alike. Explore its eight regions — Algiers, Constantine, Roman Algeria, the M'Zab, the Sahara, Tlemcen, Béjaïa & Kabylie and Bou Saâda — by colour, culture and monuments."
+  image="/assets/img/tours/djanet-1.jpg"
+  imageAlt="The red dunes and sandstone of the Algerian Sahara near Djanet"
+  keywords={["Algeria regions","regions of Algeria","Algeria Sahara","Roman Algeria","M'Zab","Kabylie","Tlemcen"]}
+  schema={schema}
+  sticky={true}>
+
+  <div class="rg rg-hub">
+    <div class="rg-hub__head">
+      <div class="rg-hub__kick">Algeria Compass · The Regions</div>
+      <h1 class="rg-hub__title">One country,<br />eight worlds</h1>
+      <p class="rg-hub__sub">Algeria is the largest country in Africa — and no two corners of it feel alike. Choose a region and step into its colour, its culture and its monuments.</p>
+    </div>
+    <div class="rg-grid">
+      {REGIONS.map((r, i) => (
+        <a class="rg-tilt" href={`/regions/${r.id}/`} style={vars(r)} aria-label={`Explore ${r.name}`}>
+          <div class="rg-tilt__in">
+            <div class="rg-card">
+              <img class="rg-card__img" src={r.hero} alt={r.name} width="600" height="400" loading={i < 4 ? 'eager' : 'lazy'} decoding="async" />
+              <div class="rg-card__pat" aria-hidden="true"></div>
+              <div class="rg-card__scrim" aria-hidden="true"></div>
+              <div class="rg-card__em" aria-hidden="true"><img src={r.emblem} alt="" width="46" height="46" loading="lazy" /></div>
+              <div class="rg-card__body">
+                <div class="rg-card__idx">{r.idx} — Region</div>
+                <div class="rg-card__ar" lang="ar">{r.ar}</div>
+                <div class="rg-card__name">{r.name}</div>
+                <div class="rg-card__tag">{r.tag}</div>
+                <div class="rg-card__go">Explore <span aria-hidden="true">→</span></div>
+              </div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <script is:inline>
+    /* Hub card 3D tilt — pointer only, motion-gated. Cards are plain links, so
+       they work fully without this. */
+    (function(){
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.rg-tilt').forEach(function(card){
+        var inner = card.querySelector('.rg-tilt__in');
+        if(!inner) return;
+        card.addEventListener('mousemove', function(e){
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width - 0.5;
+          var py = (e.clientY - r.top) / r.height - 0.5;
+          inner.style.transition = 'transform .08s linear';
+          inner.style.transform = 'rotateY(' + (px*14).toFixed(2) + 'deg) rotateX(' + (-py*14).toFixed(2) + 'deg) scale(1.04)';
+        });
+        card.addEventListener('mouseleave', function(){
+          inner.style.transition = 'transform .6s cubic-bezier(.2,.7,.2,1)';
+          inner.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+        });
+      });
+    })();
+  </script>
+</BaseLayout>
