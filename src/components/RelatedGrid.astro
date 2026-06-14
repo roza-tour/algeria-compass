@@ -5,7 +5,7 @@ const { heading, items } = Astro.props;
 ---
 {items && items.length > 0 && (
   <section class="section related"><div class="wrap">
-    <h2>{heading}</h2>
+    <h2 class="sec-h">{heading}</h2>
     <div class="minigrid">
       {items.map(c => <Card href={c.href} title={c.title} image={c.image} alt={c.alt} tag={c.tag} text={c.text} />)}
     </div>

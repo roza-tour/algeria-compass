@@ -19,6 +19,9 @@ dist
 # headless-chrome verification profiles
 .chrome-verify-*
 
+# astro preview server log (local QA)
+.preview.log
+
 # Reviews: mutable, owner-moderated ON THE SERVER. Must stay UNTRACKED so the
 # deploy's `git reset --hard` never wipes approved/pending reviews. Created by
 # reviews.php / reviews-admin.php on first use. (data/.htaccess IS tracked.)

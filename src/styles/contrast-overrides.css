@@ -76,3 +76,14 @@ html[data-region="sahara"][data-civ="02"] .tour .form-note {
   color: #d0c8b0 !important;
   opacity: 1 !important;
 }
+
+/* --- FAQ accordion (Phase-4 refinement). The FAQ panels are now solid WHITE
+   cards on every page. On this dark Sahara skin the blanket/civ rules tint the
+   question + answer cream, which fails on white. Force readable dark text and a
+   visible sand/gold border on the white panels. Higher specificity + !important
+   beats the generated [data-civ] rules and the blanket .tour p. --- */
+html[data-region="sahara"][data-civ="02"] .faq summary { color: var(--green-d) !important; }
+html[data-region="sahara"][data-civ="02"] .faq p { color: var(--text-m) !important; }
+html[data-region="sahara"][data-civ="02"] .faq summary::after { color: var(--gold-d) !important; }
+html[data-region="sahara"][data-civ="02"] .faq details { border-color: var(--border) !important; }
+html[data-region="sahara"][data-civ="02"] .faq details[open] { border-color: var(--gold) !important; }

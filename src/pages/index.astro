@@ -34,35 +34,44 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
   keywords={["Algeria","Algeria tours","Algeria travel","visit Algeria","Algeria tour operator","Sahara tours Algeria","Algeria holidays"]}
   sticky={true}>
 
-  {/* Preload the above-the-fold LCP thumbnails (desktop=djanet, mobile=algiers) */}
+  {/* Preload the above-the-fold LCP hero image (already the page's OG image) */}
   <Fragment slot="head">
-    <link rel="preload" as="image" href="/assets/img/thumbs/tours/djanet-1.webp" type="image/webp" fetchpriority="high" />
-    <link rel="preload" as="image" href="/assets/img/thumbs/tours/algiers-1.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/img/algiers-white-city-aerial.sm.webp" type="image/webp" fetchpriority="high" />
   </Fragment>
 
-  <section class="hero-compact"><div class="wrap">
-    <div class="eyebrow">Algeria Revealed · Licensed Algerian Tour Operator</div>
-    <h1>Explore Algeria in Elite Luxury</h1>
-    <p class="lead">Private, locally-guided journeys across Algeria — Sahara, the UNESCO Casbah, Roman cities, the M'Zab and the coast.</p>
-    <p class="hero-cta">
-      <a class="btn btn-gold" href="/tours/">Browse all tours →</a>
-      <a class="btn btn-ghost" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,.5)">💬 WhatsApp us</a>
-    </p>
-  </div></section>
+  <section class="home-hero" aria-label="Algeria Revealed">
+    <picture class="home-hero-bg" aria-hidden="true">
+      <source srcset="/assets/img/algiers-white-city-aerial.sm.webp" type="image/webp" />
+      <img src="/assets/img/algiers-white-city-aerial.jpg" alt="" width="1600" height="900" fetchpriority="high" decoding="async" />
+    </picture>
+    <span class="home-hero-pattern" aria-hidden="true"></span>
+    <div class="wrap home-hero-in">
+      <div class="eyebrow">Algeria Revealed · Licensed Algerian Tour Operator</div>
+      <h1>Explore Algeria in Elite Luxury</h1>
+      <p class="lead">Private, locally-guided journeys across Algeria — Sahara, the UNESCO Casbah, Roman cities, the M'Zab and the coast.</p>
+      <p class="hero-cta">
+        <a class="btn btn-gold" href="/tours/">Browse all tours →</a>
+        <a class="btn btn-ghost-light" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">💬 WhatsApp us</a>
+      </p>
+    </div>
+    <a class="home-hero-scroll" href="#featured" aria-label="Scroll to featured tours"><span class="hhs-dot" aria-hidden="true"></span>Scroll</a>
+  </section>
 
   <StatesStrip />
 
-  <section class="section"><div class="wrap">
-    <div class="eyebrow">Private journeys</div>
-    <h2>Featured tours</h2>
-    <div class="grid" style="margin-top:1.2rem">
+  <section class="section feat-sec" id="featured" data-reveal><div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Private journeys</div>
+      <h2>Featured tours</h2>
+    </div>
+    <div class="grid" style="margin-top:1.4rem">
       {featured.map((t: any, i: number) => <TourCard tour={t} priority={i < 2} />)}
     </div>
-    <p style="margin-top:1.4rem"><a class="btn" href="/tours/">All 20 tours →</a></p>
+    <p style="margin-top:1.6rem"><a class="btn" href="/tours/">All 20 tours →</a></p>
   </div></section>
 
   <!-- L1 — Luxury 5-Star Collection banner -->
-  <section class="lux-band" aria-label="Luxury 5-Star Collection">
+  <section class="lux-band" aria-label="Luxury 5-Star Collection" data-reveal>
     <a class="lux-band-in wrap" href="/luxury/">
       <div class="lux-band-txt">
         <span class="lux-band-eyebrow">★ The 5-Star Collection</span>
@@ -73,10 +82,12 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
     </a>
   </section>
 
-  <section class="section plan-sec"><div class="wrap">
-    <div class="eyebrow">The country</div>
-    <h2>Plan your Algeria trip</h2>
-    <p class="plan-lead">Six ways into Algeria — pick a thread and pull.</p>
+  <section class="section plan-sec" data-reveal><div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The country</div>
+      <h2>Plan your Algeria trip</h2>
+      <p class="plan-lead">Six ways into Algeria — pick a thread and pull.</p>
+    </div>
     <div class="plan-grid">
       {planCards.map(c => (
         <a class="plan-card" href={c.href} style={`--a:${c.a};--b:${c.b}`}>
@@ -99,7 +110,7 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
 
   <HonestAnswers />
 
-  <section class="section" style="background:var(--wash)"><div class="wrap" style="text-align:center">
+  <section class="section final-cta" style="background:var(--wash)" data-reveal><div class="wrap" style="text-align:center">
     <div class="cta">
       <h2>Ready to see Algeria?</h2>
       <p style="margin-top:.5rem">Tell us your dates and interests — we'll craft a private itinerary.</p>
@@ -109,6 +120,46 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
       </p>
     </div>
   </div></section>
+
+  <script is:inline>
+    (function(){
+      var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      /* Scroll-reveal — content is visible by default; we only add the hidden
+         state via JS when motion is allowed AND the tab is visible, so print,
+         no-JS, reduced-motion and background tabs always show everything. */
+      if(!reduce && document.visibilityState !== 'hidden'){
+        var els = document.querySelectorAll('[data-reveal]');
+        els.forEach(function(el){ el.classList.add('reveal-init'); });
+        if('IntersectionObserver' in window){
+          var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('reveal-in'); io.unobserve(e.target); } });
+          }, { rootMargin:'0px 0px -8% 0px', threshold:.06 });
+          els.forEach(function(el){ io.observe(el); });
+        } else {
+          els.forEach(function(el){ el.classList.add('reveal-in'); });
+        }
+      }
+      /* Hero parallax — image drifts slower than the content as you scroll. */
+      if(!reduce){
+        var bg = document.querySelector('.home-hero-bg');
+        var inr = document.querySelector('.home-hero-in');
+        if(bg){
+          var ticking = false;
+          window.addEventListener('scroll', function(){
+            if(ticking) return; ticking = true;
+            requestAnimationFrame(function(){
+              var y = window.pageYOffset || 0;
+              if(y < 820){
+                bg.style.transform = 'translateY(' + (y*0.18).toFixed(1) + 'px)';
+                if(inr){ inr.style.transform = 'translateY(' + (y*0.30).toFixed(1) + 'px)'; inr.style.opacity = String(Math.max(0, 1 - y/560)); }
+              }
+              ticking = false;
+            });
+          }, { passive:true });
+        }
+      }
+    })();
+  </script>
 
 </BaseLayout>
 
@@ -147,4 +198,54 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
   .plan-x{font-size:.86rem;color:rgba(255,255,255,.92);line-height:1.45;flex:1;position:relative;z-index:1}
   .plan-go{font-size:1.3rem;font-weight:800;position:relative;z-index:1;transition:transform .18s ease}
   .plan-card:hover .plan-go{transform:translateX(5px)}
+
+  /* ===== Phase 3 — homepage visual transform ===== */
+  /* Hero: full-bleed photo + emerald protection scrim + gold compass-diamond field */
+  .home-hero{position:relative;min-height:clamp(420px,72vh,720px);display:flex;align-items:flex-end;
+    overflow:hidden;background:var(--green-d)}
+  .home-hero-bg{position:absolute;inset:-6% 0 0;z-index:0;will-change:transform}
+  .home-hero-bg img{width:100%;height:108%;object-fit:cover;display:block}
+  .home-hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(105deg,rgba(7,38,28,.92),rgba(7,38,28,.55) 48%,rgba(7,38,28,.22) 80%),
+               linear-gradient(0deg,rgba(7,38,28,.72),transparent 40%)}
+  .home-hero-pattern{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55;
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'90'%20height%3D'90'%20viewBox%3D'0%200%2090%2090'%3E%20%3Cg%20fill%3D'none'%20stroke%3D'%23C8920A'%20stroke-width%3D'1'%20opacity%3D'0.4'%3E%20%3Cpath%20d%3D'M45%206%20L84%2045%20L45%2084%20L6%2045%20Z'%2F%3E%3Cpath%20d%3D'M45%2026%20L64%2045%20L45%2064%20L26%2045%20Z'%2F%3E%20%3Ccircle%20cx%3D'45'%20cy%3D'45'%20r%3D'3'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-repeat:repeat;background-size:90px 90px}
+  .home-hero-in{position:relative;z-index:2;padding:3.4rem 0 3rem;will-change:transform}
+  .home-hero .eyebrow{color:var(--gold-l)}
+  .home-hero h1{color:#fff;font-size:var(--fs-display);max-width:15ch;margin:.55rem 0 0;
+    text-shadow:0 2px 28px rgba(0,0,0,.38)}
+  .home-hero .lead{color:rgba(255,255,255,.92);max-width:54ch;margin:.95rem 0 0;
+    font-size:var(--fs-lead);font-weight:300;line-height:1.6}
+  .home-hero .hero-cta{margin-top:1.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .home-hero-scroll{position:absolute;left:50%;bottom:1.1rem;transform:translateX(-50%);z-index:2;
+    display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.82);
+    font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
+  .home-hero-scroll:hover{color:#fff;text-decoration:none}
+  .hhs-dot{width:22px;height:34px;border:2px solid rgba(255,255,255,.6);border-radius:12px;position:relative}
+  .hhs-dot::before{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;border-radius:2px;
+    background:var(--gold-l);transform:translateX(-50%);animation:hhs 1.7s ease-in-out infinite}
+  @keyframes hhs{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+  @media (max-width:640px){
+    .home-hero{min-height:clamp(360px,58vh,520px)}
+    .home-hero-in{padding:2.1rem 0 2.3rem}
+    .home-hero h1{max-width:none}
+    .home-hero-scroll{display:none}
+  }
+  /* Section rhythm + heading hierarchy */
+  .home-hero ~ .section{padding-block:clamp(3rem,5.5vw,4.6rem)}
+  .sec-head{margin-bottom:.5rem}
+  .sec-head .eyebrow{display:inline-block}
+  .sec-head .eyebrow::after{content:"";display:block;width:34px;height:3px;border-radius:2px;
+    background:var(--gold);margin-top:.55rem;opacity:.92}
+  .sec-head h2{font-size:var(--fs-h1);margin:.4rem 0 0;letter-spacing:.004em}
+  .feat-sec .grid{gap:1.6rem}
+  /* Reveal-on-scroll (paired with the inline script; visible by default) */
+  [data-reveal].reveal-init{opacity:0;transform:translateY(34px);
+    transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].reveal-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    .hhs-dot::before{animation:none}
+    [data-reveal].reveal-init{opacity:1;transform:none;transition:none}
+  }
 </style>

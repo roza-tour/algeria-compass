@@ -3,38 +3,67 @@
    Phase 0 brand lock: green #0B3D2E (primary), gold sampled from logo.
    ===================================================================== */
 :root{
-  /* ---- Brand (locked green; gold sampled from logo-emblem.png = #C19333) ---- */
+  /* ---- Brand: emerald (locked green; gold sampled from logo-emblem.png = #C19333) ---- */
   --brand-green:#0B3D2E;        /* primary, dominant, LOCKED */
   --brand-green-700:#0A4D38;
   --brand-green-300:#3C7A66;
+  --green-d:#07261C;            /* deepest — header band, footer */
+  --green-l:#11543D;            /* lighter panel green */
   --brand-gold:#C19333;         /* secondary — sampled (mean of 3,242 logo px) */
-  --brand-gold-300:#E4AD40;     /* sampled highlight */
-  --brand-gold-700:#8B6A22;     /* sampled shade (AA on paper) */
+  --brand-gold-300:#E4AD40;     /* sampled highlight (on dark only) */
+  --brand-gold-700:#8B6A22;     /* sampled shade */
+  --gold-d:#7E5E1A;             /* deep gold — small text on white (WCAG AA ~5.6:1) */
 
   /* ---- Neutrals & surfaces ---- */
-  --ink:#1A1A1A; --paper:#FBF8F2; --muted:#6B6B63;
+  --ink:#1A1A1A; --paper:#FBF8F2; --cream:#F6EFE0; --card:#FFFFFF;
+  --muted:#6B6B63; --text-m:#4A4A4A; --text-l:#5F5F58; --border:#E6DDC8;
+  --wash:#EEF5EF;
 
-  /* ---- Radius / shadow / spacing / layout ---- */
-  --radius-s:6px; --radius-m:14px; --radius-l:24px;
-  --shadow-card:0 6px 24px rgba(11,61,46,.08);
-  --space:clamp(16px,2vw,28px);
-  --maxw:1200px; --r:16px;
+  /* ---- Status ---- */
+  --red:#C92B34; --success:#2F8F57; --white:#FFFFFF;
 
-  /* ---- Type ---- */
+  /* ---- Semantic aliases (existing component CSS consumes these — keep all) ---- */
+  --green:var(--brand-green);
+  --gold:var(--brand-gold); --gold-l:var(--brand-gold-300);
+  --bg:var(--paper); --text:var(--ink);
+  --surface-card:var(--card); --surface-panel:var(--wash);
+  --text-heading:var(--green-d); --text-muted:var(--text-l);
+  --accent:var(--brand-green); --accent-2:var(--brand-gold); --accent-deep:var(--brand-green-700);
+
+  /* ---- Type: families ---- */
   --serif:'Cinzel',Georgia,'Times New Roman',serif;
   --sans:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   --arabic:'Noto Naskh Arabic','Amiri','Segoe UI',serif;
+  --font-display:var(--serif); --font-body:var(--sans); --font-arabic:var(--arabic);
 
-  /* ---- Aliases: existing component CSS consumes these (no breakage) ---- */
-  --green:var(--brand-green); --green-d:#07261C; --green-l:#11543D;
-  --gold:var(--brand-gold); --gold-l:var(--brand-gold-300); --gold-d:var(--brand-gold-700);
-  --red:#C92B34; --white:#fff;
-  --cream:var(--paper); --bg:var(--paper); --card:#ffffff;
-  --text:var(--ink); --text-m:#4A4A4A; --text-l:#5f5f58; --border:#e6ddc8;
+  /* ---- Type: fluid scale ---- */
+  --fs-display:clamp(2rem,5vw,3.3rem); --fs-h1:clamp(1.7rem,3.4vw,2.4rem);
+  --fs-h2:1.5rem; --fs-h3:1.15rem; --fs-lead:1.05rem; --fs-body:1.02rem;
+  --fs-sm:.9rem; --fs-xs:.8rem; --fs-eyebrow:.72rem;
 
-  /* ---- Region accent defaults (Phase 2 overrides per [data-region]) ---- */
-  --accent:var(--brand-green); --accent-2:var(--brand-gold); --accent-deep:var(--brand-green-700);
-  --wash:#eef5ef; --motif:none;
+  /* ---- Type: weights / line-height / tracking ---- */
+  --fw-body:400; --fw-medium:600; --fw-bold:700; --fw-display:700; --fw-display-heavy:800;
+  --lh-tight:1.2; --lh-body:1.7; --ls-eyebrow:.14em; --ls-wordmark:.04em;
+
+  /* ---- Radius ---- */
+  --radius-s:6px; --radius-m:14px; --radius-l:24px; --r:16px; --radius-pill:999px;
+
+  /* ---- Spacing scale ---- */
+  --space-1:.35rem; --space-2:.6rem; --space-3:.9rem; --space-4:1.2rem;
+  --space-5:1.6rem; --space-6:2.2rem; --space-8:3rem;
+  --space:clamp(16px,2vw,28px); --section-y:3rem; --gutter:1.2rem;
+
+  /* ---- Shadows (warm, green-tinted) ---- */
+  --shadow-card:0 6px 24px rgba(11,61,46,.08);
+  --shadow-hover:0 14px 34px rgba(0,0,0,.09);
+  --shadow-pill:0 8px 22px rgba(0,0,0,.18);
+  --shadow-nav:0 2px 16px rgba(7,38,28,.18);
+
+  /* ---- Layout ---- */
+  --maxw:1200px; --maxw-wide:1360px;
+
+  /* ---- Region accent defaults (overrides per [data-region]) ---- */
+  --motif:none;
 }
 [data-region="roman"]     { --accent:#8B2020; --wash:#f7efe7; }
 [data-region="andalusian"]{ --accent:#0D5C7A; --wash:#eef6f8; }
@@ -47,21 +76,26 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{overflow-x:hidden}
-body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:var(--lh-body);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:var(--green);text-decoration:none}
 a:hover{text-decoration:underline}
-h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--green-d);font-weight:700}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.2rem}
-.section{padding:3rem 0}
-.btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;padding:.8rem 1.4rem;border-radius:10px;border:0;cursor:pointer;transition:.2s}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:var(--text-heading);font-weight:var(--fw-display)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.section{padding:var(--section-y) 0}
+/* ===== Buttons (green / gold / ghost / ghostLight) ===== */
+.btn{display:inline-block;background:var(--green);color:#fff;font-weight:var(--fw-bold);padding:.8rem 1.4rem;border-radius:10px;border:0;cursor:pointer;transition:background .18s ease,transform .15s ease,box-shadow .18s ease}
 .btn:hover{background:var(--green-d);text-decoration:none}
 .btn-gold{background:var(--gold);color:#1a1a1a}
+.btn-gold:hover{background:var(--gold-l);color:#07261C;transform:translateY(-1px)}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--ink)}
-.eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.btn-ghost:hover{background:transparent;border-color:var(--green);color:var(--green-d)}
+.btn-ghost-light{background:transparent;border:1px solid rgba(246,239,224,.5);color:#fff}
+.btn-ghost-light:hover{background:rgba(246,239,224,.08);border-color:#fff}
+.eyebrow{font-size:var(--fs-eyebrow);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--accent);font-weight:var(--fw-bold)}
 /* ===== header / nav (rebrand chrome) ===== */
 .id-band{height:12px;width:100%;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'32'%20height%3D'16'%20viewBox%3D'0%200%2032%2016'%3E%20%3Cg%20fill%3D'none'%20stroke%3D'%23C8920A'%20stroke-width%3D'1.3'%20opacity%3D'0.9'%3E%20%3Cpath%20d%3D'M0%208%20L8%201%20L16%208%20L24%201%20L32%208'%2F%3E%3Cpath%20d%3D'M0%2015%20L8%208%20L16%2015%20L24%208%20L32%2015'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x center/24px 12px;background-color:#0E3D24}
-.nav{background:var(--green);border-bottom:1px solid rgba(201,162,75,.22);position:sticky;top:0;z-index:300;box-shadow:0 2px 16px rgba(7,38,28,.18)}
+.nav{background:var(--green);border-bottom:1px solid rgba(201,162,75,.22);position:sticky;top:0;z-index:300;box-shadow:var(--shadow-nav)}
 .nav-inner{max-width:1360px;margin:0 auto;display:flex;align-items:center;height:68px;padding:0;gap:0}
 .nav-logo-link{display:flex;align-items:center;gap:.7rem;padding:0 2rem;border-right:1px solid rgba(246,239,224,.12);height:100%;white-space:nowrap;flex-shrink:0}
 .brand-mark{display:block;width:auto;height:56px;flex-shrink:0}
@@ -81,13 +115,19 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--green-d);font-w
 .nav-links>li.nav-mobile-only{display:none}
 /* tablet / small-desktop: keep the primary CTA, drop the secondary WhatsApp button */
 @media(min-width:561px) and (max-width:1080px){ .nav .nav-cta .btn-wa{display:none} }
-/* hero */
-.hero{position:relative;min-height:62vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,25,18,.82),rgba(8,25,18,.25) 70%)}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero .hero-in{position:relative;z-index:2;padding:2.4rem 0 3rem}
-.hero h1{color:#fff;font-size:clamp(2rem,5vw,3.3rem);max-width:760px}
-.hero p{max-width:640px;margin-top:.7rem;font-weight:300;font-size:1.05rem}
+/* hero (shared by Hero.astro + tour detail) — full-bleed photo, emerald
+   protection scrim + faint gold compass-diamond field, display typography */
+.hero{position:relative;min-height:62vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--green-d)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(7,38,28,.9),rgba(7,38,28,.5) 52%,rgba(7,38,28,.2) 82%),
+             linear-gradient(0deg,rgba(7,38,28,.7),transparent 42%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.4;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'90'%20height%3D'90'%20viewBox%3D'0%200%2090%2090'%3E%20%3Cg%20fill%3D'none'%20stroke%3D'%23C8920A'%20stroke-width%3D'1'%20opacity%3D'0.4'%3E%20%3Cpath%20d%3D'M45%206%20L84%2045%20L45%2084%20L6%2045%20Z'%2F%3E%3Cpath%20d%3D'M45%2026%20L64%2045%20L45%2064%20L26%2045%20Z'%2F%3E%20%3Ccircle%20cx%3D'45'%20cy%3D'45'%20r%3D'3'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-repeat:repeat;background-size:90px 90px}
+.hero .hero-in{position:relative;z-index:3;padding:2.6rem 0 3rem}
+.hero h1{color:#fff;font-size:var(--fs-display);max-width:780px;letter-spacing:.005em;text-shadow:0 2px 24px rgba(0,0,0,.34)}
+.hero p{max-width:660px;margin-top:.85rem;font-weight:300;font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.92)}
 .hero .eyebrow{color:var(--gold-l)}
 /* slim top hero strip (homepage) — keeps the tour catalog above the fold */
 .hero-slim{min-height:0;height:clamp(230px,32vh,340px)}
@@ -95,12 +135,6 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--green-d);font-w
 .hero-slim h1{font-size:clamp(1.55rem,3.2vw,2.2rem);max-width:680px}
 .hero-slim p{font-size:.96rem;font-weight:400;margin-top:.5rem}
 @media(max-width:640px){.hero-slim{height:auto;min-height:200px}}
-/* Phase 2 — compact text hero above the auto-scrolling states band */
-.hero-compact{background:linear-gradient(135deg,var(--brand-green,#0B3D2E),#07261C);color:#fff;padding:1.7rem 0 1.5rem}
-.hero-compact .eyebrow{color:var(--gold-l)}
-.hero-compact h1{color:#fff;font-size:clamp(1.55rem,3.4vw,2.3rem);max-width:740px;margin:.25rem 0 0}
-.hero-compact .lead{max-width:660px;margin-top:.55rem;font-weight:300;font-size:1.02rem;color:rgba(255,255,255,.92)}
-.hero-compact .hero-cta{margin-top:.95rem;display:flex;gap:.7rem;flex-wrap:wrap}
 /* breadcrumbs */
 .crumbs{font-size:.76rem;color:var(--text-l);padding:.9rem 0}
 .crumbs a{color:var(--accent)}
@@ -122,7 +156,7 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--green-d);font-w
 /* cards */
 .grid{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.2s}
-.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.09)}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
 .card .ci{aspect-ratio:16/10;overflow:hidden}
 .ci-gradient{width:100%;height:100%;background:linear-gradient(135deg,var(--accent,#0B3D2E),#07261C)}
 .card .ci img{width:100%;height:100%;object-fit:cover;transition:.4s}
@@ -132,10 +166,14 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--green-d);font-w
 .card h3{font-size:1.05rem;margin:.3rem 0 .4rem}
 .card p{font-size:.86rem;color:var(--text-m);flex:1}
 .card .meta{font-size:.72rem;color:var(--text-l);margin-top:.7rem;border-top:1px solid var(--border);padding-top:.6rem}
-/* faq */
-.faq details{border-bottom:1px solid var(--border);padding:.8rem 0}
-.faq summary{font-weight:700;color:var(--green-d);cursor:pointer;padding:.6rem 0}
-.faq p{color:var(--text-m);margin-top:.5rem}
+/* faq — card-panel accordion with gold open-state + +/- marker */
+.faq details{border:1px solid var(--border);border-radius:var(--radius-m);margin-bottom:.7rem;background:var(--card);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.faq details[open]{border-color:var(--gold);box-shadow:var(--shadow-card)}
+.faq summary{font-weight:700;color:var(--green-d);cursor:pointer;padding:.95rem 1.1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold-d);font-weight:700;font-size:1.25rem;line-height:1;flex:0 0 auto}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{color:var(--text-m);margin:0;padding:0 1.1rem 1rem}
 /* cta */
 .cta{background:linear-gradient(135deg,var(--green),var(--green-d));color:#fff;border-radius:18px;padding:2rem;text-align:center}
 .cta h2{color:#fff}
@@ -166,7 +204,7 @@ footer{position:relative;padding:4rem 2rem 1.5rem;margin-top:3rem;background-ima
 @media(max-width:640px){.hero{min-height:54vh}}
 
 /* ===== Accessibility ===== */
-:root{ --gold-d:#7E5E1A; } /* deep gold for small text on white — WCAG AA (~5.6:1) */
+/* --gold-d (#7E5E1A) is set once in :root — AA on white (~5.6:1). */
 .eyebrow{color:var(--gold-d)}
 [data-region] .eyebrow{color:var(--accent)}
 .hero .eyebrow{color:var(--gold-l)}
@@ -176,6 +214,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .skip-link:focus{left:0}
 .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 label{display:block;font-size:.82rem;font-weight:600;color:var(--text-m);margin-bottom:.25rem}
+
+/* ===== Motion system (site-wide) =====
+   Restrained transitions live on each component; this is the global guard:
+   users who ask for reduced motion get near-instant transitions and no
+   decorative loops/marquees. Components keep their own static fallbacks. */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
 
 /* ===== Mobile navigation (rebrand chrome) ===== */
 @media(max-width:980px){
@@ -210,13 +261,11 @@ label{display:block;font-size:.82rem;font-weight:600;color:var(--text-m);margin-
   .nav-cta .btn-book{display:none}
   .nav-cta .btn-wa{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:.4rem .55rem;font-size:0;gap:0}
   .nav-cta .btn-wa::before{content:"\1F4AC";font-size:1.15rem}
-  /* smaller hero buttons so the top of the homepage isn't dominated by CTAs */
-  .hero-compact .hero-cta .btn{padding:.6rem 1rem;font-size:.85rem}
 }
 
 /* ===== Sticky contact (long pages) ===== */
 .sticky-contact{position:fixed;right:16px;bottom:16px;z-index:90;display:flex;gap:.5rem}
-.sticky-contact a{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.85rem;padding:.7rem 1rem;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);text-decoration:none}
+.sticky-contact a{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.85rem;padding:.7rem 1rem;border-radius:var(--radius-pill);box-shadow:var(--shadow-pill);text-decoration:none}
 .sticky-contact .wa{background:#1ebe5d;color:#06351f}
 .sticky-contact .pl{background:var(--green-d);color:#fff}
 @media(max-width:520px){.sticky-contact .pl span{display:none}.sticky-contact .wa span{display:none}}
@@ -253,6 +302,17 @@ label{display:block;font-size:.82rem;font-weight:600;color:var(--text-m);margin-
 .minigrid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));margin-top:1rem}
 .inlinelinks{margin:1rem 0;padding:1rem 1.2rem;background:#fffbf0;border:1px solid #eadfb8;border-radius:12px}
 .inlinelinks a{font-weight:600}
+
+/* ===== Phase 4 — section hierarchy + editorial polish (site-wide) ===== */
+.sec-h{font-size:var(--fs-h1);line-height:1.15}
+.sec-h::after{content:"";display:block;width:38px;height:3px;border-radius:2px;background:var(--gold);margin-top:.7rem;opacity:.92}
+.related h2{font-size:var(--fs-h1)}
+.related .minigrid{margin-top:1.3rem}
+/* editorial links: accent (gold) underline on light surfaces */
+.prose a{color:var(--green-d);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:2px;text-decoration-thickness:1px}
+.prose a:hover{text-decoration-color:var(--green-d)}
+.crumbs a:hover{color:var(--green-d)}
+.cta{border-radius:var(--radius-l)}
 
 /* ===== Editorial / trust ===== */
 .byline{display:flex;flex-wrap:wrap;gap:.4rem 1rem;font-size:.82rem;color:var(--text-l);margin:.4rem 0 1rem;padding-bottom:.8rem;border-bottom:1px solid var(--border)}
