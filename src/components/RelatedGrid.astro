@@ -4,7 +4,7 @@ export interface Props { heading: string; items: any[]; }
 const { heading, items } = Astro.props;
 ---
 {items && items.length > 0 && (
-  <section class="section related"><div class="wrap">
+  <section class="section related" data-reveal><div class="wrap">
     <h2 class="sec-h">{heading}</h2>
     <div class="minigrid">
       {items.map(c => <Card href={c.href} title={c.title} image={c.image} alt={c.alt} tag={c.tag} text={c.text} />)}

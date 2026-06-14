@@ -122,42 +122,25 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
   </div></section>
 
   <script is:inline>
+    /* Homepage hero parallax — image drifts slower than the content on scroll.
+       Scroll-reveal for [data-reveal] sections is handled globally in BaseLayout. */
     (function(){
-      var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      /* Scroll-reveal — content is visible by default; we only add the hidden
-         state via JS when motion is allowed AND the tab is visible, so print,
-         no-JS, reduced-motion and background tabs always show everything. */
-      if(!reduce && document.visibilityState !== 'hidden'){
-        var els = document.querySelectorAll('[data-reveal]');
-        els.forEach(function(el){ el.classList.add('reveal-init'); });
-        if('IntersectionObserver' in window){
-          var io = new IntersectionObserver(function(entries){
-            entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('reveal-in'); io.unobserve(e.target); } });
-          }, { rootMargin:'0px 0px -8% 0px', threshold:.06 });
-          els.forEach(function(el){ io.observe(el); });
-        } else {
-          els.forEach(function(el){ el.classList.add('reveal-in'); });
-        }
-      }
-      /* Hero parallax — image drifts slower than the content as you scroll. */
-      if(!reduce){
-        var bg = document.querySelector('.home-hero-bg');
-        var inr = document.querySelector('.home-hero-in');
-        if(bg){
-          var ticking = false;
-          window.addEventListener('scroll', function(){
-            if(ticking) return; ticking = true;
-            requestAnimationFrame(function(){
-              var y = window.pageYOffset || 0;
-              if(y < 820){
-                bg.style.transform = 'translateY(' + (y*0.18).toFixed(1) + 'px)';
-                if(inr){ inr.style.transform = 'translateY(' + (y*0.30).toFixed(1) + 'px)'; inr.style.opacity = String(Math.max(0, 1 - y/560)); }
-              }
-              ticking = false;
-            });
-          }, { passive:true });
-        }
-      }
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var bg = document.querySelector('.home-hero-bg');
+      var inr = document.querySelector('.home-hero-in');
+      if(!bg) return;
+      var ticking = false;
+      window.addEventListener('scroll', function(){
+        if(ticking) return; ticking = true;
+        requestAnimationFrame(function(){
+          var y = window.pageYOffset || 0;
+          if(y < 820){
+            bg.style.transform = 'translateY(' + (y*0.18).toFixed(1) + 'px)';
+            if(inr){ inr.style.transform = 'translateY(' + (y*0.30).toFixed(1) + 'px)'; inr.style.opacity = String(Math.max(0, 1 - y/560)); }
+          }
+          ticking = false;
+        });
+      }, { passive:true });
     })();
   </script>
 
@@ -240,12 +223,8 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
     background:var(--gold);margin-top:.55rem;opacity:.92}
   .sec-head h2{font-size:var(--fs-h1);margin:.4rem 0 0;letter-spacing:.004em}
   .feat-sec .grid{gap:1.6rem}
-  /* Reveal-on-scroll (paired with the inline script; visible by default) */
-  [data-reveal].reveal-init{opacity:0;transform:translateY(34px);
-    transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-  [data-reveal].reveal-in{opacity:1;transform:none}
+  /* Reveal-on-scroll styles are global (in global.css). */
   @media (prefers-reduced-motion: reduce){
     .hhs-dot::before{animation:none}
-    [data-reveal].reveal-init{opacity:1;transform:none;transition:none}
   }
 </style>

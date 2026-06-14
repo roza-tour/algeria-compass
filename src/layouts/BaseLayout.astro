@@ -44,5 +44,25 @@ const { title, description, image, imageAlt, type, region, civ, schema = [], sti
   <Footer />
   {sticky && <StickyContact />}
   <CookieConsent />
+  <script is:inline>
+    /* Shared scroll-reveal. Content is visible by default; the hidden state is
+       only applied when motion is allowed AND the tab is visible, so print,
+       no-JS, reduced-motion and background tabs always show everything. */
+    (function(){
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (document.visibilityState === 'hidden') return;
+      var els = document.querySelectorAll('[data-reveal]');
+      if(!els.length) return;
+      els.forEach(function(el){ el.classList.add('reveal-init'); });
+      if('IntersectionObserver' in window){
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('reveal-in'); io.unobserve(e.target); } });
+        }, { rootMargin:'0px 0px -8% 0px', threshold:.06 });
+        els.forEach(function(el){ io.observe(el); });
+      } else {
+        els.forEach(function(el){ el.classList.add('reveal-in'); });
+      }
+    })();
+  </script>
 </body>
 </html>

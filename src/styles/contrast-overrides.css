@@ -87,3 +87,15 @@ html[data-region="sahara"][data-civ="02"] .faq p { color: var(--text-m) !importa
 html[data-region="sahara"][data-civ="02"] .faq summary::after { color: var(--gold-d) !important; }
 html[data-region="sahara"][data-civ="02"] .faq details { border-color: var(--border) !important; }
 html[data-region="sahara"][data-civ="02"] .faq details[open] { border-color: var(--gold) !important; }
+
+/* --- CTA buttons on the dark Sahara skin. The per-tour accent fill (e.g.
+   #C8680A) gives white button text only ~3.86:1. The Sahara accents straddle
+   the white/dark crossover, so darken the fill ~20% (uniform black overlay) to
+   hold white text at AA (>=4.5) on every Sahara accent, including on hover. --- */
+html[data-region="sahara"][data-civ="02"] .tour .btn-gold {
+  background-image: linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.20)) !important;
+}
+html[data-region="sahara"][data-civ="02"] .tour .btn-gold:hover {
+  background-image: linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.20)) !important;
+  filter: none !important;
+}

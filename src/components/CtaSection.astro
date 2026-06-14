@@ -3,7 +3,7 @@ export interface Props { heading?: string; text?: string; interest?: string; }
 const { heading = 'Planning a trip to Algeria?', text = 'Algeria Compass is a licensed Algerian tour operator. Tell us your dates and interests and we will craft your private, guided tour across Algeria.', interest = '' } = Astro.props;
 const href = interest ? `/contact/?i=${encodeURIComponent(interest)}` : '/contact/';
 ---
-<section class="section"><div class="wrap">
+<section class="section" data-reveal><div class="wrap">
   <div class="cta">
     <div class="eyebrow" style="color:var(--gold-l)">Travel planning</div>
     <h2>{heading}</h2>
