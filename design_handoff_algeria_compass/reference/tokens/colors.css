@@ -1,0 +1,63 @@
+/* =====================================================================
+   ALGERIA COMPASS — COLOR TOKENS
+   Deep emerald (authority) + gold (heritage accent) on warm paper.
+   Reads like a publication, not a tour brochure. No garish "sale" colours.
+   ===================================================================== */
+:root{
+  /* ---- Brand: emerald green (primary, dominant, LOCKED) ---- */
+  --brand-green:#0B3D2E;      /* primary */
+  --brand-green-700:#0A4D38;  /* lifted green */
+  --brand-green-300:#3C7A66;  /* muted sage */
+  --green-d:#07261C;          /* deepest — header band, footer */
+  --green-l:#11543D;          /* lighter panel green */
+
+  /* ---- Brand: gold (secondary — sampled from the logo emblem) ---- */
+  --brand-gold:#C19333;       /* heritage accent */
+  --brand-gold-300:#E4AD40;   /* highlight (on dark only) */
+  --brand-gold-700:#8B6A22;   /* shade */
+  --gold-d:#7E5E1A;           /* deep gold — small text on white (WCAG AA ~5.6:1) */
+
+  /* ---- Neutrals & surfaces ---- */
+  --ink:#1A1A1A;              /* primary text */
+  --paper:#FBF8F2;            /* warm page background */
+  --cream:#F6EFE0;            /* heritage cream wash */
+  --card:#FFFFFF;             /* card surface */
+  --muted:#6B6B63;            /* muted label */
+  --text-m:#4A4A4A;           /* secondary text */
+  --text-l:#5F5F58;           /* tertiary / captions */
+  --border:#E6DDC8;           /* warm sand hairline */
+  --wash:#EEF5EF;             /* default tinted block (sage) */
+
+  /* ---- Status ---- */
+  --red:#C92B34;              /* errors / required */
+  --success:#2F8F57;          /* positive */
+  --white:#FFFFFF;
+
+  /* ---- Semantic aliases (components consume these) ---- */
+  --green:var(--brand-green);
+  --gold:var(--brand-gold);
+  --gold-l:var(--brand-gold-300);
+  --bg:var(--paper);
+  --text:var(--ink);
+  --surface-card:var(--card);
+  --surface-panel:var(--wash);
+  --text-body:var(--ink);
+  --text-heading:var(--green-d);
+  --text-muted:var(--text-l);
+  --accent:var(--brand-green);
+  --accent-2:var(--brand-gold);
+  --accent-deep:var(--brand-green-700);
+
+  /* ---- Region accent defaults (per [data-region] below) ---- */
+  --motif:none; /* @kind other */
+}
+
+/* ---- Regional accents — applied via [data-region] on a wrapper ----
+   Each cultural / geographic region carries its own accent + tint wash. */
+[data-region="roman"]     { --accent:#8B2020; --wash:#F7EFE7; } /* Roman ruins  */
+[data-region="andalusian"]{ --accent:#0D5C7A; --wash:#EEF6F8; } /* Andalusian   */
+[data-region="kabylie"]   { --accent:#1E5C3A; --wash:#EEF5EF; } /* Kabylie      */
+[data-region="sahara"]    { --accent:#A85408; --wash:#FDF5EA; } /* Sahara       */
+[data-region="mzab"]      { --accent:#96620A; --wash:#FBF6EC; } /* M'Zab        */
+[data-region="coast"]     { --accent:#1466A0; --wash:#EEF4F9; } /* Mediterranean*/
+[data-region="highlands"] { --accent:#5A6B2F; --wash:#F2F4EA; } /* High Plateaus*/

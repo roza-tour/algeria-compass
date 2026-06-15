@@ -1,0 +1,34 @@
+/* =====================================================================
+   ALGERIA COMPASS — SPACING, RADIUS, SHADOW & LAYOUT TOKENS
+   Generous editorial whitespace; soft warm shadows tinted with green.
+   ===================================================================== */
+:root{
+  /* ---- Radius ---- */
+  --radius-s:6px;    /* chips, small controls */
+  --radius-m:14px;   /* inputs, panels */
+  --radius-l:24px;   /* CTA blocks */
+  --r:16px;          /* default card radius */
+  --radius-pill:999px;
+
+  /* ---- Spacing scale ---- */
+  --space-1:.35rem;
+  --space-2:.6rem;
+  --space-3:.9rem;
+  --space-4:1.2rem;
+  --space-5:1.6rem;
+  --space-6:2.2rem;
+  --space-8:3rem;
+  --space:clamp(16px,2vw,28px);  /* fluid section rhythm */
+  --section-y:3rem;              /* vertical section padding */
+
+  /* ---- Shadows (warm, green-tinted, soft) ---- */
+  --shadow-card:0 6px 24px rgba(11,61,46,.08);
+  --shadow-hover:0 14px 34px rgba(0,0,0,.09);
+  --shadow-pill:0 8px 22px rgba(0,0,0,.18);
+  --shadow-nav:0 2px 16px rgba(7,38,28,.18);
+
+  /* ---- Layout ---- */
+  --maxw:1200px;     /* prose / content column */
+  --maxw-wide:1360px;/* nav & footer */
+  --gutter:1.2rem;
+}

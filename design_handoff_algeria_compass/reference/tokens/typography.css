@@ -1,0 +1,46 @@
+/* =====================================================================
+   ALGERIA COMPASS — TYPOGRAPHY TOKENS
+   Cinzel (serif display) for headings — editorial, inscriptional, classical.
+   Nunito (humanist sans) for body — warm, highly legible, never corporate.
+   Noto Naskh Arabic for Arabic place names & script.
+   Cinzel + Nunito are the brand's actual typefaces (both Google Fonts).
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap');
+
+:root{
+  /* ---- Families ---- */
+  --serif:'Cinzel',Georgia,'Times New Roman',serif; /* @kind font */        /* display / headings */
+  --sans:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; /* @kind font */ /* body */
+  --arabic:'Noto Naskh Arabic','Amiri','Segoe UI',serif; /* @kind font */   /* Arabic script */
+
+  /* ---- Semantic family aliases ---- */
+  --font-display:var(--serif); /* @kind font */
+  --font-body:var(--sans);     /* @kind font */
+  --font-arabic:var(--arabic); /* @kind font */
+
+  /* ---- Type scale (fluid) ---- */
+  --fs-display:clamp(2rem,5vw,3.3rem);   /* @kind font */ /* hero H1 */
+  --fs-h1:clamp(1.7rem,3.4vw,2.4rem);    /* @kind font */
+  --fs-h2:1.5rem;                        /* @kind font */
+  --fs-h3:1.15rem;                       /* @kind font */
+  --fs-lead:1.05rem;                     /* @kind font */ /* hero / intro lead */
+  --fs-body:1.02rem;                     /* @kind font */
+  --fs-sm:.9rem;                         /* @kind font */
+  --fs-xs:.8rem;                         /* @kind font */
+  --fs-eyebrow:.72rem;                   /* @kind font */ /* uppercase kicker */
+
+  /* ---- Weights ---- */
+  --fw-body:400;          /* @kind font */
+  --fw-medium:600;        /* @kind font */
+  --fw-bold:700;          /* @kind font */
+  --fw-display:700;       /* @kind font */ /* Cinzel headings */
+  --fw-display-heavy:800; /* @kind font */ /* wordmark / strong display */
+
+  /* ---- Line heights ---- */
+  --lh-tight:1.2;    /* @kind font */ /* headings */
+  --lh-body:1.7;     /* @kind font */ /* running text */
+
+  /* ---- Tracking ---- */
+  --ls-eyebrow:.14em;    /* @kind font */ /* uppercase kicker */
+  --ls-wordmark:.04em;   /* @kind font */
+}

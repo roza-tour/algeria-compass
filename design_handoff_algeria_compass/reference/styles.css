@@ -1,0 +1,8 @@
+/* =====================================================================
+   ALGERIA COMPASS — GLOBAL STYLESHEET (entry point)
+   Consumers link THIS one file. It only @imports the token layers
+   and font declarations — keep it as a manifest of @import lines.
+   ===================================================================== */
+@import url('tokens/typography.css');  /* fonts + type scale (loads webfonts) */
+@import url('tokens/colors.css');      /* brand, neutrals, regional accents */
+@import url('tokens/spacing.css');     /* radius, shadow, spacing, layout */
