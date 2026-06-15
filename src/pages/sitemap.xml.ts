@@ -1,7 +1,5 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { hubs } from '../data/hubs';
-import { clusters } from '../data/clusters';
 import toursData from '../data/tours.json';
 import { REGIONS } from '../data/regions';
 
@@ -9,10 +7,13 @@ const SITE = (import.meta.env.SITE || 'https://algeriacompass.com').replace(/\/$
 const today = new Date().toISOString().slice(0, 10);
 
 export const GET: APIRoute = async () => {
+  // Only canonical, 200, indexable, trailing-slash URLs.
+  // EXCLUDED (noindex scaffolding / thin meta pages, kept out of the sitemap):
+  //   /clusters/, /knowledge/ (+ /knowledge/graph/, /knowledge/provinces/), /search/, /sitemap/, /404/.
   const statics = ['', 'discover/', 'tours/', 'luxury/', 'destinations/', 'provinces/', 'regions/', 'experiences/', 'blog/',
     'questions/', 'culture/', 'history/', 'food/', 'sweets/', 'unesco/', 'travel-guides/',
-    'visa-support/', 'evisa/', 'booking-terms/', 'search/', 'sitemap/',
-    'about/', 'contact/', 'editorial/', 'team/', 'reviewers/', 'knowledge/', 'knowledge/provinces/', 'knowledge/graph/', 'clusters/'];
+    'visa-support/', 'evisa/', 'booking-terms/',
+    'about/', 'contact/', 'editorial/', 'team/', 'reviewers/'];
   const colls: [string, string][] = [
     ['province', 'provinces'], ['destination', 'destinations'],
     ['experience', 'experiences'], ['article', 'blog'], ['question', 'questions'],
@@ -22,8 +23,7 @@ export const GET: APIRoute = async () => {
   const tourList = (toursData as any).tours || (toursData as any);
   for (const t of tourList) rows.push({ loc: `${SITE}/tours/${t.id}/`, pri: '0.8' });
   for (const r of REGIONS) rows.push({ loc: `${SITE}/regions/${r.id}/`, pri: '0.7' });
-  for (const h of hubs) rows.push({ loc: `${SITE}/knowledge/${h.slug}/`, pri: '0.7' });
-  for (const c of clusters) rows.push({ loc: `${SITE}/clusters/${c.id}/`, pri: '0.6' });
+  // hubs (/knowledge/*) and clusters (/clusters/*) are noindex scaffolding — excluded from sitemap.
   for (const [coll, base] of colls) {
     const items = await getCollection(coll as any);
     for (const it of items) rows.push({ loc: `${SITE}/${base}/${it.slug}/`, pri: '0.8' });

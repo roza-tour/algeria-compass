@@ -11,9 +11,9 @@ import CookieConsent from '../components/CookieConsent.astro';
 import StickyContact from '../components/StickyContact.astro';
 export interface Props {
   title: string; description: string; image?: string; imageAlt?: string; type?: string;
-  region?: string; civ?: string; schema?: any[]; sticky?: boolean; keywords?: string | string[]; bodyClass?: string;
+  region?: string; civ?: string; schema?: any[]; sticky?: boolean; keywords?: string | string[]; bodyClass?: string; noindex?: boolean;
 }
-const { title, description, image, imageAlt, type, region, civ, schema = [], sticky = false, keywords, bodyClass } = Astro.props;
+const { title, description, image, imageAlt, type, region, civ, schema = [], sticky = false, keywords, bodyClass, noindex = false } = Astro.props;
 ---
 <!doctype html>
 <html lang="en" data-region={region} data-civ={civ}>
@@ -30,7 +30,7 @@ const { title, description, image, imageAlt, type, region, civ, schema = [], sti
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap" /></noscript>
-  <Seo title={title} description={description} image={image} imageAlt={imageAlt} type={type} keywords={keywords} />
+  <Seo title={title} description={description} image={image} imageAlt={imageAlt} type={type} keywords={keywords} noindex={noindex} />
   <SchemaGraph nodes={schema} />
   <Analytics />
   <slot name="head" />

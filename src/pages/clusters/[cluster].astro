@@ -54,7 +54,7 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:2,name:'Clusters',item:`${site}/clusters/`},
   {'@type':'ListItem',position:3,name:cluster.name,item:`${site}${url}`}]};
 ---
-<BaseLayout title={`${cluster.name} — Cluster`} description={cluster.description} schema={[collection, defined, breadcrumb]}>
+<BaseLayout title={`${cluster.name} — Cluster`} description={cluster.description} schema={[collection, defined, breadcrumb]} noindex>
   <Hero title={cluster.name} eyebrow="Content cluster" text={cluster.purpose} image="/assets/img/sahara-dunes-tadrart.jpg" alt={cluster.name} />
   <section class="section"><div class="wrap" style="max-width:860px">
     <QuickAnswer text={quick} />

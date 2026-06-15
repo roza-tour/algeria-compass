@@ -57,4 +57,22 @@ if (existsSync(SW)) {
 // 6) Nav logo emblem -> small webp (referenced directly as .webp)
 await make('public/assets/img/logo-emblem-gold.png', 'public/assets/img/logo-emblem-gold.webp', 130, 88);
 
+// 7) Page heroes (shared Hero.astro renders the LCP <img> ~1200px wide).
+//    Generate a display-sized .sm.webp for every top-level content JPG so the
+//    <picture> source in Hero.astro can serve WebP with a JPG fallback. (SEO Task 8)
+const IMG = 'public/assets/img';
+for (const f of readdirSync(IMG)) {
+  if (!/\.jpe?g$/i.test(f)) continue;
+  if (await make(path.join(IMG, f), path.join(IMG, webpOf(f, true)), 1280, 74)) made++;
+}
+
+// 8) Tour heroes (tours/<slug>-N.jpg → portrait/landscape LCP on /tours/<slug>/)
+const TOURS = 'public/assets/img/tours';
+if (existsSync(TOURS)) {
+  for (const f of readdirSync(TOURS)) {
+    if (!/\.jpe?g$/i.test(f)) continue;
+    if (await make(path.join(TOURS, f), path.join(TOURS, webpOf(f, true)), 1280, 74)) made++;
+  }
+}
+
 console.log('[webp] generated/verified', made, 'display-sized webp (+ logo)');

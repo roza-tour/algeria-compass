@@ -1,9 +1,9 @@
 ---
 export interface Props {
   title: string; description: string; canonical?: string;
-  image?: string; imageAlt?: string; type?: string; keywords?: string | string[];
+  image?: string; imageAlt?: string; type?: string; keywords?: string | string[]; noindex?: boolean;
 }
-const { title, description, image = '/assets/img/og-image.png', imageAlt, type = 'website', keywords } = Astro.props;
+const { title, description, image = '/assets/img/og-image.png', imageAlt, type = 'website', keywords, noindex = false } = Astro.props;
 const BRAND = 'Algeria Compass';
 const fullTitle = title.includes(BRAND) ? title : `${title} | ${BRAND}`;
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
@@ -15,6 +15,7 @@ const altText = imageAlt || `${fullTitle} — Algeria Compass`;
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 {kw && <meta name="keywords" content={kw} />}
+{noindex && <meta name="robots" content="noindex,follow" />}
 <link rel="canonical" href={canonical} />
 <meta property="og:type" content={type} />
 <meta property="og:title" content={fullTitle} />

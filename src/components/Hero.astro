@@ -1,9 +1,15 @@
 ---
 export interface Props { title: string; eyebrow?: string; text?: string; image: string; alt: string; }
 const { title, eyebrow, text, image, alt } = Astro.props;
+// Serve a display-sized WebP (scripts/gen-webp.mjs) with the original JPG as
+// fallback. Only JPGs get a <source> (those are the ones we pre-generate webp for).
+const webp = /\.jpe?g$/i.test(image) ? image.replace(/\.jpe?g$/i, '.sm.webp') : null;
 ---
 <section class="hero">
-  <img src={image} alt={alt} fetchpriority="high" width="1200" height="630" />
+  <picture>
+    {webp && <source srcset={webp} type="image/webp" />}
+    <img src={image} alt={alt} fetchpriority="high" width="1200" height="630" />
+  </picture>
   <div class="hero-in wrap">
     {eyebrow && <div class="eyebrow">{eyebrow}</div>}
     <h1>{title}</h1>

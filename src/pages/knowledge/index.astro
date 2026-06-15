@@ -28,7 +28,7 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:2,name:'Knowledge',item:`${site}${url}`}]};
 const schema=[collection, breadcrumb];
 ---
-<BaseLayout title="Algeria Knowledge Graph & Hubs" description="A machine-readable map of Algeria: 58 states, UNESCO sites, heritage, deserts, coast, food and culture, organised into authority hubs." schema={schema}>
+<BaseLayout title="Algeria Knowledge Graph & Hubs" description="A machine-readable map of Algeria: 58 states, UNESCO sites, heritage, deserts, coast, food and culture, organised into authority hubs." schema={schema} noindex>
   <Hero title="The Algeria Knowledge Graph" eyebrow="Knowledge" text="A connected, machine-readable understanding of Algeria — entities, relationships and authority hubs, not just pages." image="/assets/img/sahara-dunes-tadrart.jpg" alt="Algeria" />
   <section class="section"><div class="wrap" style="max-width:820px"><QuickAnswer text={quick} /></div></section>
 
