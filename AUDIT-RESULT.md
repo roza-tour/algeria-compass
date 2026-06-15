@@ -133,3 +133,96 @@ shared Footer / brand tokens). Left as-is; raise with the owner if the footer lo
    on each error type (Page with redirect, Not found, Duplicate/alternate, Crawled–not indexed).
 5. **Bing Webmaster Tools:** resubmit the sitemap.
 </content>
+
+---
+
+# ADDENDUM — LIVE verification & finish-line pass (2026-06-16)
+
+This pass was run **against the live domain** (`curl https://algeriacompass.com`), not just the build.
+Build/commit `91a8d1b` + this addendum's commit. **Sitemap: 109 URLs.**
+
+## TASK A — Live re-test (Appendix 1) — results
+
+| Check | Result | Detail |
+|---|---|---|
+| All 109 sitemap URLs return `200 0` | **PASS** | every `<loc>` → `200 0`, no redirects, no 404s |
+| `http://` → 301 | **PASS** | canonical-host single-hop |
+| `https://www.` → 301 | **PASS** | non-www single-hop |
+| `/tours` (no slash) → 301 | **PASS** | trailing-slash enforced |
+| `/images/og-image.png` → 301 → `/assets/img/og-image.png` | **PASS** | legacy asset path remap live |
+| `/contact/` = NEW template | **PASS** | `logo-emblem-gold.webp`=1; nav has Tours+Luxury+e-Visa (relative hrefs `/tours/ /luxury/ /evisa/`); socials = `instagram.com/algeria_compass/` + `facebook.com/profile.php?id=61590718167514` (not bare) |
+| Scaffolding `noindex,follow` | **PASS** | `/clusters/ /knowledge/ /knowledge/graph/ /knowledge/provinces/ /search/ /sitemap/` all noindex |
+| Indexable pages NOT noindex | **PASS** | `/ /tours/ /provinces/ /contact/ /evisa/ /luxury/` all blank (indexable) |
+| 404 is a real 404 | **PASS** | `/this-page-does-not-exist-xyz/` → 404 |
+
+**Note on the Appendix `/contact/` nav grep:** the canned pattern looks for *absolute* hrefs
+(`href="https://algeriacompass.com/tours/"`); the site uses *relative* hrefs (`href="/tours/"`),
+so the absolute grep returns blank. Re-checked with the relative pattern → Tours, Luxury, e-Visa
+all present. **Not a fail** — the whole new template (emblem, 12-item nav, real socials) is live.
+
+## TASK B — Fixes for FAILs
+
+Only one Appendix item was actually unmet on live: **robots.txt** (see Task C). No other FAILs.
+
+## TASK C — robots.txt `Disallow: /search` — DONE (source) · PENDING LIVE
+
+`public/robots.txt` + staged root `robots.txt` now read:
+
+```
+User-agent: *
+Allow: /
+Disallow: /search
+Sitemap: https://algeriacompass.com/sitemap.xml
+Sitemap: https://algeriacompass.com/sitemap-images.xml
+```
+
+`Allow: /` and **both** `Sitemap:` lines preserved; on-page `noindex` on `/search/` kept.
+**Live still serves the OLD robots.txt** (last-modified Wed 10 Jun, no `Disallow`) even with a
+cache-buster query → owner deploy + LiteSpeed flush required (see Handoff).
+
+## TASK D — De-orphan internal links — DONE
+
+All 7 targets were **already in the global Footer** (Explore / Knowledge / Plan columns) — verified
+live. Second requirement = an in-body "related" link on a topically-adjacent page. True status
+(checked across `src/pages` **and** `src/components`, since some cross-links live in components):
+
+| Page | In-body related link | Action |
+|---|---|---|
+| `/experiences/` | from `/discover/` body | already linked — no change |
+| `/history/` | from `/culture/` body | already linked — no change |
+| `/food/` | from `/culture/` + `/sweets/` bodies | already linked — no change |
+| `/unesco/` | from `/history/` body | already linked — no change |
+| `/sweets/` | from `/food/` (via `SweetsSection`/`SweetsStrip` gold CTA) | already linked — no change |
+| `/travel-guides/` | **none** (Footer only) → **added** | `blog/index.astro` related line |
+| `/discover/` | **none** (Footer only) → **added** | `blog/index.astro` related line |
+
+**Diff:** `src/pages/blog/index.astro` gained one related paragraph after the article grid:
+> More ways to explore Algeria: [our travel guides](/travel-guides/), or [discover Algeria](/discover/) region by region.
+
+Both targets return `200` with trailing slash (confirmed in Task A sitemap sweep). No top-nav change
+(12-item nav untouched). A redundant `/sweets/` link briefly added to `food.astro` was reverted —
+food already cross-links sweets in-body via its components.
+
+## TASK E — Legacy 301s — NOT ACTIONED (no data this session)
+
+No GSC "Not found (404)" / "Page with redirect" URL export was provided in this session, so the
+`.htaccess` legacy-301 slot (block #4) was **left untouched** by design. **Owner next step:** export
+those two reports from GSC → Pages and send the URL list; each genuinely-renamed slug then gets a
+`RewriteRule old → live-200-URL` in that slot (or 410 if truly gone). Never add a redirected old URL
+to the sitemap.
+
+## TASK F — OWNER-ONLY steps (cannot be done from here: no SSH / cPanel / GSC)
+
+1. **Deploy the new commit + flush cache** (REQUIRED for Task C/D to go live): on the server
+   `git pull origin main` in the docroot, fix perms (dirs 755 / files 644), then **LiteSpeed Web
+   Cache Manager → Flush All** (live `robots.txt` is currently cached/stale at 10 Jun). Then re-run
+   Appendix 1 — expect robots.txt to show `Disallow: /search` and `/blog/` to show 2 `/travel-guides/`
+   + 2 `/discover/` links (Footer + in-body).
+2. **Google Search Console:** resubmit `sitemap.xml`; for each error type (Page with redirect,
+   Not found, Duplicate/alternate canonical, Crawled–not indexed) click **Validate Fix**; run URL
+   Inspection + **Request Indexing** on the homepage and top tour / e-Visa / luxury pages.
+3. **Bing Webmaster Tools:** resubmit the sitemap.
+4. **Off-site discovery/authority** (so a brand-new domain actually gets *indexed*, not just
+   "Discovered"): set up Google Business Profile + a few directory/aggregator listings
+   (TourRadar / Viator).
+5. **Legacy 301s:** export GSC 404 + redirect URL lists and send them (see Task E).
