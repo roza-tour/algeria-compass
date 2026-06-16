@@ -315,9 +315,11 @@ All 16 cluster slugs are explicitly mapped (verified each target returns **200**
 - `grep -rE '/clusters/' src/` → only the two updated doc-comments in `sitemap.xml.ts`.
 - `npm run deploy` → **131 pages, clean**, staged to repo root.
 
-**Live (PENDING server deploy):** at audit time the live host still served the old `/clusters/`
-pages as `200` (the redirect block + deletions are committed but the server had not yet pulled +
-flushed LiteSpeed). Re-run the live checks after deploy:
+**Live (PARTIAL — cluster 301s PENDING server deploy):** at audit time, checks (c) sitemap has no
+cluster URLs, (d) all real counterparts return `200`, and (e) `/knowledge/ /search/ /sitemap/` are
+all `200 + noindex,follow` with the `/about/ → /knowledge/` link intact — **already PASS live**.
+Only check (a) is pending: the live host still served the old `/clusters/` pages as `200` because it
+had not yet pulled commit `45e7702` + flushed LiteSpeed. Re-run after deploy:
 ```bash
 for u in /clusters/ /clusters/algeria-food/ /clusters/algeria-history/ /clusters/algeria-culture/; do
   echo "$u -> $(curl -s -o /dev/null -w '%{http_code} -> %{redirect_url}' https://algeriacompass.com$u)"; done   # expect 301 -> 200 target
