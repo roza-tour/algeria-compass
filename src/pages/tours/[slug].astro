@@ -1,6 +1,7 @@
 ---
 import fs from 'node:fs';
 import sharp from 'sharp';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import data from '../../data/tours.json';
 import { TOUR_VISUALS } from '../../data/tour-visuals';
@@ -22,6 +23,13 @@ export async function getStaticPaths() {
 }
 
 const { tour } = Astro.props as { tour: any };
+
+// Internal-linking: connect this tour to the State pages it actually visits, and to
+// similar tours — so tour pages are no longer crawl dead-ends. Provinces are filtered
+// to ones that exist as pages; similar tours share the same theme.
+const provinceSlugs = new Set((await getCollection('province')).map(p => p.slug));
+const coveredProvinces = (tour.wilayas || []).filter((w: string) => provinceSlugs.has(w));
+const relatedTours = tours.filter((t: any) => t.theme === tour.theme && t.id !== tour.id).slice(0, 3);
 
 // Build the gallery from real files on disk: assets/img/tours/<slug>-N.jpg
 let gallery: string[] = [];
@@ -233,6 +241,15 @@ if (tour.faqs && tour.faqs.length) schema.push({
     <p style="margin-top:.5rem;font-size:.85rem"><a href={mapLink} target="_blank" rel="noopener">View larger map →</a></p>
   </div></section>
 
+  <section class="section"><div class="wrap">
+    <h2>Continue exploring</h2>
+    {coveredProvinces.length > 0 &&
+      <p class="explore-row">States on this route: {coveredProvinces.map((w: string, i: number) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a class="caps" href={`/provinces/${w}/`}>{w.replace(/-/g, ' ')}</a></>))}</p>}
+    {relatedTours.length > 0 &&
+      <p class="explore-row">Similar tours: {relatedTours.map((t: any, i: number) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={`/tours/${t.id}/`}>{t.title.split(' — ')[0]}</a></>))}</p>}
+    <p class="explore-row">Browse all <a href="/tours/">tours</a>, <a href="/destinations/">destinations</a>, <a href="/regions/">regions</a> and <a href="/experiences/">experiences</a>.</p>
+  </div></section>
+
   {tour.faqs && tour.faqs.length > 0 &&
     <section class="section" style="background:var(--wash)"><div class="wrap" style="max-width:820px">
       <h2>Tour FAQ</h2>
@@ -350,6 +367,8 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .gtk dt{font-weight:700;color:var(--accent);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
 .gtk dd{margin:0;color:var(--text-m)}
 .caps{text-transform:capitalize}
+.explore-row{color:var(--text-m);margin:.4rem 0}
+.explore-row a{color:var(--accent);font-weight:600}
 .visa-note{margin-top:1.6rem;background:var(--wash);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1.1rem}
 .visa-note strong{display:block;color:var(--green-d);margin-bottom:.25rem}
 .visa-note p{margin:0;color:var(--text-m);font-size:.92rem;line-height:1.6}
