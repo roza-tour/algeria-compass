@@ -85,7 +85,7 @@ sources:
 ---
 ---
 
-A visa is the first practical hurdle of an Algerian trip, and the single most common reason people delay or abandon a plan. It need not be difficult — but it does need to be done in advance, with a complete file, at the right consulate. This guide explains how the system works and links into our wider [travel-planning cluster](/clusters/algeria-travel-planning/) and the [complete travel guide](/blog/complete-algeria-travel-guide/). Because entry rules change, treat everything here as orientation and confirm the details with the consulate that serves you.
+A visa is the first practical hurdle of an Algerian trip, and the single most common reason people delay or abandon a plan. It need not be difficult — but it does need to be done in advance, with a complete file, at the right consulate. This guide explains how the system works and links into our wider [travel-planning guides](/travel-guides/) and the [complete travel guide](/blog/complete-algeria-travel-guide/). Because entry rules change, treat everything here as orientation and confirm the details with the consulate that serves you.
 
 ## Who needs a visa
 The large majority of travellers need a visa to enter Algeria, arranged before arrival. A limited number of nationalities are exempt or enjoy special arrangements, and these lists change, so the only safe approach is to check your specific status with the Algerian consulate responsible for your country of residence. Do not assume that because a neighbour or friend of another nationality entered easily, the same applies to you.
@@ -136,7 +136,7 @@ For most non-exempt travellers, the smoothest path — and for the desert, the n
 Experience suggests a few habits prevent almost all problems: confirm the correct consulate and read its own checklist first; assemble documents in the order the form lists them; make your stated dates, bookings and funds consistent with one another; keep photocopies and digital scans of everything; apply several weeks early; and avoid booking non-refundable flights until the visa is issued. A calm, complete, consistent file is approved far more often than a rushed one.
 
 ## After you arrive
-Keep your passport and visa accessible but secure, and carry a photocopy separately. Note that some hotels register guests with local authorities as a matter of routine. Keep your return documentation and any agency contacts to hand, and respect the terms of your visa — its purpose, its validity and any regional permits. With the paperwork behind you, the rest of the country, from the [Roman east](/knowledge/roman-heritage/) to the [Sahara](/clusters/algeria-sahara/), is open.
+Keep your passport and visa accessible but secure, and carry a photocopy separately. Note that some hotels register guests with local authorities as a matter of routine. Keep your return documentation and any agency contacts to hand, and respect the terms of your visa — its purpose, its validity and any regional permits. With the paperwork behind you, the rest of the country, from the [Roman east](/knowledge/roman-heritage/) to the [Sahara](/regions/sahara/), is open.
 
 ## Frequently asked questions
 The questions below cover the points travellers ask most. For current entry rules and fees, rely on the official sources listed at the foot of this guide, and see our [editorial standards](/editorial/) for how we research and update practical pages like this one.

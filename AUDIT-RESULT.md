@@ -226,3 +226,113 @@ to the sitemap.
    "Discovered"): set up Google Business Profile + a few directory/aggregator listings
    (TourRadar / Viator).
 5. **Legacy 301s:** export GSC 404 + redirect URL lists and send them (see Task E).
+
+---
+
+# ADDENDUM — DELETE the orphaned `/clusters/` scaffolding (2026-06-16)
+
+The `/clusters/` tree was redundant orphaned scaffolding (it duplicated real pages and the
+`/knowledge/` hubs). This pass **removed it entirely** and 301'd every old URL to its real
+counterpart, with no 404s. **Scope decision (owner): KEEP `/knowledge/`, `/search/`, `/sitemap/`**
+(all functional + intentionally noindexed) — only `/clusters/` was deleted.
+
+## Task 1 — Reference audit (every `/clusters/` reference, source + built + live)
+
+**Source — route generators (DELETED):**
+| File | Role | Action |
+|------|------|--------|
+| `src/pages/clusters/index.astro` | cluster index page | **deleted** |
+| `src/pages/clusters/[cluster].astro` | per-cluster pages (×16) | **deleted** |
+| `src/pages/clusters/graph.json.ts` | `/clusters/graph.json` endpoint | **deleted** |
+
+**Source — cluster data/lib (KEPT — not page-generating, used by real pages):**
+| File | Why kept |
+|------|----------|
+| `src/data/clusters.ts` | registry read by `src/lib/clusters.ts` |
+| `src/lib/clusters.ts` | read by `src/lib/recommend.ts`, which powers real pages (`/sweets/`, `/visa-support/`, …). Deleting it would break the build — **unrelated code, left untouched.** |
+
+**Source — in-body content links (REPOINTED, not broken):**
+| File:line | Was | Now |
+|-----------|-----|-----|
+| `src/content/article/best-time-to-visit-algeria.md:88` | `/clusters/algeria-travel-planning/` | `/travel-guides/` |
+| `src/content/article/algeria-visa-guide.md:88` | `/clusters/algeria-travel-planning/` | `/travel-guides/` |
+| `src/content/article/algeria-visa-guide.md:139` | `/clusters/algeria-sahara/` | `/regions/sahara/` |
+| `src/content/article/complete-algeria-travel-guide.md:92` | `/clusters/algeria-travel-planning/` | `/travel-guides/` |
+| `src/content/article/algeria-safety-guide.md:85` | `/clusters/algeria-travel-planning/` | `/travel-guides/` |
+| `src/content/article/algeria-transportation-guide.md:88` | `/clusters/algeria-travel-planning/` | `/travel-guides/` |
+
+**Source — comments only (updated for accuracy):** `src/pages/sitemap.xml.ts` (the sitemap never
+emitted `/clusters/` — already prefix-excluded).
+
+**Built output (DELETED / regenerated):** root-served `clusters/**` (18 files) **deleted**;
+`dist/clusters/**` no longer generated; the `blog/*/index.html` files that carried `/clusters/`
+links were regenerated clean after the repoint.
+
+**Live JSON-LD:** `curl https://algeriacompass.com/ | grep clusters` → **no schema reference** to
+clusters anywhere (nothing to repoint in structured data).
+
+## Task 2 — Slug → 301 target map (each → a real page that returns 200)
+
+All 16 cluster slugs are explicitly mapped (verified each target returns **200** live before applying):
+
+| Old URL | 301 target |
+|---------|-----------|
+| `/clusters/algeria-travel-planning/` | `/travel-guides/` |
+| `/clusters/algeria-sahara/` | `/regions/sahara/` |
+| `/clusters/algeria-history/` | `/history/` |
+| `/clusters/algeria-culture/` | `/culture/` |
+| `/clusters/algeria-food/` | `/food/` |
+| `/clusters/algeria-unesco/` | `/unesco/` |
+| `/clusters/algeria-photography/` | `/regions/` |
+| `/clusters/algeria-road-trips/` | `/blog/algeria-transportation-guide/` |
+| `/clusters/algeria-luxury/` | `/luxury/` |
+| `/clusters/algeria-family/` | `/tours/` |
+| `/clusters/algeria-safety/` | `/blog/algeria-safety-guide/` |
+| `/clusters/algeria-transportation/` | `/blog/algeria-transportation-guide/` |
+| `/clusters/algeria-architecture/` | `/destinations/` |
+| `/clusters/algeria-festivals/` | `/culture/` |
+| `/clusters/algeria-beaches/` | `/regions/` |
+| `/clusters/algeria-mountains/` | `/regions/` |
+| `/clusters/` (index), `/clusters/graph.json`, any unmapped `/clusters/*` | `/` (home, catch-all `^clusters(/.*)?$`, kept last) |
+
+## Task 3 — Applied
+
+1. **`.htaccess`** — 16 explicit per-URL `RewriteRule … [R=301,L]` (block 2b) + a catch-all
+   `^clusters(/.*)?$ → /` last. Placed **before** the trailing-slash rule so `/x` and `/x/` both
+   resolve in **one** hop, and before file lookup so they fire even though the files are gone.
+2. **In-body links repointed** (6 links, table above) — nothing links to a dead cluster URL.
+3. **Route source deleted** — `src/pages/clusters/**` removed; pages are no longer buildable
+   (build dropped 148 → **131** pages). Data/lib registry kept (unrelated real-page dependency).
+4. **Sitemap** — already excluded `/clusters/` by prefix; confirmed the built `sitemap.xml`
+   emits **zero** cluster URLs.
+
+## Task 4 — Verification
+
+**Local / build (all PASS):**
+- `dist/clusters/` and root `clusters/` — **gone**.
+- `grep -rE '/clusters/' --include=*.html .` (built output) → **none**.
+- `grep 'clusters' dist/sitemap.xml` → **0**.
+- `grep -rE '/clusters/' src/` → only the two updated doc-comments in `sitemap.xml.ts`.
+- `npm run deploy` → **131 pages, clean**, staged to repo root.
+
+**Live (PENDING server deploy):** at audit time the live host still served the old `/clusters/`
+pages as `200` (the redirect block + deletions are committed but the server had not yet pulled +
+flushed LiteSpeed). Re-run the live checks after deploy:
+```bash
+for u in /clusters/ /clusters/algeria-food/ /clusters/algeria-history/ /clusters/algeria-culture/; do
+  echo "$u -> $(curl -s -o /dev/null -w '%{http_code} -> %{redirect_url}' https://algeriacompass.com$u)"; done   # expect 301 -> 200 target
+curl -s https://algeriacompass.com/sitemap.xml | grep '/clusters/'                                               # expect nothing
+for u in /food/ /history/ /culture/ /unesco/; do echo "$u $(curl -s -o /dev/null -w '%{http_code}' https://algeriacompass.com$u)"; done   # expect 200
+```
+
+## KEPT pages (intentionally — do NOT delete)
+- **`/knowledge/`** — linked from `/about/` ("knowledge graph … the backbone"), an AEO asset,
+  already `noindex,follow`. Left as-is. The `/about/` → `/knowledge/` link still resolves.
+- **`/search/`** — site search + `SearchAction`; deleting it would break search. `noindex,follow`.
+- **`/sitemap/`** — HTML sitemap. `noindex,follow`.
+
+## Owner step (after deploy)
+`git pull origin main` in the docroot → fix perms (dirs 755 / files 644) → **LiteSpeed → Flush All**,
+then re-run the Task 4 live block above until all PASS. In **GSC**, the deleted cluster URLs will move
+to **"Page with redirect"** and drop out over time — no action needed beyond **resubmitting
+`sitemap.xml`**.

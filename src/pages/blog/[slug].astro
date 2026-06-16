@@ -12,7 +12,6 @@ import SourceList from '../../components/SourceList.astro';
 import EditorialMeta from '../../components/EditorialMeta.astro';
 import { related, toCard } from '../../lib/related';
 import { resolveAuthor, resolveReviewer, authorNode, reviewerNode, citationNodes } from '../../lib/authorship';
-import { clusterById } from '../../data/clusters';
 import KeyTakeaways from '../../components/KeyTakeaways.astro';
 import TravelStats from '../../components/TravelStats.astro';
 import ClimateMatrix from '../../components/ClimateMatrix.astro';
@@ -63,10 +62,7 @@ const webpage = { "@type":"WebPage", "@id":`${site}/blog/${item.slug}/#webpage`,
   breadcrumb:{ "@id":`${site}/blog/${item.slug}/#breadcrumb` }, inLanguage:"en" };
 const faqPage = d.faqs.length ? { "@type":"FAQPage", "@id":`${site}/blog/${item.slug}/#faq`,
   mainEntity: d.faqs.map(f => ({ "@type":"Question", name:f.q, acceptedAnswer:{ "@type":"Answer", text:f.a } })) } : null;
-const cl = d.primaryCluster ? clusterById(d.primaryCluster) : undefined;
-const definedTerm = cl ? { "@type":"DefinedTerm", "@id":`${site}/clusters/${cl.id}/#cluster`, name:cl.name, description:cl.purpose,
-  inDefinedTermSet:{ "@type":"DefinedTermSet", "@id":`${site}/clusters/#set`, name:"Algeria Compass content clusters" } } : null;
-const schemaNodes = [post, authorEntity, reviewerEntity, breadcrumb, webpage, faqPage, definedTerm].filter(Boolean);
+const schemaNodes = [post, authorEntity, reviewerEntity, breadcrumb, webpage, faqPage].filter(Boolean);
 ---
 <BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} type="article" region={d.region} schema={schemaNodes} sticky={true}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Blog',href:'/blog/'},{name:d.category}]} />

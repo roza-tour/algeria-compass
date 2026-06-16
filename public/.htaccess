@@ -17,6 +17,27 @@ ErrorDocument 404 /404.html
   # 2) Legacy asset path: old /images/* → current /assets/img/* (before the slash rule)
   RewriteRule ^images/(.+)$ /assets/img/$1 [R=301,L]
 
+  # 2b) Removed /clusters/ scaffolding (orphaned duplicate hubs) → 301 to the real page.
+  #     Placed BEFORE the trailing-slash rule so both /x and /x/ resolve in ONE hop.
+  RewriteRule ^clusters/algeria-travel-planning/?$   /travel-guides/ [R=301,L]
+  RewriteRule ^clusters/algeria-sahara/?$            /regions/sahara/ [R=301,L]
+  RewriteRule ^clusters/algeria-history/?$           /history/ [R=301,L]
+  RewriteRule ^clusters/algeria-culture/?$           /culture/ [R=301,L]
+  RewriteRule ^clusters/algeria-food/?$              /food/ [R=301,L]
+  RewriteRule ^clusters/algeria-unesco/?$            /unesco/ [R=301,L]
+  RewriteRule ^clusters/algeria-photography/?$       /regions/ [R=301,L]
+  RewriteRule ^clusters/algeria-road-trips/?$        /blog/algeria-transportation-guide/ [R=301,L]
+  RewriteRule ^clusters/algeria-luxury/?$            /luxury/ [R=301,L]
+  RewriteRule ^clusters/algeria-family/?$            /tours/ [R=301,L]
+  RewriteRule ^clusters/algeria-safety/?$            /blog/algeria-safety-guide/ [R=301,L]
+  RewriteRule ^clusters/algeria-transportation/?$    /blog/algeria-transportation-guide/ [R=301,L]
+  RewriteRule ^clusters/algeria-architecture/?$      /destinations/ [R=301,L]
+  RewriteRule ^clusters/algeria-festivals/?$         /culture/ [R=301,L]
+  RewriteRule ^clusters/algeria-beaches/?$           /regions/ [R=301,L]
+  RewriteRule ^clusters/algeria-mountains/?$         /regions/ [R=301,L]
+  #     Index, graph.json and any other unmapped /clusters/* → home (catch-all, keep last).
+  RewriteRule ^clusters(/.*)?$                       / [R=301,L]
+
   # 3) Force a trailing slash on directory-style URLs in one hop
   #    (skip real files and any URL ending in a file extension)
   RewriteCond %{REQUEST_FILENAME} !-f

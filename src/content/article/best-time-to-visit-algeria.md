@@ -85,7 +85,7 @@ sources:
 ---
 ---
 
-Algeria is not one climate but three, stacked from the Mediterranean to the deep Sahara, and the question "when should I go?" only makes sense once you decide *where* you are going. This guide answers it both ways — by month and by region — and feeds into the wider [travel-planning cluster](/clusters/algeria-travel-planning/) and the [complete travel guide](/blog/complete-algeria-travel-guide/). The short version sits in the Quick Answer above; the detail is below.
+Algeria is not one climate but three, stacked from the Mediterranean to the deep Sahara, and the question "when should I go?" only makes sense once you decide *where* you are going. This guide answers it both ways — by month and by region — and feeds into the wider [travel-planning guides](/travel-guides/) and the [complete travel guide](/blog/complete-algeria-travel-guide/). The short version sits in the Quick Answer above; the detail is below.
 
 ## The three climates
 The **coast** is Mediterranean: mild, wet winters and hot, dry summers. The **northern highlands and mountains** are continental, with cold, sometimes snowy winters and hot summers. The **Sahara** is arid and extreme — delightful in winter, perilous in summer. Almost every timing decision in Algeria flows from these three patterns, which is why a single "best month" does not exist.
