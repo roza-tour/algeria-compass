@@ -1,9 +1,16 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import QuickAnswer from '../components/QuickAnswer.astro';
+import Card from '../components/Card.astro';
 import CtaSection from '../components/CtaSection.astro';
+// The essential planning references, ordered. Pulled from the article collection so
+// titles/images/excerpts stay in sync with the pages themselves.
+const order = ['complete-algeria-travel-guide','algeria-visa-guide','algeria-safety-guide','best-time-to-visit-algeria','algeria-transportation-guide','algerian-sahara-travel-guide'];
+const bySlug = Object.fromEntries((await getCollection('article')).map(a => [a.slug, a]));
+const guides = order.map(s => bySlug[s]).filter(Boolean);
 ---
 <BaseLayout title="Algeria Travel Guides | Algeria Compass" description="Practical, in-depth guides to planning a trip to Algeria — visas, safety, when to go, regions and routes." image="/assets/img/mzab-ghardaia-panorama.jpg" keywords={["Algeria travel guide","Algeria visa","best time to visit Algeria","Algeria travel tips","Algeria itineraries"]} region="highlands">
   <Hero title="Algeria Travel Guides" eyebrow="Knowledge hub" text="Practical, in-depth guides to planning a trip to Algeria — visas, safety, when to go, regions and routes." image="/assets/img/mzab-ghardaia-panorama.jpg" alt="Panorama of a Saharan oasis town" />
@@ -12,9 +19,23 @@ import CtaSection from '../components/CtaSection.astro';
     <QuickAnswer text="Planning a trip to Algeria is easier than its reputation suggests. These guides cover the practical essentials — visas, safety, the best time to visit by region, money, transport and suggested routes — so you can travel the country with confidence." />
     <div class="prose">
       <p>This is the practical, reference side of the site: step-by-step planning for visas and entry, current safety guidance, when to go by region, budgeting, transport and ready-made routes. For the stories, history and food behind the country, read <a href="/blog/">The Algeria Journal</a>.</p>
-      <h2>Explore further</h2>
-      <ul><li><a href="/questions/is-algeria-safe/">Is Algeria safe?</a></li><li><a href="/questions/do-i-need-a-visa-for-algeria/">Do I need a visa?</a></li><li><a href="/blog/best-time-to-visit-algeria/">Best time to visit</a></li></ul>
     </div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="eyebrow">Start here</div>
+    <h2>The essential guides</h2>
+    <div class="grid">
+      {guides.map(g => (
+        <Card href={`/blog/${g.slug}/`}
+          title={g.data.title}
+          image={g.data.image ?? '/assets/img/mzab-ghardaia-panorama.jpg'}
+          alt={g.data.imageAlt ?? g.data.title}
+          tag={g.data.category}
+          text={g.data.excerpt} />
+      ))}
+    </div>
+    <p style="margin-top:1.2rem">Quick answers: <a href="/questions/is-algeria-safe/">Is Algeria safe?</a> · <a href="/questions/do-i-need-a-visa-for-algeria/">Do I need a visa?</a> · <a href="/questions/how-much-does-a-trip-to-algeria-cost/">How much does a trip cost?</a></p>
   </div></section>
   <CtaSection />
 </BaseLayout>
