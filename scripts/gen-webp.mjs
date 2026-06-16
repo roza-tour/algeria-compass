@@ -87,4 +87,15 @@ if (existsSync(TOURS)) {
   }
 }
 
+// 9) Province / destination / cuisine GALLERIES (PhotoGallery .pgrid, shown ~220–320px,
+//    retina) -> 760w .sm.webp @72. These were served as raw JPG (200–430 KB each).
+for (const dir of ['annaba', 'blida', 'timimoun', 'mostaganem', 'msila-bousaada', 'beni-hammad', 'cuisine']) {
+  const D = path.join(IMG, dir);
+  if (!existsSync(D)) continue;
+  for (const f of readdirSync(D)) {
+    if (!/\.jpe?g$/i.test(f)) continue;
+    if (await make(path.join(D, f), path.join(D, webpOf(f, true)), 760, 72)) made++;
+  }
+}
+
 console.log('[webp] generated/verified', made, 'display-sized webp (+ logo)');

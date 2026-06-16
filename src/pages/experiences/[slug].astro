@@ -13,6 +13,7 @@ import SourceList from '../../components/SourceList.astro';
 import EditorialMeta from '../../components/EditorialMeta.astro';
 import { related, toCard } from '../../lib/related';
 import { resolveAuthor, resolveReviewer, authorNode, reviewerNode, citationNodes } from '../../lib/authorship';
+import { imageSize, smWebp } from '../../lib/imageSize';
 export async function getStaticPaths() {
   const items = await getCollection('experience');
   return items.map(item => ({ params: { slug: item.slug }, props: { item } }));
@@ -20,6 +21,8 @@ export async function getStaticPaths() {
 const { item } = Astro.props;
 const d = item.data;
 const { Content } = await item.render();
+// intrinsic dims for the itinerary stop images (CLS-safe width/height)
+const stopsWithDims = await Promise.all((d.stops as any[]).map(async stp => ({ ...stp, dim: await imageSize(stp.image), webp: smWebp(stp.image) })));
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const dests = await related('destination', { region: d.region, limit: 3 });
 const exps = await related('experience', { region: d.region, exclude: item.slug, limit: 3 });
@@ -69,8 +72,8 @@ const schemaNodes = [trip, authorEntity, reviewerEntity, breadcrumb];
       <h2>Where this journey goes</h2>
       <p style="color:var(--text-m);max-width:720px">Every stop below is part of this itinerary.</p>
       <div class="pgrid">
-        {d.stops.map((stp:any) => (
-          <figure><img src={stp.image} alt={stp.alt} loading="lazy" decoding="async" /><figcaption><strong>{stp.name}</strong>{stp.note ? ' — ' + stp.note : ''}</figcaption></figure>
+        {stopsWithDims.map((stp:any) => (
+          <figure><picture>{stp.webp && <source srcset={stp.webp} type="image/webp" />}<img src={stp.image} alt={stp.alt} width={stp.dim?.w} height={stp.dim?.h} loading="lazy" decoding="async" /></picture><figcaption><strong>{stp.name}</strong>{stp.note ? ' — ' + stp.note : ''}</figcaption></figure>
         ))}
       </div>
     </div></section>

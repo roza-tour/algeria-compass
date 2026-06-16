@@ -1,13 +1,24 @@
 ---
+import { imageSize, smWebp } from '../lib/imageSize';
 export interface Props { images?: { src:string; alt:string }[]; heading?: string; }
 const { images = [], heading } = Astro.props;
+// Resolve intrinsic dimensions + a WebP sibling at build. Real width/height keep the
+// grid CLS-safe + pass Lighthouse; the <picture> serves a small .sm.webp where one
+// exists (falls back to the JPG otherwise). .pgrid img CSS controls the displayed box.
+const withDims = await Promise.all(images.map(async im => ({ ...im, dim: await imageSize(im.src), webp: smWebp(im.src) })));
 ---
 {images.length > 0 && (
   <section class="section photo-gallery"><div class="wrap">
     {heading && <h2>{heading}</h2>}
     <div class="pgrid">
-      {images.map(im => (
-        <figure><img src={im.src} alt={im.alt} loading="lazy" decoding="async" /><figcaption>{im.alt}</figcaption></figure>
+      {withDims.map(im => (
+        <figure>
+          <picture>
+            {im.webp && <source srcset={im.webp} type="image/webp" />}
+            <img src={im.src} alt={im.alt} width={im.dim?.w} height={im.dim?.h} loading="lazy" decoding="async" />
+          </picture>
+          <figcaption>{im.alt}</figcaption>
+        </figure>
       ))}
     </div>
   </div></section>
