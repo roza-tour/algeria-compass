@@ -338,3 +338,36 @@ for u in /food/ /history/ /culture/ /unesco/; do echo "$u $(curl -s -o /dev/null
 then re-run the Task 4 live block above until all PASS. In **GSC**, the deleted cluster URLs will move
 to **"Page with redirect"** and drop out over time — no action needed beyond **resubmitting
 `sitemap.xml`**.
+
+> **Update 2026-06-16:** live has since pulled the cluster-removal commit — `/clusters/` and
+> `/clusters/algeria-food/` now **301** correctly on the live host. ✅ (The Phase 2–6 commit below is
+> the next thing to deploy.)
+
+---
+
+# ADDENDUM — MASTER FIX (phased) + deep bug hunt (2026-06-16)
+
+Full per-phase change log + VERIFY PASS/FAIL is in **`CHANGELOG.md`**; the deep triage list is in
+**[`BUG-HUNT.md`](BUG-HUNT.md)**. Summary of what each phase changed:
+
+| Phase | Before | After / change |
+|------|--------|----------------|
+| **0 Recon** | — | Baseline: 1 Header (12-item nav) + 1 Footer + 1 BaseLayout used by all 43 page files; build 131 pages clean; route inventory captured. **No edits.** |
+| **1 Nav** | Reported: Regions missing on `/luxury/` + `/tours/<detail>` | **Non-bug.** Nav is identical sitewide (relative `/regions/` present on every page type, live-verified). The report used an *absolute*-href check that is always 0 here. **No edits.** |
+| **2 Dead pages** | `/clusters/` (done prior); `/de//es//fr/` = live 404 (GSC "Not found") | Added `.htaccess` `^(de\|es\|fr)(/.*)?$ → /` 301. Cluster removal re-confirmed clean. |
+| **3 Indexing** | `/thank-you/` 200 + indexable | `noindex`ed `/thank-you/` (thin, already out of sitemap). Confirmed all scaffolding noindex + sitemap completeness (team/reviewer pages present, no indexable page missing). robots/canonicals already correct. |
+| **4 Canonical** | `http://www/…` chained 3 hops (host chain) even with fresh `.htaccess` | **Fixed** block 1: moved the capturing `RewriteCond` first so `%1` is the bare host deterministically on LiteSpeed → host normalization single-hop. |
+| **5 Content** | Double-brand OG/Twitter alt; `/discover/`≈`/about/`; `/blog/`≈`/travel-guides/`; culture "Six worlds" vs footer "8 worlds" | Fixed alt (brand once); reframed discover=country-guide / about=company and blog=editorial / travel-guides=reference with reciprocal cross-links; culture "Six **civilisations**". De-orphan already satisfied. |
+| **6 Bug hunt** | — | **Discovery only.** Wrote `BUG-HUNT.md`: site is clean on links/metadata/canonicals/JSON-LD/headings/forms; top open items: `logo-full.png` 1.21 MB sitewide (P1), 133 imgs missing width/height (P2), gallery/avatar images not WebP (P2), culture-vs-explorer civ count 6≠8 (P2). **No edits.** |
+
+## Live VERIFY status (Phase 7.1, against live host)
+- **Phase 1 nav** — PASS: identical 12-item nav incl. `/regions/` on `/ /tours/ /tours/<detail>/ /luxury/ /destinations/ /provinces/ /about/ /contact/ /blog/ /evisa/`.
+- **Phase 2/3/4 new changes** — **PENDING owner deploy**: lang 301s, `/thank-you/` noindex, content edits, and the host-rule reorder are in commit pushed this session but the live host is still at the cluster-removal commit (live `/blog/` title still shows the old "Travel Guides & Stories"). `/de//es//fr/` still 404; `http://www` still 3-hop until deploy + LiteSpeed Flush All.
+- **Already live & passing**: `/clusters/*`→301, scaffolding noindex, `http`/`www`/`noslash`→301, real 404, `/images/*` remap.
+
+## OWNER-ONLY steps (cannot be done from here)
+1. **Deploy:** `git pull origin main` in docroot → perms (dirs 755 / files 644) → **LiteSpeed → Flush All**. Then re-run the Phase 1–4 VERIFY blocks (CHANGELOG) — expect: `/de//es//fr/`→301, `/thank-you/` noindex, `http://www/…` host single-hop, blog title "Stories & Field Notes".
+2. **GSC:** resubmit `sitemap.xml`; **Validate Fix** on each error type (Page with redirect, Not found, Duplicate/alternate, Crawled–not indexed); URL-Inspect + **Request Indexing** on home + top tour / e-Visa / luxury pages.
+3. **Bing Webmaster Tools:** resubmit the sitemap.
+4. **Off-site discovery** (so a new domain actually gets indexed): Google Business Profile + a few directory/aggregator listings (TourRadar / Viator).
+5. **Optional perf win (BUG-HUNT #1–3):** optimize `logo-full.png` (1.21 MB → WebP) and gallery/avatar images; add width/height to gallery components.

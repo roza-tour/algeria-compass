@@ -150,13 +150,19 @@ Source `.htaccess` is **already correct**: block 1 forces HTTPS+non-www in a sin
 /assets/img/*`; trailing-slash rule; `ErrorDocument 404 /404.html`. The committed root `.htaccess`
 (HEAD) is byte-identical to `public/.htaccess` for block 1.
 
-**Live currently chains** (measured): `http://www/tours` = 3 hops, `https://www/tours` = 2 hops, etc.
-Root cause: the live server is **behind HEAD** (clusters still 200) **and LiteSpeed caches the rewrite
-ruleset across pulls** — so the old separate http/www rules are still being applied even though
-robots.txt (a plain file) is current (15 Jun). This is a deploy+flush artifact, **not** a code defect:
-the source single-hop rule is in place. **No edit.** VERIFY PENDING owner deploy + LiteSpeed Flush All;
-expected after flush: each normalization single-hop (a no-slash+wrong-host URL is host-hop + slash-hop = 2,
-which is the intended two distinct normalizations, not a redundant host chain).
+**Confirmed live defect (not a cache artifact) → FIXED.** During Phase 7 the server pulled the
+cluster-removal commit, so `/clusters/*` now 301s correctly live — proving the current `.htaccess` is
+deployed and applied. Yet `http://www/tours` STILL chained 3 hops (first hop kept `www`). Root cause:
+in the original block 1 the **capturing** condition (`^(?:www\.)?(.+)$`) sat *after* the `[OR]` group,
+and on this LiteSpeed server the `%1` backreference was unreliable there (www not stripped on the http
+path) → http→https-www→non-www = a 2-hop host chain GSC flags as "Page with redirect".
+
+**FIX (`.htaccess` block 1):** moved the capturing condition **first** so it is always evaluated and
+`%1` is deterministically the bare (non-www) host; the `[OR]` group now only gates *whether* to redirect.
+Result (expected, post-deploy): host normalization is a single hop; a wrong-host+no-slash URL is
+host-hop + slash-hop = 2 hops (two distinct normalizations, not a redundant host chain). **EDIT.**
+VERIFY PENDING owner deploy + LiteSpeed Flush All. Other Phase 4 items already pass live:
+`http`/`www`/`noslash` each 301, `/images/*`→`/assets/img/*`, real 404.
 
 ## PHASE 5 — Content quality & polish
 
