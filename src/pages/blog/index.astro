@@ -7,8 +7,8 @@ import Card from '../../components/Card.astro';
 import CtaSection from '../../components/CtaSection.astro';
 const items = await getCollection('article');
 ---
-<BaseLayout title="The Algeria Journal — Travel Guides & Stories" description="Guides, history, food and field notes from across Algeria." image="/assets/img/sahara-camp-sunset.jpg" keywords={["Algeria travel blog","Algeria guides","Algeria travel articles","Algeria stories"]}>
-  <Hero title="The Algeria Journal" eyebrow="Algeria" text="Guides, history, food and field notes from across Algeria." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
+<BaseLayout title="The Algeria Journal — Stories & Field Notes" description="In-depth stories, history, food and field notes from across Algeria — the narrative companion to our practical travel guides." image="/assets/img/sahara-camp-sunset.jpg" keywords={["Algeria travel blog","Algeria stories","Algeria history articles","Algeria field notes"]}>
+  <Hero title="The Algeria Journal" eyebrow="Stories & field notes" text="History, food, culture and first-hand field notes from across Algeria — the long reads behind the country." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'The Algeria Journal'}]} />
   <section class="section"><div class="wrap">
     <div class="grid">
@@ -21,7 +21,7 @@ const items = await getCollection('article');
           text={it.data.excerpt} />
       ))}
     </div>
-    <p style="margin-top:1.4rem">More ways to explore Algeria: <a href="/travel-guides/">our travel guides</a>, or <a href="/discover/">discover Algeria</a> region by region.</p>
+    <p style="margin-top:1.4rem">Planning a trip rather than reading? See our practical <a href="/travel-guides/">Algeria travel guides</a> for visas, safety and routes, or <a href="/discover/">discover Algeria</a> region by region.</p>
   </div></section>
   <CtaSection />
 </BaseLayout>

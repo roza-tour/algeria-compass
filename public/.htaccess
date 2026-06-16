@@ -38,6 +38,10 @@ ErrorDocument 404 /404.html
   #     Index, graph.json and any other unmapped /clusters/* → home (catch-all, keep last).
   RewriteRule ^clusters(/.*)?$                       / [R=301,L]
 
+  # 2c) Dead legacy language routes from the old SPA (GSC "Not found 404": /de/ /es/ /fr/).
+  #     No content existed at these paths; 301 the whole subtree to the (English) home page.
+  RewriteRule ^(de|es|fr)(/.*)?$                     / [R=301,L]
+
   # 3) Force a trailing slash on directory-style URLs in one hop
   #    (skip real files and any URL ending in a file extension)
   RewriteCond %{REQUEST_FILENAME} !-f

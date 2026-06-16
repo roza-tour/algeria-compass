@@ -10,7 +10,9 @@ const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompas
 const canonical = new URL(Astro.url.pathname, site).toString();
 const ogImage = image.startsWith('http') ? image : site + image;
 const kw = Array.isArray(keywords) ? keywords.join(', ') : keywords;
-const altText = imageAlt || `${fullTitle} — Algeria Compass`;
+// fullTitle already ends in "| Algeria Compass" — don't append the brand again (avoids
+// the duplicated "<Title> | Algeria Compass — Algeria Compass" alt). Brand appears once.
+const altText = imageAlt || fullTitle;
 ---
 <title>{fullTitle}</title>
 <meta name="description" content={description} />

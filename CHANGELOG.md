@@ -61,5 +61,124 @@ live re-test is handed off in `AUDIT-RESULT.md` (Task 9). PASS/FAIL below = loca
 - **Task 7 — Self-referential canonicals.** Sampled `/`, `/tours/`, `/provinces/`, `/contact/`, `/tours/djanet-sahara-safari/` — each canonical equals its own final https + non-www + trailing-slash URL. **PASS.**
 - **Task 8 — Image optimization.** Heroes now served as WebP via `<picture>` (+ JPG fallback). Hero 228 KB → 72 KB (−68%, under the ~110 KB target). Homepage hero was already WebP + preload. Alt text preserved; `fetchpriority="high"` kept; no CLS (width/height intact). **PASS (local).** Live PageSpeed/LCP re-test handed to Sam.
 - **Task 9 — Build + report.** `npm run deploy` ran (148 pages built + staged to repo root). `AUDIT-RESULT.md` written. **PASS.**
-</content>
-</invoke>
+
+---
+
+# MASTER FIX (phased) + deep bug hunt — 2026-06-16
+
+**Deploy constraint (unchanged):** this agent can edit + `npm run build` + `npm run deploy` (stage to
+repo root) + commit + push, but **cannot** `git pull` on the server or flush LiteSpeed. Live VERIFY
+PASSES only for what is already deployed; new-change live VERIFY is **PENDING owner deploy** and is
+proven here against the freshly built `dist/` + staged root. The live host is also still stale on the
+prior cluster-removal commit (`/clusters/` still 200, not yet 301) — owner deploy will resolve both.
+
+## PHASE 0 — Recon & baseline (no edits)
+
+- **Header / nav definitions: exactly ONE.** `src/components/Header.astro` holds a single `nav[]`
+  array of **12 items** (Home, Tours, Luxury, Destinations, States, Regions, Culture, e-Visa, Blog,
+  FAQ, About, Contact). It is rendered by the single layout `src/layouts/BaseLayout.astro`, which is
+  imported by **every** `src/pages/**` route (verified: 43/43 page files import `BaseLayout`; no page
+  defines its own header). No duplicate/older header partials exist.
+- **Footer: ONE** (`src/components/Footer.astro`) — 5 columns (Explore/Knowledge/Plan/Editorial + brand).
+- **Sitemap:** hand-built `src/pages/sitemap.xml.ts` (not @astrojs/sitemap). Emits `statics[]` +
+  loops over tours, regions (`REGIONS`), and content collections (province, destination, experience,
+  article, question, editorial, team, reviewer). `/clusters/` and `/knowledge/*` excluded by omission.
+- **Canonical / config:** `astro.config.mjs` already `site: https://algeriacompass.com`,
+  `trailingSlash:'always'`, `build.format:'directory'`. Canonical tag in `Seo.astro` is
+  self-referential. robots.txt already has `Disallow: /search` + both Sitemap lines.
+- **Build baseline:** `npm run build` → **131 pages, clean (no warnings/errors)**.
+- **Route inventory (130 dir routes + `404.html`):** `/`, blog (8 articles), destinations (10),
+  editorial (10 policies), experiences (4), knowledge (16 hubs incl. graph/provinces), provinces (15),
+  questions (7), regions (8 + index), tours (20 + index), team (1+index), reviewers (1+index),
+  + standalone (about, contact, culture, history, food, sweets, unesco, luxury, evisa, visa-support,
+  travel-guides, discover, booking-terms, thank-you, search, sitemap). Root files: `.htaccess`,
+  `404.html`, `contact.php`, `robots.txt`, `sitemap.xml`, `sitemap-images.xml`, `search-index.json`,
+  `reviews-approved.json`, `favicon.svg`, `index.html`.
+
+## PHASE 1 — Navigation & template unification
+
+**The reported "Regions missing on /luxury/ + /tours/<detail>" bug does NOT reproduce.** The nav is
+already unified (one Header → one nav array → one BaseLayout, imported everywhere). Live extraction of
+the actual nav list on `/about/`, `/luxury/`, and `/tours/algeria-beyond-expectations/` shows the
+**same 12 items in the same order, with `/regions/` present on all three**.
+
+Root cause of the false report: the supplied VERIFY counts an **absolute** href
+(`href="https://algeriacompass.com/regions/"`) but the site uses **relative** hrefs (`href="/regions/"`),
+so the canned command returns 0 on *every* page (not 1) — a measurement artifact, not a nav defect.
+(Same false-positive class was already noted for the `/contact/` nav check in AUDIT-RESULT Task A.)
+
+- 1.1–1.3 No consolidation needed; no duplicate headers to retire. **No edits.**
+- 1.4 VERIFY (corrected to the real relative href) — **PASS**:
+  `/ /tours/ /tours/<detail>/ /luxury/ /destinations/ /provinces/ /about/ /contact/ /blog/ /evisa/`
+  each render the identical 12-item nav incl. `/regions/`. The owner's literal absolute-href command
+  returns `regions=0` everywhere (expected, relative hrefs) — do not "fix" by hardcoding absolute URLs.
+
+## PHASE 2 — Remove dead/duplicate pages
+
+- **`/clusters/`** — already removed in the prior session (16 per-URL 301s + catch-all `^clusters(/.*)?$ → /`
+  in `.htaccess`; route source deleted; 6 in-body links repointed; sitemap clean). Re-audit this session:
+  `grep -rE '/clusters/' src/` → only 2 doc-comments in `sitemap.xml.ts`; built output → none. Confirmed.
+- **2.4 Dead language routes** (`.htaccess`) — added block 2c:
+  `RewriteRule ^(de|es|fr)(/.*)?$ / [R=301,L]`. These old-SPA paths return 404 live (GSC "Not found");
+  no internal/built references exist (grep clean). 301 → home so GSC drops them. **EDIT.**
+- 2.5 VERIFY — source/built: no dangling `/clusters/` or `/de|es|fr/` refs. Live: cluster URLs still
+  `200` and `/de|es|fr/` still `404` because **live is behind HEAD + LiteSpeed caches rewrite rules**
+  (see Phase 4). **PENDING owner deploy + Flush All.**
+
+## PHASE 3 — Indexing hygiene
+
+- 3.1 noindex by prefix — **confirmed** all scaffolding source pages carry `noindex` (knowledge
+  index + `[hub]` + graph + provinces, search, sitemap, 404). `/clusters/` deleted (moot).
+- 3.1+ **`/thank-you/`** — thin post-submit confirmation page was `200` + indexable (already out of
+  the sitemap). Added `noindex` to its `<BaseLayout>` — de-index thin page per hard rules. **EDIT.**
+- 3.2 robots.txt — already `Disallow: /search` + `Allow: /` + both Sitemap lines. **No change.**
+- 3.3 Sitemap completeness — **already complete**: `/team/editorial-team/` and `/reviewers/editorial-review/`
+  are emitted (team+reviewer collections looped). Diff of 130 built routes vs 109 sitemap locs = exactly
+  the 18 `/knowledge/*` + `/search/` + `/sitemap/` + `/thank-you/` (all intentionally excluded). No
+  indexable page is missing. **No change.**
+- 3.4 Canonicals — `Seo.astro` builds `new URL(pathname, site)` under `trailingSlash:'always'` →
+  self-referential on every page. **No change.**
+- 3.5 Legacy 301s — no GSC 404/redirect export provided this session → **flagged for owner** (the
+  `.htaccess` slot remains; `/de|es|fr/` already handled in Phase 2).
+- 3.6 VERIFY — robots/sitemap correct in built output; scaffolding noindex confirmed in source.
+  Live re-test PENDING deploy.
+
+## PHASE 4 — Canonicalization & redirects
+
+Source `.htaccess` is **already correct**: block 1 forces HTTPS+non-www in a single hop
+(`RewriteCond %{HTTPS} off [OR]` / host `^(?:www\.)?(.+)$` → `https://%1%{REQUEST_URI}`); `/images/* →
+/assets/img/*`; trailing-slash rule; `ErrorDocument 404 /404.html`. The committed root `.htaccess`
+(HEAD) is byte-identical to `public/.htaccess` for block 1.
+
+**Live currently chains** (measured): `http://www/tours` = 3 hops, `https://www/tours` = 2 hops, etc.
+Root cause: the live server is **behind HEAD** (clusters still 200) **and LiteSpeed caches the rewrite
+ruleset across pulls** — so the old separate http/www rules are still being applied even though
+robots.txt (a plain file) is current (15 Jun). This is a deploy+flush artifact, **not** a code defect:
+the source single-hop rule is in place. **No edit.** VERIFY PENDING owner deploy + LiteSpeed Flush All;
+expected after flush: each normalization single-hop (a no-slash+wrong-host URL is host-hop + slash-hop = 2,
+which is the intended two distinct normalizations, not a redundant host chain).
+
+## PHASE 5 — Content quality & polish
+
+- 5.1 **`Seo.astro`** — OG/Twitter `image:alt` default was `${fullTitle} — Algeria Compass`, but
+  `fullTitle` already ends in `| Algeria Compass` → duplicated brand. Changed default to `fullTitle`
+  (brand once). Verified built `og:image:alt="About Algeria Compass"` (was `… — Algeria Compass`). **EDIT.**
+- 5.2 **`/discover/` vs `/about/`** — both opened with near-identical "licensed Algerian tour operator
+  devoted entirely to one country… 58 states, seven UNESCO…". Reframed `/discover/` lead as a **country
+  guide** ("Algeria, mapped for travellers") cross-linking to `/about/`; added reciprocal `/discover/`
+  link from `/about/`. **EDITS.**
+- 5.2 **`/blog/` vs `/travel-guides/`** — leaned `/blog/` **editorial** (title "The Algeria Journal —
+  Stories & Field Notes", editorial hero/description) and `/travel-guides/` **reference**; cross-linked
+  both ways. Also fixed `travel-guides.astro` in-page duplicate (QuickAnswer text was repeated verbatim
+  in the prose `<p>`). **EDITS.**
+- 5.3 **"worlds" count** — two real taxonomies: **8 regions** (footer "Regions — 8 worlds", regions.ts)
+  vs **civilisations** (culture page). `culture.astro` "Six worlds, one country" collided on the word
+  "worlds"; changed to **"Six civilisations, one country"** (accurate to its 6 cards; eyebrow already
+  "The civilisations"). NOTE: a *separate* civ-count mismatch remains — culture page lists 6 vs
+  `CivilizationsExplorer` "Eight worlds" (8) — logged in BUG-HUNT.md for an editorial decision. **EDIT.**
+- 5.4 De-orphan — **already satisfied**: all of `/experiences/ /travel-guides/ /discover/ /history/
+  /food/ /sweets/ /unesco/` are in the global Footer AND have ≥1 in-body related link (discover→experiences,
+  culture→history+food, history→unesco, food→sweets via `SweetsSection`, blog→travel-guides+discover).
+  **No change.**
+- 5.5 VERIFY — `npm run build` clean (131 pages, no warnings); exactly one `<h1>` on every edited page;
+  alt double-brand gone. **PASS.**
