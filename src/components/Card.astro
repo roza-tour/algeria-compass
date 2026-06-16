@@ -1,9 +1,13 @@
 ---
+import { smWebp } from '../lib/imageSize';
 export interface Props { href: string; title: string; image: string; alt: string; tag?: string; text?: string; meta?: string; }
 const { href, title, image, alt, tag, text, meta } = Astro.props;
+// Serve a small WebP sibling when one exists (falls back to the JPG). Card thumbnails
+// recur across related grids + index pages, so this is a large sitewide transfer win.
+const webp = smWebp(image);
 ---
 <a class="card" href={href}>
-  <div class="ci"><img src={image} alt={alt} loading="lazy" width="400" height="250" /></div>
+  <div class="ci"><picture>{webp && <source srcset={webp} type="image/webp" />}<img src={image} alt={alt} loading="lazy" width="400" height="250" /></picture></div>
   <div class="cb">
     {tag && <span class="tag">{tag}</span>}
     <h3>{title}</h3>
