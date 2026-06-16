@@ -2,7 +2,7 @@
 // Lighthouse flagged as oversized (served full-res, shown small). Tiny files,
 // wired via <picture> in StatesStrip / TravellerSlider / TourCard.
 //   node scripts/gen-webp.mjs
-import { readdirSync, existsSync, readFileSync } from 'node:fs';
+import { readdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
 
@@ -56,6 +56,18 @@ if (existsSync(SW)) {
 
 // 6) Nav logo emblem -> small webp (referenced directly as .webp)
 await make('public/assets/img/logo-emblem-gold.png', 'public/assets/img/logo-emblem-gold.webp', 130, 88);
+
+// 6b) Footer / schema brand logo: a 1023×776 PNG (~1.27 MB) shown at 220px on EVERY page.
+//     Downscale to 460w and emit a LOSSLESS webp (logo = flat colour + transparency, so
+//     lossless webp ~27 KB beats lossy+alpha; PNG fallback ~28 KB). Both replace the 1.27 MB.
+{
+  const lp = 'public/assets/img/logo-full.png';
+  const lw = 'public/assets/img/logo-full.webp';
+  const m = await sharp(lp).metadata();
+  const base = m.width > 460 ? sharp(lp).resize({ width: 460 }) : sharp(lp);
+  if (!existsSync(lw)) { await sharp(await base.clone().png().toBuffer()).webp({ lossless: true }).toFile(lw); made++; }
+  if (m.width > 460) { writeFileSync(lp, await base.png({ compressionLevel: 9, palette: true }).toBuffer()); made++; }
+}
 
 // 7) Page heroes (shared Hero.astro renders the LCP <img> ~1200px wide).
 //    Generate a display-sized .sm.webp for every top-level content JPG so the
