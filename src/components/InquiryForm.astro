@@ -23,13 +23,13 @@ const interests = ['Sahara','Roman ruins','Andalusian heritage','Kabylie & coast
     <div><label for="f-days">How many days?</label><input id="f-days" name="days" type="text" placeholder="e.g. 10" /></div>
   </div>
 
-  <div style="margin-top:1rem">
-    <label>Interests</label>
+  <fieldset style="margin-top:1rem">
+    <legend>Interests</legend>
     <div class="chips" id="chips">
       {interests.map(i => <button type="button" class="chip" data-chip={i} aria-pressed={i===defaultInterest ? 'true' : 'false'}>{i}</button>)}
     </div>
     <input type="hidden" name="interests" id="f-interests" value={defaultInterest} />
-  </div>
+  </fieldset>
 
   <div style="margin-top:1rem"><label for="f-msg">Your message <span class="req">*</span></label><textarea id="f-msg" name="message" rows="4" required placeholder="Tell us what you'd like to see and any questions."></textarea></div>
 
