@@ -60,9 +60,10 @@ const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/blog/${item.slug}/
 const webpage = { "@type":"WebPage", "@id":`${site}/blog/${item.slug}/#webpage`, url:`${site}/blog/${item.slug}/`,
   name:d.seo.title, isPartOf:{ "@id":`${site}/#website` }, primaryImageOfPage: site + d.image,
   breadcrumb:{ "@id":`${site}/blog/${item.slug}/#breadcrumb` }, inLanguage:"en" };
-const faqPage = d.faqs.length ? { "@type":"FAQPage", "@id":`${site}/blog/${item.slug}/#faq`,
-  mainEntity: d.faqs.map(f => ({ "@type":"Question", name:f.q, acceptedAnswer:{ "@type":"Answer", text:f.a } })) } : null;
-const schemaNodes = [post, authorEntity, reviewerEntity, breadcrumb, webpage, faqPage].filter(Boolean);
+// FAQPage is emitted once by <FaqSection> below (the shared component all page
+// types use). Do NOT also add a FAQPage node to the @graph here, or each blog
+// post renders two FAQPage blocks (duplicate schema emission).
+const schemaNodes = [post, authorEntity, reviewerEntity, breadcrumb, webpage].filter(Boolean);
 ---
 <BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} type="article" region={d.region} schema={schemaNodes} sticky={true}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Blog',href:'/blog/'},{name:d.category}]} />

@@ -15,7 +15,7 @@ keyFacts:
   - { label: "Best season", value: "October–April" }
 faqs:
   - { q: "Is the M'Zab Valley a UNESCO site?", a: "Yes — the M'Zab Valley was inscribed on the UNESCO World Heritage List in 1982 as an outstanding traditional human settlement adapted to the desert." }
-  - { q: "When is the best time to visit Ghardaïa?", a: "October to April, when desert temperatures are comfortable." }
+  - { q: "Why did Le Corbusier admire the M'Zab Valley?", a: "He studied its egalitarian, climate-adapted design — cubic terraced houses, shaded streets and a communal water system — and drew on those principles in his own modern architecture." }
 seo:
   title: "The M'Zab Valley: The Desert Cities That Astonished Le Corbusier | Algeria Compass"
   description: "Five fortified desert cities, an 11th-century blueprint for living, and an urban design so radical the 20th century's most famous architect kept coming back to study it."

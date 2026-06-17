@@ -70,11 +70,7 @@ const quick = `${hub.title} on Algeria Compass brings together ${featured.length
 const url = `/knowledge/${hub.slug}/`;
 const collection = collectionPageNode(site, url, hub.title, hub.description, featured);
 const themeNode = entityNode(site, themeEntity);
-const faqNode = {
-  '@type': 'FAQPage',
-  '@id': `${site}${url}#faq`,
-  mainEntity: hub.faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })),
-};
+// FAQPage is emitted once by <FaqSection> below — don't also add it to the @graph.
 const breadcrumb = {
   '@type':'BreadcrumbList',
   itemListElement: [
@@ -83,7 +79,7 @@ const breadcrumb = {
     { '@type':'ListItem', position:3, name:hub.title, item:`${site}${url}` },
   ],
 };
-const schema = [collection, themeNode, faqNode, breadcrumb];
+const schema = [collection, themeNode, breadcrumb];
 ---
 <BaseLayout title={`${hub.title} — Knowledge Hub`} description={hub.description} schema={schema} noindex>
   <Hero title={hub.title} eyebrow="Knowledge hub" text={hub.intro} image="/assets/img/sahara-dunes-tadrart.jpg" alt="Algeria" />
