@@ -59,7 +59,7 @@ if (cites.length) place.citation = cites;
 const schemaNodes = [place, authorEntity, reviewerEntity];
 ---
 <BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} region={d.region} civ={PROVINCE_SKIN[item.slug]} schema={schemaNodes} sticky={true}>
-  <Hero title={d.name} eyebrow={`State${d.wilayaNumber ? ' ' + d.wilayaNumber : ''} · Algeria`} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
+  <Hero title={d.heading || d.name} eyebrow={`State${d.wilayaNumber ? ' ' + d.wilayaNumber : ''} · Algeria`} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
     <a class="btn btn-gold" href={`/contact/?i=${encodeURIComponent(d.name)}`} data-evt="cta_plan">Plan a trip to {d.name} →</a>
   </Hero>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'States',href:'/provinces/'},{name:d.name}]} />

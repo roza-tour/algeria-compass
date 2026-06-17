@@ -42,6 +42,7 @@ const province = defineCollection({
   type: 'content',
   schema: z.object({
     name: z.string(),
+    heading: z.string().optional(),   // optional on-page H1 override (defaults to name)
     wilayaNumber: z.number().optional(),
     region,
     image: z.string(),
@@ -69,6 +70,7 @@ const destination = defineCollection({
   type: 'content',
   schema: z.object({
     name: z.string(),
+    heading: z.string().optional(),   // optional on-page H1 override (defaults to name)
     province: z.string().optional(),
     region,
     image: z.string(),
