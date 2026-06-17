@@ -1,5 +1,6 @@
 ---
 name: "Constantine"
+heading: "Constantine: City of Bridges, Cirta & Malouf"
 province: "Constantine"
 region: "highlands"
 image: "/assets/img/constantine-sidi-mcid-bridge.jpg"
@@ -11,46 +12,55 @@ gallery:
   - { src: "/assets/img/constantine-ahmed-bey-courtyard.jpg", alt: "Ornate courtyard of the Ahmed Bey Palace, Constantine" }
   - { src: "/assets/img/constantine-gorge.jpg", alt: "The Rhumel gorge and cliffs of Constantine" }
   - { src: "/assets/img/constantine-ahmed-bey-gallery.jpg", alt: "Arcaded gallery of the Ahmed Bey Palace, Constantine" }
-quickAnswer: "Constantine is the 'City of Bridges', a dramatic highland city in north-east Algeria built across a deep gorge above the Rhumel River and spanned by spectacular bridges. It is one of the oldest continuously inhabited cities on earth."
+quickAnswer: "Constantine is the 'City of Bridges', a dramatic highland city in north-east Algeria built across a deep gorge above the Rhumel River and spanned by spectacular bridges. Ancient Cirta — a Numidian and Roman capital and later an Ottoman seat — it is one of the oldest continuously inhabited cities on earth and the home of malouf music."
 keyFacts:
-  - { label: "Region", value: "High Plateaus / north-east" }
-  - { label: "Nickname", value: "City of Bridges" }
-  - { label: "Ancient name", value: "Cirta" }
-  - { label: "Highlights", value: "Sidi M'Cid Bridge, Ahmed Bey Palace" }
-  - { label: "Best season", value: "Spring & autumn" }
+  - { label: "Ancient name", value: "Cirta (Numidian & Roman capital)" }
+  - { label: "Nickname", value: "The City of Bridges" }
+  - { label: "Renamed by", value: "Emperor Constantine, 4th century AD" }
+  - { label: "Heritage", value: "Ahmed Bey Palace · Cirta Museum · old medina" }
+  - { label: "Music", value: "Malouf (classical Andalusian)" }
 
 faqs:
-  - { q: "Why is Constantine called the City of Bridges?", a: "Because the old city sits on a plateau split by the deep Rhumel gorge, crossed by several dramatic bridges, including the high Sidi M'Cid suspension bridge." }
-  - { q: "Is Constantine worth visiting?", a: "Yes — its gorge setting is unique in North Africa, and the Ahmed Bey Palace and old medina make it one of Algeria's most striking cities." }
-  - { q: "How many days do you need in Constantine?", a: "One full day covers the main bridges, the Ahmed Bey Palace and the old medina; two days let you slow down and add the Cirta museum and viewpoints, or pair the city with the Roman sites of Djémila and Timgad to the south." }
+  - { q: "Why is Constantine called the City of Bridges?", a: "Because the old city sits on a rock plateau almost encircled by the deep Rhumel gorge, and a series of dramatic bridges — most famously the high Sidi M'Cid suspension bridge — connect it across the ravine." }
+  - { q: "What is the history of Constantine?", a: "It is one of the oldest continuously inhabited cities on earth. As Cirta it was the capital of the Berber kingdom of Numidia under Massinissa, then a major city of Roman Africa; it was rebuilt by the emperor Constantine in the 4th century, who gave it its name, and later flourished as an Ottoman seat under beys such as Ahmed Bey." }
+  - { q: "What is malouf music?", a: "Malouf is a classical Andalusian musical tradition carried from Muslim Spain to the cities of the Maghreb; Constantine is its great Algerian centre, where it is still performed and taught." }
+  - { q: "What are the main things to see in Constantine?", a: "The bridges and gorge viewpoints, the richly painted Ahmed Bey Palace, the Cirta Museum's Numidian and Roman antiquities, the old medina and the Emir Abdelkader Mosque." }
 
 seo:
   title: "Constantine, Algeria: The City of Bridges Travel Guide"
   description: "Constantine, Algeria's dramatic City of Bridges above the Rhumel gorge — history, the Ahmed Bey Palace, and how to visit."
   primaryKeyword: "Constantine Algeria"
-updated: 2026-06-01
-lastReviewed: 2026-06-16
+updated: 2026-06-17
+lastReviewed: 2026-06-17
 primaryCluster: "algeria-history"
 cluster: "algeria-history"
 secondaryClusters: ["algeria-architecture"]
 intent: "inspirational"
 ---
----
 
 ## Overview
-Few cities have a setting like **Constantine**. The old town stands on a rocky plateau cut almost entirely away by the **Rhumel gorge**, leaving it ringed by sheer cliffs and joined to the modern city by a series of bridges — among them the vertiginous **Sidi M'Cid** suspension bridge, slung high above the river. The drama of the site is the city's signature: streets end at the lip of the gorge, and footbridges thread between cliff faces hundreds of metres above the water.
+Few cities have a setting like **Constantine**. The old town stands on a rocky plateau cut almost entirely away by the **Rhumel gorge**, leaving it ringed by sheer cliffs and joined to the modern city by a series of bridges — among them the vertiginous **Sidi M'Cid** suspension bridge, slung high above the river. That drama is the city's signature, but its deeper story is one of three thousand years of history and a living urban culture. (To plan a visit — flights, timing, itineraries — see the [Constantine travel guide](/provinces/constantine/).)
 
-## History
-Constantine is one of the oldest continuously inhabited cities on earth. As ancient **Cirta** it was the capital of the Berber kingdom of **Numidia** under King Massinissa, then a major city of Roman Africa; it was rebuilt by the emperor **Constantine the Great** in the 4th century, who gave it the name it still carries. Under the **Ottomans** it became a powerful provincial seat and a centre of learning, and the early-19th-century rule of **Ahmed Bey** left the city its finest palace.
+## History — Cirta, Rome & the Ottomans
+Constantine is one of the **oldest continuously inhabited cities on earth**. As ancient **Cirta** it was the capital of the Berber kingdom of **Numidia** under King Massinissa, then a major city of Roman Africa; it was rebuilt by the emperor **Constantine the Great** in the 4th century, who gave it the name it still carries. Under the **Ottomans** it became a powerful provincial seat and a centre of learning, and the early-19th-century rule of **Ahmed Bey** left the city its finest palace.
 
-## What to see
-- The **bridges** and gorge viewpoints — Sidi M'Cid, the Mellah Slimane footbridge and the Pont d'El Kantara
-- The restored **Palace of Ahmed Bey**, with its painted galleries and courtyards
-- The **old medina** and Ottoman quarters climbing the rock
-- The **Emir Abdelkader Mosque** and the views from the Monument aux Morts
+## The bridges
+The crossings of the Rhumel gorge are engineering heritage in their own right: the high **Sidi M'Cid** suspension bridge, the **Mellah Slimane** footbridge slung between cliff faces, and the **Pont d'El Kantara**. Streets end at the lip of the ravine and resume on the far side hundreds of metres above the water — a cityscape unlike any other in North Africa.
 
-## How to reach
-Constantine has an international airport and strong rail and road links across eastern Algeria. It pairs naturally with the Roman cities of **Djémila** and **Timgad** to the south, and with the Béjaïa coast to the west.
+## The Palace of Ahmed Bey
+The restored **Palace of Ahmed Bey** is among the finest Ottoman-era residences in Algeria — a sequence of **painted galleries, tiled courtyards and gardens** built in the 1830s, its walls covered with naïve frescoes of the places and pilgrimages its builder had seen.
+
+## Malouf — the city's music
+Constantine is the great Algerian home of **malouf**, the classical Andalusian music brought east from Spain and nurtured in the cities. Refined, devout and proud, malouf is woven into weddings, festivals and the city's sense of itself; Constantine's conservatoires and families have kept the tradition alive for generations.
+
+## The old medina & mosques
+The **old medina** climbs the rock in a maze of Ottoman quarters, and the **Emir Abdelkader Mosque** — one of the largest in the country — anchors the modern city. The **Monument aux Morts**, set on the cliff edge, gives the classic panorama back across the gorge.
+
+## Cuisine & sweets
+Constantine is famous for **eastern Algerian cooking** and especially its **pastries and sweets** — refined, often almond- and honey-based — alongside its versions of classic Algerian grills and stews. Food here is part of the city's urbane identity.
+
+## Beyond the city
+Constantine sits at the heart of the **Roman north-east**, within reach of **Djémila** and **Timgad** and the museums of **Sétif** — see the [Constantine travel guide](/provinces/constantine/) to plan the loop, and the [Constantine region guide](/regions/constantine/) for the wider east.
 
 ## Explore it with us
-Constantine anchors our eastern itineraries. Travel it with the [City of Bridges expedition](/experiences/city-of-bridges-expedition/), see how it fits the wider east in the [Constantine region guide](/regions/constantine/), or browse all of our [private guided tours](/tours/). Every trip runs with licensed Algerian guides.
+Constantine anchors our eastern itineraries. Travel it with the [City of Bridges expedition](/experiences/city-of-bridges-expedition/), plan the trip via the [Constantine travel guide](/provinces/constantine/), or browse all of our [private guided tours](/tours/). Every trip runs with licensed Algerian guides.

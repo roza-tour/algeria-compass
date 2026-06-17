@@ -1,5 +1,6 @@
 ---
 name: "Tlemcen"
+heading: "Tlemcen Travel Guide: Visiting Andalusian Algeria"
 wilayaNumber: 13
 region: "andalusian"
 image: "/assets/img/tlemcen-andalusian-arches.jpg"
@@ -12,26 +13,26 @@ coordinates: { lat: 34.8783, lng: -1.3150 }
 quickAnswer: "Tlemcen is a western highland state near the Moroccan border, the cultural capital of Andalusian Algeria. Once a great medieval royal city, it preserves the Great Mosque, the Mansourah minaret, the El Mechouar palace and the shrine-complex of Sidi Boumediene, set among cool plateaus, the El Ourit waterfalls and a living tradition of Andalusian music."
 keyFacts:
   - { label: "State number", value: "13" }
-  - { label: "Capital", value: "Tlemcen" }
-  - { label: "Region", value: "Western highlands, near the Moroccan border" }
-  - { label: "Known for", value: "Andalusian heritage, music & architecture" }
-  - { label: "Don't miss", value: "Great Mosque · Mansourah · El Mechouar · Sidi Boumediene" }
+  - { label: "Getting there", value: "Tlemcen airport; ~1.5–2 hrs by road from Oran" }
   - { label: "Best time", value: "Apr–Jun & Sep–Oct" }
+  - { label: "How long", value: "1–2 days (more with Oran & the west)" }
+  - { label: "Green escapes", value: "Lalla Setti plateau · El Ourit falls · National Park" }
+  - { label: "Region", value: "Western highlands, near the Moroccan border" }
 
 sameAs: ["https://en.wikipedia.org/wiki/Tlemcen_Province"]
 faqs:
-  - { q: "What is Tlemcen known for?", a: "Its deep Andalusian heritage — the Great Mosque, the Mansourah minaret, the El Mechouar palace and the Sidi Boumediene complex — and as a centre of classical Andalusian music (gharnati). It was a powerful medieval royal capital and is one of Algeria's most refined historic cities." }
-  - { q: "Why is Tlemcen called Andalusian?", a: "Waves of Muslim and Jewish refugees from Spain settled here, bringing the architecture, music, craft and learning of al-Andalus, which shaped the city's mosques, palaces and culture." }
-  - { q: "What is there to see beyond the city?", a: "The Lalla Setti plateau with its panorama over the city, Tlemcen National Park, and the El Ourit waterfalls, plus the ruined royal city of Mansourah with its great solitary minaret." }
-  - { q: "How do I reach Tlemcen?", a: "Tlemcen has an airport with domestic flights and is reached by road from Oran in roughly 1.5–2 hours; it is the highlight of any tour of the Algerian west." }
+  - { q: "How do I reach Tlemcen?", a: "Tlemcen has an airport with domestic flights and is about 1.5–2 hours by road from Oran, which makes it the natural highlight of a tour of the Algerian west." }
+  - { q: "When is the best time to visit Tlemcen?", a: "Spring (April–June) and autumn (September–October) are most comfortable on the highland plateau; summer is warm and winter cool." }
+  - { q: "How many days do you need in Tlemcen?", a: "One full day covers the Great Mosque, the old medina and the main monuments; a second day adds Mansourah, Sidi Boumediene and the green escapes — the Lalla Setti plateau and the El Ourit waterfalls." }
+  - { q: "What is there to see around Tlemcen?", a: "Beyond the monuments, the Lalla Setti plateau gives a panorama over the city, while Tlemcen National Park and the El Ourit waterfalls offer green escapes, and the ruined royal city of Mansourah sits on the edge of town." }
 
 seo:
   title: "Tlemcen, Algeria: Andalusian Heritage & Music — Travel Guide"
   description: "Tlemcen state, Algeria — the cultural capital of Andalusian Algeria: the Great Mosque, Mansourah, El Mechouar palace, Sidi Boumediene, the El Ourit waterfalls and gharnati music."
   primaryKeyword: "Tlemcen Algeria travel guide"
   keywords: ["Tlemcen", "Andalusian Algeria", "Great Mosque of Tlemcen", "Mansourah", "Sidi Boumediene", "gharnati"]
-updated: 2026-06-07
-lastReviewed: 2026-06-07
+updated: 2026-06-17
+lastReviewed: 2026-06-17
 sources:
   - { title: "Tlemcen", publisher: "Encyclopaedia Britannica", url: "https://www.britannica.com/place/Tlemcen", type: "reference" }
 primaryCluster: "algeria-history"
@@ -41,24 +42,30 @@ intent: "navigation"
 ---
 
 ## Why visit Tlemcen
-Tlemcen is Algeria's **Andalusian soul** made visible. A cool highland city near the Moroccan border, it was once a great medieval royal capital, and it still carries that refinement in its mosques and palaces, its craft and, above all, its music. For travellers it offers the richest concentration of **Andalusian-Islamic heritage** in the country, set among green plateaus and waterfalls rather than desert.
+Tlemcen is Algeria's **Andalusian soul** — a cool highland city of mosques, palaces and music near the Moroccan border. This page covers **planning the trip**: how to get there, when to go, how long to stay and how to combine it with the west. For the city's Andalusian history, monuments and gharnati music in depth, see the [Tlemcen destination guide](/destinations/tlemcen/), and for its place in the region the [Tlemcen region guide](/regions/tlemcen/).
 
-## A short history
-Tlemcen rose to prominence as the capital of the **Zayyanid** dynasty and a hub on the trans-Saharan and Mediterranean trade routes, a rival to Fez across the border. Successive waves of **Andalusi refugees** — Muslims and Jews expelled from Spain — brought the learning, architecture and music of **al-Andalus**, and the city became a celebrated centre of scholarship and Sufism. The ruined royal city of **Mansourah**, with its great lone minaret, recalls the sieges that marked its medieval power.
+## Getting there & around
+Tlemcen has a **domestic airport** and is about **1.5–2 hours by road from Oran**, making it the natural highlight of a western itinerary. The monuments are spread between the old city, the edge-of-town site of Mansourah and the hillside complex of Sidi Boumediene, so a **guide and transport** make the day flow; we arrange both.
+
+## When to go
+**Spring (April–June)** and **autumn (September–October)** are most comfortable on the highland plateau, ideal for both the monuments and the surrounding parkland. Summer is warm; winter is cool and green.
+
+## How many days & itineraries
+Allow **one to two days**:
+- **One day:** the **Great Mosque**, the old medina and the central **El Mechouar** palace.
+- **Two days:** add **Mansourah**, **Sidi Boumediene** at El Eubbad, and the green escapes of **Lalla Setti** and the **El Ourit** falls.
+- **Western loop:** pair Tlemcen with **Oran** and the western coast for a complete tour of the Algerian west.
 
 ## What to see
-The **Great Mosque** of Tlemcen, a masterpiece of Almoravid architecture; the soaring **Mansourah** minaret on the city's edge; the restored **El Mechouar** palace-citadel; and the hillside complex of **Sidi Boumediene** at El Eubbad, with its mosque and madrasa. Above the city, the **Lalla Setti** plateau gives panoramic views, while **Tlemcen National Park** and the **El Ourit waterfalls** offer green escapes.
+The monuments — the **Great Mosque**, **Mansourah**, **Sidi Boumediene** and **El Mechouar** — are described in full, with the city's Andalusian history and music, on the [Tlemcen destination guide](/destinations/tlemcen/). For day-trip planning, the **Lalla Setti plateau**, **Tlemcen National Park** and the **El Ourit waterfalls** make the natural green counterpoint to the heritage sites.
 
-## Culture
-Tlemcen is the home of **gharnati**, a classical Andalusian musical tradition still performed and taught here, and of fine **craft** — embroidery, weaving and woodwork. The city's identity is urbane, devout and proud of its Andalusian inheritance.
+## Where to stay
+Stay in **Tlemcen city**, within easy reach of the monuments and a short drive of Mansourah and Sidi Boumediene. We arrange vetted accommodation as part of an itinerary.
 
-## Food
-Western Algerian cooking with an Andalusian accent: refined tagines and pastries, with the produce of the surrounding highlands and orchards.
-
-## Getting there and around
-Tlemcen has a **domestic airport** and is about **1.5–2 hours by road from Oran**, making it the natural highlight of a western itinerary. **Spring and autumn** are most comfortable on the highland plateau. We arrange a licensed guide and transport, usually combining Tlemcen with **Oran** and the western coast.
+## Pair it with the west
+Tlemcen sits at the heart of a western circuit: combine it with **Oran** (raï music and the Santa Cruz fort) and the **Mostaganem** coast for a rounded few days in western Algeria.
 
 ## Practical tips
 - Allow time for both the **monuments** and the **Lalla Setti plateau** and **El Ourit falls**.
 - **Dress modestly** when visiting mosques and shrines.
-- Pair Tlemcen with **Oran** for a complete tour of the Algerian west.
+- Spring and autumn give the best light and the greenest landscapes.
