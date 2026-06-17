@@ -25,7 +25,7 @@ intent: "informational"
 ---
 ---
 
-Eating in Algeria is rarely a transaction and almost always hospitality. Sit down anywhere and food keeps arriving long after you are full.
+Eating in Algeria is rarely a transaction and almost always hospitality. Sit down anywhere and food keeps arriving long after you are full. For the bigger picture — the cuisine's six culinary influences and the dishes that define the Algerian table — see our [Food of Algeria](/food/) overview.
 
 ## The dishes
 **Couscous** — the national dish, eaten on Fridays. **Chorba** and **h'rira** — fragrant soups that anchor the evening meal. **Tagines** — slow stews with olives, prunes or quince. **Bread** is sacred, from baguette to flat kesra and flaky msemen.

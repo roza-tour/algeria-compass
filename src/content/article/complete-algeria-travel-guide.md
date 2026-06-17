@@ -55,12 +55,7 @@ commonMistakes:
   - { mistake: "Relying on cards everywhere", instead: "Carry cash; card acceptance is limited outside big hotels." }
   - { mistake: "Expecting widespread English", instead: "Learn a few French or Arabic phrases; it transforms the trip." }
 faqs:
-  - { q: "Do I need a visa to visit Algeria?", a: "Most nationalities do and must arrange it in advance through an Algerian consulate; a few are exempt. See our visa guide and confirm with the consulate that serves you." }
-  - { q: "Is Algeria safe for tourists?", a: "The main tourist regions of the north and the organised south are generally calm; some border and remote desert areas carry official warnings. Check current government advisories." }
   - { q: "How many days do you need in Algeria?", a: "Allow 10–14 days to combine the Roman north, a city or two and one desert region; a week suits a focused northern trip." }
-  - { q: "What is the best time to visit Algeria?", a: "Spring (Mar–May) and autumn (Sep–Nov) overall; the Sahara is best Nov–Feb; the coast is warmest May–Oct." }
-  - { q: "Is Algeria expensive?", a: "It can be very affordable for food and local transport; guided desert travel and good hotels cost more. Exchange-rate differences affect day-to-day prices." }
-  - { q: "What language do people speak in Algeria?", a: "Arabic and Tamazight are official and French is widely used in business and signage; English is less common." }
   - { q: "Can I travel independently in Algeria?", a: "Yes in the north, with patience; the deep Sahara requires licensed guides, 4x4 transport and permits." }
   - { q: "What should I not miss in Algeria?", a: "The Roman cities of Timgad and Djémila, the Casbah of Algiers, the M'Zab valley, and the Tassili n'Ajjer if you reach the south." }
   - { q: "Is alcohol available in Algeria?", a: "Algeria is a majority-Muslim country; alcohol is available in some hotels and licensed venues but is not widespread. Dress and behave modestly, especially outside cities." }

@@ -24,3 +24,5 @@ Algeria's reputation is shaped by the 1990s, not by the country today. It has be
 **Restricted:** parts of the far-south frontier.
 
 Carry ID for routine checkpoints, dress modestly at religious sites, ask before photographing people, and check your government's current advice for the deep south.
+
+For the full, evidence-based breakdown — crime, women travellers, driving, the Sahara and region-by-region advice — read our [Algeria safety guide](/blog/algeria-safety-guide/).

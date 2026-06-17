@@ -85,7 +85,7 @@ sources:
 ---
 ---
 
-A visa is the first practical hurdle of an Algerian trip, and the single most common reason people delay or abandon a plan. It need not be difficult — but it does need to be done in advance, with a complete file, at the right consulate. This guide explains how the system works and links into our wider [travel-planning guides](/travel-guides/) and the [complete travel guide](/blog/complete-algeria-travel-guide/). Because entry rules change, treat everything here as orientation and confirm the details with the consulate that serves you.
+A visa is the first practical hurdle of an Algerian trip, and the single most common reason people delay or abandon a plan. It need not be difficult — but it does need to be done in advance, with a complete file, at the right consulate. This guide explains how the system works and links into our wider [travel-planning guides](/travel-guides/) and the [complete travel guide](/blog/complete-algeria-travel-guide/). Because entry rules change, treat everything here as orientation and confirm the details with the consulate that serves you. For a quick answer, see [Do I need a visa for Algeria?](/questions/do-i-need-a-visa-for-algeria/)
 
 ## Who needs a visa
 The large majority of travellers need a visa to enter Algeria, arranged before arrival. A limited number of nationalities are exempt or enjoy special arrangements, and these lists change, so the only safe approach is to check your specific status with the Algerian consulate responsible for your country of residence. Do not assume that because a neighbour or friend of another nationality entered easily, the same applies to you.

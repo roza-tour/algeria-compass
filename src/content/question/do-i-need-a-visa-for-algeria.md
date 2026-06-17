@@ -23,3 +23,5 @@ Algeria requires a visa for most visitors. The standard route is a tourist visa 
 For some **organised Sahara tours** entering via the south (e.g. Djanet/Tamanrasset), visa-on-arrival arrangements can apply through the operator.
 
 Requirements change, so always verify with your nearest Algerian consulate before booking flights. If you travel with us, we provide the documentation the consulate requires.
+
+For the full process — documents, costs, timelines and why applications are refused — see our [Algeria visa guide](/blog/algeria-visa-guide/).

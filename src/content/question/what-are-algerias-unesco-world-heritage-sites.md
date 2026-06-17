@@ -28,4 +28,4 @@ Algeria has **seven UNESCO World Heritage Sites**:
 6. **Timgad** (1982) — a remarkably complete Roman colonial town near Batna.
 7. **Kasbah of Algiers** (1992) — the historic Ottoman-era citadel and medina. See our [Casbah of Algiers guide](/destinations/casbah-of-algiers/).
 
-Several of these feature directly in our [private tours](/tours/) — from the Roman north-east to the Saharan rock art of [Tassili n'Ajjer](/destinations/tassili-najjer/).
+Several of these feature directly in our [private tours](/tours/) — from the Roman north-east to the Saharan rock art of [Tassili n'Ajjer](/destinations/tassili-najjer/). For a fuller tour of all seven, see our [UNESCO sites of Algeria](/unesco/) guide.

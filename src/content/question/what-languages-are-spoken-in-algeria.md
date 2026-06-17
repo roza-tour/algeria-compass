@@ -22,4 +22,4 @@ Algeria is multilingual. **Arabic** and **Tamazight (Berber)** are both official
 
 **French** remains very widely understood — a legacy of the colonial era — and is common in business, signage and education. **English** is rising fast among younger Algerians.
 
-For travellers, a few words of Arabic or French go a long way, and guides typically speak English and French.
+For travellers, a few words of Arabic or French go a long way, and guides typically speak English and French. To go deeper on language, music and traditions, explore [Algerian culture](/culture/).
