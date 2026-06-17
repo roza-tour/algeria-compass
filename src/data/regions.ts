@@ -9,7 +9,7 @@ const R = '/assets/regions/';
 export interface Monument { img: string; n: string; t: string; d: string; }
 export interface RegionLink { label: string; href: string; }
 export interface Region {
-  id: string; idx: string; name: string; ar: string; kicker: string;
+  id: string; idx: string; name: string; heading?: string; ar: string; kicker: string;
   rc: string; rcD: string; rcL: string; paper: string;
   hero: string; emblem: string; pat: string;
   tag: string; sub: string; intro: string[];
@@ -23,7 +23,7 @@ export interface Region {
 
 export const REGIONS: Region[] = [
   {
-    id: 'algiers', idx: '01', name: 'Algiers', ar: 'الجزائر و القصبة', kicker: 'The Capital · Mediterranean',
+    id: 'algiers', idx: '01', name: 'Algiers', heading: 'Algiers & the Central Coast', ar: 'الجزائر و القصبة', kicker: 'The Capital · Mediterranean',
     rc: '#11738A', rcD: '#0A3A47', rcL: '#7FCAD8', paper: '#EEF5F6',
     hero: T + 'algiers-9.jpg', emblem: R + 'em-algiers.svg', pat: `url('${R}pat-algiers.svg')`,
     tag: 'The white city above the bay — Ottoman casbah, Andalusian courtyards, French boulevards.',
@@ -50,7 +50,7 @@ export const REGIONS: Region[] = [
     seoDesc: 'The capital region of Algeria: the UNESCO Casbah, Ottoman mosques, Andalusian courtyards and French boulevards cascading to the Mediterranean.',
   },
   {
-    id: 'constantine', idx: '02', name: 'Constantine', ar: 'قسنطينة', kicker: 'The East · City of Bridges',
+    id: 'constantine', idx: '02', name: 'Constantine', heading: 'Constantine & the East', ar: 'قسنطينة', kicker: 'The East · City of Bridges',
     rc: '#8A3A68', rcD: '#3E1730', rcL: '#D295BB', paper: '#F4EDF1',
     hero: T + 'constantine-1.jpg', emblem: R + 'em-constantine.svg', pat: `url('${R}pat-constantine.svg')`,
     tag: 'A city on a rock, split by a gorge and stitched together by bridges flung across the void.',
@@ -104,7 +104,7 @@ export const REGIONS: Region[] = [
     seoDesc: 'Three of the best-preserved Roman cities on earth: Djémila and Timgad in the highlands and Tipaza on the coast — all UNESCO World Heritage Sites.',
   },
   {
-    id: 'mzab', idx: '04', name: 'The M’Zab', ar: 'وادي مزاب', kicker: 'The Northern Sahara · Ghardaïa',
+    id: 'mzab', idx: '04', name: 'The M’Zab', heading: 'The M’Zab — Ghardaïa & Its Five Towns', ar: 'وادي مزاب', kicker: 'The Northern Sahara · Ghardaïa',
     rc: '#B07A12', rcD: '#5A3B06', rcL: '#E8C46A', paper: '#F6EFDD',
     hero: T + 'ghardaia-1.jpg', emblem: R + 'em-mzab.svg', pat: `url('${R}pat-mzab.svg')`,
     tag: 'A thousand-year-old pentapolis of cubist desert towns, still lived in exactly as designed.',
@@ -131,7 +131,7 @@ export const REGIONS: Region[] = [
     seoDesc: 'The thousand-year-old pentapolis of the M’Zab: Ghardaïa and its five fortified Ibadi hill-towns, a UNESCO masterpiece of desert urbanism.',
   },
   {
-    id: 'sahara', idx: '05', name: 'The Sahara', ar: 'الصحراء و التاسيلي', kicker: 'The Deep South · Tassili & Tadrart',
+    id: 'sahara', idx: '05', name: 'The Sahara', heading: 'The Sahara — Tassili & the Tuareg South', ar: 'الصحراء و التاسيلي', kicker: 'The Deep South · Tassili & Tadrart',
     rc: '#C8680A', rcD: '#5E2F08', rcL: '#EFAC5E', paper: '#F7EEE0',
     hero: T + 'djanet-1.jpg', emblem: R + 'em-sahara.svg', pat: `url('${R}pat-sahara.svg')`,
     tag: 'Plateaus of prehistoric art, sandstone forests and oases kept alive for a thousand years.',
@@ -158,7 +158,7 @@ export const REGIONS: Region[] = [
     seoDesc: 'Algeria’s deep south: Djanet, the UNESCO Tassili n’Ajjer rock-art plateau and the red dunes of the Tadrart — the homeland of the Kel Ajjer Tuareg.',
   },
   {
-    id: 'tlemcen', idx: '06', name: 'Tlemcen', ar: 'تلمسان و الغرب', kicker: 'The West · Andalusian Heritage',
+    id: 'tlemcen', idx: '06', name: 'Tlemcen', heading: 'Tlemcen & the West', ar: 'تلمسان و الغرب', kicker: 'The West · Andalusian Heritage',
     rc: '#0D6C7A', rcD: '#073840', rcL: '#5FB6C0', paper: '#EAF4F4',
     hero: T + 'tlemcen-1.jpg', emblem: R + 'em-tlemcen.svg', pat: `url('${R}pat-tlemcen.svg')`,
     tag: 'The Andalusian capital of the west — medieval minarets, mosques and the music of al-Andalus.',
@@ -212,7 +212,7 @@ export const REGIONS: Region[] = [
     seoDesc: 'Where the Djurdjura mountains fall into the Mediterranean: the bay of Béjaïa, the Gouraya headland and the Amazigh heartland of Kabylie.',
   },
   {
-    id: 'bousaada', idx: '08', name: 'Bou Saâda', ar: 'بوسعادة و الهضاب', kicker: 'The Hodna · Gateway to the Sahara',
+    id: 'bousaada', idx: '08', name: 'Bou Saâda', heading: 'Bou Saâda & the High Plateaus', ar: 'بوسعادة و الهضاب', kicker: 'The Hodna · Gateway to the Sahara',
     rc: '#A0511E', rcD: '#4E2710', rcL: '#DE9A66', paper: '#F6EDE2',
     hero: T + 'bousaada-6.jpg', emblem: R + 'em-bousaada.svg', pat: `url('${R}pat-bousaada.svg')`,
     tag: 'The “City of Happiness” — the first oasis of the south, of palm groves, dunes and dust-light.',

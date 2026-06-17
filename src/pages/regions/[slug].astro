@@ -55,7 +55,7 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
         <img class="rg-hero__em" src={r.emblem} alt="" width="74" height="74" />
         <span class="rg-hero__kick">{r.kicker}</span>
         <span class="rg-hero__ar" lang="ar">{r.ar}</span>
-        <h1 class="rg-hero__title">{r.name}</h1>
+        <h1 class="rg-hero__title">{r.heading || r.name}</h1>
         <p class="rg-hero__sub">{r.sub}</p>
       </div>
       <div class="rg-hero__cue" aria-hidden="true">Scroll to explore</div>
