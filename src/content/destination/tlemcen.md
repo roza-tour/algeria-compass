@@ -27,7 +27,7 @@ faqs:
   - { q: "What are Tlemcen's great monuments?", a: "The Almoravid Great Mosque, the lone Mansourah minaret and ramparts, the El Mechouar palace-citadel, and the Sidi Boumediene mosque, tomb and madrasa at El Eubbad." }
 
 seo:
-  title: "Tlemcen, Algeria: Andalusian Heritage Travel Guide"
+  title: "Tlemcen: Andalusian Heritage, Monuments & Gharnati Music"
   description: "Tlemcen, the Pearl of the Maghreb — Algeria's centre of Andalusian art, the Great Mosque, Mansourah and Sidi Boumediene."
   primaryKeyword: "Tlemcen Algeria"
 updated: 2026-06-17

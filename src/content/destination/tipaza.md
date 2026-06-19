@@ -27,8 +27,8 @@ faqs:
   - { q: "What will I see in the archaeological park?", a: "The forum, two early Christian basilicas, an amphitheatre, baths and the foundations of villas looking straight onto the water — and, a short distance away, the Royal Mausoleum and the museum of Roman Caesarea at Cherchell." }
 
 seo:
-  title: "Tipaza: Roman Ruins by the Sea near Algiers | Guide"
-  description: "Visit Tipaza, Algeria — a UNESCO Roman port on the Mediterranean 70 km west of Algiers, with seaside ruins, the Royal Mausoleum of Mauretania and nearby Cherchell. What to see and how to go."
+  title: "Tipaza: UNESCO Roman Ruins by the Sea"
+  description: "Tipaza, Algeria — a UNESCO Roman port on the Mediterranean with seaside ruins, the Christian basilica and the Royal Mausoleum of Mauretania."
   primaryKeyword: "Tipaza Algeria"
   keywords: ["Tipaza", "Tipasa", "Roman Algeria", "Cherchell", "Royal Mausoleum of Mauretania", "UNESCO Algeria"]
 updated: 2026-06-17

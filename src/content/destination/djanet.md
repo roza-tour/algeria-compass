@@ -23,8 +23,8 @@ faqs:
   - { q: "What language is spoken in Djanet?", a: "Tamahaq, the Tuareg variety of Berber, written in the ancient Tifinagh script, alongside Arabic." }
 
 seo:
-  title: "Djanet, Algeria: Gateway to the Tassili & Tadrart Sahara"
-  description: "Djanet is Algeria's premier Sahara base — Tassili n'Ajjer rock art, the red Tadrart dunes, and how to visit."
+  title: "Djanet: Tuareg Heart of the Algerian Sahara"
+  description: "Djanet, the living Tuareg oasis of Algeria's deep Sahara — Kel Ajjer culture, the Sebeiba festival, music, dress and palm-garden oasis life."
   primaryKeyword: "Djanet Algeria"
 updated: 2026-06-17
 lastReviewed: 2026-06-17

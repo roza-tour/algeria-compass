@@ -11,10 +11,21 @@ const detailed = (await getCollection('question')).sort((a,b)=>a.data.question.l
 
 const site = (Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com');
 // FAQPage JSON-LD aggregating every categorized Q&A plus the detailed guides.
-const allQ = [
+// Schema-only dedupe: the same head questions exist both in the categorized
+// FAQ data and as detailed question entries. Emit each question once in the
+// FAQPage mainEntity (first occurrence wins) so the schema carries no duplicate
+// Question nodes. Visible page rendering below is unchanged.
+const allQRaw = [
   ...FAQ.flatMap(c => c.items.map(i => ({ q: i.q, a: i.a }))),
   ...detailed.map(d => ({ q: d.data.question, a: d.data.shortAnswer })),
 ];
+const seenQ = new Set();
+const allQ = allQRaw.filter(x => {
+  const k = x.q.trim().toLowerCase();
+  if (seenQ.has(k)) return false;
+  seenQ.add(k);
+  return true;
+});
 const faqSchema = {
   "@type": "FAQPage",
   "@id": site + "/questions/#faq",

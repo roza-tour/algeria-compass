@@ -16,6 +16,13 @@ dist
 # screenshot scratch (Phase B QA)
 .shots
 
+# QA verification artifacts & loose dev screenshots (not source, not linked)
+_verify
+astro_home.png
+astro_setif.png
+astro_article.png
+new-logo.png
+
 # headless-chrome verification profiles
 .chrome-verify-*
 

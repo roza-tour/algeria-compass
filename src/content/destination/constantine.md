@@ -27,8 +27,8 @@ faqs:
   - { q: "What are the main things to see in Constantine?", a: "The bridges and gorge viewpoints, the richly painted Ahmed Bey Palace, the Cirta Museum's Numidian and Roman antiquities, the old medina and the Emir Abdelkader Mosque." }
 
 seo:
-  title: "Constantine, Algeria: The City of Bridges Travel Guide"
-  description: "Constantine, Algeria's dramatic City of Bridges above the Rhumel gorge — history, the Ahmed Bey Palace, and how to visit."
+  title: "Constantine: City of Bridges, Cirta & Malouf Heritage"
+  description: "Constantine, Algeria's dramatic City of Bridges above the Rhumel gorge — its Cirta history, the Ahmed Bey Palace and the Malouf music tradition."
   primaryKeyword: "Constantine Algeria"
 updated: 2026-06-17
 lastReviewed: 2026-06-17
