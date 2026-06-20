@@ -20,6 +20,20 @@ export const CONTACT = {
   geo: { lat: 36.7791524, lng: 3.0580592 },
   mapShort: 'https://maps.app.goo.gl/Ro5E2HnFp7GjRX9s9',
   mapEmbed: 'https://maps.google.com/maps?q=36.7791524,3.0580592&z=16&output=embed',
+  googleProfile: 'https://share.google/rEAjf9e2qvCwefa2X',
+  // Open 24 hours, 7 days (owner-confirmed 2026-06-20).
+  hours24: true,
+};
+
+// Real Google Business rating (owner-confirmed 2026-06-20). Single source of
+// truth for the homepage badge AND the aggregateRating schema. Keep in sync
+// with the Google profile.
+export const REVIEWS = { ratingValue: 5.0, reviewCount: 9, source: CONTACT.googleProfile };
+
+// Languages the business operates in (owner-confirmed 2026-06-20).
+export const LANGUAGES = {
+  codes: ['en', 'fr', 'es', 'it', 'ar', 'de'],
+  names: ['English', 'French', 'Spanish', 'Italian', 'Arabic', 'German'],
 };
 
 // Set ONE of these to turn analytics on. Leave blank to disable entirely (no tracking, no banner needed).

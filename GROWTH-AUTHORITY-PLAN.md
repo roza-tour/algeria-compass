@@ -23,9 +23,11 @@ Use these EXACT values on every profile, directory, and citation. Inconsistency 
 | **Region** | Algiers | config.ts |
 | **Postal code** | 16000 | config.ts |
 | **Country** | Algeria (DZ) | config.ts |
+| **Opening hours** | Open 24 hours, 7 days (always open) | owner-confirmed 2026-06-20 |
 | **Geo** | 36.7791524, 3.0580592 | config.ts |
 | **Google Maps** | https://maps.app.goo.gl/Ro5E2HnFp7GjRX9s9 | config.ts |
-| **Languages** | English, French, Arabic | schema |
+| **Languages** | English, French, Spanish, Italian, Arabic, German | owner-confirmed 2026-06-20 |
+| **Rating** | 5.0 (9 reviews) — now in `aggregateRating` schema + homepage badge | owner-confirmed 2026-06-20 |
 | **Price range** | €30 – €2,290 per person | schema |
 | **Years in business** | 7+ years | About page |
 | **Instagram** | https://www.instagram.com/algeria_compass/ | footer |

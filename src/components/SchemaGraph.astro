@@ -1,7 +1,7 @@
 ---
 // Linked JSON-LD graph. Country is a real @id entity; WebSite carries a sitelinks
 // SearchAction wired to the real /search/ endpoint (P8).
-import { CONTACT } from '../config';
+import { CONTACT, REVIEWS, LANGUAGES } from '../config';
 export interface Props { nodes?: any[]; }
 const { nodes = [] } = Astro.props;
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
@@ -10,6 +10,7 @@ const A = CONTACT.address;
 const SAMEAS: string[] = [
   "https://www.instagram.com/algeria_compass/",
   "https://www.facebook.com/profile.php?id=61590718167514",
+  CONTACT.googleProfile,
 ];
 const org: any = {
   "@type": "TravelAgency",
@@ -27,15 +28,24 @@ const org: any = {
   "address": { "@type": "PostalAddress", "streetAddress": A.street, "addressLocality": A.locality, "addressRegion": A.region, "postalCode": A.postalCode, "addressCountry": A.countryCode },
   "geo": { "@type": "GeoCoordinates", "latitude": CONTACT.geo.lat, "longitude": CONTACT.geo.lng },
   "hasMap": CONTACT.mapShort,
+  // Open 24/7 (owner-confirmed 2026-06-20). 00:00-23:59 across all days is the
+  // schema.org/Google convention for an always-open business.
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
   "areaServed": [{ "@id": site + "/#algeria" }],
   "audience": { "@type": "Audience", "audienceType": "International leisure travellers" },
-  "knowsLanguage": ["en","fr","ar"],
+  "knowsLanguage": LANGUAGES.codes,
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": REVIEWS.ratingValue, "reviewCount": REVIEWS.reviewCount, "bestRating": 5, "worstRating": 1 },
   "knowsAbout": ["Algeria travel","Sahara desert","UNESCO World Heritage Algeria","Roman Algeria","Amazigh culture","M'Zab Valley"],
   "publishingPrinciples": site + "/editorial/editorial-policy/",
   "actionableFeedbackPolicy": site + "/editorial/corrections-policy/",
   "ethicsPolicy": site + "/editorial/transparency-policy/",
   "subOrganization": [{ "@id": site + "/#editorial-team" }, { "@id": site + "/#editorial-review" }],
-  "contactPoint": { "@type": "ContactPoint", "telephone": CONTACT.phoneE164, "email": CONTACT.email, "contactType": "customer service", "availableLanguage": ["English","French","Arabic"], "areaServed": "Worldwide" }
+  "contactPoint": { "@type": "ContactPoint", "telephone": CONTACT.phoneE164, "email": CONTACT.email, "contactType": "customer service", "availableLanguage": LANGUAGES.names, "areaServed": "Worldwide" }
 };
 if (SAMEAS.length) org.sameAs = SAMEAS;
 const country = {
