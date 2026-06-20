@@ -18,7 +18,7 @@ Use these EXACT values on every profile, directory, and citation. Inconsistency 
 | **WhatsApp** | +213 784 193 176 (wa.me/213784193176) | config.ts |
 | **Email** | hello@algeriacompass.com | config.ts |
 | **Website** | https://algeriacompass.com | astro.config |
-| **Street address** | ⚠️ **CONFIRM FROM GBP** — code has "Rue Larbi Ben M'Hidi" (no street number). Copy the address line shown on your Google listing verbatim and we lock it into config.ts. | GBP = source of truth |
+| **Street address** | Rue Larbi Ben M'Hidi, Alger-Centre, 16000 Algiers, Algeria | config.ts — **owner-confirmed 2026-06-20 to match GBP** |
 | **Locality** | Alger-Centre | config.ts |
 | **Region** | Algiers | config.ts |
 | **Postal code** | 16000 | config.ts |
@@ -32,7 +32,7 @@ Use these EXACT values on every profile, directory, and citation. Inconsistency 
 | **Facebook** | https://www.facebook.com/profile.php?id=61590718167514 | footer |
 | **Google review/profile** | https://share.google/rEAjf9e2qvCwefa2X | reviews component |
 
-> **Action 0 (blocks citations):** paste the exact street line + opening hours from the GBP. I'll align `src/config.ts` so the on-site schema, the GBP, and all citations agree. Until then, citation submissions should use the city-level address consistently (never guess a street number).
+> **Action 0 — DONE (2026-06-20):** owner confirmed the address above matches the Google Business Profile; `src/config.ts` marked confirmed. Citations are unblocked. Optional refinement: if the GBP also publishes opening hours, send them and I'll add an `openingHours` field to the LocalBusiness schema (not required for citation consistency).
 
 ---
 

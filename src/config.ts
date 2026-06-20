@@ -5,9 +5,9 @@ export const CONTACT = {
   email: 'hello@algeriacompass.com',
   phoneDisplay: '+213 784 193 176',
   phoneE164: '+213784193176',
-  // NAP — single source of truth. Address derived from the Google Maps pin
-  // (https://maps.app.goo.gl/Ro5E2HnFp7GjRX9s9 -> Alger-Centre, central Algiers).
-  // OWNER: confirm the exact street number / suite — the rest is from the map.
+  // NAP — single source of truth. Owner-confirmed 2026-06-20 to match the
+  // Google Business Profile (https://maps.app.goo.gl/Ro5E2HnFp7GjRX9s9 ->
+  // Alger-Centre, central Algiers). Use these EXACT values on every citation.
   address: {
     street: 'Rue Larbi Ben M’Hidi',
     locality: 'Alger-Centre',
