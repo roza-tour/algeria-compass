@@ -25,6 +25,23 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') respond(false, 'Method not
 // Honeypot: bots fill the hidden "website" field — accept silently, store nothing.
 if (!empty($_POST['website'])) respond(true, null, $ajax);
 
+// Per-IP rate limit — guards the file-write endpoint (3 reviews / day).
+function rate_limit($bucket, $max, $win) {
+  $dir = __DIR__ . '/data';
+  if (!is_dir($dir)) @mkdir($dir, 0755, true);
+  $f = $dir . '/rl-' . $bucket . '-' . md5(substr($_SERVER['REMOTE_ADDR'] ?? '0', 0, 45)) . '.json';
+  $now = time();
+  $hits = is_file($f) ? (json_decode((string) @file_get_contents($f), true) ?: []) : [];
+  $hits = array_values(array_filter($hits, fn($t) => $t > $now - $win));
+  if (count($hits) >= $max) return false;
+  $hits[] = $now;
+  @file_put_contents($f, json_encode($hits), LOCK_EX);
+  return true;
+}
+if (!rate_limit('review', 3, 86400)) {
+  respond(false, 'Thanks — it looks like you have already submitted a review recently.', $ajax);
+}
+
 function clean($k) { return trim($_POST[$k] ?? ''); }
 
 $name    = clean('name');
@@ -56,6 +73,12 @@ $entry = [
 ];
 
 if (!is_dir(dirname($PENDING))) @mkdir(dirname($PENDING), 0755, true);
+
+// Cap the pending queue so a flood can never exhaust disk / drown moderation.
+if (is_file($PENDING) && count(file($PENDING, FILE_SKIP_EMPTY_LINES)) >= 1000) {
+  respond(false, 'Our review inbox is full right now — please try again later.', $ajax);
+}
+
 $ok = @file_put_contents($PENDING, json_encode($entry, JSON_UNESCAPED_UNICODE) . "\n", FILE_APPEND | LOCK_EX);
 
 if ($ok === false) {

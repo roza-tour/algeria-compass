@@ -27,6 +27,23 @@ if (!empty($_POST['website'])) {
   respond(true, null, $ajax);
 }
 
+// Per-IP rate limit — guards mail() against abuse/spam-relay (5 / hour).
+function rate_limit($bucket, $max, $win) {
+  $dir = __DIR__ . '/data';
+  if (!is_dir($dir)) @mkdir($dir, 0755, true);
+  $f = $dir . '/rl-' . $bucket . '-' . md5(substr($_SERVER['REMOTE_ADDR'] ?? '0', 0, 45)) . '.json';
+  $now = time();
+  $hits = is_file($f) ? (json_decode((string) @file_get_contents($f), true) ?: []) : [];
+  $hits = array_values(array_filter($hits, fn($t) => $t > $now - $win));
+  if (count($hits) >= $max) return false;
+  $hits[] = $now;
+  @file_put_contents($f, json_encode($hits), LOCK_EX);
+  return true;
+}
+if (!rate_limit('contact', 5, 3600)) {
+  respond(false, 'Too many messages from your connection — please try again later or email us directly.', $ajax);
+}
+
 function clean($k) { return trim($_POST[$k] ?? ''); }
 function nohdr($s) { return str_replace(["\r", "\n", "%0a", "%0d"], ' ', $s); } // header-injection guard
 

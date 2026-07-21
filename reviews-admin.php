@@ -2,25 +2,73 @@
 // Algeria Compass — review moderation (simple admin).
 // ─────────────────────────────────────────────────────────────────────────
 //  HOW TO USE
-//  1. Change ADMIN_PASS below to your own secret (then save & re-upload).
+//  1. Create your password HASH (never store the plaintext), once:
+//        php -r "echo password_hash('your-strong-pass', PASSWORD_DEFAULT), PHP_EOL;"
+//     Put the printed hash in ONE of:
+//        • the REVIEWS_ADMIN_HASH environment variable, or
+//        • a file  ../.reviews_admin_hash  (ABOVE public_html — not web-served), or
+//        • data/.admin_hash  (already blocked from the web by data/.htaccess).
+//     Until a hash is set, login is disabled (fail-closed).
 //  2. Visit https://algeriacompass.com/reviews-admin.php and log in.
 //  3. Each pending review has [Approve] (publishes it — it then appears on the
 //     site within a minute) and [Reject] (deletes it). Approved reviews are
 //     listed too, each with [Remove].
 //  Nothing is ever published automatically — only what you Approve here.
 // ─────────────────────────────────────────────────────────────────────────
-const ADMIN_PASS = 'CHANGE-ME-please';            // <-- set your own password
 
 $PENDING  = __DIR__ . '/data/reviews-pending.jsonl';
 $APPROVED = __DIR__ . '/reviews-approved.json';
 
+// Admin password hash — read from env or a file OUTSIDE the tree. Never hardcoded.
+function admin_hash(): string {
+  $env = getenv('REVIEWS_ADMIN_HASH');
+  if (is_string($env) && $env !== '') return $env;
+  foreach ([__DIR__ . '/../.reviews_admin_hash', __DIR__ . '/data/.admin_hash'] as $f) {
+    if (is_file($f)) { $h = trim((string) file_get_contents($f)); if ($h !== '') return $h; }
+  }
+  return '';
+}
+
+// Per-IP login throttle (brute-force guard): 5 attempts / 15 min.
+function login_file(): string {
+  return __DIR__ . '/data/.login-' . md5(substr($_SERVER['REMOTE_ADDR'] ?? '0', 0, 45)) . '.json';
+}
+function login_allowed(): bool {
+  $now = time(); $f = login_file();
+  $hits = is_file($f) ? (json_decode((string) @file_get_contents($f), true) ?: []) : [];
+  $hits = array_filter($hits, fn($t) => $t > $now - 900);
+  return count($hits) < 5;
+}
+function login_record_fail(): void {
+  $f = login_file(); $now = time();
+  $hits = is_file($f) ? (json_decode((string) @file_get_contents($f), true) ?: []) : [];
+  $hits = array_values(array_filter($hits, fn($t) => $t > $now - 900));
+  $hits[] = $now;
+  if (!is_dir(__DIR__ . '/data')) @mkdir(__DIR__ . '/data', 0755, true);
+  @file_put_contents($f, json_encode($hits), LOCK_EX);
+}
+
+// Harden the session cookie BEFORE starting the session.
+session_set_cookie_params([
+  'lifetime' => 0, 'path' => '/', 'secure' => true,
+  'httponly' => true, 'samesite' => 'Strict',
+]);
 session_start();
+if (empty($_SESSION['login_tok'])) $_SESSION['login_tok'] = bin2hex(random_bytes(16));
 
 // --- auth ---
 if (isset($_POST['login'])) {
-  if (hash_equals(ADMIN_PASS, (string)($_POST['pass'] ?? ''))) {
+  $hash  = admin_hash();
+  $tokOk = hash_equals($_SESSION['login_tok'] ?? '', (string)($_POST['ltok'] ?? ''));
+  if ($hash === '') {
+    $_SESSION['login_err'] = 'Admin login is not configured on the server yet.';
+  } elseif ($tokOk && login_allowed() && password_verify((string)($_POST['pass'] ?? ''), $hash)) {
+    session_regenerate_id(true);            // prevent session fixation
     $_SESSION['rev_ok'] = true;
     $_SESSION['tok'] = bin2hex(random_bytes(16));
+  } else {
+    login_record_fail();
+    $_SESSION['login_err'] = login_allowed() ? 'Login failed.' : 'Too many attempts — wait a few minutes.';
   }
   header('Location: reviews-admin.php'); exit;
 }
@@ -83,11 +131,13 @@ $stars = fn($n)=>str_repeat('★',(int)$n).str_repeat('☆',5-(int)$n);
 </style></head><body><div class="wrap">
 <h1>Review moderation</h1>
 <?php if(!$authed): ?>
+  <?php $err = $_SESSION['login_err'] ?? ''; unset($_SESSION['login_err']); ?>
   <div class="card"><form method="post">
     <p><strong>Enter the admin password</strong></p>
-    <input type="password" name="pass" autofocus placeholder="password">
+    <?php if($err): ?><p class="muted" role="alert" style="color:#b23a2a"><?=h($err)?></p><?php endif; ?>
+    <input type="hidden" name="ltok" value="<?=h($_SESSION['login_tok'] ?? '')?>">
+    <input type="password" name="pass" autofocus placeholder="password" autocomplete="current-password">
     <p><button class="ok" name="login" value="1">Log in</button></p>
-    <p class="muted">Set your password in <code>reviews-admin.php</code> (the <code>ADMIN_PASS</code> line).</p>
   </form></div>
 <?php else: ?>
   <p><a href="?logout=1">Log out</a></p>

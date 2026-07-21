@@ -34,4 +34,9 @@ new-logo.png
 # reviews.php / reviews-admin.php on first use. (data/.htaccess IS tracked.)
 /reviews-approved.json
 /data/*.jsonl
+# Runtime security state written by the PHP endpoints — must stay untracked
+# (regenerated on the server; wiped safely by the deploy's git reset).
+/data/rl-*
+/data/.login-*
+/data/.admin_hash
 shots/
