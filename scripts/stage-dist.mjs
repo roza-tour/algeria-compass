@@ -9,10 +9,11 @@
 //
 // Usage: `npm run deploy` (= build + stage), then commit & push.
 //
-// Note: this copies/overwrites; it does NOT delete. Hashed asset filenames
-// change between builds, so old assets/*.css|*.js can accumulate at the root.
-// Periodically prune stale hashed files from ./assets if they pile up.
-import { cpSync, existsSync } from 'node:fs';
+// Hashed asset filenames change every build, so before copying we PRUNE the
+// old hashed bundles (top-level assets/*.css|*.js) from the docroot; otherwise
+// they accumulate forever and get committed on every deploy. Images and other
+// static files under assets/ subdirs (assets/img, assets/fonts) are untouched.
+import { cpSync, existsSync, readdirSync, unlinkSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -23,6 +24,16 @@ if (!existsSync(dist)) {
   console.error('[stage] dist/ not found — run `npm run build` first.');
   process.exit(1);
 }
+
+// prune stale hashed bundles (non-recursive: only files directly in ./assets)
+const assetsDir = join(root, 'assets');
+let pruned = 0;
+if (existsSync(assetsDir)) {
+  for (const e of readdirSync(assetsDir, { withFileTypes: true })) {
+    if (e.isFile() && /\.(css|js)$/.test(e.name)) { unlinkSync(join(assetsDir, e.name)); pruned++; }
+  }
+}
+if (pruned) console.log(`[stage] pruned ${pruned} stale hashed asset(s) from ./assets`);
 
 // recursive copy of dist/* (incl. dotfiles like .htaccess) into the repo root
 cpSync(dist, root, { recursive: true });
