@@ -1,7 +1,11 @@
 ---
 // Unified site header — matches the rebrand homepage chrome (logo + nav).
 // All links are real URLs so the same header works across every Astro route.
-const nav = [
+// Language-aware: pass lang="fr" to render the French navigation + CTA.
+interface Props { lang?: 'en' | 'fr' }
+const { lang = 'en' } = Astro.props;
+
+const navEn = [
   { href: '/', label: 'Home' },
   { href: '/tours/', label: 'Tours' },
   { href: '/luxury/', label: 'Luxury' },
@@ -15,13 +19,31 @@ const nav = [
   { href: '/about/', label: 'About' },
   { href: '/contact/', label: 'Contact' }
 ];
+// French nav — points to French pages where they exist, English hubs otherwise.
+const navFr = [
+  { href: '/fr/', label: 'Accueil' },
+  { href: '/tours/', label: 'Circuits' },
+  { href: '/luxury/', label: 'Luxe' },
+  { href: '/destinations/', label: 'Destinations' },
+  { href: '/fr/guide-voyage-algerie/', label: 'Guide' },
+  { href: '/unesco/', label: 'UNESCO' },
+  { href: '/contact/', label: 'Contact' }
+];
+const isFr = lang === 'fr';
+const nav = isFr ? navFr : navEn;
+const logoHref = isFr ? '/fr/' : '/';
+const ctaHref = '/contact/';
+const ctaLabel = isFr ? 'Planifier' : 'Plan a Trip';
+const waLabel = isFr ? 'WhatsApp' : 'WhatsApp';
+const waMobileLabel = isFr ? 'Nous écrire sur WhatsApp' : 'WhatsApp us';
+const langToggle = isFr ? { href: '/', label: 'EN' } : { href: '/fr/', label: 'FR' };
 const path = Astro.url.pathname;
-const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
+const isActive = (href: string) => href === '/' ? path === '/' : (href === '/fr/' ? path === '/fr/' : path.startsWith(href));
 ---
 <div class="id-band" aria-hidden="true"></div>
 <nav class="nav" aria-label="Primary" itemscope itemtype="https://schema.org/SiteNavigationElement">
   <div class="nav-inner">
-    <a class="nav-logo-link" href="/" aria-label="Algeria Compass — Home">
+    <a class="nav-logo-link" href={logoHref} aria-label="Algeria Compass — Home">
       <img class="brand-mark" src="/assets/img/logo-emblem-gold.webp" width="60" height="63" alt="" fetchpriority="high" />
       <span class="brand-name">Algeria <b>Compass</b></span>
     </a>
@@ -32,12 +54,13 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       {nav.map(n => (
         <li><a href={n.href} class={isActive(n.href) ? 'active' : undefined}>{n.label}</a></li>
       ))}
-      <li class="nav-mobile-only"><a href="https://wa.me/213784193176" target="_blank" rel="noopener" aria-label="Message us on WhatsApp (mobile)">&#128172; WhatsApp us</a></li>
+      <li><a href={langToggle.href} class="nav-lang" hreflang={langToggle.label.toLowerCase()} aria-label={isFr ? 'Switch to English' : 'Passer en français'}>{langToggle.label}</a></li>
+      <li class="nav-mobile-only"><a href="https://wa.me/213784193176" target="_blank" rel="noopener" aria-label={waMobileLabel}>{waMobileLabel}</a></li>
     </ul>
 
     <div class="nav-cta">
-      <a href="https://wa.me/213784193176" target="_blank" rel="noopener" class="btn-wa" aria-label="Message Algeria Compass on WhatsApp">&#128172; WhatsApp</a>
-      <a href="/contact/" class="btn-book">Plan a Trip</a>
+      <a href="https://wa.me/213784193176" target="_blank" rel="noopener" class="btn-wa" aria-label="WhatsApp">{waLabel}</a>
+      <a href={ctaHref} class="btn-book">{ctaLabel}</a>
     </div>
   </div>
 </nav>

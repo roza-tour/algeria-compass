@@ -31,19 +31,19 @@ const { title, description, image, imageAlt, type, region, civ, schema = [], sti
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap" /></noscript>
-  <Seo title={title} description={description} image={image} imageAlt={imageAlt} type={type} keywords={keywords} noindex={noindex} />
+  <Seo title={title} description={description} image={image} imageAlt={imageAlt} type={type} keywords={keywords} noindex={noindex} lang={lang} />
   {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
   <SchemaGraph nodes={schema} />
   <Analytics />
   <slot name="head" />
 </head>
 <body class={bodyClass}>
-  <a href="#main" class="skip-link">Skip to content</a>
-  <Header />
+  <a href="#main" class="skip-link">{lang === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
+  <Header lang={lang} />
   <main id="main">
     <slot />
   </main>
-  <Footer />
+  <Footer lang={lang} />
   {sticky && <StickyContact />}
   <CookieConsent />
   <script is:inline>
