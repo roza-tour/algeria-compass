@@ -141,6 +141,7 @@ const article = defineCollection({
     comparisons: z.array(z.object({ caption: z.string().optional(), columns: z.array(z.string()), rows: z.array(z.object({ label: z.string(), href: z.string().optional(), cells: z.array(z.string()) })) })).default([]),
     practical: z.array(z.object({ label: z.string(), value: z.string() })).default([]),
     practicalTitle: z.string().optional(),
+    frAlt: z.string().optional(),   // path to a French translation of this article (for hreflang)
     seo,
     published: z.coerce.date(),
     updated: z.coerce.date(),

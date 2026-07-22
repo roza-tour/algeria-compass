@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const alternates = [
+  { hreflang: 'en', href: site + '/' },
+  { hreflang: 'fr', href: site + '/fr/' },
+  { hreflang: 'x-default', href: site + '/' },
+];
+const title = "Voyage en Algérie — circuits privés et guides d'experts | Algeria Compass";
+const description = "Algeria Compass est un voyagiste algérien agréé : circuits privés culturels, sahariens et sur mesure, avec accompagnement pour le visa et guides locaux. Découvrez l'Algérie autrement.";
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="website" sticky={true}>
+  <section class="section">
+    <div class="wrap" style="max-width:820px">
+      <span class="eyebrow">Voyagiste algérien agréé</span>
+      <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);margin:.4rem 0 .8rem">Voyagez en Algérie, accompagné par ceux qui la connaissent</h1>
+      <p style="font-size:1.1rem;color:var(--text-l);line-height:1.7">
+        De la côte méditerranéenne aux cités romaines de l'est, des vallées du M'Zab aux plateaux du Tassili n'Ajjer,
+        Algeria Compass conçoit et guide des voyages privés à travers le plus grand pays d'Afrique — avec
+        des guides algériens locaux, un accompagnement pour le visa, et une connaissance réelle du terrain.
+      </p>
+      <p style="margin-top:1.4rem">
+        <a class="btn btn-gold" href="/contact/">Demander un devis</a>
+        <a class="btn" href="/tours/" style="margin-inline-start:.5rem">Voir les circuits</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--wash)">
+    <div class="wrap">
+      <span class="eyebrow">Nos voyages</span>
+      <h2>Comment découvrir l'Algérie</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;margin-top:1rem">
+        <div class="card" style="padding:1.1rem">
+          <h3 style="margin:.2rem 0">Circuits culturels &amp; historiques</h3>
+          <p style="color:var(--text-l)">Alger et la Casbah, les cités romaines de Timgad et Djémila, Constantine, Tlemcen l'andalouse.</p>
+          <a href="/tours/">Découvrir les circuits →</a>
+        </div>
+        <div class="card" style="padding:1.1rem">
+          <h3 style="margin:.2rem 0">Expéditions dans le Sahara</h3>
+          <p style="color:var(--text-l)">Djanet et le Tassili n'Ajjer, le Hoggar, Timimoun et les oasis — des expéditions guidées en 4x4, l'hiver.</p>
+          <a href="/experiences/">Voir les expériences →</a>
+        </div>
+        <div class="card" style="padding:1.1rem">
+          <h3 style="margin:.2rem 0">Voyages de luxe sur mesure</h3>
+          <p style="color:var(--text-l)">Des programmes privés haut de gamme, conçus autour de vos dates et de vos envies.</p>
+          <a href="/luxury/">Voyages de luxe →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="max-width:820px">
+      <span class="eyebrow">Préparer votre voyage</span>
+      <h2>Guides pratiques</h2>
+      <p style="color:var(--text-l)">Commencez par notre guide complet en français, puis explorez nos guides détaillés (en anglais) sur le visa, la sécurité et la meilleure saison.</p>
+      <ul class="prose" style="line-height:2">
+        <li><a href="/fr/guide-voyage-algerie/"><strong>Guide de voyage complet en Algérie</strong> (en français)</a></li>
+        <li><a href="/blog/algeria-visa-guide/">Visa pour l'Algérie</a> · <a href="/blog/algeria-safety-guide/">Sécurité</a> · <a href="/blog/best-time-to-visit-algeria/">Meilleure période</a> (en anglais)</li>
+        <li><a href="/unesco/">Les 7 sites du patrimoine mondial de l'UNESCO en Algérie</a></li>
+        <li><a href="/destinations/">Destinations phares</a> · <a href="/regions/">Régions</a></li>
+      </ul>
+      <p style="margin-top:1.2rem;font-size:.9rem;color:var(--text-l)">
+        Version anglaise du site : <a href="/">algeriacompass.com</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--green);color:#fff">
+    <div class="wrap" style="max-width:720px;text-align:center">
+      <h2 style="color:#fff">Prêt à planifier votre voyage en Algérie ?</h2>
+      <p style="opacity:.9">Dites-nous vos dates et vos centres d'intérêt — nous construisons un itinéraire privé sur mesure.</p>
+      <p style="margin-top:1rem"><a class="btn btn-gold" href="/contact/">Nous contacter</a></p>
+    </div>
+  </section>
+</BaseLayout>

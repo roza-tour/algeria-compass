@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const enUrl = site + '/blog/complete-algeria-travel-guide/';
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + '/fr/guide-voyage-algerie/' },
+  { hreflang: 'x-default', href: enUrl },
+];
+const title = "Guide de voyage complet en Algérie (2026) | Algeria Compass";
+const description = "Le plus grand pays d'Afrique, décrypté : quand partir, visa, sécurité, transport, budget et itinéraires — un guide pratique et fiable pour voyager en Algérie.";
+const faqs = [
+  { q: "Combien de jours faut-il pour visiter l'Algérie ?", a: "Comptez 10 à 14 jours pour un premier voyage combinant le nord romain et une région désertique. Une semaine suffit pour un séjour ciblé dans le nord, autour d'Alger et des cités romaines de l'est." },
+  { q: "Faut-il un visa pour l'Algérie ?", a: "La plupart des voyageurs ont besoin d'un visa obtenu à l'avance. Commencez les démarches tôt : certains consulats demandent une réservation d'hôtel ou une prise en charge par une agence." },
+  { q: "L'Algérie est-elle sûre pour les touristes ?", a: "Le nord et les circuits touristiques habituels se visitent sereinement avec les précautions de voyage normales. Le grand sud saharien se fait avec un guide agréé, un 4x4 et des permis." },
+  { q: "Quelle est la meilleure période pour visiter l'Algérie ?", a: "Le printemps (mars–mai) et l'automne (septembre–novembre) conviennent au nord et à l'ouest. Le désert profond est une destination d'hiver : novembre à février." },
+];
+const faqSchema = {
+  "@context": "https://schema.org", "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+};
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">Guide de voyage</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">Guide de voyage complet en Algérie (2026)</h1>
+      <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
+
+      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+        L'Algérie est le plus grand pays d'Afrique et l'un des moins visités. La plupart des voyageurs ont besoin
+        d'un visa, le nord est la région la plus simple pour commencer, et le printemps (mars–mai) comme l'automne
+        (septembre–novembre) sont les meilleures saisons ; le Sahara, lui, se visite en hiver. Prévoyez 10 à 14 jours
+        pour combiner le nord romain, la côte et une région du désert.
+      </p>
+
+      <h2 style="margin-top:2rem">Quand partir</h2>
+      <p>Le <strong>nord et l'ouest</strong> (Alger, la côte, les cités romaines, Tlemcen, Oran) sont au meilleur au
+      <strong>printemps</strong> et à l'<strong>automne</strong>. Le <strong>Sahara profond</strong> (Djanet, Tassili,
+      Hoggar) est une destination d'<strong>hiver</strong> : de novembre à février. L'été est chaud partout et
+      déconseillé dans le sud.</p>
+
+      <h2 style="margin-top:2rem">Entrer en Algérie : le visa</h2>
+      <p>La plupart des nationalités ont besoin d'un <strong>visa obtenu à l'avance</strong>. Commencez tôt : certains
+      consulats exigent une réservation d'hôtel ou une lettre de prise en charge d'une agence locale. Nous accompagnons
+      nos voyageurs dans cette démarche — voir aussi notre <a href="/blog/algeria-visa-guide/">guide du visa (en anglais)</a>.</p>
+
+      <h2 style="margin-top:2rem">Se déplacer</h2>
+      <p>Dans le <strong>nord</strong>, le train, la route et les taxis fonctionnent bien. Pour le <strong>grand sud</strong>,
+      prenez l'<strong>avion</strong> (Alger–Djanet, Alger–Tamanrasset) plutôt que les immenses distances routières ;
+      sur place, un <strong>4x4 avec guide</strong> est indispensable et des permis sont requis.</p>
+
+      <h2 style="margin-top:2rem">Sécurité</h2>
+      <p>Le nord et les itinéraires touristiques classiques se parcourent sereinement avec les précautions de voyage
+      habituelles. Le désert profond se fait uniquement avec un <strong>opérateur agréé</strong>. Voir notre
+      <a href="/blog/algeria-safety-guide/">guide de sécurité (en anglais)</a>.</p>
+
+      <h2 style="margin-top:2rem">Budget</h2>
+      <p>La nourriture et les transports locaux sont bon marché ; les hôtels confortables sont de gamme moyenne, et les
+      <strong>expéditions guidées dans le Sahara</strong> constituent le poste le plus coûteux. Comptez environ
+      <strong>60–120 $ par jour</strong> dans le nord (hors vols internationaux). L'Algérie fonctionne surtout en
+      <strong>espèces</strong> : prévoyez du liquide.</p>
+
+      <h2 style="margin-top:2rem">Que voir absolument</h2>
+      <ul class="prose">
+        <li>Les <strong>cités romaines</strong> de Timgad et Djémila</li>
+        <li>La <strong>Casbah d'Alger</strong> (UNESCO)</li>
+        <li>La <strong>vallée du M'Zab</strong> et ses ksour</li>
+        <li>Le <strong>Tassili n'Ajjer</strong>, si vous descendez dans le sud</li>
+        <li><a href="/unesco/">Les 7 sites UNESCO d'Algérie</a></li>
+      </ul>
+
+      <h2 style="margin-top:2rem">Questions fréquentes</h2>
+      {faqs.map(f => (
+        <div style="margin:.8rem 0">
+          <h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3>
+          <p style="color:var(--text-l)">{f.a}</p>
+        </div>
+      ))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">Planifions votre voyage</h2>
+        <p style="color:var(--text-l)">Dites-nous vos dates et vos envies — nous construisons un itinéraire privé sur mesure.</p>
+        <p style="margin-top:.8rem"><a class="btn btn-gold" href="/contact/">Demander un devis</a> <a class="btn" href="/fr/">Accueil (français)</a></p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

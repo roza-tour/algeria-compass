@@ -30,6 +30,12 @@ const { item } = Astro.props;
 const d = item.data;
 const { Content } = await item.render();
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const enUrl = `${site}/blog/${item.slug}/`;
+const alternates = (d as any).frAlt ? [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + (d as any).frAlt },
+  { hreflang: 'x-default', href: enUrl },
+] : [];
 const moreArticles = await related('article', { region: d.region, exclude: item.slug, limit: 3 });
 const dests = await related('destination', { region: d.region, limit: 3 });
 const author = await resolveAuthor(d.author);
@@ -65,7 +71,7 @@ const webpage = { "@type":"WebPage", "@id":`${site}/blog/${item.slug}/#webpage`,
 // post renders two FAQPage blocks (duplicate schema emission).
 const schemaNodes = [post, authorEntity, reviewerEntity, breadcrumb, webpage].filter(Boolean);
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} type="article" region={d.region} schema={schemaNodes} sticky={true}>
+<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} type="article" region={d.region} schema={schemaNodes} alternates={alternates} sticky={true}>
   <Fragment slot="head">
     <meta property="article:published_time" content={d.published.toISOString()} />
     <meta property="article:modified_time" content={d.updated.toISOString()} />

@@ -25,6 +25,13 @@ const planCards = [
 ];
 
 const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Algeria tour.");
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const alternates = [
+  { hreflang: 'en', href: site + '/' },
+  { hreflang: 'fr', href: site + '/fr/' },
+  { hreflang: 'x-default', href: site + '/' },
+];
 ---
 <BaseLayout
   title="Algeria Compass — Private Algeria Tours, Sahara Safaris & Cultural Journeys"
@@ -32,6 +39,7 @@ const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Al
   image="/assets/img/algiers-white-city-aerial.jpg"
   imageAlt="The white tiered city of Algiers above its Mediterranean bay"
   keywords={["Algeria","Algeria tours","Algeria travel","visit Algeria","Algeria tour operator","Sahara tours Algeria","Algeria holidays"]}
+  alternates={alternates}
   sticky={true}>
 
   {/* Preload the above-the-fold LCP hero image (already the page's OG image) */}
