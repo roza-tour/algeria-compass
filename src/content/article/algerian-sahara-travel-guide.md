@@ -20,6 +20,7 @@ seo:
   description: "Algeria holds the largest slice of the Sahara of any country on earth — and almost no crowds. Here is how to actually experience it."
 published: 2026-05-01
 updated: 2026-05-01
+frAlt: "/fr/sahara-algerie/"
 primaryCluster: "algeria-sahara"
 cluster: "algeria-sahara"
 secondaryClusters: ["algeria-travel-planning", "algeria-photography"]

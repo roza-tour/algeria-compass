@@ -18,6 +18,7 @@ seo:
   description: "Algerian cooking sits at a crossroads of Amazigh, Arab, Ottoman, Andalusian and French influences. Here are the dishes to seek out."
 published: 2026-05-01
 updated: 2026-05-01
+frAlt: "/fr/cuisine-algerienne/"
 primaryCluster: "algeria-food"
 cluster: "algeria-food"
 secondaryClusters: ["algeria-culture"]

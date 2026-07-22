@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const enUrl = site + '/blog/algerian-sahara-travel-guide/';
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + '/fr/sahara-algerie/' },
+  { hreflang: 'x-default', href: enUrl },
+];
+const title = "Voyage dans le Sahara algérien : guide 2026 (Djanet, Tassili) | Algeria Compass";
+const description = "Le guide du Sahara algérien : Djanet et le Tassili n'Ajjer, le Hoggar, Timimoun et le Tadrart. Quand partir, permis, 4x4 et comment organiser une expédition dans le désert.";
+const faqs = [
+  { q: "Quand partir dans le Sahara algérien ?", a: "De novembre à février. Les journées sont douces et les nuits fraîches, idéales pour les expéditions. L'été y est dangereusement chaud." },
+  { q: "Faut-il un permis pour le Sahara algérien ?", a: "Oui. Le grand sud se visite avec un opérateur agréé, un guide, un 4x4 et des permis. Nous nous occupons de toute la logistique et des autorisations." },
+  { q: "Comment se rendre à Djanet ou Tamanrasset ?", a: "En avion depuis Alger (Air Algérie, Tassili Airlines), puis en 4x4 avec guide. Les distances routières vers le sud sont énormes." },
+  { q: "Que voir dans le Sahara algérien ?", a: "Le Tassili n'Ajjer et ses peintures rupestres, les dunes et arches du Tadrart, les montagnes du Hoggar et le lever de soleil de l'Assekrem, et l'oasis rouge de Timimoun." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">Sahara</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">Voyage dans le Sahara algérien</h1>
+      <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
+
+      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+        Le Sahara algérien est l'un des plus grands et des plus préservés au monde : plateaux de grès du
+        <strong>Tassili n'Ajjer</strong>, dunes du <strong>Tadrart</strong>, sommets du <strong>Hoggar</strong>.
+        C'est une <strong>expédition guidée d'hiver</strong>, encadrée par un opérateur agréé.
+      </p>
+
+      <h2 style="margin-top:2rem">Quand partir</h2>
+      <p>De <strong>novembre à février</strong> : journées douces, nuits fraîches. Prévoyez des vêtements chauds pour
+      le bivouac. L'été est à proscrire dans le sud.</p>
+
+      <h2 style="margin-top:2rem">Les grandes régions</h2>
+      <ul class="prose">
+        <li><strong>Djanet & le Tassili n'Ajjer</strong> — art rupestre préhistorique et "forêts" de grès (UNESCO).</li>
+        <li><strong>Le Tadrart</strong> — dunes rouges et arches dans le sud-est profond.</li>
+        <li><strong>Le Hoggar</strong> (Tamanrasset) — pics volcaniques et lever de soleil de l'Assekrem.</li>
+        <li><strong>Timimoun</strong> — l'oasis rouge et ses ksour.</li>
+      </ul>
+
+      <h2 style="margin-top:2rem">Permis, 4x4 et logistique</h2>
+      <p>On ne s'aventure pas seul : <strong>guide agréé, 4x4 et permis</strong> sont indispensables. On rejoint le
+      sud en <strong>avion</strong> depuis Alger, puis on explore en 4x4. Nous organisons tout de bout en bout.</p>
+
+      <h2 style="margin-top:2rem">Questions fréquentes</h2>
+      {faqs.map(f => (<div style="margin:.8rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-l)">{f.a}</p></div>))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">Votre expédition dans le désert</h2>
+        <p style="color:var(--text-l)">Guides, 4x4 et permis gérés — vous n'avez qu'à vivre le voyage.</p>
+        <p style="margin-top:.8rem"><a class="btn btn-gold" href="/contact/">Nous contacter</a> <a class="btn" href="/experiences/">Nos expériences</a></p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

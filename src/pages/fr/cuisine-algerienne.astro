@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const enUrl = site + '/blog/algerian-food-guide/';
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + '/fr/cuisine-algerienne/' },
+  { hreflang: 'x-default', href: enUrl },
+];
+const title = "Cuisine algérienne : que manger en Algérie ? (2026) | Algeria Compass";
+const description = "Que manger en Algérie : couscous, chorba, mechoui, pâtisseries et spécialités régionales. Un guide de la cuisine algérienne, plat par plat, pour bien manger en voyage.";
+const faqs = [
+  { q: "Quel est le plat national de l'Algérie ?", a: "Le couscous est le plat emblématique, servi avec légumes et viande. La chorba (soupe), le mechoui (agneau rôti) et les tajines figurent aussi parmi les incontournables." },
+  { q: "Que manger en Algérie ?", a: "Couscous, chorba, mechoui, bourek (feuilletés), pain traditionnel, dattes, ainsi qu'une grande variété de pâtisseries au miel et aux amandes comme les makrout et les cornes de gazelle." },
+  { q: "L'alcool est-il disponible en Algérie ?", a: "L'Algérie est majoritairement musulmane ; l'alcool est disponible dans certains hôtels et lieux autorisés mais reste peu répandu. Restez discret, surtout hors des grandes villes." },
+  { q: "La cuisine algérienne est-elle épicée ?", a: "Elle est parfumée plus qu'épicée : cumin, coriandre, cannelle et harissa selon les plats. Vous pouvez généralement ajuster le piquant." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">Culture & cuisine</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">Que manger en Algérie ?</h1>
+      <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
+
+      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+        La cuisine algérienne mêle traditions <strong>berbère, arabe, ottomane et méditerranéenne</strong> :
+        généreuse, parfumée, et différente d'une région à l'autre. Voici les plats à ne pas manquer.
+      </p>
+
+      <h2 style="margin-top:2rem">Les incontournables</h2>
+      <ul class="prose">
+        <li><strong>Couscous</strong> — le plat emblématique, légumes et viande, souvent le vendredi.</li>
+        <li><strong>Chorba</strong> — soupe parfumée, très présente au moment du Ramadan.</li>
+        <li><strong>Mechoui</strong> — agneau rôti, plat de fête.</li>
+        <li><strong>Bourek</strong> — feuilletés croustillants à la viande ou au fromage.</li>
+        <li><strong>Tajines</strong> — mijotés sucrés-salés selon les régions.</li>
+      </ul>
+
+      <h2 style="margin-top:2rem">Pâtisseries et douceurs</h2>
+      <p>Ne manquez pas les <strong>makrout</strong> (semoule et dattes), les <strong>cornes de gazelle</strong>, les
+      <strong>baklawa</strong> et le thé à la menthe — voir aussi nos pages <a href="/food/">cuisine</a> et
+      <a href="/sweets/">pâtisseries</a>.</p>
+
+      <h2 style="margin-top:2rem">Bon à savoir</h2>
+      <p>L'Algérie est majoritairement musulmane : l'<strong>alcool</strong> est peu répandu (présent dans certains
+      hôtels). La cuisine est <strong>parfumée plus qu'épicée</strong>. Mangez local dans les villes, et goûtez les
+      spécialités de chaque région.</p>
+
+      <h2 style="margin-top:2rem">Questions fréquentes</h2>
+      {faqs.map(f => (<div style="margin:.8rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-l)">{f.a}</p></div>))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">Goûtez l'Algérie avec nous</h2>
+        <p style="color:var(--text-l)">Nos circuits font une vraie place à la table et aux marchés.</p>
+        <p style="margin-top:.8rem"><a class="btn btn-gold" href="/contact/">Nous contacter</a> <a class="btn" href="/fr/guide-voyage-algerie/">Guide complet</a></p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

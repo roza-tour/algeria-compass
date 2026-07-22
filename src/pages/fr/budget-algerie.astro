@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const enUrl = site + '/blog/algeria-travel-cost/';
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + '/fr/budget-algerie/' },
+  { hreflang: 'x-default', href: enUrl },
+];
+const title = "Budget voyage en Algérie : combien ça coûte ? (2026) | Algeria Compass";
+const description = "L'Algérie est-elle chère ? Le détail des coûts — hébergement, repas, transport, guides et Sahara — et le taux de change parallèle qui change tout sur place.";
+const faqs = [
+  { q: "L'Algérie est-elle chère pour voyager ?", a: "Non, la nourriture et les transports locaux sont bon marché. Les hôtels confortables sont de gamme moyenne et les expéditions guidées dans le Sahara constituent le poste le plus coûteux. Comptez environ 55–110 € par jour dans le nord, hors vols internationaux." },
+  { q: "Quel budget par jour en Algérie ?", a: "Les voyageurs économes s'en sortent avec 25–45 € par jour dans le nord ; comptez 55–110 € en gamme moyenne. Une expédition guidée dans le désert coûte bien plus : environ 140–280 € par jour." },
+  { q: "Faut-il payer en espèces en Algérie ?", a: "Oui, l'Algérie fonctionne surtout en espèces. Les cartes sont peu acceptées hors grands hôtels ; prévoyez des dinars et des euros à changer." },
+  { q: "Pourquoi le taux de change compte-t-il autant ?", a: "L'Algérie a un taux officiel et un taux parallèle largement utilisé, avec un écart important. Changer des devises sur place peut nettement augmenter votre pouvoir d'achat." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">Préparer votre voyage</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">Combien coûte un voyage en Algérie ?</h1>
+      <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
+
+      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+        L'Algérie a la réputation d'être difficile à évaluer côté prix, à cause d'une particularité : il existe un
+        <strong>taux de change officiel</strong> et un <strong>taux parallèle</strong> largement utilisé. Une fois
+        cela compris — et en payant en espèces — l'Algérie est une destination abordable, sauf pour le Sahara guidé.
+      </p>
+
+      <h2 style="margin-top:2rem">La réponse courte</h2>
+      <ul class="prose">
+        <li><strong>Nourriture et transports locaux :</strong> bon marché.</li>
+        <li><strong>Hôtels :</strong> gamme moyenne (50–90 € la chambre confortable en ville).</li>
+        <li><strong>Sahara :</strong> le poste le plus cher (guide, 4x4, permis, vols intérieurs).</li>
+      </ul>
+      <p>Dans le <strong>nord</strong>, comptez environ <strong>55–110 € par jour</strong> (hors vols internationaux).
+      Une expédition guidée dans le désert est d'un autre ordre : <strong>140–280 €+ par jour</strong>.</p>
+
+      <h2 style="margin-top:2rem">Espèces, cartes et taux de change</h2>
+      <p>L'Algérie est une <strong>économie d'espèces</strong> pour le voyageur : cartes peu acceptées hors grands
+      hôtels, distributeurs parfois capricieux. Prévoyez des <strong>dinars</strong> et des <strong>euros</strong> à
+      changer, et renseignez-vous sur les taux avant de partir.</p>
+
+      <h2 style="margin-top:2rem">Où part l'argent</h2>
+      <p>Trois postes dominent : les <strong>vols internationaux</strong> (souvent la plus grosse dépense), le
+      <strong>Sahara</strong> si vous descendez au sud, et <strong>la façon de changer votre argent</strong>.</p>
+
+      <h2 style="margin-top:2rem">Questions fréquentes</h2>
+      {faqs.map(f => (<div style="margin:.8rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-l)">{f.a}</p></div>))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">Un devis clair, tout compris</h2>
+        <p style="color:var(--text-l)">Dites-nous vos dates — nous chiffrons un voyage privé sans surprise sur place.</p>
+        <p style="margin-top:.8rem"><a class="btn btn-gold" href="/contact/">Demander un devis</a> <a class="btn" href="/fr/guide-voyage-algerie/">Guide complet</a></p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

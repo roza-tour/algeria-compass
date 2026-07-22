@@ -52,6 +52,7 @@ reviewedBy: "editorial-review"
 lastReviewed: 2026-07-22
 published: 2026-07-22
 updated: 2026-07-22
+frAlt: "/fr/itineraire-algerie/"
 primaryCluster: "algeria-travel-planning"
 cluster: "algeria-travel-planning"
 secondaryClusters: ["algeria-transportation", "best-time-to-visit-algeria"]

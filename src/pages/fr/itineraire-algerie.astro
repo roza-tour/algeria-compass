@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const enUrl = site + '/blog/algeria-itinerary/';
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + '/fr/itineraire-algerie/' },
+  { hreflang: 'x-default', href: enUrl },
+];
+const title = "Itinéraire en Algérie : 7, 10 et 14 jours (2026) | Algeria Compass";
+const description = "Des itinéraires prêts à l'emploi pour l'Algérie — 7, 10 ou 14 jours : Alger, la côte, les cités romaines et le Sahara, avec les trajets, les saisons et la logistique.";
+const faqs = [
+  { q: "Combien de jours faut-il pour visiter l'Algérie ?", a: "Comptez 10 à 14 jours pour un premier voyage combinant le nord romain et une région désertique. Une semaine suffit pour un séjour ciblé dans le nord." },
+  { q: "Une semaine suffit-elle en Algérie ?", a: "Oui, pour une région. Une semaine couvre confortablement Alger, un bout de côte et les cités romaines de l'est. Ce n'est pas assez pour ajouter le grand Sahara." },
+  { q: "Peut-on combiner le nord et le Sahara ?", a: "Oui, sur 14 jours : faites d'abord le nord romain, puis prenez l'avion vers Djanet ou Tamanrasset pour une étape guidée en 4x4, entre novembre et février." },
+  { q: "Faut-il un guide pour un itinéraire en Algérie ?", a: "Pas dans le nord, où l'on voyage en autonomie. Le grand sud exige un guide agréé, un 4x4 et des permis, organisés par une agence." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">Préparer votre voyage</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">Itinéraire en Algérie : 7, 10 et 14 jours</h1>
+      <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
+
+      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+        L'Algérie est le plus grand pays d'Afrique : l'erreur classique est de vouloir tout voir. Un bon itinéraire
+        choisit <strong>une ou deux régions</strong> et les parcourt bien. Voici trois plans qui fonctionnent.
+      </p>
+
+      <h2 style="margin-top:2rem">7 jours — l'essentiel du nord</h2>
+      <p>Alger et la Casbah (2 nuits), Tipaza en excursion, Constantine (2 nuits), puis Timgad et Djémila en
+      excursions. Tout est accessible par la route et le train, sans permis particulier. Idéal au printemps ou à l'automne.</p>
+
+      <h2 style="margin-top:2rem">10 jours — le nord + une région</h2>
+      <p>Reprenez le noyau de 7 jours, puis ajoutez <strong>l'ouest andalou</strong> (Tlemcen, Oran) <em>ou</em>
+      la <strong>vallée du M'Zab</strong> (Ghardaïa) et ses ksour.</p>
+
+      <h2 style="margin-top:2rem">14 jours — le nord et le grand Sahara</h2>
+      <p>Le premier voyage complet : le nord romain la première semaine, puis un vol vers le sud pour une étape
+      désertique guidée (Djanet et le Tassili, ou le Hoggar depuis Tamanrasset), entre novembre et février.</p>
+
+      <h2 style="margin-top:2rem">Bien gérer la logistique</h2>
+      <ul class="prose">
+        <li><strong>Prenez l'avion</strong> pour les longues distances du sud ; train et route dans le nord.</li>
+        <li><strong>Respectez la saison</strong> : nord au printemps/automne, désert en hiver.</li>
+        <li><strong>Anticipez</strong> visa et permis du sud — voir notre <a href="/fr/visa-algerie/">guide du visa</a>.</li>
+      </ul>
+
+      <h2 style="margin-top:2rem">Questions fréquentes</h2>
+      {faqs.map(f => (<div style="margin:.8rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-l)">{f.a}</p></div>))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">Un itinéraire privé sur mesure</h2>
+        <p style="color:var(--text-l)">Dites-nous vos dates — nous construisons le voyage autour de vous.</p>
+        <p style="margin-top:.8rem"><a class="btn btn-gold" href="/contact/">Demander un devis</a> <a class="btn" href="/fr/guide-voyage-algerie/">Guide complet</a></p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
