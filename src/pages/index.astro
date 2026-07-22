@@ -15,13 +15,22 @@ const featuredIds = ['djanet-sahara-safari','algiers-city-tour-casbah-bardo-mart
 const featured = featuredIds.map(id => tours.find(t => t.id === id)).filter(Boolean);
 
 // "Plan your Algeria trip" — vibrant, joyful entry points (real pages only)
+// Line icons (Lucide) as inner SVG markup — brand rule: icons, not emoji.
+const ICONS: Record<string, string> = {
+  compass:  '<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>',
+  landmark: '<line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/>',
+  map:      '<polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/>',
+  book:     '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+  utensils: '<path d="M3 2v7c0 1.1.9 2 2 2a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>',
+  sparkles: '<path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>',
+};
 const planCards = [
-  { href:'/tours/',        emoji:'🧭', title:'Browse tours',     text:'20 private, guided itineraries — Sahara, coast and Roman north.', a:'#0B3D2E', b:'#11543D' },
-  { href:'/destinations/', emoji:'🏛️', title:'Destinations',     text:"Casbah of Algiers, Tassili n'Ajjer, Constantine, Djémila and more.", a:'#8A3F2E', b:'#b4543b' },
-  { href:'/provinces/',    emoji:'🗺️', title:'States',           text:"Region-by-region guides across Algeria's States.", a:'#1E8C8C', b:'#27a9a9' },
-  { href:'/travel-guides/',emoji:'🛂', title:'Travel guides',    text:'Visa, safety, best time to visit, food and transport.', a:'#C19333', b:'#dba63c' },
-  { href:'/culture/',      emoji:'🍵', title:'Culture & food',   text:'Cuisine, crafts, music and the civilisations that shaped Algeria.', a:'#7a3b16', b:'#9c5223' },
-  { href:'/discover/',     emoji:'✨', title:'Discover Algeria', text:'Our in-depth, researched guide to the whole country.', a:'#4A2A6A', b:'#6b3f97' },
+  { href:'/tours/',        icon:'compass',  title:'Browse tours',     text:'20 private, guided itineraries — Sahara, coast and Roman north.', a:'#0B3D2E', b:'#11543D' },
+  { href:'/destinations/', icon:'landmark', title:'Destinations',     text:"Casbah of Algiers, Tassili n'Ajjer, Constantine, Djémila and more.", a:'#8A3F2E', b:'#b4543b' },
+  { href:'/provinces/',    icon:'map',      title:'States',           text:"Region-by-region guides across Algeria's States.", a:'#1E8C8C', b:'#27a9a9' },
+  { href:'/travel-guides/',icon:'book',     title:'Travel guides',    text:'Visa, safety, best time to visit, food and transport.', a:'#C19333', b:'#dba63c' },
+  { href:'/culture/',      icon:'utensils', title:'Culture & food',   text:'Cuisine, crafts, music and the civilisations that shaped Algeria.', a:'#7a3b16', b:'#9c5223' },
+  { href:'/discover/',     icon:'sparkles', title:'Discover Algeria', text:'Our in-depth, researched guide to the whole country.', a:'#4A2A6A', b:'#6b3f97' },
 ];
 
 const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Algeria tour.");
@@ -59,7 +68,7 @@ const alternates = [
       <p class="lead">Private, locally-guided journeys across Algeria — Sahara, the UNESCO Casbah, Roman cities, the M'Zab and the coast.</p>
       <p class="hero-cta">
         <a class="btn btn-gold" href="/tours/">Browse all tours →</a>
-        <a class="btn btn-ghost-light" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">💬 WhatsApp us</a>
+        <a class="btn btn-ghost-light" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">WhatsApp us</a>
       </p>
     </div>
     <a class="home-hero-scroll" href="#featured" aria-label="Scroll to featured tours"><span class="hhs-dot" aria-hidden="true"></span>Scroll</a>
@@ -99,7 +108,7 @@ const alternates = [
     <div class="plan-grid">
       {planCards.map(c => (
         <a class="plan-card" href={c.href} style={`--a:${c.a};--b:${c.b}`}>
-          <span class="plan-emoji" aria-hidden="true">{c.emoji}</span>
+          <span class="plan-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[c.icon]} /></span>
           <span class="plan-t">{c.title}</span>
           <span class="plan-x">{c.text}</span>
           <span class="plan-go" aria-hidden="true">→</span>
@@ -124,33 +133,11 @@ const alternates = [
       <p style="margin-top:.5rem">Tell us your dates and interests — we'll craft a private itinerary.</p>
       <p style="margin-top:1rem">
         <a class="btn btn-gold" href="/contact/">Plan a trip</a>
-        <a class="btn" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="background:#25D366;color:#06351f" aria-label="Plan your trip on WhatsApp">💬 WhatsApp</a>
+        <a class="btn" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="background:#25D366;color:#06351f" aria-label="Plan your trip on WhatsApp">WhatsApp</a>
       </p>
     </div>
   </div></section>
 
-  <script is:inline>
-    /* Homepage hero parallax — image drifts slower than the content on scroll.
-       Scroll-reveal for [data-reveal] sections is handled globally in BaseLayout. */
-    (function(){
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var bg = document.querySelector('.home-hero-bg');
-      var inr = document.querySelector('.home-hero-in');
-      if(!bg) return;
-      var ticking = false;
-      window.addEventListener('scroll', function(){
-        if(ticking) return; ticking = true;
-        requestAnimationFrame(function(){
-          var y = window.pageYOffset || 0;
-          if(y < 820){
-            bg.style.transform = 'translateY(' + (y*0.18).toFixed(1) + 'px)';
-            if(inr){ inr.style.transform = 'translateY(' + (y*0.30).toFixed(1) + 'px)'; inr.style.opacity = String(Math.max(0, 1 - y/560)); }
-          }
-          ticking = false;
-        });
-      }, { passive:true });
-    })();
-  </script>
 
 </BaseLayout>
 
@@ -184,7 +171,8 @@ const alternates = [
     background:rgba(255,255,255,.12);transition:transform .3s ease}
   .plan-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(11,61,46,.22)}
   .plan-card:hover::after{transform:scale(1.5)}
-  .plan-emoji{font-size:1.7rem;position:relative;z-index:1}
+  .plan-emoji{position:relative;z-index:1;color:rgba(255,255,255,.95);line-height:0}
+  .plan-emoji svg{width:1.8rem;height:1.8rem;display:block}
   .plan-t{font-family:'Cinzel',serif;font-weight:700;font-size:1.2rem;position:relative;z-index:1}
   .plan-x{font-size:.86rem;color:rgba(255,255,255,.92);line-height:1.45;flex:1;position:relative;z-index:1}
   .plan-go{font-size:1.3rem;font-weight:800;position:relative;z-index:1;transition:transform .18s ease}

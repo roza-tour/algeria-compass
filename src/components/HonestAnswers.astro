@@ -7,10 +7,10 @@
 // single-open accordion (exclusive-accordion `name` + JS fallback).
 
 const badges = [
-  { icon: '🛡', label: 'Licensed Algerian operator' },
-  { icon: '🛂', label: 'Visa support included' },
-  { icon: '🧭', label: 'Local Algerian guides' },
-  { icon: '💬', label: 'Arabic · Tamazight · French · English' },
+  { icon: 'shield', label: 'Licensed Algerian operator' },
+  { icon: 'passport', label: 'Visa support included' },
+  { icon: 'compass', label: 'Local Algerian guides' },
+  { icon: 'chat', label: 'Arabic · Tamazight · French · English' },
 ];
 
 // Real, verifiable trust metrics — no invented numbers. The rating links out to
@@ -70,7 +70,7 @@ const cats = [
   </div>
 
   <div class="ha-badges" aria-label="What we can honestly promise">
-    {badges.map(b => <span class="ha-badge"><span class="ha-ic" aria-hidden="true">{b.icon}</span>{b.label}</span>)}
+    {badges.map(b => <span class="ha-badge"><span class="ha-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[b.icon]} /></span>{b.label}</span>)}
     {metrics.map(m => (
       m.href
         ? <a class="ha-badge ha-metric" href={m.href} target="_blank" rel="noopener" title="See our reviews on Google"><strong>{m.value}</strong>{m.label}<em>{m.sub}</em></a>
@@ -122,7 +122,8 @@ const cats = [
     background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.05));
     border:1px solid rgba(201,162,75,.45);font-size:.85rem;font-weight:700;color:#fff;
     box-shadow:0 2px 10px rgba(0,0,0,.12)}
-  .ha-ic{font-size:.95rem}
+  .ha-ic{display:inline-flex;line-height:0}
+  .ha-ic svg{width:15px;height:15px;vertical-align:-2px}
   /* real metric badges (rating + years) */
   .ha-badge.ha-metric{gap:.3rem;text-decoration:none;border-color:rgba(201,162,75,.6)}
   a.ha-badge.ha-metric:hover{border-color:var(--gold-l);background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.07))}
