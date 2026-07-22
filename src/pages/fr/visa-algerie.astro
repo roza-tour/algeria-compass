@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const enUrl = site + '/blog/algeria-visa-guide/';
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + '/fr/visa-algerie/' },
+  { hreflang: 'x-default', href: enUrl },
+];
+const title = "Visa pour l'Algérie : guide 2026 (tourisme & e-Visa) | Algeria Compass";
+const description = "Comment obtenir un visa touristique pour l'Algérie : documents requis, e-Visa, lettre d'invitation d'agence et délais. Un guide clair, à jour, pour préparer votre voyage.";
+const faqs = [
+  { q: "Faut-il un visa pour visiter l'Algérie ?", a: "Oui, la plupart des nationalités ont besoin d'un visa touristique obtenu à l'avance. Quelques pays en sont exemptés, mais pour la majorité des voyageurs européens et nord-américains, le visa est obligatoire." },
+  { q: "Quels documents faut-il pour le visa touristique algérien ?", a: "Généralement : un passeport valide, un formulaire de demande, des photos, une réservation d'hôtel ou une lettre de prise en charge (invitation) d'une agence locale agréée, un justificatif de moyens et parfois un billet aller-retour. Les exigences varient selon le consulat." },
+  { q: "Qu'est-ce que l'e-Visa algérien ?", a: "L'Algérie propose un e-Visa pour certains voyageurs, notamment vers le sud saharien via une agence agréée. Les conditions évoluent : vérifiez le dispositif en vigueur au moment de votre demande." },
+  { q: "Combien de temps faut-il pour obtenir le visa ?", a: "Comptez souvent une à plusieurs semaines. Commencez tôt, car certains consulats exigent une lettre d'invitation d'agence que nous pouvons fournir à nos voyageurs." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">Formalités</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">Visa pour l'Algérie (2026)</h1>
+      <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
+
+      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+        La plupart des voyageurs ont besoin d'un <strong>visa touristique obtenu à l'avance</strong> pour entrer en Algérie.
+        La démarche est simple si vous vous y prenez tôt et réunissez les bons documents — et, pour beaucoup de consulats,
+        une <strong>lettre d'invitation d'une agence locale agréée</strong> comme la nôtre.
+      </p>
+
+      <h2 style="margin-top:2rem">Avez-vous besoin d'un visa ?</h2>
+      <p>Oui, pour la grande majorité des nationalités (dont la plupart des pays européens et nord-américains). Quelques
+      pays bénéficient d'exemptions ; vérifiez auprès du consulat algérien de votre pays de résidence.</p>
+
+      <h2 style="margin-top:2rem">Documents généralement demandés</h2>
+      <ul class="prose">
+        <li>Passeport valide (souvent 6 mois au-delà du séjour)</li>
+        <li>Formulaire de demande + photos d'identité</li>
+        <li>Réservation d'hôtel <strong>ou</strong> lettre d'invitation / prise en charge d'une agence agréée</li>
+        <li>Justificatif de moyens financiers</li>
+        <li>Parfois un billet aller-retour et une assurance voyage</li>
+      </ul>
+      <p style="color:var(--text-l)">Les exigences exactes varient d'un consulat à l'autre — confirmez toujours auprès du vôtre.</p>
+
+      <h2 style="margin-top:2rem">e-Visa et voyages dans le sud</h2>
+      <p>L'Algérie a mis en place un <strong>e-Visa</strong> pour certains voyageurs, en particulier pour le
+      <strong>grand sud saharien</strong> (Djanet, Tamanrasset) organisé via une agence agréée. Le dispositif évolue :
+      nous vous indiquons la procédure en vigueur au moment de votre réservation.</p>
+
+      <h2 style="margin-top:2rem">Notre accompagnement</h2>
+      <p>Pour nos voyageurs, nous fournissons la <strong>lettre d'invitation</strong> et les documents d'agence
+      nécessaires, et nous gérons les <strong>permis</strong> du sud. C'est souvent l'élément qui débloque la demande
+      de visa.</p>
+
+      <h2 style="margin-top:2rem">Questions fréquentes</h2>
+      {faqs.map(f => (<div style="margin:.8rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-l)">{f.a}</p></div>))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">Besoin d'une lettre d'invitation ?</h2>
+        <p style="color:var(--text-l)">Nous accompagnons nos voyageurs pour le visa et les permis. Parlons de votre projet.</p>
+        <p style="margin-top:.8rem"><a class="btn btn-gold" href="/contact/">Nous contacter</a> <a class="btn" href="/fr/guide-voyage-algerie/">Guide complet</a></p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

@@ -69,6 +69,7 @@ reviewedBy: "editorial-review"
 lastReviewed: 2026-05-20
 published: 2026-05-20
 updated: 2026-05-20
+frAlt: "/fr/securite-algerie/"
 primaryCluster: "algeria-safety"
 cluster: "algeria-safety"
 secondaryClusters: ["algeria-travel-planning"]

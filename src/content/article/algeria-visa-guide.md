@@ -72,6 +72,7 @@ reviewedBy: "editorial-review"
 lastReviewed: 2026-05-20
 published: 2026-05-20
 updated: 2026-05-20
+frAlt: "/fr/visa-algerie/"
 primaryCluster: "algeria-travel-planning"
 cluster: "algeria-travel-planning"
 secondaryClusters: ["algeria-safety"]

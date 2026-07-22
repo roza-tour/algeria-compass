@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const enUrl = site + '/blog/best-time-to-visit-algeria/';
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + '/fr/quand-partir-algerie/' },
+  { hreflang: 'x-default', href: enUrl },
+];
+const title = "Quand partir en Algérie ? Meilleure période 2026 | Algeria Compass";
+const description = "La meilleure période pour visiter l'Algérie : printemps et automne pour le nord et l'ouest, hiver pour le Sahara. Climat région par région et conseils saison par saison.";
+const faqs = [
+  { q: "Quelle est la meilleure période pour visiter l'Algérie ?", a: "Le printemps (mars–mai) et l'automne (septembre–novembre) sont idéaux pour le nord et l'ouest. Le Sahara profond se visite en hiver, de novembre à février. L'été est très chaud, surtout dans le sud." },
+  { q: "Quand aller dans le Sahara algérien ?", a: "De novembre à février. Les journées sont douces et les nuits fraîches, ce qui rend les expéditions dans le Tassili ou le Hoggar agréables. L'été y est dangereusement chaud." },
+  { q: "Peut-on visiter l'Algérie en été ?", a: "Oui pour la côte méditerranéenne, qui reste agréable, mais évitez l'intérieur et le sud où les températures sont extrêmes. L'été convient surtout aux plages du nord." },
+  { q: "Quel temps fait-il en Algérie au printemps ?", a: "Doux et agréable dans le nord, idéal pour les villes, les sites romains et les randonnées. C'est l'une des meilleures saisons pour un premier voyage." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">Quand partir</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">Quand partir en Algérie ?</h1>
+      <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
+
+      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+        La règle est simple : le <strong>nord et l'ouest</strong> au <strong>printemps</strong> et à l'<strong>automne</strong>,
+        le <strong>Sahara en hiver</strong>. L'Algérie est un grand pays aux climats contrastés — choisir la bonne saison
+        pour la bonne région change tout.
+      </p>
+
+      <h2 style="margin-top:2rem">Printemps (mars–mai) et automne (septembre–novembre)</h2>
+      <p>Les meilleures saisons pour le <strong>nord</strong> : Alger, la côte, les cités romaines de l'est, Tlemcen et
+      Oran à l'ouest. Températures douces, nature verte au printemps, lumière superbe en automne.</p>
+
+      <h2 style="margin-top:2rem">Hiver (novembre–février) : la saison du désert</h2>
+      <p>C'est <strong>le</strong> moment du <strong>Sahara profond</strong> — Djanet, le Tassili n'Ajjer, le Hoggar,
+      Timimoun. Journées douces, nuits fraîches (prévoyez des vêtements chauds pour le bivouac).</p>
+
+      <h2 style="margin-top:2rem">Été (juin–août)</h2>
+      <p>Réservé à la <strong>côte méditerranéenne</strong>, qui reste agréable. L'intérieur et surtout le sud sont
+      très chauds — à éviter pour les visites de sites et le désert.</p>
+
+      <h2 style="margin-top:2rem">En résumé, par région</h2>
+      <ul class="prose">
+        <li><strong>Nord & villes :</strong> printemps et automne.</li>
+        <li><strong>Ouest andalou (Tlemcen, Oran) :</strong> printemps à automne.</li>
+        <li><strong>Oasis du nord (M'Zab) :</strong> octobre à avril.</li>
+        <li><strong>Grand sud (Tassili, Hoggar) :</strong> novembre à février.</li>
+        <li><strong>Plages :</strong> été.</li>
+      </ul>
+
+      <h2 style="margin-top:2rem">Questions fréquentes</h2>
+      {faqs.map(f => (<div style="margin:.8rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-l)">{f.a}</p></div>))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">Planifions selon la bonne saison</h2>
+        <p style="color:var(--text-l)">Dites-nous vos dates — nous adaptons l'itinéraire à la meilleure période.</p>
+        <p style="margin-top:.8rem"><a class="btn btn-gold" href="/contact/">Nous contacter</a> <a class="btn" href="/fr/guide-voyage-algerie/">Guide complet</a></p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

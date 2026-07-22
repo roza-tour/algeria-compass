@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const enUrl = site + '/blog/algeria-safety-guide/';
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + '/fr/securite-algerie/' },
+  { hreflang: 'x-default', href: enUrl },
+];
+const title = "L'Algérie est-elle sûre ? Guide de sécurité 2026 | Algeria Compass";
+const description = "L'Algérie est-elle sûre pour les touristes ? Une évaluation honnête et à jour : le nord et les circuits classiques, le grand sud encadré, et les précautions de bon sens.";
+const faqs = [
+  { q: "L'Algérie est-elle sûre pour les touristes ?", a: "Oui, le nord et les itinéraires touristiques habituels se visitent sereinement avec les précautions de voyage normales. Les grandes villes, les sites romains et la côte accueillent des visiteurs sans difficulté particulière." },
+  { q: "Le Sahara algérien est-il sûr ?", a: "Le désert profond se visite uniquement avec un opérateur agréé, un guide, un 4x4 et des permis. Dans ce cadre encadré, c'est une expérience sûre et bien organisée ; on ne s'y aventure pas seul." },
+  { q: "Y a-t-il des zones à éviter en Algérie ?", a: "Comme partout, certaines régions frontalières reculées sont déconseillées. Les zones touristiques du nord et les circuits sahariens encadrés n'en font pas partie. Suivez les conseils aux voyageurs de votre gouvernement et de votre agence." },
+  { q: "Est-ce sûr pour les femmes qui voyagent ?", a: "Oui, avec les précautions habituelles. Une tenue modeste, surtout hors des grandes villes, et un accompagnement local facilitent le voyage. De nombreuses voyageuses parcourent l'Algérie sans problème." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">Sécurité</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">L'Algérie est-elle sûre ?</h1>
+      <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
+
+      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+        C'est la première question que se posent la plupart des voyageurs — et la réponse honnête est rassurante :
+        le <strong>nord et les itinéraires touristiques classiques</strong> se parcourent sereinement avec les
+        précautions de voyage habituelles. Le <strong>grand sud saharien</strong> se visite dans un cadre encadré,
+        avec un opérateur agréé.
+      </p>
+
+      <h2 style="margin-top:2rem">Le nord et les villes</h2>
+      <p>Alger, Constantine, Oran, Tlemcen, les cités romaines et la côte accueillent des visiteurs sans difficulté
+      particulière. Les précautions sont celles de tout voyage urbain : attention aux effets personnels, transports
+      fiables, bon sens le soir.</p>
+
+      <h2 style="margin-top:2rem">Le Sahara : encadré, donc sûr</h2>
+      <p>Le désert profond (Djanet, Tassili, Hoggar) ne se visite <strong>pas en autonomie</strong> : il faut un
+      <strong>guide agréé, un 4x4 et des permis</strong>. Dans ce cadre, c'est une expérience parfaitement organisée
+      et sûre — c'est justement notre métier.</p>
+
+      <h2 style="margin-top:2rem">Précautions de bon sens</h2>
+      <ul class="prose">
+        <li>Consultez les conseils aux voyageurs de votre gouvernement avant le départ.</li>
+        <li>Réservez le sud avec un opérateur agréé (permis, logistique, guides).</li>
+        <li>Adoptez une tenue modeste, surtout hors des grandes villes.</li>
+        <li>Privilégiez les transports et guides recommandés localement.</li>
+      </ul>
+
+      <h2 style="margin-top:2rem">Voyager au féminin</h2>
+      <p>L'Algérie se visite très bien au féminin avec les précautions habituelles. Une tenue modeste et un
+      accompagnement local rendent le voyage fluide et agréable.</p>
+
+      <h2 style="margin-top:2rem">Questions fréquentes</h2>
+      {faqs.map(f => (<div style="margin:.8rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-l)">{f.a}</p></div>))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">Voyagez accompagné, en confiance</h2>
+        <p style="color:var(--text-l)">Guides locaux, logistique et permis gérés de bout en bout.</p>
+        <p style="margin-top:.8rem"><a class="btn btn-gold" href="/contact/">Nous contacter</a> <a class="btn" href="/fr/guide-voyage-algerie/">Guide complet</a></p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

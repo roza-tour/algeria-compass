@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const enUrl = site + '/blog/algeria-transportation-guide/';
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + '/fr/transport-algerie/' },
+  { hreflang: 'x-default', href: enUrl },
+];
+const title = "Se déplacer en Algérie : transport 2026 (avion, train, route) | Algeria Compass";
+const description = "Comment se déplacer en Algérie : vols intérieurs vers le sud, trains et bus dans le nord, taxis et 4x4 pour le désert. Un guide pratique des transports pour votre voyage.";
+const faqs = [
+  { q: "Comment se déplacer en Algérie ?", a: "Dans le nord, le train, le bus et les taxis fonctionnent bien entre les villes. Pour le grand sud, on prend l'avion (Alger–Djanet, Alger–Tamanrasset) puis un 4x4 avec guide. Les distances routières vers le sud sont énormes." },
+  { q: "Y a-t-il des vols intérieurs en Algérie ?", a: "Oui. Air Algérie et Tassili Airlines relient Alger aux villes du sud et de l'intérieur. C'est la façon la plus pratique d'atteindre le Sahara plutôt que les très longues routes." },
+  { q: "Peut-on louer une voiture en Algérie ?", a: "Oui dans le nord, où le réseau routier est correct. Pour le désert, la conduite indépendante n'est pas adaptée : il faut un 4x4, un guide et des permis, organisés par une agence." },
+  { q: "Le train est-il pratique en Algérie ?", a: "Le train dessert bien l'axe nord (Alger, Oran, Constantine, Annaba). C'est confortable et économique pour relier les grandes villes du nord." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">Transport</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">Se déplacer en Algérie</h1>
+      <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
+
+      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+        L'Algérie est le plus grand pays d'Afrique : la clé, c'est de <strong>prendre l'avion pour les longues
+        distances</strong> (vers le sud) et d'utiliser le <strong>train, le bus et les taxis dans le nord</strong>.
+        Pour le désert, un <strong>4x4 avec guide</strong> est indispensable.
+      </p>
+
+      <h2 style="margin-top:2rem">Vols intérieurs</h2>
+      <p><strong>Air Algérie</strong> et <strong>Tassili Airlines</strong> relient Alger aux villes du sud
+      (Djanet, Tamanrasset, Ghardaïa, Timimoun) et de l'intérieur. C'est le moyen le plus pratique d'atteindre le
+      Sahara — bien plus que les routes de plusieurs jours.</p>
+
+      <h2 style="margin-top:2rem">Train et bus dans le nord</h2>
+      <p>Le <strong>train</strong> dessert l'axe nord (Alger, Oran, Constantine, Annaba, Sétif) : confortable et
+      économique. Les <strong>bus</strong> complètent le réseau vers les villes moyennes.</p>
+
+      <h2 style="margin-top:2rem">Taxis et voiture</h2>
+      <p>Les <strong>taxis</strong> (individuels ou collectifs) sont pratiques en ville et entre villes proches. La
+      <strong>location de voiture</strong> est possible dans le nord ; en revanche, le désert exige un 4x4 encadré.</p>
+
+      <h2 style="margin-top:2rem">Le désert : 4x4 et guide</h2>
+      <p>Dans le grand sud, on ne conduit pas seul : <strong>4x4, guide agréé et permis</strong> sont requis. Nous
+      organisons toute la logistique du désert de bout en bout.</p>
+
+      <h2 style="margin-top:2rem">Questions fréquentes</h2>
+      {faqs.map(f => (<div style="margin:.8rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-l)">{f.a}</p></div>))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">On s'occupe de toute la logistique</h2>
+        <p style="color:var(--text-l)">Vols intérieurs, transferts et 4x4 du désert — organisés pour vous.</p>
+        <p style="margin-top:.8rem"><a class="btn btn-gold" href="/contact/">Nous contacter</a> <a class="btn" href="/fr/guide-voyage-algerie/">Guide complet</a></p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
