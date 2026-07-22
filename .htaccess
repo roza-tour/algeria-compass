@@ -47,9 +47,10 @@ ErrorDocument 404 /404.html
   #     Index, graph.json and any other unmapped /clusters/* → home (catch-all, keep last).
   RewriteRule ^clusters(/.*)?$                       / [R=301,L]
 
-  # 2c) Dead legacy language routes from the old SPA (GSC "Not found 404": /de/ /es/ /fr/).
+  # 2c) Dead legacy language routes from the old SPA (GSC "Not found 404": /de/ /es/).
   #     No content existed at these paths; 301 the whole subtree to the (English) home page.
-  RewriteRule ^(de|es|fr)(/.*)?$                     / [R=301,L]
+  #     NOTE: /fr/ is now a REAL French section — it must NOT be redirected here.
+  RewriteRule ^(de|es)(/.*)?$                        / [R=301,L]
 
   # 3) Force a trailing slash on directory-style URLs in one hop
   #    (skip real files and any URL ending in a file extension)
@@ -106,7 +107,7 @@ ErrorDocument 404 /404.html
 
 # ---- Deny web access to source, config, build scripts & internal docs ----
 #      (the repo root is the docroot; none of these should be fetchable).
-#      robots.txt / sitemap*.xml / search-index.json stay public — not matched here.
+#      robots.txt / sitemap*.xml / search-index.json / llms.txt stay public.
 <FilesMatch "\.(?:md|mjs|sh|py|bak|lock|map)$">
   <IfModule mod_authz_core.c>Require all denied</IfModule>
   <IfModule !mod_authz_core.c>Order allow,deny
