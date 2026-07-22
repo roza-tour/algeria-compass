@@ -23,18 +23,23 @@ export const GET: APIRoute = async () => {
     ['experience', 'experiences'], ['article', 'blog'], ['question', 'questions'],
     ['editorial', 'editorial'], ['team', 'team'], ['reviewer', 'reviewers'],
   ];
-  const rows: { loc: string; pri: string }[] = statics.map(s => ({ loc: `${SITE}/${s}`, pri: s === '' ? '1.0' : '0.7' }));
+  const rows: { loc: string; pri: string; mod: string }[] = statics.map(s => ({ loc: `${SITE}/${s}`, pri: s === '' ? '1.0' : '0.7', mod: today }));
   const tourList = (toursData as any).tours || (toursData as any);
-  for (const t of tourList) rows.push({ loc: `${SITE}/tours/${t.id}/`, pri: '0.8' });
-  for (const r of REGIONS) rows.push({ loc: `${SITE}/regions/${r.id}/`, pri: '0.7' });
+  for (const t of tourList) rows.push({ loc: `${SITE}/tours/${t.id}/`, pri: '0.8', mod: today });
+  for (const r of REGIONS) rows.push({ loc: `${SITE}/regions/${r.id}/`, pri: '0.7', mod: today });
   // hubs (/knowledge/*) are noindex scaffolding — excluded from sitemap.
   for (const [coll, base] of colls) {
     const items = await getCollection(coll as any);
-    for (const it of items) rows.push({ loc: `${SITE}/${base}/${it.slug}/`, pri: '0.8' });
+    for (const it of items) {
+      // Use the content's real last-updated date when available (freshness signal).
+      const u = (it.data as any).updated;
+      const mod = u instanceof Date ? u.toISOString().slice(0, 10) : today;
+      rows.push({ loc: `${SITE}/${base}/${it.slug}/`, pri: '0.8', mod });
+    }
   }
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${rows.map(r => `  <url><loc>${r.loc}</loc><lastmod>${today}</lastmod><priority>${r.pri}</priority></url>`).join('\n')}
+${rows.map(r => `  <url><loc>${r.loc}</loc><lastmod>${r.mod}</lastmod><priority>${r.pri}</priority></url>`).join('\n')}
 </urlset>`;
   return new Response(body, { headers: { 'Content-Type': 'application/xml' } });
 };

@@ -1,0 +1,4 @@
+Contact: mailto:hello@algeriacompass.com
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: en, fr, ar
+Canonical: https://algeriacompass.com/.well-known/security.txt
