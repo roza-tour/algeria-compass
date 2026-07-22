@@ -66,6 +66,12 @@ const webpage = { "@type":"WebPage", "@id":`${site}/blog/${item.slug}/#webpage`,
 const schemaNodes = [post, authorEntity, reviewerEntity, breadcrumb, webpage].filter(Boolean);
 ---
 <BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} type="article" region={d.region} schema={schemaNodes} sticky={true}>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={d.published.toISOString()} />
+    <meta property="article:modified_time" content={d.updated.toISOString()} />
+    <meta property="article:author" content={author.name} />
+    <meta property="article:section" content={d.category} />
+  </Fragment>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Blog',href:'/blog/'},{name:d.category}]} />
   <article class="section"><div class="wrap" style="max-width:780px">
     <span class="eyebrow">{d.category}</span>

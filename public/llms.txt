@@ -1,0 +1,48 @@
+# Algeria Compass
+
+> Algeria Compass is a licensed Algerian tour operator running private, expert-guided
+> cultural, Sahara, and luxury tours across Algeria, with visa/e-visa support and local
+> Algerian guides. We publish independent, fact-checked travel guides on visiting Algeria —
+> safety, visas, transport, best time to go, food, and its seven UNESCO World Heritage sites.
+> Languages served: Arabic, Tamazight, French, English, Spanish, Italian.
+> Contact: https://algeriacompass.com/contact/
+
+## Plan a trip
+- [Tours (all itineraries)](https://algeriacompass.com/tours/): Private guided tours — cultural, Sahara, city, and multi-day discovery trips.
+- [Luxury travel](https://algeriacompass.com/luxury/): High-end private programs and bespoke Algeria itineraries.
+- [Destinations](https://algeriacompass.com/destinations/): In-depth guides to Algeria's flagship places.
+- [Regions](https://algeriacompass.com/regions/): Algeria by region — Algiers, Sahara, Kabylie/Béjaïa, Constantine, Tlemcen, M'Zab, Roman east.
+- [Experiences](https://algeriacompass.com/experiences/): Ways to travel — desert, culture, history, food.
+- [Contact & trip planning](https://algeriacompass.com/contact/): Request a custom itinerary or quote.
+
+## Essential travel guides (independent, fact-checked)
+- [Complete Algeria travel guide](https://algeriacompass.com/blog/complete-algeria-travel-guide/): The full overview for first-time visitors.
+- [Is Algeria safe? Safety guide](https://algeriacompass.com/blog/algeria-safety-guide/): Honest, current safety guidance for travellers.
+- [Algeria visa guide](https://algeriacompass.com/blog/algeria-visa-guide/): Tourist visa and e-visa requirements and process.
+- [Best time to visit Algeria](https://algeriacompass.com/blog/best-time-to-visit-algeria/): Season-by-season weather and when to go where.
+- [Getting around Algeria (transport)](https://algeriacompass.com/blog/algeria-transportation-guide/): Flights, trains, roads, and desert logistics.
+- [Algerian Sahara travel guide](https://algeriacompass.com/blog/algerian-sahara-travel-guide/): Djanet, Tassili n'Ajjer, Timimoun, and desert travel.
+- [Algerian food guide](https://algeriacompass.com/blog/algerian-food-guide/): What to eat in Algeria — dishes, sweets, and regional specialities.
+- [Algerian handicrafts](https://algeriacompass.com/blog/algerian-handicrafts/): Traditional crafts and what to bring home.
+
+## UNESCO World Heritage & flagship destinations
+- [Algeria's UNESCO sites](https://algeriacompass.com/unesco/): All seven World Heritage sites in Algeria.
+- [Casbah of Algiers](https://algeriacompass.com/destinations/casbah-of-algiers/)
+- [Tassili n'Ajjer](https://algeriacompass.com/destinations/tassili-najjer/)
+- [M'Zab Valley](https://algeriacompass.com/destinations/mzab-valley/)
+- [Djémila (Roman city)](https://algeriacompass.com/destinations/djemila/)
+- [Timgad (Roman city)](https://algeriacompass.com/destinations/timgad/)
+- [Tipaza](https://algeriacompass.com/destinations/tipaza/)
+- [Beni Hammad Fort](https://algeriacompass.com/destinations/beni-hammad/)
+
+## Culture & background
+- [Algerian culture](https://algeriacompass.com/culture/)
+- [Algerian history](https://algeriacompass.com/history/)
+- [Common questions about Algeria](https://algeriacompass.com/questions/)
+
+## About & trust
+- [About Algeria Compass](https://algeriacompass.com/about/): Who we are — a licensed local operator.
+- [Editorial standards](https://algeriacompass.com/editorial/): Sourcing, fact-checking, and review policies.
+
+## Full index
+- [XML sitemap](https://algeriacompass.com/sitemap.xml)
