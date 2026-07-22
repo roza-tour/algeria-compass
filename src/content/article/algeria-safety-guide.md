@@ -64,7 +64,7 @@ seo:
   description: "A calm, sourced look at safety in Algeria: crime, roads, desert, women and family travel, regional differences, scams and emergencies — what advisories actually say."
   primaryKeyword: "is Algeria safe"
   keywords: ["is Algeria safe","Algeria safety","Algeria travel safety","solo travel Algeria","Algeria women travellers"]
-author: "editorial-team"
+author: "oussama-ben-yahia"
 reviewedBy: "editorial-review"
 lastReviewed: 2026-05-20
 published: 2026-05-20

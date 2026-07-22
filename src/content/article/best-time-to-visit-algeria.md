@@ -68,7 +68,7 @@ seo:
   description: "When to visit Algeria, region by region and month by month: coast, cities, mountains and Sahara, with climate tables, seasonal ratings and months to avoid."
   primaryKeyword: "best time to visit Algeria"
   keywords: ["best time to visit Algeria","Algeria weather","Algeria Sahara season","Algeria climate","when to go to Algeria"]
-author: "editorial-team"
+author: "oussama-ben-yahia"
 reviewedBy: "editorial-review"
 lastReviewed: 2026-05-20
 published: 2026-05-20

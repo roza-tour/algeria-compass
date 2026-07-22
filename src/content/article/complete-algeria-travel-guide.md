@@ -65,7 +65,7 @@ seo:
   description: "Africa's largest country, decoded: when to go, visas, safety, transport, budget, food, culture and sample itineraries — a sourced, in-depth guide to travelling Algeria."
   primaryKeyword: "Algeria travel guide"
   keywords: ["Algeria travel guide","visiting Algeria","Algeria trip planning","things to do in Algeria","Algeria itinerary"]
-author: "editorial-team"
+author: "oussama-ben-yahia"
 reviewedBy: "editorial-review"
 lastReviewed: 2026-05-20
 published: 2026-05-20

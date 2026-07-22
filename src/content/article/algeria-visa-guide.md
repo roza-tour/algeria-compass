@@ -67,7 +67,7 @@ seo:
   description: "Who needs an Algeria visa, which type, the documents, fees and processing times, the far-south desert exception, and how to avoid refusals — a sourced, practical guide."
   primaryKeyword: "Algeria visa"
   keywords: ["Algeria visa","Algeria visa requirements","Algeria tourist visa","do I need a visa for Algeria","Algeria visa documents"]
-author: "editorial-team"
+author: "oussama-ben-yahia"
 reviewedBy: "editorial-review"
 lastReviewed: 2026-05-20
 published: 2026-05-20

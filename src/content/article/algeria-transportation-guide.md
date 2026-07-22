@@ -67,7 +67,7 @@ seo:
   description: "Flights, trains, buses, shared taxis, trams and desert 4x4 in Algeria — routes, travel times, costs and booking advice in one sourced, practical guide."
   primaryKeyword: "transport in Algeria"
   keywords: ["transport in Algeria","getting around Algeria","Algeria trains","Algeria domestic flights","Algeria louage"]
-author: "editorial-team"
+author: "oussama-ben-yahia"
 reviewedBy: "editorial-review"
 lastReviewed: 2026-05-20
 published: 2026-05-20
