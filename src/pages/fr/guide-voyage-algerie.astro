@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
 const enUrl = site + '/blog/complete-algeria-travel-guide/';
 const alternates = [
@@ -21,6 +22,7 @@ const faqSchema = {
 };
 ---
 <BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+  <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Guide de voyage'}]} />
   <article class="section">
     <div class="wrap" style="max-width:780px">
       <span class="eyebrow">Guide de voyage</span>

@@ -1,5 +1,12 @@
 import { defineCollection, z, reference } from 'astro:content';
 
+// NOTE — two distinct concepts share the word "region", do not conflate them:
+//   1. THIS `region` field = a CONTENT THEME/zone (7 values) used only to group
+//      related content and set the [data-region] accent skin. It is NOT a place.
+//   2. src/data/regions.ts `REGIONS` = the 8 travel "worlds" surfaced at /regions/
+//      (algiers, constantine, roman, mzab, sahara, tlemcen, bejaia, bousaada).
+// They overlap only partially by design. When you mean a /regions/ world use REGIONS;
+// this enum is the editorial theme tag. (Rename to `theme`/`zone` is a future refactor.)
 const region = z.enum(['sahara','kabylie','roman','andalusian','mzab','coast','highlands']);
 
 const seo = z.object({

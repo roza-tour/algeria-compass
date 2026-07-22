@@ -1,4 +1,8 @@
 // Algeria Compass — REGIONS ("One country, eight worlds")
+// IMPORTANT: this REGIONS list (the 8 travel "worlds" at /regions/) is a SEPARATE
+// concept from the content-collection `region` theme enum in src/content/config.ts
+// (7 editorial theme tags). They share the word "region" but are not the same set —
+// see the note on `region` in content/config.ts. Use REGIONS for /regions/ pages.
 // Content sourced from the brand's design handoff (reference/regions/data.jsx),
 // cross-checked against the real photography in public/assets/img/tours/ and the
 // existing destination/province facts. No fabricated facts. Each region links
