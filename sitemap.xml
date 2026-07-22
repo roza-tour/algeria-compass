@@ -26,6 +26,10 @@
   <url><loc>https://algeriacompass.com/reviewers/</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
   <url><loc>https://algeriacompass.com/fr/</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
   <url><loc>https://algeriacompass.com/fr/guide-voyage-algerie/</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
+  <url><loc>https://algeriacompass.com/fr/visa-algerie/</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
+  <url><loc>https://algeriacompass.com/fr/securite-algerie/</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
+  <url><loc>https://algeriacompass.com/fr/quand-partir-algerie/</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
+  <url><loc>https://algeriacompass.com/fr/transport-algerie/</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
   <url><loc>https://algeriacompass.com/tours/algeria-cultural-tour/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
   <url><loc>https://algeriacompass.com/tours/djanet-sahara-safari/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
   <url><loc>https://algeriacompass.com/tours/ghardaia-guided-tour/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
@@ -54,64 +58,66 @@
   <url><loc>https://algeriacompass.com/regions/tlemcen/</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
   <url><loc>https://algeriacompass.com/regions/bejaia/</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
   <url><loc>https://algeriacompass.com/regions/bousaada/</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/algiers/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/annaba/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/batna/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/bejaia/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/blida/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/bousaada/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/constantine/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/djanet/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/ghardaia/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/mostaganem/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/oran/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/setif/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/timimoun/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/tipaza/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/provinces/tlemcen/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/destinations/beni-hammad/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/destinations/casbah-of-algiers/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/destinations/constantine/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/destinations/djanet/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/destinations/djemila/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/destinations/mzab-valley/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/destinations/tassili-najjer/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/destinations/timgad/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/destinations/tipaza/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/destinations/tlemcen/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/experiences/andalusian-kingdom-journey/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/experiences/bou-saada-oasis-escape/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/experiences/city-of-bridges-expedition/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/experiences/tassili-odyssey/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/algiers/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/annaba/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/batna/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/bejaia/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/blida/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/bousaada/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/constantine/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/djanet/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/ghardaia/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/mostaganem/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/oran/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/setif/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/timimoun/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/tipaza/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/provinces/tlemcen/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/destinations/beni-hammad/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/destinations/casbah-of-algiers/</loc><lastmod>2026-06-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/destinations/constantine/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/destinations/djanet/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/destinations/djemila/</loc><lastmod>2026-06-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/destinations/mzab-valley/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/destinations/tassili-najjer/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/destinations/timgad/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/destinations/tipaza/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/destinations/tlemcen/</loc><lastmod>2026-06-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/experiences/andalusian-kingdom-journey/</loc><lastmod>2026-06-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/experiences/bou-saada-oasis-escape/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/experiences/city-of-bridges-expedition/</loc><lastmod>2026-06-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/experiences/tassili-odyssey/</loc><lastmod>2026-06-01</lastmod><priority>0.8</priority></url>
   <url><loc>https://algeriacompass.com/blog/algeria-itinerary/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/blog/algeria-safety-guide/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/blog/algeria-transportation-guide/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/algeria-safety-guide/</loc><lastmod>2026-05-20</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/algeria-transportation-guide/</loc><lastmod>2026-05-20</lastmod><priority>0.8</priority></url>
   <url><loc>https://algeriacompass.com/blog/algeria-travel-cost/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/blog/algeria-visa-guide/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/blog/algerian-food-guide/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/blog/algerian-handicrafts/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/blog/algerian-sahara-travel-guide/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/blog/best-time-to-visit-algeria/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/blog/complete-algeria-travel-guide/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/blog/mzab-valley-le-corbusier/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/questions/do-i-need-a-visa-for-algeria/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/questions/how-do-you-get-around-in-algeria/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/questions/how-much-does-a-trip-to-algeria-cost/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/questions/is-algeria-safe/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/questions/what-are-algerias-unesco-world-heritage-sites/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/questions/what-languages-are-spoken-in-algeria/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/questions/when-is-the-best-time-to-visit-algeria/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/editorial/ai-usage-policy/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/editorial/author-guidelines/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/editorial/content-review-process/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/editorial/content-update-policy/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/editorial/corrections-policy/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/editorial/editorial-policy/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/editorial/fact-checking-policy/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/editorial/research-methodology/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/editorial/sources-policy/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/editorial/transparency-policy/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/team/editorial-team/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/algeria-visa-guide/</loc><lastmod>2026-05-20</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/algeria-vs-morocco/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/algerian-food-guide/</loc><lastmod>2026-05-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/algerian-handicrafts/</loc><lastmod>2026-05-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/algerian-sahara-travel-guide/</loc><lastmod>2026-05-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/best-time-to-visit-algeria/</loc><lastmod>2026-05-20</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/complete-algeria-travel-guide/</loc><lastmod>2026-05-20</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/mzab-valley-le-corbusier/</loc><lastmod>2026-05-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/blog/things-to-do-in-algeria/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/questions/do-i-need-a-visa-for-algeria/</loc><lastmod>2026-06-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/questions/how-do-you-get-around-in-algeria/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/questions/how-much-does-a-trip-to-algeria-cost/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/questions/is-algeria-safe/</loc><lastmod>2026-06-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/questions/what-are-algerias-unesco-world-heritage-sites/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/questions/what-languages-are-spoken-in-algeria/</loc><lastmod>2026-06-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/questions/when-is-the-best-time-to-visit-algeria/</loc><lastmod>2026-06-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/editorial/ai-usage-policy/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/editorial/author-guidelines/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/editorial/content-review-process/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/editorial/content-update-policy/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/editorial/corrections-policy/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/editorial/editorial-policy/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/editorial/fact-checking-policy/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/editorial/research-methodology/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/editorial/sources-policy/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/editorial/transparency-policy/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/team/editorial-team/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
   <url><loc>https://algeriacompass.com/team/oussama-ben-yahia/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://algeriacompass.com/reviewers/editorial-review/</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
+  <url><loc>https://algeriacompass.com/reviewers/editorial-review/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
 </urlset>

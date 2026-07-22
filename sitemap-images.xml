@@ -549,6 +549,10 @@
     <image:image><image:loc>https://algeriacompass.com/assets/img/algiers-white-city-aerial.jpg</image:loc><image:title>Aerial view of the white tiered buildings of Algiers above the Mediterranean</image:title></image:image>
   </url>
   <url>
+    <loc>https://algeriacompass.com/blog/algeria-vs-morocco/</loc>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/algiers-white-city-aerial.jpg</image:loc><image:title>The white tiered city of Algiers above its bay, compared with Morocco as a destination</image:title></image:image>
+  </url>
+  <url>
     <loc>https://algeriacompass.com/blog/algerian-food-guide/</loc>
     <image:image><image:loc>https://algeriacompass.com/assets/img/cuisine/algeria-cuisine-01.jpg</image:loc><image:title>A festive platter of Algerian couscous with seven vegetables</image:title></image:image>
   </url>
@@ -571,5 +575,9 @@
   <url>
     <loc>https://algeriacompass.com/blog/mzab-valley-le-corbusier/</loc>
     <image:image><image:loc>https://algeriacompass.com/assets/img/ghardaia-ksar-lane.jpg</image:loc><image:title>Ochre lane in the old ksar of the M Zab valley, Ghardaïa</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://algeriacompass.com/blog/things-to-do-in-algeria/</loc>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/casbah-old-city-mosque.jpg</image:loc><image:title>A mosque and the stepped lanes of the Casbah of Algiers, a top thing to do in Algeria</image:title></image:image>
   </url>
 </urlset>
