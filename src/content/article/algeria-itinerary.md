@@ -44,7 +44,7 @@ faqs:
   - { q: "Do you need a guide for an Algeria itinerary?", a: "Not in the north, where you can travel independently with patience. The deep south requires a licensed guide, 4x4 transport and permits, so those legs are arranged through an operator." }
 seo:
   title: "Algeria Itinerary: 7, 10 & 14-Day Plans (2026)"
-  description: "Ready-made Algeria itineraries for 7, 10 and 14 days — Algiers, the coast, the Roman east and the Sahara — with routes, seasons and the logistics that make them work."
+  description: "Ready-made Algeria itineraries for 7, 10 and 14 days — Algiers, the coast, the Roman east and the Sahara — with routes, seasons and logistics."
   primaryKeyword: "Algeria itinerary"
   keywords: ["Algeria itinerary","how many days in Algeria","Algeria 7 day itinerary","10 days in Algeria","2 weeks in Algeria","Algeria travel plan"]
 author: "oussama-ben-yahia"

@@ -28,7 +28,7 @@ faqs:
 
 seo:
   title: "Timgad: Rome's Best-Preserved Grid City in Algeria | Guide"
-  description: "Visit Timgad (Thamugadi) in Batna, Algeria — a UNESCO Roman city founded by Trajan, 'the Pompeii of Africa', with its arch, theatre and ancient library. What to see and how to go."
+  description: "Visit Timgad in Batna, Algeria — the UNESCO Roman city founded by Trajan, 'the Pompeii of Africa': its arch, theatre and library, and how to go."
   primaryKeyword: "Timgad Algeria"
   keywords: ["Timgad", "Thamugadi", "Roman Algeria", "Batna", "Trajan's arch", "UNESCO Algeria"]
 updated: 2026-06-07

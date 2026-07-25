@@ -30,7 +30,7 @@ faqs:
 
 seo:
   title: "Timimoun, Algeria: the Red Oasis of the Gourara — Travel Guide"
-  description: "Timimoun state, Algeria — the 'Red Oasis' of the Gourara: red Sudanese architecture, foggara water channels, palm groves, ksour and the UNESCO-listed Ahellil song. What to see and how to visit."
+  description: "Timimoun, the 'Red Oasis' of the Gourara: red Sudanese architecture, foggara water channels, palm groves, ksour and the UNESCO-listed Ahellil song."
   primaryKeyword: "Timimoun Algeria travel guide"
   keywords: ["Timimoun", "Gourara", "Red Oasis", "foggara", "Ahellil", "Algerian Sahara"]
 updated: 2026-06-07

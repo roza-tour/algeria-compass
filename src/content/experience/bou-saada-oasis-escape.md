@@ -30,7 +30,7 @@ sources:
   - { title: "Bou Saada", publisher: "Encyclopaedia Britannica", url: "https://www.britannica.com/place/Bou-Saada", type: "reference" }
 seo:
   title: "Bou Saada Oasis Escape — 2-Day Trip, Algeria"
-  description: "A two-day private trip to Bou Saada, an oasis town on the edge of the Algerian Sahara: palm grove, old ksar, the Moulin Ferrero gorge and the painter Dinet's legacy."
+  description: "A two-day private trip to Bou Saada, an oasis town on the Sahara's edge: palm grove, old ksar, the Moulin Ferrero gorge and the painter Dinet's legacy."
   primaryKeyword: "Bou Saada trip Algeria"
   keywords: ["Bou Saada","Bou Saada oasis","M'Sila","Étienne Dinet","Algeria desert gateway"]
 updated: 2026-06-03

@@ -30,7 +30,7 @@ faqs:
 
 seo:
   title: "Djanet, Algeria: Gateway to the Tassili & the Deep Sahara — Guide"
-  description: "Djanet state, Algeria — the Tuareg gateway to the UNESCO Tassili n'Ajjer rock art and the red Tadrart desert. What to see, the culture, and how to visit the deep Sahara."
+  description: "Djanet, Algeria — the Tuareg gateway to the UNESCO Tassili n'Ajjer rock art and the red Tadrart desert. What to see and how to visit the deep Sahara."
   primaryKeyword: "Djanet Algeria travel guide"
   keywords: ["Djanet", "Tassili n'Ajjer", "Tadrart", "Tuareg", "Algerian Sahara", "rock art"]
 updated: 2026-06-17

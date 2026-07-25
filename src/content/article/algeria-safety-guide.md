@@ -61,7 +61,7 @@ faqs:
   - { q: "What are the emergency numbers in Algeria?", a: "Police 17, Civil Protection (fire/rescue) 14, Gendarmerie 1055, and SAMU medical 115 — confirm locally, as numbers can vary." }
 seo:
   title: "Is Algeria Safe in 2026? An Evidence-Based Guide"
-  description: "A calm, sourced look at safety in Algeria: crime, roads, desert, women and family travel, regional differences, scams and emergencies — what advisories actually say."
+  description: "A calm, sourced look at safety in Algeria: crime, roads, desert, women and family travel, scams and emergencies — what advisories actually say."
   primaryKeyword: "is Algeria safe"
   keywords: ["is Algeria safe","Algeria safety","Algeria travel safety","solo travel Algeria","Algeria women travellers"]
 author: "oussama-ben-yahia"

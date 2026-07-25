@@ -9,7 +9,7 @@ keyFacts:
   - { label: "On our tours", value: "Private driver-guide throughout" }
 seo:
   title: "How Do You Get Around in Algeria? | Algeria Compass"
-  description: "Getting around Algeria: domestic flights for long Sahara distances, road travel between regions, city taxis and metro — and private transport on our guided tours."
+  description: "Getting around Algeria: domestic flights for long Sahara distances, road travel between regions, city taxis and metro — and private transport on our tours."
 updated: 2026-06-07
 primaryCluster: "algeria-transportation"
 cluster: "algeria-transportation"

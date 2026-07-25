@@ -64,7 +64,7 @@ faqs:
   - { q: "Why are Algeria visa applications refused?", a: "Most refusals are administrative — incomplete documents, missing accommodation proof, insufficient funds or inconsistent travel plans. A complete, consistent file is the best safeguard." }
 seo:
   title: "Algeria Visa Guide 2026: Types, Documents, Process"
-  description: "Who needs an Algeria visa, which type, the documents, fees and processing times, the far-south desert exception, and how to avoid refusals — a sourced, practical guide."
+  description: "Who needs an Algeria visa, which type, the documents, fees and processing times, the far-south desert exception, and how to avoid refusals."
   primaryKeyword: "Algeria visa"
   keywords: ["Algeria visa","Algeria visa requirements","Algeria tourist visa","do I need a visa for Algeria","Algeria visa documents"]
 author: "oussama-ben-yahia"

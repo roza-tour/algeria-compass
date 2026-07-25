@@ -28,7 +28,7 @@ faqs:
 
 seo:
   title: "Constantine, Algeria: the City of Bridges — Travel Guide"
-  description: "Constantine state, Algeria — the dramatic 'City of Bridges' on the Rhumel gorge: ancient Cirta, the Ahmed Bey Palace, the Cirta Museum, malouf music and how to visit eastern Algeria."
+  description: "Constantine, the 'City of Bridges' on the Rhumel gorge: ancient Cirta, the Ahmed Bey Palace, the Cirta Museum, malouf music and how to visit."
   primaryKeyword: "Constantine Algeria travel guide"
   keywords: ["Constantine", "Cirta", "City of Bridges", "Rhumel gorge", "Ahmed Bey Palace", "malouf"]
 updated: 2026-06-17

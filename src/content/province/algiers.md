@@ -39,7 +39,7 @@ faqs:
 
 seo:
   title: "Algiers Travel Guide: The Casbah, Coast & Capital"
-  description: "Plan Algiers, Algeria's white Mediterranean capital: the UNESCO Casbah, colonial boulevards, the Great Mosque, monuments, museums, food, transport and day trips."
+  description: "Plan Algiers, Algeria's white Mediterranean capital: the UNESCO Casbah, colonial boulevards, the Great Mosque, museums, food and day trips."
   primaryKeyword: "Algiers Algeria travel guide"
   keywords: ["Casbah of Algiers","Algiers Algeria","Alger la Blanche","Notre-Dame d'Afrique","Tipaza","things to do in Algiers"]
 updated: 2026-06-03

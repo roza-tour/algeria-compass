@@ -27,8 +27,8 @@ faqs:
   - { q: "Who are the Ibadi Mozabites?", a: "An Amazigh Muslim community following Ibadi Islam, who withdrew deep into the Sahara around the 11th century to live by strict, communal rules. They have their own language (Tumzabt), a distinctive dress, and a famously disciplined commercial culture, and have maintained the valley's fabric and way of life with remarkable continuity." }
 
 seo:
-  title: "The M'Zab Valley (Ghardaïa): Algeria's UNESCO Desert Towns | Guide"
-  description: "Visit the M'Zab Valley around Ghardaïa — five UNESCO-listed Ibadi oasis towns in the Algerian Sahara, with pyramidal minarets, palm groves and a design that inspired Le Corbusier."
+  title: "M'Zab Valley, Ghardaïa: Algeria's UNESCO Desert Towns"
+  description: "Visit the M'Zab Valley near Ghardaïa — five UNESCO-listed Ibadi oasis towns with pyramidal minarets, palm groves and the design that inspired Le Corbusier."
   primaryKeyword: "M'Zab Valley Algeria"
   keywords: ["M'Zab Valley", "Ghardaïa", "Mozabite", "Beni Isguen", "Ibadi", "UNESCO Algeria", "Le Corbusier"]
 updated: 2026-06-17

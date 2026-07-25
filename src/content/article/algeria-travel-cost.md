@@ -46,7 +46,7 @@ faqs:
   - { q: "What is the most expensive part of an Algeria trip?", a: "After international flights, the guided Sahara is the biggest cost, because it involves licensed guides, 4x4 transport, permits and internal flights. The northern part of a trip is comparatively affordable." }
 seo:
   title: "Algeria Trip Cost: 2026 Budget Guide"
-  description: "Is Algeria expensive? A current breakdown of accommodation, food, transport, guides and Sahara costs — plus the dual exchange rate that changes your budget on the ground."
+  description: "Is Algeria expensive? A current breakdown of accommodation, food, transport, guides and Sahara costs — plus the dual exchange rate that changes your budget."
   primaryKeyword: "Algeria travel cost"
   keywords: ["Algeria travel cost","is Algeria expensive","Algeria trip budget","cost of traveling in Algeria","Algeria daily budget","Algeria money"]
 author: "oussama-ben-yahia"

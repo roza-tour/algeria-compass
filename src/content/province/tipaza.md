@@ -28,7 +28,7 @@ faqs:
 
 seo:
   title: "Tipaza, Algeria: Roman Ruins by the Sea — Travel Guide"
-  description: "Tipaza state, Algeria: UNESCO Roman ruins on the Mediterranean, the Royal Mausoleum of Mauretania, Cherchell's museum and coastal beaches — what to see, history and how to visit from Algiers."
+  description: "Tipaza, Algeria: UNESCO Roman ruins on the Mediterranean, the Royal Mausoleum of Mauretania, Cherchell's museum and beaches — a day trip from Algiers."
   primaryKeyword: "Tipaza Algeria travel guide"
   keywords: ["Tipaza", "Tipasa", "Roman Algeria", "Cherchell", "Royal Mausoleum of Mauretania"]
 updated: 2026-06-17

@@ -40,7 +40,7 @@ faqs:
   - { q: "Do children need a visa for Algeria?", a: "Children need their own visa on the same basis as adults, with their own passport and application. Requirements vary by consulate and some ask for additional documentation for minors, so start the process early — see our visa guide." }
 seo:
   title: "Algeria with Kids: Family Travel Guide (2026)"
-  description: "Is Algeria good for families? What works with children — coast, Roman cities and oasis towns — what to skip, and the practicalities of food, health and transport."
+  description: "Is Algeria good for families? What works with children — coast, Roman cities, oasis towns — what to skip, and the food, health and transport practicalities."
   primaryKeyword: "Algeria family travel"
   keywords: ["Algeria with kids","Algeria family travel","family holiday Algeria","travelling Algeria with children","Algeria for families"]
 author: "oussama-ben-yahia"

@@ -62,7 +62,7 @@ faqs:
   - { q: "Do I need cash or cards?", a: "Carry cash (dinars). ATMs exist in cities but card acceptance is limited; bring some euros to change." }
 seo:
   title: "The Complete Algeria Travel Guide (2026) | Algeria Compass"
-  description: "Africa's largest country, decoded: when to go, visas, safety, transport, budget, food, culture and sample itineraries — a sourced, in-depth guide to travelling Algeria."
+  description: "Africa's largest country, decoded: when to go, visas, safety, transport, budget, food, culture and sample itineraries — a sourced, in-depth guide."
   primaryKeyword: "Algeria travel guide"
   keywords: ["Algeria travel guide","visiting Algeria","Algeria trip planning","things to do in Algeria","Algeria itinerary"]
 author: "oussama-ben-yahia"

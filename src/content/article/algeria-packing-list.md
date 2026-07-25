@@ -31,7 +31,7 @@ faqs:
   - { q: "Do I need a power adapter for Algeria?", a: "Algeria uses European-style type C and F plugs at 230V. Bring a suitable adapter and, for the desert, a power bank since electricity is limited on expeditions." }
 seo:
   title: "Algeria Packing List: What to Bring (2026)"
-  description: "What to pack for Algeria — cities, coast and Sahara. Clothing, cash, documents, medications and the desert kit travellers forget. A practical, sourced checklist."
+  description: "What to pack for Algeria — cities, coast and Sahara. Clothing, cash, documents, medication and the desert kit travellers always forget."
   primaryKeyword: "Algeria packing list"
   keywords: ["Algeria packing list","what to pack for Algeria","what to wear in Algeria","Algeria Sahara packing","Algeria travel essentials"]
 author: "oussama-ben-yahia"

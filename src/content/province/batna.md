@@ -28,7 +28,7 @@ faqs:
 
 seo:
   title: "Batna, Algeria: Timgad & the Aurès Mountains — Travel Guide"
-  description: "Batna state, Algeria: the UNESCO Roman city of Timgad, the Imedghassen mausoleum, and the Chaoui Aurès mountains — history, culture and how to visit eastern Algeria."
+  description: "Batna, Algeria: the UNESCO Roman city of Timgad, the Imedghassen mausoleum and the Chaoui Aurès mountains — history, culture and how to visit."
   primaryKeyword: "Batna Algeria travel guide"
   keywords: ["Batna", "Timgad", "Aurès", "Chaoui", "Imedghassen", "Roman Algeria"]
 updated: 2026-06-07

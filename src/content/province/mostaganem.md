@@ -30,7 +30,7 @@ faqs:
 
 seo:
   title: "Mostaganem, Algeria: Mediterranean Beaches & Old Town — Guide"
-  description: "Mostaganem state, Algeria — a western Mediterranean coast of beaches, an Ottoman port, the Tigditt old town and Bordj Ettork, with a rich theatre tradition. What to see and how to visit."
+  description: "Mostaganem, Algeria — a western Mediterranean coast of beaches, an Ottoman port, the Tigditt old town, Bordj Ettork and a rich theatre tradition."
   primaryKeyword: "Mostaganem Algeria travel guide"
   keywords: ["Mostaganem", "western Algeria", "Tigditt", "Bordj Ettork", "Algerian beaches"]
 updated: 2026-06-07

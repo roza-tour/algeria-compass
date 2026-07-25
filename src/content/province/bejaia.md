@@ -34,7 +34,7 @@ faqs:
 
 seo:
   title: "Béjaïa Travel Guide: Kabylie Coast, Gouraya & Cap Carbon"
-  description: "Plan Béjaïa, Algeria, where the Kabylie mountains meet the sea: Gouraya National Park, Cap Carbon, the Corniche beaches, the Kherrata gorges, Amazigh culture and how to visit."
+  description: "Plan Béjaïa, where the Kabylie mountains meet the sea: Gouraya National Park, Cap Carbon, the Corniche beaches, the Kherrata gorges and Amazigh culture."
   primaryKeyword: "Béjaïa Algeria travel guide"
   keywords: ["Béjaïa","Gouraya National Park","Cap Carbon","Kabylie coast","Kherrata gorges","Bgayet"]
 updated: 2026-06-03

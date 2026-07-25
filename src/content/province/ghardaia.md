@@ -34,7 +34,7 @@ faqs:
 
 seo:
   title: "Ghardaïa & the M'Zab Valley: Travel Guide"
-  description: "Plan Ghardaïa, Algeria, and the UNESCO M'Zab Valley: the five Mozabite towns, palm groves, markets, the design that influenced Le Corbusier, etiquette and how to visit."
+  description: "Plan Ghardaïa and the UNESCO M'Zab Valley: the five Mozabite towns, palm groves, markets, the design that influenced Le Corbusier, and etiquette."
   primaryKeyword: "Ghardaïa M'Zab Valley travel"
   keywords: ["Ghardaïa","M'Zab Valley","Beni Isguen","Mozabite","Ghardaia Algeria","Le Corbusier M'Zab"]
 updated: 2026-06-17

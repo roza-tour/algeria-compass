@@ -29,7 +29,7 @@ faqs:
 
 seo:
   title: "Bou Saada, Algeria: the 'City of Happiness' Oasis — Travel Guide"
-  description: "Bou Saada, Algeria — an oasis town in M'Sila on the edge of the Sahara: its palm grove and waterfall, the Ferrero Mill, craft markets, the painter Dinet and the El Hamel zawiya."
+  description: "Bou Saada, Algeria — an oasis town on the Sahara's edge: its palm grove and waterfall, the Ferrero Mill, craft markets and the El Hamel zawiya."
   primaryKeyword: "Bou Saada Algeria travel guide"
   keywords: ["Bou Saada", "City of Happiness", "M'Sila", "Nasreddine Dinet", "El Hamel", "Algerian oasis"]
 updated: 2026-06-07

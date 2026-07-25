@@ -28,7 +28,7 @@ faqs:
 
 seo:
   title: "Tlemcen, Algeria: Andalusian Heritage & Music — Travel Guide"
-  description: "Tlemcen state, Algeria — the cultural capital of Andalusian Algeria: the Great Mosque, Mansourah, El Mechouar palace, Sidi Boumediene, the El Ourit waterfalls and gharnati music."
+  description: "Tlemcen, the capital of Andalusian Algeria: the Great Mosque, Mansourah, El Mechouar palace, Sidi Boumediene, El Ourit waterfalls and gharnati music."
   primaryKeyword: "Tlemcen Algeria travel guide"
   keywords: ["Tlemcen", "Andalusian Algeria", "Great Mosque of Tlemcen", "Mansourah", "Sidi Boumediene", "gharnati"]
 updated: 2026-06-17

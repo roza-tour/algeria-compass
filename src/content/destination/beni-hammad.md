@@ -26,7 +26,7 @@ faqs:
 
 seo:
   title: "Al Qal'a of Beni Hammad: Algeria's Hammadid Capital | Guide"
-  description: "Al Qal'a of Beni Hammad, M'Sila — a UNESCO site and the ruined 11th-century capital of the Hammadid dynasty, with the largest mosque minaret in Algeria. What it is and how to visit."
+  description: "Al Qal'a of Beni Hammad, M'Sila — a UNESCO site and ruined 11th-century Hammadid capital, with the tallest mosque minaret in Algeria. How to visit."
   primaryKeyword: "Al Qal'a of Beni Hammad"
   keywords: ["Al Qal'a of Beni Hammad", "Beni Hammad Fort", "Hammadid", "M'Sila", "UNESCO Algeria"]
 updated: 2026-06-07
