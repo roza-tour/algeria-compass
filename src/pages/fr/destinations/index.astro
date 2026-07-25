@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { DESTINATIONS_FR } from '../../../data/destinations-fr';
+import { alternatesFor } from '../../../i18n';
 
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const en = await getCollection('destination');
@@ -16,11 +17,7 @@ const rows = DESTINATIONS_FR.map(d => ({
 
 const title = "Destinations en Algérie : sites UNESCO et incontournables";
 const description = "Les destinations à voir en Algérie : les sept sites classés UNESCO — Timgad, Djémila, Tipaza, la vallée du M'Zab, la Casbah, le Tassili, Beni Hammad — et plus.";
-const alternates = [
-  { hreflang: 'en', href: site + '/destinations/' },
-  { hreflang: 'fr', href: site + '/fr/destinations/' },
-  { hreflang: 'x-default', href: site + '/destinations/' },
-];
+const alternates = alternatesFor(site, { en: '/destinations/', fr: '/fr/destinations/', it: '/it/destinazioni/' });
 const itemList = {
   '@type': 'ItemList',
   '@id': `${site}/fr/destinations/#liste`,

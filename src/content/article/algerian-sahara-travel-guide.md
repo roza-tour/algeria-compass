@@ -25,6 +25,7 @@ occasionNote: "The Tassili n'Ajjer, the Tadrart and the Hoggar — a guided, win
 published: 2026-05-01
 updated: 2026-05-01
 frAlt: "/fr/sahara-algerie/"
+itAlt: "/it/sahara-algeria/"
 primaryCluster: "algeria-sahara"
 cluster: "algeria-sahara"
 secondaryClusters: ["algeria-travel-planning", "algeria-photography"]

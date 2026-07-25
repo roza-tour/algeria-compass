@@ -3,8 +3,9 @@ export interface Props {
   title: string; description: string; canonical?: string;
   image?: string; imageAlt?: string; type?: string; keywords?: string | string[]; noindex?: boolean; lang?: string;
 }
+import { asLang, LANG_META } from '../i18n';
 const { title, description, image = '/assets/img/og-image.png', imageAlt, type = 'website', keywords, noindex = false, lang = 'en' } = Astro.props;
-const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
+const ogLocale = LANG_META[asLang(lang)].ogLocale;
 const BRAND = 'Algeria Compass';
 // Google truncates SERP titles at roughly 60-65 characters. Only append the brand
 // suffix when the result still fits — otherwise the authored (keyword-first) title

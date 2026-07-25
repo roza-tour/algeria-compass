@@ -9,6 +9,8 @@ import { skinForTour } from '../../data/civSkins.mjs';
 import InquiryForm from '../../components/InquiryForm.astro';
 import { CONTACT } from '../../config';
 import { TOURS_FR } from '../../data/tours-fr';
+import { TOURS_IT } from '../../data/tours-it';
+import { alternatesFor } from '../../i18n';
 
 const tours = (data as any).tours || (data as any);
 
@@ -28,11 +30,13 @@ const { tour } = Astro.props as { tour: any };
 // Bidirectional hreflang: only tours that actually have a French detail page are
 // paired, so no hreflang ever points at a URL that is not built.
 const siteUrl = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
-const frAlternates = TOURS_FR[tour.id]?.full ? [
-  { hreflang: 'en', href: `${siteUrl}/tours/${tour.id}/` },
-  { hreflang: 'fr', href: `${siteUrl}/fr/circuits/${tour.id}/` },
-  { hreflang: 'x-default', href: `${siteUrl}/tours/${tour.id}/` },
-] : [];
+const frAlternates = (TOURS_FR[tour.id]?.full || TOURS_IT[tour.id]?.full)
+  ? alternatesFor(siteUrl, {
+      en: `/tours/${tour.id}/`,
+      fr: TOURS_FR[tour.id]?.full ? `/fr/circuits/${tour.id}/` : undefined,
+      it: TOURS_IT[tour.id]?.full ? `/it/circuiti/${tour.id}/` : undefined,
+    })
+  : [];
 
 // Internal-linking: connect this tour to the State pages it actually visits, and to
 // similar tours — so tour pages are no longer crawl dead-ends. Provinces are filtered

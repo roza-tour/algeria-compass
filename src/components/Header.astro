@@ -4,10 +4,10 @@
 // into accessible dropdowns (Tours / Explore / Guides). Desktop opens them on
 // hover, focus or click; on mobile the menu shows every link flat, grouped
 // under small headings, so nothing is hidden behind an extra tap.
-// Language-aware: pass lang="fr" for the French navigation.
-interface Props { lang?: 'en' | 'fr' }
-const { lang = 'en' } = Astro.props;
-const isFr = lang === 'fr';
+// Language-aware: pass lang="fr" / "it" for the translated navigation.
+import { asLang, LANGS, LANG_META, t as tr, type Lang } from '../i18n';
+interface Props { lang?: string }
+const lang = asLang(Astro.props.lang);
 
 type Item = { href: string; label: string };
 type Entry = { href?: string; label: string; items?: Item[] };
@@ -58,15 +58,40 @@ const navFr: Entry[] = [
   { href: '/contact/', label: 'Contact' },
 ];
 
-const nav = isFr ? navFr : navEn;
-const logoHref = isFr ? '/fr/' : '/';
-const ctaLabel = isFr ? 'Planifier' : 'Plan a Trip';
-const waMobileLabel = isFr ? 'Nous écrire sur WhatsApp' : 'WhatsApp us';
-const langToggle = isFr ? { href: '/', label: 'EN' } : { href: '/fr/', label: 'FR' };
+const navIt: Entry[] = [
+  { href: '/it/', label: 'Home' },
+  { label: 'Viaggi', items: [
+    { href: '/it/circuiti/', label: 'Tutti i viaggi' },
+    { href: '/luxury/', label: 'Collezione lusso' },
+    { href: '/experiences/', label: 'Esperienze' },
+  ]},
+  { label: 'Esplora', items: [
+    { href: '/it/destinazioni/', label: 'Destinazioni' },
+    { href: '/provinces/', label: 'Province' },
+    { href: '/regions/', label: 'Regioni' },
+    { href: '/unesco/', label: 'Siti UNESCO' },
+  ]},
+  { label: 'Guide', items: [
+    { href: '/it/guida-viaggio-algeria/', label: 'Guida completa' },
+    { href: '/it/visto-algeria/', label: 'Visto' },
+    { href: '/it/sahara-algeria/', label: 'Sahara' },
+    { href: '/it/quando-andare-algeria/', label: 'Quando andare' },
+  ]},
+  { href: '/contact/', label: 'Contatti' },
+];
+
+const NAVS: Record<Lang, Entry[]> = { en: navEn, fr: navFr, it: navIt };
+
+const nav = NAVS[lang];
+const logoHref = LANG_META[lang].home;
+const ctaLabel = tr(lang, 'planTrip');
+const waMobileLabel = tr(lang, 'waMobile');
+// Every other language, so the switcher scales past two.
+const otherLangs = LANGS.filter(l => l !== lang).map(l => ({ ...LANG_META[l], code: l }));
 
 const path = Astro.url.pathname;
-const isActive = (href: string) =>
-  href === '/' ? path === '/' : (href === '/fr/' ? path === '/fr/' : path.startsWith(href));
+const HOMES = new Set(Object.values(LANG_META).map(m => m.home));
+const isActive = (href: string) => HOMES.has(href) ? path === href : path.startsWith(href);
 const groupActive = (e: Entry) => !!e.items?.some(i => isActive(i.href));
 ---
 <div class="id-band" aria-hidden="true"></div>
@@ -95,7 +120,9 @@ const groupActive = (e: Entry) => !!e.items?.some(i => isActive(i.href));
       ) : (
         <li><a href={e.href} class={isActive(e.href!) ? 'active' : undefined}>{e.label}</a></li>
       ))}
-      <li><a href={langToggle.href} class="nav-lang" hreflang={langToggle.label.toLowerCase()} aria-label={isFr ? 'Switch to English' : 'Passer en français'}>{langToggle.label}</a></li>
+      {otherLangs.map(l => (
+        <li><a href={l.home} class="nav-lang" hreflang={l.code} aria-label={`${tr(lang, 'languageAria')} — ${l.name}`}>{l.label}</a></li>
+      ))}
       <li class="nav-mobile-only"><a href="https://wa.me/213784193176" target="_blank" rel="noopener" aria-label={waMobileLabel}>{waMobileLabel}</a></li>
     </ul>
 

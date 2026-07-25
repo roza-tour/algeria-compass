@@ -2,14 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import data from '../../data/tours.json';
 import TourCard from '../../components/TourCard.astro';
+import { alternatesFor } from '../../i18n';
 const tours = ((data as any).tours || (data as any)) as any[];
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 // Bidirectional hreflang with the French catalogue at /fr/circuits/.
-const alternates = [
-  { hreflang: 'en', href: site + '/tours/' },
-  { hreflang: 'fr', href: site + '/fr/circuits/' },
-  { hreflang: 'x-default', href: site + '/tours/' },
-];
+const alternates = alternatesFor(site, { en: '/tours/', fr: '/fr/circuits/', it: '/it/circuiti/' });
 ---
 <BaseLayout
   title="Algeria Tours & Private Journeys | Algeria Compass"

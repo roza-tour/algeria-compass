@@ -7,6 +7,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import data from '../../../data/tours.json';
 import { TOUR_VISUALS } from '../../../data/tour-visuals';
 import { TOURS_FR } from '../../../data/tours-fr';
+import { alternatesFor } from '../../../i18n';
 
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const tours = (((data as any).tours || data) as any[]);
@@ -30,11 +31,7 @@ const rows = tours.map(t => {
 
 const title = "Circuits privés en Algérie — voyages sur mesure | Algeria Compass";
 const description = "Nos circuits privés en Algérie : Sahara et Tadrart, vallée du M'Zab, cités romaines, Alger et la côte. Voyagiste algérien agréé, guides francophones.";
-const alternates = [
-  { hreflang: 'en', href: site + '/tours/' },
-  { hreflang: 'fr', href: site + '/fr/circuits/' },
-  { hreflang: 'x-default', href: site + '/tours/' },
-];
+const alternates = alternatesFor(site, { en: '/tours/', fr: '/fr/circuits/', it: '/it/circuiti/' });
 const itemList = {
   '@type': 'ItemList',
   '@id': `${site}/fr/circuits/#circuits`,

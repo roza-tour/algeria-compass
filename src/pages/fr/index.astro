@@ -1,11 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { alternatesFor } from '../../i18n';
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
-const alternates = [
-  { hreflang: 'en', href: site + '/' },
-  { hreflang: 'fr', href: site + '/fr/' },
-  { hreflang: 'x-default', href: site + '/' },
-];
+const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/' });
 const title = "Voyage en Algérie — circuits privés et guides experts";
 const description = "Algeria Compass, voyagiste algérien agréé : circuits privés culturels et sahariens sur mesure, accompagnement visa et guides locaux francophones.";
 ---

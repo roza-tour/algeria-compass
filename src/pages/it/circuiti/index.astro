@@ -1,0 +1,126 @@
+---
+// French tours index. Cards are fully translated for every tour; a tour links to
+// its French detail page when one exists, otherwise to the English page, which
+// is honest rather than shipping a half-translated page.
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import data from '../../../data/tours.json';
+import { TOUR_VISUALS } from '../../../data/tour-visuals';
+import { TOURS_IT } from '../../../data/tours-it';
+import { alternatesFor } from '../../../i18n';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const tours = (((data as any).tours || data) as any[]);
+const currency = (data as any).currency || 'EUR';
+
+const rows = tours.map(t => {
+  const fr = TOURS_IT[t.id];
+  const v = TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
+  return {
+    id: t.id,
+    href: fr?.full ? `/it/circuiti/${t.id}/` : `/tours/${t.id}/`,
+    italianPage: !!fr?.full,
+    title: fr?.title || t.title,
+    duration: fr?.duration || t.duration,
+    hook: fr?.hook || t.summary,
+    price: t.price_eur,
+    hero: v.hero,
+    accent: v.accent,
+  };
+});
+
+const title = "Viaggi privati in Algeria — tour su misura | Algeria Compass";
+const description = "I nostri viaggi privati in Algeria: Sahara e Tadrart, valle del M'Zab, città romane, Algeri e la costa. Tour operator algerino autorizzato.";
+const alternates = alternatesFor(site, { en: '/tours/', fr: '/fr/circuits/', it: '/it/circuiti/' });
+const itemList = {
+  '@type': 'ItemList',
+  '@id': `${site}/it/circuiti/#viaggi`,
+  name: 'Viaggi privati in Algeria',
+  numberOfItems: rows.length,
+  itemListElement: rows.map((r, i) => ({
+    '@type': 'ListItem', position: i + 1, name: r.title, url: site + r.href,
+  })),
+};
+const collection = {
+  '@type': 'CollectionPage',
+  '@id': `${site}/it/circuiti/#collection`,
+  name: 'Viaggi privati in Algeria',
+  description,
+  inLanguage: 'it',
+  url: `${site}/it/circuiti/`,
+  isPartOf: { '@id': `${site}/#website` },
+  about: { '@id': `${site}/#algeria` },
+  mainEntity: { '@id': `${site}/it/circuiti/#viaggi` },
+};
+---
+<BaseLayout title={title} description={description} lang="it" alternates={alternates}
+  image="/assets/img/tours/djanet-1.jpg" schema={[collection, itemList]}
+  keywords={["viaggio Algeria","tour Algeria","viaggio Sahara Algeria","viaggio organizzato Algeria","tour operator Algeria"]}>
+  <section class="hero" style="min-height:42vh">
+    <img src="/assets/img/tours/djanet-1.jpg" alt="Dune del Sahara algerino vicino a Djanet" width="1600" height="900" fetchpriority="high" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">{rows.length} viaggi privati</div>
+      <h1>Viaggi privati in Algeria</h1>
+      <p>Viaggi privati e guidati in tutta l'Algeria — dal Sahara profondo alle città romane del nord e alla costa mediterranea.</p>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[{name:'Home',href:'/it/'},{name:'Viaggi'}]} />
+
+  <section class="section"><div class="wrap">
+    <p class="fr-intro">
+      Algeria Compass è un <strong>tour operator algerino autorizzato</strong> con sede ad Algeri. Tutti i nostri
+      viaggi sono <strong>privati</strong>: la vostra guida, il vostro veicolo, il vostro ritmo — nulla è condiviso
+      con altri gruppi. Forniamo l'invito e il programma confermato che i consolati richiedono per il
+      <a href="/it/visto-algeria/">visto algerino</a>.
+      Per scegliere il periodo, vedete <a href="/it/quando-andare-algeria/">quando andare in Algeria</a>.
+    </p>
+
+    <div class="grid fr-grid">
+      {rows.map((r, i) => (
+        <a class="frcard" href={r.href} style={`--accent:${r.accent}`}>
+          <div class="frcard-img">
+            <picture>
+              <source srcset={`/assets/img/thumbs/tours/${r.hero.replace(/\.(jpe?g|png)$/i, '.webp')}`} type="image/webp" />
+              <img src={`/assets/img/thumbs/tours/${r.hero}`} alt={r.title} width="400" height="250" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />
+            </picture>
+            <span class="frcard-badge">Privato</span>
+          </div>
+          <div class="frcard-body">
+            <span class="frcard-dur">{r.duration}</span>
+            <h2>{r.title}</h2>
+            <p>{r.hook}</p>
+            <span class="frcard-foot">
+              <strong>da {r.price} €</strong>
+              <span class="frcard-go">{r.italianPage ? 'Vedi il viaggio →' : 'Dettagli (in inglese) →'}</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <p class="fr-note">
+      I viaggi senza pagina italiana dettagliata sono descritti in inglese, ma si prenotano e si
+      organizzano come tutti gli altri. Scriveteci in italiano:
+      <a href="/contact/">modulo di contatto</a> o WhatsApp.
+    </p>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .fr-intro{max-width:780px;color:var(--text-m);margin-bottom:1.6rem}
+  .fr-note{max-width:780px;color:var(--text-l);font-size:.88rem;margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border)}
+  .fr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
+  .frcard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;color:var(--text);box-shadow:0 2px 14px rgba(7,38,28,.06)}
+  .frcard:hover{transform:translateY(-3px);transition:.18s;border-color:var(--gold);text-decoration:none}
+  .frcard-img{position:relative;aspect-ratio:16/10;background:var(--wash)}
+  .frcard-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .frcard-badge{position:absolute;top:.6rem;left:.6rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(7,38,28,.86);color:#fff;padding:.24rem .6rem;border-radius:999px}
+  .frcard-body{display:flex;flex-direction:column;gap:.4rem;padding:1rem 1.1rem 1.2rem;flex:1}
+  .frcard-dur{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .frcard-body h2{font-size:1.05rem;line-height:1.3;margin:0}
+  .frcard-body p{font-size:.88rem;line-height:1.55;color:var(--text-m);margin:0;flex:1}
+  .frcard-foot{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin-top:.5rem;flex-wrap:wrap}
+  .frcard-foot strong{font-size:1rem}
+  .frcard-go{font-size:.8rem;font-weight:700;color:var(--accent)}
+</style>

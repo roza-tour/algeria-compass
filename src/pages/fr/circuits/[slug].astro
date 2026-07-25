@@ -7,6 +7,8 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import data from '../../../data/tours.json';
 import { TOUR_VISUALS } from '../../../data/tour-visuals';
 import { TOURS_FR, type TourFr } from '../../../data/tours-fr';
+import { TOURS_IT } from '../../../data/tours-it';
+import { alternatesFor } from '../../../i18n';
 import { CONTACT } from '../../../config';
 
 export async function getStaticPaths() {
@@ -31,11 +33,11 @@ const REGION: Record<string, string> = {
 
 const title = fr.seoTitle || fr.title;
 const description = fr.seoDescription || fr.hook;
-const alternates = [
-  { hreflang: 'en', href: enUrl },
-  { hreflang: 'fr', href: url },
-  { hreflang: 'x-default', href: enUrl },
-];
+const alternates = alternatesFor(site, {
+  en: `/tours/${tour.id}/`,
+  fr: `/fr/circuits/${tour.id}/`,
+  it: TOURS_IT[tour.id]?.full ? `/it/circuiti/${tour.id}/` : undefined,
+});
 
 // Other French circuits, for internal linking
 const others = (((data as any).tours || data) as any[])

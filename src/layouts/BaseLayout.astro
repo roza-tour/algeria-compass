@@ -10,6 +10,7 @@ import Footer from '../components/Footer.astro';
 import SchemaGraph from '../components/SchemaGraph.astro';
 import Analytics from '../components/Analytics.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import { asLang, t as tr } from '../i18n';
 import SeasonAmbience from '../components/SeasonAmbience.astro';
 import SeasonBanner from '../components/SeasonBanner.astro';
 import { seasonForDate } from '../lib/season';
@@ -62,15 +63,15 @@ const siteSeason = (import.meta.env.SEASON_PREVIEW as string) || seasonForDate(n
 </head>
 <body class={bodyClass}>
   <SeasonAmbience />
-  <a href="#main" class="skip-link">{lang === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
+  <a href="#main" class="skip-link">{tr(asLang(lang), 'skip')}</a>
   <Header lang={lang} />
   <SeasonBanner lang={lang} />
   <main id="main">
     <slot />
   </main>
   <Footer lang={lang} />
-  {sticky && <StickyContact lang={lang === "fr" ? "fr" : "en"} />}
-  <CookieConsent lang={lang === "fr" ? "fr" : "en"} />
+  {sticky && <StickyContact lang={lang} />}
+  <CookieConsent lang={lang} />
   <script is:inline>
     /* Shared scroll-reveal. Content is visible by default; the hidden state is
        only applied when motion is allowed AND the tab is visible, so print,

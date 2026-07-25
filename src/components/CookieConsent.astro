@@ -3,19 +3,15 @@
 // Hidden by default; shown only when no choice is stored. Accept → analytics
 // consent granted; Decline → stays denied. Choice persisted in localStorage.
 import { ANALYTICS } from '../config';
+import { asLang, t as tr } from '../i18n';
 const enabled = !!ANALYTICS.ga4;
 // The notice is shown on French pages too, so it speaks the page's language.
-interface Props { lang?: 'en' | 'fr' }
-const { lang = 'en' } = Astro.props;
-const t = lang === 'fr'
-  ? { label: 'Avis relatif aux cookies',
-      body: "Nous utilisons des cookies uniquement pour comprendre comment le site est consulté (Google Analytics). Rien n'est déposé sans votre accord. Voir nos ",
-      link: 'règles éditoriales et de confidentialité',
-      decline: 'Refuser', accept: 'Accepter' }
-  : { label: 'Cookie notice',
-      body: 'We use cookies only to understand how visitors use the site (Google Analytics). Nothing is set until you agree. See our ',
-      link: 'privacy & editorial standards',
-      decline: 'Decline', accept: 'Accept analytics' };
+interface Props { lang?: string }
+const lang = asLang(Astro.props.lang);
+const t = {
+  label: tr(lang, 'cookieLabel'), body: tr(lang, 'cookieBody'), link: tr(lang, 'cookieLink'),
+  decline: tr(lang, 'cookieDecline'), accept: tr(lang, 'cookieAccept'),
+};
 ---
 {enabled && (
   <div id="cookie-consent" class="cc" role="dialog" aria-live="polite" aria-label={t.label} hidden>

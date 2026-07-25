@@ -6,8 +6,9 @@
 // again). Rendered server-side, so no layout shift for non-dismissers.
 import { seasonForDate, upcomingWindows, type Season } from '../lib/season';
 
-interface Props { lang?: 'en' | 'fr' }
-const { lang = 'en' } = Astro.props;
+import { asLang, t as tr } from '../i18n';
+interface Props { lang?: string }
+const lang = asLang(Astro.props.lang);
 
 const preview = (import.meta.env.SEASON_PREVIEW as string) || '';
 const now = new Date();
@@ -41,6 +42,18 @@ const MSG: Record<string, Record<string, [string, string, string]>> = {
     summer:    ['L’été — la saison de la côte ; le grand Sahara attend l’hiver.', '/fr/quand-partir-algerie/', 'Quand partir ?'],
     autumn:    ['L’automne — lumière dorée sur les cités romaines, météo idéale.', '/fr/quand-partir-algerie/', 'Quand partir ?'],
   },
+  it: {
+    winter:    ["È inverno — la grande stagione del Sahara, e neve sull'Atlante.", '/it/sahara-algeria/', 'Guida al Sahara'],
+    christmas: ['Natale e Capodanno in Algeria: deserto mite, zero folla festiva.', '/it/quando-andare-algeria/', 'Quando andare'],
+    ramadan:   ['È il Ramadan — le città si animano dopo il tramonto. Cosa cambia:', '/it/guida-viaggio-algeria/', 'Guida di viaggio'],
+    eid:       ['Eid Mubarak — chiusure e trasporti affollati per qualche giorno.', '/it/guida-viaggio-algeria/', 'Guida di viaggio'],
+    mawlid:    ['È il Mawlid — festa nazionale in Algeria questa settimana.', '/it/guida-viaggio-algeria/', 'Guida di viaggio'],
+    yennayer:  ['Yennayer — il Capodanno amazigh, celebrato in tutta l\'Algeria.', '/it/guida-viaggio-algeria/', 'Guida di viaggio'],
+    national:  ['Festa nazionale in Algeria questa settimana — attese chiusure.', '/it/guida-viaggio-algeria/', 'Guida di viaggio'],
+    spring:    ['Primavera — la stagione migliore per il nord e le città romane.', '/it/quando-andare-algeria/', 'Quando andare'],
+    summer:    ["L'estate — stagione della costa; il grande Sahara aspetta l'inverno.", '/it/quando-andare-algeria/', 'Quando andare'],
+    autumn:    ['Autunno — luce dorata sulle città romane, clima ideale.', '/it/quando-andare-algeria/', 'Quando andare'],
+  },
 };
 
 // Line icons per season (24px viewBox inner markup) — SVG, never emoji.
@@ -60,13 +73,13 @@ const ICON: Record<string, string> = {
 const m = MSG[lang]?.[season];
 ---
 {m && (
-  <div class="sbn" data-season={season} data-preview={preview || undefined} role="note" aria-label={lang === 'fr' ? 'Info saison' : 'Season note'}>
+  <div class="sbn" data-season={season} data-preview={preview || undefined} role="note" aria-label={tr(lang, 'seasonLabel')}>
     <div class="sbn-in wrap">
       <span class="sbn-ic" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={ICON[season]} />
       </span>
       <p class="sbn-txt">{m[0]} <a href={m[1]}>{m[2]}</a></p>
-      <button class="sbn-x" type="button" aria-label={lang === 'fr' ? 'Fermer' : 'Dismiss'}>&#215;</button>
+      <button class="sbn-x" type="button" aria-label={tr(lang, 'dismiss')}>&#215;</button>
     </div>
   </div>
 )}

@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { alternatesFor } from '../../i18n';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import QuickAnswer from '../../components/QuickAnswer.astro';
@@ -32,11 +33,15 @@ const d = item.data;
 const { Content } = await item.render();
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const enUrl = `${site}/blog/${item.slug}/`;
-const alternates = (d as any).frAlt ? [
-  { hreflang: 'en', href: enUrl },
-  { hreflang: 'fr', href: site + (d as any).frAlt },
-  { hreflang: 'x-default', href: enUrl },
-] : [];
+// hreflang is built from whichever translations actually exist, so it can never
+// point at a page that was not published.
+const alternates = ((d as any).frAlt || (d as any).itAlt)
+  ? alternatesFor(site, {
+      en: `/blog/${item.slug}/`,
+      fr: (d as any).frAlt || undefined,
+      it: (d as any).itAlt || undefined,
+    })
+  : [];
 const moreArticles = await related('article', { region: d.region, exclude: item.slug, limit: 3 });
 const dests = await related('destination', { region: d.region, limit: 3 });
 const author = await resolveAuthor(d.author);

@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import { destFrByEn } from '../../data/destinations-fr';
+import { destItByEn } from '../../data/destinations-it';
+import { alternatesFor } from '../../i18n';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -69,11 +71,14 @@ const schemaNodes = [attr, webpage, authorEntity, reviewerEntity];
 // Bidirectional hreflang with the French destination guide, when one exists.
 const frTwin = destFrByEn(item.slug);
 const siteBase = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
-const frAlternates = frTwin ? [
-  { hreflang: 'en', href: `${siteBase}/destinations/${item.slug}/` },
-  { hreflang: 'fr', href: `${siteBase}/fr/destinations/${frTwin.slug}/` },
-  { hreflang: 'x-default', href: `${siteBase}/destinations/${item.slug}/` },
-] : [];
+const itTwin = destItByEn(item.slug);
+const frAlternates = (frTwin || itTwin)
+  ? alternatesFor(siteBase, {
+      en: `/destinations/${item.slug}/`,
+      fr: frTwin ? `/fr/destinations/${frTwin.slug}/` : undefined,
+      it: itTwin ? `/it/destinazioni/${itTwin.slug}/` : undefined,
+    })
+  : [];
 
 ---
 <BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} region={d.region} civ={DEST_SKIN[item.slug]} schema={schemaNodes} alternates={frAlternates} sticky={true}>
