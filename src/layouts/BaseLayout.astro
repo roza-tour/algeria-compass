@@ -9,6 +9,7 @@ import Footer from '../components/Footer.astro';
 import SchemaGraph from '../components/SchemaGraph.astro';
 import Analytics from '../components/Analytics.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import SeasonAmbience from '../components/SeasonAmbience.astro';
 import StickyContact from '../components/StickyContact.astro';
 export interface Props {
   title: string; description: string; image?: string; imageAlt?: string; type?: string;
@@ -54,6 +55,7 @@ const occasionFont = occasion ? OCCASION_FONT[occasion] : undefined;
   <slot name="head" />
 </head>
 <body class={bodyClass}>
+  <SeasonAmbience />
   <a href="#main" class="skip-link">{lang === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
   <Header lang={lang} />
   <main id="main">

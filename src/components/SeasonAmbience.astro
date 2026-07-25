@@ -1,0 +1,266 @@
+---
+// Site-wide seasonal ambience. Sits BEHIND everything (z-index:0, fixed,
+// pointer-events:none) so it can never touch layout, clicks or readability.
+//
+// summer    — warm haze + slow sea-swell bands and drifting light
+// spring    — soft green wash + petals drifting on a breeze
+// autumn    — amber wash + falling leaves
+// winter    — cool wash + falling snow
+// christmas — winter snow, warmer gold cast
+// ramadan   — night-green vignette, drifting stars, a soft crescent glow
+// eid       — festive gold sparkle
+//
+// The season is decided at build time (src/lib/season.ts) and re-checked in the
+// browser, so a page cached across a season boundary still corrects itself.
+// Everything freezes under prefers-reduced-motion.
+import { seasonForDate, upcomingWindows } from '../lib/season';
+
+const now = new Date();
+// SEASON_PREVIEW=winter npm run build  — forces a season so you can see any
+// occasion without waiting for the calendar. Unset = real date (normal builds).
+const preview = (import.meta.env.SEASON_PREVIEW as string) || '';
+const season = preview || seasonForDate(now);
+// ~18 months of upcoming windows, so a cached page can re-resolve itself.
+const schedule = upcomingWindows(now, 18).map(w => [w.from, w.to, w.season]);
+
+// Deterministic particle tables (no RNG — builds stay byte-stable).
+const P = [
+  [4, 13, 0], [11, 9, 2], [18, 15, 4], [25, 11, 1], [32, 14, 3], [39, 10, 5],
+  [46, 16, 0], [53, 12, 2], [60, 9, 4], [67, 15, 1], [74, 11, 3], [81, 13, 5],
+  [88, 10, 0], [95, 14, 2], [8, 17, 6], [22, 12, 7], [43, 16, 6], [58, 11, 8],
+  [72, 15, 7], [86, 13, 6], [15, 18, 3], [35, 9, 5], [65, 17, 2], [92, 12, 4],
+];
+const STARS = [
+  [7, 14], [16, 8], [24, 20], [33, 11], [41, 17], [52, 9], [61, 19],
+  [69, 12], [78, 22], [87, 10], [94, 16], [12, 26], [46, 27], [83, 28],
+];
+---
+<div class="amb" data-season={season} data-preview={preview || undefined} aria-hidden="true"></div>
+<div class="amb-fx" data-season={season} aria-hidden="true">
+  {(season === 'winter' || season === 'christmas') && (
+    <div class="amb-layer amb-snow">
+      {P.map(([l, dur, dl]) => (
+        <span class="amb-flake" style={`left:${l}%;animation-duration:${dur + 6}s;animation-delay:${dl}s`}></span>
+      ))}
+    </div>
+  )}
+
+  {season === 'summer' && (
+    <>
+      <div class="amb-layer amb-motes">
+        {P.slice(0, 18).map(([l, dur, dl]) => (
+          <span class="amb-mote" style={`left:${l}%;animation-duration:${dur + 14}s;animation-delay:${dl}s`}></span>
+        ))}
+      </div>
+      <div class="amb-layer amb-sea">
+        <span class="amb-swell amb-swell--1"></span>
+        <span class="amb-swell amb-swell--2"></span>
+        <span class="amb-swell amb-swell--3"></span>
+      </div>
+    </>
+  )}
+
+  {season === 'spring' && (
+    <div class="amb-layer amb-petals">
+      {P.slice(0, 16).map(([l, dur, dl]) => (
+        <span class="amb-petal" style={`left:${l}%;animation-duration:${dur + 10}s;animation-delay:${dl}s`}></span>
+      ))}
+    </div>
+  )}
+
+  {season === 'autumn' && (
+    <div class="amb-layer amb-leaves">
+      {P.slice(0, 14).map(([l, dur, dl]) => (
+        <span class="amb-leaf" style={`left:${l}%;animation-duration:${dur + 9}s;animation-delay:${dl}s`}></span>
+      ))}
+    </div>
+  )}
+
+  {(season === 'ramadan' || season === 'eid' || season === 'mawlid' || season === 'yennayer' || season === 'national') && (
+    <div class="amb-layer amb-night">
+      <span class="amb-glow"></span>
+      {STARS.map(([l, t], i) => (
+        <span class="amb-star" style={`left:${l}%;top:${t}%;animation-delay:${(i % 6) * 0.7}s`}></span>
+      ))}
+    </div>
+  )}
+</div>
+
+<script is:inline define:vars={{ windows: schedule }}>
+  /* A page can be cached for weeks. Re-resolve the season client-side and, if it
+     no longer matches what was baked in, correct the attribute so the ambience
+     is never out of step with the calendar. Particles for the new season only
+     appear on the next build, but the wash/colour follows immediately. */
+  (function () {
+    var el = document.querySelector('.amb');
+    if (!el) return;
+    if (el.dataset.preview) return;   // a forced preview build: leave it alone
+    var d = new Date(), iso = d.toISOString().slice(0, 10), s = null;
+    for (var i = 0; i < windows.length; i++) {
+      if (iso >= windows[i][0] && iso < windows[i][1]) { s = windows[i][2]; break; }
+    }
+    if (!s) {
+      var m = d.getMonth();
+      s = (m >= 2 && m <= 4) ? 'spring' : (m >= 5 && m <= 7) ? 'summer' : (m >= 8 && m <= 10) ? 'autumn' : 'winter';
+    }
+    if (el.getAttribute('data-season') !== s) el.setAttribute('data-season', s);
+  })();
+</script>
+
+<style is:global>
+  /* Lift the page above the fixed ambience layer. Sections that set their own
+     background stay opaque (the ambience simply does not show through them);
+     transparent sections let it breathe behind the text. */
+  main, footer { position: relative; z-index: 1; }
+</style>
+
+<style>
+  /* The whole layer is behind the page and inert. */
+  .amb {
+    position: fixed; inset: 0;
+    z-index: 0;                 /* tint only — sits under the page */
+    pointer-events: none; overflow: hidden; contain: strict;
+  }
+  /* Particles ride ABOVE the page so they are actually visible over opaque
+     sections, but the layer is inert: no pointer events, no text underneath is
+     obscured (marks are 5-6px and translucent), and it never intercepts a click.
+     It stays below the sticky nav (z-300) and the cookie banner. */
+  .amb-fx {
+    position: fixed; inset: 0;
+    z-index: 60;
+    pointer-events: none; overflow: hidden; contain: strict;
+  }
+  .amb-layer { position: absolute; inset: 0; }
+
+  /* A very light seasonal wash over the page background. Kept low enough that
+     body text contrast is untouched. */
+  .amb[data-season='spring']    { background: linear-gradient(180deg, rgba(122,168,109,.07), transparent 42%); }
+  .amb[data-season='summer']    { background: linear-gradient(180deg, rgba(255,206,120,.10), transparent 38%); }
+  .amb[data-season='autumn']    { background: linear-gradient(180deg, rgba(198,124,48,.085), transparent 40%); }
+  .amb[data-season='winter']    { background: linear-gradient(180deg, rgba(120,166,196,.09), transparent 44%); }
+  .amb[data-season='christmas'] { background: linear-gradient(180deg, rgba(160,132,58,.10), transparent 44%); }
+  .amb[data-season='ramadan']   { background: radial-gradient(90% 55% at 78% 6%, rgba(201,162,39,.13), transparent 62%); }
+  .amb[data-season='eid']       { background: radial-gradient(90% 55% at 78% 6%, rgba(232,197,106,.17), transparent 64%); }
+  .amb[data-season='mawlid']    { background: radial-gradient(90% 55% at 78% 6%, rgba(160,190,150,.12), transparent 62%); }
+  .amb[data-season='yennayer']  { background: radial-gradient(90% 55% at 78% 6%, rgba(30,140,140,.13), transparent 62%); }
+  .amb[data-season='national']  { background: linear-gradient(180deg, rgba(11,61,46,.09), transparent 40%); }
+  /* per-occasion star + glow tints */
+  .amb-fx[data-season='eid'] .amb-star      { background:#FFF0C4 }
+  .amb-fx[data-season='yennayer'] .amb-star { background:#BFEDE6 }
+  .amb-fx[data-season='yennayer'] .amb-glow { background: radial-gradient(circle, rgba(30,140,140,.22) 0%, transparent 68%); }
+  .amb-fx[data-season='mawlid'] .amb-glow   { background: radial-gradient(circle, rgba(190,214,178,.2) 0%, transparent 68%); }
+  .amb-fx[data-season='national'] .amb-glow { background: radial-gradient(circle, rgba(255,255,255,.16) 0%, transparent 68%); }
+  .amb-fx[data-season='national'] .amb-star { background:#EAF6EE }
+
+  /* ---------- snow ---------- */
+  .amb-flake {
+    position: absolute; top: -6vh; width: 6px; height: 6px; border-radius: 50%;
+    background: #fff; opacity: .62;
+    box-shadow: 0 0 6px rgba(255,255,255,.95), 0 0 2px rgba(120,166,196,.9);
+    animation-name: amb-fall; animation-timing-function: linear; animation-iteration-count: infinite;
+  }
+  .amb-fx[data-season='christmas'] .amb-flake { background: #FFF6E2; }
+
+  /* ---------- summer sea ---------- */
+  .amb-sea { top: auto; bottom: 0; height: 34vh; }
+  .amb-swell {
+    position: absolute; left: -20%; right: -20%; height: 120px; border-radius: 50%;
+    background: radial-gradient(60% 100% at 50% 100%, rgba(30, 140, 140, .16), transparent 70%);
+  }
+  .amb-swell--1 { bottom: -60px; animation: amb-swell 15s ease-in-out infinite; }
+  .amb-swell--2 { bottom: -34px; opacity: .75; animation: amb-swell 21s ease-in-out infinite reverse; }
+  .amb-swell--3 { bottom: -10px; opacity: .5;  animation: amb-swell 27s ease-in-out infinite; }
+  .amb-shimmer {
+    position: absolute; inset: auto 0 0 0; height: 100%;
+    background: linear-gradient(100deg, transparent 20%, rgba(255, 236, 180, .12) 50%, transparent 80%);
+    background-size: 240% 100%;
+    animation: amb-drift 26s linear infinite;
+  }
+
+  /* ---------- summer motes (sea spray / sun sparkle on the breeze) ---------- */
+  .amb-mote {
+    position: absolute; bottom: -4vh;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: rgba(255, 226, 160, .85);
+    box-shadow: 0 0 7px rgba(255, 206, 120, .95), 0 0 2px rgba(180, 130, 40, .5);
+    opacity: .6;
+    animation-name: amb-rise; animation-timing-function: linear; animation-iteration-count: infinite;
+  }
+
+  /* ---------- spring petals ---------- */
+  .amb-petal {
+    position: absolute; top: -6vh; width: 9px; height: 7px;
+    border-radius: 60% 40% 55% 45%;
+    background: rgba(233, 178, 190, .55);
+    animation-name: amb-drift-fall; animation-timing-function: linear; animation-iteration-count: infinite;
+  }
+
+  /* ---------- autumn leaves ---------- */
+  .amb-leaf {
+    position: absolute; top: -6vh; width: 10px; height: 8px;
+    border-radius: 70% 30% 65% 35%;
+    background: rgba(191, 116, 43, .5);
+    animation-name: amb-drift-fall; animation-timing-function: linear; animation-iteration-count: infinite;
+  }
+
+  /* ---------- ramadan / eid night ---------- */
+  .amb-star {
+    position: absolute; width: 3px; height: 3px; border-radius: 50%;
+    background: #F4E3AE; opacity: .3;
+    box-shadow: 0 0 6px rgba(244, 227, 174, .8);
+    animation: amb-twinkle 4s ease-in-out infinite;
+  }
+  .amb-glow {
+    position: absolute; right: 7%; top: 4%;
+    width: clamp(90px, 13vw, 190px); aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(circle, rgba(240, 211, 132, .22) 0%, transparent 68%);
+    animation: amb-breathe 11s ease-in-out infinite;
+  }
+
+  @keyframes amb-fall {
+    from { transform: translateY(0) translateX(0); opacity: 0; }
+    8%   { opacity: .55; }
+    92%  { opacity: .55; }
+    to   { transform: translateY(112vh) translateX(40px); opacity: 0; }
+  }
+  @keyframes amb-drift-fall {
+    from { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: .7; }
+    90%  { opacity: .7; }
+    to   { transform: translateY(112vh) translateX(90px) rotate(320deg); opacity: 0; }
+  }
+  @keyframes amb-rise {
+    from { transform: translateY(0) translateX(0); opacity: 0; }
+    12%  { opacity: .62; }
+    88%  { opacity: .62; }
+    to   { transform: translateY(-108vh) translateX(70px); opacity: 0; }
+  }
+  @keyframes amb-swell {
+    0%, 100% { transform: translateY(0) scaleX(1); }
+    50%      { transform: translateY(-14px) scaleX(1.06); }
+  }
+  @keyframes amb-drift {
+    from { background-position: 0% 0; }
+    to   { background-position: 240% 0; }
+  }
+  @keyframes amb-twinkle {
+    0%, 100% { opacity: .22; transform: scale(.85); }
+    50%      { opacity: .95; transform: scale(1.2); }
+  }
+  @keyframes amb-breathe {
+    0%, 100% { opacity: .75; transform: scale(1); }
+    50%      { opacity: 1;   transform: scale(1.08); }
+  }
+
+  /* Phones: keep the wash, drop the particles (battery + clarity on small text) */
+  @media (max-width: 640px) {
+    .amb-snow, .amb-petals, .amb-leaves, .amb-sea, .amb-motes { display: none; }
+  }
+
+  /* Anyone who asks for less motion gets a completely still page. */
+  @media (prefers-reduced-motion: reduce) {
+    .amb-flake, .amb-petal, .amb-leaf, .amb-mote, .amb-sea, .amb-star, .amb-glow { display: none; }
+  }
+
+  @media print { .amb { display: none; } }
+</style>
