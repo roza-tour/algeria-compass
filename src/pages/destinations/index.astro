@@ -12,8 +12,15 @@ const UNESCO_ORDER = ['tassili-najjer','mzab-valley','djemila','timgad','tipaza'
 const bySlug = Object.fromEntries(items.map(i => [i.slug, i]));
 const unesco = UNESCO_ORDER.map(s => bySlug[s]).filter(Boolean);
 const others = items.filter(i => !UNESCO_ORDER.includes(i.slug));
+const destSite = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const destAlternates = [
+  { hreflang: 'en', href: destSite + '/destinations/' },
+  { hreflang: 'fr', href: destSite + '/fr/destinations/' },
+  { hreflang: 'x-default', href: destSite + '/destinations/' },
+];
+
 ---
-<BaseLayout title="Algeria Destinations & the 7 UNESCO World Heritage Sites" description="Algeria's seven UNESCO World Heritage Sites — the Casbah of Algiers, Djémila, Timgad, Tipaza, the M'Zab Valley, Tassili n'Ajjer and Beni Hammad." image="/assets/img/timgad-trajan-arch.jpg" keywords={["Algeria destinations","Algeria UNESCO sites","places to visit in Algeria","Casbah of Algiers","Tassili n'Ajjer"]}>
+<BaseLayout title="Algeria Destinations & the 7 UNESCO World Heritage Sites" description="Algeria's seven UNESCO World Heritage Sites — the Casbah of Algiers, Djémila, Timgad, Tipaza, the M'Zab Valley, Tassili n'Ajjer and Beni Hammad." image="/assets/img/timgad-trajan-arch.jpg" keywords={["Algeria destinations","Algeria UNESCO sites","places to visit in Algeria","Casbah of Algiers","Tassili n'Ajjer"]} alternates={destAlternates}>
   <Hero title="Algeria Destinations" eyebrow="Algeria" text="Seven UNESCO World Heritage Sites and the iconic places around them — Roman cities, Saharan rock art, oasis towns and the Mediterranean coast." image="/assets/img/timgad-trajan-arch.jpg" alt="The Arch of Trajan at the Roman city of Timgad, Algeria" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algeria Destinations'}]} />
 

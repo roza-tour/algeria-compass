@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { destFrByEn } from '../../data/destinations-fr';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -65,8 +66,17 @@ const webpage = {
   "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".qbox"] }
 };
 const schemaNodes = [attr, webpage, authorEntity, reviewerEntity];
+// Bidirectional hreflang with the French destination guide, when one exists.
+const frTwin = destFrByEn(item.slug);
+const siteBase = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const frAlternates = frTwin ? [
+  { hreflang: 'en', href: `${siteBase}/destinations/${item.slug}/` },
+  { hreflang: 'fr', href: `${siteBase}/fr/destinations/${frTwin.slug}/` },
+  { hreflang: 'x-default', href: `${siteBase}/destinations/${item.slug}/` },
+] : [];
+
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} region={d.region} civ={DEST_SKIN[item.slug]} schema={schemaNodes} sticky={true}>
+<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} region={d.region} civ={DEST_SKIN[item.slug]} schema={schemaNodes} alternates={frAlternates} sticky={true}>
   <Hero title={d.heading || d.name} eyebrow={d.province ? d.province + ' · Algeria' : 'Algeria'} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
     <a class="btn btn-gold" href={`/contact/?i=${encodeURIComponent(d.name)}`} data-evt="cta_plan">Visit {d.name} →</a>
   </Hero>

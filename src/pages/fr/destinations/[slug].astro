@@ -1,0 +1,128 @@
+---
+// French destination guides. Content comes from destinations-fr.ts; the hero
+// photo and coordinates are read from the English collection entry so the two
+// versions can never show different pictures of the same place.
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { DESTINATIONS_FR, type DestFr } from '../../../data/destinations-fr';
+
+export async function getStaticPaths() {
+  const en = await getCollection('destination');
+  return DESTINATIONS_FR.map(d => ({
+    params: { slug: d.slug },
+    props: { d, entry: en.find(e => e.slug === d.en) },
+  }));
+}
+
+const { d, entry } = Astro.props as { d: DestFr; entry: any };
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/fr/destinations/${d.slug}/`;
+const enUrl = `${site}/destinations/${d.en}/`;
+const image = entry?.data?.image || '/assets/img/brand-algeria.jpg';
+const coords = entry?.data?.coordinates;
+
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: url },
+  { hreflang: 'x-default', href: enUrl },
+];
+
+const others = DESTINATIONS_FR.filter(o => o.slug !== d.slug).slice(0, 4);
+
+const attraction = {
+  '@type': 'TouristAttraction',
+  '@id': `${url}#attraction`,
+  name: d.name,
+  description: d.quick,
+  inLanguage: 'fr',
+  url,
+  image: site + image,
+  ...(coords ? { geo: { '@type': 'GeoCoordinates', latitude: coords.lat, longitude: coords.lng } } : {}),
+  containedInPlace: { '@id': `${site}/#algeria` },
+  isPartOf: { '@id': `${site}/#website` },
+};
+const faqSchema = {
+  '@type': 'FAQPage', '@id': `${url}#faq`, inLanguage: 'fr',
+  mainEntity: d.faqs.map(f => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${site}/fr/` },
+    { '@type': 'ListItem', position: 2, name: 'Destinations', item: `${site}/fr/destinations/` },
+    { '@type': 'ListItem', position: 3, name: d.name, item: url },
+  ],
+};
+---
+<BaseLayout title={d.seoTitle} description={d.seoDescription} lang="fr" alternates={alternates}
+  image={image} schema={[attraction, breadcrumb, faqSchema]} sticky={true}
+  keywords={[d.name, 'Algérie', 'visiter ' + d.name, 'voyage Algérie']}>
+
+  <section class="hero">
+    <img src={image} alt={d.name} width="1600" height="900" fetchpriority="high" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">{d.eyebrow}</div>
+      <h1>{d.name}</h1>
+      <p>{d.intro}</p>
+      <p class="hero-meta"><a href={enUrl} hreflang="en">Read in English</a></p>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Destinations',href:'/fr/destinations/'},{name:d.name}]} />
+
+  <section class="section"><div class="wrap dest-grid">
+    <div class="dest-main">
+      <div class="qbox"><strong>En bref.</strong> {d.quick}</div>
+
+      {d.sections.map(s => (<><h2>{s.h}</h2><p>{s.p}</p></>))}
+
+      <h2>Questions fréquentes</h2>
+      <div class="faq">{d.faqs.map(f => (
+        <details><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}</div>
+
+      <p class="dest-cta">
+        Vous souhaitez inclure {d.name} dans un voyage ?
+        Voyez nos <a href="/fr/circuits/">circuits privés en Algérie</a> ou
+        <a href="/contact/"> écrivez-nous</a> — nous répondons en français.
+      </p>
+    </div>
+
+    <aside class="dest-aside">
+      <div class="gtk">
+        <h2>Repères</h2>
+        <dl>{d.facts.map(f => (<><dt>{f.label}</dt><dd>{f.value}</dd></>))}</dl>
+      </div>
+      <div class="gtk">
+        <h2>Autres destinations</h2>
+        <ul class="others">
+          {others.map(o => <li><a href={`/fr/destinations/${o.slug}/`}>{o.name}</a></li>)}
+        </ul>
+        <p style="margin-top:.7rem"><a href="/fr/destinations/">Toutes les destinations &rarr;</a></p>
+      </div>
+    </aside>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .hero-meta{margin-top:.8rem}
+  .hero-meta a{color:var(--gold-l);text-decoration:underline}
+  .dest-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(260px,1fr);gap:2.4rem;align-items:start}
+  .dest-main h2{margin-top:2rem}
+  .dest-main p{line-height:1.75;color:var(--text-m)}
+  .dest-cta{margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border)}
+  .dest-aside{position:sticky;top:96px;display:flex;flex-direction:column;gap:1.2rem}
+  .gtk{background:var(--wash);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem}
+  .gtk h2{margin:0 0 .5rem;font-size:1rem}
+  .gtk dl{margin:0;font-size:.86rem}
+  .gtk dt{font-weight:700;margin-top:.5rem}
+  .gtk dd{margin:0;color:var(--text-m)}
+  .others{list-style:none;margin:0;padding:0;font-size:.9rem}
+  .others li{padding:.35rem 0;border-bottom:1px solid var(--border)}
+  .others li:last-child{border-bottom:0}
+  @media(max-width:900px){.dest-grid{grid-template-columns:1fr}.dest-aside{position:static}}
+</style>
