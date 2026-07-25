@@ -104,6 +104,10 @@ const STARS = [
       s = (m >= 2 && m <= 4) ? 'spring' : (m >= 5 && m <= 7) ? 'summer' : (m >= 8 && m <= 10) ? 'autumn' : 'winter';
     }
     if (el.getAttribute('data-season') !== s) el.setAttribute('data-season', s);
+    var fx = document.querySelector('.amb-fx');
+    if (fx && fx.getAttribute('data-season') !== s) fx.setAttribute('data-season', s);
+    if (document.documentElement.getAttribute('data-season') !== s)
+      document.documentElement.setAttribute('data-season', s);
   })();
 </script>
 
@@ -154,8 +158,8 @@ const STARS = [
 
   /* ---------- snow ---------- */
   .amb-flake {
-    position: absolute; top: -6vh; width: 6px; height: 6px; border-radius: 50%;
-    background: #fff; opacity: .62;
+    position: absolute; top: -6vh; width: 7px; height: 7px; border-radius: 50%;
+    background: #fff; opacity: .7;
     box-shadow: 0 0 6px rgba(255,255,255,.95), 0 0 2px rgba(120,166,196,.9);
     animation-name: amb-fall; animation-timing-function: linear; animation-iteration-count: infinite;
   }
@@ -180,10 +184,10 @@ const STARS = [
   /* ---------- summer motes (sea spray / sun sparkle on the breeze) ---------- */
   .amb-mote {
     position: absolute; bottom: -4vh;
-    width: 5px; height: 5px; border-radius: 50%;
+    width: 7px; height: 7px; border-radius: 50%;
     background: rgba(255, 226, 160, .85);
-    box-shadow: 0 0 7px rgba(255, 206, 120, .95), 0 0 2px rgba(180, 130, 40, .5);
-    opacity: .6;
+    box-shadow: 0 0 10px rgba(255, 206, 120, 1), 0 0 3px rgba(180, 130, 40, .6);
+    opacity: .75;
     animation-name: amb-rise; animation-timing-function: linear; animation-iteration-count: infinite;
   }
 
