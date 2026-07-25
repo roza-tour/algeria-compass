@@ -18,6 +18,10 @@ faqs:
 seo:
   title: "Algerian Sahara Guide: Djanet, Timimoun & the Tadrart"
   description: "Algeria holds the largest slice of the Sahara of any country on earth — and almost no crowds. Here is how to actually experience it."
+occasion: "sahara"
+occasionEyebrow: "The Algerian Sahara"
+occasionTitle: "Dunes, rock art and nights under the stars"
+occasionNote: "The Tassili n'Ajjer, the Tadrart and the Hoggar — a guided, winter expedition into one of the world's great deserts."
 published: 2026-05-01
 updated: 2026-05-01
 frAlt: "/fr/sahara-algerie/"

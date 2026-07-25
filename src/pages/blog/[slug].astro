@@ -8,6 +8,7 @@ import FaqSection from '../../components/FaqSection.astro';
 import CtaSection from '../../components/CtaSection.astro';
 import RelatedGrid from '../../components/RelatedGrid.astro';
 import Byline from '../../components/Byline.astro';
+import OccasionBanner from '../../components/OccasionBanner.astro';
 import SourceList from '../../components/SourceList.astro';
 import EditorialMeta from '../../components/EditorialMeta.astro';
 import { related, toCard } from '../../lib/related';
@@ -74,7 +75,7 @@ const webpage = { "@type":"WebPage", "@id":`${site}/blog/${item.slug}/#webpage`,
 // post renders two FAQPage blocks (duplicate schema emission).
 const schemaNodes = [post, authorEntity, reviewerEntity, breadcrumb, webpage].filter(Boolean);
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} type="article" region={d.region} schema={schemaNodes} alternates={alternates} sticky={true}>
+<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} type="article" region={d.region} schema={schemaNodes} alternates={alternates} occasion={(d as any).occasion} sticky={true}>
   <Fragment slot="head">
     <meta property="article:published_time" content={d.published.toISOString()} />
     <meta property="article:modified_time" content={d.updated.toISOString()} />
@@ -89,6 +90,14 @@ const schemaNodes = [post, authorEntity, reviewerEntity, breadcrumb, webpage].fi
     <Byline authorName={author.name} authorHref={author.href} reviewerName={reviewer.name} reviewerHref={reviewer.href} updated={d.updated} lastReviewed={d.lastReviewed} />
     <img src={d.image} alt={d.imageAlt} style="border-radius:16px;margin:1.4rem 0;width:100%;aspect-ratio:16/9;object-fit:cover" width="780" height="440" loading="eager" />
     <QuickAnswer text={d.quickAnswer} />
+    {(d as any).occasion && (
+      <OccasionBanner
+        occasion={(d as any).occasion}
+        eyebrow={(d as any).occasionEyebrow}
+        title={(d as any).occasionTitle}
+        note={(d as any).occasionNote}
+      />
+    )}
     {d.keyTakeaways.length > 0 && <KeyTakeaways items={d.keyTakeaways} />}
     <div class="prose"><Content /></div>
     {d.stats.length > 0 && <TravelStats stats={d.stats} />}

@@ -1,0 +1,176 @@
+/* ===========================================================================
+   Algeria Compass — OCCASION SKINS
+   Applied via [data-occasion] on <html>, set from a page's `occasion` field.
+   Deliberately built like the existing [data-civ] civilisation skins: token
+   overrides + a soft pattern + section ornaments, so the page gains atmosphere
+   without any layout change.
+
+   Rules kept from the brand guide: restrained motion, no emoji (icons are real
+   SVG), AA contrast preserved, everything gated behind prefers-reduced-motion.
+   =========================================================================== */
+
+/* ---------- shared occasion scaffolding ---------- */
+[data-occasion] .occ-band {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 1.5rem 1.4rem;
+  margin: 0 0 1.6rem;
+  border: 1px solid var(--occ-line, var(--border));
+  background: var(--occ-surface, var(--wash));
+  color: var(--occ-ink, inherit);
+}
+[data-occasion] .occ-band::after {           /* motif wash, decorative only */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--occ-motif, none);
+  background-repeat: repeat;
+  background-size: var(--occ-motif-size, 46px 46px);
+  opacity: var(--occ-motif-opacity, .16);
+  pointer-events: none;
+}
+[data-occasion] .occ-band > * { position: relative; z-index: 1; }
+[data-occasion] .occ-eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--sans);
+  font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 700;
+  color: var(--occ-accent, var(--accent-2));
+}
+[data-occasion] .occ-title {
+  font-family: var(--occ-display, var(--display));
+  font-size: clamp(1.3rem, 2.6vw, 1.85rem);
+  line-height: 1.25;
+  margin: .5rem 0 .35rem;
+  color: var(--occ-ink, inherit);
+}
+[data-occasion] .occ-note { color: var(--text-l); margin: 0; max-width: 62ch; }
+[data-occasion] .occ-icons { display: flex; gap: .85rem; margin-top: 1rem; flex-wrap: wrap; }
+[data-occasion] .occ-ic {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 12px;
+  border: 1px solid var(--occ-line, var(--border));
+  background: var(--occ-chip, rgba(255, 255, 255, .55));
+  color: var(--occ-accent, var(--accent-2));
+}
+[data-occasion] .occ-ic svg { width: 22px; height: 22px; display: block; }
+
+/* the occasion display face also lifts the page h1 + section headings */
+[data-occasion] h1,
+[data-occasion] .prose h2 { font-family: var(--occ-display, var(--display)); }
+
+/* soft page-wide motif behind the content, very low contrast */
+[data-occasion] body {
+  background-image: var(--occ-page-motif, none);
+  background-repeat: repeat;
+  background-size: var(--occ-page-size, 120px 120px);
+  background-attachment: scroll;
+}
+
+/* section divider ornament, mirroring the civ-skin treatment */
+[data-occasion] .section + .section { position: relative; }
+[data-occasion] .section + .section::before {
+  content: "";
+  position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+  width: min(92%, 1100px); height: 14px;
+  background: var(--occ-rule, none) repeat-x center / auto 14px;
+  opacity: .45;
+}
+
+/* h2 marker */
+[data-occasion] .prose h2::before {
+  content: "";
+  display: inline-block; width: .85em; height: .85em;
+  margin-right: .45em; vertical-align: -.06em;
+  background: var(--occ-bullet, none) center / contain no-repeat;
+}
+
+/* themed quick-answer + cards */
+[data-occasion] .qbox { background: var(--occ-surface, var(--wash)); border-color: var(--occ-line, var(--border)); }
+[data-occasion] .card { border-top: 3px solid var(--occ-accent, var(--accent-2)); }
+
+/* ===========================================================================
+   RAMADAN — night green + gold, crescent / fanous lantern, geometric lattice
+   =========================================================================== */
+[data-occasion="ramadan"] {
+  --occ-accent: #C9A227;
+  --occ-ink: #0A2E22;
+  --occ-line: rgba(201, 162, 39, .38);
+  --occ-surface: linear-gradient(140deg, rgba(10, 46, 34, .06), rgba(201, 162, 39, .10));
+  --occ-chip: rgba(255, 253, 245, .8);
+  --occ-display: 'Amiri', 'Cinzel', Georgia, serif;
+  --occ-motif-opacity: .2;
+  /* 8-point Islamic star lattice */
+  --occ-motif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46'%3E%3Cg fill='none' stroke='%23C9A227' stroke-width='1.1'%3E%3Cpath d='M23 3l6 14 14 6-14 6-6 14-6-14-14-6 14-6z'/%3E%3Crect x='9' y='9' width='28' height='28' transform='rotate(45 23 23)'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-page-motif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='rgba(10,46,34,0.045)' stroke-width='1.4'%3E%3Cpath d='M60 8l10 34 34 10-34 10-10 34-10-34-34-10 34-10z'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-rule: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='14'%3E%3Cg fill='none' stroke='%23C9A227' stroke-width='1.2' opacity='.6'%3E%3Cpath d='M17 1l4 6-4 6-4-6z'/%3E%3Cpath d='M0 7h9M25 7h9'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-bullet: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17.2 3.4a9 9 0 1 0 3.4 12 7.2 7.2 0 1 1-3.4-12Z' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* ===========================================================================
+   CHRISTMAS / NEW YEAR — deep evergreen + gold, tree / star / snowflake
+   =========================================================================== */
+[data-occasion="christmas"] {
+  --occ-accent: #B8860B;
+  --occ-ink: #123B2B;
+  --occ-line: rgba(18, 59, 43, .3);
+  --occ-surface: linear-gradient(140deg, rgba(18, 59, 43, .07), rgba(184, 134, 11, .09));
+  --occ-chip: rgba(255, 255, 255, .78);
+  --occ-display: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+  --occ-motif-opacity: .18;
+  --occ-motif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%23B8860B' stroke-width='1.1'%3E%3Cpath d='M22 6l6 10h-4l5 9h-4l4 7H15l4-7h-4l5-9h-4z'/%3E%3Cpath d='M8 34v3M36 8v3'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-page-motif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='rgba(18,59,43,0.05)' stroke-width='1.3'%3E%3Cpath d='M30 22v16M22 30h16M26 26l8 8M34 26l-8 8'/%3E%3Cpath d='M86 74v16M78 82h16M82 78l8 8M90 78l-8 8'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-rule: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='14'%3E%3Cg fill='none' stroke='%23B8860B' stroke-width='1.2' opacity='.6'%3E%3Cpath d='M17 2l1.8 3.8L23 7l-4.2 1.2L17 12l-1.8-3.8L11 7l4.2-1.2z'/%3E%3Cpath d='M0 7h8M26 7h8'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-bullet: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l2.6 5.6L20 10l-5.4 2.4L12 18l-2.6-5.6L4 10l5.4-2.4z' fill='none' stroke='%23B8860B' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* ===========================================================================
+   WINTER / SNOW — cool alpine blue, snowflake
+   =========================================================================== */
+[data-occasion="winter"] {
+  --occ-accent: #2E6F8E;
+  --occ-ink: #16323F;
+  --occ-line: rgba(46, 111, 142, .3);
+  --occ-surface: linear-gradient(140deg, rgba(46, 111, 142, .08), rgba(255, 255, 255, .5));
+  --occ-chip: rgba(255, 255, 255, .8);
+  --occ-motif-opacity: .17;
+  --occ-motif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42'%3E%3Cg fill='none' stroke='%232E6F8E' stroke-width='1.1'%3E%3Cpath d='M21 6v30M8 13l26 15M34 13L8 28'/%3E%3Cpath d='M17 10l4 4 4-4M17 32l4-4 4 4'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-page-motif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='rgba(46,111,142,0.055)' stroke-width='1.3'%3E%3Cpath d='M32 18v20M22 24l20 8M42 24l-20 8'/%3E%3Cpath d='M88 72v20M78 78l20 8M98 78l-20 8'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-rule: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='14'%3E%3Cg fill='none' stroke='%232E6F8E' stroke-width='1.2' opacity='.55'%3E%3Cpath d='M17 2v10M13 4l8 6M21 4l-8 6'/%3E%3Cpath d='M0 7h9M25 7h9'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-bullet: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%232E6F8E' stroke-width='2'%3E%3Cpath d='M12 2v20M4 7l16 10M20 7L4 17'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ===========================================================================
+   SAHARA — warm ochre dusk, sun / dune
+   =========================================================================== */
+[data-occasion="sahara"] {
+  --occ-accent: #B46A1E;
+  --occ-ink: #4A2A10;
+  --occ-line: rgba(180, 106, 30, .32);
+  --occ-surface: linear-gradient(140deg, rgba(180, 106, 30, .09), rgba(224, 168, 90, .10));
+  --occ-chip: rgba(255, 251, 244, .8);
+  --occ-motif-opacity: .18;
+  --occ-motif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%23B46A1E' stroke-width='1.1'%3E%3Ccircle cx='22' cy='16' r='6'/%3E%3Cpath d='M4 34c6-6 12-6 18 0 6-6 12-6 18 0'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-page-motif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='rgba(180,106,30,0.05)' stroke-width='1.4'%3E%3Cpath d='M0 86c18-16 36-16 54 0 18-16 36-16 54 0'/%3E%3Ccircle cx='60' cy='34' r='12'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-rule: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='14'%3E%3Cg fill='none' stroke='%23B46A1E' stroke-width='1.2' opacity='.55'%3E%3Ccircle cx='17' cy='7' r='3.4'/%3E%3Cpath d='M0 7h9M25 7h9'/%3E%3C/g%3E%3C/svg%3E");
+  --occ-bullet: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23B46A1E' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Cpath d='M12 1v3M12 20v3M4 12H1M23 12h-3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ---------- motion: a single, very slow shimmer, off by default ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-occasion] .occ-band::after { animation: occ-drift 34s linear infinite; }
+  @keyframes occ-drift { from { background-position: 0 0; } to { background-position: 46px 46px; } }
+}
+
+/* ---------- small screens: keep it calm ---------- */
+@media (max-width: 640px) {
+  [data-occasion] body { background-image: none; }
+  [data-occasion] .occ-band { padding: 1.2rem 1rem; }
+}
+
+/* ---------- print: drop all decoration ---------- */
+@media print {
+  [data-occasion] body { background-image: none; }
+  [data-occasion] .occ-band::after,
+  [data-occasion] .section + .section::before { display: none; }
+}

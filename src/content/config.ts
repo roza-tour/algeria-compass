@@ -149,6 +149,12 @@ const article = defineCollection({
     practical: z.array(z.object({ label: z.string(), value: z.string() })).default([]),
     practicalTitle: z.string().optional(),
     frAlt: z.string().optional(),   // path to a French translation of this article (for hreflang)
+    // Seasonal/topic skin: gives the page its own colours, motif, icons and
+    // display face via [data-occasion]. See src/styles/occasions.css.
+    occasion: z.enum(['ramadan', 'christmas', 'winter', 'sahara']).optional(),
+    occasionEyebrow: z.string().optional(),
+    occasionTitle: z.string().optional(),
+    occasionNote: z.string().optional(),
     seo,
     published: z.coerce.date(),
     updated: z.coerce.date(),

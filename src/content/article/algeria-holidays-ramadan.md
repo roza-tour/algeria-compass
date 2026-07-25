@@ -42,6 +42,10 @@ seo:
   description: "How Algeria's holidays affect travel: Ramadan, the two Eids, Mawlid, Ashura, Yennayer and national days — plus what Christmas and Easter look like there."
   primaryKeyword: "Ramadan in Algeria"
   keywords: ["Ramadan in Algeria","Algeria public holidays","Eid in Algeria","Yennayer","Algeria travel during Ramadan","Christmas in Algeria"]
+occasion: "ramadan"
+occasionEyebrow: "Ramadan & the Algerian calendar"
+occasionTitle: "A month of fasting, lanterns and late nights"
+occasionNote: "Ramadan reshapes the rhythm of the day across Algeria: quiet afternoons, then cities alive after sunset for iftar. Here is what changes, and how to travel through it respectfully."
 author: "oussama-ben-yahia"
 reviewedBy: "editorial-review"
 lastReviewed: 2026-07-22

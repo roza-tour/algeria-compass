@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import '../styles/civ-skins.css';
+import '../styles/occasions.css';
 import '../styles/contrast-overrides.css';
 import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
@@ -13,11 +14,20 @@ export interface Props {
   title: string; description: string; image?: string; imageAlt?: string; type?: string;
   region?: string; civ?: string; schema?: any[]; sticky?: boolean; keywords?: string | string[]; bodyClass?: string; noindex?: boolean;
   lang?: string; alternates?: { hreflang: string; href: string }[];
+  /** Seasonal/topic skin: 'ramadan' | 'christmas' | 'winter' | 'sahara' */
+  occasion?: string;
 }
-const { title, description, image, imageAlt, type, region, civ, schema = [], sticky = false, keywords, bodyClass, noindex = false, lang = 'en', alternates = [] } = Astro.props;
+const { title, description, image, imageAlt, type, region, civ, schema = [], sticky = false, keywords, bodyClass, noindex = false, lang = 'en', alternates = [], occasion } = Astro.props;
+
+// Occasion display faces are loaded only on the pages that use them.
+const OCCASION_FONT: Record<string, string> = {
+  ramadan: 'https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap',
+  christmas: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap',
+};
+const occasionFont = occasion ? OCCASION_FONT[occasion] : undefined;
 ---
 <!doctype html>
-<html lang={lang} data-region={region} data-civ={civ}>
+<html lang={lang} data-region={region} data-civ={civ} data-occasion={occasion}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,6 +41,12 @@ const { title, description, image, imageAlt, type, region, civ, schema = [], sti
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap" /></noscript>
+  {occasionFont && (
+    <>
+      <link rel="stylesheet" href={occasionFont} media="print" onload="this.media='all'" />
+      <noscript><link rel="stylesheet" href={occasionFont} /></noscript>
+    </>
+  )}
   <Seo title={title} description={description} image={image} imageAlt={imageAlt} type={type} keywords={keywords} noindex={noindex} lang={lang} />
   {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
   <SchemaGraph nodes={schema} />

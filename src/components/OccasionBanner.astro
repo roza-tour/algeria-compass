@@ -1,0 +1,64 @@
+---
+// Decorative occasion banner — gives a page its seasonal "soul" (Ramadan,
+// Christmas, winter, Sahara) with a themed motif, colours and a line-icon set.
+// Icons are real SVG, not emoji: they render identically everywhere and match
+// the brand's line-icon language.
+export interface Props {
+  occasion: 'ramadan' | 'christmas' | 'winter' | 'sahara';
+  eyebrow?: string;
+  title?: string;
+  note?: string;
+}
+const { occasion, eyebrow, title, note } = Astro.props;
+
+// [name, viewBox-24 inner markup]
+const ICONS: Record<string, [string, string][]> = {
+  ramadan: [
+    ['Crescent moon', '<path d="M17.2 3.4a9 9 0 1 0 3.4 12 7.2 7.2 0 1 1-3.4-12Z"/>'],
+    ['Fanous lantern', '<path d="M9 3h6M12 3v2M7.5 5h9l1.5 4a6 6 0 0 1-12 0Z"/><path d="M10 19h4M12 15v4M9.5 21h5"/>'],
+    ['Mosque dome', '<path d="M4 21V12a8 8 0 0 1 16 0v9"/><path d="M12 4V2M4 21h16M9 21v-4a3 3 0 0 1 6 0v4"/>'],
+    ['Eight-point star', '<path d="M12 2l2.2 5.3L20 9.5l-4.4 3 .9 5.9L12 15.6 7.5 18.4l.9-5.9L4 9.5l5.8-2.2z"/>'],
+    ['Dates and iftar', '<path d="M12 21c-4 0-7-3-7-7 0-3 2-5 4-5 1.5 0 2.3.8 3 1.6.7-.8 1.5-1.6 3-1.6 2 0 4 2 4 5 0 4-3 7-7 7Z"/><path d="M12 9V4M12 4c2 0 3-1 3-2"/>'],
+  ],
+  christmas: [
+    ['Christmas tree', '<path d="M12 3l4 6h-2.5l3.5 5h-2.5l3.5 5H6l3.5-5H7l3.5-5H8z"/><path d="M11 19h2v2h-2z"/>'],
+    ['Star', '<path d="M12 2l2.6 5.6L20 10l-5.4 2.4L12 18l-2.6-5.6L4 10l5.4-2.4z"/>'],
+    ['Snowflake', '<path d="M12 2v20M4 7l16 10M20 7L4 17"/><path d="M9 4l3 3 3-3M9 20l3-3 3 3"/>'],
+    ['Bauble', '<circle cx="12" cy="14" r="6"/><path d="M10 6h4M12 6V4M6.6 12h10.8"/>'],
+    ['Gift', '<rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 13h18M12 9v12"/><path d="M12 9S9 3 6.5 5 12 9 12 9Zm0 0s3-6 5.5-4S12 9 12 9Z"/>'],
+  ],
+  winter: [
+    ['Snowflake', '<path d="M12 2v20M4 7l16 10M20 7L4 17"/><path d="M9 4l3 3 3-3M9 20l3-3 3 3"/>'],
+    ['Mountain', '<path d="M3 20l6-11 4 7 3-5 5 9z"/><path d="M7.5 12.5l1.5-2 1.5 2"/>'],
+    ['Cedar tree', '<path d="M12 3l4 7h-3l3.5 6H7.5L11 10H8z"/><path d="M11 16h2v5h-2z"/>'],
+    ['Thermometer', '<path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/>'],
+    ['Sun over dune', '<circle cx="12" cy="9" r="4"/><path d="M3 20c4-4 8-4 12 0"/>'],
+  ],
+  sahara: [
+    ['Sun', '<circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4 12H1M23 12h-3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>'],
+    ['Dunes', '<path d="M2 18c5-6 10-6 15 0M7 21c5-5 10-5 15 0"/>'],
+    ['Camel caravan', '<path d="M4 18v-4a3 3 0 0 1 3-3c2 0 2 2 4 2s2-2 4-2a3 3 0 0 1 3 3v4"/><path d="M7 18v3M17 18v3M18 11V7"/>'],
+    ['Tent', '<path d="M12 4L3 20h18z"/><path d="M12 4v16M9 20l3-6 3 6"/>'],
+    ['Star night', '<path d="M12 2l2.2 5.3L20 9.5l-4.4 3 .9 5.9L12 15.6 7.5 18.4l.9-5.9L4 9.5l5.8-2.2z"/>'],
+  ],
+};
+
+const icons = ICONS[occasion] || [];
+---
+{(title || eyebrow || icons.length > 0) && (
+  <aside class="occ-band" aria-label={title || `${occasion} highlights`}>
+    {eyebrow && <span class="occ-eyebrow">{eyebrow}</span>}
+    {title && <p class="occ-title">{title}</p>}
+    {note && <p class="occ-note">{note}</p>}
+    {icons.length > 0 && (
+      <div class="occ-icons">
+        {icons.map(([label, path]) => (
+          <span class="occ-ic" title={label}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                 stroke-linecap="round" stroke-linejoin="round" role="img" aria-label={label} set:html={path} />
+          </span>
+        ))}
+      </div>
+    )}
+  </aside>
+)}

@@ -48,6 +48,10 @@ seo:
   description: "Does it snow in Algeria? Yes — Chréa, Tikjda and the Aurès. How to see mountain snow and warm Saharan dunes in a single winter week."
   primaryKeyword: "does it snow in Algeria"
   keywords: ["does it snow in Algeria","skiing in Algeria","Chréa snow","Tikjda","Algeria climate zones","snow and Sahara Algeria"]
+occasion: "winter"
+occasionEyebrow: "Winter in Algeria"
+occasionTitle: "Snow in the cedars, sun on the dunes"
+occasionNote: "Four climate zones stacked in one country — and a winter week that takes you from Atlas snow to warm Saharan sand."
 author: "oussama-ben-yahia"
 reviewedBy: "editorial-review"
 lastReviewed: 2026-07-22
