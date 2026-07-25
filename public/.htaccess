@@ -12,6 +12,9 @@ ErrorDocument 404 /404.html
   #    scripts, and the Astro cache. Returns 403 before any redirect fires.
   RewriteRule (^|/)\.git                                - [F,L]
   RewriteRule ^(?:src|scripts|node_modules|\.astro)(?:/|$) - [F,L]
+  #    Internal design-handoff reference material (HTML/JSX mock-ups) also sits
+  #    in the repo and would otherwise be crawlable at the docroot.
+  RewriteRule ^design_handoff_algeria_compass(?:/|$)     - [F,L]
 
   # 1) Canonical host — force HTTPS + non-www in a SINGLE 301 hop
   #    (prevents redirect chains http→https→non-www that GSC flags as "Page with redirect")
@@ -46,6 +49,28 @@ ErrorDocument 404 /404.html
   RewriteRule ^clusters/algeria-mountains/?$         /regions/ [R=301,L]
   #     Index, graph.json and any other unmapped /clusters/* → home (catch-all, keep last).
   RewriteRule ^clusters(/.*)?$                       / [R=301,L]
+
+  # 2bb) Retired /knowledge/ hubs (noindex scaffolding inherited from the old site)
+  #      → 301 to the real, indexable page that now owns each subject. Placed
+  #      BEFORE the trailing-slash rule so /x and /x/ both resolve in ONE hop.
+  RewriteRule ^knowledge/provinces/?$        /provinces/ [R=301,L]
+  RewriteRule ^knowledge/sahara/?$           /regions/sahara/ [R=301,L]
+  RewriteRule ^knowledge/coast/?$            /regions/ [R=301,L]
+  RewriteRule ^knowledge/mountains/?$        /regions/ [R=301,L]
+  RewriteRule ^knowledge/photography/?$      /regions/ [R=301,L]
+  RewriteRule ^knowledge/roman-heritage/?$   /regions/roman/ [R=301,L]
+  RewriteRule ^knowledge/history/?$          /history/ [R=301,L]
+  RewriteRule ^knowledge/culture/?$          /culture/ [R=301,L]
+  RewriteRule ^knowledge/architecture/?$     /destinations/ [R=301,L]
+  RewriteRule ^knowledge/unesco/?$           /unesco/ [R=301,L]
+  RewriteRule ^knowledge/cuisine/?$          /food/ [R=301,L]
+  RewriteRule ^knowledge/luxury/?$           /luxury/ [R=301,L]
+  RewriteRule ^knowledge/family/?$           /tours/ [R=301,L]
+  RewriteRule ^knowledge/adventure/?$        /experiences/ [R=301,L]
+  RewriteRule ^knowledge/travel-planning/?$  /travel-guides/ [R=301,L]
+  RewriteRule ^knowledge/road-trips/?$       /blog/algeria-transportation-guide/ [R=301,L]
+  #      Index, /knowledge/graph/, graph.json and anything unmapped → destinations.
+  RewriteRule ^knowledge(/.*)?$              /destinations/ [R=301,L]
 
   # 2c) Dead legacy language routes from the old SPA (GSC "Not found 404": /de/ /es/).
   #     No content existed at these paths; 301 the whole subtree to the (English) home page.

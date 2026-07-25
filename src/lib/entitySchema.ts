@@ -9,13 +9,35 @@ const COLLECTION_PATH: Record<string, string> = {
   article: '/blog/', question: '/questions/',
 };
 
+// Where an entity that has no guide of its own is best represented on the live
+// site. Every target below is a real, indexable page — nothing points at the
+// retired hub scaffolding any more.
+const TYPE_FALLBACK: Record<string, string> = {
+  province: '/provinces/', region: '/regions/', city: '/destinations/',
+  unesco: '/unesco/', 'roman-site': '/history/', 'islamic-site': '/culture/',
+  'ottoman-site': '/culture/', 'french-site': '/history/',
+  'historical-building': '/destinations/', 'historical-period': '/history/',
+  museum: '/destinations/', 'national-park': '/regions/',
+  'sahara-area': '/regions/sahara/', 'mountain-area': '/regions/',
+  'coast-area': '/regions/', tradition: '/culture/', festival: '/culture/',
+  food: '/food/', architecture: '/destinations/', season: '/travel-guides/',
+  transport: '/travel-guides/', accommodation: '/travel-guides/',
+  'travel-style': '/experiences/', country: '/',
+};
+
 export function entityUrl(site: string, e: Entity): string {
   const s = clean(site);
   if (e.contentSlug) return `${s}${COLLECTION_PATH[e.contentSlug.collection] || '/'}${e.contentSlug.slug}/`;
-  if (e.type === 'province') return `${s}/knowledge/provinces/#${e.slug}`;
-  return `${s}/knowledge/#${e.id}`;
+  // The /provinces/ index carries an anchored directory of all 58 states.
+  if (e.type === 'province') return `${s}/provinces/#${e.slug}`;
+  return `${s}${TYPE_FALLBACK[e.type] || '/destinations/'}`;
 }
-export const entityNodeId = (site: string, e: Entity) => `${clean(site)}/knowledge/#${e.id}`;
+// Graph @ids live in the site-wide namespace (a homepage fragment), so they stay
+// stable identifiers regardless of which page happens to render the node.
+// The country keeps the short `#algeria` id that isPartOf/areaServed references
+// across the site already point at, so those references resolve to a real node.
+export const entityNodeId = (site: string, e: Entity) =>
+  `${clean(site)}/#${e.id === 'country:algeria' ? 'algeria' : e.id}`;
 
 // nested containedInPlace chain: entity -> parent -> ... -> country
 function containment(site: string, e: Entity, depth = 0): any {
@@ -48,7 +70,7 @@ export function entityNode(site: string, e: Entity): any {
   }
   if (e.schemaType === 'DefinedTerm') {
     node['@type'] = 'DefinedTerm';
-    node.inDefinedTermSet = { '@type': 'DefinedTermSet', '@id': `${clean(site)}/knowledge/#glossary`, name: 'Algeria Travel Knowledge' };
+    node.inDefinedTermSet = { '@type': 'DefinedTermSet', '@id': `${clean(site)}/#glossary`, name: 'Algeria Travel Knowledge' };
     delete node.containedInPlace;
   }
   return node;

@@ -110,7 +110,7 @@ Algeria's roughly 1,600 kilometres of Mediterranean coast come alive from late s
 The Kabylie Djurdjura and the Aurès reward late spring through autumn, when trails are clear and the cedar forests are at their best. Winter brings snow and even skiing at Chréa, but also closes higher routes. For walking and scenery, May–October is the dependable window.
 
 ## Festival calendar
-Timing a trip to a festival adds a memorable layer. **Yennayer**, the Amazigh new year, falls in January. The Tuareg **Sebeiba** in Djanet is a UNESCO-recognised desert festival in the cool season. The **Timgad International Festival** animates the Roman ruins in summer, and **raï** has its spiritual home in Oran. Explore these through the [culture hub](/knowledge/culture/) and confirm dates, which can shift, before booking.
+Timing a trip to a festival adds a memorable layer. **Yennayer**, the Amazigh new year, falls in January. The Tuareg **Sebeiba** in Djanet is a UNESCO-recognised desert festival in the cool season. The **Timgad International Festival** animates the Roman ruins in summer, and **raï** has its spiritual home in Oran. Explore these through the [culture guide](/culture/) and confirm dates, which can shift, before booking.
 
 ## Photography seasons
 For the Sahara, the cool months (November–February) give clean light, long shadows and comfortable shooting; sunrise and sunset over the Tadrart and Tassili are the prizes. In the north, the clear shoulder seasons light the white Casbah, the Roman stone and the Constantine gorges beautifully without summer haze.

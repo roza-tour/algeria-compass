@@ -85,13 +85,13 @@ sources:
 ---
 ---
 
-Algeria is the largest country in Africa and one of the least travelled in the Mediterranean world — a place where Roman cities stand almost alone, where the Sahara fills four-fifths of the map, and where mass tourism has never arrived. That combination is exactly why it rewards the traveller who prepares. This guide is the starting point: a sourced, practical overview that links out to our deeper [travel-planning guides](/travel-guides/), the [knowledge graph](/knowledge/) of the country, and the specialist pillars on [visas](/blog/algeria-visa-guide/), [safety](/blog/algeria-safety-guide/), the [best time to visit](/blog/best-time-to-visit-algeria/) and [transport](/blog/algeria-transportation-guide/).
+Algeria is the largest country in Africa and one of the least travelled in the Mediterranean world — a place where Roman cities stand almost alone, where the Sahara fills four-fifths of the map, and where mass tourism has never arrived. That combination is exactly why it rewards the traveller who prepares. This guide is the starting point: a sourced, practical overview that links out to our deeper [travel-planning guides](/travel-guides/), our [destination guides](/destinations/), and the specialist pillars on [visas](/blog/algeria-visa-guide/), [safety](/blog/algeria-safety-guide/), the [best time to visit](/blog/best-time-to-visit-algeria/) and [transport](/blog/algeria-transportation-guide/).
 
 ## Why visit Algeria
 Algeria offers what much of the Mediterranean has lost: scale, authenticity and space. Its Roman cities — Timgad, Djémila and Tipasa — are among the best preserved anywhere, yet you may walk them nearly alone. Its desert is not a single dune field but a continent-sized world of sandstone massifs, painted rock art and oasis towns. Its cities layer Ottoman, Andalusian and French histories into living medinas. And because so few foreign visitors come, hospitality is genuine rather than transactional. This is a destination for travellers who value substance over polish.
 
 ## Country overview
-A republic on the southern Mediterranean, Algeria borders Tunisia and Libya to the east, Niger, Mali and Mauritania to the south, Western Sahara and Morocco to the west. Its population is concentrated in the northern coastal and highland strip, while the vast south is sparsely peopled. Arabic and Tamazight (Berber) are official languages; French remains widely used in administration, business and signage. The country is divided into 58 states — you can browse all of them in our [state directory](/knowledge/provinces/).
+A republic on the southern Mediterranean, Algeria borders Tunisia and Libya to the east, Niger, Mali and Mauritania to the south, Western Sahara and Morocco to the west. Its population is concentrated in the northern coastal and highland strip, while the vast south is sparsely peopled. Arabic and Tamazight (Berber) are official languages; French remains widely used in administration, business and signage. The country is divided into 58 states — you can browse all of them in our [state directory](/provinces/).
 
 ## Geography
 Three broad bands define the land. The **Tell** — a fertile coastal and mountainous strip along the Mediterranean — holds most cities and farmland. Behind it rise the **High Plateaus** and the Saharan Atlas, a semi-arid steppe. South of that begins the **Sahara**, roughly 80% of the country, ranging from great sand seas (the Grand Erg Oriental and Occidental) to the volcanic Hoggar massif and the rock-art plateau of the Tassili n'Ajjer near [Djanet](/destinations/djanet/). Understanding these bands is the key to planning, because each has its own season and logistics.
@@ -106,7 +106,7 @@ For travel purposes it helps to think in regions rather than provinces:
 - **Northern Sahara** — the M'Zab valley around Ghardaïa, the Souf and the oases.
 - **The deep south** — Tamanrasset, the Hoggar, and the Tassili around Djanet: expedition country.
 
-Each region maps to a knowledge hub — for example the [Sahara hub](/knowledge/sahara/) and the [Roman heritage hub](/knowledge/roman-heritage/) — where you can see the connected sites, themes and history.
+Each region has a guide of its own — for example the [Sahara](/regions/sahara/) and [Roman Algeria](/regions/roman/) — where you can see the connected sites, themes and history.
 
 ## Climate
 Algeria has three climates at once. The coast is Mediterranean: mild wet winters, hot dry summers. The highlands are continental, with cold, sometimes snowy winters and hot summers. The Sahara is arid and extreme — pleasant in winter, dangerously hot from late spring through summer. This is why there is no single "best time" for the whole country; there is a best time for each region, covered in depth in the [best-time pillar](/blog/best-time-to-visit-algeria/).
@@ -127,13 +127,13 @@ Distances are large, so plan transport deliberately. Domestic flights link Algie
 Algeria can be inexpensive for food, local transport and simple guesthouses, while comfortable hotels and guided desert expeditions cost considerably more. A complicating factor is the gap between the official exchange rate and the widely-used parallel rate, which affects how far your money goes day to day. Carry cash in dinars; bring some euros to change; and do not rely on cards outside major hotels.
 
 ## Food overview
-Algerian food is one of the trip's pleasures: couscous (recognised by UNESCO as shared Maghreb heritage), hearty soups like *chorba*, slow tajines, Algiers' *rechta*, the east's *chakhchoukha*, street snacks such as *mhadjeb*, and a deep tradition of date pastries and sweet mint tea. Each region has its specialities — explore them in the [cuisine hub](/knowledge/cuisine/). Hospitality is central; accepting tea is part of the experience.
+Algerian food is one of the trip's pleasures: couscous (recognised by UNESCO as shared Maghreb heritage), hearty soups like *chorba*, slow tajines, Algiers' *rechta*, the east's *chakhchoukha*, street snacks such as *mhadjeb*, and a deep tradition of date pastries and sweet mint tea. Each region has its specialities — explore them in the [Algerian food guide](/food/). Hospitality is central; accepting tea is part of the experience.
 
 ## Culture overview
 Algeria's culture braids Amazigh (Berber) and Arab roots with Andalusian, Ottoman and Mediterranean layers. Music runs from the classical Andalusian traditions of Tlemcen and Constantine to raï, born in Oran. Crafts — carpets, silver, pottery — remain living traditions, strongest in Kabylie, the Aurès and the M'Zab. Visitors are warmly received; modest dress and a respectful manner, especially at religious sites and outside big cities, go a long way.
 
 ## UNESCO overview
-Algeria holds **seven UNESCO World Heritage Sites**: the Roman cities of Timgad, Djémila and Tipasa; the M'Zab valley; the Kasbah of Algiers; Al Qal'a of Beni Hammad; and Tassili n'Ajjer, listed for both its rock art and its landscapes. Together they are the spine of a heritage trip — see them connected in the [UNESCO hub](/knowledge/unesco/).
+Algeria holds **seven UNESCO World Heritage Sites**: the Roman cities of Timgad, Djémila and Tipasa; the M'Zab valley; the Kasbah of Algiers; Al Qal'a of Beni Hammad; and Tassili n'Ajjer, listed for both its rock art and its landscapes. Together they are the spine of a heritage trip — see them connected in the [UNESCO guide](/unesco/).
 
 ## Suggested travel styles
 - **Heritage trip (north)** — cities and Roman ruins, by train and car, any shoulder season.

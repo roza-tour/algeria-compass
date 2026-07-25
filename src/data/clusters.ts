@@ -19,7 +19,7 @@ export interface Cluster {
   supportingTypes: string[];      // content collection types that live in this cluster
   faqTypes: string[];
   conversionGoal: string;
-  knowledgeHub?: string;          // existing /knowledge/<slug>/ this cluster pairs with
+  knowledgeHub?: string;          // graph theme slug this cluster pairs with
   relatedClusters: string[];      // cluster ids
   schemaTypes: string[];          // schema.org types pages in this cluster emit
   // --- entity bridge (scalable; connects the 229-entity graph without per-entity edits) ---

@@ -1,181 +1,292 @@
 /* ===========================================================================
-   Algeria Compass — SEASON THEMES
-   The site visibly changes with the calendar (html[data-season], computed
-   automatically). This layer restyles the DESIGN itself — hero light, sea
-   waves, sun rays, section washes — while the SeasonAmbience component adds
-   the moving particles. Pure CSS art on existing hooks: no markup changes,
-   nothing here can break a layout, and every animation is motion-gated.
+   Algeria Compass — SEASON THEMES (site-wide)
+
+   The season is not a homepage decoration: it is a skin over the whole site.
+   Each season declares a small set of tokens on html[data-season], and the
+   shared rules below spend those tokens on chrome that exists on EVERY page —
+   the top identity band, every hero, the section washes, card borders, the
+   accent colour, the edge above the footer, and a fixed light in the corner of
+   the viewport. Add a season by adding tokens; the effects come for free.
+
+   Tokens
+     --s-sky        atmospheric cast painted over every hero photo
+     --s-blend      blend mode for that cast (screen for sunlight, normal for dusk)
+     --s-edge       front edge shape (page-coloured) where a hero meets the page
+     --s-edge-size  its background-size
+     --s-back       optional second edge shape behind the front one
+     --s-back-size  its background-size
+     --s-edge-h     height of the edge band
+     --s-light      fixed seasonal light over the viewport, on every page
+     --s-band       colour of the woven identity band at the very top
+
+   Nothing here changes layout: every rule paints a pseudo-element or a colour
+   token, all overlays are pointer-events:none, and all motion is gated behind
+   prefers-reduced-motion.
    =========================================================================== */
 
 /* ---------------------------------------------------------------------------
-   SUMMER — golden light, sun with rays over the bay, and a living sea:
-   two layers of waves rolling across the foot of the hero.
+   1. SEASON TOKENS
    ------------------------------------------------------------------------- */
 
-/* Warm golden-hour cast + sun glow + rays over the hero photo.
-   Uses the existing empty .home-hero-pattern span as the canvas. */
-html[data-season='summer'] .home-hero .home-hero-pattern {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 1 !important;
-  background:
-    radial-gradient(circle at 84% 16%, rgba(255, 232, 160, .68) 0%, rgba(255, 200, 100, .30) 11%, transparent 30%),
-    repeating-conic-gradient(from -8deg at 84% 16%,
-      rgba(255, 224, 140, .17) 0deg 5deg, transparent 5deg 20deg),
-    linear-gradient(180deg, rgba(255, 190, 90, .16), rgba(255, 160, 60, .07) 55%, transparent);
-  mix-blend-mode: screen;
+/* --- SUMMER — high sun, bright sea, joyful warm light ------------------- */
+html[data-season='summer'] {
+  --wash: #FDF4DF;
+  --border: #E9D9B4;
+  --accent: #C2761B;
+  --s-blend: screen;
+  /* The ray fan is deliberately faint: it screen-blends over the hero photo,
+     and anything stronger turns a bright sky into a starburst. */
+  --s-sky:
+    radial-gradient(circle at 84% 16%, rgba(255, 232, 160, .52) 0%, rgba(255, 200, 100, .22) 10%, transparent 26%),
+    repeating-conic-gradient(from -8deg at 84% 16%, rgba(255, 226, 150, .055) 0deg 2.6deg, transparent 2.6deg 22deg),
+    linear-gradient(180deg, rgba(255, 190, 90, .14), rgba(255, 160, 60, .06) 55%, transparent);
+  --s-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 64' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C 70 12 140 48 210 32 C 280 16 350 50 420 32 C 490 14 530 42 560 30 L 560 64 L 0 64 Z' fill='%23FBF8F2'/%3E%3C/svg%3E");
+  --s-edge-size: 560px 64px;
+  --s-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 84' preserveAspectRatio='none'%3E%3Cpath d='M0 44 C 90 20 180 68 270 46 C 360 24 450 66 540 44 C 630 22 690 58 720 44 L 720 84 L 0 84 Z' fill='rgba(32,142,138,0.42)'/%3E%3C/svg%3E");
+  --s-back-size: 720px 84px;
+  --s-edge-h: 84px;
+  --s-light: radial-gradient(circle at 88% 4%, rgba(255, 226, 145, .20) 0%, rgba(255, 198, 96, .07) 16%, transparent 40%);
+  --s-band: #146A4A;
 }
 
-/* The sea: two waves sliding at different speeds across the hero's foot.
-   Front wave is the page cream, so the hero literally dissolves into the
-   next section like surf meeting sand. */
-html[data-season='summer'] .home-hero::before {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 84px;
-  z-index: 3; pointer-events: none;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 84' preserveAspectRatio='none'%3E%3Cpath d='M0 44 C 90 20 180 68 270 46 C 360 24 450 66 540 44 C 630 22 690 58 720 44 L 720 84 L 0 84 Z' fill='rgba(32,142,138,0.42)'/%3E%3C/svg%3E") repeat-x left bottom / 720px 84px,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 64' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C 70 12 140 48 210 32 C 280 16 350 50 420 32 C 490 14 530 42 560 30 L 560 64 L 0 64 Z' fill='%23FBF8F2'/%3E%3C/svg%3E") repeat-x left bottom / 560px 64px;
-}
-
-/* Joyful summer wash across light sections + sunnier eyebrows */
-html[data-season='summer'] { --wash: #FDF4DF; }
-html[data-season='summer'] .qbox { border-left-color: #E8A93C; }
-
-/* ---------------------------------------------------------------------------
-   WINTER — cold clear light over the hero, icy wash. (Snowfall comes from
-   the ambience layer on top.)
-   ------------------------------------------------------------------------- */
-html[data-season='winter'] .home-hero .home-hero-pattern {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 1 !important;
-  background:
-    linear-gradient(180deg, rgba(190, 222, 240, .34), rgba(150, 195, 220, .12) 45%, transparent),
-    radial-gradient(circle at 80% 14%, rgba(255, 255, 255, .38) 0%, transparent 26%);
-  mix-blend-mode: screen;
-}
-/* snowdrift edge where the hero meets the page */
-html[data-season='winter'] .home-hero::before {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 46px;
-  z-index: 3; pointer-events: none;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 46' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C 60 14 120 34 190 26 C 260 18 320 36 390 24 C 460 14 540 34 640 22 L 640 46 L 0 46 Z' fill='%23FBF8F2'/%3E%3C/svg%3E") repeat-x left bottom / 640px 46px;
-}
-html[data-season='winter'] { --wash: #EEF4F8; }
-
-/* ---------------------------------------------------------------------------
-   CHRISTMAS — winter's light plus warm gold sparkle in the hero sky.
-   ------------------------------------------------------------------------- */
-html[data-season='christmas'] .home-hero .home-hero-pattern {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 1 !important;
-  background:
-    radial-gradient(circle at 82% 15%, rgba(255, 226, 150, .5) 0%, transparent 22%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='rgba(255,230,160,0.5)'%3E%3Cpath d='M24 18l1.6 3.6 3.6 1.6-3.6 1.6L24 28.4l-1.6-3.6-3.6-1.6 3.6-1.6z'/%3E%3Cpath d='M96 62l1.3 2.9 2.9 1.3-2.9 1.3L96 70.4l-1.3-2.9-2.9-1.3 2.9-1.3z'/%3E%3Cpath d='M52 104l1.2 2.7 2.7 1.2-2.7 1.2-1.2 2.7-1.2-2.7-2.7-1.2 2.7-1.2z'/%3E%3C/g%3E%3C/svg%3E") repeat,
-    linear-gradient(180deg, rgba(200, 230, 245, .2), transparent 50%);
-  mix-blend-mode: screen;
-}
-html[data-season='christmas'] .home-hero::before {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 46px;
-  z-index: 3; pointer-events: none;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 46' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C 60 14 120 34 190 26 C 260 18 320 36 390 24 C 460 14 540 34 640 22 L 640 46 L 0 46 Z' fill='%23FBF8F2'/%3E%3C/svg%3E") repeat-x left bottom / 640px 46px;
-}
-html[data-season='christmas'] { --wash: #F5F0E0; }
-
-/* ---------------------------------------------------------------------------
-   SPRING — fresh green-gold morning light, meadow wash.
-   ------------------------------------------------------------------------- */
-html[data-season='spring'] .home-hero .home-hero-pattern {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 1 !important;
-  background:
-    radial-gradient(circle at 82% 16%, rgba(255, 244, 190, .5) 0%, transparent 26%),
+/* --- SPRING — green-gold morning, meadow light -------------------------- */
+html[data-season='spring'] {
+  --wash: #EFF6E8;
+  --border: #DCE7CC;
+  --accent: #3F7A34;
+  --s-blend: screen;
+  --s-sky:
+    radial-gradient(circle at 82% 16%, rgba(255, 244, 190, .50) 0%, transparent 26%),
     linear-gradient(180deg, rgba(178, 220, 150, .22), rgba(140, 200, 120, .08) 50%, transparent);
-  mix-blend-mode: screen;
+  --s-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 44' preserveAspectRatio='none'%3E%3Cpath d='M0 26 Q 30 6 60 26 Q 90 6 120 26 Q 150 6 180 26 Q 210 6 240 26 Q 270 6 300 26 Q 330 6 360 26 Q 390 6 420 26 Q 450 6 480 26 L 480 44 L 0 44 Z' fill='%23FBF8F2'/%3E%3C/svg%3E");
+  --s-edge-size: 480px 44px;
+  --s-edge-h: 44px;
+  --s-light: radial-gradient(circle at 86% 4%, rgba(214, 240, 176, .17) 0%, transparent 38%);
+  --s-band: #1B6B3E;
 }
-html[data-season='spring'] { --wash: #EFF6E8; }
 
-/* ---------------------------------------------------------------------------
-   AUTUMN — low amber sun, harvest wash.
-   ------------------------------------------------------------------------- */
-html[data-season='autumn'] .home-hero .home-hero-pattern {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 1 !important;
-  background:
+/* --- AUTUMN — low amber sun, harvest light ------------------------------ */
+html[data-season='autumn'] {
+  --wash: #F8EFE0;
+  --border: #E7D6BA;
+  --accent: #A2551A;
+  --s-blend: screen;
+  --s-sky:
     radial-gradient(circle at 82% 20%, rgba(255, 205, 120, .55) 0%, transparent 26%),
     linear-gradient(180deg, rgba(220, 140, 60, .22), rgba(180, 100, 40, .08) 55%, transparent);
-  mix-blend-mode: screen;
+  --s-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 52' preserveAspectRatio='none'%3E%3Cpath d='M0 34 C 80 14 160 40 240 28 C 320 16 400 42 480 30 C 560 18 600 36 640 28 L 640 52 L 0 52 Z' fill='%23FBF8F2'/%3E%3C/svg%3E");
+  --s-edge-size: 640px 52px;
+  --s-edge-h: 52px;
+  --s-light: radial-gradient(circle at 87% 5%, rgba(255, 190, 110, .16) 0%, transparent 38%);
+  --s-band: #6B3E14;
 }
-html[data-season='autumn'] { --wash: #F8EFE0; }
 
-/* ---------------------------------------------------------------------------
-   RAMADAN / EID / MAWLID — the hero becomes a lantern-lit night: deep
-   green-navy dusk with a glowing crescent and faint stars over the photo.
-   ------------------------------------------------------------------------- */
-html[data-season='ramadan'] .home-hero .home-hero-pattern,
-html[data-season='eid'] .home-hero .home-hero-pattern,
-html[data-season='mawlid'] .home-hero .home-hero-pattern {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 1 !important;
-  background:
-    radial-gradient(circle at 84% 15%, rgba(240, 211, 132, .65) 0%, rgba(240, 211, 132, .2) 9%, transparent 24%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='rgba(244,227,174,0.55)'%3E%3Ccircle cx='30' cy='26' r='1.6'/%3E%3Ccircle cx='96' cy='54' r='1.2'/%3E%3Ccircle cx='140' cy='20' r='1.4'/%3E%3Ccircle cx='64' cy='108' r='1.2'/%3E%3Ccircle cx='120' cy='132' r='1.5'/%3E%3C/g%3E%3C/svg%3E") repeat,
+/* --- WINTER — cold clear light, snowdrift edges -------------------------- */
+html[data-season='winter'] {
+  --wash: #EEF4F8;
+  --border: #D8E3EB;
+  --accent: #1B5E82;
+  --s-blend: screen;
+  --s-sky:
+    linear-gradient(180deg, rgba(190, 222, 240, .34), rgba(150, 195, 220, .12) 45%, transparent),
+    radial-gradient(circle at 80% 14%, rgba(255, 255, 255, .38) 0%, transparent 26%);
+  --s-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 46' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C 60 14 120 34 190 26 C 260 18 320 36 390 24 C 460 14 540 34 640 22 L 640 46 L 0 46 Z' fill='%23FBF8F2'/%3E%3C/svg%3E");
+  --s-edge-size: 640px 46px;
+  --s-edge-h: 46px;
+  --s-light: radial-gradient(circle at 84% 3%, rgba(214, 236, 250, .20) 0%, transparent 40%);
+  --s-band: #14425C;
+}
+
+/* --- CHRISTMAS — winter light plus warm gold sparkle --------------------- */
+html[data-season='christmas'] {
+  --wash: #F5F0E0;
+  --border: #E3D9BE;
+  --accent: #97231F;
+  --s-blend: screen;
+  --s-sky:
+    radial-gradient(circle at 82% 15%, rgba(255, 226, 150, .50) 0%, transparent 22%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='rgba(255,230,160,0.5)'%3E%3Cpath d='M24 18l1.6 3.6 3.6 1.6-3.6 1.6L24 28.4l-1.6-3.6-3.6-1.6 3.6-1.6z'/%3E%3Cpath d='M96 62l1.3 2.9 2.9 1.3-2.9 1.3L96 70.4l-1.3-2.9-2.9-1.3 2.9-1.3z'/%3E%3Cpath d='M52 104l1.2 2.7 2.7 1.2-2.7 1.2-1.2 2.7-1.2-2.7-2.7-1.2 2.7-1.2z'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(200, 230, 245, .20), transparent 50%);
+  --s-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 46' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C 60 14 120 34 190 26 C 260 18 320 36 390 24 C 460 14 540 34 640 22 L 640 46 L 0 46 Z' fill='%23FBF8F2'/%3E%3C/svg%3E");
+  --s-edge-size: 640px 46px;
+  --s-edge-h: 46px;
+  --s-light: radial-gradient(circle at 86% 4%, rgba(255, 224, 152, .18) 0%, transparent 38%);
+  --s-band: #7C1D1A;
+}
+
+/* --- RAMADAN / EID / MAWLID — lantern-lit dusk, scalloped arcades -------- */
+html[data-season='ramadan'],
+html[data-season='eid'],
+html[data-season='mawlid'] {
+  --s-blend: normal;
+  --s-sky:
+    radial-gradient(circle at 84% 15%, rgba(240, 211, 132, .65) 0%, rgba(240, 211, 132, .20) 9%, transparent 24%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='rgba(244,227,174,0.55)'%3E%3Ccircle cx='30' cy='26' r='1.6'/%3E%3Ccircle cx='96' cy='54' r='1.2'/%3E%3Ccircle cx='140' cy='20' r='1.4'/%3E%3Ccircle cx='64' cy='108' r='1.2'/%3E%3Ccircle cx='120' cy='132' r='1.5'/%3E%3C/g%3E%3C/svg%3E"),
     linear-gradient(180deg, rgba(6, 30, 24, .55), rgba(6, 30, 24, .25) 60%, transparent);
+  /* a row of pointed arches — the arcade motif, page-coloured */
+  --s-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 56' preserveAspectRatio='none'%3E%3Cpath d='M0 56 L0 26 Q 20 -8 40 26 Q 60 -8 80 26 Q 100 -8 120 26 Q 140 -8 160 26 L160 56 Z' fill='%23FBF8F2'/%3E%3C/svg%3E");
+  --s-edge-size: 160px 56px;
+  --s-edge-h: 56px;
+  --s-light: radial-gradient(circle at 85% 4%, rgba(240, 211, 132, .20) 0%, transparent 36%);
+  --s-band: #0A3A2A;
 }
-/* the crescent itself, drawn with a radial cut-out, glowing in the hero sky */
-html[data-season='ramadan'] .home-hero::before,
-html[data-season='eid'] .home-hero::before,
-html[data-season='mawlid'] .home-hero::before {
-  content: ""; position: absolute; z-index: 2; pointer-events: none;
-  right: 11%; top: 12%; width: clamp(48px, 6vw, 76px); aspect-ratio: 1;
-  background: radial-gradient(circle at 66% 38%, transparent 56%, #F0D384 60%);
-  border-radius: 50%;
-  filter: drop-shadow(0 0 18px rgba(240, 211, 132, .8));
+html[data-season='ramadan'] { --wash: #F1F0DE; --border: #DED8B9; --accent: #14634A; }
+html[data-season='eid']     { --wash: #F7F0DC; --border: #E6D8B2; --accent: #9A7515; }
+html[data-season='mawlid']  { --wash: #EFF3EC; --border: #D9E1D3; --accent: #14634A; }
+
+/* --- YENNAYER — Amazigh teal and the zigzag of the tattoo motifs --------- */
+html[data-season='yennayer'] {
+  --wash: #E9F5F3;
+  --border: #CFE4E0;
+  --accent: #0F6E6A;
+  --s-blend: screen;
+  --s-sky: linear-gradient(180deg, rgba(30, 140, 140, .28), transparent 55%);
+  --s-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40 L0 24 L20 8 L40 24 L60 8 L80 24 L100 8 L120 24 L140 8 L160 24 L160 40 Z' fill='%23FBF8F2'/%3E%3C/svg%3E");
+  --s-edge-size: 160px 40px;
+  --s-edge-h: 40px;
+  --s-light: radial-gradient(circle at 85% 4%, rgba(96, 208, 200, .15) 0%, transparent 38%);
+  --s-band: #0C5A57;
 }
-html[data-season='ramadan'] { --wash: #F1F0DE; }
-html[data-season='eid']     { --wash: #F7F0DC; }
+
+/* --- NATIONAL DAYS — the national green, restrained -------------------- */
+html[data-season='national'] {
+  --wash: #ECF3EE;
+  --border: #D5E3D9;
+  --accent: #0B3D2E;
+  --s-blend: screen;
+  --s-sky: linear-gradient(180deg, rgba(11, 61, 46, .26), transparent 52%);
+  --s-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 36' preserveAspectRatio='none'%3E%3Cpath d='M0 36 L0 22 L40 10 L80 22 L120 10 L160 22 L160 36 Z' fill='%23FBF8F2'/%3E%3C/svg%3E");
+  --s-edge-size: 160px 36px;
+  --s-edge-h: 36px;
+  --s-light: radial-gradient(circle at 85% 4%, rgba(120, 190, 158, .13) 0%, transparent 36%);
+  --s-band: #0B3D2E;
+}
 
 /* ---------------------------------------------------------------------------
-   YENNAYER / NATIONAL — Amazigh teal / national green casts.
+   2. SITE-WIDE APPLICATION — every rule below runs on every page
    ------------------------------------------------------------------------- */
-html[data-season='yennayer'] .home-hero .home-hero-pattern {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 1 !important;
-  background: linear-gradient(180deg, rgba(30, 140, 140, .28), transparent 55%);
+
+/* 2a. The identity band at the very top of every page takes the season colour. */
+html[data-season] .id-band { background-color: var(--s-band, #0E3D24); }
+
+/* 2b. Every hero on the site — homepage, tours, guides, states, French pages —
+       gets the seasonal sky. This replaces the static gold diamond field, which
+       is what made the old design look identical in every month of the year. */
+html[data-season] .hero::before,
+html[data-season] .home-hero .home-hero-pattern {
+  opacity: 1;
+  background-image: var(--s-sky, none);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-size: auto, auto, auto;
+  mix-blend-mode: var(--s-blend, normal);
+}
+
+/* 2c. Every hero also dissolves into the page through a seasonal edge — surf in
+       summer, a snowdrift in winter, an arcade of arches in Ramadan. */
+html[data-season] .hero::after {
+  background:
+    var(--s-edge, none) repeat-x left bottom / var(--s-edge-size, auto),
+    var(--s-back, none) repeat-x left bottom / var(--s-back-size, auto),
+    linear-gradient(100deg, rgba(7, 38, 28, .9), rgba(7, 38, 28, .5) 52%, rgba(7, 38, 28, .2) 82%),
+    linear-gradient(0deg, rgba(7, 38, 28, .7), transparent 42%);
+}
+
+/* 2c-bis. The homepage hero is its own element (.home-hero) rather than the
+       shared .hero, so it takes the same edge on its own free pseudo-element. */
+html[data-season] .home-hero::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; z-index: 3;
+  height: var(--s-edge-h, 0);
+  pointer-events: none;
+  background:
+    var(--s-edge, none) repeat-x left bottom / var(--s-edge-size, auto),
+    var(--s-back, none) repeat-x left bottom / var(--s-back-size, auto);
+}
+
+/* 2d. The same edge appears above the footer, flipped, so the season frames the
+       bottom of every page as well as the top. */
+html[data-season] footer::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; z-index: 1;
+  height: var(--s-edge-h, 0);
+  pointer-events: none;
+  background: var(--s-edge, none) repeat-x left bottom / var(--s-edge-size, auto);
+  transform: scaleY(-1);
+}
+
+/* 2e. A fixed seasonal light in the corner of the viewport. It rides above the
+       page (so opaque sections cannot swallow it) but is faint and screen-blended,
+       so it warms the page without touching text contrast. */
+html[data-season] .amb-fx::before {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none;
+  background: var(--s-light, none);
   mix-blend-mode: screen;
 }
-html[data-season='yennayer'] { --wash: #E9F5F3; }
-html[data-season='national'] { --wash: #ECF3EE; }
+
+/* 2f. Content chrome picks up the seasonal accent. These selectors cover the
+       recurring furniture on every template: quick-answer boxes, related rails,
+       source panels, chips and eyebrows. --wash / --border / --accent are already
+       consumed site-wide by global.css, so retinting the tokens above carries
+       the season into cards, panels and rules automatically. */
+html[data-season] .qbox { border-left-color: var(--accent); }
+html[data-season] .eyebrow { color: var(--accent); }
 
 /* ---------------------------------------------------------------------------
-   Motion: the sea rolls, the sun breathes — only when the visitor allows it.
+   3. MOTION — the sea rolls, the light breathes. Only if the visitor allows it.
    ------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
-  html[data-season='summer'] .home-hero::before {
-    animation: sea-roll 16s linear infinite;
-  }
-  html[data-season='summer'] .home-hero .home-hero-pattern {
-    animation: sun-breathe 8s ease-in-out infinite;
-  }
-  html[data-season='ramadan'] .home-hero::before,
-  html[data-season='eid'] .home-hero::before,
-  html[data-season='mawlid'] .home-hero::before {
-    animation: crescent-glow 7s ease-in-out infinite;
-  }
+  html[data-season='summer'] .hero::after { animation: sea-roll 16s linear infinite; }
+  html[data-season='summer'] .home-hero::before { animation: sea-roll-edge 16s linear infinite; }
+  html[data-season='summer'] .hero::before,
+  html[data-season='summer'] .home-hero .home-hero-pattern,
+  html[data-season='christmas'] .hero::before,
+  html[data-season='christmas'] .home-hero .home-hero-pattern { animation: sky-breathe 8s ease-in-out infinite; }
+  html[data-season='ramadan'] .hero::before,
+  html[data-season='eid'] .hero::before,
+  html[data-season='mawlid'] .hero::before,
+  html[data-season='ramadan'] .home-hero .home-hero-pattern,
+  html[data-season='eid'] .home-hero .home-hero-pattern,
+  html[data-season='mawlid'] .home-hero .home-hero-pattern { animation: lantern-breathe 7s ease-in-out infinite; }
+  html[data-season] .amb-fx::before { animation: light-breathe 11s ease-in-out infinite; }
 }
 @keyframes sea-roll {
-  from { background-position: 0 bottom, 0 bottom; }
-  to   { background-position: 720px bottom, -560px bottom; }
+  from { background-position: 0 bottom, 0 bottom, 0 0, 0 0; }
+  to   { background-position: -560px bottom, 720px bottom, 0 0, 0 0; }
 }
-@keyframes sun-breathe {
-  0%, 100% { opacity: .92; }
+@keyframes sea-roll-edge {
+  from { background-position: 0 bottom, 0 bottom; }
+  to   { background-position: -560px bottom, 720px bottom; }
+}
+@keyframes sky-breathe {
+  0%, 100% { opacity: .88; }
   50%      { opacity: 1; }
 }
-@keyframes crescent-glow {
-  0%, 100% { filter: drop-shadow(0 0 14px rgba(240, 211, 132, .65)); }
-  50%      { filter: drop-shadow(0 0 26px rgba(240, 211, 132, .95)); }
+@keyframes lantern-breathe {
+  0%, 100% { opacity: .90; }
+  50%      { opacity: 1; }
+}
+@keyframes light-breathe {
+  0%, 100% { opacity: .75; }
+  50%      { opacity: 1; }
 }
 
-/* Phones: keep every cast and the waves (pure backgrounds, zero cost);
-   trim only the ray fan, which reads noisy at small sizes. */
+/* ---------------------------------------------------------------------------
+   4. Phones — keep every cast and edge (they are plain backgrounds, no cost);
+   trim only the summer ray fan, which reads noisy at small sizes.
+   ------------------------------------------------------------------------- */
 @media (max-width: 640px) {
-  html[data-season='summer'] .home-hero .home-hero-pattern {
-    background:
-      radial-gradient(circle at 84% 12%, rgba(255, 232, 160, .6) 0%, rgba(255, 200, 100, .26) 13%, transparent 32%),
+  html[data-season='summer'] {
+    --s-sky:
+      radial-gradient(circle at 84% 12%, rgba(255, 232, 160, .60) 0%, rgba(255, 200, 100, .26) 13%, transparent 32%),
       linear-gradient(180deg, rgba(255, 190, 90, .15), transparent 60%);
   }
+  html[data-season] .hero::before,
+  html[data-season] .home-hero .home-hero-pattern { background-repeat: no-repeat, no-repeat, no-repeat; }
 }
 
 @media print {
-  .home-hero .home-hero-pattern, .home-hero::before { display: none !important; }
+  html[data-season] .hero::before,
+  html[data-season] .home-hero::before,
+  html[data-season] .home-hero .home-hero-pattern,
+  html[data-season] footer::before,
+  html[data-season] .amb-fx::before { display: none !important; }
 }

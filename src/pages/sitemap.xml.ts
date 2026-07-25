@@ -9,7 +9,7 @@ const today = new Date().toISOString().slice(0, 10);
 export const GET: APIRoute = async () => {
   // Only canonical, 200, indexable, trailing-slash URLs.
   // EXCLUDED (noindex scaffolding / thin meta pages, kept out of the sitemap):
-  //   /knowledge/ (+ /knowledge/graph/, /knowledge/provinces/), /search/, /sitemap/, /404/.
+  //   /search/, /sitemap/, /404/.
   //   (/clusters/ was removed entirely — now 301'd to real pages in .htaccess.)
   const statics = ['', 'discover/', 'tours/', 'luxury/', 'destinations/', 'provinces/', 'regions/', 'experiences/', 'blog/',
     'questions/', 'culture/', 'history/', 'food/', 'sweets/', 'unesco/', 'travel-guides/',
@@ -29,7 +29,7 @@ export const GET: APIRoute = async () => {
   const tourList = (toursData as any).tours || (toursData as any);
   for (const t of tourList) rows.push({ loc: `${SITE}/tours/${t.id}/`, pri: '0.8', mod: today });
   for (const r of REGIONS) rows.push({ loc: `${SITE}/regions/${r.id}/`, pri: '0.7', mod: today });
-  // hubs (/knowledge/*) are noindex scaffolding — excluded from sitemap.
+  // utility pages (/search/, /sitemap/, /404/) are excluded from the sitemap.
   for (const [coll, base] of colls) {
     const items = await getCollection(coll as any);
     for (const it of items) {
