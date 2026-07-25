@@ -8,7 +8,8 @@
     "build": "node scripts/build.mjs",
     "build:raw": "astro build",
     "stage": "node scripts/stage-dist.mjs",
-    "deploy": "node scripts/build.mjs && node scripts/stage-dist.mjs",
+    "audit:seo": "node scripts/seo-audit.mjs",
+    "deploy": "node scripts/build.mjs && node scripts/seo-audit.mjs && node scripts/stage-dist.mjs",
     "preview": "astro preview"
   },
   "dependencies": {
