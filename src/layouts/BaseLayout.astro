@@ -10,6 +10,7 @@ import SchemaGraph from '../components/SchemaGraph.astro';
 import Analytics from '../components/Analytics.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import SeasonAmbience from '../components/SeasonAmbience.astro';
+import SeasonBanner from '../components/SeasonBanner.astro';
 import StickyContact from '../components/StickyContact.astro';
 export interface Props {
   title: string; description: string; image?: string; imageAlt?: string; type?: string;
@@ -58,6 +59,7 @@ const occasionFont = occasion ? OCCASION_FONT[occasion] : undefined;
   <SeasonAmbience />
   <a href="#main" class="skip-link">{lang === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
   <Header lang={lang} />
+  <SeasonBanner lang={lang} />
   <main id="main">
     <slot />
   </main>

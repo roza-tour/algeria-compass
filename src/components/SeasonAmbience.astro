@@ -252,9 +252,16 @@ const STARS = [
     50%      { opacity: 1;   transform: scale(1.08); }
   }
 
-  /* Phones: keep the wash, drop the particles (battery + clarity on small text) */
+  /* Phones: keep the seasonal feel but thin it — roughly half the particles,
+     and drop only the bottom sea-swell (invisible behind content there anyway).
+     All motion is transform/opacity, so the phone GPU handles it easily. */
   @media (max-width: 640px) {
-    .amb-snow, .amb-petals, .amb-leaves, .amb-sea, .amb-motes { display: none; }
+    .amb-sea { display: none; }
+    .amb-flake:nth-child(odd),
+    .amb-petal:nth-child(odd),
+    .amb-leaf:nth-child(odd),
+    .amb-mote:nth-child(odd) { display: none; }
+    .amb-flake, .amb-mote { width: 4px; height: 4px; }
   }
 
   /* Anyone who asks for less motion gets a completely still page. */

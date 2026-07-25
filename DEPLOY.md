@@ -1,18 +1,20 @@
 # Algeria Compass — Deploy
 
-**One command. Nothing else to remember.**
+## The two commands (everything else is detail)
+
+**1. On your computer** — build, check, publish:
 
 ```bash
-npm run deploy
+npm run deploy && git add -A && git commit -m "update site" && git push
 ```
 
-Then commit and push:
+**2. On the server (cPanel → Terminal)** — pull the changes live, one command:
 
 ```bash
-git add -A && git commit -m "update site" && git push
+cd ~/public_html/algeriacompass.com && git fetch origin && git reset --hard origin/main
 ```
 
-That's it. The server picks the changes up from git.
+(Identical to running `bash scripts/server-deploy.sh`.) Done — the site is updated.
 
 ---
 
@@ -114,6 +116,25 @@ data/rl-* , data/.login-*  rate-limit counters
 **A new guide** — create `src/content/article/my-guide.md`, copy the frontmatter
 shape from any existing guide, write the body, then `npm run deploy`.
 It joins the blog index, the sitemap and `llms.txt` automatically.
+
+## Seasonal ambience (fully automatic)
+
+The whole site dresses itself for the calendar — snow in winter, drifting golden
+motes in summer, petals in spring, leaves in autumn, night-and-stars for Ramadan,
+gold for the Eids and Christmas — plus a slim season ribbon under the header
+linking to the matching guide. **Nothing to maintain**: Islamic dates are
+computed from the Hijri calendar, fixed dates from rules.
+
+```bash
+npm run season:calendar        # see the schedule for the next 18 months
+SEASON_PREVIEW=christmas npm run build && npm run preview   # preview any season
+```
+
+Valid preview values: `spring summer autumn winter christmas ramadan eid mawlid yennayer national`.
+Effects pause automatically for visitors who prefer reduced motion, thin out on
+phones, and never sit over text.
+
+---
 
 **A seasonal look** — add to the frontmatter:
 

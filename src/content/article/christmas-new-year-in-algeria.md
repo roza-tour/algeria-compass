@@ -50,6 +50,7 @@ occasion: "christmas"
 occasionEyebrow: "Christmas & New Year"
 occasionTitle: "A warm, quiet Christmas — and three new years"
 occasionNote: "Prime Sahara season, a mild green north, snow in the Atlas, and no festive crowds or price surges. Christmas, New Year and Yennayer in one trip window."
+frAlt: "/fr/noel-nouvel-an-algerie/"
 author: "oussama-ben-yahia"
 reviewedBy: "editorial-review"
 lastReviewed: 2026-07-22

@@ -18,7 +18,8 @@ export const GET: APIRoute = async () => {
     // French (fr) pages — hreflang-paired with their English counterparts
     'fr/', 'fr/guide-voyage-algerie/', 'fr/visa-algerie/', 'fr/securite-algerie/',
     'fr/quand-partir-algerie/', 'fr/transport-algerie/', 'fr/itineraire-algerie/',
-    'fr/budget-algerie/', 'fr/sahara-algerie/', 'fr/cuisine-algerienne/'];
+    'fr/budget-algerie/', 'fr/sahara-algerie/', 'fr/cuisine-algerienne/',
+    'fr/noel-nouvel-an-algerie/', 'fr/neige-sahara-algerie/'];
   const colls: [string, string][] = [
     ['province', 'provinces'], ['destination', 'destinations'],
     ['experience', 'experiences'], ['article', 'blog'], ['question', 'questions'],

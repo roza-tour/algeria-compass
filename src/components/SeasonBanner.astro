@@ -1,0 +1,146 @@
+---
+// A slim seasonal ribbon under the header — the part of the seasonal system the
+// visitor consciously READS (the ambience particles are felt, this is said).
+// Auto-selected from the same computed calendar as the ambience; links to the
+// guide that matches the moment. Dismissible per-season (a new season shows it
+// again). Rendered server-side, so no layout shift for non-dismissers.
+import { seasonForDate, upcomingWindows, type Season } from '../lib/season';
+
+interface Props { lang?: 'en' | 'fr' }
+const { lang = 'en' } = Astro.props;
+
+const preview = (import.meta.env.SEASON_PREVIEW as string) || '';
+const now = new Date();
+const season = (preview as Season) || seasonForDate(now);
+const schedule = upcomingWindows(now, 18).map(w => [w.from, w.to, w.season]);
+
+// [message, link-href, link-label] per season, both languages. Honest, selling
+// the moment: every claim matches the guides.
+const MSG: Record<string, Record<string, [string, string, string]>> = {
+  en: {
+    winter:    ["It's winter — prime Sahara season, and snow in the Atlas.", '/blog/algeria-snow-to-sahara/', 'Snow-to-Sahara guide'],
+    christmas: ['Christmas & New Year in Algeria: warm desert days, no festive crowds.', '/blog/christmas-new-year-in-algeria/', 'Plan the festive escape'],
+    ramadan:   ['It’s Ramadan — cities come alive after sunset. What changes for visitors:', '/blog/algeria-holidays-ramadan/', 'Ramadan travel guide'],
+    eid:       ['Eid Mubarak — expect festive closures and busy transport for a few days.', '/blog/algeria-holidays-ramadan/', 'Holiday guide'],
+    mawlid:    ['It’s Mawlid — a national holiday in Algeria this week.', '/blog/algeria-holidays-ramadan/', 'Holiday guide'],
+    yennayer:  ['Yennayer — the Amazigh New Year, celebrated across Algeria.', '/blog/algeria-holidays-ramadan/', 'About Algeria’s holidays'],
+    national:  ['A national holiday in Algeria this week — expect some closures.', '/blog/algeria-holidays-ramadan/', 'Holiday guide'],
+    spring:    ['Spring — the best all-round season for the north and the Roman cities.', '/blog/best-time-to-visit-algeria/', 'When to go where'],
+    summer:    ['Summer — coast season in the north; the deep Sahara waits for winter.', '/blog/best-time-to-visit-algeria/', 'When to go where'],
+    autumn:    ['Autumn — golden light on the Roman cities, ideal touring weather.', '/blog/best-time-to-visit-algeria/', 'When to go where'],
+  },
+  fr: {
+    winter:    ["C'est l'hiver — la grande saison du Sahara, et la neige dans l'Atlas.", '/fr/sahara-algerie/', 'Guide du Sahara'],
+    christmas: ['Noël et Nouvel An en Algérie : désert doux, zéro foule festive.', '/fr/quand-partir-algerie/', 'Préparer le voyage'],
+    ramadan:   ['C’est le Ramadan — les villes s’animent après le coucher du soleil.', '/fr/guide-voyage-algerie/', 'Guide de voyage'],
+    eid:       ['Aïd Moubarak — fermetures et transports chargés pendant quelques jours.', '/fr/guide-voyage-algerie/', 'Guide de voyage'],
+    mawlid:    ['C’est le Mawlid — jour férié en Algérie cette semaine.', '/fr/guide-voyage-algerie/', 'Guide de voyage'],
+    yennayer:  ['Yennayer — le Nouvel An amazigh, célébré dans toute l’Algérie.', '/fr/guide-voyage-algerie/', 'Guide de voyage'],
+    national:  ['Jour férié national en Algérie cette semaine.', '/fr/guide-voyage-algerie/', 'Guide de voyage'],
+    spring:    ['Le printemps — la meilleure saison pour le nord et les cités romaines.', '/fr/quand-partir-algerie/', 'Quand partir ?'],
+    summer:    ['L’été — la saison de la côte ; le grand Sahara attend l’hiver.', '/fr/quand-partir-algerie/', 'Quand partir ?'],
+    autumn:    ['L’automne — lumière dorée sur les cités romaines, météo idéale.', '/fr/quand-partir-algerie/', 'Quand partir ?'],
+  },
+};
+
+// Line icons per season (24px viewBox inner markup) — SVG, never emoji.
+const ICON: Record<string, string> = {
+  winter:    '<path d="M12 2v20M4 7l16 10M20 7L4 17"/><path d="M9 4l3 3 3-3M9 20l3-3 3 3"/>',
+  christmas: '<path d="M12 2l2.6 5.6L20 10l-5.4 2.4L12 18l-2.6-5.6L4 10l5.4-2.4z"/>',
+  ramadan:   '<path d="M17.2 3.4a9 9 0 1 0 3.4 12 7.2 7.2 0 1 1-3.4-12Z"/>',
+  eid:       '<path d="M17.2 3.4a9 9 0 1 0 3.4 12 7.2 7.2 0 1 1-3.4-12Z"/><path d="M19 3l.8 1.7L21.5 5.5l-1.7.8L19 8l-.8-1.7L16.5 5.5l1.7-.8z"/>',
+  mawlid:    '<path d="M4 21V12a8 8 0 0 1 16 0v9"/><path d="M12 4V2M4 21h16"/>',
+  yennayer:  '<path d="M12 3l2 5 5 .5-3.8 3.4L16.5 17 12 14.3 7.5 17l1.3-5.1L5 8.5 10 8z"/>',
+  national:  '<path d="M4 3v18M4 4h13l-2.5 4L17 12H4"/>',
+  spring:    '<circle cx="12" cy="12" r="3"/><path d="M12 3a3 3 0 0 1 0 6M12 15a3 3 0 0 1 0 6M3 12a3 3 0 0 1 6 0M15 12a3 3 0 0 1 6 0"/>',
+  summer:    '<circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4 12H1M23 12h-3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',
+  autumn:    '<path d="M5 21c8 0 14-6 14-14v-2h-2C9 5 3 11 3 19v2z"/><path d="M5 21C8 15 12 10 17 6"/>',
+};
+
+const m = MSG[lang]?.[season];
+---
+{m && (
+  <div class="sbn" data-season={season} data-preview={preview || undefined} role="note" aria-label={lang === 'fr' ? 'Info saison' : 'Season note'}>
+    <div class="sbn-in wrap">
+      <span class="sbn-ic" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={ICON[season]} />
+      </span>
+      <p class="sbn-txt">{m[0]} <a href={m[1]}>{m[2]}</a></p>
+      <button class="sbn-x" type="button" aria-label={lang === 'fr' ? 'Fermer' : 'Dismiss'}>&#215;</button>
+    </div>
+  </div>
+)}
+
+<script is:inline define:vars={{ windows: schedule, msgs: MSG[lang], icons: ICON }}>
+  (function () {
+    var el = document.querySelector('.sbn');
+    if (!el) return;
+    // per-season dismissal: a NEW season shows the ribbon again
+    try {
+      if (localStorage.getItem('sbn-dismissed') === el.dataset.season) { el.remove(); return; }
+    } catch (e) {}
+    var x = el.querySelector('.sbn-x');
+    if (x) x.addEventListener('click', function () {
+      try { localStorage.setItem('sbn-dismissed', el.dataset.season); } catch (e) {}
+      el.remove();
+    });
+    // cached-page correction: if the calendar moved on, swap the message live
+    if (el.dataset.preview) return;
+    var d = new Date(), iso = d.toISOString().slice(0, 10), s = null;
+    for (var i = 0; i < windows.length; i++)
+      if (iso >= windows[i][0] && iso < windows[i][1]) { s = windows[i][2]; break; }
+    if (!s) { var mo = d.getMonth();
+      s = (mo >= 2 && mo <= 4) ? 'spring' : (mo >= 5 && mo <= 7) ? 'summer' : (mo >= 8 && mo <= 10) ? 'autumn' : 'winter'; }
+    if (s !== el.dataset.season && msgs[s]) {
+      el.dataset.season = s;
+      var t = el.querySelector('.sbn-txt'), a = document.createElement('a');
+      a.href = msgs[s][1]; a.textContent = msgs[s][2];
+      t.textContent = msgs[s][0] + ' ';
+      t.appendChild(a);
+      var ic = el.querySelector('.sbn-ic svg');
+      if (ic && icons[s]) ic.innerHTML = icons[s];
+      try { if (localStorage.getItem('sbn-dismissed') === s) el.remove(); } catch (e) {}
+    }
+  })();
+</script>
+
+<style>
+  .sbn {
+    position: relative; z-index: 2;
+    border-bottom: 1px solid var(--sbn-line, var(--border));
+    background: var(--sbn-bg, var(--wash));
+    color: var(--sbn-ink, var(--ink));
+    font-size: .84rem;
+  }
+  .sbn-in { display: flex; align-items: center; gap: .6rem; padding: .5rem 1rem; }
+  .sbn-ic { display: inline-flex; color: var(--sbn-accent, var(--accent-2)); flex: 0 0 auto; }
+  .sbn-ic svg { width: 17px; height: 17px; }
+  .sbn-txt { margin: 0; line-height: 1.45; }
+  .sbn-txt a { font-weight: 700; color: var(--sbn-accent, var(--accent-2)); white-space: nowrap; margin-inline-start: .35em; }
+  .sbn-x {
+    margin-inline-start: auto; flex: 0 0 auto;
+    /* 44x44 touch target (WCAG 2.5.5); visually light via transparency */
+    width: 44px; height: 44px; margin-block: -8px;
+    border: 0; border-radius: 8px; cursor: pointer;
+    background: transparent; color: inherit; opacity: .55; font-size: 1.1rem; line-height: 1;
+  }
+  .sbn-x:hover { opacity: 1; background: rgba(0, 0, 0, .06); }
+
+  /* seasonal tints — light surfaces, AA-dark ink */
+  .sbn[data-season='winter']    { --sbn-bg:#EDF4F8; --sbn-line:#C9DEE9; --sbn-accent:#20586F; --sbn-ink:#16323F; }
+  .sbn[data-season='christmas'] { --sbn-bg:#F3F0E4; --sbn-line:#DFD3AE; --sbn-accent:#8A6508; --sbn-ink:#123B2B; }
+  .sbn[data-season='ramadan'],
+  .sbn[data-season='eid'],
+  .sbn[data-season='mawlid']    { --sbn-bg:#F2F1E2; --sbn-line:#DCD3A8; --sbn-accent:#8A6508; --sbn-ink:#0A2E22; }
+  .sbn[data-season='yennayer']  { --sbn-bg:#E9F5F3; --sbn-line:#BEE0DB; --sbn-accent:#116A63; --sbn-ink:#0C3833; }
+  .sbn[data-season='national']  { --sbn-bg:#ECF3EE; --sbn-line:#C7DCCD; --sbn-accent:#0B3D2E; --sbn-ink:#0B3D2E; }
+  .sbn[data-season='spring']    { --sbn-bg:#EFF5EA; --sbn-line:#D2E2C4; --sbn-accent:#4A6B2A; --sbn-ink:#2C401A; }
+  .sbn[data-season='summer']    { --sbn-bg:#FBF3E1; --sbn-line:#EBD9AC; --sbn-accent:#9A6A12; --sbn-ink:#4A3410; }
+  .sbn[data-season='autumn']    { --sbn-bg:#F8F0E6; --sbn-line:#E6D2B6; --sbn-accent:#95531B; --sbn-ink:#46280E; }
+
+  @media (max-width: 640px) {
+    .sbn { font-size: .8rem; }
+    .sbn-in { padding: .45rem .8rem; }
+  }
+  @media print { .sbn { display: none; } }
+</style>

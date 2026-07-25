@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const enUrl = site + '/blog/algeria-snow-to-sahara/';
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'fr', href: site + '/fr/neige-sahara-algerie/' },
+  { hreflang: 'x-default', href: enUrl },
+];
+const title = "De la neige au Sahara : quatre saisons en un voyage";
+const description = "Neige-t-il en Algérie ? Oui — Chréa, Tikjda et les Aurès. Comment voir la neige de l'Atlas et les dunes chaudes du Sahara dans la même semaine d'hiver.";
+const faqs = [
+  { q: "Neige-t-il en Algérie ?", a: "Oui. L'Atlas reçoit une vraie neige d'hiver : Chréa au-dessus de Blida, le Djurdjura autour de Tikjda en Kabylie, et les Aurès. La neige tombe généralement de décembre à mars, et les hauts plateaux de Sétif et Batna connaissent aussi des hivers froids, parfois neigeux." },
+  { q: "Peut-on skier en Algérie ?", a: "Il existe de petites stations à Chréa, à environ une heure d'Alger, et à Tikjda dans le Djurdjura. Ce sont des installations modestes, pas des stations alpines, mais ski et journées de neige sont bien réels lors d'un bon hiver." },
+  { q: "Peut-on voir la neige et le Sahara dans le même voyage ?", a: "Oui, en hiver. L'Algérie empile côte méditerranéenne, montagnes, hauts plateaux et désert : on peut marcher dans la neige des cèdres près de Blida puis, après un court vol intérieur, se tenir dans les dunes chaudes du Sahara la même semaine." },
+  { q: "Quel est le meilleur mois pour ce contraste neige-Sahara ?", a: "De décembre à février : la saison de neige en montagne recoupe la grande saison saharienne, quand les journées du désert sont douces et les nuits claires et froides. Au printemps la neige a fondu ; en été, le grand désert est impraticable." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+const articleSchema = {
+  "@context": "https://schema.org", "@type": "Article",
+  "@id": site + "/fr/neige-sahara-algerie/#article",
+  "headline": "De la neige au Sahara : quatre saisons en un voyage", "description": description,
+  "inLanguage": "fr", "datePublished": "2026-07-25", "dateModified": "2026-07-25",
+  "url": site + "/fr/neige-sahara-algerie/",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": site + "/fr/neige-sahara-algerie/" },
+  "author": { "@id": site + "/team/oussama-ben-yahia/#person" },
+  "publisher": { "@id": site + "/#organization" },
+  "isPartOf": { "@id": site + "/#website" }
+};
+const authorSchema = {
+  "@context": "https://schema.org", "@type": "Person",
+  "@id": site + "/team/oussama-ben-yahia/#person",
+  "name": "Oussama Ben Yahia", "jobTitle": "Founder & Lead Travel Specialist",
+  "url": site + "/team/oussama-ben-yahia/",
+  "worksFor": { "@id": site + "/#organization" }, "knowsLanguage": ["fr", "ar", "en"]
+};
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[articleSchema, authorSchema, faqSchema]} occasion="winter" sticky={true}>
+  <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Neige & Sahara'}]} />
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">Hiver en Algérie</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">De la neige au Sahara : quatre saisons en un voyage</h1>
+      <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
+
+      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+        On imagine l'Algérie comme un seul décor : le sable. C'est le plus grand pays d'Afrique, et ses climats
+        <strong>s'empilent</strong> — côte méditerranéenne, montagnes boisées, hauts plateaux froids, puis le Sahara.
+        En hiver, cela produit un voyage rare : <strong>la neige un jour, les dunes chaudes quelques jours plus tard.</strong>
+      </p>
+
+      <h2 style="margin-top:2rem">Oui, il neige en Algérie</h2>
+      <ul class="prose">
+        <li><strong>Chréa</strong>, dans les cèdres au-dessus de <a href="/provinces/blida/">Blida</a> — à une heure d'Alger, avec une petite station de ski.</li>
+        <li><strong>Tikjda</strong>, dans le <strong>Djurdjura</strong> en Kabylie — randonnée, neige et une autre station modeste.</li>
+        <li><strong>Les Aurès</strong>, au-dessus de <a href="/provinces/batna/">Batna</a> — des sommets enneigés près de la cité romaine de <a href="/destinations/timgad/">Timgad</a>.</li>
+      </ul>
+      <p>Les hauts plateaux de <a href="/provinces/setif/">Sétif</a> et Batna connaissent aussi de vrais hivers froids.
+      Des installations <strong>modestes</strong>, pas des Alpes — mais la neige, les cèdres et le silence sont réels.</p>
+
+      <h2 style="margin-top:2rem">Les quatre zones, en un pays</h2>
+      <ul class="prose">
+        <li><strong>Côte méditerranéenne :</strong> douce, verte, agréable à pied (~10–17 °C).</li>
+        <li><strong>Montagnes :</strong> forêt de cèdres, neige, petites stations (autour de 0 °C).</li>
+        <li><strong>Hauts plateaux :</strong> cités romaines, ciel immense, froid sec.</li>
+        <li><strong>Sahara :</strong> dunes, art rupestre, bivouacs — journées à 20–25 °C, nuits glaciales.</li>
+      </ul>
+
+      <h2 style="margin-top:2rem">La semaine neige-Sahara</h2>
+      <p>Le contraste ne fonctionne que de <strong>décembre à février</strong>, quand la neige recoupe la grande
+      saison du <a href="/fr/sahara-algerie/">Sahara</a> :</p>
+      <ol class="prose">
+        <li><strong>Alger</strong> (2 nuits) — la <a href="/destinations/casbah-of-algiers/">Casbah</a>, l'air marin.</li>
+        <li><strong>Chréa</strong> (journée ou 1 nuit) — cèdres et neige.</li>
+        <li><strong>Vol vers Djanet ou Tamanrasset</strong> (3–4 nuits) — 4x4 guidé, dunes, bivouac sous un ciel d'hiver exceptionnel.</li>
+        <li>En option : <strong>l'est romain</strong> (Timgad, Djémila) par journées froides et limpides.</li>
+      </ol>
+      <p>Prenez l'avion pour le sud — les distances routières sont énormes (<a href="/fr/transport-algerie/">guide transport</a>).</p>
+
+      <h2 style="margin-top:2rem">Faire sa valise pour deux climats</h2>
+      <p>C'est le piège classique : il faut à la fois des <strong>couches chaudes de montagne</strong> et la
+      <strong>protection solaire du désert</strong> — avec, encore, du chaud pour les nuits sahariennes.
+      Détails dans le <a href="/fr/guide-voyage-algerie/">guide complet</a>.</p>
+
+      <h2 style="margin-top:2rem">Questions fréquentes</h2>
+      {faqs.map(f => (<div style="margin:.8rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-l)">{f.a}</p></div>))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">La version neige-et-Sahara de vos vacances ?</h2>
+        <p style="color:var(--text-l)">Dites-nous vos dates — montagne, vol du sud, permis et bivouacs inclus.</p>
+        <p style="margin-top:.8rem"><a class="btn btn-gold" href="/contact/">Demander un devis</a> <a class="btn" href="/fr/noel-nouvel-an-algerie/">Noël en Algérie</a></p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
