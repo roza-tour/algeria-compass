@@ -11,7 +11,7 @@ npm run deploy && git add -A && git commit -m "update site" && git push
 **2. On the server (cPanel → Terminal)** — pull the changes live, one command:
 
 ```bash
-cd ~/public_html/algeriacompass.com && git fetch origin && git reset --hard origin/main
+cd ~/algeriacompass && git fetch origin && git reset --hard origin/main
 ```
 
 (Identical to running `bash scripts/server-deploy.sh`.) Done — the site is updated.
@@ -77,7 +77,7 @@ npm run dev          # live editing while you work
 The repo root **is** the website folder. The server just needs the latest code:
 
 ```bash
-cd ~/public_html/algeriacompass.com
+cd ~/algeriacompass
 git fetch origin && git reset --hard origin/main
 ```
 

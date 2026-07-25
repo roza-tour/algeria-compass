@@ -11,7 +11,7 @@
 set -eu
 
 # --- config: change REPO if your document root lives elsewhere -----------------
-REPO="$HOME/public_html/algeriacompass.com"
+REPO="${REPO:-$HOME/algeriacompass}"
 BRANCH="main"
 LOG="$HOME/algeriacompass-deploy.log"
 # ------------------------------------------------------------------------------
