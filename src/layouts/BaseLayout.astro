@@ -69,8 +69,8 @@ const siteSeason = (import.meta.env.SEASON_PREVIEW as string) || seasonForDate(n
     <slot />
   </main>
   <Footer lang={lang} />
-  {sticky && <StickyContact />}
-  <CookieConsent />
+  {sticky && <StickyContact lang={lang === "fr" ? "fr" : "en"} />}
+  <CookieConsent lang={lang === "fr" ? "fr" : "en"} />
   <script is:inline>
     /* Shared scroll-reveal. Content is visible by default; the hidden state is
        only applied when motion is allowed AND the tab is visible, so print,

@@ -4,17 +4,28 @@
 // consent granted; Decline → stays denied. Choice persisted in localStorage.
 import { ANALYTICS } from '../config';
 const enabled = !!ANALYTICS.ga4;
+// The notice is shown on French pages too, so it speaks the page's language.
+interface Props { lang?: 'en' | 'fr' }
+const { lang = 'en' } = Astro.props;
+const t = lang === 'fr'
+  ? { label: 'Avis relatif aux cookies',
+      body: "Nous utilisons des cookies uniquement pour comprendre comment le site est consulté (Google Analytics). Rien n'est déposé sans votre accord. Voir nos ",
+      link: 'règles éditoriales et de confidentialité',
+      decline: 'Refuser', accept: 'Accepter' }
+  : { label: 'Cookie notice',
+      body: 'We use cookies only to understand how visitors use the site (Google Analytics). Nothing is set until you agree. See our ',
+      link: 'privacy & editorial standards',
+      decline: 'Decline', accept: 'Accept analytics' };
 ---
 {enabled && (
-  <div id="cookie-consent" class="cc" role="dialog" aria-live="polite" aria-label="Cookie notice" hidden>
+  <div id="cookie-consent" class="cc" role="dialog" aria-live="polite" aria-label={t.label} hidden>
     <div class="cc-in">
       <p class="cc-txt">
-        We use cookies only to understand how visitors use the site (Google Analytics).
-        Nothing is set until you agree. See our <a href="/editorial/">privacy &amp; editorial standards</a>.
+        {t.body}<a href="/editorial/">{t.link}</a>.
       </p>
       <div class="cc-btns">
-        <button type="button" class="cc-btn cc-decline" data-cc="denied">Decline</button>
-        <button type="button" class="cc-btn cc-accept" data-cc="granted">Accept analytics</button>
+        <button type="button" class="cc-btn cc-decline" data-cc="denied">{t.decline}</button>
+        <button type="button" class="cc-btn cc-accept" data-cc="granted">{t.accept}</button>
       </div>
     </div>
   </div>

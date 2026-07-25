@@ -3,12 +3,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import data from '../../data/tours.json';
 import TourCard from '../../components/TourCard.astro';
 const tours = ((data as any).tours || (data as any)) as any[];
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+// Bidirectional hreflang with the French catalogue at /fr/circuits/.
+const alternates = [
+  { hreflang: 'en', href: site + '/tours/' },
+  { hreflang: 'fr', href: site + '/fr/circuits/' },
+  { hreflang: 'x-default', href: site + '/tours/' },
+];
 ---
 <BaseLayout
   title="Algeria Tours & Private Journeys | Algeria Compass"
   description="Private, guided Algeria tours — Sahara safaris, the UNESCO Casbah, Roman cities, the M'Zab Valley and the Kabyle coast. 20 curated itineraries from €30."
   image="/assets/img/tours/djanet-1.jpg"
-  keywords={["Algeria tours","private Algeria tours","Sahara safari","Algeria itineraries","guided tours Algeria","Algeria travel"]}>
+  keywords={["Algeria tours","private Algeria tours","Sahara safari","Algeria itineraries","guided tours Algeria","Algeria travel"]}
+  alternates={alternates}>
   <section class="hero" style="min-height:42vh">
     <img src="/assets/img/tours/djanet-1.jpg" alt="Algeria tours" width="1600" height="900" />
     <div class="hero-in wrap">

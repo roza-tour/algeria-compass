@@ -8,6 +8,7 @@ import { TOUR_VISUALS } from '../../data/tour-visuals';
 import { skinForTour } from '../../data/civSkins.mjs';
 import InquiryForm from '../../components/InquiryForm.astro';
 import { CONTACT } from '../../config';
+import { TOURS_FR } from '../../data/tours-fr';
 
 const tours = (data as any).tours || (data as any);
 
@@ -23,6 +24,15 @@ export async function getStaticPaths() {
 }
 
 const { tour } = Astro.props as { tour: any };
+
+// Bidirectional hreflang: only tours that actually have a French detail page are
+// paired, so no hreflang ever points at a URL that is not built.
+const siteUrl = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const frAlternates = TOURS_FR[tour.id]?.full ? [
+  { hreflang: 'en', href: `${siteUrl}/tours/${tour.id}/` },
+  { hreflang: 'fr', href: `${siteUrl}/fr/circuits/${tour.id}/` },
+  { hreflang: 'x-default', href: `${siteUrl}/tours/${tour.id}/` },
+] : [];
 
 // Internal-linking: connect this tour to the State pages it actually visits, and to
 // similar tours — so tour pages are no longer crawl dead-ends. Provinces are filtered
@@ -134,6 +144,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
   civ={skinForTour(tour)}
   keywords={[tour.title.split(' — ')[0], 'Algeria tour', ...((tour.wilayas||[]).map((w: string)=>w.replace(/-/g,' ')+' tour')), 'Algeria travel']}
   schema={schema}
+  alternates={frAlternates}
   sticky={false}>
 
   <div class="tour" style={`--accent:${accent}`}>

@@ -1,0 +1,129 @@
+---
+// French tours index. Cards are fully translated for every tour; a tour links to
+// its French detail page when one exists, otherwise to the English page, which
+// is honest rather than shipping a half-translated page.
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import data from '../../../data/tours.json';
+import { TOUR_VISUALS } from '../../../data/tour-visuals';
+import { TOURS_FR } from '../../../data/tours-fr';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const tours = (((data as any).tours || data) as any[]);
+const currency = (data as any).currency || 'EUR';
+
+const rows = tours.map(t => {
+  const fr = TOURS_FR[t.id];
+  const v = TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
+  return {
+    id: t.id,
+    href: fr?.full ? `/fr/circuits/${t.id}/` : `/tours/${t.id}/`,
+    frenchPage: !!fr?.full,
+    title: fr?.title || t.title,
+    duration: fr?.duration || t.duration,
+    hook: fr?.hook || t.summary,
+    price: t.price_eur,
+    hero: v.hero,
+    accent: v.accent,
+  };
+});
+
+const title = "Circuits privés en Algérie — voyages sur mesure | Algeria Compass";
+const description = "Nos circuits privés en Algérie : Sahara et Tadrart, vallée du M'Zab, cités romaines, Alger et la côte. Voyagiste algérien agréé, guides francophones.";
+const alternates = [
+  { hreflang: 'en', href: site + '/tours/' },
+  { hreflang: 'fr', href: site + '/fr/circuits/' },
+  { hreflang: 'x-default', href: site + '/tours/' },
+];
+const itemList = {
+  '@type': 'ItemList',
+  '@id': `${site}/fr/circuits/#circuits`,
+  name: 'Circuits privés en Algérie',
+  numberOfItems: rows.length,
+  itemListElement: rows.map((r, i) => ({
+    '@type': 'ListItem', position: i + 1, name: r.title, url: site + r.href,
+  })),
+};
+const collection = {
+  '@type': 'CollectionPage',
+  '@id': `${site}/fr/circuits/#collection`,
+  name: 'Circuits privés en Algérie',
+  description,
+  inLanguage: 'fr',
+  url: `${site}/fr/circuits/`,
+  isPartOf: { '@id': `${site}/#website` },
+  about: { '@id': `${site}/#algeria` },
+  mainEntity: { '@id': `${site}/fr/circuits/#circuits` },
+};
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates}
+  image="/assets/img/tours/djanet-1.jpg" schema={[collection, itemList]}
+  keywords={["circuit Algérie","voyage Algérie","circuit Sahara Algérie","voyage organisé Algérie","agence de voyage Algérie"]}>
+  <section class="hero" style="min-height:42vh">
+    <img src="/assets/img/tours/djanet-1.jpg" alt="Dunes du Sahara algérien près de Djanet" width="1600" height="900" fetchpriority="high" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">{rows.length} circuits privés</div>
+      <h1>Circuits privés en Algérie</h1>
+      <p>Des voyages privés et guidés à travers toute l'Algérie — du Sahara profond aux cités romaines du nord et à la côte méditerranéenne.</p>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Circuits'}]} />
+
+  <section class="section"><div class="wrap">
+    <p class="fr-intro">
+      Algeria Compass est un <strong>voyagiste algérien agréé</strong> basé à Alger. Tous nos circuits sont
+      <strong>privés</strong> : votre guide, votre véhicule, votre rythme — rien n'est mutualisé avec d'autres groupes.
+      Nous fournissons l'invitation et le programme confirmé que les consulats demandent pour le
+      <a href="/fr/visa-algerie/">visa algérien</a>, et nos guides parlent français.
+      Pour choisir la période, voyez <a href="/fr/quand-partir-algerie/">quand partir en Algérie</a>.
+    </p>
+
+    <div class="grid fr-grid">
+      {rows.map((r, i) => (
+        <a class="frcard" href={r.href} style={`--accent:${r.accent}`}>
+          <div class="frcard-img">
+            <picture>
+              <source srcset={`/assets/img/thumbs/tours/${r.hero.replace(/\.(jpe?g|png)$/i, '.webp')}`} type="image/webp" />
+              <img src={`/assets/img/thumbs/tours/${r.hero}`} alt={r.title} width="400" height="250" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />
+            </picture>
+            <span class="frcard-badge">Privé</span>
+          </div>
+          <div class="frcard-body">
+            <span class="frcard-dur">{r.duration}</span>
+            <h2>{r.title}</h2>
+            <p>{r.hook}</p>
+            <span class="frcard-foot">
+              <strong>à partir de {r.price} €</strong>
+              <span class="frcard-go">{r.frenchPage ? 'Voir le circuit →' : 'Détails (en anglais) →'}</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <p class="fr-note">
+      Les circuits sans page française détaillée sont décrits en anglais, mais se réservent et
+      s'accompagnent en français comme les autres. Écrivez-nous en français :
+      <a href="/contact/">formulaire de contact</a> ou WhatsApp.
+    </p>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .fr-intro{max-width:780px;color:var(--text-m);margin-bottom:1.6rem}
+  .fr-note{max-width:780px;color:var(--text-l);font-size:.88rem;margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border)}
+  .fr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
+  .frcard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;color:var(--text);box-shadow:0 2px 14px rgba(7,38,28,.06)}
+  .frcard:hover{transform:translateY(-3px);transition:.18s;border-color:var(--gold);text-decoration:none}
+  .frcard-img{position:relative;aspect-ratio:16/10;background:var(--wash)}
+  .frcard-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .frcard-badge{position:absolute;top:.6rem;left:.6rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(7,38,28,.86);color:#fff;padding:.24rem .6rem;border-radius:999px}
+  .frcard-body{display:flex;flex-direction:column;gap:.4rem;padding:1rem 1.1rem 1.2rem;flex:1}
+  .frcard-dur{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .frcard-body h2{font-size:1.05rem;line-height:1.3;margin:0}
+  .frcard-body p{font-size:.88rem;line-height:1.55;color:var(--text-m);margin:0;flex:1}
+  .frcard-foot{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin-top:.5rem;flex-wrap:wrap}
+  .frcard-foot strong{font-size:1rem}
+  .frcard-go{font-size:.8rem;font-weight:700;color:var(--accent)}
+</style>
