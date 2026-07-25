@@ -63,3 +63,5 @@ The same desert that shaped this culture holds its two great landscapes: the **[
 
 ## Explore it with us
 Djanet is the launch point for our flagship Sahara journeys. Travel with Tuareg desert teams on the [Djanet Sahara safari](/tours/djanet-sahara-safari/) or the [Djanet & Ghardaïa desert tour](/tours/djanet-ghardaia-desert-2-days/), go deeper on the [Tassili Odyssey](/experiences/tassili-odyssey/), or read the [Tassili n'Ajjer](/destinations/tassili-najjer/) heritage guide. Every trip runs with licensed Algerian guides and local Tuareg crews.
+
+> **Planning the wider trip?** For the surrounding state — how to base yourself, what else is nearby and how to get around — see our [Djanet state guide](/provinces/djanet/).

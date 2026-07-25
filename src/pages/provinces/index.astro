@@ -47,7 +47,7 @@ const schema = [list, ...provinces.map(p => entityNode(site, p))];
   <section class="section" style="background:var(--wash)"><div class="wrap">
     <div class="eyebrow">Directory</div>
     <h2 id="all-states">All 58 states of Algeria</h2>
-    <p style="color:var(--text-m);max-width:720px">Every state, grouped by region, with its capital and official state number. States with a full guide are outlined in gold.</p>
+    <p style="color:var(--text-m);max-width:720px">Every one of Algeria's 58 states, grouped by region, with its capital, official state number and what the state is known for. States with a full travel guide are outlined in gold.</p>
     {byRegion.map(g => (
       <div class="prov-region">
         <h3>{g.region.name} <span class="rcount">{g.items.length} states</span></h3>
@@ -58,13 +58,15 @@ const schema = [list, ...provinces.map(p => entityNode(site, p))];
               <span class="pnum">{p.wilayaNumber}</span>
               <strong>{p.name}</strong>
               <span class="pcap">Capital: {p.capital}</span>
-              <span class="pguide">Guide &#8599;</span>
+              <span class="pdesc">{p.description}</span>
+              <span class="pguide">Full guide &#8599;</span>
             </a>
           ) : (
             <div class="prov-tile" id={p.slug} data-has-guide="no">
               <span class="pnum">{p.wilayaNumber}</span>
               <strong>{p.name}</strong>
               <span class="pcap">Capital: {p.capital}</span>
+              <span class="pdesc">{p.description}</span>
             </div>
           ))}
         </div>
@@ -77,7 +79,8 @@ const schema = [list, ...provinces.map(p => entityNode(site, p))];
 <style>
 .prov-region{margin-top:2rem}
 .rcount{font-size:.7rem;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.06em;margin-left:.4rem}
-.prov-grid{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));margin-top:1rem}
+.prov-grid{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));margin-top:1rem}
+.pdesc{font-size:.82rem;line-height:1.5;color:var(--text-m);margin-top:.35rem}
 .prov-tile{position:relative;display:flex;flex-direction:column;gap:.15rem;padding:.7rem .85rem;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);scroll-margin-top:90px}
 .prov-tile[data-has-guide=yes]{border-color:var(--gold)}
 .prov-tile:hover{transform:translateY(-2px);transition:.15s}

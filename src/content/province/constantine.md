@@ -27,7 +27,7 @@ faqs:
   - { q: "How is Constantine combined with the Roman cities?", a: "It anchors a strong two-to-three-day eastern loop: Constantine for the gorge and Ottoman heritage, then Djémila and Timgad for the Roman cities, with Sétif as a hub between them." }
 
 seo:
-  title: "Constantine, Algeria: the City of Bridges — Travel Guide"
+  title: "Constantine State, Algeria: What to See & How to Visit"
   description: "Constantine, the 'City of Bridges' on the Rhumel gorge: ancient Cirta, the Ahmed Bey Palace, the Cirta Museum, malouf music and how to visit."
   primaryKeyword: "Constantine Algeria travel guide"
   keywords: ["Constantine", "Cirta", "City of Bridges", "Rhumel gorge", "Ahmed Bey Palace", "malouf"]
@@ -69,3 +69,5 @@ Constantine is the natural anchor for the **Roman north-east**: the grid city of
 - Walk **several of the bridges** and seek out the **gorge viewpoints** for the full effect.
 - Allow unhurried time for the **Ahmed Bey Palace** and the **Cirta Museum**.
 - **Dress modestly** for mosques and the medina.
+
+> **Looking for the site itself?** This page covers the whole state. For Constantine as a destination — what to see and the monuments themselves — see our [Constantine destination guide](/destinations/constantine/).

@@ -54,6 +54,8 @@
 - [Constantine](https://algeriacompass.com/provinces/constantine/)
 - [Djanet](https://algeriacompass.com/provinces/djanet/)
 - [Ghardaïa](https://algeriacompass.com/provinces/ghardaia/)
+- [Illizi](https://algeriacompass.com/provinces/illizi/)
+- [M'Sila](https://algeriacompass.com/provinces/msila/)
 - [Mostaganem](https://algeriacompass.com/provinces/mostaganem/)
 - [Oran](https://algeriacompass.com/provinces/oran/)
 - [Sétif](https://algeriacompass.com/provinces/setif/)

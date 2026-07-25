@@ -27,7 +27,7 @@ faqs:
   - { q: "What is there to see around Tlemcen?", a: "Beyond the monuments, the Lalla Setti plateau gives a panorama over the city, while Tlemcen National Park and the El Ourit waterfalls offer green escapes, and the ruined royal city of Mansourah sits on the edge of town." }
 
 seo:
-  title: "Tlemcen, Algeria: Andalusian Heritage & Music — Travel Guide"
+  title: "Tlemcen State, Algeria: What to See & How to Visit"
   description: "Tlemcen, the capital of Andalusian Algeria: the Great Mosque, Mansourah, El Mechouar palace, Sidi Boumediene, El Ourit waterfalls and gharnati music."
   primaryKeyword: "Tlemcen Algeria travel guide"
   keywords: ["Tlemcen", "Andalusian Algeria", "Great Mosque of Tlemcen", "Mansourah", "Sidi Boumediene", "gharnati"]
@@ -69,3 +69,5 @@ Tlemcen sits at the heart of a western circuit: combine it with **Oran** (raï m
 - Allow time for both the **monuments** and the **Lalla Setti plateau** and **El Ourit falls**.
 - **Dress modestly** when visiting mosques and shrines.
 - Spring and autumn give the best light and the greenest landscapes.
+
+> **Looking for the site itself?** This page covers the whole state. For Tlemcen as a destination — what to see and the monuments themselves — see our [Tlemcen destination guide](/destinations/tlemcen/).

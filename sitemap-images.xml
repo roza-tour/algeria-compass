@@ -380,6 +380,14 @@
     <image:image><image:loc>https://algeriacompass.com/assets/img/ghardaia-market-square.jpg</image:loc><image:title>The arcaded market square of Ghardaïa with hanging carpets</image:title></image:image>
   </url>
   <url>
+    <loc>https://algeriacompass.com/provinces/illizi/</loc>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/tassili-rock-pinnacles.jpg</image:loc><image:title>Eroded sandstone pinnacles on the Tassili n&apos;Ajjer plateau in southern Algeria</image:title></image:image>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/tassili-rock-art.jpg</image:loc><image:title>Prehistoric rock art painted on sandstone in the Tassili n&apos;Ajjer</image:title></image:image>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/tassili-dune-rocks.jpg</image:loc><image:title>Dunes banked against sandstone formations in the Tassili n&apos;Ajjer</image:title></image:image>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/sahara-rock-arch.jpg</image:loc><image:title>A natural sandstone arch in the Algerian Sahara</image:title></image:image>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/sahara-camp-sunset.jpg</image:loc><image:title>A desert camp at sunset in the Algerian Sahara</image:title></image:image>
+  </url>
+  <url>
     <loc>https://algeriacompass.com/provinces/mostaganem/</loc>
     <image:image><image:loc>https://algeriacompass.com/assets/img/mostaganem/mostaganem-01.jpg</image:loc><image:title>Sea grotto and rock arch on the Mediterranean coast at Mostaganem</image:title></image:image>
     <image:image><image:loc>https://algeriacompass.com/assets/img/mostaganem/mostaganem-03.jpg</image:loc><image:title>Sunset over a beach picnic on the Mostaganem coast</image:title></image:image>
@@ -388,6 +396,14 @@
     <image:image><image:loc>https://algeriacompass.com/assets/img/mostaganem/mostaganem-11.jpg</image:loc><image:title>The grand mosque of Mostaganem</image:title></image:image>
     <image:image><image:loc>https://algeriacompass.com/assets/img/mostaganem/mostaganem-12.jpg</image:loc><image:title>Green-domed marabout with zellige tilework, Mostaganem</image:title></image:image>
     <image:image><image:loc>https://algeriacompass.com/assets/img/mostaganem/mostaganem-07.jpg</image:loc><image:title>Lake and gardens of a city park in Mostaganem</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://algeriacompass.com/provinces/msila/</loc>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/beni-hammad/beni-hammad-01.jpg</image:loc><image:title>The ruins of Al Qal&apos;a of Beni Hammad, the UNESCO-listed Hammadid capital in M&apos;Sila state, Algeria</image:title></image:image>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/beni-hammad/beni-hammad-02.jpg</image:loc><image:title>The minaret of the great mosque at Al Qal&apos;a of Beni Hammad</image:title></image:image>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/beni-hammad/beni-hammad-04.jpg</image:loc><image:title>Excavated foundations of the Hammadid palaces at Beni Hammad</image:title></image:image>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/msila-bousaada/msila-bousaada-01.jpg</image:loc><image:title>The oasis town of Bou Saada in M&apos;Sila state, Algeria</image:title></image:image>
+    <image:image><image:loc>https://algeriacompass.com/assets/img/msila-bousaada/msila-bousaada-04.jpg</image:loc><image:title>Palm grove and gorge at Bou Saada, M&apos;Sila</image:title></image:image>
   </url>
   <url>
     <loc>https://algeriacompass.com/provinces/oran/</loc>

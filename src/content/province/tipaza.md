@@ -27,7 +27,7 @@ faqs:
   - { q: "When is the best time to visit Tipaza?", a: "Spring (April–June) and autumn (September–October) give the best light and fewest crowds at the ruins; summer is busy and hot but best for the beaches." }
 
 seo:
-  title: "Tipaza, Algeria: Roman Ruins by the Sea — Travel Guide"
+  title: "Tipaza State, Algeria: Coast, Ruins & Day Trips"
   description: "Tipaza, Algeria: UNESCO Roman ruins on the Mediterranean, the Royal Mausoleum of Mauretania, Cherchell's museum and beaches — a day trip from Algiers."
   primaryKeyword: "Tipaza Algeria travel guide"
   keywords: ["Tipaza", "Tipasa", "Roman Algeria", "Cherchell", "Royal Mausoleum of Mauretania"]
@@ -64,3 +64,5 @@ This is **seafood** country — grilled fish and shellfish straight off the boat
 - Combine the **ruins, the Royal Mausoleum and Cherchell** in one well-paced day.
 - Bring **sun protection and water** — the seaside site is open and exposed.
 - **Spring and autumn** give the best light and the fewest crowds at the ruins.
+
+> **Looking for the site itself?** This page covers the whole state. For Tipaza as a destination — what to see and the monuments themselves — see our [Tipaza destination guide](/destinations/tipaza/).

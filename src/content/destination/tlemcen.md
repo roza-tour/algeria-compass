@@ -64,3 +64,5 @@ Around the city, the **Lalla Setti** plateau, **Tlemcen National Park** and the 
 
 ## Explore it with us
 Tlemcen is the heart of our western, Andalusian itineraries. Travel it on the [Andalusian Kingdom journey](/experiences/andalusian-kingdom-journey/) or the [Oran, Mostaganem & Tlemcen tour](/tours/oran-mostaganem-tlemcen/), plan the trip via the [Tlemcen travel guide](/provinces/tlemcen/), or browse all our [private guided tours](/tours/). Every trip runs with licensed Algerian guides.
+
+> **Planning the wider trip?** For the surrounding state — how to base yourself, what else is nearby and how to get around — see our [Tlemcen state guide](/provinces/tlemcen/).

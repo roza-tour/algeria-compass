@@ -59,3 +59,5 @@ Tipaza is **deep-history-by-the-sea but easy to reach** — an easy day trip fro
 
 ## Explore it with us
 Tipaza appears on our [Algeria Cultural Tour](/tours/algeria-cultural-tour/), [The Soul of Algeria](/tours/the-soul-of-algeria/) and [grand discovery](/tours/algeria-intensive-discovery-tour/) itineraries, and can be added to any private trip based in Algiers. See the [Tipaza travel guide](/provinces/tipaza/) to plan it, or tell us your dates.
+
+> **Planning the wider trip?** For the surrounding state — how to base yourself, what else is nearby and how to get around — see our [Tipaza state guide](/provinces/tipaza/).

@@ -29,7 +29,7 @@ faqs:
   - { q: "How much does a Djanet desert trip cost?", a: "It depends on the length, group size and route — deep-desert trips carry the cost of 4x4 vehicles, fuel, desert camps, permits and licensed guides. Send us your dates and group size and we'll quote the exact price." }
 
 seo:
-  title: "Djanet, Algeria: Gateway to the Tassili & the Deep Sahara — Guide"
+  title: "Djanet State, Algeria: Gateway to the Deep Sahara"
   description: "Djanet, Algeria — the Tuareg gateway to the UNESCO Tassili n'Ajjer rock art and the red Tadrart desert. What to see and how to visit the deep Sahara."
   primaryKeyword: "Djanet Algeria travel guide"
   keywords: ["Djanet", "Tassili n'Ajjer", "Tadrart", "Tuareg", "Algerian Sahara", "rock art"]
@@ -80,3 +80,5 @@ In **Djanet town** there are simple guesthouses and small hotels used either sid
 - Book **flights early** — Djanet seats are limited and sell out in season.
 - If your trip enters the Sahara you may use the [Saharan e-Visa](/evisa/#saharan-evisa); we prepare the file with every booking.
 - Carry some **cash** — card payment is not reliable this far south.
+
+> **Looking for the site itself?** This page covers the whole state. For Djanet as a destination — what to see and the monuments themselves — see our [Djanet destination guide](/destinations/djanet/).

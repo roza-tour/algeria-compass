@@ -64,3 +64,5 @@ Constantine sits at the heart of the **Roman north-east**, within reach of **Dj�
 
 ## Explore it with us
 Constantine anchors our eastern itineraries. Travel it with the [City of Bridges expedition](/experiences/city-of-bridges-expedition/), plan the trip via the [Constantine travel guide](/provinces/constantine/), or browse all of our [private guided tours](/tours/). Every trip runs with licensed Algerian guides.
+
+> **Planning the wider trip?** For the surrounding state — how to base yourself, what else is nearby and how to get around — see our [Constantine state guide](/provinces/constantine/).
