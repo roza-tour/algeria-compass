@@ -1,48 +1,117 @@
 # Algeria Compass
 
 > Algeria Compass is a licensed Algerian tour operator running private, expert-guided
-> cultural, Sahara, and luxury tours across Algeria, with visa/e-visa support and local
-> Algerian guides. We publish independent, fact-checked travel guides on visiting Algeria —
-> safety, visas, transport, best time to go, food, and its seven UNESCO World Heritage sites.
+> cultural, Sahara and luxury journeys across Algeria, with visa support and local
+> Algerian guides. We also publish independent, fact-checked travel guides on visiting
+> Algeria — safety, visas, transport, costs, seasons, food and its seven UNESCO World
+> Heritage sites. Guides are written by Oussama Ben Yahia (founder) and independently
+> reviewed against our published editorial standards.
 > Languages served: Arabic, Tamazight, French, English, Spanish, Italian.
 > Contact: https://algeriacompass.com/contact/
 
-## Plan a trip
-- [Tours (all itineraries)](https://algeriacompass.com/tours/): Private guided tours — cultural, Sahara, city, and multi-day discovery trips.
-- [Luxury travel](https://algeriacompass.com/luxury/): High-end private programs and bespoke Algeria itineraries.
+## Travel guides (independent, fact-checked)
+- [20 Best Things to Do in Algeria (2026)](https://algeriacompass.com/blog/things-to-do-in-algeria/): From the best-preserved Roman cities on earth to the sand seas of the Tassili, the Casbah of Algiers and the oasis towns of the M'Zab — the essential things to see and do across Algeria.
+- [Algeria Itinerary: How to Plan 7, 10 & 14 Days (2026)](https://algeriacompass.com/blog/algeria-itinerary/): How many days do you need in Algeria, and what should you actually see? Ready-made 7, 10 and 14-day itineraries — north, coast and Sahara — with the routes, seasons and logistics that make them work.
+- [Algeria Packing List: What to Bring (2026)](https://algeriacompass.com/blog/algeria-packing-list/): What to pack for Algeria — for the northern cities, the coast and the Sahara. Clothing, documents, cash, medications and the desert-specific kit that trips people up.
+- [Algeria Visa Guide (2026): Types, Documents, Process](https://algeriacompass.com/blog/algeria-visa-guide/): Who needs a visa for Algeria, which type to apply for, the documents and fees involved, processing times, the special case of the far-south desert, and how to avoid the common reasons for refusal.
+- [Algeria vs Morocco: Which to Visit? (2026)](https://algeriacompass.com/blog/algeria-vs-morocco/): Algeria or Morocco? An honest comparison for travellers — crowds, cost, ease, Sahara, Roman heritage and food — to help you choose the right North African trip.
+- [Algeria vs Tunisia: Which to Visit? (2026)](https://algeriacompass.com/blog/algeria-vs-tunisia/): Algeria or Tunisia? An honest comparison of two North African neighbours — ease, cost, beaches, Roman ruins, Sahara and crowds — to help you pick the right trip.
+- [Algeria with Kids: Family Travel Guide (2026)](https://algeriacompass.com/blog/algeria-family-travel/): Is Algeria good for families? What works with children — the coast, Roman cities and oasis towns — what to skip, and the practicalities of food, health, transport and hotels.
+- [Algerian Food: A Traveller's Guide to Couscous, Tagines and Mint Tea](https://algeriacompass.com/blog/algerian-food-guide/): Algerian cooking sits at a crossroads of Amazigh, Arab, Ottoman, Andalusian and French influences. Here are the dishes to seek out.
+- [Algerian Handicrafts: Pottery, Brass and the Desert Craft Markets](https://algeriacompass.com/blog/algerian-handicrafts/): From turquoise M'Zab pottery to engraved brass and woven baskets, Algeria's craft traditions are alive and affordable.
+- [Algerian Sahara Travel Guide: Djanet, Timimoun and the Tadrart](https://algeriacompass.com/blog/algerian-sahara-travel-guide/): Algeria holds the largest slice of the Sahara of any country on earth — and almost no crowds. Here is how to actually experience it.
+- [Getting Around Algeria: The Complete Transportation Guide](https://algeriacompass.com/blog/algeria-transportation-guide/): How to move around Africa's largest country: domestic flights, trains, buses, shared taxis, trams, private drivers and desert 4x4 — with routes, travel times, costs and booking advice.
+- [How Much Does a Trip to Algeria Cost? (2026 Budget Guide)](https://algeriacompass.com/blog/algeria-travel-cost/): Is Algeria expensive? A clear, current breakdown of what a trip really costs — accommodation, food, transport, guides and the Sahara — plus the dual exchange rate that changes everything on the ground.
+- [Is Algeria Safe in 2026? An Evidence-Based Guide](https://algeriacompass.com/blog/algeria-safety-guide/): A calm, evidence-based look at safety in Algeria: crime, road and desert risks, women and family travel, regional differences, scams, emergencies and what official advisories actually say.
+- [Ramadan, Eid & Holidays in Algeria: A Traveller's Guide](https://algeriacompass.com/blog/algeria-holidays-ramadan/): How Algeria's religious and national holidays affect travel — Ramadan, the two Eids, Mawlid and Ashura, plus Yennayer and Independence Day, and what Christmas and Easter look like in a majority-Muslim country.
+- [SIM Cards & Internet in Algeria: Staying Connected (2026)](https://algeriacompass.com/blog/algeria-sim-internet/): How to get online in Algeria — local SIM cards, the three networks, data prices, eSIM and roaming, Wi-Fi reality, and what actually works in the Sahara.
+- [Solo Female Travel in Algeria: Is It Safe? (2026)](https://algeriacompass.com/blog/solo-female-travel-algeria/): An honest guide to solo female travel in Algeria — safety, dress, harassment, the north vs the Sahara, and practical tips for travelling well as a woman.
+- [The Best Time to Visit Algeria: A Month-by-Month Guide](https://algeriacompass.com/blog/best-time-to-visit-algeria/): Algeria has three climates at once. This month-by-month and region-by-region guide shows exactly when to go for the coast, the cities, the mountains and the Sahara — and which months to avoid.
+- [The Complete Algeria Travel Guide (2026)](https://algeriacompass.com/blog/complete-algeria-travel-guide/): Africa's largest country, from the Mediterranean coast to the deep Sahara: when to go, how to get in and around, what it costs, and how to plan a first trip with confidence.
+- [The M'Zab Valley: The Desert Cities That Astonished Le Corbusier](https://algeriacompass.com/blog/mzab-valley-le-corbusier/): Five fortified desert cities, an 11th-century blueprint for living, and an urban design so radical the 20th century's most famous architect kept coming back to study it.
+
+## Destinations
+- [Al Qal'a of Beni Hammad](https://algeriacompass.com/destinations/beni-hammad/): Al Qal'a of Beni Hammad is a UNESCO World Heritage Site in the Hodna mountains of M'Sila state — the ruined first capital of the Hammadid dynasty, fou
+- [Constantine](https://algeriacompass.com/destinations/constantine/): Constantine is the 'City of Bridges', a dramatic highland city in north-east Algeria built across a deep gorge above the Rhumel River and spanned by s
+- [Djanet](https://algeriacompass.com/destinations/djanet/): Djanet is the Tuareg oasis capital of Algeria's far south-east — a palm town of Kel Ajjer culture, the Sebeiba festival and deep desert hospitality, a
+- [Djémila (Cuicul)](https://algeriacompass.com/destinations/djemila/): Djémila, ancient Cuicul, is one of the best-preserved Roman cities in the world and a UNESCO World Heritage Site since 1982. Set on a mountain spur in
+- [M'Zab Valley](https://algeriacompass.com/destinations/mzab-valley/): The M'Zab Valley around Ghardaïa is a UNESCO World Heritage Site in the northern Algerian Sahara — five fortified oasis towns built by the Ibadi Mozab
+- [Tassili n'Ajjer](https://algeriacompass.com/destinations/tassili-najjer/): Tassili n'Ajjer is a vast sandstone plateau in south-east Algeria, a UNESCO World Heritage Site holding around 15,000 prehistoric engravings and paint
+- [The Casbah of Algiers](https://algeriacompass.com/destinations/casbah-of-algiers/): The Casbah of Algiers is the city's historic Ottoman citadel and old town — a steep maze of whitewashed houses, palaces, mosques and covered lanes ove
+- [Timgad](https://algeriacompass.com/destinations/timgad/): Timgad (ancient Thamugadi) is a UNESCO World Heritage Site in Batna state, eastern Algeria — a Roman colony founded around 100 AD by Trajan and the mo
+- [Tipaza](https://algeriacompass.com/destinations/tipaza/): Tipaza is a UNESCO World Heritage Site on the Mediterranean coast about 70 km west of Algiers — a Phoenician trading post that became an important Rom
+- [Tlemcen](https://algeriacompass.com/destinations/tlemcen/): Tlemcen is a historic city in north-west Algeria, the country's great centre of Andalusian and Islamic heritage — the medieval Zayyanid capital famous
+
+## States / provinces
+- [Algiers](https://algeriacompass.com/provinces/algiers/)
+- [Annaba](https://algeriacompass.com/provinces/annaba/)
+- [Batna](https://algeriacompass.com/provinces/batna/)
+- [Béjaïa](https://algeriacompass.com/provinces/bejaia/)
+- [Blida](https://algeriacompass.com/provinces/blida/)
+- [Bou Saada](https://algeriacompass.com/provinces/bousaada/)
+- [Constantine](https://algeriacompass.com/provinces/constantine/)
+- [Djanet](https://algeriacompass.com/provinces/djanet/)
+- [Ghardaïa](https://algeriacompass.com/provinces/ghardaia/)
+- [Mostaganem](https://algeriacompass.com/provinces/mostaganem/)
+- [Oran](https://algeriacompass.com/provinces/oran/)
+- [Sétif](https://algeriacompass.com/provinces/setif/)
+- [Timimoun](https://algeriacompass.com/provinces/timimoun/)
+- [Tipaza](https://algeriacompass.com/provinces/tipaza/)
+- [Tlemcen](https://algeriacompass.com/provinces/tlemcen/)
+
+## Tours
+- [Algeria Cultural Tour — 5 Days](https://algeriacompass.com/tours/algeria-cultural-tour/)
+- [Djanet Sahara Safari — 5-Day Tadrart Rouge](https://algeriacompass.com/tours/djanet-sahara-safari/)
+- [Ghardaïa — 3-Day M'Zab Valley Tour](https://algeriacompass.com/tours/ghardaia-guided-tour/)
+- [Western Algeria: Oran, Mostaganem & Tlemcen (5 Days)](https://algeriacompass.com/tours/oran-mostaganem-tlemcen/)
+- [Algiers Day Tour — Hamma Garden & Notre-Dame d'Afrique](https://algeriacompass.com/tours/algierstour-hammagarden-notredame-dafrique/)
+- [Algiers Full-Day — Casbah, Bardo & Martyrs' Memorial](https://algeriacompass.com/tours/algiers-city-tour-casbah-bardo-martyrsmemorial/)
+- [Djanet & Ghardaïa — 6-Day Desert & Heritage](https://algeriacompass.com/tours/djanet-ghardaia-desert-2-days/)
+- [Eastern Algeria & Sahara Discovery — 6 Days](https://algeriacompass.com/tours/algeria-eastern-sahara-discovery/)
+- [Complete Algeria — 10-Day Grand Tour](https://algeriacompass.com/tours/algeria-tour/)
+- [Timimoun Desert Escape — 5 Days](https://algeriacompass.com/tours/timimoun-desert-escape/)
+- [Béjaïa — Historic City by the Sea (Day Trip)](https://algeriacompass.com/tours/tour-bejaia-historic/)
+- [Tipaza & Cherchell — Private Roman Day Tour](https://algeriacompass.com/tours/private-guided-tour/)
+- [Bou Saada — 2-Day Oasis Escape](https://algeriacompass.com/tours/bousaada-desert-tour/)
+- [Algeria Intensive Discovery — 5 Days](https://algeriacompass.com/tours/algeria-intensive-discovery-tour/)
+- [Algiers Culture Walk — Casbah Day Tour](https://algeriacompass.com/tours/day-tour-algeria-culture/)
+- [Constantine & Timgad — 2-Day Tour](https://algeriacompass.com/tours/the-beauty-of-algeria/)
+- [Roman Algeria — Tipaza, Djémila & Timgad (3 Days)](https://algeriacompass.com/tours/algeria-through-time-and-tradition/)
+- [The Soul of Algeria — 4 Days](https://algeriacompass.com/tours/the-soul-of-algeria/)
+- [Culture & Heritage of Algeria — 8 Days](https://algeriacompass.com/tours/the-culture-and-heritage-of-algeria/)
+- [Algeria Beyond Expectations — 10 Days](https://algeriacompass.com/tours/algeria-beyond-expectations/)
+
+## Guides en français
+- [Voyage en Algérie](https://algeriacompass.com/fr/): Accueil en français — voyagiste algérien agréé.
+- [Guide de voyage complet en Algérie](https://algeriacompass.com/fr/guide-voyage-algerie/): Quand partir, visa, sécurité, transport, budget.
+- [Visa pour l'Algérie](https://algeriacompass.com/fr/visa-algerie/): Documents requis, e-Visa, lettre d’invitation, délais.
+- [L'Algérie est-elle sûre ?](https://algeriacompass.com/fr/securite-algerie/): Évaluation honnête : le nord, le Sahara encadré, précautions.
+- [Quand partir en Algérie ?](https://algeriacompass.com/fr/quand-partir-algerie/): Meilleure période région par région ; le désert en hiver.
+- [Se déplacer en Algérie](https://algeriacompass.com/fr/transport-algerie/): Vols intérieurs, train, bus, taxis et 4x4 du désert.
+- [Itinéraire en Algérie : 7, 10 et 14 jours](https://algeriacompass.com/fr/itineraire-algerie/): Trois itinéraires prêts à l’emploi.
+- [Budget voyage en Algérie](https://algeriacompass.com/fr/budget-algerie/): Coûts réels et le taux de change parallèle.
+- [Sahara algérien](https://algeriacompass.com/fr/sahara-algerie/): Djanet, le Tassili n’Ajjer, le Hoggar, Timimoun : permis et 4x4.
+- [Cuisine algérienne](https://algeriacompass.com/fr/cuisine-algerienne/): Couscous, chorba, mechoui et pâtisseries.
+
+## Key sections
+- [Tours](https://algeriacompass.com/tours/): All private, guided tour itineraries.
+- [Luxury travel](https://algeriacompass.com/luxury/): High-end private programmes and bespoke itineraries.
 - [Destinations](https://algeriacompass.com/destinations/): In-depth guides to Algeria's flagship places.
-- [Regions](https://algeriacompass.com/regions/): Algeria by region — Algiers, Sahara, Kabylie/Béjaïa, Constantine, Tlemcen, M'Zab, Roman east.
-- [Experiences](https://algeriacompass.com/experiences/): Ways to travel — desert, culture, history, food.
-- [Contact & trip planning](https://algeriacompass.com/contact/): Request a custom itinerary or quote.
-
-## Essential travel guides (independent, fact-checked)
-- [Complete Algeria travel guide](https://algeriacompass.com/blog/complete-algeria-travel-guide/): The full overview for first-time visitors.
-- [Is Algeria safe? Safety guide](https://algeriacompass.com/blog/algeria-safety-guide/): Honest, current safety guidance for travellers.
-- [Algeria visa guide](https://algeriacompass.com/blog/algeria-visa-guide/): Tourist visa and e-visa requirements and process.
-- [Best time to visit Algeria](https://algeriacompass.com/blog/best-time-to-visit-algeria/): Season-by-season weather and when to go where.
-- [Getting around Algeria (transport)](https://algeriacompass.com/blog/algeria-transportation-guide/): Flights, trains, roads, and desert logistics.
-- [Algerian Sahara travel guide](https://algeriacompass.com/blog/algerian-sahara-travel-guide/): Djanet, Tassili n'Ajjer, Timimoun, and desert travel.
-- [Algerian food guide](https://algeriacompass.com/blog/algerian-food-guide/): What to eat in Algeria — dishes, sweets, and regional specialities.
-- [Algerian handicrafts](https://algeriacompass.com/blog/algerian-handicrafts/): Traditional crafts and what to bring home.
-
-## UNESCO World Heritage & flagship destinations
-- [Algeria's UNESCO sites](https://algeriacompass.com/unesco/): All seven World Heritage sites in Algeria.
-- [Casbah of Algiers](https://algeriacompass.com/destinations/casbah-of-algiers/)
-- [Tassili n'Ajjer](https://algeriacompass.com/destinations/tassili-najjer/)
-- [M'Zab Valley](https://algeriacompass.com/destinations/mzab-valley/)
-- [Djémila (Roman city)](https://algeriacompass.com/destinations/djemila/)
-- [Timgad (Roman city)](https://algeriacompass.com/destinations/timgad/)
-- [Tipaza](https://algeriacompass.com/destinations/tipaza/)
-- [Beni Hammad Fort](https://algeriacompass.com/destinations/beni-hammad/)
-
-## Culture & background
-- [Algerian culture](https://algeriacompass.com/culture/)
-- [Algerian history](https://algeriacompass.com/history/)
-- [Common questions about Algeria](https://algeriacompass.com/questions/)
-
-## About & trust
-- [About Algeria Compass](https://algeriacompass.com/about/): Who we are — a licensed local operator.
-- [Editorial standards](https://algeriacompass.com/editorial/): Sourcing, fact-checking, and review policies.
+- [States](https://algeriacompass.com/provinces/): Region-by-region guides across the Algerian states.
+- [Regions](https://algeriacompass.com/regions/): Algeria by travel region — eight distinct "worlds".
+- [Experiences](https://algeriacompass.com/experiences/): Ways to travel: desert, culture, history, food.
+- [UNESCO World Heritage](https://algeriacompass.com/unesco/): Algeria's seven UNESCO World Heritage sites.
+- [Culture](https://algeriacompass.com/culture/): Algerian culture: civilisations, music, craft.
+- [History](https://algeriacompass.com/history/): Algerian history, from antiquity to independence.
+- [Food](https://algeriacompass.com/food/): Algerian food and the Maghrebi table.
+- [Questions & answers](https://algeriacompass.com/questions/): Common questions about travelling in Algeria.
+- [Travel guides index](https://algeriacompass.com/travel-guides/): Index of the practical travel guides.
+- [Visa support](https://algeriacompass.com/visa-support/): Visa support and invitation letters for travellers.
+- [Contact](https://algeriacompass.com/contact/): Request a custom itinerary or a quote.
+- [About](https://algeriacompass.com/about/): Who we are — a licensed local operator.
+- [Editorial standards](https://algeriacompass.com/editorial/): Sourcing, fact-checking and corrections policies.
+- [Team](https://algeriacompass.com/team/): The people who write and review this site.
 
 ## Full index
 - [XML sitemap](https://algeriacompass.com/sitemap.xml)
+- [Image sitemap](https://algeriacompass.com/sitemap-images.xml)

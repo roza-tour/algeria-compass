@@ -52,7 +52,19 @@ attr.reviewedBy = { "@id": (reviewerEntity as any)["@id"] };
 attr.dateModified = d.updated.toISOString();
 const cites = citationNodes(d.sources);
 if (cites.length) attr.citation = cites;
-const schemaNodes = [attr, authorEntity, reviewerEntity];
+// WebPage node — carries the speakable hint for voice/AI answers, pointed at
+// the h1 and the QuickAnswer block (.qbox), which is written as a spoken answer.
+const webpage = {
+  "@type": "WebPage",
+  "@id": `${site}/destinations/${item.slug}/#webpage`,
+  "url": `${site}/destinations/${item.slug}/`,
+  "name": d.seo.title,
+  "isPartOf": { "@id": `${site}/#website` },
+  "primaryImageOfPage": site + d.image,
+  "inLanguage": "en",
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".qbox"] }
+};
+const schemaNodes = [attr, webpage, authorEntity, reviewerEntity];
 ---
 <BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} region={d.region} civ={DEST_SKIN[item.slug]} schema={schemaNodes} sticky={true}>
   <Hero title={d.heading || d.name} eyebrow={d.province ? d.province + ' · Algeria' : 'Algeria'} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
