@@ -1,14 +1,22 @@
 ---
-// Site-wide seasonal ambience. Sits BEHIND everything (z-index:0, fixed,
-// pointer-events:none) so it can never touch layout, clicks or readability.
+// Site-wide seasonal ambience — a single layer that sits BEHIND the page
+// (position:fixed, z-index:0, pointer-events:none), so it can never touch
+// layout, clicks, readability, or drift across a photograph.
 //
-// summer    — warm haze + slow sea-swell bands and drifting light
-// spring    — soft green wash + petals drifting on a breeze
-// autumn    — amber wash + falling leaves
-// winter    — cool wash + falling snow
-// christmas — winter snow, warmer gold cast
-// ramadan   — night-green vignette, drifting stars, a soft crescent glow
-// eid       — festive gold sparkle
+// There used to be a second layer above the content so the particles were
+// always visible. What that actually produced was plain glowing dots crossing
+// every image on the site. It is gone. The ambience now lives only in the
+// background, where transparent sections let it breathe, and the art is
+// specific to the season rather than the same dot in a different colour:
+//
+// summer    — sea sparkle: still glints of light that catch and fade, over slow swells
+// spring    — petals drifting on a breeze
+// autumn    — leaves turning as they fall
+// winter    — snow, small and soft
+// christmas — snow plus warm gold star-sparkle
+// ramadan   — a night sky: stars twinkling at their own pace, one crescent glow
+// eid       — the same night, warmer and more festive
+// yennayer  — Amazigh teal shimmer
 //
 // The season is decided at build time (src/lib/season.ts) and re-checked in the
 // browser, so a page cached across a season boundary still corrects itself.
@@ -23,74 +31,100 @@ const season = preview || seasonForDate(now);
 // ~18 months of upcoming windows, so a cached page can re-resolve itself.
 const schedule = upcomingWindows(now, 18).map(w => [w.from, w.to, w.season]);
 
-// Deterministic particle tables (no RNG — builds stay byte-stable).
-const P = [
-  [4, 13, 0], [11, 9, 2], [18, 15, 4], [25, 11, 1], [32, 14, 3], [39, 10, 5],
-  [46, 16, 0], [53, 12, 2], [60, 9, 4], [67, 15, 1], [74, 11, 3], [81, 13, 5],
-  [88, 10, 0], [95, 14, 2], [8, 17, 6], [22, 12, 7], [43, 16, 6], [58, 11, 8],
-  [72, 15, 7], [86, 13, 6], [15, 18, 3], [35, 9, 5], [65, 17, 2], [92, 12, 4],
+// Deterministic tables (no RNG — builds stay byte-stable).
+// FALLING: [left %, duration s, delay s, scale]
+const FALLING = [
+  [4, 19, 0, 1], [11, 15, 3, .8], [18, 22, 6, 1.1], [25, 17, 1, .7], [32, 20, 4, 1],
+  [39, 16, 8, .9], [46, 23, 2, 1.2], [53, 18, 5, .75], [60, 15, 9, 1], [67, 21, 0, .85],
+  [74, 17, 6, 1.1], [81, 19, 3, .7], [88, 16, 7, 1], [95, 20, 1, .9],
+  [8, 24, 5, .8], [22, 18, 10, 1], [43, 22, 7, .75], [58, 17, 12, 1.05],
+  [72, 20, 4, .9], [86, 23, 9, .8],
 ];
+// GLINTS: [left %, top %, delay s, period s, scale] — still points of light that
+// catch and fade, the way sun does on water. They do not travel.
+const GLINTS = [
+  [6, 62, 0, 5.5, 1], [14, 78, 1.4, 6.5, .7], [23, 55, 2.8, 5, 1.2], [31, 84, .6, 7, .8],
+  [39, 68, 3.4, 5.8, 1], [47, 90, 2.1, 6.2, .75], [55, 60, 4.2, 5.4, 1.1], [63, 80, 1.1, 7.2, .85],
+  [71, 72, 3.1, 6, 1], [79, 88, 2.4, 5.6, .7], [87, 64, 4.6, 6.8, 1.15], [94, 82, 1.8, 5.2, .9],
+  [18, 94, 3.8, 6.4, .8], [44, 50, 5.1, 7.4, .65], [68, 96, 2.6, 5.9, .9], [90, 52, 4.4, 6.6, .7],
+];
+// STARS: [left %, top %, delay s, period s, size px]
 const STARS = [
-  [7, 14], [16, 8], [24, 20], [33, 11], [41, 17], [52, 9], [61, 19],
-  [69, 12], [78, 22], [87, 10], [94, 16], [12, 26], [46, 27], [83, 28],
+  [7, 12, 0, 4.4, 2], [16, 6, 1.6, 5.2, 3], [24, 19, 3.1, 4, 2], [33, 9, .7, 6, 2.5],
+  [41, 16, 2.4, 4.8, 2], [52, 5, 4, 5.6, 3], [61, 21, 1.2, 4.2, 2],
+  [69, 11, 3.6, 6.4, 2.5], [78, 24, 2, 4.6, 2], [87, 8, 4.4, 5, 3], [94, 17, 1, 5.8, 2],
+  [12, 28, 2.8, 4.4, 2], [46, 30, 3.9, 6.2, 2.5], [83, 32, 1.9, 5.4, 2],
+  [29, 38, 4.6, 5, 2], [58, 41, 2.2, 6, 2], [74, 36, 3.3, 4.8, 2.5], [95, 44, 1.5, 5.6, 2],
 ];
+
+const isNight = season === 'ramadan' || season === 'eid' || season === 'mawlid'
+             || season === 'yennayer' || season === 'national';
 ---
-<div class="amb" data-season={season} data-preview={preview || undefined} aria-hidden="true"></div>
-<div class="amb-fx" data-season={season} aria-hidden="true">
+<div class="amb" data-season={season} data-preview={preview || undefined} aria-hidden="true">
   {(season === 'winter' || season === 'christmas') && (
-    <div class="amb-layer amb-snow">
-      {P.map(([l, dur, dl]) => (
-        <span class="amb-flake" style={`left:${l}%;animation-duration:${dur + 6}s;animation-delay:${dl}s`}></span>
+    <div class="amb-layer">
+      {FALLING.map(([l, dur, dl, sc]) => (
+        <span class="amb-flake" style={`left:${l}%;animation-duration:${dur}s;animation-delay:${dl}s;--sc:${sc}`}></span>
+      ))}
+    </div>
+  )}
+
+  {season === 'christmas' && (
+    <div class="amb-layer">
+      {STARS.slice(0, 10).map(([l, t, dl, per, sz]) => (
+        <span class="amb-spark" style={`left:${l}%;top:${t}%;animation-delay:${dl}s;animation-duration:${per}s;width:${sz + 1}px;height:${sz + 1}px`}></span>
       ))}
     </div>
   )}
 
   {season === 'summer' && (
     <>
-      <div class="amb-layer amb-motes">
-        {P.slice(0, 18).map(([l, dur, dl]) => (
-          <span class="amb-mote" style={`left:${l}%;animation-duration:${dur + 14}s;animation-delay:${dl}s`}></span>
-        ))}
-      </div>
       <div class="amb-layer amb-sea">
         <span class="amb-swell amb-swell--1"></span>
         <span class="amb-swell amb-swell--2"></span>
         <span class="amb-swell amb-swell--3"></span>
       </div>
+      <div class="amb-layer">
+        {GLINTS.map(([l, t, dl, per, sc]) => (
+          <span class="amb-glint" style={`left:${l}%;top:${t}%;animation-delay:${dl}s;animation-duration:${per}s;--sc:${sc}`}></span>
+        ))}
+      </div>
     </>
   )}
 
   {season === 'spring' && (
-    <div class="amb-layer amb-petals">
-      {P.slice(0, 16).map(([l, dur, dl]) => (
-        <span class="amb-petal" style={`left:${l}%;animation-duration:${dur + 10}s;animation-delay:${dl}s`}></span>
+    <div class="amb-layer">
+      {FALLING.map(([l, dur, dl, sc]) => (
+        <span class="amb-petal" style={`left:${l}%;animation-duration:${dur + 6}s;animation-delay:${dl}s;--sc:${sc}`}></span>
       ))}
     </div>
   )}
 
   {season === 'autumn' && (
-    <div class="amb-layer amb-leaves">
-      {P.slice(0, 14).map(([l, dur, dl]) => (
-        <span class="amb-leaf" style={`left:${l}%;animation-duration:${dur + 9}s;animation-delay:${dl}s`}></span>
+    <div class="amb-layer">
+      {FALLING.map(([l, dur, dl, sc]) => (
+        <span class="amb-leaf" style={`left:${l}%;animation-duration:${dur + 4}s;animation-delay:${dl}s;--sc:${sc}`}></span>
       ))}
     </div>
   )}
 
-  {(season === 'ramadan' || season === 'eid' || season === 'mawlid' || season === 'yennayer' || season === 'national') && (
-    <div class="amb-layer amb-night">
+  {isNight && (
+    <>
+      <div class="amb-layer">
+        {STARS.map(([l, t, dl, per, sz]) => (
+          <span class="amb-star" style={`left:${l}%;top:${t}%;animation-delay:${dl}s;animation-duration:${per}s;width:${sz}px;height:${sz}px`}></span>
+        ))}
+      </div>
       <span class="amb-glow"></span>
-      {STARS.map(([l, t], i) => (
-        <span class="amb-star" style={`left:${l}%;top:${t}%;animation-delay:${(i % 6) * 0.7}s`}></span>
-      ))}
-    </div>
+    </>
   )}
 </div>
 
 <script is:inline define:vars={{ windows: schedule }}>
   /* A page can be cached for weeks. Re-resolve the season client-side and, if it
      no longer matches what was baked in, correct the attribute so the ambience
-     is never out of step with the calendar. Particles for the new season only
-     appear on the next build, but the wash/colour follows immediately. */
+     is never out of step with the calendar. The art for the new season only
+     appears on the next build, but the wash/colour follows immediately. */
   (function () {
     var el = document.querySelector('.amb');
     if (!el) return;
@@ -104,8 +138,6 @@ const STARS = [
       s = (m >= 2 && m <= 4) ? 'spring' : (m >= 5 && m <= 7) ? 'summer' : (m >= 8 && m <= 10) ? 'autumn' : 'winter';
     }
     if (el.getAttribute('data-season') !== s) el.setAttribute('data-season', s);
-    var fx = document.querySelector('.amb-fx');
-    if (fx && fx.getAttribute('data-season') !== s) fx.setAttribute('data-season', s);
     if (document.documentElement.getAttribute('data-season') !== s)
       document.documentElement.setAttribute('data-season', s);
   })();
@@ -119,25 +151,16 @@ const STARS = [
 </style>
 
 <style>
-  /* The whole layer is behind the page and inert. */
+  /* One layer, behind the page, inert. Nothing here is ever drawn over content. */
   .amb {
     position: fixed; inset: 0;
-    z-index: 0;                 /* tint only — sits under the page */
-    pointer-events: none; overflow: hidden; contain: strict;
-  }
-  /* Particles ride ABOVE the page so they are actually visible over opaque
-     sections, but the layer is inert: no pointer events, no text underneath is
-     obscured (marks are 5-6px and translucent), and it never intercepts a click.
-     It stays below the sticky nav (z-300) and the cookie banner. */
-  .amb-fx {
-    position: fixed; inset: 0;
-    z-index: 60;
+    z-index: 0;
     pointer-events: none; overflow: hidden; contain: strict;
   }
   .amb-layer { position: absolute; inset: 0; }
 
   /* A very light seasonal wash over the page background. Kept low enough that
-     body text contrast is untouched. */
+     body-text contrast is untouched. */
   .amb[data-season='spring']    { background: linear-gradient(180deg, rgba(122,168,109,.07), transparent 42%); }
   .amb[data-season='summer']    { background: linear-gradient(180deg, rgba(255,206,120,.10), transparent 38%); }
   .amb[data-season='autumn']    { background: linear-gradient(180deg, rgba(198,124,48,.085), transparent 40%); }
@@ -148,24 +171,26 @@ const STARS = [
   .amb[data-season='mawlid']    { background: radial-gradient(90% 55% at 78% 6%, rgba(160,190,150,.12), transparent 62%); }
   .amb[data-season='yennayer']  { background: radial-gradient(90% 55% at 78% 6%, rgba(30,140,140,.13), transparent 62%); }
   .amb[data-season='national']  { background: linear-gradient(180deg, rgba(11,61,46,.09), transparent 40%); }
-  /* per-occasion star + glow tints */
-  .amb-fx[data-season='eid'] .amb-star      { background:#FFF0C4 }
-  .amb-fx[data-season='yennayer'] .amb-star { background:#BFEDE6 }
-  .amb-fx[data-season='yennayer'] .amb-glow { background: radial-gradient(circle, rgba(30,140,140,.22) 0%, transparent 68%); }
-  .amb-fx[data-season='mawlid'] .amb-glow   { background: radial-gradient(circle, rgba(190,214,178,.2) 0%, transparent 68%); }
-  .amb-fx[data-season='national'] .amb-glow { background: radial-gradient(circle, rgba(255,255,255,.16) 0%, transparent 68%); }
-  .amb-fx[data-season='national'] .amb-star { background:#EAF6EE }
 
-  /* ---------- snow ---------- */
+  /* ---------- snow: small, soft, no hard glow ---------- */
   .amb-flake {
-    position: absolute; top: -6vh; width: 7px; height: 7px; border-radius: 50%;
-    background: #fff; opacity: .7;
-    box-shadow: 0 0 6px rgba(255,255,255,.95), 0 0 2px rgba(120,166,196,.9);
+    position: absolute; top: -8vh; width: 5px; height: 5px; border-radius: 50%;
+    background: rgba(255, 255, 255, .9);
+    box-shadow: 0 0 4px rgba(190, 222, 240, .7);
     animation-name: amb-fall; animation-timing-function: linear; animation-iteration-count: infinite;
   }
-  .amb-fx[data-season='christmas'] .amb-flake { background: #FFF6E2; }
+  .amb[data-season='christmas'] .amb-flake { background: rgba(255, 250, 238, .9); }
 
-  /* ---------- summer sea ---------- */
+  /* ---------- summer: sea sparkle ----------
+     Elongated highlights that flare and fade where they are, the way sunlight
+     catches moving water. They never travel across the page. */
+  .amb-glint {
+    position: absolute; width: 14px; height: 3px; border-radius: 50%;
+    background: linear-gradient(90deg, transparent, rgba(214, 246, 255, .95) 45%, rgba(120, 210, 225, .8) 55%, transparent);
+    box-shadow: 0 0 8px rgba(150, 226, 240, .55);
+    opacity: 0;
+    animation-name: amb-glint; animation-timing-function: ease-in-out; animation-iteration-count: infinite;
+  }
   .amb-sea { top: auto; bottom: 0; height: 34vh; }
   .amb-swell {
     position: absolute; left: -20%; right: -20%; height: 120px; border-radius: 50%;
@@ -174,104 +199,94 @@ const STARS = [
   .amb-swell--1 { bottom: -60px; animation: amb-swell 15s ease-in-out infinite; }
   .amb-swell--2 { bottom: -34px; opacity: .75; animation: amb-swell 21s ease-in-out infinite reverse; }
   .amb-swell--3 { bottom: -10px; opacity: .5;  animation: amb-swell 27s ease-in-out infinite; }
-  .amb-shimmer {
-    position: absolute; inset: auto 0 0 0; height: 100%;
-    background: linear-gradient(100deg, transparent 20%, rgba(255, 236, 180, .12) 50%, transparent 80%);
-    background-size: 240% 100%;
-    animation: amb-drift 26s linear infinite;
-  }
-
-  /* ---------- summer motes (sea spray / sun sparkle on the breeze) ---------- */
-  .amb-mote {
-    position: absolute; bottom: -4vh;
-    width: 7px; height: 7px; border-radius: 50%;
-    background: rgba(255, 226, 160, .85);
-    box-shadow: 0 0 10px rgba(255, 206, 120, 1), 0 0 3px rgba(180, 130, 40, .6);
-    opacity: .75;
-    animation-name: amb-rise; animation-timing-function: linear; animation-iteration-count: infinite;
-  }
 
   /* ---------- spring petals ---------- */
   .amb-petal {
-    position: absolute; top: -6vh; width: 9px; height: 7px;
+    position: absolute; top: -8vh; width: 9px; height: 7px;
     border-radius: 60% 40% 55% 45%;
-    background: rgba(233, 178, 190, .55);
+    background: rgba(233, 178, 190, .5);
     animation-name: amb-drift-fall; animation-timing-function: linear; animation-iteration-count: infinite;
   }
 
   /* ---------- autumn leaves ---------- */
   .amb-leaf {
-    position: absolute; top: -6vh; width: 10px; height: 8px;
+    position: absolute; top: -8vh; width: 10px; height: 8px;
     border-radius: 70% 30% 65% 35%;
-    background: rgba(191, 116, 43, .5);
+    background: rgba(191, 116, 43, .45);
     animation-name: amb-drift-fall; animation-timing-function: linear; animation-iteration-count: infinite;
   }
 
-  /* ---------- ramadan / eid night ---------- */
-  .amb-star {
-    position: absolute; width: 3px; height: 3px; border-radius: 50%;
-    background: #F4E3AE; opacity: .3;
-    box-shadow: 0 0 6px rgba(244, 227, 174, .8);
-    animation: amb-twinkle 4s ease-in-out infinite;
+  /* ---------- night sky ----------
+     Each star twinkles on its own period so the field never pulses in unison. */
+  .amb-star, .amb-spark {
+    position: absolute; border-radius: 50%;
+    background: #F4E3AE; opacity: .25;
+    box-shadow: 0 0 7px rgba(244, 227, 174, .85), 0 0 2px rgba(255, 255, 255, .9);
+    animation-name: amb-twinkle; animation-timing-function: ease-in-out; animation-iteration-count: infinite;
   }
+  .amb[data-season='eid'] .amb-star      { background: #FFF0C4; }
+  .amb[data-season='yennayer'] .amb-star { background: #BFEDE6; box-shadow: 0 0 7px rgba(140, 226, 216, .8); }
+  .amb[data-season='mawlid'] .amb-star   { background: #E4F0DC; }
+  .amb[data-season='national'] .amb-star { background: #EAF6EE; }
+  .amb-spark { background: #FFE9B8; box-shadow: 0 0 9px rgba(255, 214, 130, .9); }
+
   .amb-glow {
     position: absolute; right: 7%; top: 4%;
     width: clamp(90px, 13vw, 190px); aspect-ratio: 1; border-radius: 50%;
     background: radial-gradient(circle, rgba(240, 211, 132, .22) 0%, transparent 68%);
     animation: amb-breathe 11s ease-in-out infinite;
   }
+  .amb[data-season='yennayer'] .amb-glow { background: radial-gradient(circle, rgba(30,140,140,.22) 0%, transparent 68%); }
+  .amb[data-season='mawlid'] .amb-glow   { background: radial-gradient(circle, rgba(190,214,178,.2) 0%, transparent 68%); }
+  .amb[data-season='national'] .amb-glow { background: radial-gradient(circle, rgba(255,255,255,.16) 0%, transparent 68%); }
 
+  /* --sc carries the per-particle scale so it composes with the animation's
+     own transform instead of being overwritten by it. */
   @keyframes amb-fall {
-    from { transform: translateY(0) translateX(0); opacity: 0; }
-    8%   { opacity: .55; }
-    92%  { opacity: .55; }
-    to   { transform: translateY(112vh) translateX(40px); opacity: 0; }
+    from { transform: translateY(0) translateX(0) scale(var(--sc, 1)); opacity: 0; }
+    10%  { opacity: .5; }
+    90%  { opacity: .5; }
+    to   { transform: translateY(114vh) translateX(36px) scale(var(--sc, 1)); opacity: 0; }
   }
   @keyframes amb-drift-fall {
-    from { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
-    10%  { opacity: .7; }
-    90%  { opacity: .7; }
-    to   { transform: translateY(112vh) translateX(90px) rotate(320deg); opacity: 0; }
+    from { transform: translateY(0) translateX(0) rotate(0deg) scale(var(--sc, 1)); opacity: 0; }
+    10%  { opacity: .6; }
+    90%  { opacity: .6; }
+    to   { transform: translateY(114vh) translateX(90px) rotate(320deg) scale(var(--sc, 1)); opacity: 0; }
   }
-  @keyframes amb-rise {
-    from { transform: translateY(0) translateX(0); opacity: 0; }
-    12%  { opacity: .62; }
-    88%  { opacity: .62; }
-    to   { transform: translateY(-108vh) translateX(70px); opacity: 0; }
+  @keyframes amb-glint {
+    0%, 100% { opacity: 0; transform: scale(var(--sc, 1)); }
+    45%      { opacity: 0; }
+    60%      { opacity: .85; transform: scale(calc(var(--sc, 1) * 1.15)); }
+    75%      { opacity: 0; transform: scale(var(--sc, 1)); }
   }
   @keyframes amb-swell {
     0%, 100% { transform: translateY(0) scaleX(1); }
     50%      { transform: translateY(-14px) scaleX(1.06); }
   }
-  @keyframes amb-drift {
-    from { background-position: 0% 0; }
-    to   { background-position: 240% 0; }
-  }
   @keyframes amb-twinkle {
-    0%, 100% { opacity: .22; transform: scale(.85); }
-    50%      { opacity: .95; transform: scale(1.2); }
+    0%, 100% { opacity: .18; }
+    50%      { opacity: .95; }
   }
   @keyframes amb-breathe {
     0%, 100% { opacity: .75; transform: scale(1); }
     50%      { opacity: 1;   transform: scale(1.08); }
   }
 
-  /* Phones: keep the seasonal feel but thin it — roughly half the particles,
-     and drop only the bottom sea-swell (invisible behind content there anyway).
-     All motion is transform/opacity, so the phone GPU handles it easily. */
+  /* Phones: thin the field to roughly half, and drop the sea swell (it sits
+     behind content there anyway). */
   @media (max-width: 640px) {
+    .amb-flake:nth-child(odd), .amb-petal:nth-child(odd),
+    .amb-leaf:nth-child(odd), .amb-glint:nth-child(odd),
+    .amb-star:nth-child(3n) { display: none; }
     .amb-sea { display: none; }
-    .amb-flake:nth-child(odd),
-    .amb-petal:nth-child(odd),
-    .amb-leaf:nth-child(odd),
-    .amb-mote:nth-child(odd) { display: none; }
-    .amb-flake, .amb-mote { width: 4px; height: 4px; }
   }
 
-  /* Anyone who asks for less motion gets a completely still page. */
+  /* Motion is decoration: if the visitor asks for less, the layer holds still. */
   @media (prefers-reduced-motion: reduce) {
-    .amb-flake, .amb-petal, .amb-leaf, .amb-mote, .amb-sea, .amb-star, .amb-glow { display: none; }
+    .amb * { animation: none !important; }
+    .amb-glint, .amb-star, .amb-spark { opacity: .35; }
   }
 
-  @media print { .amb { display: none; } }
+  @media print { .amb { display: none !important; } }
 </style>

@@ -110,6 +110,8 @@ html[data-season='christmas'] {
   --s-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 46' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C 60 14 120 34 190 26 C 260 18 320 36 390 24 C 460 14 540 34 640 22 L 640 46 L 0 46 Z' fill='%23FBF8F2'/%3E%3C/svg%3E");
   --s-edge-size: 640px 46px;
   --s-edge-h: 46px;
+  --s-sky-repeat: no-repeat, repeat-x, no-repeat;
+  --s-sky-size: auto, 140px 42%, auto;
   --s-light: radial-gradient(circle at 86% 4%, rgba(255, 224, 152, .18) 0%, transparent 38%);
   --s-band: #7C1D1A;
 }
@@ -127,6 +129,8 @@ html[data-season='mawlid'] {
   --s-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 56' preserveAspectRatio='none'%3E%3Cpath d='M0 56 L0 26 Q 20 -8 40 26 Q 60 -8 80 26 Q 100 -8 120 26 Q 140 -8 160 26 L160 56 Z' fill='%23FBF8F2'/%3E%3C/svg%3E");
   --s-edge-size: 160px 56px;
   --s-edge-h: 56px;
+  --s-sky-repeat: no-repeat, repeat-x, no-repeat;
+  --s-sky-size: auto, 160px 46%, auto;
   --s-light: radial-gradient(circle at 85% 4%, rgba(240, 211, 132, .20) 0%, transparent 36%);
   --s-band: #0A3A2A;
 }
@@ -176,8 +180,8 @@ html[data-season] .hero::before,
 html[data-season] .home-hero .home-hero-pattern {
   opacity: 1;
   background-image: var(--s-sky, none);
-  background-repeat: no-repeat, repeat, no-repeat;
-  background-size: auto, auto, auto;
+  background-repeat: var(--s-sky-repeat, no-repeat, no-repeat, no-repeat);
+  background-size: var(--s-sky-size, auto, auto, auto);
   mix-blend-mode: var(--s-blend, normal);
 }
 
@@ -212,14 +216,13 @@ html[data-season] footer::before {
   transform: scaleY(-1);
 }
 
-/* 2e. A fixed seasonal light in the corner of the viewport. It rides above the
-       page (so opaque sections cannot swallow it) but is faint and screen-blended,
-       so it warms the page without touching text contrast. */
-html[data-season] .amb-fx::before {
+/* 2e. A fixed seasonal light in the corner of the viewport. It lives in the
+       background layer with everything else, so it never sits over a photograph;
+       transparent sections let it through. */
+html[data-season] .amb::after {
   content: ""; position: absolute; inset: 0;
   pointer-events: none;
   background: var(--s-light, none);
-  mix-blend-mode: screen;
 }
 
 /* 2f. Content chrome picks up the seasonal accent. These selectors cover the
@@ -246,7 +249,7 @@ html[data-season] .eyebrow { color: var(--accent); }
   html[data-season='ramadan'] .home-hero .home-hero-pattern,
   html[data-season='eid'] .home-hero .home-hero-pattern,
   html[data-season='mawlid'] .home-hero .home-hero-pattern { animation: lantern-breathe 7s ease-in-out infinite; }
-  html[data-season] .amb-fx::before { animation: light-breathe 11s ease-in-out infinite; }
+  html[data-season] .amb::after { animation: light-breathe 11s ease-in-out infinite; }
 }
 @keyframes sea-roll {
   from { background-position: 0 bottom, 0 bottom, 0 0, 0 0; }
@@ -279,8 +282,8 @@ html[data-season] .eyebrow { color: var(--accent); }
       radial-gradient(circle at 84% 12%, rgba(255, 232, 160, .60) 0%, rgba(255, 200, 100, .26) 13%, transparent 32%),
       linear-gradient(180deg, rgba(255, 190, 90, .15), transparent 60%);
   }
-  html[data-season] .hero::before,
-  html[data-season] .home-hero .home-hero-pattern { background-repeat: no-repeat, no-repeat, no-repeat; }
+  html[data-season='summer'] .hero::before,
+  html[data-season='summer'] .home-hero .home-hero-pattern { background-repeat: no-repeat, no-repeat; }
 }
 
 @media print {
@@ -288,5 +291,5 @@ html[data-season] .eyebrow { color: var(--accent); }
   html[data-season] .home-hero::before,
   html[data-season] .home-hero .home-hero-pattern,
   html[data-season] footer::before,
-  html[data-season] .amb-fx::before { display: none !important; }
+  html[data-season] .amb::after { display: none !important; }
 }
