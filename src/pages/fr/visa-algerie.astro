@@ -17,8 +17,33 @@ const faqs = [
   { q: "Combien de temps faut-il pour obtenir le visa ?", a: "Comptez souvent une à plusieurs semaines. Commencez tôt, car certains consulats exigent une lettre d'invitation d'agence que nous pouvons fournir à nos voyageurs." },
 ];
 const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": site + "/fr/visa-algerie/#article",
+  "headline": "Visa pour l'Algérie",
+  "description": description,
+  "inLanguage": "fr",
+  "datePublished": "2026-07-22",
+  "dateModified": "2026-07-22",
+  "url": site + "/fr/visa-algerie/",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": site + "/fr/visa-algerie/" },
+  "author": { "@id": site + "/team/oussama-ben-yahia/#person" },
+  "publisher": { "@id": site + "/#organization" },
+  "isPartOf": { "@id": site + "/#website" }
+};
+const authorSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": site + "/team/oussama-ben-yahia/#person",
+  "name": "Oussama Ben Yahia",
+  "jobTitle": "Founder & Lead Travel Specialist",
+  "url": site + "/team/oussama-ben-yahia/",
+  "worksFor": { "@id": site + "/#organization" },
+  "knowsLanguage": ["fr", "ar", "en"]
+};
 ---
-<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[articleSchema, authorSchema, faqSchema]} sticky={true}>
   <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Visa'}]} />
   <article class="section">
     <div class="wrap" style="max-width:780px">

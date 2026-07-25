@@ -17,8 +17,33 @@ const faqs = [
   { q: "Pourquoi le taux de change compte-t-il autant ?", a: "L'Algérie a un taux officiel et un taux parallèle largement utilisé, avec un écart important. Changer des devises sur place peut nettement augmenter votre pouvoir d'achat." },
 ];
 const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": site + "/fr/budget-algerie/#article",
+  "headline": 'Combien coûte un voyage en Algérie ?',
+  "description": description,
+  "inLanguage": "fr",
+  "datePublished": "2026-07-22",
+  "dateModified": "2026-07-22",
+  "url": site + "/fr/budget-algerie/",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": site + "/fr/budget-algerie/" },
+  "author": { "@id": site + "/team/oussama-ben-yahia/#person" },
+  "publisher": { "@id": site + "/#organization" },
+  "isPartOf": { "@id": site + "/#website" }
+};
+const authorSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": site + "/team/oussama-ben-yahia/#person",
+  "name": "Oussama Ben Yahia",
+  "jobTitle": "Founder & Lead Travel Specialist",
+  "url": site + "/team/oussama-ben-yahia/",
+  "worksFor": { "@id": site + "/#organization" },
+  "knowsLanguage": ["fr", "ar", "en"]
+};
 ---
-<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[articleSchema, authorSchema, faqSchema]} sticky={true}>
   <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Budget'}]} />
   <article class="section">
     <div class="wrap" style="max-width:780px">

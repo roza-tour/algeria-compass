@@ -17,8 +17,33 @@ const faqs = [
   { q: "Est-ce sûr pour les femmes qui voyagent ?", a: "Oui, avec les précautions habituelles. Une tenue modeste, surtout hors des grandes villes, et un accompagnement local facilitent le voyage. De nombreuses voyageuses parcourent l'Algérie sans problème." },
 ];
 const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": site + "/fr/securite-algerie/#article",
+  "headline": "L'Algérie est-elle sûre ?",
+  "description": description,
+  "inLanguage": "fr",
+  "datePublished": "2026-07-22",
+  "dateModified": "2026-07-22",
+  "url": site + "/fr/securite-algerie/",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": site + "/fr/securite-algerie/" },
+  "author": { "@id": site + "/team/oussama-ben-yahia/#person" },
+  "publisher": { "@id": site + "/#organization" },
+  "isPartOf": { "@id": site + "/#website" }
+};
+const authorSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": site + "/team/oussama-ben-yahia/#person",
+  "name": "Oussama Ben Yahia",
+  "jobTitle": "Founder & Lead Travel Specialist",
+  "url": site + "/team/oussama-ben-yahia/",
+  "worksFor": { "@id": site + "/#organization" },
+  "knowsLanguage": ["fr", "ar", "en"]
+};
 ---
-<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[faqSchema]} sticky={true}>
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[articleSchema, authorSchema, faqSchema]} sticky={true}>
   <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Sécurité'}]} />
   <article class="section">
     <div class="wrap" style="max-width:780px">
