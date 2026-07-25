@@ -30,7 +30,7 @@ faqs:
 
 seo:
   title: "Annaba, Algeria: Hippo Regius, St Augustine & the Coast — Guide"
-  description: "Annaba state, Algeria — the far north-east coast: the Roman city of Hippo Regius and Saint Augustine, the hilltop Basilica of St Augustine, turquoise coves and beaches below the Edough. What to see and how to visit."
+  description: "Annaba on Algeria's north-east coast: Roman Hippo Regius and Saint Augustine, the hilltop basilica, and turquoise coves below the Edough."
   primaryKeyword: "Annaba Algeria travel guide"
   keywords: ["Annaba", "Hippo Regius", "Saint Augustine basilica", "Annaba beaches", "eastern Algeria"]
 updated: 2026-06-07

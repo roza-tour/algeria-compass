@@ -43,7 +43,7 @@ faqs:
   - { q: "Can you visit the Sahara and the north in one trip?", a: "Yes, on a 14-day itinerary: do the Roman north first, then fly south to Djanet or Tamanrasset for a guided 4x4 leg in the Tassili n'Ajjer or Hoggar. Keep it to the November–February window." }
   - { q: "Do you need a guide for an Algeria itinerary?", a: "Not in the north, where you can travel independently with patience. The deep south requires a licensed guide, 4x4 transport and permits, so those legs are arranged through an operator." }
 seo:
-  title: "Algeria Itinerary: 7, 10 & 14-Day Plans (2026) | Algeria Compass"
+  title: "Algeria Itinerary: 7, 10 & 14-Day Plans (2026)"
   description: "Ready-made Algeria itineraries for 7, 10 and 14 days — Algiers, the coast, the Roman east and the Sahara — with routes, seasons and the logistics that make them work."
   primaryKeyword: "Algeria itinerary"
   keywords: ["Algeria itinerary","how many days in Algeria","Algeria 7 day itinerary","10 days in Algeria","2 weeks in Algeria","Algeria travel plan"]

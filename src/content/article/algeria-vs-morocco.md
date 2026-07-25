@@ -40,7 +40,7 @@ faqs:
   - { q: "Is Algeria harder to visit than Morocco?", a: "Somewhat. Most nationalities need a visa for Algeria arranged in advance, tourism infrastructure is lighter, and the deep south needs a licensed operator. Morocco is easier for independent first-timers." }
   - { q: "Which has a better Sahara, Algeria or Morocco?", a: "For sheer scale and remoteness, Algeria — the Tassili n'Ajjer and the Tadrart are world-class and uncrowded. Morocco's Merzouga dunes are more accessible and set up for tourism." }
 seo:
-  title: "Algeria vs Morocco: Which Should You Visit? (2026) | Algeria Compass"
+  title: "Algeria vs Morocco: Which Should You Visit? (2026)"
   description: "Algeria or Morocco? An honest comparison — crowds, cost, ease, Sahara, Roman ruins and food — to help you choose the right North African trip."
   primaryKeyword: "Algeria vs Morocco"
   keywords: ["Algeria vs Morocco","Algeria or Morocco","Algeria compared to Morocco","North Africa travel","which to visit Algeria Morocco"]

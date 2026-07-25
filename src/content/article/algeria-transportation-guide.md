@@ -63,7 +63,7 @@ faqs:
   - { q: "Is public transport good in Algerian cities?", a: "The big cities are well served: Algiers has a metro and tram, and Oran, Constantine, Sétif and others have modern, cheap trams." }
   - { q: "How much does transport cost in Algeria?", a: "City rides cost under a dollar; intercity buses and trains are inexpensive; domestic flights are the priciest common option. The exchange rate affects real costs, so confirm when booking." }
 seo:
-  title: "Getting Around Algeria: The Complete Transportation Guide | Algeria Compass"
+  title: "Getting Around Algeria: Transport Guide (2026)"
   description: "Flights, trains, buses, shared taxis, trams and desert 4x4 in Algeria — routes, travel times, costs and booking advice in one sourced, practical guide."
   primaryKeyword: "transport in Algeria"
   keywords: ["transport in Algeria","getting around Algeria","Algeria trains","Algeria domestic flights","Algeria louage"]

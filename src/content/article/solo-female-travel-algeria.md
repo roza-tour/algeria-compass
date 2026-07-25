@@ -30,7 +30,7 @@ faqs:
   - { q: "Can a woman travel to the Algerian Sahara alone?", a: "The deep Sahara requires a licensed operator, guide and 4x4 for everyone, regardless of gender. Within that guided setup it's a safe, well-organised experience; you don't travel the deep south independently." }
   - { q: "How do women handle harassment in Algeria?", a: "Low-level attention (comments, staring) can occur. Projecting confidence, avoiding eye contact with persistent men, dressing modestly, and staying in busier areas all help. Serious harassment is uncommon, and a local guide adds a layer of ease." }
 seo:
-  title: "Solo Female Travel in Algeria: Is It Safe? (2026) | Algeria Compass"
+  title: "Solo Female Travel in Algeria: Is It Safe? (2026)"
   description: "An honest guide to solo female travel in Algeria — safety, dress, harassment, north vs Sahara, and practical tips for travelling well as a woman."
   primaryKeyword: "solo female travel Algeria"
   keywords: ["solo female travel Algeria","is Algeria safe for women","female travel Algeria","women travel Algeria","Algeria safety women"]

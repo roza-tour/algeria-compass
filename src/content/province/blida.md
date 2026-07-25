@@ -31,7 +31,7 @@ faqs:
 
 seo:
   title: "Blida, Algeria: the City of Roses & Chréa Mountains — Travel Guide"
-  description: "Blida state, Algeria — the 'City of Roses' at the foot of the Tell Atlas near Algiers: the cedar forests and winter snow of Chréa National Park, the Mitidja orchards and the Chiffa gorges. What to see and how to visit."
+  description: "Blida, the 'City of Roses' near Algiers: the cedar forests and winter snow of Chréa National Park, the Mitidja orchards and the Chiffa gorges."
   primaryKeyword: "Blida Algeria travel guide"
   keywords: ["Blida", "City of Roses", "Chréa", "Chiffa gorges", "Mitidja", "Atlas mountains Algeria"]
 updated: 2026-06-07

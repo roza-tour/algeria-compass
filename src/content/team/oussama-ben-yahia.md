@@ -13,7 +13,7 @@ credentials: ["Founder of Algeria Compass, a licensed Algeria-based tour operato
 email: "hello@algeriacompass.com"
 order: 2
 seo:
-  title: "Oussama Ben Yahia — Founder & Lead Travel Specialist, Algeria Compass"
+  title: "Oussama Ben Yahia — Founder, Algeria Compass"
   description: "Oussama Ben Yahia is the founder of Algeria Compass. He designs and leads private cultural and Sahara journeys across Algeria and writes the site's flagship travel guides."
 updated: 2026-07-22
 ---

@@ -45,7 +45,7 @@ faqs:
   - { q: "Why does the exchange rate matter so much in Algeria?", a: "Algeria has an official exchange rate and a widely-used parallel rate, and the difference is significant. Changing hard currency locally can stretch a travel budget considerably, so it's worth understanding before you arrive." }
   - { q: "What is the most expensive part of an Algeria trip?", a: "After international flights, the guided Sahara is the biggest cost, because it involves licensed guides, 4x4 transport, permits and internal flights. The northern part of a trip is comparatively affordable." }
 seo:
-  title: "How Much Does a Trip to Algeria Cost? 2026 Budget Guide | Algeria Compass"
+  title: "Algeria Trip Cost: 2026 Budget Guide"
   description: "Is Algeria expensive? A current breakdown of accommodation, food, transport, guides and Sahara costs — plus the dual exchange rate that changes your budget on the ground."
   primaryKeyword: "Algeria travel cost"
   keywords: ["Algeria travel cost","is Algeria expensive","Algeria trip budget","cost of traveling in Algeria","Algeria daily budget","Algeria money"]

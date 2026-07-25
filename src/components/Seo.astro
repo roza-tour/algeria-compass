@@ -6,7 +6,15 @@ export interface Props {
 const { title, description, image = '/assets/img/og-image.png', imageAlt, type = 'website', keywords, noindex = false, lang = 'en' } = Astro.props;
 const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
 const BRAND = 'Algeria Compass';
-const fullTitle = title.includes(BRAND) ? title : `${title} | ${BRAND}`;
+// Google truncates SERP titles at roughly 60-65 characters. Only append the brand
+// suffix when the result still fits — otherwise the authored (keyword-first) title
+// would be cut mid-phrase and the brand never shows anyway. Titles that already
+// carry the brand are left untouched.
+const TITLE_MAX = 65;
+const withBrand = `${title} | ${BRAND}`;
+const fullTitle = title.includes(BRAND)
+  ? title
+  : (withBrand.length <= TITLE_MAX ? withBrand : title);
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
 const canonical = new URL(Astro.url.pathname, site).toString();
 const ogImage = image.startsWith('http') ? image : site + image;

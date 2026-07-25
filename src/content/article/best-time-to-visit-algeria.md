@@ -64,7 +64,7 @@ faqs:
   - { q: "Is spring or autumn better?", a: "Both are excellent; spring brings a greener north, autumn brings warm seas and stable desert-edge weather." }
   - { q: "When is best for photography?", a: "The cool desert months (Nov–Feb) for the Sahara, and the clear shoulder seasons for the north." }
 seo:
-  title: "The Best Time to Visit Algeria: Month-by-Month Guide | Algeria Compass"
+  title: "Best Time to Visit Algeria: Month-by-Month Guide"
   description: "When to visit Algeria, region by region and month by month: coast, cities, mountains and Sahara, with climate tables, seasonal ratings and months to avoid."
   primaryKeyword: "best time to visit Algeria"
   keywords: ["best time to visit Algeria","Algeria weather","Algeria Sahara season","Algeria climate","when to go to Algeria"]

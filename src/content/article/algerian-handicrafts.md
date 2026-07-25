@@ -14,7 +14,7 @@ faqs:
   - { q: "Where can I buy authentic Algerian handicrafts?", a: "Regional markets and cooperatives — Ghardaïa for pottery and brass, Kabylie for ceramics and silver, southern souks for Tuareg leather." }
   - { q: "Is bargaining expected?", a: "Yes, gentle bargaining is normal — but stay fair to the makers." }
 seo:
-  title: "Algerian Handicrafts: Pottery, Brass and the Desert Craft Markets | Algeria Compass"
+  title: "Algerian Handicrafts: Pottery, Brass & Craft Markets"
   description: "From turquoise M'Zab pottery to engraved brass and woven baskets, Algeria's craft traditions are alive and affordable."
 published: 2026-05-01
 updated: 2026-05-01

@@ -14,7 +14,7 @@ faqs:
   - { q: "What is the national dish of Algeria?", a: "Couscous — steamed semolina with a meat-and-vegetable broth — traditionally eaten on Fridays and at celebrations." }
   - { q: "Is it easy to be vegetarian?", a: "Reasonably — salads, soups, bread and vegetable couscous are common, though many broths are meat-based." }
 seo:
-  title: "Algerian Food: A Traveller's Guide to Couscous, Tagines and Mint Tea | Algeria Compass"
+  title: "Algerian Food Guide: Couscous, Tagines & Mint Tea (2026)"
   description: "Algerian cooking sits at a crossroads of Amazigh, Arab, Ottoman, Andalusian and French influences. Here are the dishes to seek out."
 published: 2026-05-01
 updated: 2026-05-01

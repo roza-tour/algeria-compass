@@ -25,7 +25,7 @@ faqs:
   - { q: "How many UNESCO sites does Algeria have?", a: "Algeria has seven UNESCO World Heritage sites: Timgad, Djémila, Tipaza, the Casbah of Algiers, the M'Zab Valley, Beni Hammad Fort, and the Tassili n'Ajjer." }
   - { q: "Is the Algerian Sahara worth visiting?", a: "Yes — the Tassili n'Ajjer and the Tadrart are among the world's great deserts, with prehistoric rock art, sandstone arches and dunes. It's a guided, winter, permit-based expedition." }
 seo:
-  title: "20 Best Things to Do in Algeria (2026) | Algeria Compass"
+  title: "20 Best Things to Do in Algeria (2026)"
   description: "The best things to do in Algeria: Roman cities, the Casbah of Algiers, the Tassili Sahara, the M'Zab oasis towns and coastal Tipaza — what to see and when."
   primaryKeyword: "things to do in Algeria"
   keywords: ["things to do in Algeria","what to see in Algeria","places to visit in Algeria","Algeria attractions","best places in Algeria"]

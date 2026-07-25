@@ -16,7 +16,7 @@ faqs:
   - { q: "What is the best time to visit the Algerian Sahara?", a: "November to February, when daytime temperatures are cool. Avoid June–August." }
   - { q: "Do I need a permit?", a: "Yes — deep-desert areas require permits and a licensed guide, normally arranged through an organised tour." }
 seo:
-  title: "Algerian Sahara Travel Guide: Djanet, Timimoun and the Tadrart | Algeria Compass"
+  title: "Algerian Sahara Guide: Djanet, Timimoun & the Tadrart"
   description: "Algeria holds the largest slice of the Sahara of any country on earth — and almost no crowds. Here is how to actually experience it."
 published: 2026-05-01
 updated: 2026-05-01

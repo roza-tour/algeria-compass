@@ -17,7 +17,7 @@ faqs:
   - { q: "Is the M'Zab Valley a UNESCO site?", a: "Yes — the M'Zab Valley was inscribed on the UNESCO World Heritage List in 1982 as an outstanding traditional human settlement adapted to the desert." }
   - { q: "Why did Le Corbusier admire the M'Zab Valley?", a: "He studied its egalitarian, climate-adapted design — cubic terraced houses, shaded streets and a communal water system — and drew on those principles in his own modern architecture." }
 seo:
-  title: "The M'Zab Valley: The Desert Cities That Astonished Le Corbusier | Algeria Compass"
+  title: "M'Zab Valley: The Desert Cities That Amazed Le Corbusier"
   description: "Five fortified desert cities, an 11th-century blueprint for living, and an urban design so radical the 20th century's most famous architect kept coming back to study it."
 published: 2026-05-01
 updated: 2026-05-01
