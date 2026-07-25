@@ -53,13 +53,18 @@ const alternates = [
 
   {/* Preload the above-the-fold LCP hero image (already the page's OG image) */}
   <Fragment slot="head">
-    <link rel="preload" as="image" href="/assets/img/algiers-white-city-aerial.sm.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/img/algiers-white-city-aerial.lg.webp" type="image/webp" fetchpriority="high" media="(min-width: 641px)" />
+    <link rel="preload" as="image" href="/assets/img/algiers-white-city-aerial.sm.webp" type="image/webp" fetchpriority="high" media="(max-width: 640px)" />
   </Fragment>
 
   <section class="home-hero" aria-label="Algeria Revealed">
     <picture class="home-hero-bg" aria-hidden="true">
-      <source srcset="/assets/img/algiers-white-city-aerial.sm.webp" type="image/webp" />
-      <img src="/assets/img/algiers-white-city-aerial.jpg" alt="" width="1600" height="900" fetchpriority="high" decoding="async" />
+      {/* 460px .sm.webp was previously served to every viewport and stretched
+          across the full-bleed hero. Small screens keep it; anything wider gets
+          the 1472px high-quality variant. */}
+      <source media="(max-width: 640px)" srcset="/assets/img/algiers-white-city-aerial.sm.webp" type="image/webp" />
+      <source srcset="/assets/img/algiers-white-city-aerial.lg.webp" type="image/webp" />
+      <img src="/assets/img/algiers-white-city-aerial.jpg" alt="" width="1472" height="1840" fetchpriority="high" decoding="async" />
     </picture>
     <span class="home-hero-pattern" aria-hidden="true"></span>
     <div class="wrap home-hero-in">
