@@ -1,44 +1,73 @@
 ---
 // Unified site header — matches the rebrand homepage chrome (logo + nav).
-// All links are real URLs so the same header works across every Astro route.
-// Language-aware: pass lang="fr" to render the French navigation + CTA.
+// The 12-link flat bar is now 6 top-level entries: related pages are grouped
+// into accessible dropdowns (Tours / Explore / Guides). Desktop opens them on
+// hover, focus or click; on mobile the menu shows every link flat, grouped
+// under small headings, so nothing is hidden behind an extra tap.
+// Language-aware: pass lang="fr" for the French navigation.
 interface Props { lang?: 'en' | 'fr' }
 const { lang = 'en' } = Astro.props;
-
-const navEn = [
-  { href: '/', label: 'Home' },
-  { href: '/tours/', label: 'Tours' },
-  { href: '/luxury/', label: 'Luxury' },
-  { href: '/destinations/', label: 'Destinations' },
-  { href: '/provinces/', label: 'States' },
-  { href: '/regions/', label: 'Regions' },
-  { href: '/culture/', label: 'Culture' },
-  { href: '/evisa/', label: 'e-Visa' },
-  { href: '/blog/', label: 'Blog' },
-  { href: '/questions/', label: 'FAQ' },
-  { href: '/about/', label: 'About' },
-  { href: '/contact/', label: 'Contact' }
-];
-// French nav — points to French pages where they exist, English hubs otherwise.
-const navFr = [
-  { href: '/fr/', label: 'Accueil' },
-  { href: '/tours/', label: 'Circuits' },
-  { href: '/luxury/', label: 'Luxe' },
-  { href: '/destinations/', label: 'Destinations' },
-  { href: '/fr/guide-voyage-algerie/', label: 'Guide' },
-  { href: '/unesco/', label: 'UNESCO' },
-  { href: '/contact/', label: 'Contact' }
-];
 const isFr = lang === 'fr';
+
+type Item = { href: string; label: string };
+type Entry = { href?: string; label: string; items?: Item[] };
+
+const navEn: Entry[] = [
+  { href: '/', label: 'Home' },
+  { label: 'Tours', items: [
+    { href: '/tours/', label: 'All tours' },
+    { href: '/luxury/', label: 'Luxury Collection' },
+    { href: '/experiences/', label: 'Experiences' },
+  ]},
+  { label: 'Explore', items: [
+    { href: '/destinations/', label: 'Destinations' },
+    { href: '/provinces/', label: 'States' },
+    { href: '/regions/', label: 'Regions' },
+    { href: '/culture/', label: 'Culture' },
+    { href: '/unesco/', label: 'UNESCO Sites' },
+  ]},
+  { label: 'Guides', items: [
+    { href: '/travel-guides/', label: 'Travel Guides' },
+    { href: '/blog/', label: 'Blog' },
+    { href: '/questions/', label: 'FAQ' },
+    { href: '/evisa/', label: 'e-Visa & Entry' },
+  ]},
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
+];
+
+const navFr: Entry[] = [
+  { href: '/fr/', label: 'Accueil' },
+  { label: 'Circuits', items: [
+    { href: '/tours/', label: 'Tous les circuits' },
+    { href: '/luxury/', label: 'Collection luxe' },
+    { href: '/experiences/', label: 'Expériences' },
+  ]},
+  { label: 'Explorer', items: [
+    { href: '/destinations/', label: 'Destinations' },
+    { href: '/provinces/', label: 'Wilayas' },
+    { href: '/regions/', label: 'Régions' },
+    { href: '/unesco/', label: 'Sites UNESCO' },
+  ]},
+  { label: 'Guides', items: [
+    { href: '/fr/guide-voyage-algerie/', label: 'Guide complet' },
+    { href: '/fr/visa-algerie/', label: 'Visa' },
+    { href: '/fr/sahara-algerie/', label: 'Sahara' },
+    { href: '/fr/quand-partir-algerie/', label: 'Quand partir' },
+  ]},
+  { href: '/contact/', label: 'Contact' },
+];
+
 const nav = isFr ? navFr : navEn;
 const logoHref = isFr ? '/fr/' : '/';
-const ctaHref = '/contact/';
 const ctaLabel = isFr ? 'Planifier' : 'Plan a Trip';
-const waLabel = isFr ? 'WhatsApp' : 'WhatsApp';
 const waMobileLabel = isFr ? 'Nous écrire sur WhatsApp' : 'WhatsApp us';
 const langToggle = isFr ? { href: '/', label: 'EN' } : { href: '/fr/', label: 'FR' };
+
 const path = Astro.url.pathname;
-const isActive = (href: string) => href === '/' ? path === '/' : (href === '/fr/' ? path === '/fr/' : path.startsWith(href));
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : (href === '/fr/' ? path === '/fr/' : path.startsWith(href));
+const groupActive = (e: Entry) => !!e.items?.some(i => isActive(i.href));
 ---
 <div class="id-band" aria-hidden="true"></div>
 <nav class="nav" aria-label="Primary" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -51,27 +80,118 @@ const isActive = (href: string) => href === '/' ? path === '/' : (href === '/fr/
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">&#9776;</button>
 
     <ul class="nav-links" id="primary-nav">
-      {nav.map(n => (
-        <li><a href={n.href} class={isActive(n.href) ? 'active' : undefined}>{n.label}</a></li>
+      {nav.map(e => e.items ? (
+        <li class="has-sub">
+          <button type="button" class:list={['sub-btn', groupActive(e) && 'active']} aria-expanded="false">
+            {e.label}
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="sub-menu">
+            {e.items.map(i => (
+              <li><a href={i.href} class={isActive(i.href) ? 'active' : undefined}>{i.label}</a></li>
+            ))}
+          </ul>
+        </li>
+      ) : (
+        <li><a href={e.href} class={isActive(e.href!) ? 'active' : undefined}>{e.label}</a></li>
       ))}
       <li><a href={langToggle.href} class="nav-lang" hreflang={langToggle.label.toLowerCase()} aria-label={isFr ? 'Switch to English' : 'Passer en français'}>{langToggle.label}</a></li>
       <li class="nav-mobile-only"><a href="https://wa.me/213784193176" target="_blank" rel="noopener" aria-label={waMobileLabel}>{waMobileLabel}</a></li>
     </ul>
 
     <div class="nav-cta">
-      <a href="https://wa.me/213784193176" target="_blank" rel="noopener" class="btn-wa" aria-label="WhatsApp">{waLabel}</a>
-      <a href={ctaHref} class="btn-book">{ctaLabel}</a>
+      <a href="https://wa.me/213784193176" target="_blank" rel="noopener" class="btn-wa" aria-label="WhatsApp">WhatsApp</a>
+      <a href="/contact/" class="btn-book">{ctaLabel}</a>
     </div>
   </div>
 </nav>
+
 <script is:inline>
   (function(){
     var b=document.getElementById('navToggle'), n=document.getElementById('primary-nav');
-    if(!b||!n) return;
-    b.addEventListener('click',function(){
+    if(b&&n) b.addEventListener('click',function(){
       var open=n.classList.toggle('mobile-open');
       b.setAttribute('aria-expanded', String(open));
       b.setAttribute('aria-label', open?'Close menu':'Open menu');
     });
+    /* dropdown groups: click toggles (touch), Escape / outside click closes */
+    var subs = Array.prototype.slice.call(document.querySelectorAll('.nav .has-sub'));
+    function closeAll(except){
+      subs.forEach(function(li){
+        if(li!==except){ li.classList.remove('open');
+          var bt=li.querySelector('.sub-btn'); if(bt) bt.setAttribute('aria-expanded','false'); }
+      });
+    }
+    subs.forEach(function(li){
+      var bt=li.querySelector('.sub-btn'); if(!bt) return;
+      bt.addEventListener('click',function(e){
+        e.stopPropagation();
+        var open=li.classList.toggle('open');
+        bt.setAttribute('aria-expanded',String(open));
+        closeAll(open?li:null);
+      });
+    });
+    document.addEventListener('click',function(){ closeAll(null); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeAll(null); });
   })();
 </script>
+
+<style>
+  /* group button — mirrors the .nav-links>li>a look from global.css */
+  .has-sub { position: relative; display: flex; align-items: center; }
+  .sub-btn {
+    display: flex; align-items: center; gap: .3rem; height: 100%;
+    padding: 0 .85rem; font-size: .82rem; font-weight: 600;
+    font-family: inherit; background: none; border: 0; cursor: pointer;
+    color: rgba(246, 239, 224, .82);
+    border-bottom: 3px solid transparent; transition: all .2s; white-space: nowrap;
+  }
+  .sub-btn:hover, .sub-btn.active,
+  .has-sub.open > .sub-btn, .has-sub:focus-within > .sub-btn {
+    color: var(--gold-l); border-bottom-color: var(--gold);
+  }
+  .caret { width: 13px; height: 13px; transition: transform .2s; }
+  .has-sub.open .caret { transform: rotate(180deg); }
+
+  /* dropdown panel */
+  .sub-menu {
+    position: absolute; top: 100%; left: 0; z-index: 320;
+    min-width: 205px; margin: 0; padding: .45rem;
+    list-style: none;
+    background: var(--green-d, #07261C);
+    border: 1px solid rgba(201, 162, 75, .28);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 14px 34px rgba(7, 38, 28, .45);
+    display: none;
+  }
+  .sub-menu a {
+    display: block; padding: .55rem .8rem; border-radius: 8px;
+    font-size: .82rem; font-weight: 600; color: rgba(246, 239, 224, .85);
+    white-space: nowrap;
+  }
+  .sub-menu a:hover, .sub-menu a.active {
+    color: var(--gold-l); background: rgba(246, 239, 224, .07); text-decoration: none;
+  }
+  .has-sub.open .sub-menu { display: block; }
+  @media (min-width: 981px) {
+    .has-sub:hover .sub-menu, .has-sub:focus-within .sub-menu { display: block; }
+  }
+
+  /* mobile: everything flat and visible — the group name becomes a heading */
+  @media (max-width: 980px) {
+    .has-sub { display: block; width: 100%; }
+    .has-sub { height: auto; }
+    .sub-btn {
+      width: 100%; height: auto; padding: .8rem 1rem .3rem; pointer-events: none;
+      font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(246, 239, 224, .5); border-bottom: none;
+    }
+    .caret { display: none; }
+    .sub-menu {
+      position: static; display: block; min-width: 0;
+      background: transparent; border: 0; box-shadow: none;
+      padding: 0 0 .2rem .6rem;
+    }
+    .sub-menu a { padding: .65rem 1rem; }
+  }
+</style>
