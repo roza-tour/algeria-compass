@@ -14,7 +14,7 @@ const bySlug = Object.fromEntries(items.map(i => [i.slug, i]));
 const unesco = UNESCO_ORDER.map(s => bySlug[s]).filter(Boolean);
 const others = items.filter(i => !UNESCO_ORDER.includes(i.slug));
 const destSite = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
-const destAlternates = alternatesFor(destSite, { en: '/destinations/', fr: '/fr/destinations/', it: '/it/destinazioni/' });
+const destAlternates = alternatesFor(destSite, { en: '/destinations/', fr: '/fr/destinations/', it: '/it/destinazioni/', es: '/es/destinos/', de: '/de/reiseziele/' });
 
 ---
 <BaseLayout title="Algeria Destinations & the 7 UNESCO World Heritage Sites" description="Algeria's seven UNESCO World Heritage Sites — the Casbah of Algiers, Djémila, Timgad, Tipaza, the M'Zab Valley, Tassili n'Ajjer and Beni Hammad." image="/assets/img/timgad-trajan-arch.jpg" keywords={["Algeria destinations","Algeria UNESCO sites","places to visit in Algeria","Casbah of Algiers","Tassili n'Ajjer"]} alternates={destAlternates}>

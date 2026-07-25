@@ -74,6 +74,8 @@ published: 2026-05-20
 updated: 2026-05-20
 frAlt: "/fr/visa-algerie/"
 itAlt: "/it/visto-algeria/"
+esAlt: "/es/visado-argelia/"
+deAlt: "/de/visum-algerien/"
 primaryCluster: "algeria-travel-planning"
 cluster: "algeria-travel-planning"
 secondaryClusters: ["algeria-safety"]

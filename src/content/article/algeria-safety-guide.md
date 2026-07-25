@@ -71,6 +71,8 @@ published: 2026-05-20
 updated: 2026-05-20
 frAlt: "/fr/securite-algerie/"
 itAlt: "/it/sicurezza-algeria/"
+esAlt: "/es/seguridad-argelia/"
+deAlt: "/de/sicherheit-algerien/"
 primaryCluster: "algeria-safety"
 cluster: "algeria-safety"
 secondaryClusters: ["algeria-travel-planning"]

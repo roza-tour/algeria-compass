@@ -26,6 +26,8 @@ published: 2026-05-01
 updated: 2026-05-01
 frAlt: "/fr/sahara-algerie/"
 itAlt: "/it/sahara-algeria/"
+esAlt: "/es/sahara-argelia/"
+deAlt: "/de/sahara-algerien/"
 primaryCluster: "algeria-sahara"
 cluster: "algeria-sahara"
 secondaryClusters: ["algeria-travel-planning", "algeria-photography"]

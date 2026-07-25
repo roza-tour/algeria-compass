@@ -5,7 +5,7 @@
 // and every language-specific route lives here instead. Adding a fourth
 // language means adding one entry per map below — no component changes.
 
-export const LANGS = ['en', 'fr', 'it'] as const;
+export const LANGS = ['en', 'fr', 'it', 'es', 'de'] as const;
 export type Lang = (typeof LANGS)[number];
 
 export const isLang = (v: unknown): v is Lang => LANGS.includes(v as Lang);
@@ -16,6 +16,8 @@ export const LANG_META: Record<Lang, { label: string; name: string; ogLocale: st
   en: { label: 'EN', name: 'English',  ogLocale: 'en_US', home: '/' },
   fr: { label: 'FR', name: 'Français', ogLocale: 'fr_FR', home: '/fr/' },
   it: { label: 'IT', name: 'Italiano', ogLocale: 'it_IT', home: '/it/' },
+  es: { label: 'ES', name: 'Español',  ogLocale: 'es_ES', home: '/es/' },
+  de: { label: 'DE', name: 'Deutsch',  ogLocale: 'de_DE', home: '/de/' },
 };
 
 /** Section roots per language — used for nav, hreflang and the sitemap. */
@@ -23,6 +25,8 @@ export const ROUTES: Record<Lang, { tours: string; destinations: string }> = {
   en: { tours: '/tours/',        destinations: '/destinations/' },
   fr: { tours: '/fr/circuits/',  destinations: '/fr/destinations/' },
   it: { tours: '/it/circuiti/',  destinations: '/it/destinazioni/' },
+  es: { tours: '/es/circuitos/', destinations: '/es/destinos/' },
+  de: { tours: '/de/reisen/',    destinations: '/de/reiseziele/' },
 };
 
 /** Chrome strings. Keys are deliberately few: this is furniture, not content. */
@@ -62,6 +66,30 @@ export const UI: Record<Lang, Record<string, string>> = {
     cookieDecline: 'Rifiuta', cookieAccept: 'Accetta',
     seasonLabel: 'Nota stagionale', dismiss: 'Chiudi',
     readIn: 'Leggi in italiano', languageAria: 'Cambia lingua',
+  },
+  es: {
+    skip: 'Ir al contenido',
+    planTrip: 'Planifica tu viaje', planShort: 'Planificar', planAria: 'Planifica tu viaje',
+    waAria: 'Escríbenos por WhatsApp', waMobile: 'Escríbenos por WhatsApp',
+    waMessage: 'Hola Algeria Compass — me gustaría organizar un viaje a Argelia.',
+    cookieLabel: 'Aviso de cookies',
+    cookieBody: 'Usamos cookies únicamente para entender cómo se consulta el sitio (Google Analytics). No se instala nada sin tu consentimiento. Consulta nuestras ',
+    cookieLink: 'normas editoriales y de privacidad',
+    cookieDecline: 'Rechazar', cookieAccept: 'Aceptar',
+    seasonLabel: 'Nota de temporada', dismiss: 'Cerrar',
+    readIn: 'Leer en español', languageAria: 'Cambiar de idioma',
+  },
+  de: {
+    skip: 'Zum Inhalt springen',
+    planTrip: 'Reise planen', planShort: 'Planen', planAria: 'Ihre Reise planen',
+    waAria: 'Schreiben Sie uns auf WhatsApp', waMobile: 'Schreiben Sie uns auf WhatsApp',
+    waMessage: 'Hallo Algeria Compass — ich möchte eine Reise nach Algerien planen.',
+    cookieLabel: 'Cookie-Hinweis',
+    cookieBody: 'Wir verwenden Cookies ausschließlich, um zu verstehen, wie die Website genutzt wird (Google Analytics). Ohne Ihre Zustimmung wird nichts gesetzt. Siehe unsere ',
+    cookieLink: 'Redaktions- und Datenschutzrichtlinien',
+    cookieDecline: 'Ablehnen', cookieAccept: 'Akzeptieren',
+    seasonLabel: 'Saisonhinweis', dismiss: 'Schließen',
+    readIn: 'Auf Deutsch lesen', languageAria: 'Sprache wechseln',
   },
 };
 

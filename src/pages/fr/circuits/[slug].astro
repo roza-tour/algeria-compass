@@ -8,6 +8,8 @@ import data from '../../../data/tours.json';
 import { TOUR_VISUALS } from '../../../data/tour-visuals';
 import { TOURS_FR, type TourFr } from '../../../data/tours-fr';
 import { TOURS_IT } from '../../../data/tours-it';
+import { TOURS_ES } from '../../../data/tours-es';
+import { TOURS_DE } from '../../../data/tours-de';
 import { alternatesFor } from '../../../i18n';
 import { CONTACT } from '../../../config';
 
@@ -35,8 +37,10 @@ const title = fr.seoTitle || fr.title;
 const description = fr.seoDescription || fr.hook;
 const alternates = alternatesFor(site, {
   en: `/tours/${tour.id}/`,
-  fr: `/fr/circuits/${tour.id}/`,
+  fr: TOURS_FR[tour.id]?.full ? `/fr/circuits/${tour.id}/` : undefined,
   it: TOURS_IT[tour.id]?.full ? `/it/circuiti/${tour.id}/` : undefined,
+  es: TOURS_ES[tour.id]?.full ? `/es/circuitos/${tour.id}/` : undefined,
+  de: TOURS_DE[tour.id]?.full ? `/de/reisen/${tour.id}/` : undefined,
 });
 
 // Other French circuits, for internal linking

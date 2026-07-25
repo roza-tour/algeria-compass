@@ -8,6 +8,8 @@ import data from '../../../data/tours.json';
 import { TOUR_VISUALS } from '../../../data/tour-visuals';
 import { TOURS_IT, type TourIt } from '../../../data/tours-it';
 import { TOURS_FR } from '../../../data/tours-fr';
+import { TOURS_ES } from '../../../data/tours-es';
+import { TOURS_DE } from '../../../data/tours-de';
 import { alternatesFor } from '../../../i18n';
 import { CONTACT } from '../../../config';
 
@@ -36,7 +38,9 @@ const description = fr.seoDescription || fr.hook;
 const alternates = alternatesFor(site, {
   en: `/tours/${tour.id}/`,
   fr: TOURS_FR[tour.id]?.full ? `/fr/circuits/${tour.id}/` : undefined,
-  it: `/it/circuiti/${tour.id}/`,
+  it: TOURS_IT[tour.id]?.full ? `/it/circuiti/${tour.id}/` : undefined,
+  es: TOURS_ES[tour.id]?.full ? `/es/circuitos/${tour.id}/` : undefined,
+  de: TOURS_DE[tour.id]?.full ? `/de/reisen/${tour.id}/` : undefined,
 });
 
 // Other Italian itineraries, for internal linking

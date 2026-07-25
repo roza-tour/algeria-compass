@@ -75,6 +75,8 @@ published: 2026-05-20
 updated: 2026-05-20
 frAlt: "/fr/quand-partir-algerie/"
 itAlt: "/it/quando-andare-algeria/"
+esAlt: "/es/cuando-viajar-argelia/"
+deAlt: "/de/beste-reisezeit-algerien/"
 primaryCluster: "algeria-travel-planning"
 cluster: "algeria-travel-planning"
 secondaryClusters: ["algeria-sahara", "algeria-beaches"]

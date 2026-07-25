@@ -72,6 +72,8 @@ published: 2026-05-20
 updated: 2026-05-20
 frAlt: "/fr/guide-voyage-algerie/"
 itAlt: "/it/guida-viaggio-algeria/"
+esAlt: "/es/guia-viaje-argelia/"
+deAlt: "/de/algerien-reisefuehrer/"
 primaryCluster: "algeria-travel-planning"
 cluster: "algeria-travel-planning"
 secondaryClusters: ["algeria-safety", "algeria-transportation"]

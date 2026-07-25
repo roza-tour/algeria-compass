@@ -4,6 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { GUIDES_IT, type GuideIt } from '../../data/guides-it';
 import { alternatesFor } from '../../i18n';
+import { guideItByEn } from '../../data/guides-it';
+import { guideEsByEn } from '../../data/guides-es';
+import { guideDeByEn } from '../../data/guides-de';
 
 export async function getStaticPaths() {
   return GUIDES_IT.map(g => ({ params: { slug: g.slug }, props: { g } }));
@@ -13,7 +16,13 @@ const { g } = Astro.props as { g: GuideIt };
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const url = `${site}/it/${g.slug}/`;
 const enUrl = site + g.en;
-const alternates = alternatesFor(site, { en: g.en, fr: g.fr, it: `/it/${g.slug}/` });
+const alternates = alternatesFor(site, {
+  en: g.en,
+  fr: g.fr,
+  it: `/it/${g.slug}/`,
+  es: guideEsByEn(g.en) ? `/es/${guideEsByEn(g.en)!.slug}/` : undefined,
+  de: guideDeByEn(g.en) ? `/de/${guideDeByEn(g.en)!.slug}/` : undefined,
+});
 
 const others = GUIDES_IT.filter(o => o.slug !== g.slug);
 

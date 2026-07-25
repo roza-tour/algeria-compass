@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { alternatesFor } from '../../i18n';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
+const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/es/', de: '/de/' });
+const title = "Viajar a Argelia — circuitos privados y guías expertos";
+const description = "Algeria Compass, operador turístico argelino autorizado: circuitos privados culturales y saharianos a medida, ayuda con el visado y guías locales.";
+const schema = [{
+  '@type': 'WebPage', '@id': `${site}/es/#webpage`,
+  name: title, description, inLanguage: 'es', url: `${site}/es/`,
+  isPartOf: { '@id': `${site}/#website` }, about: { '@id': `${site}/#algeria` },
+}];
+---
+<BaseLayout title={title} description={description} lang="es" alternates={alternates} type="website" sticky={true} schema={schema}
+  keywords={["viajar a Argelia","circuitos Argelia","viaje organizado Argelia","Sáhara argelino","visado Argelia"]}>
+  <section class="section">
+    <div class="wrap" style="max-width:820px">
+      <span class="eyebrow">Operador turístico argelino autorizado</span>
+      <h1 style="font-size:clamp(1.9rem,4.5vw,3rem);margin:.4rem 0 .8rem">Viaje a Argelia con quien de verdad la conoce</h1>
+      <p style="font-size:1.1rem;color:var(--text-l);line-height:1.7">
+        De la costa mediterránea a las ciudades romanas del este, de los valles del M'Zab a las mesetas del
+        Tassili n'Ajjer, Algeria Compass diseña y guía viajes privados por el país más grande de África — con
+        guías argelinos locales, ayuda con el visado y un conocimiento real del terreno.
+      </p>
+      <p style="margin-top:1.4rem">
+        <a class="btn btn-gold" href="/contact/">Solicitar presupuesto</a>
+        <a class="btn" href="/es/circuitos/" style="margin-inline-start:.5rem">Ver los circuitos</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--wash)">
+    <div class="wrap">
+      <span class="eyebrow">Nuestros viajes</span>
+      <h2>Cómo descubrir Argelia</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;margin-top:1rem">
+        <div class="card" style="padding:1.1rem">
+          <h3 style="margin:.2rem 0">Circuitos culturales e históricos</h3>
+          <p style="color:var(--text-l)">Argel y la Casbah, las ciudades romanas de Timgad y Djémila, Constantina, Tlemcén la andalusí.</p>
+          <a href="/es/circuitos/">Descubrir los circuitos →</a>
+        </div>
+        <div class="card" style="padding:1.1rem">
+          <h3 style="margin:.2rem 0">Expediciones al Sáhara</h3>
+          <p style="color:var(--text-l)">Djanet y el Tassili n'Ajjer, el Hoggar, Timimoun y los oasis — expediciones guiadas en 4×4, en invierno.</p>
+          <a href="/es/sahara-argelia/">Guía del Sáhara →</a>
+        </div>
+        <div class="card" style="padding:1.1rem">
+          <h3 style="margin:.2rem 0">Viajes de lujo a medida</h3>
+          <p style="color:var(--text-l)">Programas privados de alta gama, construidos en torno a sus fechas y a sus intereses.</p>
+          <a href="/luxury/">Viajes de lujo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="max-width:820px">
+      <span class="eyebrow">Preparar el viaje</span>
+      <h2>Guías prácticas en español</h2>
+      <p style="color:var(--text-l)">Empiece por la guía completa y profundice después en visado, seguridad, temporadas y Sáhara.</p>
+      <ul class="prose" style="line-height:2">
+        <li><a href="/es/guia-viaje-argelia/"><strong>Guía de viaje completa a Argelia</strong></a></li>
+        <li><a href="/es/visado-argelia/">Visado para Argelia</a></li>
+        <li><a href="/es/seguridad-argelia/">¿Es segura Argelia?</a></li>
+        <li><a href="/es/cuando-viajar-argelia/">Cuándo viajar a Argelia</a></li>
+        <li><a href="/es/sahara-argelia/">El Sáhara argelino</a></li>
+      </ul>
+      <p style="margin-top:1rem;color:var(--text-l)">
+        Vea también los <a href="/es/destinos/">destinos</a> — los siete sitios UNESCO y las ciudades que sirven
+        de base a un viaje.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--wash)">
+    <div class="wrap" style="max-width:820px">
+      <span class="eyebrow">Por qué nosotros</span>
+      <h2>Un operador local, no un intermediario</h2>
+      <p style="color:var(--text-l);line-height:1.75">
+        Somos una agencia argelina con licencia, con sede en Argel. Eso significa tres cosas concretas:
+        facilitamos <strong>la invitación y el programa confirmado</strong> que los consulados exigen para el visado;
+        los permisos del gran sur pasan por nosotros y no por una cadena de subcontratas; y los guías, conductores
+        y equipos del desierto son personas con las que trabajamos, no proveedores anónimos.
+      </p>
+      <p style="margin-top:1.2rem">
+        <a class="btn btn-gold" href="/contact/">Cuéntenos su viaje</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -6,55 +6,59 @@ import { asLang, ROUTES } from '../i18n';
 interface Props { lang?: string }
 const lang = asLang(Astro.props.lang);
 const year = new Date().getFullYear();
-// t(english, french, italian) — italian falls back to english while a string is untranslated.
-const t = (en: string, fr: string, it?: string) => (lang === 'fr' ? fr : lang === 'it' ? (it ?? en) : en);
+// t(english, french, italian, spanish, german) — any language falls back to
+// English while a string is untranslated, so a new language never ships blanks.
+const t = (en: string, fr: string, it?: string, es?: string, de?: string) => {
+  const m: Record<string, string | undefined> = { en, fr, it, es, de };
+  return m[lang] ?? en;
+};
 const R = ROUTES[lang];
 
 const columns = [
   {
-    h: t('Explore', 'Explorer', 'Esplora'),
+    h: t('Explore', 'Explorer', 'Esplora', 'Explorar', 'Entdecken'),
     links: [
-      { href: R.tours, label: t('Tours', 'Circuits', 'Viaggi') },
-      { href: '/luxury/', label: t('Luxury 5-Star Collection', 'Collection de luxe 5 étoiles', 'Collezione lusso 5 stelle') },
+      { href: R.tours, label: t('Tours', 'Circuits', 'Viaggi', 'Circuitos', 'Reisen') },
+      { href: '/luxury/', label: t('Luxury 5-Star Collection', 'Collection de luxe 5 étoiles', 'Collezione lusso 5 stelle', 'Colección de lujo 5 estrellas', '5-Sterne-Luxuskollektion') },
       { href: R.destinations, label: 'Destinations' },
-      { href: '/provinces/', label: t('States', 'Wilayas', 'Province') },
-      { href: '/regions/', label: t('Regions — 8 worlds', 'Régions', 'Regioni') },
-      { href: '/experiences/', label: t('Experiences', 'Expériences', 'Esperienze') },
-      { href: '/blog/', label: t('Blog', 'Guides', 'Blog') },
-      { href: '/discover/', label: t('Discover Algeria', "Découvrir l'Algérie", "Scopri l'Algeria") },
+      { href: '/provinces/', label: t('States', 'Wilayas', 'Province', 'Provincias', 'Provinzen') },
+      { href: '/regions/', label: t('Regions — 8 worlds', 'Régions', 'Regioni', 'Regiones', 'Regionen') },
+      { href: '/experiences/', label: t('Experiences', 'Expériences', 'Esperienze', 'Experiencias', 'Erlebnisse') },
+      { href: '/blog/', label: t('Blog', 'Guides', 'Blog', 'Blog', 'Blog') },
+      { href: '/discover/', label: t('Discover Algeria', "Découvrir l'Algérie", "Scopri l'Algeria", 'Descubre Argelia', 'Algerien entdecken') },
     ],
   },
   {
-    h: t('Knowledge', 'À savoir', 'Da sapere'),
+    h: t('Knowledge', 'À savoir', 'Da sapere', 'Para saber', 'Wissenswertes'),
     links: [
-      { href: '/questions/', label: t('Questions & Answers', 'Questions & réponses', 'Domande e risposte') },
+      { href: '/questions/', label: t('Questions & Answers', 'Questions & réponses', 'Domande e risposte', 'Preguntas y respuestas', 'Fragen & Antworten') },
       { href: '/culture/', label: 'Culture' },
-      { href: '/history/', label: t('History', 'Histoire', 'Storia') },
-      { href: '/food/', label: t('Food', 'Cuisine', 'Cucina') },
-      { href: '/sweets/', label: t('Sweets & Pastries', 'Pâtisseries', 'Dolci e pasticceria') },
-      { href: '/unesco/', label: t('UNESCO Sites', 'Sites UNESCO', 'Siti UNESCO') },
+      { href: '/history/', label: t('History', 'Histoire', 'Storia', 'Historia', 'Geschichte') },
+      { href: '/food/', label: t('Food', 'Cuisine', 'Cucina', 'Gastronomía', 'Küche') },
+      { href: '/sweets/', label: t('Sweets & Pastries', 'Pâtisseries', 'Dolci e pasticceria', 'Dulces y repostería', 'Süßes & Gebäck') },
+      { href: '/unesco/', label: t('UNESCO Sites', 'Sites UNESCO', 'Siti UNESCO', 'Sitios UNESCO', 'UNESCO-Stätten') },
     ],
   },
   {
-    h: t('Plan', 'Préparer', 'Organizza'),
+    h: t('Plan', 'Préparer', 'Organizza', 'Preparar', 'Planen'),
     links: [
-      { href: '/travel-guides/', label: t('Travel Guides', 'Guides pratiques', 'Guide pratiche') },
-      { href: '/visa-support/', label: t('Visa Support', 'Aide au visa', 'Assistenza visto') },
-      { href: '/evisa/', label: t('e-Visa & Entry', 'e-Visa & entrée', 'e-Visa e ingresso') },
-      { href: '/booking-terms/', label: t('Booking & Cancellation Terms', "Conditions de réservation", 'Condizioni di prenotazione') },
-      { href: '/about/', label: t('About', 'À propos', 'Chi siamo') },
-      { href: '/contact/', label: t('Contact & Inquiry', 'Contact', 'Contatti') },
+      { href: '/travel-guides/', label: t('Travel Guides', 'Guides pratiques', 'Guide pratiche', 'Guías prácticas', 'Reiseratgeber') },
+      { href: '/visa-support/', label: t('Visa Support', 'Aide au visa', 'Assistenza visto', 'Ayuda con el visado', 'Visum-Unterstützung') },
+      { href: '/evisa/', label: t('e-Visa & Entry', 'e-Visa & entrée', 'e-Visa e ingresso', 'e-Visa y entrada', 'e-Visa & Einreise') },
+      { href: '/booking-terms/', label: t('Booking & Cancellation Terms', "Conditions de réservation", 'Condizioni di prenotazione', 'Condiciones de reserva', 'Buchungsbedingungen') },
+      { href: '/about/', label: t('About', 'À propos', 'Chi siamo', 'Quiénes somos', 'Über uns') },
+      { href: '/contact/', label: t('Contact & Inquiry', 'Contact', 'Contatti', 'Contacto', 'Kontakt') },
       { href: '/sitemap/', label: 'Sitemap' },
     ],
   },
   {
-    h: t('Editorial', 'Rédaction', 'Redazione'),
+    h: t('Editorial', 'Rédaction', 'Redazione', 'Redacción', 'Redaktion'),
     links: [
-      { href: '/editorial/', label: t('Editorial standards', 'Charte éditoriale', 'Linee editoriali') },
-      { href: '/team/', label: t('Editorial team', "L'équipe", 'La redazione') },
-      { href: '/reviewers/', label: t('Review & fact-checking', 'Vérification des faits', 'Verifica dei fatti') },
-      { href: '/editorial/corrections-policy/', label: t('Corrections', 'Corrections', 'Correzioni') },
-      { href: '/editorial/ai-usage-policy/', label: t('AI usage', "Usage de l'IA", "Uso dell'IA") },
+      { href: '/editorial/', label: t('Editorial standards', 'Charte éditoriale', 'Linee editoriali', 'Normas editoriales', 'Redaktionsstandards') },
+      { href: '/team/', label: t('Editorial team', "L'équipe", 'La redazione', 'El equipo', 'Redaktionsteam') },
+      { href: '/reviewers/', label: t('Review & fact-checking', 'Vérification des faits', 'Verifica dei fatti', 'Verificación de datos', 'Faktenprüfung') },
+      { href: '/editorial/corrections-policy/', label: t('Corrections', 'Corrections', 'Correzioni', 'Correcciones', 'Korrekturen') },
+      { href: '/editorial/ai-usage-policy/', label: t('AI usage', "Usage de l'IA", "Uso dell'IA", 'Uso de la IA', 'KI-Nutzung') },
     ],
   },
 ];
@@ -67,8 +71,8 @@ const columns = [
           <source srcset="/assets/img/logo-full.webp" type="image/webp" />
           <img class="f-logo" src="/assets/img/logo-full.png" width="220" height="167" alt="Algeria Compass" loading="lazy" decoding="async" />
         </picture>
-        <p class="f-tagline">{t('Explore Algeria in Elite Luxury', "L'Algérie dans un luxe d'exception", "L'Algeria in un lusso d'eccezione")}</p>
-        <p class="f-desc">{t('Licensed Algerian tour operator — luxury private, guided tours across Algeria.', 'Voyagiste algérien agréé — circuits privés et guidés de luxe à travers l’Algérie.', 'Tour operator algerino autorizzato — viaggi privati e guidati di lusso in tutta l’Algeria.')}</p>
+        <p class="f-tagline">{t('Explore Algeria in Elite Luxury', "L'Algérie dans un luxe d'exception", "L'Algeria in un lusso d'eccezione", 'Argelia en un lujo excepcional', 'Algerien in exklusivem Luxus')}</p>
+        <p class="f-desc">{t('Licensed Algerian tour operator — luxury private, guided tours across Algeria.', 'Voyagiste algérien agréé — circuits privés et guidés de luxe à travers l’Algérie.', 'Tour operator algerino autorizzato — viaggi privati e guidati di lusso in tutta l’Algeria.', 'Operador turístico argelino autorizado — circuitos privados y guiados de lujo por toda Argelia.', 'Lizenzierter algerischer Reiseveranstalter — private, geführte Luxusreisen durch ganz Algerien.')}</p>
         <address class="f-nap">
           {CONTACT.address.full}<br/>
           <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a><br/>

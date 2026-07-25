@@ -6,7 +6,7 @@ import { alternatesFor } from '../../i18n';
 const tours = ((data as any).tours || (data as any)) as any[];
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 // Bidirectional hreflang with the French catalogue at /fr/circuits/.
-const alternates = alternatesFor(site, { en: '/tours/', fr: '/fr/circuits/', it: '/it/circuiti/' });
+const alternates = alternatesFor(site, { en: '/tours/', fr: '/fr/circuits/', it: '/it/circuiti/', es: '/es/circuitos/', de: '/de/reisen/' });
 ---
 <BaseLayout
   title="Algeria Tours & Private Journeys | Algeria Compass"

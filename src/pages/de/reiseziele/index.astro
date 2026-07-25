@@ -1,0 +1,92 @@
+---
+// German destinations index — the seven UNESCO sites plus the cities that
+// anchor a trip. Photography is read from the English collection so both
+// language versions show the same place.
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { DESTINATIONS_DE } from '../../../data/destinations-de';
+import { alternatesFor } from '../../../i18n';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const en = await getCollection('destination');
+const rows = DESTINATIONS_DE.map(d => ({
+  ...d,
+  image: en.find(e => e.slug === d.en)?.data?.image || '/assets/img/brand-algeria.jpg',
+}));
+
+const title = "Reiseziele in Algerien: UNESCO-Stätten und Höhepunkte";
+const description = "Die Reiseziele Algeriens: die sieben UNESCO-Stätten — Timgad, Djémila, Tipaza, das M'Zab-Tal, die Kasbah, das Tassili, Beni Hammad — und mehr.";
+const alternates = alternatesFor(site, { en: '/destinations/', fr: '/fr/destinations/', it: '/it/destinazioni/', es: '/es/destinos/', de: '/de/reiseziele/' });
+const itemList = {
+  '@type': 'ItemList',
+  '@id': `${site}/de/reiseziele/#liste`,
+  name: 'Reiseziele in Algerien',
+  numberOfItems: rows.length,
+  itemListElement: rows.map((r, i) => ({
+    '@type': 'ListItem', position: i + 1, name: r.name,
+    url: `${site}/de/reiseziele/${r.slug}/`,
+  })),
+};
+const collection = {
+  '@type': 'CollectionPage',
+  '@id': `${site}/de/reiseziele/#collection`,
+  name: 'Reiseziele in Algerien', description, inLanguage: 'de',
+  url: `${site}/de/reiseziele/`,
+  isPartOf: { '@id': `${site}/#website` },
+  about: { '@id': `${site}/#algeria` },
+  mainEntity: { '@id': `${site}/de/reiseziele/#liste` },
+};
+---
+<BaseLayout title={title} description={description} lang="de" alternates={alternates}
+  image="/assets/img/timgad-trajan-arch.jpg" schema={[collection, itemList]}
+  keywords={["Reiseziele Algerien","Sehenswürdigkeiten Algerien","UNESCO Algerien","Timgad","M'Zab-Tal","Tassili n'Ajjer"]}>
+
+  <section class="hero" style="min-height:42vh">
+    <img src="/assets/img/timgad-trajan-arch.jpg" alt="Der Trajansbogen in Timgad, römische UNESCO-Stadt in Algerien" width="1600" height="900" fetchpriority="high" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">7 UNESCO-Stätten · {rows.length} Reiseziele</div>
+      <h1>Was man in Algerien sehen sollte</h1>
+      <p>Römische Städte, die zu den besterhaltenen der Welt zählen, fünf saharische Ksour aus dem 11. Jahrhundert, eine osmanische Medina und eines der größten Felskunstgebiete der Erde.</p>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[{name:'Start',href:'/de/'},{name:'Reiseziele'}]} />
+
+  <section class="section"><div class="wrap">
+    <p class="fr-intro">
+      Algerien zählt <strong>sieben Stätten des UNESCO-Welterbes</strong> und praktisch keinen
+      Massentourismus: Es ist normal, Timgad oder Djémila zu durchstreifen und dabei nur einer Handvoll
+      Besucher zu begegnen. Jedes Reiseziel unten wird im Rahmen einer
+      <a href="/de/reisen/">privaten Reise</a> mit lizenziertem Guide besucht.
+    </p>
+
+    <div class="fr-grid">
+      {rows.map((r, i) => (
+        <a class="dcard" href={`/de/reiseziele/${r.slug}/`}>
+          <div class="dcard-img">
+            <img src={r.image} alt={r.name} width="400" height="250" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />
+          </div>
+          <div class="dcard-body">
+            <span class="dcard-eyebrow">{r.eyebrow}</span>
+            <h2>{r.name}</h2>
+            <p>{r.intro}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .fr-intro{max-width:780px;color:var(--text-m);margin-bottom:1.6rem}
+  .fr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
+  .dcard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;color:var(--text);box-shadow:0 2px 14px rgba(7,38,28,.06)}
+  .dcard:hover{transform:translateY(-3px);transition:.18s;border-color:var(--gold);text-decoration:none}
+  .dcard-img{aspect-ratio:16/10;background:var(--wash)}
+  .dcard-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .dcard-body{display:flex;flex-direction:column;gap:.35rem;padding:1rem 1.1rem 1.2rem}
+  .dcard-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent,var(--brand-green))}
+  .dcard-body h2{font-size:1.08rem;margin:0}
+  .dcard-body p{font-size:.88rem;line-height:1.55;color:var(--text-m);margin:0}
+</style>

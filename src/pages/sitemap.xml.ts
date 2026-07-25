@@ -7,6 +7,12 @@ import { DESTINATIONS_FR } from '../data/destinations-fr';
 import { TOURS_IT } from '../data/tours-it';
 import { DESTINATIONS_IT } from '../data/destinations-it';
 import { GUIDES_IT } from '../data/guides-it';
+import { TOURS_ES } from '../data/tours-es';
+import { DESTINATIONS_ES } from '../data/destinations-es';
+import { GUIDES_ES } from '../data/guides-es';
+import { TOURS_DE } from '../data/tours-de';
+import { DESTINATIONS_DE } from '../data/destinations-de';
+import { GUIDES_DE } from '../data/guides-de';
 
 const SITE = (import.meta.env.SITE || 'https://algeriacompass.com').replace(/\/$/, '');
 const today = new Date().toISOString().slice(0, 10);
@@ -26,7 +32,10 @@ export const GET: APIRoute = async () => {
     'fr/budget-algerie/', 'fr/sahara-algerie/', 'fr/cuisine-algerienne/',
     'fr/noel-nouvel-an-algerie/', 'fr/neige-sahara-algerie/', 'fr/circuits/', 'fr/destinations/',
     // Italian (it) pages
-    'it/', 'it/circuiti/', 'it/destinazioni/'];
+    'it/', 'it/circuiti/', 'it/destinazioni/',
+    // Spanish (es) and German (de) pages
+    'es/', 'es/circuitos/', 'es/destinos/',
+    'de/', 'de/reisen/', 'de/reiseziele/'];
   const colls: [string, string][] = [
     ['province', 'provinces'], ['destination', 'destinations'],
     ['experience', 'experiences'], ['article', 'blog'], ['question', 'questions'],
@@ -39,11 +48,17 @@ export const GET: APIRoute = async () => {
     // French detail pages exist only for tours with a complete translation.
     if (TOURS_FR[t.id]?.full) rows.push({ loc: `${SITE}/fr/circuits/${t.id}/`, pri: '0.8', mod: today });
     if (TOURS_IT[t.id]?.full) rows.push({ loc: `${SITE}/it/circuiti/${t.id}/`, pri: '0.8', mod: today });
+    if (TOURS_ES[t.id]?.full) rows.push({ loc: `${SITE}/es/circuitos/${t.id}/`, pri: '0.8', mod: today });
+    if (TOURS_DE[t.id]?.full) rows.push({ loc: `${SITE}/de/reisen/${t.id}/`, pri: '0.8', mod: today });
   }
   for (const r of REGIONS) rows.push({ loc: `${SITE}/regions/${r.id}/`, pri: '0.7', mod: today });
   for (const d of DESTINATIONS_FR) rows.push({ loc: `${SITE}/fr/destinations/${d.slug}/`, pri: '0.8', mod: today });
   for (const d of DESTINATIONS_IT) rows.push({ loc: `${SITE}/it/destinazioni/${d.slug}/`, pri: '0.8', mod: today });
   for (const g of GUIDES_IT) rows.push({ loc: `${SITE}/it/${g.slug}/`, pri: '0.8', mod: today });
+  for (const d2 of DESTINATIONS_ES) rows.push({ loc: `${SITE}/es/destinos/${d2.slug}/`, pri: '0.8', mod: today });
+  for (const g of GUIDES_ES) rows.push({ loc: `${SITE}/es/${g.slug}/`, pri: '0.8', mod: today });
+  for (const d2 of DESTINATIONS_DE) rows.push({ loc: `${SITE}/de/reiseziele/${d2.slug}/`, pri: '0.8', mod: today });
+  for (const g of GUIDES_DE) rows.push({ loc: `${SITE}/de/${g.slug}/`, pri: '0.8', mod: today });
   // utility pages (/search/, /sitemap/, /404/) are excluded from the sitemap.
   for (const [coll, base] of colls) {
     const items = await getCollection(coll as any);

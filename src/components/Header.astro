@@ -80,7 +80,51 @@ const navIt: Entry[] = [
   { href: '/contact/', label: 'Contatti' },
 ];
 
-const NAVS: Record<Lang, Entry[]> = { en: navEn, fr: navFr, it: navIt };
+const navEs: Entry[] = [
+  { href: '/es/', label: 'Inicio' },
+  { label: 'Circuitos', items: [
+    { href: '/es/circuitos/', label: 'Todos los circuitos' },
+    { href: '/luxury/', label: 'Colección de lujo' },
+    { href: '/experiences/', label: 'Experiencias' },
+  ]},
+  { label: 'Explorar', items: [
+    { href: '/es/destinos/', label: 'Destinos' },
+    { href: '/provinces/', label: 'Provincias' },
+    { href: '/regions/', label: 'Regiones' },
+    { href: '/unesco/', label: 'Sitios UNESCO' },
+  ]},
+  { label: 'Guías', items: [
+    { href: '/es/guia-viaje-argelia/', label: 'Guía completa' },
+    { href: '/es/visado-argelia/', label: 'Visado' },
+    { href: '/es/sahara-argelia/', label: 'Sáhara' },
+    { href: '/es/cuando-viajar-argelia/', label: 'Cuándo viajar' },
+  ]},
+  { href: '/contact/', label: 'Contacto' },
+];
+
+const navDe: Entry[] = [
+  { href: '/de/', label: 'Start' },
+  { label: 'Reisen', items: [
+    { href: '/de/reisen/', label: 'Alle Reisen' },
+    { href: '/luxury/', label: 'Luxuskollektion' },
+    { href: '/experiences/', label: 'Erlebnisse' },
+  ]},
+  { label: 'Entdecken', items: [
+    { href: '/de/reiseziele/', label: 'Reiseziele' },
+    { href: '/provinces/', label: 'Provinzen' },
+    { href: '/regions/', label: 'Regionen' },
+    { href: '/unesco/', label: 'UNESCO-Stätten' },
+  ]},
+  { label: 'Ratgeber', items: [
+    { href: '/de/algerien-reisefuehrer/', label: 'Kompletter Reiseführer' },
+    { href: '/de/visum-algerien/', label: 'Visum' },
+    { href: '/de/sahara-algerien/', label: 'Sahara' },
+    { href: '/de/beste-reisezeit-algerien/', label: 'Beste Reisezeit' },
+  ]},
+  { href: '/contact/', label: 'Kontakt' },
+];
+
+const NAVS: Record<Lang, Entry[]> = { en: navEn, fr: navFr, it: navIt, es: navEs, de: navDe };
 
 const nav = NAVS[lang];
 const logoHref = LANG_META[lang].home;

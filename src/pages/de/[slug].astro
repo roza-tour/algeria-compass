@@ -1,0 +1,118 @@
+---
+// German practical guides, rendered from src/data/guides-de.ts.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { GUIDES_DE, type GuideDe } from '../../data/guides-de';
+import { alternatesFor } from '../../i18n';
+import { guideItByEn } from '../../data/guides-it';
+import { guideEsByEn } from '../../data/guides-es';
+import { guideDeByEn } from '../../data/guides-de';
+
+export async function getStaticPaths() {
+  return GUIDES_DE.map(g => ({ params: { slug: g.slug }, props: { g } }));
+}
+
+const { g } = Astro.props as { g: GuideDe };
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/de/${g.slug}/`;
+const enUrl = site + g.en;
+const alternates = alternatesFor(site, {
+  en: g.en,
+  fr: g.fr,
+  it: guideItByEn(g.en) ? `/it/${guideItByEn(g.en)!.slug}/` : undefined,
+  es: guideEsByEn(g.en) ? `/es/${guideEsByEn(g.en)!.slug}/` : undefined,
+  de: `/de/${g.slug}/`,
+});
+
+const others = GUIDES_DE.filter(o => o.slug !== g.slug);
+
+const articleSchema = {
+  '@type': 'Article',
+  '@id': `${url}#article`,
+  headline: g.h1,
+  description: g.seoDescription,
+  inLanguage: 'de',
+  datePublished: g.published,
+  dateModified: g.published,
+  url,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  author: { '@id': `${site}/team/oussama-ben-yahia/#person` },
+  publisher: { '@id': `${site}/#organization` },
+  isPartOf: { '@id': `${site}/#website` },
+  about: { '@id': `${site}/#algeria` },
+};
+const authorSchema = {
+  '@type': 'Person',
+  '@id': `${site}/team/oussama-ben-yahia/#person`,
+  name: 'Oussama Ben Yahia',
+  jobTitle: 'Founder & Lead Travel Specialist',
+  url: `${site}/team/oussama-ben-yahia/`,
+  worksFor: { '@id': `${site}/#organization` },
+  knowsLanguage: ['fr', 'ar', 'en', 'de'],
+};
+const faqSchema = {
+  '@type': 'FAQPage', '@id': `${url}#faq`, inLanguage: 'de',
+  mainEntity: g.faqs.map(f => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Start', item: `${site}/de/` },
+    { '@type': 'ListItem', position: 2, name: g.h1, item: url },
+  ],
+};
+---
+<BaseLayout title={g.seoTitle} description={g.seoDescription} lang="de" alternates={alternates}
+  type="article" schema={[articleSchema, authorSchema, faqSchema, breadcrumb]} sticky={true}
+  keywords={[g.h1, 'Algerien', 'Algerien Reise', 'Algerien Reiseführer']}>
+
+  <Breadcrumbs items={[{name:'Start',href:'/de/'},{name:g.eyebrow}]} />
+
+  <article class="section">
+    <div class="wrap" style="max-width:780px">
+      <span class="eyebrow">{g.eyebrow}</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">{g.h1}</h1>
+      <p style="color:var(--text-l);font-size:.9rem">
+        Von Oussama Ben Yahia · Algeria Compass · <a href={enUrl} hreflang="en">Read in English</a>
+      </p>
+
+      <p style="font-size:1.1rem;line-height:1.75;margin-top:1rem">{g.lead}</p>
+
+      {g.sections.map(s => (
+        <>
+          <h2 style="margin-top:2rem">{s.h}</h2>
+          {s.p && <p style="line-height:1.75;color:var(--text-m)">{s.p}</p>}
+          {s.list && <ul class="prose">{s.list.map(i => <li>{i}</li>)}</ul>}
+        </>
+      ))}
+
+      <h2 style="margin-top:2rem">Domande frequenti</h2>
+      {g.faqs.map(f => (
+        <div style="margin:.9rem 0">
+          <h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3>
+          <p style="color:var(--text-m);line-height:1.7">{f.a}</p>
+        </div>
+      ))}
+
+      <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
+        <h2 style="margin:.2rem 0">{g.cta.h}</h2>
+        <p style="color:var(--text-l)">{g.cta.p}</p>
+        <p style="margin-top:.8rem">
+          <a class="btn btn-gold" href="/contact/">Kontakt aufnehmen</a>
+          <a class="btn" href="/de/reisen/">Unsere Reisen</a>
+        </p>
+      </div>
+
+      <nav style="margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid var(--border)">
+        <h2 style="font-size:1.05rem">Weitere Ratgeber auf Deutsch</h2>
+        <ul class="prose" style="line-height:1.9">
+          {others.map(o => <li><a href={`/de/${o.slug}/`}>{o.h1}</a></li>)}
+          <li><a href="/de/reiseziele/">Reiseziele: die UNESCO-Stätten und die Städte</a></li>
+        </ul>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

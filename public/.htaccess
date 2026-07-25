@@ -72,10 +72,10 @@ ErrorDocument 404 /404.html
   #      Index, /knowledge/graph/, graph.json and anything unmapped → destinations.
   RewriteRule ^knowledge(/.*)?$              /destinations/ [R=301,L]
 
-  # 2c) Dead legacy language routes from the old SPA (GSC "Not found 404": /de/ /es/).
-  #     No content existed at these paths; 301 the whole subtree to the (English) home page.
-  #     NOTE: /fr/ is now a REAL French section — it must NOT be redirected here.
-  RewriteRule ^(de|es)(/.*)?$                        / [R=301,L]
+  # 2c) /fr/, /it/, /es/ and /de/ are all REAL translated sections now, so the old
+  #     catch-all that 301'd /de/ and /es/ to the home page has been removed —
+  #     leaving it in place would silently redirect the German and Spanish sites
+  #     to the English home page. Do not reintroduce it.
 
   # 3) Force a trailing slash on directory-style URLs in one hop
   #    (skip real files and any URL ending in a file extension)

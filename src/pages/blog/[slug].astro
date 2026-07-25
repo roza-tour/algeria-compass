@@ -35,11 +35,13 @@ const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\
 const enUrl = `${site}/blog/${item.slug}/`;
 // hreflang is built from whichever translations actually exist, so it can never
 // point at a page that was not published.
-const alternates = ((d as any).frAlt || (d as any).itAlt)
+const alternates = ((d as any).frAlt || (d as any).itAlt || (d as any).esAlt || (d as any).deAlt)
   ? alternatesFor(site, {
       en: `/blog/${item.slug}/`,
       fr: (d as any).frAlt || undefined,
       it: (d as any).itAlt || undefined,
+      es: (d as any).esAlt || undefined,
+      de: (d as any).deAlt || undefined,
     })
   : [];
 const moreArticles = await related('article', { region: d.region, exclude: item.slug, limit: 3 });

@@ -1,0 +1,126 @@
+---
+// French tours index. Cards are fully translated for every tour; a tour links to
+// its French detail page when one exists, otherwise to the English page, which
+// is honest rather than shipping a half-translated page.
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import data from '../../../data/tours.json';
+import { TOUR_VISUALS } from '../../../data/tour-visuals';
+import { TOURS_ES } from '../../../data/tours-es';
+import { alternatesFor } from '../../../i18n';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const tours = (((data as any).tours || data) as any[]);
+const currency = (data as any).currency || 'EUR';
+
+const rows = tours.map(t => {
+  const fr = TOURS_ES[t.id];
+  const v = TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
+  return {
+    id: t.id,
+    href: fr?.full ? `/es/circuitos/${t.id}/` : `/tours/${t.id}/`,
+    spanishPage: !!fr?.full,
+    title: fr?.title || t.title,
+    duration: fr?.duration || t.duration,
+    hook: fr?.hook || t.summary,
+    price: t.price_eur,
+    hero: v.hero,
+    accent: v.accent,
+  };
+});
+
+const title = "Circuitos privados por Argelia — viajes a medida";
+const description = "Nuestros circuitos privados por Argelia: Sáhara y Tadrart, valle del M'Zab, ciudades romanas, Argel y la costa. Operador argelino autorizado.";
+const alternates = alternatesFor(site, { en: '/tours/', fr: '/fr/circuits/', it: '/it/circuiti/', es: '/es/circuitos/', de: '/de/reisen/' });
+const itemList = {
+  '@type': 'ItemList',
+  '@id': `${site}/es/circuitos/#circuitos`,
+  name: 'Circuitos privados por Argelia',
+  numberOfItems: rows.length,
+  itemListElement: rows.map((r, i) => ({
+    '@type': 'ListItem', position: i + 1, name: r.title, url: site + r.href,
+  })),
+};
+const collection = {
+  '@type': 'CollectionPage',
+  '@id': `${site}/es/circuitos/#collection`,
+  name: 'Circuitos privados por Argelia',
+  description,
+  inLanguage: 'es',
+  url: `${site}/es/circuitos/`,
+  isPartOf: { '@id': `${site}/#website` },
+  about: { '@id': `${site}/#algeria` },
+  mainEntity: { '@id': `${site}/es/circuitos/#circuitos` },
+};
+---
+<BaseLayout title={title} description={description} lang="es" alternates={alternates}
+  image="/assets/img/tours/djanet-1.jpg" schema={[collection, itemList]}
+  keywords={["circuito Argelia","viaje a Argelia","viaje Sáhara Argelia","viaje organizado Argelia","agencia de viajes Argelia"]}>
+  <section class="hero" style="min-height:42vh">
+    <img src="/assets/img/tours/djanet-1.jpg" alt="Dunas del Sáhara argelino cerca de Djanet" width="1600" height="900" fetchpriority="high" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">{rows.length} circuitos privados</div>
+      <h1>Circuitos privados por Argelia</h1>
+      <p>Circuitos privados y guiados por toda Argelia — del Sáhara profundo a las ciudades romanas del norte y a la costa mediterránea.</p>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[{name:'Inicio',href:'/es/'},{name:'Circuitos'}]} />
+
+  <section class="section"><div class="wrap">
+    <p class="fr-intro">
+      Algeria Compass es un <strong>operador turístico argelino autorizado</strong> con sede en Argel. Todos
+      nuestros circuitos son <strong>privados</strong>: su guía, su vehículo, su ritmo — nada se comparte con
+      otros grupos. Facilitamos la invitación y el programa confirmado que los consulados exigen para el
+      <a href="/es/visado-argelia/">visado argelino</a>.
+      Para elegir la época, vea <a href="/es/cuando-viajar-argelia/">cuándo viajar a Argelia</a>.
+    </p>
+
+    <div class="grid fr-grid">
+      {rows.map((r, i) => (
+        <a class="frcard" href={r.href} style={`--accent:${r.accent}`}>
+          <div class="frcard-img">
+            <picture>
+              <source srcset={`/assets/img/thumbs/tours/${r.hero.replace(/\.(jpe?g|png)$/i, '.webp')}`} type="image/webp" />
+              <img src={`/assets/img/thumbs/tours/${r.hero}`} alt={r.title} width="400" height="250" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />
+            </picture>
+            <span class="frcard-badge">Privado</span>
+          </div>
+          <div class="frcard-body">
+            <span class="frcard-dur">{r.duration}</span>
+            <h2>{r.title}</h2>
+            <p>{r.hook}</p>
+            <span class="frcard-foot">
+              <strong>desde {r.price} €</strong>
+              <span class="frcard-go">{r.spanishPage ? 'Ver el circuito →' : 'Detalles (en inglés) →'}</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <p class="fr-note">
+      Los circuitos sin página detallada en español se describen en inglés, pero se reservan y se
+      organizan igual que los demás. Escríbanos en español:
+      <a href="/contact/">formulario de contacto</a> o WhatsApp.
+    </p>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .fr-intro{max-width:780px;color:var(--text-m);margin-bottom:1.6rem}
+  .fr-note{max-width:780px;color:var(--text-l);font-size:.88rem;margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border)}
+  .fr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
+  .frcard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;color:var(--text);box-shadow:0 2px 14px rgba(7,38,28,.06)}
+  .frcard:hover{transform:translateY(-3px);transition:.18s;border-color:var(--gold);text-decoration:none}
+  .frcard-img{position:relative;aspect-ratio:16/10;background:var(--wash)}
+  .frcard-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .frcard-badge{position:absolute;top:.6rem;left:.6rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(7,38,28,.86);color:#fff;padding:.24rem .6rem;border-radius:999px}
+  .frcard-body{display:flex;flex-direction:column;gap:.4rem;padding:1rem 1.1rem 1.2rem;flex:1}
+  .frcard-dur{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .frcard-body h2{font-size:1.05rem;line-height:1.3;margin:0}
+  .frcard-body p{font-size:.88rem;line-height:1.55;color:var(--text-m);margin:0;flex:1}
+  .frcard-foot{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin-top:.5rem;flex-wrap:wrap}
+  .frcard-foot strong{font-size:1rem}
+  .frcard-go{font-size:.8rem;font-weight:700;color:var(--accent)}
+</style>

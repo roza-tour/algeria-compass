@@ -1,4 +1,5 @@
 ---
+import { alternatesFor } from '../i18n';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StatesStrip from '../components/StatesStrip.astro';
 import CivilizationsExplorer from '../components/CivilizationsExplorer.astro';
@@ -36,11 +37,7 @@ const planCards = [
 const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Algeria tour.");
 
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
-const alternates = [
-  { hreflang: 'en', href: site + '/' },
-  { hreflang: 'fr', href: site + '/fr/' },
-  { hreflang: 'x-default', href: site + '/' },
-];
+const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/es/', de: '/de/' });
 ---
 <BaseLayout
   title="Algeria Tours & Sahara Safaris | Algeria Compass"

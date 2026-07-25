@@ -150,6 +150,8 @@ const article = defineCollection({
     practicalTitle: z.string().optional(),
     frAlt: z.string().optional(),   // path to a French translation of this article (for hreflang)
     itAlt: z.string().optional(),   // path to an Italian translation of this article (for hreflang)
+    esAlt: z.string().optional(),   // path to a Spanish translation of this article (for hreflang)
+    deAlt: z.string().optional(),   // path to a German translation of this article (for hreflang)
     // Seasonal/topic skin: gives the page its own colours, motif, icons and
     // display face via [data-occasion]. See src/styles/occasions.css.
     occasion: z.enum(['ramadan', 'christmas', 'winter', 'sahara']).optional(),

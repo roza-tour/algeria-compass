@@ -1,0 +1,232 @@
+---
+// French tour detail pages. Only tours carrying a complete `fr` block are built,
+// so no page is ever half-translated. Prices, images and wilayas come from the
+// English catalogue, which stays the single source of truth.
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import data from '../../../data/tours.json';
+import { TOUR_VISUALS } from '../../../data/tour-visuals';
+import { TOURS_ES, type TourEs } from '../../../data/tours-es';
+import { TOURS_FR } from '../../../data/tours-fr';
+import { TOURS_IT } from '../../../data/tours-it';
+import { TOURS_DE } from '../../../data/tours-de';
+import { alternatesFor } from '../../../i18n';
+import { CONTACT } from '../../../config';
+
+export async function getStaticPaths() {
+  const tours = (((data as any).tours || data) as any[]);
+  return tours
+    .filter(t => TOURS_ES[t.id]?.full)
+    .map(t => ({ params: { slug: t.id }, props: { tour: t, fr: TOURS_ES[t.id] } }));
+}
+
+const { tour, fr } = Astro.props as { tour: any; fr: TourEs };
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/es/circuitos/${tour.id}/`;
+const enUrl = `${site}/tours/${tour.id}/`;
+const v = TOUR_VISUALS[tour.id] || { hero: `${tour.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
+const hero = `/assets/img/tours/${v.hero}`;
+const currency = (data as any).currency || 'EUR';
+
+const REGION: Record<string, string> = {
+  culture: '', sahara: 'sahara', mzab: 'mzab', west: 'andalusian',
+  city: 'coast', east: 'roman', coast: 'coast', roman: 'roman',
+};
+
+const title = fr.seoTitle || fr.title;
+const description = fr.seoDescription || fr.hook;
+const alternates = alternatesFor(site, {
+  en: `/tours/${tour.id}/`,
+  fr: TOURS_FR[tour.id]?.full ? `/fr/circuits/${tour.id}/` : undefined,
+  it: TOURS_IT[tour.id]?.full ? `/it/circuiti/${tour.id}/` : undefined,
+  es: TOURS_ES[tour.id]?.full ? `/es/circuitos/${tour.id}/` : undefined,
+  de: TOURS_DE[tour.id]?.full ? `/de/reisen/${tour.id}/` : undefined,
+});
+
+// Other Spanish itineraries, for internal linking
+const others = (((data as any).tours || data) as any[])
+  .filter(t => t.id !== tour.id && TOURS_ES[t.id]?.full)
+  .slice(0, 3)
+  .map(t => ({ href: `/es/circuitos/${t.id}/`, title: TOURS_ES[t.id].title, duration: TOURS_ES[t.id].duration }));
+
+const productSchema = {
+  '@type': 'TouristTrip',
+  '@id': `${url}#trip`,
+  name: fr.title,
+  description: fr.overview || fr.hook,
+  inLanguage: 'es',
+  url,
+  image: site + hero,
+  touristType: 'Viaggiatori individuali e piccoli gruppi privati',
+  provider: { '@id': `${site}/#organization` },
+  offers: {
+    '@type': 'Offer',
+    price: tour.price_eur,
+    priceCurrency: currency,
+    availability: 'https://schema.org/InStock',
+    url,
+  },
+  itinerary: {
+    '@type': 'ItemList',
+    numberOfItems: (fr.itinerary || []).length,
+    itemListElement: (fr.itinerary || []).map((d, i) => ({
+      '@type': 'ListItem', position: i + 1, name: `Día ${d.day} — ${d.title}`, description: d.body,
+    })),
+  },
+};
+const faqSchema = (fr.faqs && fr.faqs.length) ? {
+  '@type': 'FAQPage',
+  '@id': `${url}#faq`,
+  inLanguage: 'es',
+  mainEntity: fr.faqs.map(f => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+} : null;
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${site}/es/` },
+    { '@type': 'ListItem', position: 2, name: 'Circuitos', item: `${site}/es/circuitos/` },
+    { '@type': 'ListItem', position: 3, name: fr.title, item: url },
+  ],
+};
+const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
+---
+<BaseLayout title={title} description={description} lang="es" alternates={alternates}
+  image={hero} region={REGION[tour.theme] || undefined} schema={schema} sticky={true}
+  keywords={["circuito " + tour.id.replace(/-/g, ' '), "viaje Argelia", "circuito privado Argelia"]}>
+
+  <section class="hero">
+    <img src={hero} alt={fr.title} width="1600" height="900" fetchpriority="high" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">{fr.duration} · circuito privado</div>
+      <h1>{fr.title}</h1>
+      <p>{fr.hook}</p>
+      <p class="hero-meta">
+        <span>Desde <strong>{tour.price_eur} €</strong> / persona</span>
+        <a href={enUrl} hreflang="en">Read in English</a>
+      </p>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[{name:'Inicio',href:'/es/'},{name:'Circuitos',href:'/es/circuitos/'},{name:fr.title}]} />
+
+  <section class="section"><div class="wrap tour-grid">
+    <div class="tour-main">
+      {fr.overview && <><h2>El circuito</h2><p class="lead">{fr.overview}</p></>}
+
+      {fr.highlights && fr.highlights.length > 0 && (
+        <><h2>Lo más destacado</h2>
+        <ul class="hl-list">{fr.highlights.map(h => <li>{h}</li>)}</ul></>
+      )}
+
+      {fr.itinerary && fr.itinerary.length > 0 && (
+        <><h2>Programa día a día</h2>
+        <ol class="itin">
+          {fr.itinerary.map(d => (
+            <li>
+              <span class="itin-day">Día {d.day}</span>
+              <h3>{d.title}</h3>
+              <p>{d.body}</p>
+            </li>
+          ))}
+        </ol></>
+      )}
+
+      <div class="incl-grid">
+        {fr.includes && fr.includes.length > 0 && (
+          <div><h2>Incluye</h2><ul class="ok">{fr.includes.map(i => <li>{i}</li>)}</ul></div>
+        )}
+        {fr.excludes && fr.excludes.length > 0 && (
+          <div><h2>No incluye</h2><ul class="no">{fr.excludes.map(i => <li>{i}</li>)}</ul></div>
+        )}
+      </div>
+
+      {fr.faqs && fr.faqs.length > 0 && (
+        <><h2>Preguntas frecuentes</h2>
+        <div class="faq">{fr.faqs.map(f => (
+          <details><summary>{f.q}</summary><p>{f.a}</p></details>
+        ))}</div></>
+      )}
+    </div>
+
+    <aside class="tour-aside">
+      <div class="book-box">
+        <span class="bb-price">Desde <strong>{tour.price_eur} €</strong></span>
+        <span class="bb-per">por persona · {fr.duration}</span>
+        <a class="btn btn-gold" href="/contact/">Solicitar presupuesto</a>
+        <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a>
+        <ul class="bb-trust">
+          <li>Operador argelino autorizado</li>
+          <li>Circuito totalmente privado</li>
+          <li>Guías de habla española a petición</li>
+          <li>Cancelación gratuita hasta 5 días antes</li>
+        </ul>
+      </div>
+
+      {fr.goodToKnow && fr.goodToKnow.length > 0 && (
+        <div class="gtk">
+          <h2>Buено saber</h2>
+          <dl>{fr.goodToKnow.map(g => (<><dt>{g.label}</dt><dd>{g.value}</dd></>))}</dl>
+        </div>
+      )}
+
+      {others.length > 0 && (
+        <div class="gtk">
+          <h2>Otros circuitos</h2>
+          <ul class="others">
+            {others.map(o => <li><a href={o.href}>{o.title}</a><span>{o.duration}</span></li>)}
+          </ul>
+          <p style="margin-top:.7rem"><a href="/es/circuitos/">Todos los circuitos &rarr;</a></p>
+        </div>
+      )}
+    </aside>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .hero-meta{display:flex;gap:1.2rem;align-items:baseline;flex-wrap:wrap;margin-top:.8rem;font-size:.95rem}
+  .hero-meta a{color:var(--gold-l);text-decoration:underline}
+  .tour-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr);gap:2.4rem;align-items:start}
+  .tour-main h2{margin-top:2rem}
+  .tour-main h2:first-child{margin-top:0}
+  .lead{font-size:1.05rem;line-height:1.75;color:var(--text-m)}
+  .hl-list{margin:.8rem 0 0;padding-left:1.1rem}
+  .hl-list li{margin:.4rem 0;line-height:1.6}
+  .itin{list-style:none;margin:1rem 0 0;padding:0;counter-reset:none}
+  .itin li{position:relative;padding:0 0 1.2rem 1.4rem;border-left:2px solid var(--border);margin-left:.4rem}
+  .itin li:last-child{border-left-color:transparent;padding-bottom:0}
+  .itin li::before{content:"";position:absolute;left:-7px;top:.35rem;width:12px;height:12px;border-radius:50%;background:var(--accent,var(--brand-green))}
+  .itin-day{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent,var(--brand-green))}
+  .itin h3{font-size:1.02rem;margin:.15rem 0 .3rem}
+  .itin p{color:var(--text-m);line-height:1.6;margin:0}
+  .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:1rem}
+  .incl-grid ul{margin:.6rem 0 0;padding-left:1.2rem}
+  .incl-grid li{margin:.3rem 0;line-height:1.5;font-size:.92rem}
+  .incl-grid .ok li::marker{content:"✓  ";color:var(--success,#2F8F57)}
+  .incl-grid .no li::marker{content:"×  ";color:var(--text-l)}
+  .tour-aside{position:sticky;top:96px;display:flex;flex-direction:column;gap:1.2rem}
+  .book-box{background:var(--wash);border:1px solid var(--border);border-radius:14px;padding:1.2rem}
+  .bb-price{display:block;font-size:.9rem;color:var(--text-m)}
+  .bb-price strong{font-size:1.5rem;color:var(--text)}
+  .bb-per{display:block;font-size:.82rem;color:var(--text-l);margin-bottom:.9rem}
+  .book-box .btn{display:block;text-align:center;margin-bottom:.5rem}
+  .bb-trust{list-style:none;margin:.9rem 0 0;padding:0;font-size:.8rem;color:var(--text-m)}
+  .bb-trust li{padding:.22rem 0 .22rem 1.1rem;position:relative}
+  .bb-trust li::before{content:"✓";position:absolute;left:0;color:var(--success,#2F8F57);font-weight:700}
+  .gtk{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem}
+  .gtk h2{margin:0 0 .5rem;font-size:1rem}
+  .gtk dl{margin:0;font-size:.86rem}
+  .gtk dt{font-weight:700;margin-top:.5rem}
+  .gtk dd{margin:0;color:var(--text-m)}
+  .others{list-style:none;margin:0;padding:0;font-size:.88rem}
+  .others li{padding:.35rem 0;border-bottom:1px solid var(--border)}
+  .others li:last-child{border-bottom:0}
+  .others span{display:block;font-size:.76rem;color:var(--text-l)}
+  @media(max-width:900px){
+    .tour-grid{grid-template-columns:1fr}
+    .tour-aside{position:static}
+    .incl-grid{grid-template-columns:1fr}
+  }
+</style>

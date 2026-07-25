@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import { destFrByEn } from '../../data/destinations-fr';
 import { destItByEn } from '../../data/destinations-it';
+import { destEsByEn } from '../../data/destinations-es';
+import { destDeByEn } from '../../data/destinations-de';
 import { alternatesFor } from '../../i18n';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
@@ -72,11 +74,15 @@ const schemaNodes = [attr, webpage, authorEntity, reviewerEntity];
 const frTwin = destFrByEn(item.slug);
 const siteBase = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const itTwin = destItByEn(item.slug);
-const frAlternates = (frTwin || itTwin)
+const esTwin = destEsByEn(item.slug);
+const deTwin = destDeByEn(item.slug);
+const frAlternates = (frTwin || itTwin || esTwin || deTwin)
   ? alternatesFor(siteBase, {
       en: `/destinations/${item.slug}/`,
       fr: frTwin ? `/fr/destinations/${frTwin.slug}/` : undefined,
       it: itTwin ? `/it/destinazioni/${itTwin.slug}/` : undefined,
+      es: esTwin ? `/es/destinos/${esTwin.slug}/` : undefined,
+      de: deTwin ? `/de/reiseziele/${deTwin.slug}/` : undefined,
     })
   : [];
 
