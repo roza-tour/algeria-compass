@@ -8,7 +8,7 @@ import FaqSection from '../../components/FaqSection.astro';
 import CtaSection from '../../components/CtaSection.astro';
 import RelatedGrid from '../../components/RelatedGrid.astro';
 import Byline from '../../components/Byline.astro';
-import OccasionBanner from '../../components/OccasionBanner.astro';
+import OccasionScene from '../../components/OccasionScene.astro';
 import SourceList from '../../components/SourceList.astro';
 import EditorialMeta from '../../components/EditorialMeta.astro';
 import { related, toCard } from '../../lib/related';
@@ -91,7 +91,7 @@ const schemaNodes = [post, authorEntity, reviewerEntity, breadcrumb, webpage].fi
     <img src={d.image} alt={d.imageAlt} style="border-radius:16px;margin:1.4rem 0;width:100%;aspect-ratio:16/9;object-fit:cover" width="780" height="440" loading="eager" />
     <QuickAnswer text={d.quickAnswer} />
     {(d as any).occasion && (
-      <OccasionBanner
+      <OccasionScene
         occasion={(d as any).occasion}
         eyebrow={(d as any).occasionEyebrow}
         title={(d as any).occasionTitle}
