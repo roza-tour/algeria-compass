@@ -1,20 +1,7 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-import QuickAnswer from '../components/QuickAnswer.astro';
-import CtaSection from '../components/CtaSection.astro';
+// Thin wrapper: layout lives in UnescoPage.astro, words in src/data/pages-i18n.ts.
+// This page used to be two paragraphs and two links; it now covers all seven
+// inscribed sites, in the same shape as the four translations.
+import UnescoPage from '../components/pages/UnescoPage.astro';
 ---
-<BaseLayout title="UNESCO World Heritage Sites in Algeria | Algeria Compass" description="Algeria’s seven UNESCO World Heritage Sites, from Djémila and Timgad to the Tassili n’Ajjer and the M’Zab Valley." image="/assets/img/timgad-trajan-arch.jpg" keywords={["Algeria UNESCO sites","Djémila","Timgad","Tassili n'Ajjer","M'Zab Valley","Casbah of Algiers"]} region="sahara">
-  <Hero title="UNESCO World Heritage Sites in Algeria" eyebrow="World Heritage" text="Algeria’s seven UNESCO World Heritage Sites, from Djémila and Timgad to the Tassili n’Ajjer and the M’Zab Valley." image="/assets/img/timgad-trajan-arch.jpg" alt="The triumphal arch at Timgad, a UNESCO Roman city in Batna state, Algeria" />
-  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'UNESCO World Heritage Sites in Algeria'}]} />
-  <section class="section"><div class="wrap" style="max-width:820px">
-    <QuickAnswer text="Algeria holds seven UNESCO World Heritage Sites — more than most travellers expect. They span Roman cities (Djémila, Timgad, Tipaza), the Sahara's prehistoric rock-art plateau of Tassili n'Ajjer, the fortified M'Zab Valley, the Casbah of Algiers and the fortress of Beni Hammad." />
-    <div class="prose">
-      <p>Algeria holds seven UNESCO World Heritage Sites — more than most travellers expect. They span Roman cities (Djémila, Timgad, Tipaza), the Sahara's prehistoric rock-art plateau of Tassili n'Ajjer, the fortified M'Zab Valley, the Casbah of Algiers and the fortress of Beni Hammad.</p>
-      <h2>Explore further</h2>
-      <ul><li><a href="/provinces/setif/">Sétif & Djémila</a></li><li><a href="/blog/mzab-valley-le-corbusier/">The M’Zab Valley</a></li></ul>
-    </div>
-  </div></section>
-  <CtaSection />
-</BaseLayout>
+<UnescoPage lang="en" />

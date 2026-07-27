@@ -1,5 +1,7 @@
 ---
-export interface Props { text: string; }
-const { text } = Astro.props;
+import { t, asLang } from '../i18n';
+export interface Props { text: string; lang?: string; }
+const { text, lang: langProp } = Astro.props;
+const lang = asLang(langProp);
 ---
-<div class="qbox"><b>Quick answer</b><p>{text}</p></div>
+<div class="qbox"><b>{t(lang, 'quickAnswer')}</b><p>{text}</p></div>

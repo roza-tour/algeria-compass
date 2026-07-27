@@ -3,8 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import InquiryForm from '../components/InquiryForm.astro';
 import { CONTACT } from '../config';
+import { alternatesFor, routeAlternates } from '../i18n';
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const alternates = alternatesFor(site, routeAlternates('contact'));
 ---
-<BaseLayout title="Plan a Journey to Algeria | Algeria Compass" description="Planning a trip to Algeria? Tell us your dates, interests and party size and we will craft your private, guided tour of Algeria." image="/assets/img/algiers-white-city-aerial.jpg" keywords={["contact Algeria Compass","plan Algeria trip","Algeria tour inquiry","book Algeria tour"]}>
+<BaseLayout title="Plan a Journey to Algeria | Algeria Compass" description="Planning a trip to Algeria? Tell us your dates, interests and party size and we will craft your private, guided tour of Algeria." image="/assets/img/algiers-white-city-aerial.jpg" keywords={["contact Algeria Compass","plan Algeria trip","Algeria tour inquiry","book Algeria tour"]} alternates={alternates}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Plan a journey'}]} />
   <section class="section"><div class="wrap" style="max-width:640px">
     <div class="eyebrow">Travel planning</div>

@@ -1,0 +1,77 @@
+---
+// The enquiry page for the four translated languages. Same layout and same NAP
+// block as the English page — the address, phone and map must be byte-identical
+// across languages, because Google matches citations on exact NAP strings.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import InquiryForm from '../InquiryForm.astro';
+import { CONTACT } from '../../config';
+import { asLang, ROUTES, LANG_META, alternatesFor, routeAlternates } from '../../i18n';
+import { CONTACT_PAGE } from '../../data/pages-i18n';
+
+export interface Props { lang: 'fr' | 'it' | 'es' | 'de'; }
+const lang = asLang(Astro.props.lang) as 'fr' | 'it' | 'es' | 'de';
+const c = CONTACT_PAGE[lang];
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = site + ROUTES[lang].contact;
+const alternates = alternatesFor(site, routeAlternates('contact'));
+
+const page = {
+  '@type': 'ContactPage', '@id': `${url}#contact`,
+  name: c.seoTitle, description: c.seoDescription, url, inLanguage: lang,
+  isPartOf: { '@id': `${site}/#website` },
+  about: { '@id': `${site}/#organization` },
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: c.crumbHome, item: site + LANG_META[lang].home },
+    { '@type': 'ListItem', position: 2, name: c.crumbLabel, item: url },
+  ],
+};
+---
+<BaseLayout title={c.seoTitle} description={c.seoDescription} lang={lang} alternates={alternates}
+  image="/assets/img/algiers-white-city-aerial.jpg" schema={[page, breadcrumb]}>
+
+  <Breadcrumbs items={[{ name: c.crumbHome, href: LANG_META[lang].home }, { name: c.crumbLabel }]} />
+
+  <section class="section"><div class="wrap" style="max-width:640px">
+    <div class="eyebrow">{c.eyebrow}</div>
+    <h1>{c.h1}</h1>
+    <p style="color:var(--text-m);margin:.6rem 0 1.4rem">{c.lead}</p>
+    <InquiryForm lang={lang} />
+    <p style="margin-top:1.4rem">
+      {c.talkNow} <a href={`https://wa.me/${CONTACT.whatsapp}`} data-evt="whatsapp_click">{c.waLabel}</a>
+      · <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+      · <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a>
+    </p>
+  </div></section>
+
+  <section class="section" style="background:var(--wash)"><div class="wrap">
+    <div class="eyebrow">{c.findEyebrow}</div>
+    <h2>{c.findH2}</h2>
+    <div class="contact-find">
+      <address class="contact-nap">
+        <strong>Algeria Compass</strong><br/>
+        {CONTACT.address.full}<br/>
+        <span class="nap-line">&#128222; <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a></span><br/>
+        <span class="nap-line">&#9993; <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></span><br/>
+        <span class="nap-line">&#128172; <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp {CONTACT.phoneDisplay}</a></span>
+        <p class="nap-hours">{c.hours}</p>
+        <a class="btn" href={CONTACT.mapShort} target="_blank" rel="noopener" style="margin-top:.6rem">{c.mapBtn} &rarr;</a>
+      </address>
+      <iframe class="contact-map" title={c.mapTitle} src={CONTACT.mapEmbed} loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="360"></iframe>
+    </div>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .contact-find{display:grid;grid-template-columns:320px 1fr;gap:1.6rem;align-items:start;margin-top:1.2rem}
+  .contact-nap{font-style:normal;line-height:1.7;color:var(--text-m)}
+  .contact-nap strong{color:var(--green-d);font-size:1.05rem;font-family:var(--serif)}
+  .nap-line a{color:var(--green-d);font-weight:600}
+  .nap-hours{font-size:.85rem;color:var(--text-l);margin:.7rem 0 0}
+  .contact-map{border:1px solid var(--border);border-radius:12px;display:block;min-height:360px}
+  @media(max-width:760px){ .contact-find{grid-template-columns:1fr} }
+</style>

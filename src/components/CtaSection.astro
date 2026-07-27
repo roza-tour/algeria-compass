@@ -1,13 +1,19 @@
 ---
-export interface Props { heading?: string; text?: string; interest?: string; }
-const { heading = 'Planning a trip to Algeria?', text = 'Algeria Compass is a licensed Algerian tour operator. Tell us your dates and interests and we will craft your private, guided tour across Algeria.', interest = '' } = Astro.props;
-const href = interest ? `/contact/?i=${encodeURIComponent(interest)}` : '/contact/';
+// The closing call to action. It follows the page language and points at that
+// language's contact page — sending a German reader to the English form here
+// undoes the reason the translated pages exist.
+import { t, asLang, ROUTES } from '../i18n';
+export interface Props { heading?: string; text?: string; interest?: string; lang?: string; }
+const { heading, text, interest = '', lang: langProp } = Astro.props;
+const lang = asLang(langProp);
+const contact = ROUTES[lang].contact;
+const href = interest ? `${contact}?i=${encodeURIComponent(interest)}` : contact;
 ---
 <section class="section" data-reveal><div class="wrap">
   <div class="cta">
-    <div class="eyebrow" style="color:var(--gold-l)">Travel planning</div>
-    <h2>{heading}</h2>
-    <p>{text}</p>
-    <a class="btn btn-gold" href={href} data-evt="cta_plan">Plan a journey &rarr;</a>
+    <div class="eyebrow" style="color:var(--gold-l)">{t(lang, 'ctaEyebrow')}</div>
+    <h2>{heading ?? t(lang, 'ctaHeading')}</h2>
+    <p>{text ?? t(lang, 'ctaText')}</p>
+    <a class="btn btn-gold" href={href} data-evt="cta_plan">{t(lang, 'ctaBtn')} &rarr;</a>
   </div>
 </div></section>

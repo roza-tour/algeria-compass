@@ -1,0 +1,104 @@
+---
+// The UNESCO page, shared by all five languages. Content comes from
+// UNESCO_PAGE; the site links resolve to the destination page in the reader's
+// own language via UNESCO_SLUGS + ROUTES.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import QuickAnswer from '../QuickAnswer.astro';
+import CtaSection from '../CtaSection.astro';
+import { asLang, ROUTES, LANG_META, alternatesFor, routeAlternates } from '../../i18n';
+import { UNESCO_PAGE, UNESCO_SLUGS } from '../../data/pages-i18n';
+
+export interface Props { lang?: string; }
+const lang = asLang(Astro.props.lang);
+const c = UNESCO_PAGE[lang];
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = site + ROUTES[lang].unesco;
+const alternates = alternatesFor(site, routeAlternates('unesco'));
+const HERO = '/assets/img/timgad-trajan-arch.jpg';
+
+// Each entry pairs the translated prose with the destination page in this
+// language, so nobody is bounced into English mid-read.
+const sites = c.sites.map((s, i) => ({ ...s, href: `${ROUTES[lang].destinations}${UNESCO_SLUGS[i][lang]}/` }));
+
+const itemList = {
+  '@type': 'ItemList',
+  '@id': `${url}#sites`,
+  name: c.h1,
+  numberOfItems: sites.length,
+  itemListElement: sites.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'LandmarksOrHistoricalBuildings',
+      name: s.name,
+      description: s.text,
+      url: site + s.href,
+    },
+  })),
+};
+const page = {
+  '@type': 'CollectionPage', '@id': `${url}#webpage`,
+  name: c.h1, description: c.seoDescription, url, inLanguage: lang,
+  isPartOf: { '@id': `${site}/#website` },
+  about: { '@id': `${site}/#algeria` },
+  provider: { '@id': `${site}/#organization` },
+  mainEntity: { '@id': `${url}#sites` },
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: c.crumbHome, item: site + LANG_META[lang].home },
+    { '@type': 'ListItem', position: 2, name: c.crumbLabel, item: url },
+  ],
+};
+---
+<BaseLayout title={c.seoTitle} description={c.seoDescription} lang={lang} alternates={alternates}
+  image={HERO} schema={[page, itemList, breadcrumb]} region="sahara">
+
+  <Hero title={c.h1} eyebrow={c.eyebrow} text={c.heroText} image={HERO} alt={c.heroAlt} />
+  <Breadcrumbs items={[{ name: c.crumbHome, href: LANG_META[lang].home }, { name: c.crumbLabel }]} />
+
+  <section class="section"><div class="wrap" style="max-width:860px">
+    <QuickAnswer text={c.quick} lang={lang} />
+    <div class="prose">
+      {c.intro.map(p => <p>{p}</p>)}
+    </div>
+
+    <h2 style="margin-top:2rem">{c.sitesH}</h2>
+    <ol class="usites">
+      {sites.map((s, i) => (
+        <li class="usite">
+          <span class="usite-n" aria-hidden="true">{i + 1}</span>
+          <div class="usite-body">
+            <h3><a href={s.href}>{s.name}</a></h3>
+            <p class="usite-meta">{s.where} · {s.year}</p>
+            <p>{s.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <h2>{c.visitH}</h2>
+    <div class="prose"><p>{c.visitP}</p></div>
+  </div></section>
+
+  <CtaSection lang={lang} />
+</BaseLayout>
+
+<style>
+  .usites{list-style:none;padding:0;margin:1.1rem 0 2.2rem;display:grid;gap:1rem}
+  .usite{display:flex;gap:1rem;background:var(--card);border:1px solid var(--border);
+    border-radius:14px;padding:1.1rem 1.2rem}
+  .usite-n{flex:0 0 auto;width:2rem;height:2rem;border-radius:50%;background:var(--brand-green,#0B3D2E);
+    color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .usite-body{min-width:0}
+  .usite h3{margin:.1rem 0 .15rem;font-size:1.08rem;line-height:1.35}
+  .usite h3 a{color:inherit;text-decoration:none}
+  .usite h3 a:hover{text-decoration:underline}
+  .usite-meta{margin:0 0 .45rem;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:var(--text-l)}
+  .usite p{margin:0;color:var(--text-m);line-height:1.7;font-size:.95rem}
+  @media(max-width:600px){ .usite{flex-direction:column;gap:.6rem} }
+</style>

@@ -32,11 +32,15 @@ export const GET: APIRoute = async () => {
     'fr/budget-algerie/', 'fr/sahara-algerie/', 'fr/cuisine-algerienne/',
     'fr/noel-nouvel-an-algerie/', 'fr/neige-sahara-algerie/', 'fr/circuits/', 'fr/destinations/',
     'fr/visa-arrivee-algerie/', 'fr/assistance-visa-algerie/',
+    'fr/contact/', 'fr/a-propos/', 'fr/unesco-algerie/',
     // Italian (it) pages
     'it/', 'it/circuiti/', 'it/destinazioni/',
+    'it/contatto/', 'it/chi-siamo/', 'it/unesco-algeria/',
     // Spanish (es) and German (de) pages
     'es/', 'es/circuitos/', 'es/destinos/',
-    'de/', 'de/reisen/', 'de/reiseziele/'];
+    'es/contacto/', 'es/quienes-somos/', 'es/unesco-argelia/',
+    'de/', 'de/reisen/', 'de/reiseziele/',
+    'de/kontakt/', 'de/ueber-uns/', 'de/unesco-algerien/'];
   const colls: [string, string][] = [
     ['province', 'provinces'], ['destination', 'destinations'],
     ['experience', 'experiences'], ['article', 'blog'], ['question', 'questions'],

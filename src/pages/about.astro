@@ -2,7 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
+import { alternatesFor, routeAlternates } from '../i18n';
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const alternates = alternatesFor(site, routeAlternates('about'));
 const aboutSchema = {
   '@type': 'AboutPage', '@id': `${site}/about/#about`,
   name: 'About Algeria Compass', url: `${site}/about/`,
@@ -17,6 +19,7 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   description="A licensed Algerian tour operator guiding private tours and Sahara expeditions — rated 5.0 on Google. How we design itineraries and the standards we hold."
   image="/assets/img/brand-algeria.jpg"
   keywords={["about Algeria Compass","Algeria tour operator","licensed Algeria travel agency","private Algeria tours"]}
+  alternates={alternates}
   schema={[aboutSchema, breadcrumb]}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'About'}]} />
   <section class="section"><div class="wrap" style="max-width:760px">

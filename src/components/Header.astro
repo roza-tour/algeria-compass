@@ -5,7 +5,7 @@
 // hover, focus or click; on mobile the menu shows every link flat, grouped
 // under small headings, so nothing is hidden behind an extra tap.
 // Language-aware: pass lang="fr" / "it" for the translated navigation.
-import { asLang, LANGS, LANG_META, t as tr, type Lang } from '../i18n';
+import { asLang, LANGS, LANG_META, ROUTES, t as tr, type Lang } from '../i18n';
 interface Props { lang?: string }
 const lang = asLang(Astro.props.lang);
 
@@ -47,7 +47,7 @@ const navFr: Entry[] = [
     { href: '/fr/destinations/', label: 'Destinations' },
     { href: '/provinces/', label: 'Wilayas' },
     { href: '/regions/', label: 'Régions' },
-    { href: '/unesco/', label: 'Sites UNESCO' },
+    { href: '/fr/unesco-algerie/', label: 'Sites UNESCO' },
   ]},
   { label: 'Guides', items: [
     { href: '/fr/guide-voyage-algerie/', label: 'Guide complet' },
@@ -55,7 +55,7 @@ const navFr: Entry[] = [
     { href: '/fr/sahara-algerie/', label: 'Sahara' },
     { href: '/fr/quand-partir-algerie/', label: 'Quand partir' },
   ]},
-  { href: '/contact/', label: 'Contact' },
+  { href: '/fr/contact/', label: 'Contact' },
 ];
 
 const navIt: Entry[] = [
@@ -69,7 +69,7 @@ const navIt: Entry[] = [
     { href: '/it/destinazioni/', label: 'Destinazioni' },
     { href: '/provinces/', label: 'Province' },
     { href: '/regions/', label: 'Regioni' },
-    { href: '/unesco/', label: 'Siti UNESCO' },
+    { href: '/it/unesco-algeria/', label: 'Siti UNESCO' },
   ]},
   { label: 'Guide', items: [
     { href: '/it/guida-viaggio-algeria/', label: 'Guida completa' },
@@ -77,7 +77,7 @@ const navIt: Entry[] = [
     { href: '/it/sahara-algeria/', label: 'Sahara' },
     { href: '/it/quando-andare-algeria/', label: 'Quando andare' },
   ]},
-  { href: '/contact/', label: 'Contatti' },
+  { href: '/it/contatto/', label: 'Contatti' },
 ];
 
 const navEs: Entry[] = [
@@ -91,7 +91,7 @@ const navEs: Entry[] = [
     { href: '/es/destinos/', label: 'Destinos' },
     { href: '/provinces/', label: 'Provincias' },
     { href: '/regions/', label: 'Regiones' },
-    { href: '/unesco/', label: 'Sitios UNESCO' },
+    { href: '/es/unesco-argelia/', label: 'Sitios UNESCO' },
   ]},
   { label: 'Guías', items: [
     { href: '/es/guia-viaje-argelia/', label: 'Guía completa' },
@@ -99,7 +99,7 @@ const navEs: Entry[] = [
     { href: '/es/sahara-argelia/', label: 'Sáhara' },
     { href: '/es/cuando-viajar-argelia/', label: 'Cuándo viajar' },
   ]},
-  { href: '/contact/', label: 'Contacto' },
+  { href: '/es/contacto/', label: 'Contacto' },
 ];
 
 const navDe: Entry[] = [
@@ -113,7 +113,7 @@ const navDe: Entry[] = [
     { href: '/de/reiseziele/', label: 'Reiseziele' },
     { href: '/provinces/', label: 'Provinzen' },
     { href: '/regions/', label: 'Regionen' },
-    { href: '/unesco/', label: 'UNESCO-Stätten' },
+    { href: '/de/unesco-algerien/', label: 'UNESCO-Stätten' },
   ]},
   { label: 'Ratgeber', items: [
     { href: '/de/algerien-reisefuehrer/', label: 'Kompletter Reiseführer' },
@@ -121,7 +121,7 @@ const navDe: Entry[] = [
     { href: '/de/sahara-algerien/', label: 'Sahara' },
     { href: '/de/beste-reisezeit-algerien/', label: 'Beste Reisezeit' },
   ]},
-  { href: '/contact/', label: 'Kontakt' },
+  { href: '/de/kontakt/', label: 'Kontakt' },
 ];
 
 const NAVS: Record<Lang, Entry[]> = { en: navEn, fr: navFr, it: navIt, es: navEs, de: navDe };
@@ -172,7 +172,7 @@ const groupActive = (e: Entry) => !!e.items?.some(i => isActive(i.href));
 
     <div class="nav-cta">
       <a href="https://wa.me/213784193176" target="_blank" rel="noopener" class="btn-wa" aria-label="WhatsApp">WhatsApp</a>
-      <a href="/contact/" class="btn-book">{ctaLabel}</a>
+      <a href={ROUTES[lang].contact} class="btn-book">{ctaLabel}</a>
     </div>
   </div>
 </nav>

@@ -1,0 +1,56 @@
+---
+// The About page for the four translated languages. English keeps its own
+// hand-written page (it links out to the editorial policies in detail); these
+// summarise the same standards and say plainly that the policies are English.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaSection from '../CtaSection.astro';
+import { asLang, ROUTES, LANG_META, alternatesFor, routeAlternates } from '../../i18n';
+import { ABOUT_PAGE } from '../../data/pages-i18n';
+
+export interface Props { lang: 'fr' | 'it' | 'es' | 'de'; }
+const lang = asLang(Astro.props.lang) as 'fr' | 'it' | 'es' | 'de';
+const c = ABOUT_PAGE[lang];
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = site + ROUTES[lang].about;
+const alternates = alternatesFor(site, routeAlternates('about'));
+
+const aboutSchema = {
+  '@type': 'AboutPage', '@id': `${url}#about`,
+  name: c.seoTitle, description: c.seoDescription, url, inLanguage: lang,
+  about: { '@id': `${site}/#organization` },
+  isPartOf: { '@id': `${site}/#website` },
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: c.crumbHome, item: site + LANG_META[lang].home },
+    { '@type': 'ListItem', position: 2, name: c.crumbLabel, item: url },
+  ],
+};
+---
+<BaseLayout title={c.seoTitle} description={c.seoDescription} lang={lang} alternates={alternates}
+  image="/assets/img/brand-algeria.jpg" schema={[aboutSchema, breadcrumb]}>
+
+  <Breadcrumbs items={[{ name: c.crumbHome, href: LANG_META[lang].home }, { name: c.crumbLabel }]} />
+
+  <section class="section"><div class="wrap" style="max-width:760px">
+    <div class="eyebrow">{c.eyebrow}</div>
+    <h1>{c.h1}</h1>
+    <div class="prose" style="margin-top:1rem">
+      {c.lead.map(p => <p>{p}</p>)}
+      {c.sections.map(s => (
+        <>
+          <h2>{s.h}</h2>
+          <p>{s.p}</p>
+        </>
+      ))}
+      <p style="color:var(--text-l);font-size:.9rem">
+        {c.closing} <a href={ROUTES[lang].contact}>{c.closingCta}</a>
+      </p>
+    </div>
+  </div></section>
+
+  <CtaSection lang={lang} />
+</BaseLayout>

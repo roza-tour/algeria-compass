@@ -61,6 +61,10 @@ export const UI: Record<Lang, Record<string, string>> = {
     cookieDecline: 'Decline', cookieAccept: 'Accept analytics',
     seasonLabel: 'Season note', dismiss: 'Dismiss',
     readIn: 'Read in English', languageAria: 'Change language',
+    quickAnswer: 'Quick answer',
+    ctaEyebrow: 'Travel planning', ctaHeading: 'Planning a trip to Algeria?',
+    ctaText: 'Algeria Compass is a licensed Algerian tour operator. Tell us your dates and interests and we will craft your private, guided tour across Algeria.',
+    ctaBtn: 'Plan a journey',
   },
   fr: {
     skip: 'Aller au contenu',
@@ -73,6 +77,10 @@ export const UI: Record<Lang, Record<string, string>> = {
     cookieDecline: 'Refuser', cookieAccept: 'Accepter',
     seasonLabel: 'Info saison', dismiss: 'Fermer',
     readIn: 'Lire en français', languageAria: 'Changer de langue',
+    quickAnswer: 'Réponse rapide',
+    ctaEyebrow: 'Organiser votre voyage', ctaHeading: 'Un voyage en Algérie en préparation ?',
+    ctaText: "Algeria Compass est un opérateur touristique algérien agréé. Dites-nous vos dates et vos centres d'intérêt, et nous concevrons votre circuit privé et guidé à travers l'Algérie.",
+    ctaBtn: 'Planifier un voyage',
   },
   it: {
     skip: 'Vai al contenuto',
@@ -85,6 +93,10 @@ export const UI: Record<Lang, Record<string, string>> = {
     cookieDecline: 'Rifiuta', cookieAccept: 'Accetta',
     seasonLabel: 'Nota stagionale', dismiss: 'Chiudi',
     readIn: 'Leggi in italiano', languageAria: 'Cambia lingua',
+    quickAnswer: 'Risposta rapida',
+    ctaEyebrow: 'Organizzare il viaggio', ctaHeading: 'State pensando a un viaggio in Algeria?',
+    ctaText: 'Algeria Compass è un tour operator algerino autorizzato. Diteci le vostre date e i vostri interessi e costruiremo il vostro viaggio privato e guidato in Algeria.',
+    ctaBtn: 'Progetta il viaggio',
   },
   es: {
     skip: 'Ir al contenido',
@@ -97,6 +109,10 @@ export const UI: Record<Lang, Record<string, string>> = {
     cookieDecline: 'Rechazar', cookieAccept: 'Aceptar',
     seasonLabel: 'Nota de temporada', dismiss: 'Cerrar',
     readIn: 'Leer en español', languageAria: 'Cambiar de idioma',
+    quickAnswer: 'Respuesta rápida',
+    ctaEyebrow: 'Organizar su viaje', ctaHeading: '¿Está planeando un viaje a Argelia?',
+    ctaText: 'Algeria Compass es un operador turístico argelino autorizado. Díganos sus fechas y sus intereses y diseñaremos su circuito privado y guiado por Argelia.',
+    ctaBtn: 'Planificar el viaje',
   },
   de: {
     skip: 'Zum Inhalt springen',
@@ -109,6 +125,10 @@ export const UI: Record<Lang, Record<string, string>> = {
     cookieDecline: 'Ablehnen', cookieAccept: 'Akzeptieren',
     seasonLabel: 'Saisonhinweis', dismiss: 'Schließen',
     readIn: 'Auf Deutsch lesen', languageAria: 'Sprache wechseln',
+    quickAnswer: 'Kurze Antwort',
+    ctaEyebrow: 'Reiseplanung', ctaHeading: 'Planen Sie eine Reise nach Algerien?',
+    ctaText: 'Algeria Compass ist ein lizenzierter algerischer Reiseveranstalter. Nennen Sie uns Ihre Reisedaten und Interessen, und wir gestalten Ihre private, geführte Rundreise durch Algerien.',
+    ctaBtn: 'Reise planen',
   },
 };
 
