@@ -377,6 +377,134 @@ export const GUIDES_DE: GuideDe[] = [
     },
     "seoTitle": "Algerische Sahara: Ratgeber 2026 (Djanet, Tassili)",
     "seoDescription": "Ratgeber zur algerischen Sahara: Djanet und das Tassili n'Ajjer, das Hoggar, Timimoun und der Tadrart. Reisezeit, Genehmigungen, 4×4 und Organisation."
+  },
+  {
+    "slug": "visum-bei-ankunft-algerien",
+    "en": "/algeria-visa-requirements/",
+    "fr": "/fr/visa-arrivee-algerie/",
+    "eyebrow": "Visum und Einreise",
+    "h1": "Brauchen Sie ein Visum für Algerien?",
+    "published": "2026-07-27",
+    "lead": "Es gibt zwei Wege nach Algerien, und einer davon lässt das Konsulat ganz aus. Die meisten Reisenden besorgen vor der Abreise ein Touristenvisum; wer mit einer organisierten Reise über den tiefen Süden einreist — Djanet oder Tamanrasset — kann dagegen bei Ankunft abgefertigt werden, und dieser Weg steht Reisenden jeder Nationalität offen.",
+    "sections": [
+      {
+        "h": "Weg 1: Konsulatsvisum, vor der Abreise",
+        "p": "Gilt für alle, die den Norden, die Küste, die römischen Städte oder das M'Zab-Tal besuchen, und für alle, die individuell reisen. Sie nennen uns Termine und Route, wir stellen Einladungsschreiben und bestätigtes Programm auf Briefpapier aus, Sie reichen die Unterlagen beim für Ihren Wohnsitz zuständigen algerischen Konsulat ein, und das Visum wird vor der Abreise in den Pass geklebt. Rechnen Sie mit zwei Wochen bis über einem Monat, und kaufen Sie keine nicht erstattbaren Flüge, bevor das Visum physisch im Pass ist."
+      },
+      {
+        "h": "Weg 2: Visum bei Ankunft, über die südlichen Zugänge",
+        "p": "Gilt für Reisende auf einer organisierten Sahara-Route, die in Djanet oder Tamanrasset landen, und steht jeder Nationalität offen. Sie buchen bei uns ein Südprogramm, wir hinterlegen Passdaten und Wüstengenehmigungen im Voraus, Sie fliegen von Algier in den Süden, und die Einreise wird bei Ankunft abgewickelt. Kein Konsulatstermin nötig. Wir bestätigen Ihnen schriftlich, dass Ihr Fall unter diesen Weg fällt, bevor Sie Flüge buchen."
+      },
+      {
+        "h": "Welcher Weg für Sie gilt",
+        "p": "Es hängt davon ab, wohin Sie reisen, nicht von Ihrem Pass. Umfasst die Reise Algier, die Mittelmeerküste, die römischen Städte des Ostens oder das M'Zab-Tal, brauchen Sie das Konsulatsvisum. Ist die Reise eine Sahara-Expedition über den Süden — Tassili n'Ajjer, Tadrart, Hoggar — steht Ihnen der Weg über das Visum bei Ankunft offen, welchen Pass Sie auch halten. Beide laufen über uns als lizenzierten Veranstalter."
+      },
+      {
+        "h": "Und die Visumbefreiung?",
+        "p": "Eine kleine Zahl von Nationalitäten reist ohne Visum nach Algerien ein. Die Liste ist kurz, sie ändert sich, und die Folgen eines Fehlers trägt der Reisende am Gate — deshalb veröffentlichen wir keine. Das nächstgelegene algerische Konsulat ist die Instanz für Ihren Pass, und ein Anruf klärt die Frage."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Brauche ich ein Visum für Algerien?",
+        "a": "Mit ziemlicher Sicherheit ja, wenn Sie individuell oder in den Norden reisen. Das Touristenvisum wird vor der Abreise beim für Ihren Wohnsitz zuständigen Konsulat beantragt, mit Einladungsschreiben und bestätigten Buchungen."
+      },
+      {
+        "q": "Kann man ohne Konsulat einreisen?",
+        "a": "Ja, auf genau einem Weg: eine organisierte Reise über die südlichen Zugänge Djanet oder Tamanrasset. Ein lizenzierter algerischer Veranstalter hinterlegt Daten und Genehmigungen vorab, und die Einreise erfolgt bei Ankunft."
+      },
+      {
+        "q": "Welche Nationalitäten können das Visum bei Ankunft nutzen?",
+        "a": "Es steht Reisenden jeder Nationalität auf einer geeigneten Südroute offen. Wir bestätigen Ihren konkreten Fall schriftlich, bevor Sie Flüge buchen."
+      },
+      {
+        "q": "Gibt es ein E-Visum für Algerien?",
+        "a": "Nein, ein allgemeines elektronisches Touristenvisum existiert nicht. Seien Sie skeptisch bei kommerziellen Websites, die eines versprechen."
+      },
+      {
+        "q": "Wie lange dauert das Konsulatsvisum?",
+        "a": "Von rund zwei Wochen bis über einen Monat, je nach Konsulat und Saison. Der Sommer und die Zeit vor großen Feiertagen sind am langsamsten."
+      }
+    ],
+    "cta": {
+      "h": "Nennen Sie uns Pass und Termine",
+      "p": "Wir bestätigen Ihnen schriftlich, welcher Weg für Sie gilt, bevor Sie irgendetwas buchen."
+    },
+    "seoTitle": "Visum für Algerien nötig? Die zwei Einreisewege",
+    "seoDescription": "Zwei Wege nach Algerien: Konsulatsvisum vor der Abreise oder Visum bei Ankunft im Süden auf einer organisierten Reise — offen für jede Nationalität."
+  },
+  {
+    "slug": "visum-hilfe-algerien",
+    "en": "/visa-support/",
+    "fr": "/fr/assistance-visa-algerie/",
+    "eyebrow": "Vor der Reise",
+    "h1": "Visum-Hilfe für Algerien",
+    "lead": "Das Visum schreckt mehr Reisende ab als jeder andere Teil der Planung, fast immer aus einem einfachen Grund: Die Konsulate verlangen Unterlagen, die nur ein lizenzierter algerischer Veranstalter ausstellen kann. Genau das sind wir. Wir erteilen das Visum nicht — das tun das Konsulat oder die algerischen Behörden — aber wir stellen die gesamte Akte zusammen, kostenlos bei jeder Buchung, und sagen Ihnen genau, was Sie mitbringen müssen.",
+    "published": "2026-07-27",
+    "sections": [
+      {
+        "h": "Was wir vorbereiten — kostenlos bei jeder Buchung",
+        "list": [
+          "Das offizielle Einladungsschreiben (Touristen-Voucher) auf Briefpapier der Agentur",
+          "Die Bestätigung von Reiseverlauf und Hotels, stimmig zum Einladungsschreiben",
+          "Die genaue Liste der für Ihre Staatsangehörigkeit verlangten Dokumente",
+          "Begleitung Schritt für Schritt bis zur Abgabe der Unterlagen"
+        ]
+      },
+      {
+        "h": "Weg 1 — das Konsulatsvisum",
+        "p": "Das ist der übliche Weg für den Norden, die Küste, die römischen Städte und das M'Zab-Tal — und der einzige für Individualreisende. Der Antrag wird bei dem algerischen Konsulat gestellt, das für Ihren Wohnort zuständig ist, in der Regel persönlich. Nahezu alle Konsulate verlangen das Einladungsschreiben einer lizenzierten algerischen Agentur: genau dieses Dokument stellen wir Ihnen aus. Dass Schreiben und Buchungen zusammenpassen, entscheidet darüber, ob eine Akte durchgeht oder zurückkommt."
+      },
+      {
+        "h": "Weg 2 — die Sahara-Genehmigung",
+        "p": "Für organisierte Reisen, die über den tiefen Süden einreisen — Djanet oder Tamanrasset — erstellen wir vorab ein Visum-Genehmigungsdokument mit QR-Code, der im Portal des algerischen Innenministeriums überprüfbar ist. Das Visum wird dann bei der Ankunft erteilt, ohne Konsulatstermin. Entscheidend ist die Route, nicht der Pass: Dieser Weg steht Reisenden jeder Staatsangehörigkeit offen, sofern das Programm eine organisierte Sahara-Reise ist. Das Dokument kostet 40 €; die Zusammenstellung der Akte bleibt kostenlos, und bei der Ankunft wird an die Behörden eine Visumgebühr fällig, deren Höhe von der Staatsangehörigkeit abhängt."
+      },
+      {
+        "h": "Was in der Regel verlangt wird",
+        "list": [
+          "Ein Reisepass, der bei Einreise noch mindestens sechs Monate gültig ist",
+          "Ein aktuelles Passfoto und das ausgefüllte Antragsformular",
+          "Eine Flugreservierung",
+          "Unser Einladungsschreiben sowie die Reise- und Hotelbestätigung"
+        ]
+      },
+      {
+        "h": "Bearbeitungszeit",
+        "p": "Für das Konsulatsvisum rechnen Sie mit zwei bis vier Wochen, mit deutlichen Unterschieden je nach Konsulat und Jahreszeit: Der Sommer und die Wochen vor den großen Festen sind am langsamsten. Der Sahara-Weg ist schneller, weil er von keinem Termin abhängt. In beiden Fällen empfehlen wir, die Reise mindestens einen Monat vor Abflug zu bestätigen und keine nicht erstattbaren Flüge zu kaufen, solange das Visum nicht vorliegt."
+      },
+      {
+        "h": "Was wir nicht versprechen",
+        "p": "Die algerischen Einreiseregeln unterscheiden sich nach Staatsangehörigkeit und ändern sich mit der Zeit. Wir veröffentlichen keine Listen visumfreier Länder, denn einen Fehler bezahlt die reisende Person am Abfluggate: Ihr algerisches Konsulat ist die maßgebliche Stelle für Ihren eigenen Pass. Wir sind Ihr Partner für die Unterlagen und bestätigen Ihnen schriftlich, welcher Weg für Sie gilt, bevor Sie einen Flug buchen."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Was kostet Ihre Visum-Hilfe?",
+        "a": "Die Vorbereitung der Unterlagen ist bei jeder Buchung kostenlos: Einladungsschreiben, Bestätigungen und Checkliste kosten nichts. Kostenpflichtig ist allein das Sahara-Genehmigungsdokument mit 40 €, dazu die Visumgebühr, die bei der Ankunft an die Behörden gezahlt wird."
+      },
+      {
+        "q": "Wie lange dauert das Konsulatsvisum?",
+        "a": "Im Schnitt zwei bis vier Wochen, je nach Konsulat und Jahreszeit. Bestätigen Sie die Reise mindestens einen Monat vorher und kaufen Sie keine nicht erstattbaren Flüge, bevor das Visum im Pass steht."
+      },
+      {
+        "q": "Kann ich Norden und Wüste verbinden?",
+        "a": "Ja. Über den Sahara-Weg lässt sich eine Reise aus Norden und Süden zusammensetzen, sofern etwa die Hälfte der Reise in einer Sahara-Wilaya stattfindet. Wir gestalten das Programm so, dass es diese Bedingung erfüllt."
+      },
+      {
+        "q": "Ist das Genehmigungsdokument offiziell?",
+        "a": "Ja. Es trägt einen QR-Code, der im Portal des algerischen Innenministeriums überprüft werden kann. Die Ausstellung läuft über die offiziellen Kanäle: Wir führen die Akte, das Visum erteilen die algerischen Behörden."
+      },
+      {
+        "q": "Muss ich eine komplette Rundreise buchen?",
+        "a": "Für den Sahara-Weg ja: Die Genehmigung gehört zur Organisation der Reise und ist keine eigenständige Dienstleistung. Für den Konsulatsweg stellen wir das Einladungsschreiben für jede Reise aus, die wir durchführen — auch für eine reine Nordroute."
+      }
+    ],
+    "cta": {
+      "h": "Nennen Sie uns Pass und Reisedaten",
+      "p": "Wir bestätigen Ihnen schriftlich, welcher Weg für Sie gilt, und senden Ihnen die Dokumenten-Checkliste."
+    },
+    "seoTitle": "Visum-Hilfe für Algerien | Algeria Compass",
+    "seoDescription": "Einladungsschreiben, Bestätigungen und Dokumenten-Checkliste kostenlos bei jeder Buchung — plus die Sahara-Genehmigung für die Einreise im Süden."
   }
 ];
 

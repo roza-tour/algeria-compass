@@ -201,6 +201,134 @@ export const GUIDES_IT: GuideIt[] = [
     seoTitle: 'Sahara algerino: guida 2026 (Djanet, Tassili)',
     seoDescription: "Guida al Sahara algerino: Djanet e il Tassili n'Ajjer, l'Hoggar, Timimoun e il Tadrart. Quando andare, permessi, 4×4 e come si organizza una spedizione.",
   },
+  {
+    "slug": "visto-arrivo-algeria",
+    "en": "/algeria-visa-requirements/",
+    "fr": "/fr/visa-arrivee-algerie/",
+    "eyebrow": "Visto e ingresso",
+    "h1": "Serve il visto per l'Algeria?",
+    "published": "2026-07-27",
+    "lead": "Due strade per entrare in Algeria, e una delle due salta del tutto il consolato. La maggior parte dei viaggiatori ottiene un visto turistico prima della partenza; chi arriva con un viaggio organizzato attraverso il grande sud — Djanet o Tamanrasset — può invece essere sdoganato all'arrivo, e quella via è aperta a viaggiatori di qualsiasi nazionalità.",
+    "sections": [
+      {
+        "h": "Strada 1: visto consolare, prima di partire",
+        "p": "Vale per chiunque visiti il nord, la costa, le città romane o la valle del M'Zab, e per chiunque viaggi in autonomia. Voi ci dite date e itinerario, noi emettiamo la lettera d'invito e il programma confermato su carta intestata, voi presentate il fascicolo al consolato algerino competente per la vostra residenza, e il visto viene apposto sul passaporto prima della partenza. Mettete in conto da due settimane a oltre un mese, e non comprate voli non rimborsabili finché il visto non è fisicamente sul passaporto."
+      },
+      {
+        "h": "Strada 2: visto all'arrivo, dai varchi del sud",
+        "p": "Vale per chi viaggia con un itinerario sahariano organizzato e atterra a Djanet o Tamanrasset, ed è aperta a qualsiasi nazionalità. Voi prenotate un programma del sud con noi, noi depositiamo in anticipo i dati del passaporto e i permessi del deserto, voi volate da Algeri verso sud e l'ingresso viene processato all'arrivo. Non serve appuntamento in consolato. Confermiamo per iscritto che la vostra posizione rientra in questa via prima che prenotiate i voli."
+      },
+      {
+        "h": "Quale delle due vi riguarda",
+        "p": "Dipende da dove andate, non dal vostro passaporto. Se il viaggio comprende Algeri, la costa mediterranea, le città romane dell'est o la valle del M'Zab, serve il visto consolare. Se il viaggio è una spedizione sahariana che entra dal sud — Tassili n'Ajjer, Tadrart, Hoggar — la via del visto all'arrivo è disponibile qualunque sia il vostro passaporto. Entrambe passano da noi come operatore autorizzato."
+      },
+      {
+        "h": "E l'esenzione dal visto?",
+        "p": "Un piccolo numero di nazionalità entra in Algeria senza visto. L'elenco è breve, cambia, e le conseguenze di un errore ricadono sul viaggiatore al gate d'imbarco: per questo non ne pubblichiamo uno. Il consolato algerino più vicino è l'autorità sul vostro passaporto e una telefonata chiude la questione."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Serve il visto per visitare l'Algeria?",
+        "a": "Quasi certamente sì se viaggiate in autonomia o verso il nord. Il visto turistico si ottiene prima della partenza al consolato competente per la vostra residenza, con lettera d'invito e prenotazioni confermate."
+      },
+      {
+        "q": "Si può entrare senza passare dal consolato?",
+        "a": "Sì, per una via sola: un viaggio organizzato che entra dai varchi meridionali di Djanet o Tamanrasset. Un operatore algerino autorizzato deposita in anticipo i dati e i permessi e l'ingresso avviene all'arrivo. Non è qualcosa che un viaggiatore indipendente possa organizzare in aeroporto."
+      },
+      {
+        "q": "Quali nazionalità possono usare il visto all'arrivo?",
+        "a": "È aperto a viaggiatori di qualsiasi nazionalità su un itinerario meridionale idoneo. Confermiamo il vostro caso specifico per iscritto prima che prenotiate i voli."
+      },
+      {
+        "q": "L'Algeria ha un e-visa?",
+        "a": "No, non esiste un visto turistico elettronico generale. Diffidate dei siti commerciali che ne promettono uno: al massimo sono servizi di compilazione moduli."
+      },
+      {
+        "q": "Quanto tempo richiede il visto consolare?",
+        "a": "Da circa due settimane a oltre un mese, secondo il consolato e la stagione. L'estate e i periodi prefestivi sono i più lenti."
+      }
+    ],
+    "cta": {
+      "h": "Diteci passaporto e date",
+      "p": "Vi confermiamo per iscritto quale via vi riguarda, prima che prenotiate qualsiasi cosa."
+    },
+    "seoTitle": "Serve il visto per l'Algeria? Le due vie d'ingresso",
+    "seoDescription": "Due vie per entrare in Algeria: visto consolare prima della partenza, o visto all'arrivo nel sud con un viaggio organizzato — aperto a ogni nazionalità."
+  },
+  {
+    "slug": "assistenza-visto-algeria",
+    "en": "/visa-support/",
+    "fr": "/fr/assistance-visa-algerie/",
+    "eyebrow": "Prima di partire",
+    "h1": "Assistenza per il visto algerino",
+    "lead": "Il visto è la parte della pianificazione che scoraggia più viaggiatori, e quasi sempre per un motivo banale: i consolati chiedono documenti che solo un operatore algerino autorizzato può emettere. Siamo quell'operatore. Non rilasciamo il visto — lo fa il consolato o l'autorità algerina — ma prepariamo l'intero fascicolo, gratis con ogni prenotazione, e vi diciamo esattamente cosa portare.",
+    "published": "2026-07-27",
+    "sections": [
+      {
+        "h": "Cosa prepariamo, gratis con ogni prenotazione",
+        "list": [
+          "La lettera d'invito ufficiale (voucher turistico) su carta intestata dell'agenzia",
+          "La conferma dell'itinerario e degli alberghi, coerente con la lettera",
+          "L'elenco preciso dei documenti richiesti per la vostra nazionalità",
+          "L'assistenza passo per passo fino al deposito della pratica"
+        ]
+      },
+      {
+        "h": "Via 1 — il visto consolare",
+        "p": "È la via ordinaria per il nord, la costa, le città romane e la valle del M'Zab, e l'unica per chi viaggia in autonomia. Si deposita la domanda al consolato algerino competente per la propria residenza, di norma di persona. Quasi tutti i consolati chiedono la lettera d'invito di un'agenzia algerina autorizzata: è esattamente il documento che vi emettiamo noi. La coerenza fra lettera e prenotazioni è ciò che fa passare o respingere un fascicolo."
+      },
+      {
+        "h": "Via 2 — l'autorizzazione sahariana",
+        "p": "Per i viaggi organizzati che entrano dal grande sud, Djanet o Tamanrasset, prepariamo in anticipo un documento di autorizzazione al visto con QR code verificabile sul portale del Ministero dell'Interno algerino. Il visto viene poi apposto all'arrivo, senza appuntamento consolare. Conta l'itinerario, non il passaporto: questa via è aperta ai viaggiatori di ogni nazionalità, purché il programma sia sahariano e organizzato. Il documento costa 40 €; la preparazione del fascicolo resta gratuita, e all'arrivo si paga alle autorità una tassa di bollo che varia secondo la nazionalità."
+      },
+      {
+        "h": "Cosa serve di solito",
+        "list": [
+          "Passaporto valido almeno sei mesi oltre la data d'ingresso",
+          "Foto tessera recente e modulo di domanda compilato",
+          "Prenotazione del volo",
+          "La nostra lettera d'invito e la conferma del circuito e degli alberghi"
+        ]
+      },
+      {
+        "h": "Tempi",
+        "p": "Per il visto consolare mettete in conto da due a quattro settimane, con differenze sensibili fra consolati e stagioni: l'estate e i periodi prefestivi sono i più lenti. La via sahariana è più rapida perché non dipende da un appuntamento. In entrambi i casi consigliamo di confermare il viaggio almeno un mese prima della partenza, e di non acquistare voli non rimborsabili finché il visto non è in mano."
+      },
+      {
+        "h": "Quello che non promettiamo",
+        "p": "Le regole d'ingresso algerine variano per nazionalità e cambiano nel tempo. Non pubblichiamo elenchi di paesi esenti, perché un errore lo paga il viaggiatore al gate d'imbarco: il vostro consolato algerino è l'autorità sul vostro passaporto. Noi siamo il vostro partner documentale, e confermiamo per iscritto quale via vi riguarda prima che prenotiate qualsiasi volo."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Quanto costa la vostra assistenza per il visto?",
+        "a": "La preparazione dei documenti è gratuita con ogni prenotazione: lettera d'invito, conferme e checklist non hanno costo. L'unica voce a pagamento è il documento di autorizzazione sahariana, 40 €, più la tassa di bollo che si paga alle autorità all'arrivo."
+      },
+      {
+        "q": "Quanto tempo richiede il visto consolare?",
+        "a": "Da due a quattro settimane in media, secondo consolato e stagione. Confermate il viaggio almeno un mese prima e non comprate voli non rimborsabili finché il visto non è sul passaporto."
+      },
+      {
+        "q": "Posso unire il nord e il deserto?",
+        "a": "Sì. Con la via sahariana l'itinerario può combinare nord e sud, a condizione che circa metà del viaggio si svolga in una wilaya sahariana. Costruiamo il programma in modo che rientri nei requisiti."
+      },
+      {
+        "q": "Il documento di autorizzazione è ufficiale?",
+        "a": "Sì. Porta un QR code verificabile sul portale del Ministero dell'Interno algerino. L'emissione segue i canali ufficiali: noi curiamo il fascicolo, il visto lo concedono le autorità algerine."
+      },
+      {
+        "q": "Devo per forza prenotare un circuito completo?",
+        "a": "Per la via sahariana sì: l'autorizzazione fa parte dell'organizzazione del viaggio, non è un servizio a sé. Per la via consolare emettiamo la lettera d'invito per qualsiasi itinerario che operiamo, anche interamente nel nord."
+      }
+    ],
+    "cta": {
+      "h": "Diteci nazionalità e date",
+      "p": "Vi confermiamo per iscritto quale via vi riguarda e vi inviamo la checklist dei documenti."
+    },
+    "seoTitle": "Assistenza visto Algeria | Algeria Compass",
+    "seoDescription": "Lettera d'invito, conferme e checklist dei documenti gratis con ogni prenotazione, più l'autorizzazione sahariana per l'ingresso dal sud."
+  }
 ];
 
 export const guideItBySlug = (slug: string) => GUIDES_IT.find(g => g.slug === slug);

@@ -1,0 +1,180 @@
+---
+// Version française du hub « visa & entrée ». Le contenu suit la page anglaise
+// /algeria-visa-requirements/ : deux voies d'entrée, dont celle du visa à
+// l'arrivée par le sud, ouverte à toutes les nationalités.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { alternatesFor } from '../../i18n';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/fr/visa-arrivee-algerie/`;
+const enUrl = `${site}/algeria-visa-requirements/`;
+const alternates = alternatesFor(site, {
+  en: '/algeria-visa-requirements/',
+  fr: '/fr/visa-arrivee-algerie/',
+  it: '/it/visto-arrivo-algeria/',
+  es: '/es/visado-llegada-argelia/',
+  de: '/de/visum-bei-ankunft-algerien/',
+});
+
+const title = "Faut-il un visa pour l'Algérie ? Les deux voies";
+const description = "Deux voies d'entrée en Algérie : le visa consulaire avant le départ, ou le visa à l'arrivée par le sud sur circuit organisé — toutes nationalités.";
+
+const faqs = [
+  { q: "Faut-il un visa pour visiter l'Algérie ?", a: "Presque certainement oui si vous voyagez en autonomie ou vers le nord. Le visa touristique s'obtient avant le départ au consulat dont dépend votre résidence, avec une lettre d'invitation et des réservations confirmées." },
+  { q: "Peut-on entrer sans passer par le consulat ?", a: "Oui, par une seule voie : un circuit organisé entrant par les portes du sud, Djanet ou Tamanrasset. Un opérateur algérien agréé dépose à l'avance vos données et les permis, et l'entrée est traitée à l'arrivée. Ce n'est pas quelque chose qu'un voyageur indépendant peut organiser à l'aéroport." },
+  { q: "Quelles nationalités peuvent utiliser le visa à l'arrivée ?", a: "Cette voie est ouverte aux voyageurs de toutes nationalités sur un itinéraire du sud éligible. Nous confirmons votre cas précis par écrit avant que vous ne réserviez vos vols." },
+  { q: "L'Algérie a-t-elle un e-visa ?", a: "Non. Il n'existe pas de visa touristique électronique général pour l'Algérie. Méfiez-vous des sites commerciaux qui en promettent un : ce sont au mieux des services de remplissage de formulaires." },
+  { q: "Combien de temps prend le visa consulaire ?", a: "D'environ deux semaines à plus d'un mois, selon le consulat et la saison. L'été et les périodes précédant les grandes fêtes sont les plus lents. N'achetez jamais de vols non remboursables avant d'avoir le visa dans votre passeport." },
+];
+
+const routes = [
+  {
+    tag: 'Voie 1',
+    h: 'Visa consulaire, obtenu avant le départ',
+    who: "Pour qui visite le nord, la côte, les cités romaines ou la vallée du M'Zab — et pour qui voyage en autonomie.",
+    steps: [
+      'Vous nous indiquez vos dates et l\'itinéraire souhaité',
+      'Nous émettons la lettre d\'invitation et le programme confirmé sur papier à en-tête',
+      'Vous déposez le dossier au consulat algérien dont dépend votre résidence',
+      'Le visa est apposé sur votre passeport avant le départ',
+    ],
+    time: "Comptez de 2 semaines à plus d'un mois",
+    note: "Ne réservez vos vols qu'une fois le visa physiquement dans le passeport.",
+  },
+  {
+    tag: 'Voie 2',
+    h: "Visa à l'arrivée, par les portes du sud",
+    who: "Pour qui voyage sur un itinéraire saharien organisé et atterrit à Djanet ou Tamanrasset — ouvert à toutes les nationalités.",
+    steps: [
+      'Vous réservez avec nous un programme éligible dans le sud',
+      'Nous déposons à l\'avance vos données de passeport et les permis du désert',
+      'Vous prenez le vol Alger → Djanet ou Tamanrasset',
+      "L'entrée est traitée à l'arrivée à l'aéroport du sud",
+    ],
+    time: 'Aucun rendez-vous consulaire',
+    note: 'Nous confirmons votre éligibilité par écrit avant toute réservation de vol.',
+  },
+];
+
+const faqSchema = {
+  '@type': 'FAQPage', '@id': `${url}#faq`, inLanguage: 'fr',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const page = {
+  '@type': 'WebPage', '@id': `${url}#webpage`,
+  name: title, description, url, inLanguage: 'fr',
+  isPartOf: { '@id': `${site}/#website` },
+  about: { '@id': `${site}/#algeria` },
+  provider: { '@id': `${site}/#organization` },
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${site}/fr/` },
+    { '@type': 'ListItem', position: 2, name: 'Visa & entrée', item: url },
+  ],
+};
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates}
+  image="/assets/img/sahara-guide-traveler.jpg" schema={[page, faqSchema, breadcrumb]} sticky={true}
+  keywords={["visa Algérie","faut-il un visa pour l'Algérie","visa à l'arrivée Algérie","visa touristique Algérie"]}>
+
+  <section class="hero hero-slim">
+    <img src="/assets/img/sahara-guide-traveler.jpg" alt="Un voyageur accompagné d'un guide local dans le Sahara algérien" width="1600" height="900" fetchpriority="high" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">Visa &amp; entrée</div>
+      <h1>Faut-il un visa pour l'Algérie ?</h1>
+      <p>Deux voies d'entrée — et l'une des deux évite complètement le consulat.</p>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Visa & entrée'}]} />
+
+  <section class="section"><div class="wrap" style="max-width:860px">
+    <div class="qbox">
+      <strong>En bref.</strong> La plupart des visiteurs ont besoin d'un visa touristique algérien
+      obtenu avant le départ au consulat, avec lettre d'invitation et réservations confirmées. Il existe
+      une alternative importante : sur un circuit organisé entrant par le grand sud — Djanet ou
+      Tamanrasset — un opérateur algérien agréé peut faire traiter l'entrée à l'arrivée, et cette voie
+      est <strong>ouverte aux voyageurs de toutes nationalités</strong>. Un petit nombre de nationalités
+      est dispensé de visa ; votre consulat algérien est l'autorité sur votre propre passeport.
+      <span style="display:block;margin-top:.6rem"><a href={enUrl} hreflang="en">Read in English</a></span>
+    </div>
+
+    <h2>Les deux voies d'entrée</h2>
+    <div class="vroutes">
+      {routes.map(r => (
+        <div class="vroute">
+          <span class="vtag">{r.tag}</span>
+          <h3>{r.h}</h3>
+          <p class="vwho">{r.who}</p>
+          <ol class="vsteps">{r.steps.map(s => <li>{s}</li>)}</ol>
+          <p class="vtime"><strong>{r.time}</strong></p>
+          <p class="vnote">{r.note}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>Laquelle vous concerne</h2>
+    <p>
+      Cela dépend de votre destination, pas de votre passeport. Si votre voyage comprend Alger, la côte
+      méditerranéenne, les cités romaines de l'est ou la <a href="/fr/destinations/vallee-du-mzab/">vallée
+      du M'Zab</a>, il vous faut le visa consulaire. Si votre voyage est une expédition saharienne entrant
+      par le sud — le <a href="/fr/destinations/tassili-najjer/">Tassili n'Ajjer</a>, le Tadrart, le
+      Hoggar — la voie du visa à l'arrivée vous est ouverte quel que soit votre passeport.
+    </p>
+    <p>
+      Les deux passent par nous en tant qu'opérateur agréé : sur la voie consulaire nous produisons les
+      documents que le consulat exige, sur la voie du sud nous déposons les données et les permis qui
+      rendent l'entrée à l'arrivée possible. Voyez le détail des pièces que nous préparons sur
+      <a href="/fr/assistance-visa-algerie/">notre page d'assistance visa</a>, ainsi que notre
+      <a href="/fr/visa-algerie/">guide du visa algérien</a> et nos
+      <a href="/fr/circuits/">circuits privés</a>.
+    </p>
+
+    <h2>Et l'exemption de visa ?</h2>
+    <p>
+      Un petit nombre de nationalités entre en Algérie sans visa. La liste est courte, elle change, et les
+      conséquences d'une erreur retombent sur le voyageur à la porte d'embarquement — nous n'en publions
+      donc pas. <strong>Le consulat algérien le plus proche fait autorité sur votre passeport</strong>, et
+      un simple appel règle la question.
+    </p>
+
+    <h2>Questions fréquentes</h2>
+    {faqs.map(f => (
+      <div style="margin:.9rem 0">
+        <h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3>
+        <p style="color:var(--text-m);line-height:1.7">{f.a}</p>
+      </div>
+    ))}
+
+    <div class="card vcta">
+      <h2>Dites-nous votre passeport et vos dates</h2>
+      <p>Nous confirmons par écrit la voie qui vous concerne, avant toute réservation.</p>
+      <p style="margin-top:.9rem">
+        <a class="btn btn-gold" href="/contact/">Nous écrire</a>
+        <a class="btn" href="/fr/circuits/">Voir les circuits</a>
+      </p>
+    </div>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .vroutes{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem;margin:1.2rem 0 2rem}
+  .vroute{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.3rem}
+  .vroute:nth-child(2){border-color:var(--gold);box-shadow:0 2px 18px rgba(193,147,51,.14)}
+  .vtag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,var(--brand-green));margin-bottom:.3rem}
+  .vroute h3{font-size:1.05rem;margin:.1rem 0 .5rem;line-height:1.35}
+  .vwho{font-size:.9rem;color:var(--text-m);margin:0 0 .8rem}
+  .vsteps{margin:0 0 .9rem;padding-left:1.1rem;font-size:.9rem;line-height:1.6}
+  .vsteps li{margin:.3rem 0}
+  .vtime{margin:0;font-size:.9rem}
+  .vnote{margin:.35rem 0 0;font-size:.84rem;color:var(--text-l)}
+  .vcta{padding:1.4rem;margin-top:2.2rem;text-align:center}
+  .vcta h2{margin:.2rem 0}
+  @media(max-width:760px){.vroutes{grid-template-columns:1fr}}
+</style>

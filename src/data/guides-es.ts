@@ -377,6 +377,134 @@ export const GUIDES_ES: GuideEs[] = [
     },
     "seoTitle": "Sáhara argelino: guía 2026 (Djanet, Tassili)",
     "seoDescription": "Guía del Sáhara argelino: Djanet y el Tassili n'Ajjer, el Hoggar, Timimoun y el Tadrart. Cuándo ir, permisos, 4×4 y cómo se organiza una expedición."
+  },
+  {
+    "slug": "visado-llegada-argelia",
+    "en": "/algeria-visa-requirements/",
+    "fr": "/fr/visa-arrivee-algerie/",
+    "eyebrow": "Visado y entrada",
+    "h1": "¿Necesita visado para Argelia?",
+    "published": "2026-07-27",
+    "lead": "Dos formas de entrar en Argelia, y una de ellas se salta el consulado por completo. La mayoría de los viajeros obtiene un visado turístico antes de salir; quien llega con un viaje organizado por el gran sur — Djanet o Tamanrasset — puede tramitar la entrada a la llegada, y esa vía está abierta a viajeros de cualquier nacionalidad.",
+    "sections": [
+      {
+        "h": "Vía 1: visado consular, antes de viajar",
+        "p": "Sirve para quien visite el norte, la costa, las ciudades romanas o el valle del M'Zab, y para quien viaje por libre. Usted nos dice fechas e itinerario, nosotros emitimos la carta de invitación y el programa confirmado en papel con membrete, usted presenta el expediente en el consulado argelino que le corresponde por residencia, y el visado se estampa en el pasaporte antes de salir. Cuente entre dos semanas y más de un mes, y no compre vuelos no reembolsables hasta tener el visado físicamente en el pasaporte."
+      },
+      {
+        "h": "Vía 2: visado a la llegada, por los accesos del sur",
+        "p": "Sirve para quien viaja con un itinerario sahariano organizado y aterriza en Djanet o Tamanrasset, y está abierta a cualquier nacionalidad. Usted reserva con nosotros un programa del sur, nosotros depositamos por adelantado los datos del pasaporte y los permisos del desierto, usted vuela de Argel al sur y la entrada se tramita a la llegada. Sin cita consular. Le confirmamos por escrito que su caso entra en esta vía antes de que reserve vuelos."
+      },
+      {
+        "h": "Cuál le corresponde",
+        "p": "Depende de adónde va, no de su pasaporte. Si el viaje incluye Argel, la costa mediterránea, las ciudades romanas del este o el valle del M'Zab, necesita el visado consular. Si el viaje es una expedición sahariana que entra por el sur — Tassili n'Ajjer, Tadrart, Hoggar — la vía del visado a la llegada está disponible sea cual sea su pasaporte. Las dos pasan por nosotros como operador autorizado."
+      },
+      {
+        "h": "¿Y la exención de visado?",
+        "p": "Un número reducido de nacionalidades entra en Argelia sin visado. La lista es corta, cambia, y las consecuencias de un error las paga el viajero en la puerta de embarque: por eso no publicamos ninguna. El consulado argelino más cercano es la autoridad sobre su pasaporte y una llamada lo resuelve."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Necesito visado para visitar Argelia?",
+        "a": "Casi con total seguridad sí si viaja por libre o al norte. El visado turístico se obtiene antes de salir en el consulado que le corresponde por residencia, con carta de invitación y reservas confirmadas."
+      },
+      {
+        "q": "¿Se puede entrar sin pasar por el consulado?",
+        "a": "Sí, por una sola vía: un viaje organizado que entra por los accesos meridionales de Djanet o Tamanrasset. Un operador argelino autorizado deposita por adelantado los datos y los permisos y la entrada se tramita a la llegada."
+      },
+      {
+        "q": "¿Qué nacionalidades pueden usar el visado a la llegada?",
+        "a": "Está abierto a viajeros de cualquier nacionalidad en un itinerario del sur que cumpla los requisitos. Confirmamos su caso concreto por escrito antes de que reserve vuelos."
+      },
+      {
+        "q": "¿Argelia tiene e-visa?",
+        "a": "No, no existe un visado turístico electrónico general. Desconfíe de los sitios comerciales que lo prometen: como mucho son servicios de cumplimentación de formularios."
+      },
+      {
+        "q": "¿Cuánto tarda el visado consular?",
+        "a": "Entre unas dos semanas y más de un mes, según el consulado y la temporada. El verano y los periodos previos a las grandes fiestas son los más lentos."
+      }
+    ],
+    "cta": {
+      "h": "Díganos pasaporte y fechas",
+      "p": "Le confirmamos por escrito qué vía le corresponde, antes de que reserve nada."
+    },
+    "seoTitle": "¿Necesita visado para Argelia? Las dos vías de entrada",
+    "seoDescription": "Dos vías para entrar en Argelia: visado consular antes de viajar, o visado a la llegada en el sur con un viaje organizado — abierto a cualquier nacionalidad."
+  },
+  {
+    "slug": "asistencia-visado-argelia",
+    "en": "/visa-support/",
+    "fr": "/fr/assistance-visa-algerie/",
+    "eyebrow": "Antes de viajar",
+    "h1": "Asistencia para el visado de Argelia",
+    "lead": "El visado es la parte de la planificación que echa atrás a más viajeros, casi siempre por un motivo sencillo: los consulados piden documentos que sólo puede emitir un operador argelino autorizado. Ese operador somos nosotros. No expedimos el visado — lo hace el consulado o la autoridad argelina — pero preparamos el expediente completo, gratis con cada reserva, y le decimos exactamente qué llevar.",
+    "published": "2026-07-27",
+    "sections": [
+      {
+        "h": "Qué preparamos, gratis con cada reserva",
+        "list": [
+          "La carta de invitación oficial (voucher turístico) en papel con membrete de la agencia",
+          "La confirmación del itinerario y de los hoteles, coherente con la carta",
+          "La lista exacta de documentos exigidos para su nacionalidad",
+          "Acompañamiento paso a paso hasta presentar el expediente"
+        ]
+      },
+      {
+        "h": "Vía 1 — el visado consular",
+        "p": "Es la vía ordinaria para el norte, la costa, las ciudades romanas y el valle del M'Zab, y la única para quien viaja por libre. La solicitud se presenta en el consulado argelino que cubre su lugar de residencia, normalmente en persona. Casi todos los consulados exigen la carta de invitación de una agencia argelina autorizada: es justamente el documento que le emitimos. Que la carta y las reservas coincidan es lo que hace que un expediente pase o sea devuelto."
+      },
+      {
+        "h": "Vía 2 — la autorización sahariana",
+        "p": "Para los viajes organizados que entran por el gran sur, Djanet o Tamanrasset, preparamos por adelantado un documento de autorización de visado con código QR verificable en el portal del Ministerio del Interior argelino. El visado se estampa a la llegada, sin cita consular. Lo que cuenta es el itinerario, no el pasaporte: esta vía está abierta a viajeros de cualquier nacionalidad, siempre que el programa sea sahariano y organizado. El documento cuesta 40 €; la preparación del expediente sigue siendo gratuita, y a la llegada se paga a las autoridades una tasa de sello que varía según la nacionalidad."
+      },
+      {
+        "h": "Lo que suele hacer falta",
+        "list": [
+          "Pasaporte con validez de al menos seis meses desde la fecha de entrada",
+          "Fotografía reciente tamaño carné y formulario cumplimentado",
+          "Reserva de vuelo",
+          "Nuestra carta de invitación y la confirmación del circuito y los hoteles"
+        ]
+      },
+      {
+        "h": "Plazos",
+        "p": "Para el visado consular calcule de dos a cuatro semanas, con diferencias notables entre consulados y temporadas: el verano y las vísperas de las grandes fiestas son lo más lento. La vía sahariana es más rápida porque no depende de una cita. En ambos casos recomendamos confirmar el viaje al menos un mes antes de la salida y no comprar vuelos no reembolsables hasta tener el visado."
+      },
+      {
+        "h": "Lo que no prometemos",
+        "p": "Las normas de entrada argelinas varían según la nacionalidad y cambian con el tiempo. No publicamos listas de países exentos, porque un error lo paga el viajero en la puerta de embarque: su consulado argelino es la autoridad sobre su propio pasaporte. Nosotros somos su socio documental, y confirmamos por escrito qué vía le corresponde antes de que reserve ningún vuelo."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta su asistencia con el visado?",
+        "a": "La preparación de los documentos es gratuita con cada reserva: carta de invitación, confirmaciones y lista de documentos no tienen coste. Lo único de pago es el documento de autorización sahariana, 40 €, más la tasa de sello que se abona a las autoridades a la llegada."
+      },
+      {
+        "q": "¿Cuánto tarda el visado consular?",
+        "a": "De dos a cuatro semanas de media, según el consulado y la temporada. Confirme el viaje al menos un mes antes y no compre vuelos no reembolsables hasta tener el visado en el pasaporte."
+      },
+      {
+        "q": "¿Puedo combinar el norte y el desierto?",
+        "a": "Sí. Con la vía sahariana el itinerario puede combinar norte y sur, siempre que alrededor de la mitad del viaje transcurra en una wilaya sahariana. Diseñamos el programa para que cumpla el requisito."
+      },
+      {
+        "q": "¿El documento de autorización es oficial?",
+        "a": "Sí. Lleva un código QR verificable en el portal del Ministerio del Interior argelino. La emisión sigue los canales oficiales: nosotros llevamos el expediente, el visado lo conceden las autoridades argelinas."
+      },
+      {
+        "q": "¿Tengo que reservar un circuito completo?",
+        "a": "Para la vía sahariana sí: la autorización forma parte de la organización del viaje, no es un servicio suelto. Para la vía consular emitimos la carta de invitación para cualquier itinerario que operemos, incluso enteramente en el norte."
+      }
+    ],
+    "cta": {
+      "h": "Díganos su nacionalidad y sus fechas",
+      "p": "Le confirmamos por escrito qué vía le corresponde y le enviamos la lista de documentos."
+    },
+    "seoTitle": "Asistencia para el visado de Argelia | Algeria Compass",
+    "seoDescription": "Carta de invitación, confirmaciones y lista de documentos gratis con cada reserva, más la autorización sahariana para entrar por el sur."
   }
 ];
 

@@ -41,9 +41,12 @@ export default defineConfig({
   build: {
     format: 'directory',
     assets: 'assets',
-    // Inline ALL component CSS into <head> — removes the render-blocking
-    // external stylesheet requests Lighthouse flagged (about.css / index.css).
-    inlineStylesheets: 'always'
+    // 'auto': tiny stylesheets stay inline, the big shared one is emitted as a
+    // file. With 275 pages, inlining everything meant ~85kb of identical CSS in
+    // every HTML document — never cached, since HTML is served with a 1-hour
+    // max-age while hashed assets are immutable for a year. One cached request
+    // beats re-sending the same bytes on every page of a browsing session.
+    inlineStylesheets: 'auto'
   },
   output: 'static',
   compressHTML: true

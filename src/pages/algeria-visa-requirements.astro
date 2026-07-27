@@ -1,0 +1,194 @@
+---
+// The entry-requirements hub. This is the highest commercial-intent page on the
+// site: almost every enquiry starts with "can I even get in?".
+//
+// It is built around the two routes that actually exist, and it leads with the
+// one that is this operator's differentiator — visa on arrival at the southern
+// gateways for organised Sahara itineraries, which a licensed Algerian agency
+// files in advance. That route is open to travellers of any nationality
+// (owner-confirmed), which is why this page can address a worldwide audience
+// rather than the short list of nationalities Algeria exempts outright.
+//
+// Deliberately NOT here: a per-country visa table. Entry rules change without
+// notice and a wrong row could get someone denied boarding, so the page sends
+// people to their consulate for their own passport and keeps the promises to
+// what we control.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuickAnswer from '../components/QuickAnswer.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { alternatesFor } from '../i18n';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/algeria-visa-requirements/`;
+const alternates = alternatesFor(site, {
+  en: '/algeria-visa-requirements/',
+  fr: '/fr/visa-arrivee-algerie/',
+  it: '/it/visto-arrivo-algeria/',
+  es: '/es/visado-llegada-argelia/',
+  de: '/de/visum-bei-ankunft-algerien/',
+});
+
+const title = 'Algeria Visa Requirements: Do You Need One?';
+const description = "Two ways into Algeria: a consulate visa arranged in advance, or visa on arrival at a southern airport on an organised Sahara tour — open to any nationality.";
+
+const quick = "Most visitors need an Algerian tourist visa obtained before travel at a consulate, supported by an invitation letter and confirmed bookings. There is one important alternative: on an organised tour entering through the far south — Djanet or Tamanrasset — a licensed Algerian operator can arrange entry on arrival, and that route is open to travellers of any nationality. A small number of nationalities are exempt from a visa altogether; your nearest Algerian consulate is the authority on your own passport.";
+
+const faqs = [
+  { q: 'Do I need a visa to visit Algeria?', a: 'Almost certainly yes if you are travelling independently or to the north. The Algerian tourist visa is obtained before departure at the consulate covering your place of residence, with an invitation letter and confirmed bookings. A small number of nationalities are exempt; confirm your own case with the consulate.' },
+  { q: 'Can I enter Algeria without going to a consulate?', a: 'Yes, on one route: an organised tour entering through the southern gateways of Djanet or Tamanrasset. A licensed Algerian operator files your details and the permits in advance and entry is processed on arrival. It is not something an independent traveller can arrange at the airport.' },
+  { q: 'Which nationalities can use the visa-on-arrival route?', a: 'It is open to travellers of any nationality on a qualifying southern itinerary. We confirm your specific case in writing before you book flights, so nothing depends on an assumption.' },
+  { q: 'Does Algeria have an e-visa?', a: 'No. There is no general online tourist e-visa for Algeria. Be sceptical of commercial sites offering one — at best they are form-filling services, and the consulate is not obliged to recognise them.' },
+  { q: 'How long does the consulate visa take?', a: 'Anything from about two weeks to over a month, depending on the consulate and the season. Summer and the period before major holidays are slowest. Never buy non-refundable flights before the visa is in your passport.' },
+  { q: 'What does the invitation letter have to say?', a: 'It has to match your bookings. We issue it on headed paper with your dates, itinerary and accommodation, so the letter and the confirmed programme corroborate each other — a mismatch between the two is the most common reason a file is returned.' },
+  { q: 'Can you sponsor my visa if I only want the north?', a: 'Yes. We provide the invitation and confirmed programme for any itinerary we operate, including trips that never go south. The visa-on-arrival route is specific to the southern gateways, but the consulate route works for everything.' },
+];
+
+const routes = [
+  {
+    tag: 'Route 1',
+    h: 'Consulate visa, arranged before you travel',
+    who: 'Anyone visiting the north, the coast, the Roman cities or the M’Zab — and anyone travelling independently.',
+    steps: [
+      'Tell us your dates and the itinerary you want',
+      'We issue the invitation letter and confirmed programme on headed paper',
+      'You submit the file at the Algerian consulate covering your residence',
+      'The visa is stamped into your passport before departure',
+    ],
+    time: 'Allow 2 weeks to over a month',
+    note: 'Book flights only once the visa is physically in your passport.',
+  },
+  {
+    tag: 'Route 2',
+    h: 'Visa on arrival, through the southern gateways',
+    who: 'Travellers on an organised Sahara itinerary flying into Djanet or Tamanrasset — open to any nationality.',
+    steps: [
+      'You book a qualifying southern itinerary with us',
+      'We file your passport details and the desert permits in advance',
+      'You fly Algiers → Djanet or Tamanrasset',
+      'Entry is processed on arrival at the southern airport',
+    ],
+    time: 'No consulate appointment',
+    note: 'We confirm your eligibility in writing before you book flights.',
+  },
+];
+
+const faqSchema = {
+  '@type': 'FAQPage', '@id': `${url}#faq`,
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const howTo = {
+  '@type': 'HowTo',
+  '@id': `${url}#howto`,
+  name: 'How to get an Algerian tourist visa',
+  description: 'The consulate route: invitation letter, confirmed programme and submission at the consulate covering your residence.',
+  step: routes[0].steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s })),
+};
+const page = {
+  '@type': 'WebPage', '@id': `${url}#webpage`,
+  name: title, description, url,
+  isPartOf: { '@id': `${site}/#website` },
+  about: { '@id': `${site}/#algeria` },
+  provider: { '@id': `${site}/#organization` },
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+    { '@type': 'ListItem', position: 2, name: 'Visa & entry requirements', item: url },
+  ],
+};
+---
+<BaseLayout title={title} description={description} alternates={alternates}
+  image="/assets/img/sahara-guide-traveler.jpg" schema={[page, faqSchema, howTo, breadcrumb]} sticky={true}
+  keywords={["Algeria visa requirements","do I need a visa for Algeria","Algeria visa on arrival","Algeria tourist visa","Algeria entry requirements"]}>
+
+  <section class="hero hero-slim">
+    <img src="/assets/img/sahara-guide-traveler.jpg" alt="A traveller with a local guide in the Algerian Sahara" width="1600" height="900" fetchpriority="high" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">Visa &amp; entry</div>
+      <h1>Do you need a visa for Algeria?</h1>
+      <p>Two routes in — and one of them skips the consulate entirely.</p>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Visa & entry requirements'}]} />
+
+  <section class="section"><div class="wrap" style="max-width:860px">
+    <QuickAnswer text={quick} />
+
+    <h2>The two routes into Algeria</h2>
+    <div class="vroutes">
+      {routes.map(r => (
+        <div class="vroute">
+          <span class="vtag">{r.tag}</span>
+          <h3>{r.h}</h3>
+          <p class="vwho">{r.who}</p>
+          <ol class="vsteps">{r.steps.map(s => <li>{s}</li>)}</ol>
+          <p class="vtime"><strong>{r.time}</strong></p>
+          <p class="vnote">{r.note}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>Which route applies to you</h2>
+    <p>
+      It comes down to where you are going, not to your passport. If your trip includes Algiers,
+      the Mediterranean coast, the Roman cities of the east or the <a href="/destinations/mzab-valley/">M’Zab
+      Valley</a>, you need the consulate visa. If your trip is a Sahara expedition entering through the
+      south — the <a href="/destinations/tassili-najjer/">Tassili n’Ajjer</a>, the Tadrart, the Hoggar —
+      the visa-on-arrival route is available to you whatever passport you hold.
+    </p>
+    <p>
+      Both routes run through us as the licensed operator. On the consulate route we produce the paperwork
+      the consulate asks for; on the southern route we file the details and permits that make entry on
+      arrival possible. See <a href="/visa-support/">visa support</a> for what we prepare, and the
+      <a href="/blog/algeria-visa-guide/">full visa guide</a> for the document checklist and the reasons
+      applications get refused.
+    </p>
+
+    <h2>What about visa-free entry?</h2>
+    <p>
+      A small number of nationalities can enter Algeria without a visa. The list is short, it changes, and
+      the consequences of getting it wrong fall on the traveller at the boarding gate — so we do not
+      publish one. <strong>Your nearest Algerian consulate is the authority on your own passport</strong>,
+      and a single phone call settles it. If you are exempt, nothing on this page applies to you beyond
+      the ordinary passport-validity rules; if you are not, one of the two routes above is your way in.
+    </p>
+
+    <h2>Frequently asked</h2>
+    <div class="faq">
+      {faqs.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    </div>
+
+    <div class="card vcta">
+      <h2>Tell us your passport and your dates</h2>
+      <p>We confirm which route applies to you, in writing, before you book anything.</p>
+      <p style="margin-top:.9rem">
+        <a class="btn btn-gold" href="/contact/">Ask about your entry</a>
+        <a class="btn" href="/tours/">See the tours</a>
+      </p>
+    </div>
+  </div></section>
+
+  <CtaSection />
+</BaseLayout>
+
+<style>
+  .vroutes{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem;margin:1.2rem 0 2rem}
+  .vroute{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.3rem}
+  .vroute:nth-child(2){border-color:var(--gold);box-shadow:0 2px 18px rgba(193,147,51,.14)}
+  .vtag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,var(--brand-green));margin-bottom:.3rem}
+  .vroute h3{font-size:1.05rem;margin:.1rem 0 .5rem;line-height:1.35}
+  .vwho{font-size:.9rem;color:var(--text-m);margin:0 0 .8rem}
+  .vsteps{margin:0 0 .9rem;padding-left:1.1rem;font-size:.9rem;line-height:1.6}
+  .vsteps li{margin:.3rem 0}
+  .vtime{margin:0;font-size:.9rem}
+  .vnote{margin:.35rem 0 0;font-size:.84rem;color:var(--text-l)}
+  .vcta{padding:1.4rem;margin-top:2.2rem;text-align:center}
+  .vcta h2{margin:.2rem 0}
+  @media(max-width:760px){.vroutes{grid-template-columns:1fr}}
+</style>

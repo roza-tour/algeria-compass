@@ -24,13 +24,14 @@ export const GET: APIRoute = async () => {
   //   (/clusters/ was removed entirely — now 301'd to real pages in .htaccess.)
   const statics = ['', 'discover/', 'tours/', 'luxury/', 'destinations/', 'provinces/', 'regions/', 'experiences/', 'blog/',
     'questions/', 'culture/', 'history/', 'food/', 'sweets/', 'unesco/', 'travel-guides/',
-    'visa-support/', 'evisa/', 'booking-terms/',
+    'visa-support/', 'evisa/', 'booking-terms/', 'algeria-visa-requirements/',
     'about/', 'contact/', 'editorial/', 'team/', 'reviewers/',
     // French (fr) pages — hreflang-paired with their English counterparts
     'fr/', 'fr/guide-voyage-algerie/', 'fr/visa-algerie/', 'fr/securite-algerie/',
     'fr/quand-partir-algerie/', 'fr/transport-algerie/', 'fr/itineraire-algerie/',
     'fr/budget-algerie/', 'fr/sahara-algerie/', 'fr/cuisine-algerienne/',
     'fr/noel-nouvel-an-algerie/', 'fr/neige-sahara-algerie/', 'fr/circuits/', 'fr/destinations/',
+    'fr/visa-arrivee-algerie/', 'fr/assistance-visa-algerie/',
     // Italian (it) pages
     'it/', 'it/circuiti/', 'it/destinazioni/',
     // Spanish (es) and German (de) pages

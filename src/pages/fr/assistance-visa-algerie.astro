@@ -1,0 +1,106 @@
+---
+// Version française de /visa-support/. Cette page répond à « que faites-vous
+// pour moi et combien ça coûte », tandis que /fr/visa-arrivee-algerie/ répond à
+// « ai-je besoin d'un visa » — deux intentions distinctes, pas de cannibalisation.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { CONTACT } from '../../config';
+import { alternatesFor } from '../../i18n';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/fr/assistance-visa-algerie/`;
+const enUrl = `${site}/visa-support/`;
+const alternates = alternatesFor(site, {
+  en: '/visa-support/',
+  fr: '/fr/assistance-visa-algerie/',
+  it: '/it/assistenza-visto-algeria/',
+  es: '/es/asistencia-visado-argelia/',
+  de: '/de/visum-hilfe-algerien/',
+});
+
+const title = "Assistance visa Algérie : ce que nous préparons";
+const description = "Lettre d'invitation, confirmations et liste de documents gratuites avec chaque réservation, plus l'autorisation saharienne pour entrer par le sud.";
+
+const faqs = [
+  { q: "Combien coûte votre assistance visa ?", a: "La préparation du dossier est gratuite avec chaque réservation : lettre d'invitation, confirmations et liste de documents ne coûtent rien. Le seul élément payant est le document d'autorisation saharienne, 40 €, auquel s'ajoute la taxe de vignette réglée aux autorités à l'arrivée." },
+  { q: "Combien de temps prend le visa consulaire ?", a: "De deux à quatre semaines en moyenne, selon le consulat et la saison. Confirmez votre voyage au moins un mois à l'avance et n'achetez pas de vols non remboursables avant d'avoir le visa dans votre passeport." },
+  { q: "Peut-on combiner le nord et le désert ?", a: "Oui. Par la voie saharienne, un même voyage peut associer le nord et le sud, à condition qu'environ la moitié du séjour se déroule dans une wilaya saharienne. Nous construisons le programme pour qu'il remplisse cette condition." },
+  { q: "Le document d'autorisation est-il officiel ?", a: "Oui. Il porte un QR code vérifiable sur le portail du ministère algérien de l'Intérieur. L'émission suit les canaux officiels : nous montons le dossier, ce sont les autorités algériennes qui accordent le visa." },
+  { q: "Faut-il obligatoirement réserver un circuit complet ?", a: "Pour la voie saharienne, oui : l'autorisation fait partie de l'organisation du voyage, ce n'est pas un service isolé. Pour la voie consulaire, nous émettons la lettre d'invitation pour tout itinéraire que nous opérons, y compris entièrement au nord." },
+];
+
+const faqSchema = {
+  '@type': 'FAQPage', '@id': `${url}#faq`, inLanguage: 'fr',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const page = {
+  '@type': 'WebPage', '@id': `${url}#webpage`,
+  name: title, description, url, inLanguage: 'fr',
+  isPartOf: { '@id': `${site}/#website` },
+  about: { '@id': `${site}/#algeria` },
+  provider: { '@id': `${site}/#organization` },
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${site}/fr/` },
+    { '@type': 'ListItem', position: 2, name: 'Assistance visa', item: url },
+  ],
+};
+---
+<BaseLayout title={title} description={description} lang="fr" alternates={alternates}
+  image="/assets/img/algiers-great-mosque.jpg" schema={[page, faqSchema, breadcrumb]}
+  keywords={["assistance visa Algérie","lettre d'invitation Algérie","visa touristique Algérie","autorisation saharienne"]}>
+
+  <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Assistance visa'}]} />
+
+  <section class="section"><div class="wrap" style="max-width:780px">
+    <div class="eyebrow">Avant le départ</div>
+    <h1>Assistance visa pour l'Algérie</h1>
+    <div class="prose" style="margin-top:1rem">
+      <p>Le visa est la partie de la préparation qui décourage le plus de voyageurs, presque toujours pour une raison simple : les consulats réclament des pièces que seul un <strong>opérateur algérien agréé</strong> peut émettre. C'est ce que nous sommes. Nous ne délivrons pas le visa — le consulat ou l'autorité algérienne s'en charge — mais nous montons le dossier complet, <strong>gratuitement avec chaque réservation</strong>, et nous vous disons exactement quoi apporter.</p>
+      <p>Si vous en êtes encore à « ai-je seulement besoin d'un visa ? », commencez par <a href="/fr/visa-arrivee-algerie/">les deux voies d'entrée en Algérie</a>. Cette page-ci porte sur les documents que nous préparons une fois votre voie connue. <a href={enUrl} hreflang="en">Read in English</a>.</p>
+
+      <h2>Ce que nous préparons, gratuitement</h2>
+      <ul>
+        <li>La <strong>lettre d'invitation officielle</strong> (voucher touristique) sur papier à en-tête de l'agence</li>
+        <li>La confirmation de l'itinéraire et des hôtels, cohérente avec la lettre</li>
+        <li>La liste précise des pièces exigées pour votre nationalité</li>
+        <li>Un accompagnement pas à pas jusqu'au dépôt du dossier</li>
+      </ul>
+
+      <h2>Voie 1 — le visa consulaire</h2>
+      <p>C'est la voie ordinaire pour le nord, la côte, les cités romaines et la vallée du M'Zab, et la seule pour qui voyage en autonomie. La demande se dépose au consulat algérien dont dépend votre résidence, en général en personne. Presque tous les consulats exigent la lettre d'invitation d'une agence algérienne agréée : c'est précisément le document que nous vous délivrons. La cohérence entre la lettre et les réservations est ce qui fait passer — ou renvoyer — un dossier.</p>
+
+      <h2>Voie 2 — l'autorisation saharienne</h2>
+      <p>Pour les voyages organisés qui entrent par le grand sud, <strong>Djanet ou Tamanrasset</strong>, nous préparons à l'avance un <strong>document d'autorisation de visa</strong> portant un QR code vérifiable sur le portail du ministère algérien de l'Intérieur. Le visa est ensuite apposé à l'arrivée, sans rendez-vous consulaire. C'est l'itinéraire qui compte, pas le passeport : cette voie est <strong>ouverte aux voyageurs de toutes nationalités</strong>, dès lors que le programme est un circuit saharien organisé. Le document coûte <strong>40 €</strong> ; le montage du dossier reste gratuit, et une taxe de vignette est réglée aux autorités à l'arrivée, dont le montant dépend de la nationalité.</p>
+
+      <h2>Ce qu'il faut généralement</h2>
+      <ul>
+        <li>Un passeport valide au moins <strong>six mois</strong> après la date d'entrée</li>
+        <li>Une photo d'identité récente et le formulaire de demande rempli</li>
+        <li>Une réservation de vol</li>
+        <li>Notre <strong>lettre d'invitation</strong> et la confirmation du circuit et des hôtels</li>
+      </ul>
+
+      <h2>Les délais</h2>
+      <p>Pour le visa consulaire, comptez <strong>deux à quatre semaines</strong>, avec de vraies différences selon le consulat et la saison : l'été et les semaines précédant les grandes fêtes sont les plus lents. La voie saharienne est plus rapide car elle ne dépend d'aucun rendez-vous. Dans les deux cas, confirmez votre voyage au moins un mois avant le départ et n'achetez pas de vols non remboursables tant que le visa n'est pas acquis.</p>
+
+      <h2>Ce que nous ne promettons pas</h2>
+      <p>Les règles d'entrée algériennes <strong>varient selon la nationalité et changent avec le temps</strong>. Nous ne publions pas de liste de pays exemptés, parce qu'une erreur se paie par le voyageur à la porte d'embarquement : <strong>votre consulat algérien fait autorité sur votre propre passeport</strong>. Nous sommes votre partenaire documentaire, et nous confirmons par écrit la voie qui vous concerne avant toute réservation de vol.</p>
+
+      <h2>Questions fréquentes</h2>
+      {faqs.map(f => (
+        <div style="margin:.9rem 0">
+          <h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3>
+          <p style="color:var(--text-m);line-height:1.7">{f.a}</p>
+        </div>
+      ))}
+
+      <p style="color:var(--text-l);font-size:.9rem">Prêt à commencer ? <a href="/contact/">Dites-nous votre projet</a> ou écrivez-nous sur <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a> — nous vous envoyons votre liste de documents. Voir aussi nos <a href="/fr/circuits/">circuits privés</a>.</p>
+    </div>
+  </div></section>
+</BaseLayout>
