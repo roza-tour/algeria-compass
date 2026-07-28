@@ -63,6 +63,13 @@ function prune(relDir) {
 prune('');
 if (removed) console.log(`[stage] pruned ${removed} route folder(s) no longer produced by the build`);
 
-// recursive copy of dist/* (incl. dotfiles like .htaccess) into the repo root
-cpSync(dist, root, { recursive: true });
-console.log('[stage] copied dist/ -> repo root (production files now at docroot top level)');
+// recursive copy of dist/* (incl. dotfiles like .htaccess) into the repo root.
+// Copied entry-by-entry, NOT cpSync(dist, root): when the destination is the
+// parent of the source, Node's cpSync recurses into its own output on Windows
+// and dies with STATUS_STACK_BUFFER_OVERRUN (0xC0000409).
+let copied = 0;
+for (const e of readdirSync(dist, { withFileTypes: true })) {
+  cpSync(join(dist, e.name), join(root, e.name), { recursive: true });
+  copied++;
+}
+console.log(`[stage] copied ${copied} top-level entries dist/ -> repo root (docroot)`);

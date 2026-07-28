@@ -30,22 +30,12 @@ ErrorDocument 404 /404.html
   #
   #    This site has exactly one canonical origin (astro.config.mjs `site`).
   #
-  #    TWO separate rules, not one combined (host www) [OR] (protocol) rule.
-  #    Verified live 2026-07-28: the combined form never fired on this server —
-  #    https://www.algeriacompass.com/ answered 200 while condition-less rewrites
-  #    in this same file (the /images/ 301, the /src 403) worked on the www host,
-  #    so the engine runs and it is LiteSpeed's evaluation of the mixed OR/AND
-  #    condition chain that dies. Plain single-branch conditions sidestep that.
-  #
-  #    Rule order matters: the www rule already emits https://, so http+www
-  #    still canonicalizes in ONE hop and never needs the protocol rule.
-  RewriteCond %{HTTP_HOST} ^www\. [NC]
-  RewriteRule ^ https://algeriacompass.com%{REQUEST_URI} [R=301,L]
-
-  #    Protocol upgrade for the bare host. The X-Forwarded-Proto guard matters
-  #    if TLS is ever terminated upstream (CDN/proxy): there %{HTTPS} reads
-  #    "off" on a perfectly good HTTPS request, and without the guard this rule
-  #    would redirect to itself forever.
+  #    Reads as: (host is www) OR (not HTTPS AND not proxied-HTTPS). mod_rewrite
+  #    binds AND tighter than OR, so the two protocol conditions form one branch.
+  #    The X-Forwarded-Proto check matters if TLS is ever terminated upstream
+  #    (CDN/proxy): there %{HTTPS} reads "off" on a perfectly good HTTPS request,
+  #    and without the guard this rule would redirect to itself forever.
+  RewriteCond %{HTTP_HOST} ^www\. [NC,OR]
   RewriteCond %{HTTPS} off
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://algeriacompass.com%{REQUEST_URI} [R=301,L]
