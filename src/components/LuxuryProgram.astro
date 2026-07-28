@@ -4,11 +4,12 @@
 // row of small gold-framed route thumbnails, a tight click-to-expand day list
 // (small thumbnail + "Day 0X" + short highlight), a prominent hotel/inclusions
 // panel, and a gold-framed pricing card. No dark sections, no scroll motion.
-import { LUX_PRICING } from '../data/luxury.mjs';
+// Language-blind: every visible string arrives via `c` (LUX_COPY.prog) and the
+// tier table via `pricing`, so the five language editions share this file.
 import { CONTACT } from '../config';
-export interface Props { prog: any; }
-const { prog } = Astro.props as { prog: any };
-const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hello Algeria Compass, I'd like to reserve the 5-Star journey “${prog.name}” (Programme ${prog.num}).`)}`;
+export interface Props { prog: any; pricing: any; c: any; }
+const { prog, pricing, c } = Astro.props as { prog: any; pricing: any; c: any };
+const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(c.waReserve.replace('{name}', prog.name).replace('{num}', prog.num))}`;
 const pad = (n: number) => String(n).padStart(2, '0');
 const place = (t: string) => t.split('·')[0].trim();
 // route stops, image-forward: take the journey's days as the visual route
@@ -17,11 +18,11 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
 <section class="lp" id={prog.id}>
   <!-- ===== bright cinematic chapter header ===== -->
   <header class="lp-chapter">
-    <img class="lp-chapter-img lux-graded" src={prog.hero} alt={`${prog.name} — luxury Algeria tour`} width="1600" height="900" loading="lazy" decoding="async" />
+    <img class="lp-chapter-img lux-graded" src={prog.hero} alt={`${prog.name} — ${c.imgAltSuffix}`} width="1600" height="900" loading="lazy" decoding="async" />
     <div class="lp-chapter-veil" aria-hidden="true"></div>
     <div class="lp-chapter-in">
       <span class="lp-chapter-num" aria-hidden="true">{prog.num}</span>
-      <span class="lp-eyebrow lp-eyebrow-light">Programme {prog.num} · {prog.subtitle}</span>
+      <span class="lp-eyebrow lp-eyebrow-light">{c.programmeWord} {prog.num} · {prog.subtitle}</span>
       <h2 class="lp-chapter-title">{prog.name}</h2>
       <ul class="lp-badges">
         {prog.badges.map((b: string) => <li>{b}</li>)}
@@ -33,9 +34,10 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
     <!-- one intro line -->
     <p class="lp-lead">{prog.tagline}</p>
     <span class="lp-flourish" aria-hidden="true"></span>
+    <p class="lp-overview">{prog.overview}</p>
 
     <!-- neat row of small gold-framed route thumbnails -->
-    <div class="lp-route" aria-label="The route">
+    <div class="lp-route" aria-label={c.routeAria}>
       {routeStops.map((d: any) => (
         <figure class="lp-route-stop">
           <span class="lp-thumb"><img class="lux-graded" src={d.img} alt={d.title} width="200" height="150" loading="lazy" decoding="async" /></span>
@@ -45,15 +47,15 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
     </div>
 
     <!-- compact day-by-day: thumbnail + Day 0X + short highlight, click to expand -->
-    <p class="lp-eyebrow lp-eyebrow-c">The Itinerary · 8 Days</p>
-    <h3 class="lp-section-h">Day by Day</h3>
+    <p class="lp-eyebrow lp-eyebrow-c">{c.itineraryEyebrow}</p>
+    <h3 class="lp-section-h">{c.dayByDay}</h3>
     <ol class="lp-days">
       {prog.days.map((d: any) => (
         <li>
           <details class="lp-day">
             <summary class="lp-day-sum">
               <span class="lp-thumb lp-thumb-sm"><img class="lux-graded" src={d.img} alt="" width="120" height="90" loading="lazy" decoding="async" /></span>
-              <span class="lp-day-n" aria-hidden="true">Day {pad(d.n)}</span>
+              <span class="lp-day-n" aria-hidden="true">{c.dayWord} {pad(d.n)}</span>
               <span class="lp-day-hi">{d.title}</span>
               <span class="lp-day-chev" aria-hidden="true"></span>
             </summary>
@@ -72,7 +74,7 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
   <div class="lp-body">
     <div class="lp-panel">
       <div class="lp-panel-col">
-        <p class="lp-eyebrow lp-eyebrow-c">Where You Stay · 5-Star</p>
+        <p class="lp-eyebrow lp-eyebrow-c">{c.stayEyebrow}</p>
         <ul class="lp-stay">
           {prog.stay.map((s: any) => (
             <li class="lp-stay-row">
@@ -82,14 +84,14 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
             </li>
           ))}
         </ul>
-        <p class="lp-stay-note">Specific properties confirmed in writing with your booking, subject to availability.</p>
+        <p class="lp-stay-note">{c.stayNote}</p>
       </div>
       <div class="lp-panel-col">
-        <p class="lp-eyebrow lp-eyebrow-c">All-Inclusive</p>
+        <p class="lp-eyebrow lp-eyebrow-c">{c.inclEyebrow}</p>
         <ul class="lp-incl">
           {prog.includes.map((i: string) => <li>{i}</li>)}
         </ul>
-        <p class="lp-cancel">Free cancellation up to 5 days before departure</p>
+        <p class="lp-cancel">{c.cancelLine}</p>
       </div>
     </div>
   </div>
@@ -97,12 +99,12 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
   <!-- ===== gold-framed pricing card ===== -->
   <div class="lp-body">
     <div class="lp-pricing">
-      <p class="lp-eyebrow lp-eyebrow-c">Pricing · Per Person · EUR</p>
-      <h3 class="lp-section-h">Private, all-inclusive</h3>
+      <p class="lp-eyebrow lp-eyebrow-c">{c.pricingEyebrow}</p>
+      <h3 class="lp-section-h">{c.pricingH3}</h3>
       <div class="lp-tiers">
-        {LUX_PRICING.tiers.map((t: any) => (
-          <div class={`lp-tier${t.pax === '22+ pax' ? ' is-rec' : ''}`}>
-            {t.pax === '22+ pax' && <span class="lp-tier-flag">Best value</span>}
+        {pricing.tiers.map((t: any, ti: number) => (
+          <div class={`lp-tier${ti === pricing.tiers.length - 1 ? ' is-rec' : ''}`}>
+            {ti === pricing.tiers.length - 1 && <span class="lp-tier-flag">{c.bestValue}</span>}
             <span class="lp-tier-pax">{t.pax}</span>
             <span class="lp-tier-price">{t.price}</span>
             <span class="lp-tier-note">{t.note}</span>
@@ -110,10 +112,10 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
         ))}
       </div>
       <div class="lp-cta">
-        <div class="lp-from">From <strong>{LUX_PRICING.fromLabel}</strong> <span>per person</span></div>
+        <div class="lp-from">{c.fromWord} <strong>{pricing.fromLabel}</strong> <span>{c.perPerson}</span></div>
         <div class="lp-cta-btns">
-          <a class="lp-btn-gold" href="#reserve">Reserve this journey</a>
-          <a class="lp-btn-ghost" href={wa} target="_blank" rel="noopener">Speak to a specialist</a>
+          <a class="lp-btn-gold" href="#reserve">{c.reserveBtn}</a>
+          <a class="lp-btn-ghost" href={wa} target="_blank" rel="noopener">{c.specialistBtn}</a>
         </div>
       </div>
     </div>
@@ -136,6 +138,8 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
 
   /* ============================ CHAPTER HEADER ============================ */
   .lp-chapter{position:relative;min-height:clamp(360px,58vh,540px);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+  /* hairline gold frame, inset like a grand-hotel plate */
+  .lp-chapter::after{content:"";position:absolute;inset:clamp(10px,1.6vw,18px);border:1px solid rgba(217,180,90,.5);z-index:2;pointer-events:none}
   .lp-chapter-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
   .lp-chapter-veil{position:absolute;inset:0;z-index:1;background:
     linear-gradient(180deg,rgba(30,18,6,.32) 0%,transparent 24%,transparent 46%,rgba(20,12,4,.55) 100%)}
@@ -143,6 +147,16 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
   .lp-chapter-num{display:block;font-family:var(--lux-display);font-weight:700;
     font-size:clamp(3.4rem,12vw,8rem);line-height:.82;letter-spacing:.02em;
     color:var(--lux-gold-bright);text-shadow:0 2px 24px rgba(0,0,0,.45);margin-bottom:.35rem}
+  @supports ((-webkit-background-clip:text) or (background-clip:text)){
+    .lp-chapter-num{background:linear-gradient(180deg,#F6E2A0 0%,#D9B45A 42%,#A8801F 78%,#EED28A 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;
+      filter:drop-shadow(0 2px 14px rgba(0,0,0,.4))}
+  }
+  /* serif editorial opening with an illuminated drop cap */
+  .lp-overview{font-family:var(--lux-serif);font-size:clamp(1.08rem,1.6vw,1.22rem);line-height:1.78;
+    color:var(--lux-ink);max-width:740px;margin:2.1rem auto 0}
+  .lp-overview::first-letter{font-family:var(--lux-display);font-size:3.1em;line-height:.78;float:left;
+    color:var(--lux-gold-ink);padding:.1em .14em 0 0}
   .lp-chapter-title{font-family:var(--lux-display);font-weight:700;color:#fff;letter-spacing:.08em;
     font-size:clamp(2.1rem,5.4vw,3.9rem);line-height:1.05;margin:.5rem 0 0;text-shadow:0 3px 30px rgba(0,0,0,.55)}
   .lp-badges{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;padding:0;margin:1.2rem 0 0}
@@ -218,6 +232,8 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
     padding:clamp(2.2rem,4.5vw,3.2rem) clamp(1.3rem,4vw,3rem);text-align:center}
   .lp-pricing::before{content:"";position:absolute;top:-5px;left:50%;width:9px;height:9px;transform:translateX(-50%) rotate(45deg);
     background:var(--lux-gold);box-shadow:0 0 0 4px var(--lux-ivory)}
+  /* double hairline frame — jewellery-box finish */
+  .lp-pricing::after{content:"";position:absolute;inset:7px;border:1px solid var(--lux-gold-line);border-radius:4px;pointer-events:none}
   .lp-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--lux-gold-line);border-radius:5px;overflow:hidden;margin-top:1.6rem}
   .lp-tier{position:relative;background:#fff;padding:1.8rem 1rem 1.5rem;text-align:center;border-right:1px solid var(--lux-gold-line)}
   .lp-tier:last-child{border-right:0}
@@ -238,8 +254,8 @@ const routeStops = prog.days.filter((d: any) => d.n !== 8);
   .lp-btn-gold,.lp-btn-ghost{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 1.9rem;border-radius:3px;
     font-family:var(--lux-label);font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
     transition:background .3s ease,color .3s ease,box-shadow .3s ease}
-  .lp-btn-gold{background:var(--lux-gold);color:var(--lux-emerald-deep)}
-  .lp-btn-gold:hover{background:var(--lux-gold-bright);box-shadow:0 12px 28px rgba(184,138,46,.28)}
+  .lp-btn-gold{background:linear-gradient(135deg,#C89334 0%,#E3C06A 48%,#B88A2E 100%);color:var(--lux-emerald-deep)}
+  .lp-btn-gold:hover{background:linear-gradient(135deg,#D9A94A 0%,#F0D189 48%,#C89334 100%);box-shadow:0 12px 28px rgba(184,138,46,.35)}
   .lp-btn-ghost{border:1px solid var(--lux-emerald);color:var(--lux-emerald)}
   .lp-btn-ghost:hover{background:var(--lux-emerald);color:var(--lux-cream)}
 

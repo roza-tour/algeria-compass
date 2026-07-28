@@ -1,0 +1,332 @@
+---
+// The 5-Star Collection page, shared by all five languages. Layout and styling
+// live here once; words live in LUX_COPY and the translated PROGRAMMES inside
+// src/data/luxury[-xx].mjs. The five editions cannot diverge.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import LuxuryProgram from '../LuxuryProgram.astro';
+import InquiryForm from '../InquiryForm.astro';
+import { CONTACT } from '../../config';
+import { asLang, ROUTES, LANG_META, alternatesFor, routeAlternates, type Lang } from '../../i18n';
+import * as en from '../../data/luxury.mjs';
+import * as fr from '../../data/luxury-fr.mjs';
+import * as it from '../../data/luxury-it.mjs';
+import * as es from '../../data/luxury-es.mjs';
+import * as de from '../../data/luxury-de.mjs';
+
+export interface Props { lang?: string }
+const lang = asLang(Astro.props.lang) as Lang;
+const MODS: Record<Lang, any> = { en, fr, it, es, de };
+const { PROGRAMMES, LUX_PRICING, LUX_COPY: C } = MODS[lang];
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = site + ROUTES[lang].luxury;
+const alternates = alternatesFor(site, routeAlternates('luxury'));
+const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(C.waPage)}`;
+const HERO = '/assets/img/sahara-plateau-sunset.jpg';
+
+const breadcrumb = { '@type':'BreadcrumbList', '@id':`${url}#breadcrumb`, itemListElement:[
+  {'@type':'ListItem',position:1,name:C.crumbHome,item:site + LANG_META[lang].home},
+  {'@type':'ListItem',position:2,name:C.crumbLabel,item:url}]};
+
+const tripNodes = PROGRAMMES.map((p: any) => ({
+  '@type': 'TouristTrip',
+  '@id': `${url}#${p.id}`,
+  name: `${p.name} — ${p.subtitle}`,
+  description: p.tagline,
+  url: `${url}#${p.id}`,
+  image: site + p.hero,
+  inLanguage: lang,
+  touristType: C.schemaTouristTypes,
+  duration: 'P8D',
+  provider: { '@id': site + '/#organization' },
+  itinerary: {
+    '@type': 'ItemList',
+    numberOfItems: p.days.length,
+    itemListElement: p.days.map((d: any) => ({ '@type':'ListItem', position:d.n, name:`${C.schemaDay} ${d.n}: ${d.title}` })),
+  },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'EUR',
+    lowPrice: LUX_PRICING.fromValue,
+    highPrice: LUX_PRICING.highValue,
+    offerCount: LUX_PRICING.tiers.length,
+    availability: 'https://schema.org/InStock',
+    url: `${url}#${p.id}`,
+    seller: { '@id': site + '/#organization' },
+  },
+}));
+
+// SVG line icons (no emoji) — stroke uses currentColor (gold).
+const ICONS: Record<string,string> = {
+  shield:  '<path d="M12 3l7 3v5c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6z"/>',
+  gem:     '<path d="M3 9h18l-9 12zM3 9l3-5h12l3 5M8 9l4 12 4-12"/>',
+  guide:   '<circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/>',
+  visa:    '<rect x="5.5" y="3" width="13" height="18" rx="1.5"/><circle cx="12" cy="9.5" r="2.8"/><path d="M8.5 16h7"/>',
+  calendar:'<rect x="4.5" y="5.5" width="15" height="14" rx="1.5"/><path d="M4.5 10h15M9 3.5v4M15 3.5v4"/>',
+  key:     '<rect x="6" y="10.5" width="12" height="9.5" rx="1.5"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/>',
+};
+
+// "{programmes}" and "{price}" are filled in the template so <em> markup stays
+// out of the translated strings.
+const [leadA, leadB] = C.reserveLead.split('{programmes}');
+const [fromA, fromB] = C.ptFrom.split('{price}');
+const joiner = (i: number, len: number) => (i === 0 ? '' : i === len - 1 ? ` ${C.orWord} ` : ', ');
+---
+<BaseLayout
+  title={C.seoTitle}
+  description={C.seoDescription}
+  lang={lang}
+  alternates={alternates}
+  image={C.ogImage}
+  imageAlt={C.ogImageAlt}
+  keywords={C.keywords}
+  schema={[breadcrumb, ...tripNodes]}
+  bodyClass="lux-page"
+  sticky={false}>
+
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=Montserrat:wght@500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=Montserrat:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=Montserrat:wght@500;600;700&display=swap" /></noscript>
+  </Fragment>
+
+  <div class="lux">
+    <!-- ===================== HERO — bright golden hour, static ===================== -->
+    <section class="lux-hero">
+      <img class="lux-hero-img lux-graded" src={HERO} alt={C.heroAlt} width="720" height="1265" fetchpriority="high" decoding="async" />
+      <div class="lux-hero-veil" aria-hidden="true"></div>
+      <div class="lux-hero-in">
+        <span class="lux-eyebrow">{C.eyebrow}</span>
+        <h1 class="lux-h1">{C.h1a}<br/><em>{C.h1b}</em></h1>
+        <span class="lux-flourish" aria-hidden="true"></span>
+        <p class="lux-hero-line">{C.heroLine}</p>
+        <div class="lux-hero-cta">
+          <a class="lux-btn lux-btn-solid" href="#programmes">{C.ctaExplore}</a>
+          <a class="lux-btn lux-btn-ghost" href={wa} target="_blank" rel="noopener">{C.ctaSpecialist}</a>
+        </div>
+        <div class="lux-hero-stats">
+          {C.stats.map((s: any, i: number) => (
+            <>
+              {i > 0 && <span class="lux-hero-sep" aria-hidden="true"></span>}
+              <span class="lux-hero-stat"><b>{s.v}</b><i>{s.l}</i></span>
+            </>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WHAT MAKES IT 5-STAR ===================== -->
+    <section class="lux-sec lux-pillars">
+      <div class="lux-wrap">
+        <p class="lux-overline">{C.pillarsOverline}</p>
+        <h2 class="lux-h2">{C.pillarsH2}</h2>
+        <div class="lux-pillar-grid">
+          {C.pillars.map((p: any) => (
+            <div class="lux-pillar">
+              <span class="lux-pillar-ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[p.icon]} />
+              </span>
+              <h3>{p.t}</h3>
+              <p>{p.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROGRAMMES ===================== -->
+    <div id="programmes">
+      {PROGRAMMES.map((p: any) => <LuxuryProgram prog={p} pricing={LUX_PRICING} c={C.prog} />)}
+    </div>
+
+    <!-- ===================== RESERVE ===================== -->
+    <section class="lux-sec lux-reserve" id="reserve">
+      <div class="lux-wrap">
+        <p class="lux-overline">{C.reserveOverline}</p>
+        <h2 class="lux-h2">{C.reserveH2}</h2>
+        <div class="lux-reserve-grid">
+          <div class="lux-reserve-copy">
+            <p>{leadA}{PROGRAMMES.map((p: any, i: number) => (
+              <>{joiner(i, PROGRAMMES.length)}<em>{p.name}</em></>
+            ))}{leadB}</p>
+            <ul class="lux-reserve-pts">
+              <li>{C.ptNoPay}</li>
+              <li>{fromA}<em>{LUX_PRICING.fromLabel}</em>{fromB}</li>
+              <li>{C.ptCancel}</li>
+              <li>{C.ptPrefer} <a href={wa} target="_blank" rel="noopener">{C.ptWaLink}</a> {C.ptOrEmail} <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+            </ul>
+          </div>
+          <div class="lux-reserve-form lux-form">
+            <h3>{C.formH3}</h3>
+            <InquiryForm lang={lang} context="Luxury 5-Star Collection enquiry" defaultInterest="Luxury" />
+          </div>
+        </div>
+        <p class="lux-crumbs-wrap"><Breadcrumbs items={[{name:C.crumbHome,href:LANG_META[lang].home},{name:C.crumbLabel}]} /></p>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline>
+    /* Only behaviour: solidify the floating nav past the hero. No scroll motion. */
+    (function(){
+      var body = document.body;
+      var onScroll = function(){ body.classList.toggle('lux-scrolled', window.scrollY > 60); };
+      onScroll(); window.addEventListener('scroll', onScroll, { passive:true });
+    })();
+  </script>
+</BaseLayout>
+
+<!-- ===== global overrides: floating nav + LIGHT luxury palette tokens ===== -->
+<style is:global>
+  body.lux-page{
+    /* LIGHT luxury: warm ivory base, emerald + gold accents only */
+    --lux-ivory:#F7F1E6; --lux-ivory-2:#FFFDF8; --lux-paper-deep:#F0E7D4;
+    --lux-emerald:#0B3D2E; --lux-emerald-700:#0A4D38; --lux-emerald-deep:#07261C;
+    --lux-gold:#B88A2E; --lux-gold-bright:#D9B45A; --lux-gold-ink:#7E5E1A; --lux-gold-line:rgba(184,138,46,.28);
+    --lux-ink:#2A2018; --lux-ink-dim:#5A4D3E; --lux-cream:#FBF8F2;
+    --lux-display:'Cinzel',Georgia,serif; --lux-serif:'Cormorant Garamond',Georgia,serif;
+    --lux-sans:'Jost',system-ui,sans-serif; --lux-label:'Montserrat',system-ui,sans-serif;
+    background:#F7F1E6;
+  }
+  /* float the nav over the bright hero; keep a soft top scrim for legibility */
+  body.lux-page .id-band{display:none}
+  body.lux-page .nav{position:fixed;left:0;right:0;top:0;background:transparent;border-bottom:1px solid transparent;
+    box-shadow:none;transition:background .4s ease,border-color .4s ease,backdrop-filter .4s ease}
+  body.lux-page .nav::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(20,12,4,.55),transparent);opacity:1;transition:opacity .4s ease}
+  body.lux-page.lux-scrolled .nav{background:var(--lux-emerald);border-bottom-color:rgba(184,138,46,.4);box-shadow:0 2px 18px rgba(7,38,28,.18)}
+  body.lux-page.lux-scrolled .nav::before{opacity:0}
+  body.lux-page .nav-links>li>a{color:rgba(255,255,255,.9);font-family:var(--lux-label);font-weight:500;
+    letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+  body.lux-page .nav-links>li>a:hover,body.lux-page .nav-links>li>a.active{color:var(--lux-gold-bright);border-bottom-color:var(--lux-gold-bright)}
+  body.lux-page .brand-name{color:#fff}
+  body.lux-page .brand-name b{color:var(--lux-gold-bright)}
+  body.lux-page .nav-toggle{color:var(--lux-gold-bright)}
+  body.lux-page .nav-cta .btn-book{background:var(--lux-gold);color:var(--lux-emerald-deep)}
+  body.lux-page .nav-cta .btn-book:hover{background:var(--lux-gold-bright)}
+  body.lux-page .nav-cta .btn-wa,body.lux-page .nav-links .nav-mobile-only a{
+    background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6)}
+  body.lux-page .nav-cta .btn-wa:hover{background:var(--lux-gold);color:var(--lux-emerald-deep);border-color:var(--lux-gold)}
+  body.lux-page .nav-links{ background:var(--lux-emerald) }
+  body.lux-page main{padding-top:0}
+  /* LIGHT form fields in the reserve card */
+  body.lux-page .lux-form label{color:var(--lux-ink-dim);font-family:var(--lux-label);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+  body.lux-page .lux-form input,body.lux-page .lux-form select,body.lux-page .lux-form textarea{
+    background:#fff;border:1px solid var(--lux-gold-line);color:var(--lux-ink);border-radius:3px}
+  body.lux-page .lux-form input::placeholder,body.lux-page .lux-form textarea::placeholder{color:rgba(42,32,24,.42)}
+  body.lux-page .lux-form input:focus,body.lux-page .lux-form select:focus,body.lux-page .lux-form textarea:focus{
+    border-color:var(--lux-gold);outline:none}
+  body.lux-page .lux-form .btn,body.lux-page .lux-form button[type=submit]{
+    background:var(--lux-emerald);color:var(--lux-cream);border:none;font-family:var(--lux-label);letter-spacing:.12em;text-transform:uppercase;font-size:.74rem;font-weight:700}
+  body.lux-page .lux-form .btn:hover,body.lux-page .lux-form button[type=submit]:hover{background:var(--lux-emerald-700)}
+</style>
+
+<style>
+  /* faint gold zellij motif, reused in light section backgrounds */
+  .lux,.lux-pillars,.lux-reserve{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg fill='none' stroke='%23B88A2E' stroke-width='1' opacity='0.09'%3E%3Cpath d='M45 5l11 29 29 11-29 11-11 29-11-29L5 45l29-11z'/%3E%3Cpath d='M45 25l6.5 13.5L65 45l-13.5 6.5L45 65l-6.5-13.5L25 45l13.5-6.5z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:340px 340px}
+
+  .lux{position:relative;background:var(--lux-ivory);color:var(--lux-ink);font-family:var(--lux-sans);overflow:hidden}
+  .lux-wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1.2rem,4vw,2.6rem)}
+  .lux em{font-style:italic}
+
+  /* warm consistent grade */
+  .lux-graded{filter:saturate(1.1) contrast(1.02) brightness(1.02) sepia(.05)}
+
+  /* overline */
+  .lux-overline{display:flex;align-items:center;justify-content:center;gap:1rem;margin:0 auto .9rem;
+    font-family:var(--lux-label);font-weight:600;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--lux-gold-ink);text-align:center}
+  .lux-overline::before,.lux-overline::after{content:"";width:clamp(28px,7vw,64px);height:1px;
+    background:linear-gradient(90deg,transparent,var(--lux-gold))}
+  .lux-overline::after{background:linear-gradient(90deg,var(--lux-gold),transparent)}
+  .lux-h2{font-family:var(--lux-display);font-weight:600;font-size:clamp(2rem,4.4vw,3rem);line-height:1.12;
+    text-align:center;color:var(--lux-emerald);margin:0 auto;letter-spacing:.06em}
+
+  .lux-sec{position:relative;z-index:2;padding:clamp(3.2rem,6vw,5.4rem) 0}
+
+  /* ============================ HERO (bright, static) ============================ */
+  .lux-hero{position:relative;height:100vh;min-height:560px;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;overflow:hidden;z-index:2}
+  /* hairline gold frame inset around the whole hero — grand-hotel plate */
+  .lux-hero::after{content:"";position:absolute;inset:clamp(12px,2vw,24px);border:1px solid rgba(217,180,90,.5);
+    z-index:3;pointer-events:none}
+  .lux-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:0;
+    animation:luxZoom 16s ease-out both}
+  @keyframes luxZoom{from{transform:scale(1.07)}to{transform:scale(1)}}
+  @media(prefers-reduced-motion:reduce){.lux-hero-img{animation:none}}
+  .lux-hero-veil{position:absolute;inset:0;z-index:1;background:
+    linear-gradient(180deg, rgba(25,15,5,.42) 0%, transparent 22%, transparent 55%, rgba(20,12,4,.5) 100%)}
+  .lux-hero-in{position:relative;z-index:2;padding:0 1.4rem;max-width:920px}
+  .lux-eyebrow{display:inline-block;font-family:var(--lux-label);font-weight:600;font-size:.72rem;
+    letter-spacing:.42em;text-transform:uppercase;color:var(--lux-gold-bright);margin-bottom:1.6rem;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+  .lux-h1{font-family:var(--lux-display);font-weight:700;color:#fff;letter-spacing:.08em;
+    font-size:clamp(2.7rem,9vw,6.2rem);line-height:1.04;margin:0;text-shadow:0 3px 36px rgba(0,0,0,.5)}
+  .lux-h1 em{display:block;font-style:italic;color:var(--lux-gold-bright);font-weight:500;font-family:var(--lux-serif);letter-spacing:.02em}
+  @supports ((-webkit-background-clip:text) or (background-clip:text)){
+    .lux-h1 em{background:linear-gradient(180deg,#F6E2A0 0%,#D9B45A 45%,#B08420 80%,#EED28A 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      filter:drop-shadow(0 2px 18px rgba(0,0,0,.45))}
+  }
+  .lux-flourish{display:block;width:170px;height:16px;margin:1.7rem auto 1.4rem;position:relative}
+  .lux-flourish::before{content:"";position:absolute;top:50%;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--lux-gold-bright) 35%,var(--lux-gold-bright) 65%,transparent)}
+  .lux-flourish::after{content:"";position:absolute;top:50%;left:50%;width:9px;height:9px;
+    transform:translate(-50%,-50%) rotate(45deg);background:var(--lux-gold-bright)}
+  .lux-hero-line{font-family:var(--lux-serif);font-style:italic;font-weight:400;font-size:clamp(1.2rem,2.3vw,1.65rem);
+    color:rgba(255,255,255,.92);margin:0 auto 2.2rem;max-width:560px;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+  .lux-hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .lux-btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 2.1rem;border-radius:3px;
+    font-family:var(--lux-label);font-weight:700;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
+    text-decoration:none;transition:background .3s ease,color .3s ease,box-shadow .3s ease}
+  .lux-btn-solid{background:var(--lux-gold);color:var(--lux-emerald-deep);border:1px solid var(--lux-gold)}
+  .lux-btn-solid:hover{background:var(--lux-gold-bright);border-color:var(--lux-gold-bright);box-shadow:0 14px 36px rgba(0,0,0,.3)}
+  .lux-btn-ghost{border:1px solid rgba(255,255,255,.85);color:#fff;background:rgba(11,61,46,.2)}
+  .lux-btn-ghost:hover{background:#fff;color:var(--lux-emerald)}
+  .lux-hero-stats{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem 1.5rem;margin-top:2.4rem}
+  .lux-hero-stat{display:inline-flex;flex-direction:column;align-items:center;gap:.25rem}
+  .lux-hero-stat b{font-family:var(--lux-display);font-weight:600;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--lux-gold-bright);letter-spacing:.04em;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+  .lux-hero-stat i{font-family:var(--lux-label);font-style:normal;font-size:.57rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+  .lux-hero-sep{width:1px;height:30px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.5),transparent)}
+
+  /* ============================ PILLARS ============================ */
+  .lux-pillars{background-color:var(--lux-ivory-2)}
+  .lux-pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:2.4rem;
+    background:var(--lux-gold-line);border:1px solid var(--lux-gold-line);border-radius:6px;overflow:hidden}
+  .lux-pillar{background:var(--lux-ivory-2);padding:2.3rem 1.9rem;text-align:center;transition:background .3s ease}
+  .lux-pillar:hover{background:#fff}
+  .lux-pillar-ic{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;color:var(--lux-gold);margin-bottom:1.2rem;
+    border:1px solid var(--lux-gold);border-radius:50%}
+  .lux-pillar-ic svg{width:28px;height:28px}
+  .lux-pillar h3{font-family:var(--lux-display);font-weight:600;font-size:1.18rem;color:var(--lux-emerald);margin:0 0 .6rem;letter-spacing:.04em;line-height:1.2}
+  .lux-pillar p{color:var(--lux-ink-dim);font-size:.95rem;line-height:1.6;font-weight:400;margin:0}
+
+  /* ============================ RESERVE — deep-emerald finale ============================ */
+  .lux-reserve{background-color:var(--lux-emerald-deep);border-top:1px solid rgba(217,180,90,.35)}
+  .lux-reserve .lux-overline{color:var(--lux-gold-bright)}
+  .lux-reserve .lux-h2{color:var(--lux-cream)}
+  .lux-reserve-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(1.6rem,4vw,3.2rem);align-items:start;margin-top:2.4rem}
+  .lux-reserve-copy p{color:rgba(251,248,242,.93);font-family:var(--lux-serif);font-size:1.25rem;line-height:1.65;font-weight:400;margin:0}
+  .lux-reserve-copy em{color:var(--lux-gold-bright);font-style:italic;font-weight:600}
+  .lux-reserve-pts{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:.8rem}
+  .lux-reserve-pts li{position:relative;padding-left:1.7rem;color:rgba(251,248,242,.88);font-size:.98rem;line-height:1.5;font-weight:400}
+  .lux-reserve-pts li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;transform:rotate(45deg);background:var(--lux-gold-bright)}
+  .lux-reserve-pts em{color:var(--lux-gold-bright);font-style:italic;font-weight:600}
+  .lux-reserve-pts a{color:var(--lux-gold-bright);text-decoration:none;border-bottom:1px solid rgba(217,180,90,.45);font-weight:600}
+  .lux-crumbs-wrap :global(a),.lux-crumbs-wrap :global(span),.lux-crumbs-wrap :global(li){color:rgba(251,248,242,.75)}
+  .lux-reserve-form{background:var(--lux-ivory-2);border:1px solid var(--lux-gold-line);border-top:2px solid var(--lux-gold);
+    border-radius:4px;padding:1.8rem;box-shadow:0 10px 30px rgba(42,32,24,.07)}
+  .lux-reserve-form h3{font-family:var(--lux-display);font-weight:600;font-size:1.35rem;color:var(--lux-emerald);margin:0 0 1.1rem;letter-spacing:.04em}
+  .lux-crumbs-wrap{margin-top:3rem;text-align:center;opacity:.7}
+
+  @media(max-width:860px){
+    .lux-pillar-grid{grid-template-columns:1fr 1fr}
+    .lux-reserve-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:600px){
+    .lux-pillar-grid{grid-template-columns:1fr}
+  }
+</style>

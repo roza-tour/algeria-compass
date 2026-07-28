@@ -6,6 +6,11 @@
 // Pricing is identical across the three programmes (per person, EUR, by group
 // size) and the product is sold as a private request-to-book journey.
 
+// Every user-visible string for the /luxury/ page lives in LUX_COPY (bottom of
+// this file) so the shared LuxuryPage/LuxuryProgram components stay language-
+// blind. The translated editions (luxury-fr/it/es/de.mjs) export the same three
+// names: LUX_PRICING, PROGRAMMES, LUX_COPY.
+
 export const LUX_PRICING = {
   fromLabel: '€1,615',
   fromValue: 1615,
@@ -215,3 +220,72 @@ export const PROGRAMMES = [
     includes: ['Internal flights', 'All meals', '4WD vehicles & drivers', 'Snow activities (seasonal)', 'Quad & camel rides', '5-star & 4-star hotels', 'Security & cook in Sahara', 'Tour leader & guides'],
   },
 ];
+
+// ---- Page copy (EN). {programmes} and {price} are placeholders the component
+// fills; `prog` strings are the per-programme chrome shared by all languages.
+export const LUX_COPY = {
+  seoTitle: 'Luxury Algeria Tours — The 5-Star Collection | Algeria Compass',
+  seoDescription: 'Three all-inclusive 8-day luxury tours of Algeria: Roman ruins, UNESCO cities and the Sahara. Internal flights, 5-star hotels, private 4WD. From €1,615.',
+  keywords: ['Algeria luxury tours', '5-star Algeria', 'private Algeria tours', 'luxury Sahara Algeria', 'luxury Algeria travel', 'Algeria UNESCO tours', 'all-inclusive Algeria tour'],
+  ogImage: '/assets/img/tours/djemila-1.jpg',
+  ogImageAlt: "Djemila's UNESCO Roman ruins — Algeria Compass luxury tours",
+  waPage: "Hello Algeria Compass, I'd like to enquire about your 5-Star Collection luxury tours.",
+  heroAlt: 'The Algerian Sahara at golden hour',
+  eyebrow: 'The 5-Star Collection · Algeria',
+  h1a: 'Luxury Algeria,',
+  h1b: 'Privately Yours.',
+  heroLine: 'Three private journeys through a country few ever see.',
+  ctaExplore: 'Explore the Journeys',
+  ctaSpecialist: 'Speak to a Specialist',
+  stats: [
+    { v: '3', l: 'Signature journeys' },
+    { v: '8', l: 'Days · 7 nights' },
+    { v: 'All-in', l: 'Flights · hotels · meals' },
+    { v: '€1,615', l: 'From / person' },
+  ],
+  pillarsOverline: 'The Algeria Compass Standard',
+  pillarsH2: 'What makes it five-star',
+  pillars: [
+    { icon: 'shield', t: 'Licensed Algerian operator', d: 'Run on the ground by Algerians — every permit, road and door handled in-country.' },
+    { icon: 'gem', t: 'Truly all-inclusive', d: 'Internal flights, all meals, 5-star hotels, a private 4WD fleet, guides and UNESCO fees — one price.' },
+    { icon: 'guide', t: 'Multilingual private guides', d: 'A dedicated tour leader who never leaves your group, plus expert local guides at each site.' },
+    { icon: 'visa', t: 'Visa support included', d: 'We prepare your visa documentation as part of the booking.' },
+    { icon: 'calendar', t: 'Free cancellation', d: 'Free cancellation up to five days before your departure date.' },
+    { icon: 'key', t: 'Private, not packaged', d: 'Your own group only — request-to-book, confirmed in writing before you pay.' },
+  ],
+  reserveOverline: 'Reserve Your Journey',
+  reserveH2: 'Begin your 5-Star Collection trip',
+  reserveLead: 'Tell us which programme draws you — {programmes} — your dates and group size. We confirm availability, internal flights and your final per-person price in writing, usually within a few hours.',
+  orWord: 'or',
+  ptNoPay: 'Private, request-to-book — no payment to enquire',
+  ptFrom: 'From {price} per person, all-inclusive',
+  ptCancel: 'Free cancellation up to 5 days before departure',
+  ptPrefer: 'Prefer to talk?',
+  ptWaLink: 'Message us on WhatsApp',
+  ptOrEmail: 'or email',
+  formH3: 'Request your private journey',
+  crumbHome: 'Home',
+  crumbLabel: 'Luxury 5-Star Collection',
+  schemaTouristTypes: ['Luxury travellers', 'Private groups'],
+  schemaDay: 'Day',
+  prog: {
+    imgAltSuffix: 'luxury Algeria tour',
+    programmeWord: 'Programme',
+    routeAria: 'The route',
+    itineraryEyebrow: 'The Itinerary · 8 Days',
+    dayByDay: 'Day by Day',
+    dayWord: 'Day',
+    stayEyebrow: 'Where You Stay · 5-Star',
+    stayNote: 'Specific properties confirmed in writing with your booking, subject to availability.',
+    inclEyebrow: 'All-Inclusive',
+    cancelLine: 'Free cancellation up to 5 days before departure',
+    pricingEyebrow: 'Pricing · Per Person · EUR',
+    pricingH3: 'Private, all-inclusive',
+    bestValue: 'Best value',
+    fromWord: 'From',
+    perPerson: 'per person',
+    reserveBtn: 'Reserve this journey',
+    specialistBtn: 'Speak to a specialist',
+    waReserve: 'Hello Algeria Compass, I’d like to reserve the 5-Star journey “{name}” (Programme {num}).',
+  },
+};
