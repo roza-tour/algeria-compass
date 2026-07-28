@@ -1,0 +1,177 @@
+---
+// Versione italiana della pagina « e-Visa & ingresso ». Il contenuto segue la
+// pagina inglese /evisa/: non esiste un e-Visa turistico generale; le due vie
+// sono il visto consolare o l'autorizzazione sahariana con vignetta all'arrivo.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { CONTACT } from '../../config';
+import { alternatesFor } from '../../i18n';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/it/evisa-algeria/`;
+const alternates = alternatesFor(site, {
+  en: '/evisa/',
+  fr: '/fr/evisa-algerie/',
+  it: '/it/evisa-algeria/',
+  es: '/es/evisa-argelia/',
+  de: '/de/evisa-algerien/',
+});
+
+const title = "e-Visa Algeria: come funziona l'ingresso | Algeria Compass";
+const description = "Ingresso in Algeria, i fatti: non esiste un e-Visa turistico online generale. Le due vie: visto consolare o visto all'arrivo per i tour sahariani organizzati.";
+
+const faqs = [
+  { q: "Che cos'è l'e-Visa sahariano?", a: "È il documento di autorizzazione al visto che prepariamo per i viaggiatori su un programma sahariano organizzato. In quanto tour operator algerino autorizzato, emettiamo un'autorizzazione con codice QR verificabile sul portale del Ministero dell'Interno algerino. Il visto in sé è concesso dalle autorità algerine — la vignetta/il timbro viene rilasciato all'arrivo; noi curiamo in anticipo tutta la pratica." },
+  { q: "Quanto costa l'e-Visa sahariano?", a: "Il documento di autorizzazione al visto costa 40 €. La preparazione di tutti i documenti richiesti è completamente gratuita da parte nostra. All'arrivo si paga alle autorità una tassa separata per la vignetta/il timbro del visto — l'importo dipende dalla vostra nazionalità, e vi comunichiamo la cifra prima della partenza." },
+  { q: "Posso visitare anche il nord, o solo il deserto?", a: "Entrambi. Con il nostro supporto un unico viaggio può combinare nord e sud, a condizione che circa metà del viaggio si svolga in uno stato sahariano (wilaya). Costruiamo l'itinerario in modo che sia idoneo." },
+  { q: "Il documento di autorizzazione è ufficiale e verificabile?", a: "Sì. Riporta un codice QR che può essere verificato sul portale del Ministero dell'Interno algerino. Il rilascio segue i canali ufficiali — noi siamo il vostro partner per la documentazione; il visto è rilasciato dalle autorità algerine." },
+  { q: "Devo prenotare un tour completo per ottenerlo?", a: "Sì. L'autorizzazione e-Visa sahariana è disponibile quando prenotate con noi un programma completo — fa parte dell'organizzazione del vostro viaggio organizzato, non è un servizio a sé stante." },
+  { q: "L'Algeria ha un e-Visa per turisti?", a: "Non esiste un e-Visa turistico online generale per i normali viaggi in Algeria. Le due vie praticabili sono un visto turistico presso il vostro consolato algerino, oppure — per i tour sahariani organizzati con ingresso dal sud — l'autorizzazione al visto sahariana che prepariamo noi, con la vignetta rilasciata all'arrivo. In entrambi i casi ci occupiamo noi delle pratiche." },
+  { q: "Come si entra concretamente in Algeria?", a: "La maggior parte dei visitatori atterra ad Algeri (o in un altro aeroporto del nord) con un visto turistico consolare, supportato dalla nostra lettera d'invito. Chi viaggia su un programma sahariano organizzato può invece usare la nostra via dell'autorizzazione al visto, con la vignetta rilasciata all'arrivo negli aeroporti d'accesso del sud. Vi confermiamo noi quale via vale per voi." },
+];
+
+const faqSchema = {
+  '@type': 'FAQPage', '@id': `${url}#faq`, inLanguage: 'it',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/it/` },
+    { '@type': 'ListItem', position: 2, name: 'e-Visa & ingresso', item: url },
+  ],
+};
+---
+<BaseLayout
+  title={title}
+  description={description}
+  lang="it" alternates={alternates}
+  image="/assets/img/algiers-great-mosque.jpg"
+  keywords={["e-Visa Algeria","visto all'arrivo Algeria","ingresso in Algeria","visto turistico Algeria","visto Algeria online"]}
+  schema={[breadcrumb, faqSchema]}>
+  <Breadcrumbs items={[{name:'Home',href:'/it/'},{name:'e-Visa & ingresso'}]} />
+  <section class="section"><div class="wrap" style="max-width:780px">
+    <div class="eyebrow">Ingresso in Algeria</div>
+    <h1>e-Visa &amp; ingresso in Algeria</h1>
+    <div class="prose" style="margin-top:1rem">
+      <p>Molti viaggiatori cercano un «e-Visa Algeria». Ecco il quadro onesto, così pianificate sui fatti e non sulle speranze.</p>
+
+      <h2>Esiste un e-Visa per l'Algeria?</h2>
+      <p>Per il turismo ordinario, <strong>non esiste un e-Visa online generale</strong> che si possa semplicemente richiedere e stampare. L'ingresso turistico in Algeria passa invece per due vie consolidate — e noi le supportiamo entrambe, gratuitamente, con ogni prenotazione.</p>
+
+      <h2>Via 1 — Visto turistico consolare (il nord e la maggior parte dei viaggi)</h2>
+      <p>Richiedete un visto turistico presso il <strong>consolato algerino</strong> competente per il vostro Paese, normalmente di persona. I consolati richiedono una <strong>lettera d'invito / voucher turistico</strong> emessa da un'agenzia algerina autorizzata — che vi forniamo noi, insieme alla conferma di hotel e tour e a una checklist per la vostra nazionalità. Calcolate all'incirca <strong>da due a quattro settimane</strong>.</p>
+
+      <h2>Via 2 — L'e-Visa sahariano (programmi organizzati nel deserto)</h2>
+      <p>È la cosa più vicina a una via «online». Per un <strong>programma sahariano organizzato</strong>, prepariamo in anticipo un <strong>documento di autorizzazione al visto</strong> — senza alcuna visita al consolato — e la vignetta del visto viene rilasciata all'arrivo negli aeroporti d'accesso del sud. È <strong>aperto ai viaggiatori di qualsiasi nazionalità</strong>, ma solo per viaggi sahariani organizzati. <a href="#saharan-evisa">Ecco come funziona esattamente l'e-Visa sahariano ↓</a></p>
+
+      <h2>Come si inserisce la nostra assistenza visti</h2>
+      <p>Qualunque sia la via che vi riguarda, prepariamo la documentazione che consolati e autorità si aspettano, gratuitamente con la prenotazione — vedete <a href="/it/assistenza-visto-algeria/">Assistenza visto</a> per il dettaglio completo e i documenti richiesti, e <a href="/it/visto-arrivo-algeria/">i requisiti per il visto algerino</a> per un confronto fianco a fianco delle due vie. Noi siamo il vostro partner per la documentazione; il visto lo rilascia il consolato o il governo.</p>
+
+      <h2>Verificate prima di partire</h2>
+      <p>Le regole d'ingresso in Algeria <strong>variano in base alla nazionalità e cambiano nel tempo</strong>. Confermate sempre i requisiti aggiornati presso il vostro consolato algerino ufficiale, e comunicateci la vostra nazionalità così potremo dirvi esattamente quale via — visto consolare o visto all'arrivo dal sud — corrisponde al vostro viaggio.</p>
+
+      <p style="color:var(--text-l);font-size:.9rem">Non sapete quale via è la vostra? <a href="/it/contatto/">Chiedete a noi</a> o scrivete su <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a> — vi confermiamo la via e vi inviamo la checklist.</p>
+      <!-- OWNER: se l'Algeria introduce un portale e-Visa turistico ufficiale, collegarlo qui e aggiornare l'impostazione delle due vie. -->
+    </div>
+  </div></section>
+
+  <!-- ===== Saharan e-Visa explainer (P7) ===== -->
+  <section class="section sev" id="saharan-evisa" data-region="sahara"><div class="wrap">
+    <div class="sev-head">
+      <span class="eyebrow">Per i programmi sahariani organizzati</span>
+      <h2>L'e-Visa sahariano — come funziona</h2>
+      <p class="sev-lede">In quanto <strong>tour operator algerino autorizzato</strong>, possiamo preparare il vostro documento di autorizzazione al visto per farvi viaggiare attraverso il sud dell'Algeria. Il rilascio segue i canali ufficiali: noi curiamo ogni pratica, e il visto è rilasciato dalle autorità algerine. Ecco esattamente cosa significa — e quanto costa.</p>
+    </div>
+
+    <ol class="sev-steps">
+      <li>
+        <span class="sev-n">1</span>
+        <div><strong>Prenotate un programma completo</strong>
+        <p>L'autorizzazione e-Visa sahariana è disponibile quando prenotate con noi un tour completo. Costruiamo il vostro itinerario in modo che <strong>circa metà del viaggio si svolga in uno stato sahariano (wilaya)</strong> — il che vi permette di combinare <strong>nord e sud</strong> in un unico viaggio.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">2</span>
+        <div><strong>Prepariamo noi tutti i documenti — gratis</strong>
+        <p>La preparazione di ogni documento richiesto è <strong>completamente gratuita da parte nostra</strong>. Vi diciamo con precisione cosa inviarci per la vostra nazionalità e mettiamo insieme la pratica per voi.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">3</span>
+        <div><strong>Emettiamo la vostra autorizzazione — 40 €</strong>
+        <p>Ricevete un <strong>documento di autorizzazione al visto con codice QR</strong> <strong>verificabile sul portale del Ministero dell'Interno algerino</strong>. Il documento costa <strong>40 €</strong>.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">4</span>
+        <div><strong>Pagate la tassa della vignetta all'arrivo</strong>
+        <p>All'arrivo è dovuta una <strong>tassa per la vignetta/il timbro del visto</strong> alle autorità algerine, che rilasciano il visto. L'importo dipende dalla vostra nazionalità — vi confermiamo la cifra prima della partenza.</p></div>
+      </li>
+    </ol>
+
+    <div class="sev-facts">
+      <div class="sev-fact"><span class="sev-fig">40 €</span><span class="sev-lab">Documento di autorizzazione</span></div>
+      <div class="sev-fact"><span class="sev-fig">Gratis</span><span class="sev-lab">Prepariamo noi ogni documento</span></div>
+      <div class="sev-fact"><span class="sev-fig">QR verificato</span><span class="sev-lab">Sul portale del Ministero dell'Interno</span></div>
+      <div class="sev-fact"><span class="sev-fig">Nord + Sud</span><span class="sev-lab">≈ metà del viaggio in uno stato sahariano</span></div>
+    </div>
+
+    <div class="sev-note">
+      <p><strong>Una nota onesta:</strong> la tassa della vignetta all'arrivo è un onere governativo, separato dai 40 € del nostro documento, e le regole d'ingresso variano in base alla nazionalità. Diteci la vostra nazionalità e vi confermeremo sia l'idoneità sia l'esatta tassa d'arrivo prima che vi impegniate.</p>
+    </div>
+
+    <div class="sev-cta">
+      <a class="btn btn-gold" href="/it/circuiti/">Sfogliate i tour sahariani →</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Salve Algeria Compass, ho una domanda sull'e-Visa sahariano.")}`} target="_blank" rel="noopener">💬 Domande sull'e-Visa sahariano</a>
+    </div>
+
+    <div class="sev-faq">
+      <h3>e-Visa sahariano — risposte rapide</h3>
+      <div class="faq">
+        {faqs.slice(0,5).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+      </div>
+    </div>
+  </div></section>
+
+  <CtaSection lang="it" heading="Al visto pensiamo noi — voi godetevi il viaggio" />
+</BaseLayout>
+
+<style>
+  /* ===== Saharan e-Visa explainer (P7) ===== */
+  .sev{
+    background-color:#F3E7CF;
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'48'%20height%3D'48'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23C2842B'%20stroke-width%3D'1'%20opacity%3D'.12'%3E%3Cpath%20d%3D'M24%203L45%2024L24%2045L3%2024Z'/%3E%3Ccircle%20cx%3D'24'%20cy%3D'24'%20r%3D'6'/%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(180deg,#FAF1DE,#F0E1C2);
+    scroll-margin-top:80px;
+  }
+  .sev .eyebrow{color:#8A5314}
+  .sev-head{max-width:780px}
+  .sev h2{color:#7a4513;font-size:clamp(1.5rem,3vw,2.1rem);margin:.2rem 0 .5rem}
+  .sev-lede{color:#574226;font-size:1.06rem;line-height:1.7;margin:0}
+  .sev-steps{list-style:none;padding:0;margin:1.8rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .sev-steps li{display:flex;gap:.85rem;background:#fffaf0;border:1px solid #e6cfa3;border-radius:14px;
+    padding:1.05rem 1.15rem;box-shadow:0 6px 18px rgba(122,69,19,.07)}
+  .sev-n{flex:0 0 auto;width:2rem;height:2rem;border-radius:50%;background:#8A5410;color:#fff;font-weight:800;
+    display:flex;align-items:center;justify-content:center;font-size:.95rem}
+  .sev-steps strong{display:block;color:#7a4513;font-size:1.04rem;margin-bottom:.2rem}
+  .sev-steps p{margin:0;color:#534233;font-size:.9rem;line-height:1.55}
+  .sev-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1.4rem 0 0}
+  .sev-fact{background:#7a4513;color:#fff;border-radius:13px;padding:1rem .9rem;text-align:center}
+  .sev-fig{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:800;color:#F4D58A;line-height:1.1}
+  .sev-lab{display:block;font-size:.78rem;color:rgba(255,255,255,.85);margin-top:.3rem;line-height:1.35}
+  .sev-note{margin:1.3rem 0 0;background:#fff6e6;border:1px solid #e6cfa3;border-left:4px solid #8A5410;
+    border-radius:10px;padding:.9rem 1.1rem}
+  .sev-note p{margin:0;color:#534233;font-size:.92rem;line-height:1.6}
+  .sev-cta{margin:1.5rem 0 0;display:flex;flex-wrap:wrap;gap:.7rem}
+  .sev-cta .btn-gold{background:#8A5410;color:#fff}
+  .sev-cta .btn-gold:hover{filter:brightness(1.08)}
+  .sev-cta .btn-ghost{border-color:#8A5410;color:#7a4513}
+  .sev-faq{margin:2rem 0 0;max-width:820px}
+  .sev-faq h3{color:#7a4513;font-size:1.2rem;margin:0 0 .6rem}
+  @media(max-width:760px){
+    .sev-steps{grid-template-columns:1fr}
+    .sev-facts{grid-template-columns:1fr 1fr}
+  }
+</style>

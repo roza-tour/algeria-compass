@@ -1,0 +1,167 @@
+---
+// Version française de la page e-Visa. Le contenu suit la page anglaise
+// /evisa/ : pas d'e-Visa touristique général, deux voies d'entrée, dont
+// l'e-Visa saharien pour les programmes organisés — toutes nationalités.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { CONTACT } from '../../config';
+import { alternatesFor } from '../../i18n';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/fr/evisa-algerie/`;
+const alternates = alternatesFor(site, {
+  en: '/evisa/',
+  fr: '/fr/evisa-algerie/',
+  it: '/it/evisa-algeria/',
+  es: '/es/evisa-argelia/',
+  de: '/de/evisa-algerien/',
+});
+
+const title = "e-Visa Algérie : comment ça marche vraiment | Algeria Compass";
+const description = "Les faits sur l'entrée en Algérie : pas d'e-Visa touristique général. Les voies : visa consulaire, ou visa à l'arrivée pour les circuits sahariens organisés.";
+
+const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
+  {'@type':'ListItem',position:1,name:'Accueil',item:`${site}/fr/`},
+  {'@type':'ListItem',position:2,name:'e-Visa & entrée',item:url}]};
+const faqs = [
+  { q: "Qu'est-ce que l'e-Visa saharien ?", a: "C'est le document d'autorisation de visa que nous préparons pour les voyageurs sur un programme saharien organisé. En tant qu'opérateur touristique algérien agréé, nous émettons une autorisation portant un code QR vérifiable sur le portail du ministère de l'Intérieur algérien. Le visa lui-même est accordé par les autorités algériennes — votre vignette/tampon est délivrée à l'arrivée ; nous préparons chaque dossier à l'avance." },
+  { q: "Combien coûte l'e-Visa saharien ?", a: "Le document d'autorisation de visa coûte 40 €. La préparation de l'ensemble des dossiers requis est entièrement gratuite de notre côté. Une taxe distincte de vignette/tampon de visa est à régler aux autorités à l'arrivée — le montant dépend de votre nationalité, et nous vous communiquons le chiffre avant votre départ." },
+  { q: "Puis-je aussi visiter le nord, ou seulement le désert ?", a: "Les deux. Avec notre accompagnement, un même voyage peut combiner le nord et le sud, à condition qu'environ la moitié du périple se déroule dans une wilaya saharienne. Nous concevons l'itinéraire pour qu'il soit éligible." },
+  { q: "Le document d'autorisation est-il officiel et vérifiable ?", a: "Oui. Il porte un code QR qui peut être contrôlé sur le portail du ministère de l'Intérieur algérien. La délivrance suit les canaux officiels — nous sommes votre partenaire documentaire ; ce sont les autorités algériennes qui délivrent le visa." },
+  { q: "Dois-je réserver un circuit complet pour l'obtenir ?", a: "Oui. L'autorisation e-Visa saharienne est disponible lorsque vous réservez un programme complet avec nous — elle fait partie de l'organisation de votre voyage, ce n'est pas un service isolé." },
+  { q: "L'Algérie propose-t-elle un e-Visa pour les touristes ?", a: "Il n'existe pas d'e-Visa touristique général en ligne pour un voyage ordinaire en Algérie. Les deux voies concrètes sont un visa touristique auprès de votre consulat algérien local, ou — pour les circuits sahariens organisés entrant par le sud — l'autorisation de visa saharienne que nous préparons, la vignette étant délivrée à l'arrivée. Dans les deux cas, nous nous chargeons des formalités." },
+  { q: "Comment entre-t-on concrètement en Algérie ?", a: "La plupart des visiteurs atterrissent à Alger (ou dans un autre aéroport du nord) avec un visa touristique consulaire, appuyé par notre lettre d'invitation. Les voyageurs sur un programme saharien organisé peuvent, à la place, utiliser notre voie de l'autorisation de visa, la vignette étant délivrée à l'arrivée aux aéroports-portes du sud. Nous vous confirmons laquelle s'applique à votre cas." },
+];
+const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'fr',
+  mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
+---
+<BaseLayout
+  title={title}
+  description={description}
+  lang="fr" alternates={alternates}
+  image="/assets/img/algiers-great-mosque.jpg"
+  keywords={["e-Visa Algérie","visa à l'arrivée Algérie","entrée en Algérie","visa touristique Algérie","visa Algérie en ligne"]}
+  schema={[breadcrumb, faqSchema]}>
+  <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'e-Visa & entrée'}]} />
+  <section class="section"><div class="wrap" style="max-width:780px">
+    <div class="eyebrow">Entrée en Algérie</div>
+    <h1>e-Visa &amp; entrée en Algérie</h1>
+    <div class="prose" style="margin-top:1rem">
+      <p>Les voyageurs cherchent souvent un « e-Visa Algérie ». Voici le tableau honnête, pour planifier sur des faits plutôt que sur de l'espoir.</p>
+
+      <h2>Existe-t-il un e-Visa pour l'Algérie ?</h2>
+      <p>Pour le tourisme ordinaire, <strong>il n'existe pas d'e-Visa général en ligne</strong> que l'on puisse simplement demander et imprimer. L'entrée touristique en Algérie passe par deux voies établies — et nous accompagnons les deux, gratuitement, avec chaque réservation.</p>
+
+      <h2>Voie 1 — Visa touristique consulaire (le nord &amp; la plupart des voyages)</h2>
+      <p>Vous demandez un visa touristique auprès du <strong>consulat algérien</strong> couvrant votre pays, normalement en personne. Les consulats exigent une <strong>lettre d'invitation / voucher touristique</strong> émise par une agence algérienne agréée — que nous vous délivrons, avec vos confirmations d'hôtel et de circuit et une check-list adaptée à votre nationalité. Comptez environ <strong>deux à quatre semaines</strong>.</p>
+
+      <h2>Voie 2 — L'e-Visa saharien (programmes organisés dans le désert)</h2>
+      <p>C'est ce qui se rapproche le plus d'une voie « en ligne ». Pour un <strong>programme saharien organisé</strong>, nous préparons à l'avance un <strong>document d'autorisation de visa</strong> — sans passage par le consulat — et votre vignette de visa est délivrée à l'arrivée aux aéroports-portes du sud. Cette voie est <strong>ouverte aux voyageurs de toutes nationalités</strong>, mais uniquement dans le cadre d'un voyage saharien organisé. <a href="#saharan-evisa">Voir en détail comment fonctionne l'e-Visa saharien ↓</a></p>
+
+      <h2>Comment s'insère notre assistance visa</h2>
+      <p>Quelle que soit la voie qui vous concerne, nous préparons la documentation qu'attendent les consulats et les autorités, gratuitement avec votre réservation — voyez <a href="/fr/assistance-visa-algerie/">notre assistance visa</a> pour le détail complet et les documents requis, et <a href="/fr/visa-arrivee-algerie/">les conditions de visa pour l'Algérie</a> pour une comparaison côte à côte des deux voies. Nous sommes votre partenaire documentaire ; c'est le consulat ou l'État qui délivre le visa.</p>
+
+      <h2>Vérifiez avant de partir</h2>
+      <p>Les règles d'entrée en Algérie <strong>varient selon la nationalité et évoluent dans le temps</strong>. Confirmez toujours les exigences en vigueur auprès de votre consulat algérien officiel, et indiquez-nous votre nationalité afin que nous vous disions exactement quelle voie — visa consulaire ou visa à l'arrivée par le sud — correspond à votre voyage.</p>
+
+      <p style="color:var(--text-l);font-size:.9rem">Vous ne savez pas quelle voie est la vôtre ? <a href="/fr/contact/">Écrivez-nous</a> ou envoyez un message sur <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a> — nous confirmons et vous envoyons votre check-list.</p>
+      <!-- OWNER: if Algeria introduces an official tourist e-Visa portal, link it here and update Route framing. -->
+    </div>
+  </div></section>
+
+  <!-- ===== Saharan e-Visa explainer (P7) ===== -->
+  <section class="section sev" id="saharan-evisa" data-region="sahara"><div class="wrap">
+    <div class="sev-head">
+      <span class="eyebrow">Pour les programmes sahariens organisés</span>
+      <h2>L'e-Visa saharien — comment il fonctionne</h2>
+      <p class="sev-lede">En tant qu'<strong>opérateur touristique algérien agréé</strong>, nous pouvons préparer votre document d'autorisation de visa pour que vous voyagiez dans le sud de l'Algérie. La délivrance suit les canaux officiels : nous préparons chaque dossier, et ce sont les autorités algériennes qui délivrent le visa. Voici exactement ce que cela signifie — et ce que cela coûte.</p>
+    </div>
+
+    <ol class="sev-steps">
+      <li>
+        <span class="sev-n">1</span>
+        <div><strong>Réservez un programme complet</strong>
+        <p>L'autorisation e-Visa saharienne est disponible lorsque vous réservez un circuit complet avec nous. Nous construisons votre itinéraire de sorte qu'<strong>environ la moitié du voyage se déroule dans une wilaya saharienne</strong> — ce qui vous permet de combiner le <strong>nord et le sud</strong> en un seul périple.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">2</span>
+        <div><strong>Nous préparons tous les dossiers — gratuitement</strong>
+        <p>La constitution de chaque document requis est <strong>entièrement gratuite de notre côté</strong>. Nous vous indiquons précisément quoi envoyer selon votre nationalité et montons la demande pour vous.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">3</span>
+        <div><strong>Nous émettons votre autorisation — 40 €</strong>
+        <p>Vous recevez un <strong>document d'autorisation de visa portant un code QR</strong> qui est <strong>vérifiable sur le portail du ministère de l'Intérieur algérien</strong>. Le document coûte <strong>40 €</strong>.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">4</span>
+        <div><strong>Réglez la taxe de vignette à l'arrivée</strong>
+        <p>Une <strong>taxe de vignette/tampon de visa est à régler à l'arrivée</strong> aux autorités algériennes, qui délivrent le visa. Le montant dépend de votre nationalité — nous vous confirmons le chiffre avant votre départ.</p></div>
+      </li>
+    </ol>
+
+    <div class="sev-facts">
+      <div class="sev-fact"><span class="sev-fig">40 €</span><span class="sev-lab">Document d'autorisation</span></div>
+      <div class="sev-fact"><span class="sev-fig">Gratuit</span><span class="sev-lab">Nous préparons chaque dossier</span></div>
+      <div class="sev-fact"><span class="sev-fig">Vérifié par QR</span><span class="sev-lab">Sur le portail du ministère de l'Intérieur</span></div>
+      <div class="sev-fact"><span class="sev-fig">Nord + Sud</span><span class="sev-lab">≈ la moitié du voyage en wilaya saharienne</span></div>
+    </div>
+
+    <div class="sev-note">
+      <p><strong>Une précision honnête :</strong> la taxe de vignette de visa à l'arrivée est une redevance gouvernementale, distincte de nos 40 € de frais de document, et les règles d'entrée varient selon la nationalité. Indiquez-nous votre nationalité et nous confirmerons votre éligibilité ainsi que la taxe exacte à l'arrivée avant tout engagement.</p>
+    </div>
+
+    <div class="sev-cta">
+      <a class="btn btn-gold" href="/fr/circuits/">Voir les circuits sahariens →</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Bonjour Algeria Compass, j'ai une question sur l'e-Visa saharien.")}`} target="_blank" rel="noopener">💬 Poser une question sur l'e-Visa saharien</a>
+    </div>
+
+    <div class="sev-faq">
+      <h3>e-Visa saharien — réponses rapides</h3>
+      <div class="faq">
+        {faqs.slice(0,5).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+      </div>
+    </div>
+  </div></section>
+
+  <CtaSection lang="fr" heading="Nous nous occupons du visa — vous profitez du voyage" />
+</BaseLayout>
+
+<style>
+  /* ===== Saharan e-Visa explainer (P7) ===== */
+  .sev{
+    background-color:#F3E7CF;
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'48'%20height%3D'48'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23C2842B'%20stroke-width%3D'1'%20opacity%3D'.12'%3E%3Cpath%20d%3D'M24%203L45%2024L24%2045L3%2024Z'/%3E%3Ccircle%20cx%3D'24'%20cy%3D'24'%20r%3D'6'/%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(180deg,#FAF1DE,#F0E1C2);
+    scroll-margin-top:80px;
+  }
+  .sev .eyebrow{color:#8A5314}
+  .sev-head{max-width:780px}
+  .sev h2{color:#7a4513;font-size:clamp(1.5rem,3vw,2.1rem);margin:.2rem 0 .5rem}
+  .sev-lede{color:#574226;font-size:1.06rem;line-height:1.7;margin:0}
+  .sev-steps{list-style:none;padding:0;margin:1.8rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .sev-steps li{display:flex;gap:.85rem;background:#fffaf0;border:1px solid #e6cfa3;border-radius:14px;
+    padding:1.05rem 1.15rem;box-shadow:0 6px 18px rgba(122,69,19,.07)}
+  .sev-n{flex:0 0 auto;width:2rem;height:2rem;border-radius:50%;background:#8A5410;color:#fff;font-weight:800;
+    display:flex;align-items:center;justify-content:center;font-size:.95rem}
+  .sev-steps strong{display:block;color:#7a4513;font-size:1.04rem;margin-bottom:.2rem}
+  .sev-steps p{margin:0;color:#534233;font-size:.9rem;line-height:1.55}
+  .sev-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1.4rem 0 0}
+  .sev-fact{background:#7a4513;color:#fff;border-radius:13px;padding:1rem .9rem;text-align:center}
+  .sev-fig{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:800;color:#F4D58A;line-height:1.1}
+  .sev-lab{display:block;font-size:.78rem;color:rgba(255,255,255,.85);margin-top:.3rem;line-height:1.35}
+  .sev-note{margin:1.3rem 0 0;background:#fff6e6;border:1px solid #e6cfa3;border-left:4px solid #8A5410;
+    border-radius:10px;padding:.9rem 1.1rem}
+  .sev-note p{margin:0;color:#534233;font-size:.92rem;line-height:1.6}
+  .sev-cta{margin:1.5rem 0 0;display:flex;flex-wrap:wrap;gap:.7rem}
+  .sev-cta .btn-gold{background:#8A5410;color:#fff}
+  .sev-cta .btn-gold:hover{filter:brightness(1.08)}
+  .sev-cta .btn-ghost{border-color:#8A5410;color:#7a4513}
+  .sev-faq{margin:2rem 0 0;max-width:820px}
+  .sev-faq h3{color:#7a4513;font-size:1.2rem;margin:0 0 .6rem}
+  @media(max-width:760px){
+    .sev-steps{grid-template-columns:1fr}
+    .sev-facts{grid-template-columns:1fr 1fr}
+  }
+</style>

@@ -1,0 +1,167 @@
+---
+// Deutsche Ausgabe der e-Visum-Seite. Der Inhalt folgt der englischen Seite
+// /evisa/ : kein allgemeines Online-Touristen-e-Visum; zwei Wege — Konsulatsvisum
+// oder die Sahara-Visumgenehmigung für organisierte Programme.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { CONTACT } from '../../config';
+import { alternatesFor } from '../../i18n';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/de/evisa-algerien/`;
+const alternates = alternatesFor(site, {
+  en: '/evisa/',
+  fr: '/fr/evisa-algerie/',
+  it: '/it/evisa-algeria/',
+  es: '/es/evisa-argelia/',
+  de: '/de/evisa-algerien/',
+});
+
+const title = 'Algerien e-Visum & Einreise: So funktioniert es wirklich';
+const description = 'Klartext zur Einreise nach Algerien: kein allgemeines Touristen-e-Visum. Zwei Wege: Konsulatsvisum oder Visum bei Ankunft für organisierte Sahara-Reisen.';
+
+const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
+  {'@type':'ListItem',position:1,name:'Start',item:`${site}/de/`},
+  {'@type':'ListItem',position:2,name:'e-Visum & Einreise',item:url}]};
+const faqs = [
+  { q: 'Was ist das Sahara-e-Visum?', a: 'Es ist das Visum-Genehmigungsdokument, das wir für Reisende eines organisierten Sahara-Programms vorbereiten. Als lizenzierter algerischer Reiseveranstalter stellen wir eine Genehmigung mit QR-Code aus, der auf dem Portal des algerischen Innenministeriums überprüfbar ist. Das Visum selbst wird von den algerischen Behörden erteilt — Ihre Vignette bzw. Ihr Stempel wird bei der Ankunft ausgestellt; wir bereiten jede Unterlage im Voraus vor.' },
+  { q: 'Was kostet das Sahara-e-Visum?', a: 'Das Visum-Genehmigungsdokument kostet 40 €. Die Vorbereitung aller erforderlichen Unterlagen ist bei uns völlig kostenlos. Eine separate Vignetten-/Stempelgebühr ist bei der Ankunft an die Behörden zu zahlen — die Höhe hängt von Ihrer Staatsangehörigkeit ab, und wir nennen Ihnen den Betrag vor der Reise.' },
+  { q: 'Kann ich auch den Norden besuchen oder nur die Wüste?', a: 'Beides. Mit unserer Unterstützung kann eine einzige Reise den Norden und den Süden verbinden, sofern ungefähr die Hälfte der Reise in einer Sahara-Provinz (Wilaya) verbracht wird. Wir gestalten die Route so, dass sie die Voraussetzungen erfüllt.' },
+  { q: 'Ist das Genehmigungsdokument offiziell und überprüfbar?', a: 'Ja. Es trägt einen QR-Code, der auf dem Portal des algerischen Innenministeriums überprüft werden kann. Die Ausstellung folgt den offiziellen Wegen — wir sind Ihr Partner für die Unterlagen; das Visum erteilen die algerischen Behörden.' },
+  { q: 'Muss ich eine komplette Tour buchen, um es zu erhalten?', a: 'Ja. Die Sahara-e-Visum-Genehmigung ist verfügbar, wenn Sie ein vollständiges Programm bei uns buchen — sie ist Teil der Organisation Ihrer Reise, keine eigenständige Dienstleistung.' },
+  { q: 'Hat Algerien ein e-Visum für Touristen?', a: 'Für gewöhnliche Reisen nach Algerien gibt es kein allgemeines Online-Touristen-e-Visum. Die zwei praktikablen Wege sind ein Touristenvisum beim für Sie zuständigen algerischen Konsulat oder — für organisierte Sahara-Touren mit Einreise über den Süden — die von uns vorbereitete Sahara-Visumgenehmigung, wobei die Vignette bei der Ankunft ausgestellt wird. Wir übernehmen in beiden Fällen die Unterlagen.' },
+  { q: 'Wie reise ich konkret nach Algerien ein?', a: 'Die meisten Besucher fliegen mit einem Touristenvisum vom Konsulat nach Algier (oder zu einem anderen Flughafen im Norden), gestützt auf unser Einladungsschreiben. Reisende eines organisierten Sahara-Programms können stattdessen unseren Genehmigungsweg nutzen; die Vignette wird bei der Ankunft an den südlichen Gateway-Flughäfen ausgestellt. Wir bestätigen Ihnen, welcher Weg für Sie gilt.' },
+];
+const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
+  mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
+---
+<BaseLayout
+  title={title}
+  description={description}
+  lang="de" alternates={alternates}
+  image="/assets/img/algiers-great-mosque.jpg"
+  keywords={["Algerien e-Visum","Visum bei Ankunft Algerien","Einreise Algerien","Touristenvisum Algerien","Algerien Visum online"]}
+  schema={[breadcrumb, faqSchema]}>
+  <Breadcrumbs items={[{name:'Start',href:'/de/'},{name:'e-Visum & Einreise'}]} />
+  <section class="section"><div class="wrap" style="max-width:780px">
+    <div class="eyebrow">Einreise nach Algerien</div>
+    <h1>e-Visum &amp; Einreise nach Algerien</h1>
+    <div class="prose" style="margin-top:1rem">
+      <p>Viele Reisende suchen nach einem „Algerien e-Visum“. Hier ist das ehrliche Bild, damit Sie mit Fakten statt mit Hoffnung planen.</p>
+
+      <h2>Gibt es ein e-Visum für Algerien?</h2>
+      <p>Für gewöhnlichen Tourismus gibt es <strong>kein allgemeines Online-e-Visum</strong>, das Sie einfach beantragen und ausdrucken können. Die touristische Einreise nach Algerien läuft stattdessen über zwei etablierte Wege — und wir unterstützen beide, kostenlos, bei jeder Buchung.</p>
+
+      <h2>Weg 1 — Touristenvisum über das Konsulat (der Norden &amp; die meisten Reisen)</h2>
+      <p>Sie beantragen ein Touristenvisum beim <strong>algerischen Konsulat</strong>, das für Ihr Land zuständig ist, in der Regel persönlich. Konsulate verlangen ein <strong>Einladungsschreiben / einen Touristen-Voucher</strong> einer lizenzierten algerischen Agentur — den stellen wir Ihnen aus, zusammen mit Ihrer Hotel- und Tourbestätigung und einer Checkliste für Ihre Staatsangehörigkeit. Planen Sie etwa <strong>zwei bis vier Wochen</strong> ein.</p>
+
+      <h2>Weg 2 — Das Sahara-e-Visum (organisierte Wüstenprogramme)</h2>
+      <p>Das kommt einem „Online“-Weg am nächsten. Für ein <strong>organisiertes Sahara-Programm</strong> bereiten wir im Voraus ein <strong>Visum-Genehmigungsdokument</strong> vor — kein Konsulatsbesuch nötig — und Ihre Visumvignette wird bei der Ankunft an den südlichen Gateway-Flughäfen ausgestellt. Dieser Weg steht <strong>Reisenden aller Nationalitäten offen</strong>, jedoch nur bei organisierten Sahara-Reisen. <a href="#saharan-evisa">So funktioniert das Sahara-e-Visum im Detail ↓</a></p>
+
+      <h2>Wie unsere Visum-Unterstützung dazu passt</h2>
+      <p>Welcher Weg auch gilt: Wir bereiten die Unterlagen vor, die Konsulate und Behörden erwarten — kostenlos bei Ihrer Buchung. Alle Details und erforderlichen Dokumente finden Sie unter <a href="/de/visum-hilfe-algerien/">Visum-Unterstützung</a>, und die <a href="/de/visum-bei-ankunft-algerien/">Visabestimmungen für Algerien</a> stellen die beiden Wege direkt gegenüber. Wir sind Ihr Partner für die Unterlagen; das Visum erteilt das Konsulat bzw. der Staat.</p>
+
+      <h2>Vor der Reise prüfen</h2>
+      <p>Die algerischen Einreisebestimmungen <strong>unterscheiden sich je nach Staatsangehörigkeit und ändern sich mit der Zeit</strong>. Bestätigen Sie die aktuellen Anforderungen immer bei Ihrem offiziellen algerischen Konsulat, und nennen Sie uns Ihre Staatsangehörigkeit, damit wir Ihnen genau sagen können, welcher Weg — Konsulatsvisum oder Visum bei Ankunft im Süden — zu Ihrer Reise passt.</p>
+
+      <p style="color:var(--text-l);font-size:.9rem">Nicht sicher, welcher Weg Ihrer ist? <a href="/de/kontakt/">Fragen Sie uns</a> oder schreiben Sie uns auf <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a> — wir bestätigen es und senden Ihnen Ihre Checkliste.</p>
+      <!-- OWNER: if Algeria introduces an official tourist e-Visa portal, link it here and update Route framing. -->
+    </div>
+  </div></section>
+
+  <!-- ===== Saharan e-Visa explainer (P7) ===== -->
+  <section class="section sev" id="saharan-evisa" data-region="sahara"><div class="wrap">
+    <div class="sev-head">
+      <span class="eyebrow">Für organisierte Sahara-Programme</span>
+      <h2>Das Sahara-e-Visum — so funktioniert es</h2>
+      <p class="sev-lede">Als <strong>lizenzierter algerischer Reiseveranstalter</strong> können wir Ihr Visum-Genehmigungsdokument vorbereiten, damit Sie durch Algeriens Süden reisen können. Die Ausstellung folgt den offiziellen Wegen: Wir übernehmen jede Unterlage, und die algerischen Behörden erteilen das Visum. Hier steht genau, was das bedeutet — und was es kostet.</p>
+    </div>
+
+    <ol class="sev-steps">
+      <li>
+        <span class="sev-n">1</span>
+        <div><strong>Ein vollständiges Programm buchen</strong>
+        <p>Die Sahara-e-Visum-Genehmigung ist verfügbar, wenn Sie eine vollständige Tour bei uns buchen. Wir gestalten Ihre Route so, dass <strong>ungefähr die Hälfte der Reise in einer Sahara-Provinz (Wilaya) verbracht wird</strong> — so können Sie <strong>Norden und Süden</strong> in einer Reise verbinden.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">2</span>
+        <div><strong>Wir bereiten alle Unterlagen vor — kostenlos</strong>
+        <p>Das Zusammenstellen aller erforderlichen Dokumente ist <strong>bei uns völlig kostenlos</strong>. Wir sagen Ihnen genau, was Sie für Ihre Staatsangehörigkeit einreichen müssen, und stellen den Antrag für Sie zusammen.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">3</span>
+        <div><strong>Wir stellen Ihre Genehmigung aus — 40 €</strong>
+        <p>Sie erhalten ein <strong>Visum-Genehmigungsdokument mit QR-Code</strong>, der <strong>auf dem Portal des algerischen Innenministeriums überprüfbar</strong> ist. Das Dokument kostet <strong>40 €</strong>.</p></div>
+      </li>
+      <li>
+        <span class="sev-n">4</span>
+        <div><strong>Vignettengebühr bei der Ankunft zahlen</strong>
+        <p>Eine <strong>Vignetten-/Stempelgebühr ist bei der Ankunft</strong> an die algerischen Behörden zu zahlen, die das Visum erteilen. Die Höhe hängt von Ihrer Staatsangehörigkeit ab — wir bestätigen Ihnen den Betrag vor der Reise.</p></div>
+      </li>
+    </ol>
+
+    <div class="sev-facts">
+      <div class="sev-fact"><span class="sev-fig">40 €</span><span class="sev-lab">Genehmigungsdokument</span></div>
+      <div class="sev-fact"><span class="sev-fig">Kostenlos</span><span class="sev-lab">Wir bereiten jede Unterlage vor</span></div>
+      <div class="sev-fact"><span class="sev-fig">QR-geprüft</span><span class="sev-lab">Auf dem Portal des Innenministeriums</span></div>
+      <div class="sev-fact"><span class="sev-fig">Norden + Süden</span><span class="sev-lab">≈ die halbe Reise in einer Sahara-Provinz</span></div>
+    </div>
+
+    <div class="sev-note">
+      <p><strong>Ein ehrliches Wort:</strong> Die Vignettengebühr bei der Ankunft ist eine staatliche Abgabe, getrennt von unserer Dokumentgebühr von 40 €, und die Einreisebestimmungen unterscheiden sich je nach Staatsangehörigkeit. Nennen Sie uns Ihre Staatsangehörigkeit, und wir bestätigen Ihnen sowohl Ihre Berechtigung als auch die genaue Gebühr bei der Ankunft, bevor Sie sich festlegen.</p>
+    </div>
+
+    <div class="sev-cta">
+      <a class="btn btn-gold" href="/de/reisen/">Sahara-Touren entdecken →</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hallo Algeria Compass, ich habe eine Frage zum Sahara-e-Visum.')}`} target="_blank" rel="noopener">💬 Fragen zum Sahara-e-Visum</a>
+    </div>
+
+    <div class="sev-faq">
+      <h3>Sahara-e-Visum — kurze Antworten</h3>
+      <div class="faq">
+        {faqs.slice(0,5).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+      </div>
+    </div>
+  </div></section>
+
+  <CtaSection lang="de" heading="Wir kümmern uns um das Visum — Sie genießen die Reise" />
+</BaseLayout>
+
+<style>
+  /* ===== Saharan e-Visa explainer (P7) ===== */
+  .sev{
+    background-color:#F3E7CF;
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'48'%20height%3D'48'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23C2842B'%20stroke-width%3D'1'%20opacity%3D'.12'%3E%3Cpath%20d%3D'M24%203L45%2024L24%2045L3%2024Z'/%3E%3Ccircle%20cx%3D'24'%20cy%3D'24'%20r%3D'6'/%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(180deg,#FAF1DE,#F0E1C2);
+    scroll-margin-top:80px;
+  }
+  .sev .eyebrow{color:#8A5314}
+  .sev-head{max-width:780px}
+  .sev h2{color:#7a4513;font-size:clamp(1.5rem,3vw,2.1rem);margin:.2rem 0 .5rem}
+  .sev-lede{color:#574226;font-size:1.06rem;line-height:1.7;margin:0}
+  .sev-steps{list-style:none;padding:0;margin:1.8rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .sev-steps li{display:flex;gap:.85rem;background:#fffaf0;border:1px solid #e6cfa3;border-radius:14px;
+    padding:1.05rem 1.15rem;box-shadow:0 6px 18px rgba(122,69,19,.07)}
+  .sev-n{flex:0 0 auto;width:2rem;height:2rem;border-radius:50%;background:#8A5410;color:#fff;font-weight:800;
+    display:flex;align-items:center;justify-content:center;font-size:.95rem}
+  .sev-steps strong{display:block;color:#7a4513;font-size:1.04rem;margin-bottom:.2rem}
+  .sev-steps p{margin:0;color:#534233;font-size:.9rem;line-height:1.55}
+  .sev-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1.4rem 0 0}
+  .sev-fact{background:#7a4513;color:#fff;border-radius:13px;padding:1rem .9rem;text-align:center}
+  .sev-fig{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:800;color:#F4D58A;line-height:1.1}
+  .sev-lab{display:block;font-size:.78rem;color:rgba(255,255,255,.85);margin-top:.3rem;line-height:1.35}
+  .sev-note{margin:1.3rem 0 0;background:#fff6e6;border:1px solid #e6cfa3;border-left:4px solid #8A5410;
+    border-radius:10px;padding:.9rem 1.1rem}
+  .sev-note p{margin:0;color:#534233;font-size:.92rem;line-height:1.6}
+  .sev-cta{margin:1.5rem 0 0;display:flex;flex-wrap:wrap;gap:.7rem}
+  .sev-cta .btn-gold{background:#8A5410;color:#fff}
+  .sev-cta .btn-gold:hover{filter:brightness(1.08)}
+  .sev-cta .btn-ghost{border-color:#8A5410;color:#7a4513}
+  .sev-faq{margin:2rem 0 0;max-width:820px}
+  .sev-faq h3{color:#7a4513;font-size:1.2rem;margin:0 0 .6rem}
+  @media(max-width:760px){
+    .sev-steps{grid-template-columns:1fr}
+    .sev-facts{grid-template-columns:1fr 1fr}
+  }
+</style>

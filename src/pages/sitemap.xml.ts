@@ -32,15 +32,15 @@ export const GET: APIRoute = async () => {
     'fr/budget-algerie/', 'fr/sahara-algerie/', 'fr/cuisine-algerienne/',
     'fr/noel-nouvel-an-algerie/', 'fr/neige-sahara-algerie/', 'fr/circuits/', 'fr/destinations/',
     'fr/visa-arrivee-algerie/', 'fr/assistance-visa-algerie/',
-    'fr/contact/', 'fr/a-propos/', 'fr/unesco-algerie/', 'fr/luxe/',
+    'fr/contact/', 'fr/a-propos/', 'fr/unesco-algerie/', 'fr/luxe/', 'fr/evisa-algerie/',
     // Italian (it) pages
     'it/', 'it/circuiti/', 'it/destinazioni/',
-    'it/contatto/', 'it/chi-siamo/', 'it/unesco-algeria/', 'it/lusso/',
+    'it/contatto/', 'it/chi-siamo/', 'it/unesco-algeria/', 'it/lusso/', 'it/evisa-algeria/',
     // Spanish (es) and German (de) pages
     'es/', 'es/circuitos/', 'es/destinos/',
-    'es/contacto/', 'es/quienes-somos/', 'es/unesco-argelia/', 'es/lujo/',
+    'es/contacto/', 'es/quienes-somos/', 'es/unesco-argelia/', 'es/lujo/', 'es/evisa-argelia/',
     'de/', 'de/reisen/', 'de/reiseziele/',
-    'de/kontakt/', 'de/ueber-uns/', 'de/unesco-algerien/', 'de/luxus/'];
+    'de/kontakt/', 'de/ueber-uns/', 'de/unesco-algerien/', 'de/luxus/', 'de/evisa-algerien/'];
   const colls: [string, string][] = [
     ['province', 'provinces'], ['destination', 'destinations'],
     ['experience', 'experiences'], ['article', 'blog'], ['question', 'questions'],

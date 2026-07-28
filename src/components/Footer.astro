@@ -43,8 +43,10 @@ const columns = [
     h: t('Plan', 'Préparer', 'Organizza', 'Preparar', 'Planen'),
     links: [
       { href: '/travel-guides/', label: t('Travel Guides', 'Guides pratiques', 'Guide pratiche', 'Guías prácticas', 'Reiseratgeber') },
-      { href: '/visa-support/', label: t('Visa Support', 'Aide au visa', 'Assistenza visto', 'Ayuda con el visado', 'Visum-Unterstützung') },
-      { href: '/evisa/', label: t('e-Visa & Entry', 'e-Visa & entrée', 'e-Visa e ingresso', 'e-Visa y entrada', 'e-Visa & Einreise') },
+      { href: t('/visa-support/', '/fr/assistance-visa-algerie/', '/it/assistenza-visto-algeria/', '/es/asistencia-visado-argelia/', '/de/visum-hilfe-algerien/'),
+        label: t('Visa Support', 'Aide au visa', 'Assistenza visto', 'Ayuda con el visado', 'Visum-Unterstützung') },
+      { href: t('/evisa/', '/fr/evisa-algerie/', '/it/evisa-algeria/', '/es/evisa-argelia/', '/de/evisa-algerien/'),
+        label: t('e-Visa & Entry', 'e-Visa & entrée', 'e-Visa e ingresso', 'e-Visa y entrada', 'e-Visa & Einreise') },
       { href: '/booking-terms/', label: t('Booking & Cancellation Terms', "Conditions de réservation", 'Condizioni di prenotazione', 'Condiciones de reserva', 'Buchungsbedingungen') },
       { href: R.about, label: t('About', 'À propos', 'Chi siamo', 'Quiénes somos', 'Über uns') },
       { href: R.contact, label: t('Contact & Inquiry', 'Contact', 'Contatti', 'Contacto', 'Kontakt') },

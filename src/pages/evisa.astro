@@ -3,7 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
 import { CONTACT } from '../config';
+import { alternatesFor } from '../i18n';
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const alternates = alternatesFor(site, {
+  en: '/evisa/',
+  fr: '/fr/evisa-algerie/',
+  it: '/it/evisa-algeria/',
+  es: '/es/evisa-argelia/',
+  de: '/de/evisa-algerien/',
+});
 const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
   {'@type':'ListItem',position:2,name:'e-Visa & Entry',item:`${site}/evisa/`}]};
@@ -24,6 +32,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
   description="Straight facts on entering Algeria: there is no general tourist e-Visa. The routes are a consulate visa or visa on arrival for organised Sahara tours."
   image="/assets/img/algiers-great-mosque.jpg"
   keywords={["Algeria e-Visa","Algeria visa on arrival","entry to Algeria","Algeria tourist visa","Algeria visa online"]}
+  alternates={alternates}
   schema={[breadcrumb, faqSchema]}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'e-Visa & Entry'}]} />
   <section class="section"><div class="wrap" style="max-width:780px">
