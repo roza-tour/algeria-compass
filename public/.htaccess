@@ -18,13 +18,27 @@ ErrorDocument 404 /404.html
 
   # 1) Canonical host — force HTTPS + non-www in a SINGLE 301 hop
   #    (prevents redirect chains http→https→non-www that GSC flags as "Page with redirect")
-  #    The CAPTURING condition is FIRST and always evaluated, so %1 = the bare (non-www)
-  #    host deterministically. (When the capture sat after the [OR], LiteSpeed could
-  #    short-circuit it and keep www, producing http→https-www→non-www = a 2-hop chain.)
-  RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
-  RewriteCond %{HTTPS} off [OR]
-  RewriteCond %{HTTP_HOST} ^www\. [NC]
-  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+  #
+  #    The host is written out literally rather than captured with %1. mod_rewrite
+  #    resolves %N against the LAST MATCHED RewriteCond, not the first one — and the
+  #    two conditions that actually decide this rule (HTTPS off / ^www\.) contain no
+  #    capture groups. A leading capturing condition therefore does not reliably
+  #    survive to the substitution, so the previous version could emit a target
+  #    built from an empty %1. That is a strong candidate for GSC's "couldn't
+  #    fetch" on https://www.algeriacompass.com/sitemap.xml, though it was not
+  #    reproduced against the live server. Naming the host removes the question.
+  #
+  #    This site has exactly one canonical origin (astro.config.mjs `site`).
+  #
+  #    Reads as: (host is www) OR (not HTTPS AND not proxied-HTTPS). mod_rewrite
+  #    binds AND tighter than OR, so the two protocol conditions form one branch.
+  #    The X-Forwarded-Proto check matters if TLS is ever terminated upstream
+  #    (CDN/proxy): there %{HTTPS} reads "off" on a perfectly good HTTPS request,
+  #    and without the guard this rule would redirect to itself forever.
+  RewriteCond %{HTTP_HOST} ^www\. [NC,OR]
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://algeriacompass.com%{REQUEST_URI} [R=301,L]
 
   # 2) Legacy asset path: old /images/* → current /assets/img/* (before the slash rule)
   RewriteRule ^images/(.+)$ /assets/img/$1 [R=301,L]
