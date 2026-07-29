@@ -16,22 +16,44 @@ const { item } = Astro.props;
 const d = item.data;
 const { Content } = await item.render();
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
-const qa = {
-  "@type": "QAPage",
-  "@id": `${site}/questions/${item.slug}/#qa`,
-  "mainEntity": {
-    "@type": "Question", "name": d.question,
-    "acceptedAnswer": { "@type": "Answer", "text": d.shortAnswer }
-  }
-};
+const qUrl = `${site}/questions/${item.slug}/`;
 const speak = { "@type":"WebPage", "speakable": { "@type":"SpeakableSpecification", "cssSelector": [".qbox",".prose"] } };
 const author = await resolveAuthor(d.author);
 const reviewer = await resolveReviewer(d.reviewedBy);
 const authorEntity = authorNode(site, author.entry);
 const reviewerEntity = reviewerNode(site, reviewer.entry);
-(qa as any).author = { "@id": (authorEntity as any)["@id"] };
+const authorRef = { "@id": (authorEntity as any)["@id"] };
+const stamp = d.updated.toISOString();
+// Question/Answer nodes carry the fields Google requires and recommends for
+// QAPage. `answerCount` is REQUIRED — without it the whole item is invalid and
+// cannot produce a rich result. We publish exactly one editorially-written,
+// reviewed answer, so the count is 1 and `upvoteCount` is a truthful 0: this
+// site has no voting, and inventing engagement numbers would be a lie to
+// Google and to readers. `datePublished` uses the content's `updated` date —
+// the only date the collection tracks — which is also its dateModified.
+const qa = {
+  "@type": "QAPage",
+  "@id": `${qUrl}#qa`,
+  "mainEntity": {
+    "@type": "Question",
+    "name": d.question,
+    "text": d.question,
+    "answerCount": 1,
+    "author": authorRef,
+    "datePublished": stamp,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": d.shortAnswer,
+      "url": `${qUrl}#answer`,
+      "author": authorRef,
+      "datePublished": stamp,
+      "upvoteCount": 0
+    }
+  }
+};
+(qa as any).author = authorRef;
 (qa as any).reviewedBy = { "@id": (reviewerEntity as any)["@id"] };
-(qa as any).dateModified = d.updated.toISOString();
+(qa as any).dateModified = stamp;
 const cites = citationNodes(d.sources);
 if (cites.length) (qa as any).citation = cites;
 const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/questions/${item.slug}/#breadcrumb`, itemListElement:[
@@ -45,7 +67,7 @@ const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/questions/${item.s
     <span class="eyebrow">{d.category}</span>
     <h1 style="margin:.4rem 0">{d.question}</h1>
     <Byline authorName={author.name} authorHref={author.href} reviewerName={reviewer.name} reviewerHref={reviewer.href} updated={d.updated} lastReviewed={d.lastReviewed} />
-    <div class="qbox"><b>Quick answer</b><p>{d.shortAnswer}</p></div>
+    <div class="qbox" id="answer"><b>Quick answer</b><p>{d.shortAnswer}</p></div>
     <div class="prose"><Content /></div>
     <KeyFacts facts={d.keyFacts} />
     <SourceList sources={d.sources} />
