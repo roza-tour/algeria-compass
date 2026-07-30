@@ -33,7 +33,24 @@
       if(window.gtag) window.gtag('event',name);
     });
     window.trackEvent=function(name){ if(window.plausible)window.plausible(name); if(window.gtag)window.gtag('event',name); };
-  </script><link rel="stylesheet" href="/assets/ueber-uns.C496URrZ.css">
+  </script><!-- First-party, cookieless hit counter → /hit.php (feeds the private stats.php
+     dashboard). No cookies, no IP, no personal data — so it needs no consent
+     and runs independently of the Google/consent block above. --><script>
+  (function(){
+    function ping(t){
+      try{
+        var body = JSON.stringify({ t: t, p: location.pathname });
+        if (navigator.sendBeacon) navigator.sendBeacon('/hit.php', body);
+        else fetch('/hit.php', { method:'POST', body: body, keepalive:true });
+      }catch(e){}
+    }
+    ping('view');
+    document.addEventListener('click', function(e){
+      var el = e.target.closest('[data-evt]');
+      if (el) ping(el.getAttribute('data-evt'));
+    });
+  })();
+</script><link rel="stylesheet" href="/assets/ueber-uns.C496URrZ.css">
 <style>.faq-jump[data-astro-cid-tvvzprqj]{display:flex;flex-wrap:wrap;gap:.5rem;margin:.4rem 0 1.6rem}.faq-jump[data-astro-cid-tvvzprqj] a[data-astro-cid-tvvzprqj]{font-size:.78rem;font-weight:600;padding:.35rem .7rem;border-radius:999px;background:var(--wash,#f2efe6);color:var(--brand-green,#0B3D2E);text-decoration:none;border:1px solid var(--border,#e7e2d6)}.faq-jump[data-astro-cid-tvvzprqj] a[data-astro-cid-tvvzprqj]:hover{background:var(--brand-green,#0B3D2E);color:#fff}.faq-cat[data-astro-cid-tvvzprqj]{margin-top:2rem;scroll-margin-top:90px}.faq-cat[data-astro-cid-tvvzprqj] h2[data-astro-cid-tvvzprqj]{color:var(--brand-green,#0B3D2E)}.faq-guides[data-astro-cid-tvvzprqj]{columns:2;gap:1.5rem;margin:1rem 0 0;padding-left:1.1rem}@media (max-width:640px){.faq-guides[data-astro-cid-tvvzprqj]{columns:1}}
 </style></head> <body> <div class="amb" data-season="summer" aria-hidden="true" data-astro-cid-lfw5ggjk>    <span class="amb-shaft amb-shaft--1" data-astro-cid-lfw5ggjk></span> <span class="amb-shaft amb-shaft--2" data-astro-cid-lfw5ggjk></span> <span class="amb-shaft amb-shaft--3" data-astro-cid-lfw5ggjk></span> <span class="amb-sun" data-astro-cid-lfw5ggjk></span> <div class="amb-layer amb-sea" data-astro-cid-lfw5ggjk> <span class="amb-swell amb-swell--1" data-astro-cid-lfw5ggjk></span> <span class="amb-swell amb-swell--2" data-astro-cid-lfw5ggjk></span> <span class="amb-swell amb-swell--3" data-astro-cid-lfw5ggjk></span> <span class="amb-shimmer" data-astro-cid-lfw5ggjk></span> </div>     </div> <script>(function(){const windows = [["2026-08-25","2026-08-28","mawlid"],["2026-10-31","2026-11-03","national"],["2026-12-14","2027-01-06","christmas"],["2027-01-11","2027-01-15","yennayer"],["2027-02-07","2027-03-10","ramadan"],["2027-03-09","2027-03-13","eid"],["2027-05-16","2027-05-21","eid"],["2027-07-04","2027-07-07","national"],["2027-08-14","2027-08-17","mawlid"],["2027-10-31","2027-11-03","national"],["2027-12-14","2028-01-06","christmas"]];
 

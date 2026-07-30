@@ -33,7 +33,24 @@
       if(window.gtag) window.gtag('event',name);
     });
     window.trackEvent=function(name){ if(window.plausible)window.plausible(name); if(window.gtag)window.gtag('event',name); };
-  </script><link rel="stylesheet" href="/assets/ueber-uns.C496URrZ.css">
+  </script><!-- First-party, cookieless hit counter → /hit.php (feeds the private stats.php
+     dashboard). No cookies, no IP, no personal data — so it needs no consent
+     and runs independently of the Google/consent block above. --><script>
+  (function(){
+    function ping(t){
+      try{
+        var body = JSON.stringify({ t: t, p: location.pathname });
+        if (navigator.sendBeacon) navigator.sendBeacon('/hit.php', body);
+        else fetch('/hit.php', { method:'POST', body: body, keepalive:true });
+      }catch(e){}
+    }
+    ping('view');
+    document.addEventListener('click', function(e){
+      var el = e.target.closest('[data-evt]');
+      if (el) ping(el.getAttribute('data-evt'));
+    });
+  })();
+</script><link rel="stylesheet" href="/assets/ueber-uns.C496URrZ.css">
 <style>.positioning[data-astro-cid-gp7gxmxz]{display:grid;grid-template-columns:1.4fr 1fr;gap:2rem;align-items:start}.pos-lead[data-astro-cid-gp7gxmxz] h2[data-astro-cid-gp7gxmxz]{margin-bottom:.4rem}.pos-lead[data-astro-cid-gp7gxmxz] p[data-astro-cid-gp7gxmxz]{color:var(--text-m)}.trust-row[data-astro-cid-gp7gxmxz]{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.trust-row[data-astro-cid-gp7gxmxz] a[data-astro-cid-gp7gxmxz]{display:flex;flex-direction:column;padding:.7rem .85rem;border:1px solid var(--border);border-radius:10px;background:var(--wash);color:var(--text)}.trust-row[data-astro-cid-gp7gxmxz] a[data-astro-cid-gp7gxmxz]:hover{border-color:var(--gold)}.trust-row[data-astro-cid-gp7gxmxz] strong[data-astro-cid-gp7gxmxz]{font-size:.95rem}.trust-row[data-astro-cid-gp7gxmxz] span[data-astro-cid-gp7gxmxz]{font-size:.76rem;color:var(--text-l)}.discover-row[data-astro-cid-gp7gxmxz]{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--border)}.dr-label[data-astro-cid-gp7gxmxz]{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-l);margin-right:.3rem}.dr-pill[data-astro-cid-gp7gxmxz]{padding:.34rem .8rem;border:1px solid var(--border);border-radius:999px;font-size:.85rem;background:var(--bg);color:var(--text)}.dr-pill[data-astro-cid-gp7gxmxz]:hover{border-color:var(--gold);color:var(--green-d)}.dr-all[data-astro-cid-gp7gxmxz]{border-color:var(--green-d);color:var(--green-d);font-weight:700}@media (max-width:760px){.positioning[data-astro-cid-gp7gxmxz]{grid-template-columns:1fr}}
 </style></head> <body> <div class="amb" data-season="summer" aria-hidden="true" data-astro-cid-lfw5ggjk>    <span class="amb-shaft amb-shaft--1" data-astro-cid-lfw5ggjk></span> <span class="amb-shaft amb-shaft--2" data-astro-cid-lfw5ggjk></span> <span class="amb-shaft amb-shaft--3" data-astro-cid-lfw5ggjk></span> <span class="amb-sun" data-astro-cid-lfw5ggjk></span> <div class="amb-layer amb-sea" data-astro-cid-lfw5ggjk> <span class="amb-swell amb-swell--1" data-astro-cid-lfw5ggjk></span> <span class="amb-swell amb-swell--2" data-astro-cid-lfw5ggjk></span> <span class="amb-swell amb-swell--3" data-astro-cid-lfw5ggjk></span> <span class="amb-shimmer" data-astro-cid-lfw5ggjk></span> </div>     </div> <script>(function(){const windows = [["2026-08-25","2026-08-28","mawlid"],["2026-10-31","2026-11-03","national"],["2026-12-14","2027-01-06","christmas"],["2027-01-11","2027-01-15","yennayer"],["2027-02-07","2027-03-10","ramadan"],["2027-03-09","2027-03-13","eid"],["2027-05-16","2027-05-21","eid"],["2027-07-04","2027-07-07","national"],["2027-08-14","2027-08-17","mawlid"],["2027-10-31","2027-11-03","national"],["2027-12-14","2028-01-06","christmas"]];
 

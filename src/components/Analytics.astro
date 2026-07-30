@@ -51,3 +51,23 @@ const { plausibleDomain, ga4 } = ANALYTICS;
     window.trackEvent=function(name){ if(window.plausible)window.plausible(name); if(window.gtag)window.gtag('event',name); };
   </script>
 )}
+
+<!-- First-party, cookieless hit counter → /hit.php (feeds the private stats.php
+     dashboard). No cookies, no IP, no personal data — so it needs no consent
+     and runs independently of the Google/consent block above. -->
+<script is:inline>
+  (function(){
+    function ping(t){
+      try{
+        var body = JSON.stringify({ t: t, p: location.pathname });
+        if (navigator.sendBeacon) navigator.sendBeacon('/hit.php', body);
+        else fetch('/hit.php', { method:'POST', body: body, keepalive:true });
+      }catch(e){}
+    }
+    ping('view');
+    document.addEventListener('click', function(e){
+      var el = e.target.closest('[data-evt]');
+      if (el) ping(el.getAttribute('data-evt'));
+    });
+  })();
+</script>
