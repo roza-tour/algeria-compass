@@ -39,4 +39,11 @@ new-logo.png
 /data/rl-*
 /data/.login-*
 /data/.admin_hash
+# GA4 stats page secrets + token cache — must NEVER be committed. The real
+# files live ABOVE the web root (~/.ga_*); these are the in-repo fallbacks.
+/data/.ga_token.json
+/data/.ga_service_account.json
+/data/.ga_property_id
+/.ga_service_account.json
+/.ga_property_id
 shots/
