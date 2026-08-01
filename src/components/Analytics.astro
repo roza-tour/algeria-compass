@@ -52,22 +52,83 @@ const { plausibleDomain, ga4 } = ANALYTICS;
   </script>
 )}
 
-<!-- First-party, cookieless hit counter → /hit.php (feeds the private stats.php
-     dashboard). No cookies, no IP, no personal data — so it needs no consent
-     and runs independently of the Google/consent block above. -->
+<!-- First-party, cookieless behaviour tracker → /hit.php (feeds the private
+     stats.php dashboard). No cookies, no IP, no persistent identifier: the
+     session id lives in sessionStorage only, so it dies when the tab closes
+     and can never follow anyone across sites or days. That is why this needs
+     no consent and runs independently of the Google/consent block above.
+
+     Three beacons per page at most — view, engaged (15s), exit (with dwell +
+     scroll depth) — which keeps the log small while still answering "did they
+     actually read it?" rather than just "did it load?". -->
 <script is:inline>
   (function(){
-    function ping(t){
+    var SS = null;
+    try { SS = window.sessionStorage; } catch(e){}
+    var g = function(k){ try { return SS && SS.getItem(k); } catch(e){ return null; } };
+    var s = function(k,v){ try { SS && SS.setItem(k,v); } catch(e){} };
+
+    // Ephemeral, per-tab session id — never persisted, never sent anywhere else.
+    var sid = g('ac_s');
+    if (!sid) { sid = Math.random().toString(36).slice(2,10); s('ac_s', sid); }
+    // First page of this session? (drives entry pages + bounce rate)
+    var entry = g('ac_e') !== '1';
+    if (entry) s('ac_e','1');
+
+    var start = Date.now(), maxScroll = 0, closed = false;
+
+    function ping(t, extra){
       try{
-        var body = JSON.stringify({ t: t, p: location.pathname });
+        var d = { t: t, p: location.pathname, s: sid };
+        if (extra) for (var k in extra) d[k] = extra[k];
+        var body = JSON.stringify(d);
         if (navigator.sendBeacon) navigator.sendBeacon('/hit.php', body);
         else fetch('/hit.php', { method:'POST', body: body, keepalive:true });
       }catch(e){}
     }
-    ping('view');
+
+    // --- page view, with the context that makes it interpretable ---
+    var w = window.innerWidth || 1024;
+    var vw = w < 640 ? 'sm' : (w < 1024 ? 'md' : 'lg');
+    var utm = '';
+    try {
+      var q = new URLSearchParams(location.search);
+      utm = (q.get('utm_source') || q.get('utm_campaign') || q.get('ref') || '').slice(0,40);
+    } catch(e){}
+    ping(window.__AC_NF ? 'notfound' : 'view', { en: entry ? 1 : 0, vw: vw, utm: utm });
+
+    // --- scroll depth (kept in memory, reported once on exit) ---
+    window.addEventListener('scroll', function(){
+      var doc = document.documentElement;
+      var h = (doc.scrollHeight || 0) - (window.innerHeight || 0);
+      if (h <= 0) return;
+      var pc = Math.round((window.scrollY || doc.scrollTop || 0) / h * 100);
+      if (pc > maxScroll) maxScroll = Math.min(100, pc);
+    }, { passive: true });
+
+    // --- engaged: still here after 15s and the tab is visible ---
+    setTimeout(function(){ if (!document.hidden) ping('engaged'); }, 15000);
+
+    // --- exit: how long they stayed and how far they read ---
+    function bye(){
+      if (closed) return; closed = true;
+      var secs = Math.round((Date.now() - start) / 1000);
+      if (secs > 0 && secs < 3600) ping('exit', { dw: secs, sd: maxScroll });
+    }
+    window.addEventListener('pagehide', bye);
+    document.addEventListener('visibilitychange', function(){ if (document.hidden) bye(); });
+
+    // --- clicks: tracked CTAs, plus which tour cards pull people in ---
     document.addEventListener('click', function(e){
       var el = e.target.closest('[data-evt]');
       if (el) ping(el.getAttribute('data-evt'));
+      var a = e.target.closest('a[href]');
+      if (a) {
+        var href = a.getAttribute('href') || '';
+        if (/^\/(tours|fr\/circuits|it\/circuiti|es\/circuitos|de\/reisen)\/[^/]+\/$/.test(href)) {
+          ping('tour_click', { tp: href });
+        }
+      }
     });
   })();
 </script>
