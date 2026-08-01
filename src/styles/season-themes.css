@@ -28,11 +28,22 @@
    1. SEASON TOKENS
    ------------------------------------------------------------------------- */
 
+/* --accent-ink — the accent as TEXT.
+   Most seasonal accents clear WCAG AA (4.5:1) on the cream page and on their
+   own wash, so this simply follows --accent. Two do not: summer's #C2761B
+   measures 3.25:1 and eid's #9A7515 measures 3.74:1, which Lighthouse flags on
+   every eyebrow, breadcrumb and card tag those seasons touch. Those two get a
+   darkened variant HERE, for text only — the decorative --accent is untouched,
+   so borders, rules and washes keep the season's exact colour and the design
+   does not shift. */
+html { --accent-ink: var(--accent); }
+
 /* --- SUMMER — high sun, bright sea, joyful warm light ------------------- */
 html[data-season='summer'] {
   --wash: #FDF4DF;
   --border: #E9D9B4;
   --accent: #C2761B;
+  --accent-ink: #96580D;   /* 5.19:1 on the wash, 5.36:1 on cream */
   --s-blend: screen;
   /* The ray fan is deliberately faint: it screen-blends over the hero photo,
      and anything stronger turns a bright sky into a starburst. */
@@ -135,7 +146,7 @@ html[data-season='mawlid'] {
   --s-band: #0A3A2A;
 }
 html[data-season='ramadan'] { --wash: #F1F0DE; --border: #DED8B9; --accent: #14634A; }
-html[data-season='eid']     { --wash: #F7F0DC; --border: #E6D8B2; --accent: #9A7515; }
+html[data-season='eid']     { --wash: #F7F0DC; --border: #E6D8B2; --accent: #9A7515; --accent-ink: #765811; }
 html[data-season='mawlid']  { --wash: #EFF3EC; --border: #D9E1D3; --accent: #14634A; }
 
 /* --- YENNAYER — Amazigh teal and the zigzag of the tattoo motifs --------- */
@@ -231,7 +242,11 @@ html[data-season] .amb::after {
        consumed site-wide by global.css, so retinting the tokens above carries
        the season into cards, panels and rules automatically. */
 html[data-season] .qbox { border-left-color: var(--accent); }
-html[data-season] .eyebrow { color: var(--accent); }
+/* Text takes --accent-ink, not --accent: this rule outranks global.css and was
+   what actually painted every eyebrow, so darkening the token alone had no
+   effect. The border above keeps the raw accent — contrast rules apply to text,
+   not to a 3px rule. */
+html[data-season] .eyebrow { color: var(--accent-ink); }
 
 /* ---------------------------------------------------------------------------
    3. MOTION — the sea rolls, the light breathes. Only if the visitor allows it.

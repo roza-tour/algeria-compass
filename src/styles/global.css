@@ -92,7 +92,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:va
 .btn-ghost:hover{background:transparent;border-color:var(--green);color:var(--green-d)}
 .btn-ghost-light{background:transparent;border:1px solid rgba(246,239,224,.5);color:#fff}
 .btn-ghost-light:hover{background:rgba(246,239,224,.08);border-color:#fff}
-.eyebrow{font-size:var(--fs-eyebrow);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--accent);font-weight:var(--fw-bold)}
+.eyebrow{font-size:var(--fs-eyebrow);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--accent-ink);font-weight:var(--fw-bold)}
 /* ===== header / nav (rebrand chrome) ===== */
 .id-band{height:12px;width:100%;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'32'%20height%3D'16'%20viewBox%3D'0%200%2032%2016'%3E%20%3Cg%20fill%3D'none'%20stroke%3D'%23C8920A'%20stroke-width%3D'1.3'%20opacity%3D'0.9'%3E%20%3Cpath%20d%3D'M0%208%20L8%201%20L16%208%20L24%201%20L32%208'%2F%3E%3Cpath%20d%3D'M0%2015%20L8%208%20L16%2015%20L24%208%20L32%2015'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x center/24px 12px;background-color:#0E3D24}
 .nav{background:var(--green);border-bottom:1px solid rgba(201,162,75,.22);position:sticky;top:0;z-index:300;box-shadow:var(--shadow-nav)}
@@ -137,10 +137,10 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:va
 @media(max-width:640px){.hero-slim{height:auto;min-height:200px}}
 /* breadcrumbs */
 .crumbs{font-size:.76rem;color:var(--text-l);padding:.9rem 0}
-.crumbs a{color:var(--accent)}
+.crumbs a{color:var(--accent-ink)}
 /* quick answer / facts */
 .qbox{background:var(--wash);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:1.1rem 1.3rem;margin:1.4rem 0}
-.qbox b{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem}
+.qbox b{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.35rem}
 .facts{background:#fffbf0;border:1px solid #eadfb8;border-radius:12px;padding:1.1rem 1.3rem;margin:1.4rem 0}
 .facts h3{color:var(--gold-d);font-size:1rem;margin-bottom:.5rem}
 .facts table{width:100%;border-collapse:collapse;font-size:.92rem}
@@ -166,7 +166,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:va
 .card .ci img{width:100%;height:100%;object-fit:cover;transition:.4s}
 .card:hover .ci img{transform:scale(1.05)}
 .card .cb{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;flex:1}
-.card .tag{font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.card .tag{font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
 .card h3{font-size:1.05rem;margin:.3rem 0 .4rem}
 .card p{font-size:.86rem;color:var(--text-m);flex:1}
 .card .meta{font-size:.72rem;color:var(--text-l);margin-top:.7rem;border-top:1px solid var(--border);padding-top:.6rem}
@@ -210,7 +210,7 @@ footer{position:relative;padding:4rem 2rem 1.5rem;margin-top:3rem;background-ima
 /* ===== Accessibility ===== */
 /* --gold-d (#7E5E1A) is set once in :root — AA on white (~5.6:1). */
 .eyebrow{color:var(--gold-d)}
-[data-region] .eyebrow{color:var(--accent)}
+[data-region] .eyebrow{color:var(--accent-ink)}
 .hero .eyebrow{color:var(--gold-l)}
 a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
   outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}

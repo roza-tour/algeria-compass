@@ -173,7 +173,10 @@ const m = MSG[lang]?.[season];
   .sbn[data-season='yennayer']  { --sbn-bg:#E9F5F3; --sbn-line:#BEE0DB; --sbn-accent:#116A63; --sbn-ink:#0C3833; }
   .sbn[data-season='national']  { --sbn-bg:#ECF3EE; --sbn-line:#C7DCCD; --sbn-accent:#0B3D2E; --sbn-ink:#0B3D2E; }
   .sbn[data-season='spring']    { --sbn-bg:#EFF5EA; --sbn-line:#D2E2C4; --sbn-accent:#4A6B2A; --sbn-ink:#2C401A; }
-  .sbn[data-season='summer']    { --sbn-bg:#FBF3E1; --sbn-line:#EBD9AC; --sbn-accent:#9A6A12; --sbn-ink:#4A3410; }
+  /* #9A6A12 measured 4.28:1 on this banner's own background — just under AA
+     for the link text it colours. Darkened to 5.20:1; the banner background,
+     rule and icon tint are unchanged. */
+  .sbn[data-season='summer']    { --sbn-bg:#FBF3E1; --sbn-line:#EBD9AC; --sbn-accent:#8A5D0E; --sbn-ink:#4A3410; }
   .sbn[data-season='autumn']    { --sbn-bg:#F8F0E6; --sbn-line:#E6D2B6; --sbn-accent:#95531B; --sbn-ink:#46280E; }
 
   @media (max-width: 640px) {

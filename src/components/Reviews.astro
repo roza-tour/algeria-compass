@@ -12,7 +12,10 @@ const tours = (((data as any).tours || data) as any[]).map(t => t.title).sort();
   <h2>Reviews from our travellers</h2>
   <p class="rvx-sub">Real, verified reviews from people who travelled with us. We publish each one only after we’ve confirmed it — so what you read here is genuine.</p>
 
-  <a class="rvx-google" href="https://share.google/rEAjf9e2qvCwefa2X" target="_blank" rel="noopener" aria-label="Read Algeria Compass reviews on Google">
+  <!-- No aria-label: the link's own visible text already describes it, and an
+       aria-label that does not contain the visible words breaks voice control
+       (a user saying "click 5.0 on Google" would not match). -->
+  <a class="rvx-google" href="https://share.google/rEAjf9e2qvCwefa2X" target="_blank" rel="noopener">
     <span class="rvx-google-score">5.0</span>
     <span class="rvx-google-stars" aria-hidden="true">★★★★★</span>
     <span class="rvx-google-txt"><strong>5.0 on Google</strong> — from 9 five-star reviews · read them on Google →</span>
