@@ -10,6 +10,17 @@
 export interface TourVisual { hero: string; accent: string; needsImage?: boolean; }
 
 export const TOUR_VISUALS: Record<string, TourVisual> = {
+  // ---- 2026 La Smala programmes ----
+  // The supplied PDFs did contain photographs, but they are pictures of
+  // identifiable clients on tour; publishing those without their consent is
+  // not something we do. The owner is sending camp photography, so these run
+  // on the gradient hero until it arrives. The galleries below them still draw
+  // on our own Djanet and Roman-east libraries, which are of the same places.
+  'tadrart-rouge-7-days':            { hero: 'djanet-3.jpg',        accent: '#C8680A', needsImage: true },
+  'ihrir-oasis-7-days':              { hero: 'djanet-8.jpg',        accent: '#B4560E', needsImage: true },
+  'sefar-tassili-trek':              { hero: 'djanet-11.jpg',       accent: '#9A4A12', needsImage: true },
+  'algeria-grand-discovery-14-days': { hero: 'algiers-1.jpg',       accent: '#0B3D2E', needsImage: true },
+
   // Sahara — burnt sand
   'djanet-sahara-safari':            { hero: 'djanet-1.jpg',        accent: '#C8680A' },
   'djanet-ghardaia-desert-2-days':   { hero: 'djanet-6.jpg',        accent: '#C8680A' },
