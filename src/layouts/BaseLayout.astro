@@ -39,6 +39,16 @@ const siteSeason = (import.meta.env.SEASON_PREVIEW as string) || seasonForDate(n
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  {/* Page-supplied head content comes FIRST, because this is where pages put
+      their LCP image preload. It used to sit at the end of <head>, behind four
+      favicons and three Google Fonts requests, and the measurement was blunt:
+      Lighthouse recorded an lcpLoadDelay of 1051 ms on the live homepage — the
+      hero was not even discovered until the browser had opened cross-origin
+      connections for fonts. Preloads are honoured in document order, so
+      hoisting this slot is the whole fix. */}
+  <slot name="head" />
+
   <link rel="icon" href="/assets/img/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/favicon-512.png" />
@@ -59,7 +69,6 @@ const siteSeason = (import.meta.env.SEASON_PREVIEW as string) || seasonForDate(n
   {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
   <SchemaGraph nodes={schema} />
   <Analytics />
-  <slot name="head" />
 </head>
 <body class={bodyClass}>
   <SeasonAmbience />
