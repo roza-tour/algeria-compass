@@ -3739,12 +3739,12 @@
       "image_slugs": [
         "djanet"
       ],
-      "duration": "6 days on the plateau · bivouac throughout",
+      "duration": "7 days · 6 nights",
       "price_eur": 1120,
       "price_from": true,
       "per": "person",
       "start": "Algiers (flight to Djanet included)",
-      "summary": "A walking expedition onto the Tassili plateau to Sefar — the greatest open-air gallery of prehistoric painting in the Sahara. Flights included.",
+      "summary": "A seven-day walking expedition onto the Tassili plateau to Sefar — the greatest open-air gallery of prehistoric painting in the Sahara. Flights included.",
       "hook": "You cannot drive to Sefar. You climb to it, and you walk for days between painted walls that are five to eight thousand years old.",
       "overview": "This is the serious one. From Djanet the track climbs onto the Tassili plateau, and from there everything moves at walking pace — guides, cooks and donkey handlers carrying the camp while you cover five to seven hours a day between rock-art sites. Tin Zoumaitek and the valley of millennial cypresses, the painted 'dancers' of Tin Tazarift, the masks of Sefar Noir and the great gods of Sefar Blanc, and finally Djabarren, the largest single ensemble of paintings in the Tassili. Thousands of works, recording a Sahara that was green and full of people and animals. There is no vehicle support up there and no phone signal; it is a trek, and it is the reason serious travellers come to Algeria.",
       "whyDifferent": [
@@ -3776,7 +3776,7 @@
         },
         {
           "label": "Nights",
-          "value": "Camp and bivouac on the plateau throughout"
+          "value": "Six nights of camp and bivouac on the plateau"
         },
         {
           "label": "Support",
@@ -3803,19 +3803,35 @@
       "itinerary": [
         {
           "day": 1,
-          "title": "Djanet → Tamrit → Tin Zoumaitek",
-          "body": "Arrival at Djanet and welcome by the local team. After a few hours’ rest, transfer towards the Tassili du Tafilalet where the expedition begins. With guides, cooks and donkey handlers you start the ascent onto the Tassili plateau, reaching the first rock-art sites at Tin Zoumaitek and the valley of millennial cypresses — genuine survivors of Saharan history. First night in bivouac under the stars.",
+          "title": "Arrival in Djanet → Tassili du Tafilalet",
+          "body": "Arrival at Djanet and welcome by the local team. A few hours to rest after the flight, then the transfer towards the Tassili du Tafilalet, where the expedition begins and the guides, cooks and donkey handlers who will travel with you all week are waiting.",
           "stops": [
             {
-              "place": "Tamrit",
-              "text": "Where the track ends and the climb onto the plateau begins."
+              "place": "Djanet",
+              "text": "The Tuareg oasis capital of the south-east, and the last town before the plateau."
+            },
+            {
+              "place": "Tassili du Tafilalet",
+              "text": "Where the vehicles stop and the walking starts."
+            }
+          ],
+          "note": "An arrival day — the walking begins tomorrow."
+        },
+        {
+          "day": 2,
+          "title": "The ascent → Tin Zoumaitek",
+          "body": "The climb onto the Tassili plateau with the donkey teams carrying camp. At the top, the first rock-art sites at Tin Zoumaitek and the valley of millennial cypresses — genuine survivors of the wetter Sahara the paintings describe. First night in bivouac under the stars.",
+          "stops": [
+            {
+              "place": "The ascent",
+              "text": "The escarpment onto the plateau: around 7 hours walking, +500 m."
             },
             {
               "place": "Tin Zoumaitek",
               "text": "The first painted sites, and the valley of thousand-year-old cypresses."
             }
           ],
-          "note": "Covers days 1 and 2 of the programme. Around 7 hours walking, +500 m ascent."
+          "note": "Around 7 hours walking, +500 m ascent. Bivouac."
         },
         {
           "day": 3,
@@ -3876,6 +3892,22 @@
             }
           ],
           "note": "4 to 5 hours walking. Bivouac."
+        },
+        {
+          "day": 7,
+          "title": "Descent from the plateau → Djanet → home",
+          "body": "A last morning on the Tassili, then the descent off the plateau with the guides and donkey teams — the same climb as the first day, in reverse and with a week of it behind you. Back down to the vehicles and on to Djanet, then the transfer to Tiska Airport for the flight north.",
+          "stops": [
+            {
+              "place": "The descent",
+              "text": "Down the escarpment you climbed on the first day, back to where the vehicles wait."
+            },
+            {
+              "place": "Djanet",
+              "text": "A last look at the oasis before the airport."
+            }
+          ],
+          "note": "A departure day: the timing follows the return flight."
         }
       ],
       "includes": [
@@ -3899,7 +3931,7 @@
       "faqs": [
         {
           "q": "How fit do I need to be?",
-          "a": "Fit enough to walk four to seven hours a day for several days in a row, starting with a 500 m ascent onto the plateau. You carry a daypack only — donkeys move the camp — but there is no vehicle support and no way to shorten a day once you are up there. Regular walkers manage it comfortably; occasional walkers find it hard."
+          "a": "Fit enough to walk four to seven hours a day for six days running, starting with a 500 m ascent onto the plateau and ending with the descent. You carry a daypack only — donkeys move the camp — but there is no vehicle support and no way to shorten a day once you are up there. Regular walkers manage it comfortably; occasional walkers find it hard."
         },
         {
           "q": "Why can’t you drive to Sefar?",
