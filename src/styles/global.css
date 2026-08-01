@@ -445,3 +445,21 @@ a.es-name:hover{color:var(--brand)}
 .stat-row{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
 .stat{display:flex;flex-direction:column;align-items:center;padding:.9rem;border:1px solid var(--border);border-radius:10px;background:var(--wash);text-align:center}
 .stat-v{font-size:1.5rem;font-weight:800;color:var(--text)}.stat-l{font-size:.78rem;color:var(--text-l)}
+
+/* ===== Off-screen rendering cost =====
+   Lighthouse's main-thread breakdown on the live homepage was dominated by
+   styleLayout (~2s of a ~5s total) — an 84 KB stylesheet applied across ~1,680
+   elements, most of them far below the fold. content-visibility lets the
+   browser skip style, layout and paint for a section until it is near the
+   viewport, then render it normally.
+
+   Scoped to sections from the third onwards: the hero and the section under it
+   are visible immediately and must never be deferred. `auto` in
+   contain-intrinsic-size means the placeholder height is only a first guess —
+   once a section has rendered the browser remembers its real size, so the
+   scrollbar does not jump. TravellerSlider already sets its own value and
+   keeps it (this rule is less specific). */
+main > section:nth-of-type(n+3){
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
