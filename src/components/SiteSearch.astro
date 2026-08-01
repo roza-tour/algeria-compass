@@ -1,15 +1,16 @@
 ---
-// Site-wide search. A button in the header opens an overlay with instant
-// results from /search-index.json — 319 pages across all five languages.
+// Site-wide search, inline in the nav bar. Results drop below the field from
+// /search-index.json — 319 pages across all five languages.
 //
-// Why an overlay rather than an inline field: the nav is already dense at
-// tablet width, and a persistent input would either shrink the menu or push
-// the booking CTA off-screen on mobile. The button costs one icon.
+// This replaced an overlay: a full-screen dialog is a heavy answer to "let me
+// look something up", and it hid the bar the reader was already using. Sitting
+// in the bar, the field is visible on every page and costs one tab stop. The
+// space came from collapsing the four language links into a dropdown.
 //
 // Results are filtered to the reader's own language first. If that finds
-// nothing, the other languages are offered separately rather than silently
-// mixed in — a German reader searching "Sahara" should see the German pages,
-// but should not be told there is nothing when an English page would help.
+// nothing, the other languages are offered under their own heading rather than
+// silently mixed in — a German reader searching "Sahara" should see the German
+// pages, but should not be told there is nothing when an English page helps.
 import { asLang, t as tr } from '../i18n';
 interface Props { lang?: string }
 const lang = asLang(Astro.props.lang);
@@ -22,37 +23,30 @@ const T = {
   close: tr(lang, 'searchClose'),
 };
 ---
-<button type="button" class="ss-open" id="ssOpen" aria-label={T.aria} aria-haspopup="dialog">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-    <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
-  </svg>
-  <span class="ss-open-txt">{T.label}</span>
-</button>
-
-<div class="ss-overlay" id="ssOverlay" role="dialog" aria-modal="true" aria-label={T.aria} hidden>
-  <div class="ss-panel">
-    <div class="ss-bar">
-      <svg class="ss-bar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
-      </svg>
-      <input id="ssInput" type="search" autocomplete="off" placeholder={T.ph} aria-label={T.aria}
-             aria-controls="ssResults" aria-expanded="false" role="combobox" />
-      <button type="button" class="ss-close" id="ssClose" aria-label={T.close}>&#10005;</button>
-    </div>
+<div class="ss" id="ss">
+  <div class="ss-field">
+    <svg class="ss-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+    </svg>
+    <input id="ssInput" type="search" autocomplete="off" placeholder={T.ph} aria-label={T.aria}
+           role="combobox" aria-controls="ssResults" aria-expanded="false" aria-autocomplete="list" />
+    <button type="button" class="ss-clear" id="ssClear" aria-label={T.close} hidden>&#10005;</button>
+  </div>
+  <div class="ss-drop" id="ssDrop" hidden>
     <p class="ss-status" id="ssStatus" aria-live="polite"></p>
-    <ul class="ss-results" id="ssResults" role="listbox"></ul>
+    <ul class="ss-results" id="ssResults" role="listbox" aria-label={T.aria}></ul>
   </div>
 </div>
 
 <script is:inline define:vars={{ lang, T }}>
   (function () {
-    var openBtn = document.getElementById('ssOpen');
-    var overlay = document.getElementById('ssOverlay');
+    var root = document.getElementById('ss');
     var input = document.getElementById('ssInput');
+    var drop = document.getElementById('ssDrop');
     var list = document.getElementById('ssResults');
     var status = document.getElementById('ssStatus');
-    var closeBtn = document.getElementById('ssClose');
-    if (!openBtn || !overlay) return;
+    var clear = document.getElementById('ssClear');
+    if (!root || !input) return;
 
     var data = null, loading = false, cursor = -1, lastSent = '', timer = null;
 
@@ -60,15 +54,6 @@ const T = {
       return String(s || '').replace(/[&<>"]/g, function (c) {
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
       });
-    }
-
-    function load() {
-      if (data || loading) return;
-      loading = true;
-      fetch('/search-index.json')
-        .then(function (r) { return r.json(); })
-        .then(function (j) { data = j; loading = false; if (input.value) run(); })
-        .catch(function () { loading = false; status.textContent = '—'; });
     }
 
     // Fold accents so "wueste"/"wuste" reach "Wüste" and "argelia" reaches
@@ -79,6 +64,15 @@ const T = {
       return String(s || '').toLowerCase()
         .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
         .normalize('NFD').replace(/[̀-ͯ]/g, '');
+    }
+
+    function load() {
+      if (data || loading) return;
+      loading = true;
+      fetch('/search-index.json')
+        .then(function (r) { return r.json(); })
+        .then(function (j) { data = j; loading = false; if (input.value) run(); })
+        .catch(function () { loading = false; });
     }
 
     function score(row, term) {
@@ -99,12 +93,19 @@ const T = {
       return 0;
     }
 
+    function close() {
+      drop.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      cursor = -1;
+    }
+
     function run() {
       var q = input.value.trim();
       var term = fold(q);
       list.innerHTML = ''; cursor = -1;
-      input.setAttribute('aria-expanded', 'false');
-      if (!term || !data) { status.textContent = ''; return; }
+      clear.hidden = !q;
+      if (!term) { close(); status.textContent = ''; return; }
+      if (!data) { load(); return; }
 
       var mine = [], others = [];
       for (var i = 0; i < data.length; i++) {
@@ -116,11 +117,13 @@ const T = {
       mine.sort(by); others.sort(by);
 
       // Own language first; only fall back to the rest when it found nothing.
-      var show = mine.slice(0, 12);
-      var extra = show.length ? [] : others.slice(0, 8);
+      var show = mine.slice(0, 10);
+      var extra = show.length ? [] : others.slice(0, 6);
 
+      drop.hidden = false;
       if (!show.length && !extra.length) {
         status.textContent = T.none + ' “' + q + '”';
+        input.setAttribute('aria-expanded', 'false');
         track(q, 0);
         return;
       }
@@ -158,65 +161,109 @@ const T = {
       }, 900);
     }
 
-    function open() {
-      overlay.hidden = false;
-      document.body.style.overflow = 'hidden';
-      load();
-      setTimeout(function () { input.focus(); }, 30);
-    }
-    function close() {
-      overlay.hidden = true;
-      document.body.style.overflow = '';
-      openBtn.focus();
-    }
-
-    openBtn.addEventListener('click', open);
-    closeBtn.addEventListener('click', close);
-    overlay.addEventListener('mousedown', function (e) { if (e.target === overlay) close(); });
+    input.addEventListener('focus', load);
     input.addEventListener('input', run);
+    clear.addEventListener('click', function () { input.value = ''; run(); input.focus(); });
 
-    document.addEventListener('keydown', function (e) {
-      if (e.key === '/' && !overlay.hidden === false && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) {
-        e.preventDefault(); open(); return;
-      }
-      if (overlay.hidden) return;
+    document.addEventListener('click', function (e) { if (!root.contains(e.target)) close(); });
+
+    root.addEventListener('keydown', function (e) {
       var items = list.querySelectorAll('.ss-item a');
-      if (e.key === 'Escape') { close(); }
+      if (e.key === 'Escape') { close(); input.blur(); }
       else if (e.key === 'ArrowDown' && items.length) { e.preventDefault(); cursor = Math.min(cursor + 1, items.length - 1); items[cursor].focus(); }
-      else if (e.key === 'ArrowUp' && items.length) { e.preventDefault(); cursor = Math.max(cursor - 1, 0); items[cursor].focus(); }
+      else if (e.key === 'ArrowUp' && items.length) {
+        e.preventDefault();
+        if (cursor <= 0) { cursor = -1; input.focus(); }
+        else { cursor--; items[cursor].focus(); }
+      }
+    });
+
+    // "/" from anywhere jumps to the field, the way most search-first sites work.
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== '/' || /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) return;
+      e.preventDefault(); input.focus();
     });
   })();
 </script>
 
 <style>
-  .ss-open{display:inline-flex;align-items:center;gap:.4rem;background:transparent;border:1px solid var(--border);
-    color:inherit;border-radius:999px;padding:.42rem .8rem;font:inherit;font-size:.78rem;font-weight:600;
-    cursor:pointer;min-height:34px;transition:background .2s ease,border-color .2s ease}
-  .ss-open:hover{background:var(--wash);border-color:var(--accent)}
-  .ss-open svg{width:16px;height:16px;flex:0 0 auto}
-  @media(max-width:900px){ .ss-open-txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)} }
+  .ss { position: relative; }
 
-  .ss-overlay{position:fixed;inset:0;z-index:120;background:rgba(7,38,28,.55);backdrop-filter:blur(3px);
-    display:flex;align-items:flex-start;justify-content:center;padding:clamp(1rem,6vh,4rem) 1rem}
-  .ss-overlay[hidden]{display:none}
-  .ss-panel{width:min(680px,100%);background:var(--card,#fff);border-radius:16px;overflow:hidden;
-    box-shadow:0 24px 60px rgba(0,0,0,.3);display:flex;flex-direction:column;max-height:80vh}
-  .ss-bar{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;border-bottom:1px solid var(--border)}
-  .ss-bar-ic{width:19px;height:19px;color:var(--text-l);flex:0 0 auto}
-  #ssInput{flex:1;border:0;outline:none;font:inherit;font-size:1.02rem;background:transparent;color:var(--text);min-width:0}
-  .ss-close{background:transparent;border:0;color:var(--text-l);font-size:1.05rem;cursor:pointer;
-    min-width:32px;min-height:32px;border-radius:8px}
-  .ss-close:hover{background:var(--wash);color:var(--text)}
-  .ss-status{margin:0;padding:.8rem .9rem;color:var(--text-l);font-size:.9rem}
-  .ss-status:empty{display:none}
-  .ss-results{list-style:none;margin:0;padding:.4rem;overflow-y:auto;display:grid;gap:.25rem}
-  .ss-sep{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
-    color:var(--text-l);padding:.7rem .7rem .25rem}
-  .ss-item a{display:block;padding:.6rem .7rem;border-radius:10px;text-decoration:none;border-left:3px solid transparent}
-  .ss-item a:hover,.ss-item a:focus-visible{background:var(--wash);border-left-color:var(--accent);outline:none}
-  .ss-kind{display:inline-block;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
-    color:var(--accent-ink);background:var(--wash);border-radius:999px;padding:.1rem .5rem;margin-bottom:.2rem}
-  .ss-title{display:block;font-weight:700;color:var(--text);font-size:.98rem;line-height:1.35}
-  .ss-blurb{display:block;color:var(--text-l);font-size:.84rem;line-height:1.45;margin-top:.1rem}
-  @media(prefers-reduced-motion:reduce){ .ss-open{transition:none} }
+  /* Sits ON the dark green bar, so the field is a translucent well rather than
+     a white box that would fight the header. */
+  .ss-field {
+    display: flex; align-items: center; gap: .4rem;
+    background: rgba(246, 239, 224, .10);
+    border: 1px solid rgba(246, 239, 224, .18);
+    border-radius: 999px; padding: 0 .35rem 0 .7rem;
+    height: 36px; transition: background .2s ease, border-color .2s ease, width .2s ease;
+  }
+  .ss-field:focus-within {
+    background: rgba(246, 239, 224, .16);
+    border-color: var(--gold, #C9A24B);
+  }
+  .ss-ic { width: 15px; height: 15px; color: rgba(246, 239, 224, .6); flex: 0 0 auto; }
+  #ssInput {
+    width: 150px; border: 0; outline: none; background: transparent;
+    font: inherit; font-size: .8rem; color: #F6EFE0; min-width: 0;
+    padding: 0; height: 100%;
+  }
+  #ssInput::placeholder { color: rgba(246, 239, 224, .5); }
+  #ssInput:focus { width: 200px; }
+  #ssInput::-webkit-search-cancel-button { display: none; }
+  .ss-clear {
+    background: transparent; border: 0; color: rgba(246, 239, 224, .6);
+    cursor: pointer; font-size: .8rem; line-height: 1;
+    min-width: 26px; min-height: 26px; border-radius: 50%;
+  }
+  .ss-clear:hover { color: #F6EFE0; background: rgba(246, 239, 224, .12); }
+
+  /* results panel — mirrors .sub-menu so the bar has one dropdown language */
+  .ss-drop {
+    position: absolute; top: calc(100% + .45rem); right: 0; z-index: 330;
+    width: min(420px, calc(100vw - 2rem));
+    background: var(--green-d, #07261C);
+    border: 1px solid rgba(201, 162, 75, .28);
+    border-radius: 12px; box-shadow: 0 14px 34px rgba(7, 38, 28, .45);
+    max-height: min(70vh, 460px); overflow-y: auto; padding: .35rem;
+  }
+  .ss-status { margin: 0; padding: .6rem .7rem; color: rgba(246, 239, 224, .65); font-size: .82rem; }
+  .ss-status:empty { display: none; }
+  .ss-results { list-style: none; margin: 0; padding: 0; display: grid; gap: .15rem; }
+
+  /* The rows below are built by JavaScript, so they never carry Astro's
+     scoping attribute and a scoped rule would silently skip them — which is
+     exactly what happened: the result titles fell through to the inherited
+     dark green and sat at 1.32:1 on the dark panel. Declared global, but every
+     selector is nested under .ss-drop so nothing escapes this component. */
+  :global(.ss-drop .ss-sep) {
+    font-size: .64rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+    color: rgba(246, 239, 224, .55); padding: .6rem .7rem .2rem;
+  }
+  :global(.ss-drop .ss-item a) {
+    display: block; padding: .5rem .7rem; border-radius: 8px; text-decoration: none;
+    border-left: 3px solid transparent;
+  }
+  :global(.ss-drop .ss-item a:hover),
+  :global(.ss-drop .ss-item a:focus-visible) {
+    background: rgba(246, 239, 224, .08); border-left-color: var(--gold, #C9A24B); outline: none;
+  }
+  :global(.ss-drop .ss-kind) {
+    display: inline-block; font-size: .6rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .06em; color: #E4C87A;
+    background: rgba(246, 239, 224, .08); border-radius: 999px;
+    padding: .08rem .45rem; margin-bottom: .18rem;
+  }
+  :global(.ss-drop .ss-title) { display: block; font-weight: 700; color: #F6EFE0; font-size: .88rem; line-height: 1.35; }
+  :global(.ss-drop .ss-blurb) { display: block; color: rgba(246, 239, 224, .68); font-size: .76rem; line-height: 1.45; margin-top: .1rem; }
+
+  /* In the mobile menu the bar is a stacked panel: the field goes full width
+     at the top of it and the results sit directly under, no floating. */
+  @media (max-width: 980px) {
+    .ss { width: 100%; }
+    .ss-field { height: 42px; border-radius: 10px; }
+    #ssInput, #ssInput:focus { width: 100%; flex: 1; font-size: .92rem; }
+    .ss-drop { position: static; width: 100%; margin-top: .45rem; max-height: 46vh; box-shadow: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .ss-field, #ssInput { transition: none; } }
 </style>
