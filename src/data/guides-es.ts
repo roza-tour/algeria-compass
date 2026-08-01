@@ -505,6 +505,443 @@ export const GUIDES_ES: GuideEs[] = [
     },
     "seoTitle": "Asistencia para el visado de Argelia | Algeria Compass",
     "seoDescription": "Carta de invitación, confirmaciones y lista de documentos gratis con cada reserva, más la autorización sahariana para entrar por el sur."
+  },
+  {
+    "slug": "presupuesto-argelia",
+    "en": "/blog/algeria-travel-cost/",
+    "fr": "/fr/budget-algerie/",
+    "eyebrow": "Presupuesto",
+    "h1": "¿Cuánto cuesta un viaje a Argelia?",
+    "published": "2026-08-01",
+    "lead": "Argelia tiene fama de ser difícil de leer en materia de precios, y la causa es una peculiaridad: existe un tipo de cambio oficial y un tipo paralelo muy extendido, y la diferencia entre ambos es grande. Entendido eso, y pagando en efectivo, Argelia resulta un destino asequible en casi todo — con una excepción, el Sáhara guiado.",
+    "sections": [
+      {
+        "h": "La respuesta corta",
+        "list": [
+          "Comida y transporte local — baratos para los estándares europeos",
+          "Hoteles — gama media: entre 50 y 90 € la habitación confortable en ciudad",
+          "Sáhara — el capítulo caro: guía acreditado, 4×4, permisos y vuelos internos"
+        ]
+      },
+      {
+        "h": "Cuánto al día en el norte",
+        "p": "Un viajero de gama media gasta en el norte entre 55 y 110 € al día, sin contar el vuelo internacional: hotel confortable, algún traslado privado y un guía de jornada. Quien viaja con presupuesto ajustado — casas de huéspedes, comida local, tren y autobús — se mueve entre 25 y 45 €. Por encima de esa horquilla están los mejores hoteles, el conductor-guía privado y los vuelos internos, que suben la cifra deprisa."
+      },
+      {
+        "h": "El Sáhara se presupuesta aparte",
+        "p": "Una expedición guiada al desierto profundo es de otro orden de magnitud: en torno a 140–280 € al día o más, porque incluye guía acreditado, 4×4, permisos, combustible, agua y víveres. No es caro para lo que es una expedición, pero eclipsa la parte norte del viaje. Conviene calcularlo como un paquete propio, y es donde una buena planificación ahorra más."
+      },
+      {
+        "h": "Efectivo, tarjetas y tipo de cambio",
+        "p": "Para el viajero, Argelia es una economía de efectivo. Las tarjetas se aceptan poco fuera de los grandes hoteles de las ciudades y los cajeros no siempre son fiables. Lleve dinares para el gasto diario y algo de moneda fuerte — euros — para cambiar sobre el terreno, e infórmese de los tipos vigentes antes de salir: el tipo paralelo es sensiblemente mejor que el oficial y cambia lo que vale su presupuesto."
+      },
+      {
+        "h": "Adónde va realmente el dinero",
+        "list": [
+          "El vuelo internacional — casi siempre el mayor gasto único del viaje",
+          "El Sáhara, si baja al sur — guía, 4×4, permisos y vuelo interno",
+          "La forma de cambiar el dinero — el margen entre el tipo oficial y el paralelo"
+        ]
+      },
+      {
+        "h": "Errores que salen caros",
+        "list": [
+          "Contar con la tarjeta de crédito en lugar de llevar efectivo en dinares",
+          "Cambiar todo el dinero al tipo oficial sin haberse informado antes",
+          "Subestimar el desierto: la etapa sahariana se presupuesta por separado",
+          "No llevar nada de moneda fuerte que cambiar a la llegada"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Es cara Argelia para viajar?",
+        "a": "No para comida y transporte local, que son baratos para los estándares europeos. Los hoteles confortables son de gama media y las expediciones guiadas al Sáhara son la parte cara. Cuente entre 55 y 110 € al día en el norte, sin el vuelo internacional."
+      },
+      {
+        "q": "¿Qué presupuesto diario hace falta en Argelia?",
+        "a": "En el norte, entre 25 y 45 € al día viajando con presupuesto ajustado y entre 55 y 110 € en gama media. Una expedición guiada al desierto profundo es muy superior: en torno a 140–280 € al día una vez incluidos guías, 4×4 y permisos."
+      },
+      {
+        "q": "¿Efectivo o tarjeta en Argelia?",
+        "a": "Efectivo. La aceptación de tarjetas es limitada fuera de los hoteles de las grandes ciudades y los cajeros pueden fallar, así que lleve dinares y algo de moneda fuerte para cambiar."
+      },
+      {
+        "q": "¿Por qué importa tanto el tipo de cambio?",
+        "a": "Porque Argelia tiene un tipo oficial y un tipo paralelo muy extendido, y el margen entre ambos es importante. Cambiar moneda fuerte sobre el terreno puede estirar el presupuesto de forma notable, así que conviene entenderlo antes de llegar."
+      },
+      {
+        "q": "¿Cuál es la parte más cara de un viaje a Argelia?",
+        "a": "Después del vuelo internacional, el Sáhara guiado: exige guías acreditados, 4×4, permisos y vuelos internos. La parte norte del viaje resulta comparativamente asequible."
+      }
+    ],
+    "cta": {
+      "h": "Un presupuesto claro, todo incluido",
+      "p": "Díganos sus fechas y cifraremos un viaje privado sin sorpresas sobre el terreno."
+    },
+    "seoTitle": "Presupuesto de viaje a Argelia 2026",
+    "seoDescription": "¿Es cara Argelia? Desglose de costes: alojamiento, comida, transporte, guías y Sáhara, más el doble tipo de cambio que lo cambia todo sobre el terreno."
+  },
+  {
+    "slug": "itinerario-argelia",
+    "en": "/blog/algeria-itinerary/",
+    "fr": "/fr/itineraire-algerie/",
+    "eyebrow": "Itinerarios",
+    "h1": "Itinerario por Argelia: 7, 10 y 14 días",
+    "published": "2026-08-01",
+    "lead": "Argelia es el país más grande de África, y el error de planificación más común es tratarlo como un solo destino. Un buen itinerario elige una o dos regiones y las recorre bien, en lugar de correr entre la costa mediterránea y el Sáhara profundo. Estos son tres planes que funcionan.",
+    "sections": [
+      {
+        "h": "Cuántos días hacen falta",
+        "list": [
+          "Una semana basta para un viaje centrado en el norte: Argel, un tramo de costa y las ciudades romanas del este",
+          "Diez días permiten añadir una región más: el oeste andalusí o el valle del M'Zab",
+          "Dos semanas son el punto justo para un primer viaje que una el norte romano con una verdadera etapa sahariana"
+        ]
+      },
+      {
+        "h": "7 días — lo esencial del norte",
+        "p": "Argel y la Casbah (2 noches), Tipaza en excursión de medio día desde la capital, Constantina (2 noches) como base del este, y Timgad y Djémila en excursiones — dos de las ciudades romanas mejor conservadas del mundo, y casi sin visitantes. Regreso a Argel vía Sétif. Todo es accesible por carretera y tren, sin permisos especiales. Mejor en primavera o en otoño."
+      },
+      {
+        "h": "10 días — el norte y una región más",
+        "p": "Se mantiene el núcleo de siete días y se añade un solo capítulo: el oeste andalusí, con Tlemcén (herencia almohade y ziyánida) y Orán, la ciudad del raï y de la costa; o bien el Sáhara septentrional, volando a Ghardaïa para recorrer el valle del M'Zab y sus cinco ciudades-oasis fortificadas. Ambas opciones añaden un segundo acto sin forzar la logística."
+      },
+      {
+        "h": "14 días — el norte y el gran Sáhara",
+        "p": "El primer viaje completo. El norte romano la primera semana y después un vuelo al sur para una etapa guiada en 4×4, siempre en la ventana de noviembre a febrero: Djanet, puerta del Tassili n'Ajjer y de su arte rupestre prehistórico, o Tamanrasset y las montañas del Hoggar con el amanecer del Assekrem. Las etapas del sur se organizan con operador autorizado, con guía, 4×4 y permisos."
+      },
+      {
+        "h": "La logística que hace que funcione",
+        "list": [
+          "Vuele las etapas largas: Argel–Djanet y Argel–Tamanrasset no se hacen por carretera",
+          "Respete la temporada: norte y oeste de marzo a mayo y de septiembre a noviembre, desierto de noviembre a febrero",
+          "Empiece pronto con el papeleo: el visado se tramita con antelación y los permisos del sur los gestiona su operador"
+        ]
+      },
+      {
+        "h": "Errores frecuentes",
+        "list": [
+          "Querer ver el norte y el gran sur en una sola semana",
+          "Conducir las etapas largas del sur para ahorrar — las distancias son enormes",
+          "Programar el desierto en primavera o en verano",
+          "Dejar el visado y los permisos del sur para el último momento"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuántos días hacen falta para Argelia?",
+        "a": "Calcule de 10 a 14 días para un primer viaje que combine el norte romano con una región desértica. Una semana basta si se queda en el norte, en torno a Argel y las ciudades romanas del este."
+      },
+      {
+        "q": "¿Es suficiente una semana en Argelia?",
+        "a": "Sí, para una región. Una semana cubre con holgura Argel, un tramo de costa y las ciudades romanas del este — Constantina, Timgad y Djémila. No alcanza para añadir el Sáhara profundo."
+      },
+      {
+        "q": "¿Cuál es el mejor itinerario de 10 días?",
+        "a": "Dedique la primera mitad a Argel y al circuito romano del este, y la segunda al oeste andalusí — Tlemcén y Orán — o a las ciudades-oasis del valle del M'Zab, según sus intereses."
+      },
+      {
+        "q": "¿Se pueden combinar el norte y el Sáhara?",
+        "a": "Sí, en catorce días: primero el norte romano y después un vuelo a Djanet o Tamanrasset para una etapa guiada en 4×4 por el Tassili n'Ajjer o el Hoggar, entre noviembre y febrero."
+      },
+      {
+        "q": "¿Hace falta guía para un itinerario por Argelia?",
+        "a": "En el norte no: se viaja por cuenta propia con algo de paciencia. El gran sur exige guía acreditado, 4×4 y permisos, de modo que esas etapas se organizan a través de un operador."
+      }
+    ],
+    "cta": {
+      "h": "Un itinerario privado a su medida",
+      "p": "Díganos sus fechas y construimos el viaje a su alrededor, con las etapas del desierto y los permisos incluidos."
+    },
+    "seoTitle": "Itinerario por Argelia: 7, 10 y 14 días",
+    "seoDescription": "Itinerarios listos para usar por Argelia — 7, 10 o 14 días: Argel, la costa, las ciudades romanas y el Sáhara, con rutas, temporadas y logística."
+  },
+  {
+    "slug": "cocina-argelina",
+    "en": "/blog/algerian-food-guide/",
+    "fr": "/fr/cuisine-algerienne/",
+    "eyebrow": "Cultura y cocina",
+    "h1": "¿Qué comer en Argelia?",
+    "published": "2026-08-01",
+    "lead": "La cocina argelina está en un cruce de caminos: tradiciones amazigh, árabes, otomanas, andalusíes y francesas en la misma mesa. Es generosa, perfumada y distinta de una región a otra. Comer en Argelia rara vez es una transacción y casi siempre es hospitalidad: uno se sienta y la comida sigue llegando mucho después de estar saciado.",
+    "sections": [
+      {
+        "h": "Los imprescindibles",
+        "list": [
+          "Cuscús — el plato nacional, sémola al vapor con caldo de carne y verduras, tradicionalmente el viernes y en las celebraciones",
+          "Chorba y h'rira — sopas perfumadas que abren la comida de la tarde, muy presentes en Ramadán",
+          "Mechoui — cordero asado, plato de fiesta",
+          "Tayines — guisos lentos con aceitunas, ciruelas o membrillo",
+          "Bourek — rollos de hojaldre fritos, de carne o de queso"
+        ]
+      },
+      {
+        "h": "Más allá del cuscús",
+        "p": "Los platos de todos los días cambian de una región y de una familia a otra. Busque la rechta, fideos finos estirados a mano típicos de Argel; el mhadjeb, una torta de sémola rellena que se vende en la calle; el hmiss, una ensalada cocida de pimiento asado y tomate; y la chakhchoukha del este. El pan es sagrado, de la baguette a la kesra plana y al msemen hojaldrado."
+      },
+      {
+        "h": "Dulces y pastelería",
+        "p": "La repostería argelina se apoya en la almendra, el dátil, la miel y el agua de azahar. No se pierda los makrout de sémola y dátil, los cuernos de gacela, la baklawa ni las bandejas de dulces que aparecen en cualquier visita. Se comen con té o con un café corto, y siempre en cantidad mayor de la prevista."
+      },
+      {
+        "h": "El ritual del té",
+        "p": "En el Sáhara, los tres vasos de té a la menta servidos desde lo alto son una ceremonia y no una bebida que despachar. El primero es amargo, el segundo dulce y el tercero suave; rechazarlos con prisa es el único error de verdad. En el norte compite con un café fuerte de herencia mediterránea."
+      },
+      {
+        "h": "Bueno saber",
+        "list": [
+          "La comida es predominantemente halal y no se sirve cerdo",
+          "El alcohol existe en algunos hoteles y locales autorizados, pero está poco extendido: conviene la discreción fuera de las grandes ciudades",
+          "La cocina es perfumada más que picante — comino, cilantro, canela, y harissa aparte",
+          "Los vegetarianos se defienden bien con ensaladas, sopas, pan y cuscús de verduras, aunque muchos caldos llevan carne",
+          "En el sur, beba siempre agua embotellada"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuál es el plato nacional de Argelia?",
+        "a": "El cuscús: sémola al vapor con un caldo de carne y verduras, que se come tradicionalmente los viernes y en las celebraciones. La UNESCO lo reconoce como patrimonio compartido del Magreb."
+      },
+      {
+        "q": "¿Qué hay que comer en Argelia?",
+        "a": "Cuscús, chorba, mechoui, tayines y bourek entre los grandes clásicos; rechta, mhadjeb y hmiss en el día a día; y una repostería enorme de miel y almendra, como los makrout y los cuernos de gacela."
+      },
+      {
+        "q": "¿Hay alcohol en Argelia?",
+        "a": "Argelia es un país de mayoría musulmana: el alcohol se encuentra en algunos hoteles y locales autorizados, pero está poco extendido. Sea discreto, sobre todo fuera de las grandes ciudades."
+      },
+      {
+        "q": "¿Es picante la cocina argelina?",
+        "a": "Es perfumada más que picante: comino, cilantro y canela dominan, y la harissa suele servirse aparte. Casi siempre se puede ajustar el punto de picante."
+      },
+      {
+        "q": "¿Es fácil ser vegetariano en Argelia?",
+        "a": "Razonablemente. Ensaladas, sopas, pan y cuscús de verduras son habituales, aunque conviene preguntar: muchos caldos se hacen con carne."
+      }
+    ],
+    "cta": {
+      "h": "Pruebe Argelia con nosotros",
+      "p": "Nuestros circuitos reservan un lugar de verdad a la mesa, a los mercados y a las casas que cocinan."
+    },
+    "seoTitle": "Cocina argelina: qué comer en Argelia",
+    "seoDescription": "Qué comer en Argelia: cuscús, chorba, mechoui, tayines, dulces y té a la menta. La cocina argelina plato a plato, con las notas prácticas útiles."
+  },
+  {
+    "slug": "nieve-sahara-argelia",
+    "en": "/blog/algeria-snow-to-sahara/",
+    "fr": "/fr/neige-sahara-algerie/",
+    "eyebrow": "Invierno en Argelia",
+    "h1": "De la nieve al Sáhara: cuatro estaciones en un viaje",
+    "published": "2026-08-01",
+    "lead": "Casi todo el mundo imagina Argelia como un solo decorado: arena. Es el país más grande de África y sus climas se apilan — costa mediterránea, montañas boscosas, altiplanos fríos y después el Sáhara. En invierno, esa superposición produce un viaje poco común: nieve un día y dunas cálidas pocos días después.",
+    "sections": [
+      {
+        "h": "Sí, nieva en Argelia",
+        "list": [
+          "Chréa, en los cedros sobre Blida — a una hora de Argel, con una pequeña estación de esquí",
+          "Tikjda, en el macizo del Djurdjura, en la Cabilia — senderismo, nieve y otra estación modesta",
+          "Los Aurés, sobre Batna — cumbres nevadas cerca de la ciudad romana de Timgad"
+        ]
+      },
+      {
+        "h": "Una nieve real, no alpina",
+        "p": "La nieve cae por lo general entre diciembre y marzo, y los altiplanos de Sétif y Batna conocen inviernos francamente fríos, con nevadas ocasionales en las propias ciudades. Las instalaciones son modestas y no tienen nada que ver con los Alpes; lo que sí es real es la nieve, el bosque de cedros y el silencio."
+      },
+      {
+        "h": "Las cuatro zonas, en un solo país",
+        "list": [
+          "Costa mediterránea — suave, verde y agradable a pie, en torno a 10–17 °C, con algo de lluvia",
+          "Montañas — cedros, nieve y pequeñas estaciones, cerca o por debajo de cero",
+          "Altiplanos — ciudades romanas, cielos inmensos y frío seco",
+          "Sáhara — dunas, arte rupestre y vivacs, con días de 20–25 °C y noches heladas"
+        ]
+      },
+      {
+        "h": "La semana nieve-Sáhara",
+        "p": "El contraste sólo funciona de diciembre a febrero, cuando la temporada de nieve en la montaña coincide con la gran temporada sahariana. Un esquema que funciona: Argel dos noches, con la Casbah y el aire marino; Chréa en excursión de un día o una noche, entre cedros y nieve; vuelo a Djanet o Tamanrasset para tres o cuatro noches de 4×4 guiado, dunas y vivac bajo un cielo de invierno excepcional; y, si queda tiempo, el este romano — Timgad y Djémila — en jornadas frías y limpias. El sur se hace en avión: las distancias por carretera son enormes."
+      },
+      {
+        "h": "Hacer la maleta para dos climas",
+        "p": "Es la parte que más gente falla. En la misma maleta hacen falta capas de abrigo de montaña — ropa caliente de verdad, capa exterior impermeable y calzado decente — y el equipo del desierto: protección solar fuerte para el día y, otra vez, ropa de abrigo para unas noches saharianas que se acercan a cero."
+      },
+      {
+        "h": "Cuándo no funciona",
+        "p": "En primavera la nieve ya se ha ido: el norte está espléndido, pero el contraste desaparece. En verano el desierto profundo es peligrosamente caluroso y queda excluido. Es, por tanto, un viaje exclusivamente invernal, que encaja bien con las fechas de Navidad y Año Nuevo, cuando el Sáhara está en su mejor momento."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Nieva en Argelia?",
+        "a": "Sí. El Atlas recibe nieve de invierno de verdad: Chréa sobre Blida, el Djurdjura en torno a Tikjda, en la Cabilia, y los Aurés. Suele nevar entre diciembre y marzo, y los altiplanos de Sétif y Batna también tienen inviernos fríos y a veces nevados."
+      },
+      {
+        "q": "¿Se puede esquiar en Argelia?",
+        "a": "Hay pequeñas estaciones en Chréa, a alrededor de una hora de Argel, y en Tikjda, en el Djurdjura. Son instalaciones modestas y no estaciones alpinas, pero en un buen invierno el esquí y las jornadas de nieve son perfectamente posibles."
+      },
+      {
+        "q": "¿Se pueden ver la nieve y el Sáhara en el mismo viaje?",
+        "a": "Sí, en invierno. Argelia apila costa mediterránea, montañas, altiplanos y desierto: se puede caminar sobre la nieve entre los cedros cerca de Blida y, tras un corto vuelo interno, estar entre las dunas cálidas del Sáhara esa misma semana."
+      },
+      {
+        "q": "¿Cuál es el mejor mes para el contraste nieve-Sáhara?",
+        "a": "De diciembre a febrero. Esa ventana superpone la temporada de nieve en la montaña con la gran temporada sahariana, cuando los días del desierto son suaves y las noches claras y frías. En primavera la nieve ya ha desaparecido y en verano el gran desierto es impracticable."
+      },
+      {
+        "q": "¿Cuánto frío hace en Argelia?",
+        "a": "En la montaña se baja a cero o por debajo en invierno, con nieve. La costa norte se mantiene suave, en torno a 10–17 °C. Los días saharianos son cálidos, a menudo de 20–25 °C, pero las noches del desierto pueden acercarse a cero, y eso sorprende a casi todo el mundo."
+      }
+    ],
+    "cta": {
+      "h": "¿La versión nieve y Sáhara de sus vacaciones?",
+      "p": "Díganos sus fechas: jornadas de montaña, vuelo al sur, permisos y vivacs incluidos."
+    },
+    "seoTitle": "De la nieve al Sáhara: Argelia en invierno",
+    "seoDescription": "¿Nieva en Argelia? Sí: Chréa, Tikjda y los Aurés. Cómo ver la nieve del Atlas y las dunas cálidas del Sáhara en la misma semana de invierno."
+  },
+  {
+    "slug": "navidad-ano-nuevo-argelia",
+    "en": "/blog/christmas-new-year-in-algeria/",
+    "fr": "/fr/noel-nouvel-an-algerie/",
+    "eyebrow": "Escapada de invierno",
+    "h1": "Navidad y Año Nuevo en Argelia",
+    "published": "2026-08-01",
+    "lead": "Casi todo el mundo reserva la Navidad en destinos caros y abarrotados. Argelia ofrece justo lo contrario: días templados en el desierto, yacimientos de primer orden vacíos y ninguna subida de precios por las fiestas — porque en un país de mayoría musulmana el 25 de diciembre es un día laborable como otro cualquiera.",
+    "sections": [
+      {
+        "h": "Por qué finales de diciembre es un buen momento",
+        "list": [
+          "El Sáhara está en plena temporada — días de 20–25 °C y noches frías y extraordinariamente limpias; una Nochebuena en un campamento del desierto no se olvida",
+          "El norte sigue templado y verde, en torno a 10–17 °C, mientras Europa tirita",
+          "El Atlas tiene nieve — Chréa y el Djurdjura, a una o dos horas de la capital",
+          "No hay multitudes: ni colas en Timgad, ni recargo festivo en los hoteles"
+        ]
+      },
+      {
+        "h": "Cómo es la Navidad sobre el terreno",
+        "p": "Seamos claros: Argelia no celebra la Navidad en el sentido comercial. No encontrará mercadillos, calles decoradas ni menús festivos fuera de un puñado de hoteles internacionales. Lo que sí hay son oficios religiosos: la pequeña comunidad cristiana celebra la Navidad en la catedral del Sagrado Corazón y en la basílica de Nuestra Señora de África, en Argel, así como en Orán y en Constantina. Nuestra Señora de África es además un lugar de visita habitual todo el año, con una vista soberbia sobre la bahía. Por lo demás, normalidad completa — que, si uno está cansado de la temporada comercial, es precisamente el atractivo."
+      },
+      {
+        "h": "Año Nuevo y después Yennayer",
+        "p": "El 1 de enero es festivo en Argelia. Y el 12 de enero llega Yennayer, el Año Nuevo amazigh, también fiesta nacional, celebrado con comidas tradicionales y reuniones familiares, con especial fuerza en la Cabilia, los Aurés y el M'Zab. Un viaje que vaya de finales de diciembre a mediados de enero puede reunir así tres celebraciones."
+      },
+      {
+        "h": "Una semana que funciona",
+        "p": "De siete a diez días durante las fiestas: Argel dos o tres noches, con la Casbah, el paseo marítimo y Nuestra Señora de África; vuelo al sur, a Djanet o Tamanrasset, para una etapa guiada en el desierto de tres o cuatro noches, con dunas, arte rupestre y vivac bajo las estrellas en plena Navidad; y regreso al norte para el Año Nuevo, o desvío por Chréa en busca de la nieve y el bosque de cedros."
+      },
+      {
+        "h": "Notas prácticas",
+        "list": [
+          "Prepare la maleta para los dos extremos: norte templado y a veces lluvioso, y noches del desierto próximas a cero",
+          "Empiece pronto con el visado — diciembre es un periodo cargado en los consulados",
+          "Reserve la etapa del desierto con antelación: el invierno es la alta temporada del Sáhara y la capacidad guiada es limitada",
+          "No espere que todo cierre el 25 de diciembre: es un día laborable y comercios, yacimientos y transportes funcionan con normalidad"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Se puede pasar la Navidad en Argelia?",
+        "a": "Sí, y es una época excelente. La Navidad no es festivo en Argelia: todo funciona con normalidad, sin multitudes ni subidas de precio. Finales de diciembre es además la plena temporada del Sáhara, con días templados y noches claras, mientras el norte se mantiene suave. Hay oficios religiosos en Argel, Orán y Constantina para quien desee asistir."
+      },
+      {
+        "q": "¿Es Argelia un buen destino de sol invernal?",
+        "a": "Para el desierto, sí: en diciembre y enero los días saharianos alcanzan a menudo 20–25 °C, con noches frías y despejadas, y el norte mediterráneo sigue templado y verde, en torno a 10–17 °C. No es, en cambio, un destino de baño en invierno."
+      },
+      {
+        "q": "¿Qué tiempo hace en Argelia en diciembre?",
+        "a": "La costa norte está templada y bastante lluviosa, entre 10 y 17 °C. El Atlas puede estar nevado. El Sáhara es seco, con días cálidos de 20–25 °C y noches que pueden acercarse a cero."
+      },
+      {
+        "q": "¿Hay celebraciones de Navidad en Argelia?",
+        "a": "No en el sentido comercial: no hay mercadillos navideños y el 25 de diciembre es día laborable. La pequeña comunidad cristiana lo celebra en la iglesia — catedral del Sagrado Corazón y Nuestra Señora de África en Argel, y también en Orán y Constantina."
+      },
+      {
+        "q": "¿Es festivo el Año Nuevo en Argelia?",
+        "a": "Sí, el 1 de enero es festivo. Yennayer, el Año Nuevo amazigh, es también fiesta nacional el 12 de enero, de modo que un viaje entre finales de diciembre y enero puede abarcar ambas."
+      }
+    ],
+    "cta": {
+      "h": "¿Un fin de año entre las dunas?",
+      "p": "Díganos sus fechas y montamos el itinerario de las fiestas, permisos incluidos."
+    },
+    "seoTitle": "Navidad y Año Nuevo en Argelia",
+    "seoDescription": "Navidad y Año Nuevo en Argelia: plena temporada del Sáhara, costa templada, nieve en el Atlas y ninguna multitud ni subida de precios por las fiestas."
+  },
+  {
+    "slug": "transporte-argelia",
+    "en": "/blog/algeria-transportation-guide/",
+    "fr": "/fr/transport-algerie/",
+    "eyebrow": "Transporte",
+    "h1": "Cómo moverse por Argelia",
+    "published": "2026-08-01",
+    "lead": "Argelia es el país más grande de África, y el mayor error del viajero es tratarlo como uno pequeño. Ir del Mediterráneo al Sáhara profundo es un trayecto continental, no una excursión. La regla es sencilla: volar las distancias largas, sobre todo hacia el sur, y usar tren, autobús y taxi en el norte. El desierto sólo se recorre en 4×4 con guía.",
+    "sections": [
+      {
+        "h": "Vuelos internos",
+        "p": "Para las etapas largas, y sobre todo para llegar al Sáhara, el avión es la opción sensata. Air Algérie, junto a otras compañías, conecta Argel, Orán y Constantina entre sí y con las puertas del sur — Djanet, Tamanrasset y Ghardaïa. Un vuelo convierte varios días de carretera en un par de horas. Las rutas del sur tienen frecuencias limitadas y se llenan en fiestas y vacaciones: reserve con mucha antelación."
+      },
+      {
+        "h": "Tren y autobús en el norte",
+        "p": "La compañía nacional SNTF opera trenes interurbanos por todo el norte poblado y enlaza Argel con Orán, Constantina, Annaba y Sétif, además de las líneas de cercanías de la capital. Los trenes de las líneas principales son cómodos y en tramos muy panorámicos. El autobús interurbano es el caballo de batalla del país: red amplia, tarifas bajas y conexiones con ciudades a las que el tren no llega."
+      },
+      {
+        "h": "Taxis compartidos y taxis urbanos",
+        "p": "Donde el tren y el autobús se agotan aparece el louage, el taxi compartido: rutas fijas entre localidades, salida cuando el vehículo se llena — no por horario — y pago en efectivo. Son rápidos y útiles para cubrir huecos, a cambio de cierta imprevisibilidad. Acuerde la tarifa o confirme el precio fijo antes de salir, y cuente con viajar con el coche completo."
+      },
+      {
+        "h": "Tranvías y metro",
+        "p": "Las grandes ciudades están bien servidas: Argel tiene metro y tranvía, y Orán, Constantina y Sétif, entre otras, disponen de tranvías modernos, baratos y fáciles de usar. Para moverse dentro de la ciudad son la mejor opción, muy por delante del coche."
+      },
+      {
+        "h": "Conductor privado y alquiler de coche",
+        "p": "Muchos visitantes con poco tiempo, o poco dispuestos a conducir, contratan un conductor privado por jornadas o para todo el itinerario: desaparecen la navegación, el aparcamiento, el idioma y los controles, y el conocimiento local convierte el trayecto en parte del viaje. El alquiler de coche existe en las ciudades y los aeropuertos y encaja bien en el norte, donde las carreteras principales son buenas."
+      },
+      {
+        "h": "El desierto: 4×4 y guía",
+        "p": "El Sáhara tiene su propia lógica y no es negociable: se llega en avión a una ciudad del sur y desde allí se viaja en 4×4 guiado dentro de las zonas autorizadas. Los operadores acreditados aportan vehículos, conductores y guías experimentados, combustible, agua y comunicaciones, y gestionan los permisos. Conducir por libre en el desierto no es una alternativa más barata: es la herramienta equivocada."
+      },
+      {
+        "h": "Carreteras y buenas costumbres",
+        "list": [
+          "La autopista este-oeste y los ejes principales están en buen estado; los riesgos son de comportamiento y de entorno",
+          "Evite las carreteras rurales de noche, cuando el riesgo aumenta con claridad",
+          "Los controles de policía y gendarmería son rutinarios: tenga la documentación a mano y sea paciente",
+          "Lleve efectivo — muchos billetes y todos los louages se pagan en metálico",
+          "Deje margen entre enlaces: los horarios pueden moverse y la escala del país castiga la planificación ajustada"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuál es la mejor forma de moverse por Argelia?",
+        "a": "Volar las distancias largas, sobre todo hacia el Sáhara; usar tren y autobús entre las ciudades del norte; recurrir al taxi compartido para los trayectos cortos; y viajar en 4×4 con guía en el desierto."
+      },
+      {
+        "q": "¿Hay vuelos internos en Argelia?",
+        "a": "Sí. Air Algérie y otras compañías enlazan Argel, Orán y Constantina entre sí y con ciudades del sur como Djanet, Tamanrasset y Ghardaïa. Reserve con antelación: las frecuencias del sur son limitadas."
+      },
+      {
+        "q": "¿Hay trenes en Argelia?",
+        "a": "Sí. La compañía nacional SNTF opera trenes interurbanos por el norte, cómodos en las líneas principales, además de servicios de cercanías en torno a Argel."
+      },
+      {
+        "q": "¿Se puede alquilar un coche en Argelia?",
+        "a": "Sí, sobre todo en las ciudades y los aeropuertos. Funciona bien en el norte; para el desierto, en cambio, hay que recurrir a un operador autorizado con 4×4 en lugar de conducir por libre."
+      },
+      {
+        "q": "¿Cómo se llega al Sáhara?",
+        "a": "En avión hasta una puerta del sur, como Djanet o Tamanrasset, y desde allí en 4×4 guiado, organizado por un operador autorizado que gestiona los permisos."
+      }
+    ],
+    "cta": {
+      "h": "Nos ocupamos de toda la logística",
+      "p": "Vuelos internos, traslados y 4×4 del desierto — organizados por nosotros de principio a fin."
+    },
+    "seoTitle": "Cómo moverse por Argelia: transporte 2026",
+    "seoDescription": "Cómo moverse por Argelia: vuelos internos al sur, tren y autobús en el norte, taxis compartidos, tranvías y 4×4 con guía para el desierto."
   }
 ];
 

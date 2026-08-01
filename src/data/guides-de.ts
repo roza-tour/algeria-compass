@@ -505,6 +505,440 @@ export const GUIDES_DE: GuideDe[] = [
     },
     "seoTitle": "Visum-Hilfe für Algerien | Algeria Compass",
     "seoDescription": "Einladungsschreiben, Bestätigungen und Dokumenten-Checkliste kostenlos bei jeder Buchung — plus die Sahara-Genehmigung für die Einreise im Süden."
+  },
+  {
+    "slug": "budget-algerien",
+    "en": "/blog/algeria-travel-cost/",
+    "fr": "/fr/budget-algerie/",
+    "eyebrow": "Reise vorbereiten",
+    "h1": "Was kostet eine Reise nach Algerien?",
+    "published": "2026-08-01",
+    "lead": "Algerien gilt als schwer kalkulierbar, und das hat einen einzigen Grund: Es gibt einen offiziellen Wechselkurs und einen weit verbreiteten Parallelkurs, und der Abstand zwischen beiden ist groß. Wer das verstanden hat und mit Bargeld reist, findet ein erschwingliches Land vor — mit einer Ausnahme, der geführten Sahara.",
+    "sections": [
+      {
+        "h": "Die kurze Antwort",
+        "list": [
+          "Essen und lokale Verkehrsmittel — nach europäischen Maßstäben günstig",
+          "Hotels — Mittelklasse, 50–90 € für ein komfortables Zimmer in der Stadt",
+          "Sahara — der teuerste Posten: Guide, 4×4, Genehmigungen und Inlandsflüge"
+        ]
+      },
+      {
+        "h": "Tagesbudgets im Norden",
+        "p": "Ohne internationale Flüge gerechnet: Sparsam Reisende kommen im Norden mit rund 25–45 € pro Tag aus — einfache Häuser, lokale Küche, Bahn und Bus. In der Mittelklasse liegt der Tag bei etwa 55–110 €, mit komfortablen Hotels, dem einen oder anderen privaten Transfer und einem Tagesguide. Eine geführte Expedition in die tiefe Wüste ist eine andere Größenordnung: rund 140–280 € und mehr pro Tag."
+      },
+      {
+        "h": "Bargeld, Karten und der Wechselkurs",
+        "p": "Für Reisende ist Algerien eine Bargeldwirtschaft. Außerhalb der großen Stadthotels werden Karten kaum akzeptiert, und Geldautomaten arbeiten unzuverlässig. Nehmen Sie Dinar für den Alltag und Euro zum Wechseln mit, und informieren Sie sich vor der Abreise über die aktuellen Kurse — der Unterschied zwischen offiziellem und Parallelkurs verändert die Kaufkraft vor Ort erheblich."
+      },
+      {
+        "h": "Wohin das Geld geht",
+        "list": [
+          "Der internationale Flug — meist der größte Einzelposten der ganzen Reise",
+          "Die Sahara — wer in den tiefen Süden fährt, bezahlt hier das eigentliche Kapitel",
+          "Die Art, wie Sie Geld wechseln — sie entscheidet, was Ihr Budget vor Ort wert ist"
+        ]
+      },
+      {
+        "h": "Warum die Wüste den Unterschied macht",
+        "p": "Für Expeditionsverhältnisse ist die algerische Sahara nicht teuer, doch sie stellt den Nordteil einer Reise in den Schatten. Bezahlt werden akkreditierte Guides, ausgerüstete 4×4 mit Fahrern, Treibstoff, Wasser, Satellitenkommunikation, Verpflegung im Camp, die Genehmigungen und der Inlandsflug in den Süden. Kalkulieren Sie diese Etappe getrennt: Sie wird als eigenes Paket organisiert, und genau hier zahlt sich sorgfältige Planung am stärksten aus."
+      },
+      {
+        "h": "Fehler, die Geld kosten",
+        "list": [
+          "Sich auf Kreditkarten verlassen — führen Sie Bargeld in Dinar mit",
+          "Das gesamte Geld zum offiziellen Kurs wechseln, ohne den Parallelkurs zu kennen",
+          "Die Sahara unterschätzen und sie nicht als eigenen Budgetposten führen",
+          "Ohne Euro anreisen, die sich vor Ort wechseln lassen"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Ist Algerien ein teures Reiseland?",
+        "a": "Nein. Essen und lokale Verkehrsmittel sind günstig, komfortable Hotels liegen in der Mittelklasse, und teuer wird allein die geführte Wüstenexpedition. Im Norden rechnen Sie ohne internationale Flüge mit etwa 55–110 € pro Tag."
+      },
+      {
+        "q": "Welches Tagesbudget braucht man in Algerien?",
+        "a": "Sparsam Reisende kommen im Norden mit 25–45 € pro Tag aus, in der Mittelklasse sind es 55–110 €. Eine geführte Wüstenexpedition kostet deutlich mehr: rund 140–280 € und mehr pro Tag."
+      },
+      {
+        "q": "Bargeld oder Karte?",
+        "a": "Bargeld. Karten werden außerhalb der großen Stadthotels kaum akzeptiert und Geldautomaten sind unzuverlässig. Nehmen Sie Dinar für den Alltag und Euro zum Wechseln mit."
+      },
+      {
+        "q": "Warum ist der Wechselkurs so wichtig?",
+        "a": "Algerien hat einen offiziellen und einen weit verbreiteten Parallelkurs, und der Abstand ist erheblich. Wo und wie Sie wechseln, verändert Ihre Kaufkraft vor Ort spürbar — es lohnt sich, das vor der Abreise zu klären."
+      }
+    ],
+    "cta": {
+      "h": "Ein klares Angebot, alles inklusive",
+      "p": "Nennen Sie uns Ihre Termine — wir kalkulieren eine private Reise ohne Überraschungen vor Ort."
+    },
+    "seoTitle": "Algerien: was kostet die Reise? Budget 2026",
+    "seoDescription": "Ist Algerien teuer? Kosten für Unterkunft, Essen, Verkehr, Guides und Sahara — und der Parallelkurs, der vor Ort alles verändert."
+  },
+  {
+    "slug": "reiseroute-algerien",
+    "en": "/blog/algeria-itinerary/",
+    "fr": "/fr/itineraire-algerie/",
+    "eyebrow": "Reise vorbereiten",
+    "h1": "Reiseroute für Algerien: 7, 10 und 14 Tage",
+    "published": "2026-08-01",
+    "lead": "Algerien ist das größte Land Afrikas, und der häufigste Planungsfehler besteht darin, es als ein einziges Ziel zu behandeln. Eine gute Route wählt eine oder zwei Regionen und bereist sie richtig, statt zwischen Mittelmeer und tiefer Sahara hin und her zu hetzen. Drei Pläne, die funktionieren.",
+    "sections": [
+      {
+        "h": "Wie viele Tage braucht man?",
+        "list": [
+          "Eine Woche genügt für einen konzentrierten Norden — Algier, ein Stück Küste, der römische Osten",
+          "Zehn Tage erlauben eine zweite Region: den Westen oder das M'Zab-Tal",
+          "Zwei Wochen sind das ideale Maß für eine erste Reise, die den Norden mit einer echten Sahara-Etappe verbindet"
+        ]
+      },
+      {
+        "h": "7 Tage — das Wesentliche des Nordens",
+        "p": "Eine erste Reise mit knapper Zeit, am besten im Frühling oder Herbst. Algier und die Kasbah (zwei Nächte), Tipaza als Tagesausflug an der Küste, Constantine (zwei Nächte) als Basis für den Osten, dann Timgad und Djémila als Tagesausflüge und die Rückfahrt über Sétif. Alles ist über Straße, Bahn und kurze Inlandsflüge erreichbar und verlangt keine besonderen Genehmigungen."
+      },
+      {
+        "h": "10 Tage — der Norden plus eine Region",
+        "p": "Nehmen Sie den Kern der sieben Tage und ergänzen Sie genau eine Region. Entweder den andalusischen Westen mit Tlemcen und seinem almohadischen und zianidischen Erbe sowie Oran an der Küste. Oder Sie fliegen nach Ghardaïa ins M'Zab-Tal, fünf befestigte Oasenstädte, die die moderne Architektur beeinflusst haben. Beides fügt ein eigenes zweites Kapitel hinzu, ohne die Logistik zu überdehnen."
+      },
+      {
+        "h": "14 Tage — Norden und tiefe Sahara",
+        "p": "Die vollständige erste Reise. In der ersten Woche der römische Norden, danach der Flug in den Süden für eine geführte Wüstenetappe im Fenster von November bis Februar: Djanet als Tor zum Tassili n'Ajjer mit prähistorischer Felskunst und Sandsteinwäldern, oder Tamanrasset für das Hoggar und den Sonnenaufgang am Assekrem. Die Südetappen laufen über einen lizenzierten Veranstalter, mit 4×4, akkreditiertem Guide und Genehmigungen."
+      },
+      {
+        "h": "Die Logistik richtig planen",
+        "list": [
+          "Fliegen Sie die langen Etappen — Algier–Djanet und Algier–Tamanrasset sind Flüge, keine Fahrten",
+          "Halten Sie sich an die Saison: der Norden im Frühling und Herbst, die Wüste im Winter",
+          "Beginnen Sie mit den Papieren früh — Visum und Südgenehmigungen brauchen Vorlauf"
+        ]
+      },
+      {
+        "h": "Fehler, die eine Route ruinieren",
+        "list": [
+          "Norden und tiefen Süden in eine einzige Woche pressen",
+          "Die langen Südstrecken fahren, statt zu fliegen",
+          "Die Sahara im Frühling oder Sommer einplanen",
+          "Visum und Wüstengenehmigungen zu spät starten"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Wie viele Tage braucht man für Algerien?",
+        "a": "Rechnen Sie mit zehn bis vierzehn Tagen für eine erste Reise, die den römischen Norden mit einer Wüstenregion verbindet. Eine Woche genügt für einen konzentrierten Aufenthalt im Norden."
+      },
+      {
+        "q": "Reicht eine Woche für Algerien?",
+        "a": "Ja, für eine Region. Eine Woche deckt Algier, ein Stück Küste und die römischen Städte des Ostens bequem ab. Für die große Sahara reicht sie nicht."
+      },
+      {
+        "q": "Kann man Norden und Sahara verbinden?",
+        "a": "Ja, auf vierzehn Tagen: erst der römische Norden, dann der Flug nach Djanet oder Tamanrasset für eine geführte 4×4-Etappe, zwischen November und Februar."
+      },
+      {
+        "q": "Braucht man für eine Route durch Algerien einen Guide?",
+        "a": "Im Norden nicht, dort reist man eigenständig. Der tiefe Süden verlangt akkreditierten Guide, 4×4 und Genehmigungen, organisiert von einem lizenzierten Veranstalter."
+      }
+    ],
+    "cta": {
+      "h": "Eine private Route nach Maß",
+      "p": "Nennen Sie uns Ihre Termine — wir bauen die Reise um Sie herum, Wüstenetappen und Genehmigungen inbegriffen."
+    },
+    "seoTitle": "Algerien Reiseroute: 7, 10 und 14 Tage (2026)",
+    "seoDescription": "Fertige Reiserouten für Algerien — 7, 10 oder 14 Tage: Algier, Küste, römische Städte und Sahara, mit Etappen, Saison und Logistik."
+  },
+  {
+    "slug": "algerische-kueche",
+    "en": "/blog/algerian-food-guide/",
+    "fr": "/fr/cuisine-algerienne/",
+    "eyebrow": "Kultur & Küche",
+    "h1": "Was isst man in Algerien?",
+    "published": "2026-08-01",
+    "lead": "Essen ist in Algerien selten ein Geschäft und fast immer Gastfreundschaft: Man setzt sich, und das Essen kommt noch lange, nachdem man satt ist. Die Küche steht an einer Kreuzung aus amazighischen, arabischen, osmanischen, andalusischen und französischen Einflüssen — großzügig, aromatisch und von Region zu Region verschieden.",
+    "sections": [
+      {
+        "h": "Die Klassiker",
+        "list": [
+          "Couscous — das Nationalgericht aus gedämpftem Hartweizengrieß mit Fleisch-Gemüse-Brühe, traditionell freitags und zu Festen",
+          "Chorba und H'rira — duftende Suppen, die das Abendessen tragen, allgegenwärtig im Ramadan",
+          "Mechoui — am Spieß gebratenes Lamm, das Festgericht schlechthin",
+          "Tajines — langsam geschmorte Gerichte mit Oliven, Pflaumen oder Quitten",
+          "Bourek — knusprige frittierte Teigrollen mit Fleisch oder Käse"
+        ]
+      },
+      {
+        "h": "Was jenseits des Couscous auf den Tisch kommt",
+        "p": "Suchen Sie nach Rechta, den fein von Hand gezogenen Nudeln von Algier, nach Mhadjeb, dem gefüllten Grießfladen der Straßenküche, und nach Hmiss, einem Dip aus gerösteten Paprika und Tomaten. Brot ist heilig, vom Baguette über das flache Kesra bis zum blättrigen Msemen. Diese Alltagsgerichte wechseln von Region zu Region und von Familie zu Familie."
+      },
+      {
+        "h": "Süßes",
+        "p": "Die Konditorei ist ein eigenes Kapitel und lebt von Mandeln, Datteln und Honig: Makrout aus Grieß und Datteln, Gazellenhörner, Baklawa und eine lange Reihe von Festgebäcken, die zu Hochzeiten und zum Eid gebacken werden. Dazu kommen frische Datteln aus den Oasen des Südens, die mit den abgepackten Früchten des Supermarkts wenig gemein haben."
+      },
+      {
+        "h": "Das Ritual des Tees",
+        "p": "Minztee begleitet alles. In der Sahara sind die drei aus großer Höhe eingeschenkten Gläser eine Zeremonie und kein Getränk, das man eilig hinunterstürzt: Das erste Glas gilt als stark, das zweite als mild, das dritte als süß. Wer sich Zeit dafür nimmt, versteht mehr von der Gastfreundschaft des Landes als bei jeder Besichtigung."
+      },
+      {
+        "h": "Gut zu wissen",
+        "list": [
+          "Gegessen wird überwiegend halal; Schweinefleisch wird nicht serviert",
+          "Vegetarisch geht gut mit Gemüse-Couscous, Suppen, Salaten und Brot — viele Brühen sind allerdings auf Fleischbasis",
+          "Die Küche ist aromatisch mehr als scharf: Kreuzkümmel, Koriander, Zimt und Harissa nach Gericht",
+          "Alkohol ist wenig verbreitet und in einigen Hotels und lizenzierten Lokalen erhältlich; bleiben Sie diskret",
+          "Trinken Sie im Süden abgefülltes Wasser"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Was ist das Nationalgericht Algeriens?",
+        "a": "Couscous — gedämpfter Hartweizengrieß mit einer Brühe aus Fleisch und Gemüse, traditionell freitags und zu Festen gegessen. Die UNESCO hat ihn als gemeinsames Erbe des Maghreb anerkannt."
+      },
+      {
+        "q": "Was sollte man in Algerien unbedingt probieren?",
+        "a": "Couscous, Chorba, Mechoui, Bourek und Tajines, dazu Rechta, Mhadjeb und traditionelles Brot. Und die Konditorei: Makrout, Gazellenhörner und Baklawa, begleitet von Minztee."
+      },
+      {
+        "q": "Ist die algerische Küche scharf?",
+        "a": "Sie ist aromatisch mehr als scharf. Kreuzkümmel, Koriander und Zimt prägen die Gerichte, Harissa kommt je nach Rezept dazu und lässt sich in der Regel dosieren."
+      },
+      {
+        "q": "Kann man sich vegetarisch ernähren?",
+        "a": "Recht gut. Gemüse-Couscous, Suppen, Salate und Brot sind überall zu finden; achten Sie darauf, dass viele Brühen auf Fleischbasis zubereitet werden."
+      },
+      {
+        "q": "Bekommt man in Algerien Alkohol?",
+        "a": "Algerien ist mehrheitlich muslimisch; Alkohol ist in einigen Hotels und lizenzierten Lokalen erhältlich, aber wenig verbreitet. Außerhalb der großen Städte bleibt man besser diskret."
+      }
+    ],
+    "cta": {
+      "h": "Algerien schmecken",
+      "p": "Unsere Reisen geben dem Tisch und den Märkten echten Raum — Familienküche, Konditoreien und Tee im Camp."
+    },
+    "seoTitle": "Algerische Küche: was man in Algerien isst",
+    "seoDescription": "Was man in Algerien isst: Couscous, Chorba, Mechoui, Tajines, Konditorei und Minztee. Der Ratgeber zur algerischen Küche, Gericht für Gericht."
+  },
+  {
+    "slug": "schnee-sahara-algerien",
+    "en": "/blog/algeria-snow-to-sahara/",
+    "fr": "/fr/neige-sahara-algerie/",
+    "eyebrow": "Winter in Algerien",
+    "h1": "Vom Schnee in die Sahara: vier Jahreszeiten in einer Reise",
+    "published": "2026-08-01",
+    "lead": "Die meisten Besucher stellen sich Algerien als eine einzige Kulisse vor: Sand. Tatsächlich ist es das größte Land Afrikas, und seine Klimazonen stapeln sich — Mittelmeerküste, bewaldete Berge, kalte Hochebenen, dann die Sahara. Im Winter entsteht daraus eine seltene Reise: an einem Tag Schnee, wenige Tage später warme Dünen.",
+    "sections": [
+      {
+        "h": "Ja, in Algerien schneit es",
+        "list": [
+          "Chréa, in den Zedernwäldern über Blida — rund eine Stunde von Algier, mit einer kleinen Skistation",
+          "Tikjda im Djurdjura der Kabylei — Bergwandern, Schnee und eine weitere bescheidene Station",
+          "Die Aurès über Batna — verschneite Gipfel in der Nähe der römischen Stadt Timgad",
+          "Die Hochebenen um Sétif und Batna — echte kalte Winter, gelegentlich mit Schnee in den Städten selbst"
+        ]
+      },
+      {
+        "h": "Vier Zonen in einem Land",
+        "list": [
+          "Mittelmeerküste — mild, grün und zu Fuß angenehm, etwa 10–17 °C bei etwas Regen",
+          "Berge — Zedernwald, Schnee und kleine Skistationen, um den Gefrierpunkt oder darunter",
+          "Hochebenen — römische Städte unter einem riesigen Himmel, kalt und klar",
+          "Sahara — Dünen, Felskunst und Camps, Tage um 20–25 °C und eisige Nächte"
+        ]
+      },
+      {
+        "h": "Die Schnee-Sahara-Woche",
+        "p": "Der Kontrast funktioniert nur von Dezember bis Februar, wenn sich der Schnee in den Bergen mit der Hochsaison der Sahara überschneidet. Algier für zwei Nächte, mit der Kasbah und der Seeluft. Chréa als Tagesausflug oder eine Nacht, für Zedern und Schnee. Dann der Flug nach Djanet oder Tamanrasset für drei bis vier Nächte im geführten 4×4, mit Dünen, Felskunst und Camps unter einem außergewöhnlichen Winterhimmel. Wer möchte, ergänzt den römischen Osten — Timgad und Djémila — an kalten, glasklaren Tagen."
+      },
+      {
+        "h": "Fliegen Sie die Südetappe",
+        "p": "Die Straßendistanzen zwischen dem Norden und dem tiefen Süden sind enorm und in einem normalen Urlaub nicht zu bewältigen. Air Algérie und Tassili Airlines verbinden Algier mit Djanet und Tamanrasset; von dort übernimmt das Team mit den 4×4. Alles Weitere zur Fortbewegung steht in unserem Verkehrsratgeber."
+      },
+      {
+        "h": "Packen für zwei Klimazonen",
+        "p": "Das ist der Teil, den fast alle unterschätzen. In dieselbe Tasche gehören echte Bergschichten — warme Kleidung, wasserdichte Außenlage, feste Schuhe — und zugleich die Ausrüstung für die Wüste: konsequenter Sonnenschutz am Tag und noch einmal warme Schichten für die Nächte im Camp, die gegen null gehen."
+      },
+      {
+        "h": "Wann es nicht funktioniert",
+        "p": "Im Frühling ist der Schnee weitgehend verschwunden: Der Norden ist wunderschön, aber der Kontrast fehlt. Im Sommer ist die tiefe Wüste gefährlich heiß und faktisch gesperrt, und die Veranstalter fahren nicht. Diese Reise ist damit ausdrücklich eine Winterreise — was sich gut mit Weihnachten und Neujahr verbindet, wenn die Sahara ohnehin in Bestform ist."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Schneit es in Algerien?",
+        "a": "Ja. Der Atlas bekommt echten Winterschnee: Chréa über Blida, das Djurdjura um Tikjda in der Kabylei und die Aurès. Schnee fällt in der Regel von Dezember bis März, und auch die Hochebenen um Sétif und Batna erleben kalte, gelegentlich verschneite Winter."
+      },
+      {
+        "q": "Kann man in Algerien Ski fahren?",
+        "a": "Es gibt kleine Stationen in Chréa, etwa eine Stunde von Algier, und in Tikjda im Djurdjura. Das sind bescheidene Anlagen und keine Alpenorte, doch Ski und Schneetage sind in einem guten Winter durchaus real."
+      },
+      {
+        "q": "Kann man Schnee und Sahara auf derselben Reise sehen?",
+        "a": "Ja, im Winter. Weil sich Küste, Berge, Hochebenen und Wüste in einem Land stapeln, können Sie im Zedernschnee bei Blida wandern und nach einem kurzen Inlandsflug in derselben Woche in warmen Dünen stehen."
+      },
+      {
+        "q": "Welcher Monat eignet sich am besten für diesen Kontrast?",
+        "a": "Dezember bis Februar. In diesem Fenster überschneidet sich die Schneesaison der Berge mit der Hochsaison der Sahara, wenn die Wüstentage mild und die Nächte klar und kalt sind. Im Frühling ist der Schnee fort, im Sommer ist die tiefe Wüste unzugänglich."
+      },
+      {
+        "q": "Wie kalt wird es in Algerien?",
+        "a": "In den Bergen fällt die Temperatur im Winter um den Gefrierpunkt oder darunter, mit Schnee. Die Nordküste bleibt mild bei etwa 10–17 °C. Die Sahara hat warme Tage, oft 20–25 °C, doch die Nächte können gegen null gehen — das überrascht die meisten Gäste."
+      }
+    ],
+    "cta": {
+      "h": "Die Schnee-und-Sahara-Version Ihres Urlaubs",
+      "p": "Nennen Sie uns Ihre Termine — Bergtage, Südflug, Genehmigungen und Camps inbegriffen."
+    },
+    "seoTitle": "Schnee und Sahara: Algerien im Winter erleben",
+    "seoDescription": "Schneit es in Algerien? Ja — Chréa, Tikjda und die Aurès. Wie Sie Bergschnee und warme Sahara-Dünen in einer einzigen Winterwoche verbinden."
+  },
+  {
+    "slug": "weihnachten-neujahr-algerien",
+    "en": "/blog/christmas-new-year-in-algeria/",
+    "fr": "/fr/noel-nouvel-an-algerie/",
+    "eyebrow": "Winterreise",
+    "h1": "Weihnachten und Neujahr in Algerien",
+    "published": "2026-08-01",
+    "lead": "Die meisten buchen Weihnachten irgendwo teuer und überfüllt. Algerien bietet das Gegenteil: warme Wüstentage, menschenleere Weltklassestätten und keinen Feiertagsaufschlag — denn in einem mehrheitlich muslimischen Land ist der 25. Dezember schlicht ein Arbeitstag. Das ist das ehrliche Argument. So sieht eine Reise über die Feiertage tatsächlich aus.",
+    "sections": [
+      {
+        "h": "Warum Ende Dezember eine ausgezeichnete Zeit ist",
+        "list": [
+          "Die Sahara ist in Hochsaison — Tage um 20–25 °C und kalte, außergewöhnlich klare Nächte. Heiligabend in einem Wüstencamp vergisst man nicht",
+          "Der Norden bleibt mild und grün, etwa 10–17 °C, während Europa friert",
+          "Der Atlas trägt Schnee — Chréa und das Djurdjura, ein bis zwei Stunden von der Hauptstadt",
+          "Keine Menschenmengen: keine Schlange in Timgad, kein Feiertagsaufschlag im Hotel"
+        ]
+      },
+      {
+        "h": "Wie Weihnachten vor Ort aussieht",
+        "p": "Sagen wir es offen: Algerien begeht Weihnachten kommerziell nicht. Es gibt keine Weihnachtsmärkte, keine geschmückten Einkaufsstraßen und außerhalb einiger internationaler Hotels auch keine Festmenüs. Was es gibt, sind Gottesdienste der kleinen christlichen Gemeinde — in der Kathedrale Sacré-Cœur und in der Basilika Notre-Dame d'Afrique in Algier sowie in Oran und Constantine. Notre-Dame d'Afrique ist ganzjährig ein regulärer Besuchsort mit einem großartigen Blick über die Bucht. Ansonsten herrscht vollkommene Normalität — was für alle, die die kommerzielle Saison satthaben, genau der Reiz ist."
+      },
+      {
+        "h": "Neujahr — und dann Yennayer",
+        "p": "Der 1. Januar ist gesetzlicher Feiertag. Und am 12. Januar folgt Yennayer, das amazighische Neujahr, ebenfalls ein nationaler Feiertag, gefeiert mit traditionellen Mahlzeiten und Familientreffen, am stärksten in der Kabylei, in den Aurès und im M'Zab. Eine Reise von Ende Dezember bis Mitte Januar kann damit drei Neujahrsfeste umfassen."
+      },
+      {
+        "h": "Eine Woche, die funktioniert",
+        "p": "Sieben bis zehn Tage über die Feiertage: Algier für zwei bis drei Nächte mit der Kasbah, der Uferpromenade und Notre-Dame d'Afrique. Dann der Flug nach Djanet oder Tamanrasset für eine geführte Wüstenetappe von drei bis vier Nächten, mit Dünen, Felskunst und Camps unter dem Sternenhimmel über Weihnachten. Zum Jahreswechsel zurück in den Norden — oder ein Abstecher nach Chréa für Schnee und Zedernwald."
+      },
+      {
+        "h": "Praktische Hinweise",
+        "list": [
+          "Packen Sie für beide Extreme: mild und zeitweise nass im Norden, Wüstennächte nahe dem Gefrierpunkt",
+          "Starten Sie das Visum früh — die Konsulate sind im Dezember stark ausgelastet",
+          "Buchen Sie die Wüstenetappe rechtzeitig: Der Winter ist die Hochsaison der Sahara, und die geführten Kapazitäten sind begrenzt",
+          "Rechnen Sie am 25. Dezember mit einem gewöhnlichen Arbeitstag — Geschäfte, Stätten und Verkehr laufen normal"
+        ]
+      },
+      {
+        "h": "Für wen sich diese Reise eignet",
+        "p": "Für alle, die Wintersonne ohne Langstreckenflug suchen, für Fotografinnen und Sternebeobachter, die auf klare, trockene Wüstenhimmel und tiefstehendes Winterlicht aus sind, und für alle, die Menschenmengen meiden. Weniger geeignet ist sie für Gäste, die ein europäisches Weihnachtsfest mit Märkten und Dekoration erwarten — das findet hier nicht statt."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Kann man Weihnachten in Algerien verbringen?",
+        "a": "Ja, und es ist eine ausgezeichnete Zeit. Weihnachten ist in Algerien kein Feiertag: Alles läuft normal, ohne Menschenmengen und ohne Preisaufschlag. Ende Dezember ist zudem Hochsaison in der Sahara, mit milden Tagen und sternklaren Nächten, während der Norden gemäßigt bleibt. In Algier, Oran und Constantine werden Gottesdienste gefeiert."
+      },
+      {
+        "q": "Ist Algerien ein gutes Ziel für Wintersonne?",
+        "a": "Für die Wüste ja: Im Dezember und Januar erreichen die Sahara-Tage oft 20–25 °C, bei kalten, klaren Nächten. Der mediterrane Norden bleibt mild und grün, etwa 10–17 °C. Ein Badeziel ist Algerien im Winter allerdings nicht."
+      },
+      {
+        "q": "Wie ist das Wetter in Algerien im Dezember?",
+        "a": "Die Nordküste ist mild und ziemlich regnerisch, um 10–17 °C. Der Atlas kann verschneit sein. Die Sahara ist trocken, mit warmen Tagen um 20–25 °C und Nächten nahe dem Gefrierpunkt."
+      },
+      {
+        "q": "Gibt es in Algerien Weihnachtsfeiern?",
+        "a": "Nicht im kommerziellen Sinn: keine Weihnachtsmärkte, und der 25. Dezember ist ein Arbeitstag. Die kleine christliche Gemeinde feiert in der Kirche — Kathedrale Sacré-Cœur und Notre-Dame d'Afrique in Algier sowie Kirchen in Oran und Constantine."
+      },
+      {
+        "q": "Ist Neujahr in Algerien ein Feiertag?",
+        "a": "Ja, der 1. Januar ist gesetzlicher Feiertag. Auch Yennayer, das amazighische Neujahr, ist am 12. Januar ein nationaler Feiertag — eine Reise Ende Dezember bis Mitte Januar kann also drei Feste verbinden."
+      }
+    ],
+    "cta": {
+      "h": "Ein Jahreswechsel in den Dünen?",
+      "p": "Nennen Sie uns Ihre Termine — wir bauen die Route über die Feiertage, Genehmigungen inbegriffen."
+    },
+    "seoTitle": "Weihnachten in Algerien: die warme Winterreise",
+    "seoDescription": "Weihnachten und Neujahr in Algerien: Sahara in Hochsaison, milde Küste, Schnee im Atlas — ohne Menschenmengen und ohne Feiertagsaufschlag."
+  },
+  {
+    "slug": "transport-algerien",
+    "en": "/blog/algeria-transportation-guide/",
+    "fr": "/fr/transport-algerie/",
+    "eyebrow": "Verkehr",
+    "h1": "Fortbewegung in Algerien",
+    "published": "2026-08-01",
+    "lead": "Algerien ist das größte Land Afrikas, und der häufigste Fehler besteht darin, es wie ein kleines zu behandeln. Der Weg vom Mittelmeer in die tiefe Sahara ist eine kontinentale Reise und kein Tagesausflug. Die Regel ist einfach: für die langen Etappen fliegen, im Norden Bahn, Bus und Taxi nutzen, und in der Wüste den geführten 4×4.",
+    "sections": [
+      {
+        "h": "Inlandsflüge",
+        "p": "Für die langen Etappen und vor allem für die Sahara ist das Flugzeug die vernünftige Wahl. Air Algérie und Tassili Airlines verbinden Algier, Oran und Constantine untereinander sowie mit den südlichen Toren Djanet, Tamanrasset, Ghardaïa und Timimoun. Ein Flug macht aus einer zermürbenden Überlandfahrt von mehreren Tagen ein paar Stunden. Die Südstrecken verkehren mit begrenzter Frequenz und sind rund um Feste schnell ausgebucht: früh buchen und den Plan flexibel halten. Flüge sind das teuerste gängige Verkehrsmittel des Landes, für den Süden aber praktisch unverzichtbar."
+      },
+      {
+        "h": "Bahn und Bus im Norden",
+        "p": "Die staatliche SNTF fährt Fernzüge durch den besiedelten Norden und verbindet Algier mit Oran, Constantine, Annaba und Sétif, dazu Vorortlinien rund um die Hauptstadt. Auf den Hauptstrecken sind die Züge bequem und streckenweise landschaftlich schön. Die Takte sind dünner als in Europa, prüfen Sie die Fahrpläne also vorab. Fernbusse sind das Arbeitspferd des Landes: dichtes Netz, niedrige Preise und Verbindungen in Städte, die keine Bahn hat."
+      },
+      {
+        "h": "Sammeltaxis und Straßenbahnen",
+        "p": "Wo Bus und Bahn ausdünnen, übernimmt das Sammeltaxi, der Louage. Diese Taxis fahren feste Strecken zwischen Städten, starten nicht nach Fahrplan, sondern wenn sie voll sind, und werden bar bezahlt. Vereinbaren Sie den Preis oder lassen Sie sich den Festtarif bestätigen, bevor es losgeht. In den Städten selbst sind die öffentlichen Netze gut: Algier hat Metro und Straßenbahn, Oran, Constantine und Sétif moderne, günstige Trams."
+      },
+      {
+        "h": "Mietwagen und private Fahrer",
+        "p": "Mietwagen gibt es in den Städten und an den Flughäfen; im Norden mit guten Hauptstraßen und überschaubaren Distanzen funktioniert das gut. Viele Besucher entscheiden sich dennoch für einen privaten Fahrer: Er nimmt Navigation, Parkplatzsuche, Sprache und Kontrollpunkte ab, und Ortskenntnis macht aus Fahrzeit oft einen Teil der Reise. Für die Wüste ist Selbstfahren dagegen das falsche Werkzeug — dort braucht es einen lizenzierten Veranstalter mit ausgerüstetem 4×4."
+      },
+      {
+        "h": "Straßen und Kontrollpunkte",
+        "p": "Die Hauptachsen, allen voran die große Ost-West-Autobahn, sind im Allgemeinen gut, und das Netz ist weitläufig. Die Risiken sind weniger baulicher als menschlicher Natur: forscher Fahrstil, Fußgänger und Tiere, wechselnde Beleuchtung und lange leere Abschnitte im Landesinneren. Die feste Regel für Besucher lautet, Landstraßen nach Einbruch der Dunkelheit zu meiden. Routinekontrollen von Polizei und Gendarmerie sind normal: Papiere griffbereit halten und Geduld mitbringen."
+      },
+      {
+        "h": "Die Wüste: 4×4 und Guide",
+        "p": "Die Sahara folgt einer eigenen Verkehrslogik, und die ist nicht verhandelbar. Man erreicht eine südliche Stadt per Flug und bewegt sich von dort im geführten 4×4 innerhalb der genehmigten Zonen. Lizenzierte Veranstalter stellen Fahrzeuge, erfahrene Fahrer und Guides, Treibstoff, Wasser und Kommunikation und führen die Genehmigungen, die Wüstenreisen verlangen. Das ist organisiertes Expeditionsreisen und nichts, was man improvisiert."
+      },
+      {
+        "h": "Praktische Regeln",
+        "list": [
+          "Führen Sie Bargeld mit — viele Fahrpreise und alle Louages sind bar zu zahlen",
+          "Buchen Sie Inlandsflüge früh, besonders in den Süden, und über die Kanäle der Fluggesellschaft",
+          "Planen Sie Puffer ein: Der Maßstab des Landes bestraft enge Anschlüsse",
+          "Halten Sie die Adresse Ihrer Unterkunft auf Französisch oder Arabisch bereit",
+          "Bestätigen Sie die erste Abfahrt eines Anschlusses am Vortag"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Wie bewegt man sich in Algerien am besten fort?",
+        "a": "Fliegen Sie die langen Distanzen, vor allem in die Sahara, nutzen Sie Bahn und Bus zwischen den Städten des Nordens, Sammeltaxis für kurze Etappen und einen geführten 4×4 für die Wüste."
+      },
+      {
+        "q": "Gibt es Inlandsflüge in Algerien?",
+        "a": "Ja. Air Algérie und Tassili Airlines verbinden Algier, Oran und Constantine untereinander und mit südlichen Städten wie Djanet, Tamanrasset und Ghardaïa. Buchen Sie früh, die Frequenzen im Süden sind begrenzt."
+      },
+      {
+        "q": "Fahren in Algerien Züge?",
+        "a": "Ja. Die staatliche SNTF betreibt Fernverkehr im Norden, auf den Hauptstrecken bequem, dazu Vorortverkehr rund um Algier. Die Takte sind dünner als in Europa, also vorab die Fahrpläne prüfen."
+      },
+      {
+        "q": "Wie funktionieren die Sammeltaxis?",
+        "a": "Die Louages fahren feste Strecken zwischen Städten, starten, sobald sie voll sind, und werden bar bezahlt. Sie sind günstig und flexibel, aber weniger planbar als der Bus."
+      },
+      {
+        "q": "Kann man in Algerien ein Auto mieten?",
+        "a": "Ja, vor allem in den Städten und an den Flughäfen, und für den Norden ist das eine gute Lösung. Für die Wüste nicht: Dort braucht es einen lizenzierten Veranstalter mit 4×4, Guide und Genehmigungen."
+      }
+    ],
+    "cta": {
+      "h": "Wir übernehmen die gesamte Logistik",
+      "p": "Inlandsflüge, Transfers und die 4×4 der Wüste — organisiert, bevor Sie ankommen."
+    },
+    "seoTitle": "Fortbewegung in Algerien: Verkehrsratgeber 2026",
+    "seoDescription": "Wie man sich in Algerien fortbewegt: Inlandsflüge in den Süden, Bahn und Bus im Norden, Sammeltaxis, Trams und 4×4 für die Sahara."
   }
 ];
 
