@@ -44,9 +44,16 @@ const alternates = alternatesFor(site, {
 });
 
 // Other Spanish itineraries, for internal linking
-const others = (((data as any).tours || data) as any[])
-  .filter(t => t.id !== tour.id && TOURS_ES[t.id]?.full)
-  .slice(0, 3)
+// Related tours use a ROTATING window, not the first three: a fixed slice
+// pointed all 19 sibling pages at the same three tours, so those three
+// collected every internal link and the rest had only the index linking to
+// them. Taking the three that follow this tour (wrapping) gives each one an
+// equal share of inbound links.
+const translated = (((data as any).tours || data) as any[]).filter(t => TOURS_ES[t.id]?.full);
+const selfIdx = translated.findIndex(t => t.id === tour.id);
+const others = (selfIdx === -1 ? translated.slice(0, 3) : [1, 2, 3]
+    .map(k => translated[(selfIdx + k) % translated.length])
+    .filter(t => t && t.id !== tour.id))
   .map(t => ({ href: `/es/circuitos/${t.id}/`, title: TOURS_ES[t.id].title, duration: TOURS_ES[t.id].duration }));
 
 const productSchema = {
@@ -155,7 +162,7 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
       <div class="book-box">
         <span class="bb-price">Desde <strong>{tour.price_eur} €</strong></span>
         <span class="bb-per">por persona · {fr.duration}</span>
-        <a class="btn btn-gold" href="/contact/">Solicitar presupuesto</a>
+        <a class="btn btn-gold" href="/es/contacto/">Solicitar presupuesto</a>
         <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a>
         <ul class="bb-trust">
           <li>Operador argelino autorizado</li>

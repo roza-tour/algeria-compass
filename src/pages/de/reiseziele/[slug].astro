@@ -35,7 +35,13 @@ const alternates = alternatesFor(site, {
   de: destDeByEn(d.en) ? `/de/reiseziele/${destDeByEn(d.en)!.slug}/` : undefined,
 });
 
-const others = DESTINATIONS_DE.filter(o => o.slug !== d.slug).slice(0, 4);
+// Rotating window, not a fixed slice: taking the first four sent every
+// sibling page to the same four destinations, so those four absorbed the
+// internal links and the rest were reachable only from the index.
+const selfIdx = DESTINATIONS_DE.findIndex(o => o.slug === d.slug);
+const others = (selfIdx === -1 ? DESTINATIONS_DE.slice(0, 4) : [1, 2, 3, 4]
+  .map(k => DESTINATIONS_DE[(selfIdx + k) % DESTINATIONS_DE.length])
+  .filter(o => o && o.slug !== d.slug));
 
 const attraction = {
   '@type': 'TouristAttraction',
@@ -95,7 +101,7 @@ const breadcrumb = {
       <p class="dest-cta">
         Möchten Sie {d.name} in eine Reise einbinden?
         Sehen Sie unsere <a href="/de/reisen/">privaten Algerien-Reisen</a> oder
-        <a href="/contact/">schreiben Sie uns</a> — wir antworten auf Deutsch.
+        <a href="/de/kontakt/">schreiben Sie uns</a> — wir antworten auf Deutsch.
       </p>
     </div>
 
