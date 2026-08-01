@@ -35,7 +35,11 @@ const items = SWEETS.slice(0, count);
   .sws .eyebrow{color:#8A5A0C}
   .sws h2{color:#7a4a12;font-size:clamp(1.3rem,2.6vw,1.8rem);margin:.1rem 0 .3rem}
   .sws-sub{color:#5e4828;max-width:620px;margin:0;font-size:.95rem;line-height:1.55}
-  .sws-link{flex:0 0 auto;font-weight:800;color:#8a3f12;white-space:nowrap}
+  /* Sat at the raw text height, under the 24px minimum tap target — the same
+     defect fixed in the footer, caught on the live audit rather than the local
+     one because the section is only measured once it renders. */
+  .sws-link{flex:0 0 auto;font-weight:800;color:#8a3f12;white-space:nowrap;
+    display:inline-flex;align-items:center;min-height:24px;padding:.3rem 0}
   .sws-link:hover{color:#8A5A0C;text-decoration:none}
   .sws-row{list-style:none;display:flex;gap:1rem;margin:1.2rem 0 0;padding:.2rem;overflow-x:auto;
     scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x proximity}
