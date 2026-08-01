@@ -69,7 +69,12 @@ const visual = TOUR_VISUALS[tour.id] || { hero: `${tour.image_slugs[0]}-1.jpg`, 
 const needsImage = !!visual.needsImage || !visual.hero;
 const hero = needsImage ? '' : `/assets/img/tours/${visual.hero}`;
 // Display-sized WebP sibling (scripts/gen-webp.mjs) with JPG fallback for the LCP hero.
+// The .sm variant is 460px wide, which is right on a phone and soft on a
+// desktop hero — every tour was serving it to every device. Where a .lg
+// sibling exists it is offered above 640px; tours without one are unaffected.
 const heroWebp = hero && /\.jpe?g$/i.test(hero) ? hero.replace(/\.jpe?g$/i, '.sm.webp') : '';
+const heroWebpLg = hero && /\.jpe?g$/i.test(hero) ? hero.replace(/\.jpe?g$/i, '.lg.webp') : '';
+const hasHeroLg = !!heroWebpLg && fs.existsSync('public' + heroWebpLg);
 const accent = visual.accent;
 const ogImage = hero || '/assets/img/og-image.png';
 // Real dimensions of the primary image — honest ImageObject schema + correct
@@ -159,6 +164,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
   <section class={`hero${needsImage ? ' hero-gradient' : ''}`} data-region={region}>
     {!needsImage && (
       <picture>
+        {hasHeroLg && <source srcset={heroWebpLg} type="image/webp" media="(min-width: 641px)" />}
         {heroWebp && <source srcset={heroWebp} type="image/webp" />}
         <img src={hero} alt={`${tour.title} — Algeria`} width={imgW} height={imgH} fetchpriority="high" decoding="async" />
       </picture>
