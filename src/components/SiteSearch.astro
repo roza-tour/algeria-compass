@@ -1,0 +1,222 @@
+---
+// Site-wide search. A button in the header opens an overlay with instant
+// results from /search-index.json — 319 pages across all five languages.
+//
+// Why an overlay rather than an inline field: the nav is already dense at
+// tablet width, and a persistent input would either shrink the menu or push
+// the booking CTA off-screen on mobile. The button costs one icon.
+//
+// Results are filtered to the reader's own language first. If that finds
+// nothing, the other languages are offered separately rather than silently
+// mixed in — a German reader searching "Sahara" should see the German pages,
+// but should not be told there is nothing when an English page would help.
+import { asLang, t as tr } from '../i18n';
+interface Props { lang?: string }
+const lang = asLang(Astro.props.lang);
+const T = {
+  label: tr(lang, 'searchLabel'),
+  ph: tr(lang, 'searchPlaceholder'),
+  aria: tr(lang, 'searchAria'),
+  none: tr(lang, 'searchNone'),
+  other: tr(lang, 'searchOther'),
+  close: tr(lang, 'searchClose'),
+};
+---
+<button type="button" class="ss-open" id="ssOpen" aria-label={T.aria} aria-haspopup="dialog">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+    <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+  </svg>
+  <span class="ss-open-txt">{T.label}</span>
+</button>
+
+<div class="ss-overlay" id="ssOverlay" role="dialog" aria-modal="true" aria-label={T.aria} hidden>
+  <div class="ss-panel">
+    <div class="ss-bar">
+      <svg class="ss-bar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+      </svg>
+      <input id="ssInput" type="search" autocomplete="off" placeholder={T.ph} aria-label={T.aria}
+             aria-controls="ssResults" aria-expanded="false" role="combobox" />
+      <button type="button" class="ss-close" id="ssClose" aria-label={T.close}>&#10005;</button>
+    </div>
+    <p class="ss-status" id="ssStatus" aria-live="polite"></p>
+    <ul class="ss-results" id="ssResults" role="listbox"></ul>
+  </div>
+</div>
+
+<script is:inline define:vars={{ lang, T }}>
+  (function () {
+    var openBtn = document.getElementById('ssOpen');
+    var overlay = document.getElementById('ssOverlay');
+    var input = document.getElementById('ssInput');
+    var list = document.getElementById('ssResults');
+    var status = document.getElementById('ssStatus');
+    var closeBtn = document.getElementById('ssClose');
+    if (!openBtn || !overlay) return;
+
+    var data = null, loading = false, cursor = -1, lastSent = '', timer = null;
+
+    function esc(s) {
+      return String(s || '').replace(/[&<>"]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+      });
+    }
+
+    function load() {
+      if (data || loading) return;
+      loading = true;
+      fetch('/search-index.json')
+        .then(function (r) { return r.json(); })
+        .then(function (j) { data = j; loading = false; if (input.value) run(); })
+        .catch(function () { loading = false; status.textContent = '—'; });
+    }
+
+    // Fold accents so "wueste"/"wuste" reach "Wüste" and "argelia" reaches
+    // "Argelia" — most people type without diacritics, and four of the five
+    // languages here are full of them. German umlauts also expand the ue/oe/ae
+    // way, which stripping alone would miss.
+    function fold(s) {
+      return String(s || '').toLowerCase()
+        .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+        .normalize('NFD').replace(/[̀-ͯ]/g, '');
+    }
+
+    function score(row, term) {
+      if (row._t === undefined) {                    // fold once, then reuse
+        row._t = fold(row.t);
+        row._d = fold(row.d);
+        row._u = fold(row.u.replace(/[-/]/g, ' '));  // the slug carries real words
+        row._k = fold(row.k);
+      }
+      if (row._t === term) return 100;
+      if (row._t.indexOf(term) === 0) return 80;     // title starts with the term
+      if (row._t.indexOf(term) !== -1) return 60;    // title contains it
+      // The URL is searchable too: /de/budget-algerien/ should answer "budget"
+      // even though its German headline never uses the word.
+      if (row._u.indexOf(term) !== -1) return 45;
+      if (row._d.indexOf(term) !== -1) return 30;
+      if (row._k.indexOf(term) !== -1) return 20;
+      return 0;
+    }
+
+    function run() {
+      var q = input.value.trim();
+      var term = fold(q);
+      list.innerHTML = ''; cursor = -1;
+      input.setAttribute('aria-expanded', 'false');
+      if (!term || !data) { status.textContent = ''; return; }
+
+      var mine = [], others = [];
+      for (var i = 0; i < data.length; i++) {
+        var s = score(data[i], term);
+        if (!s) continue;
+        (data[i].l === lang ? mine : others).push({ r: data[i], s: s });
+      }
+      var by = function (a, b) { return b.s - a.s || a.r.t.length - b.r.t.length; };
+      mine.sort(by); others.sort(by);
+
+      // Own language first; only fall back to the rest when it found nothing.
+      var show = mine.slice(0, 12);
+      var extra = show.length ? [] : others.slice(0, 8);
+
+      if (!show.length && !extra.length) {
+        status.textContent = T.none + ' “' + q + '”';
+        track(q, 0);
+        return;
+      }
+      status.textContent = '';
+      input.setAttribute('aria-expanded', 'true');
+
+      show.concat(extra).forEach(function (h, i) {
+        if (extra.length && i === show.length) {
+          var sep = document.createElement('li');
+          sep.className = 'ss-sep'; sep.textContent = T.other;
+          list.appendChild(sep);
+        }
+        var li = document.createElement('li');
+        li.className = 'ss-item'; li.setAttribute('role', 'option');
+        li.innerHTML = '<a href="' + h.r.u + '"><span class="ss-kind">' + esc(h.r.k) + '</span>'
+          + '<span class="ss-title">' + esc(h.r.t) + '</span>'
+          + (h.r.d ? '<span class="ss-blurb">' + esc(h.r.d) + '</span>' : '') + '</a>';
+        list.appendChild(li);
+      });
+      track(q, show.length + extra.length);
+    }
+
+    // Report the query once it settles, not on every keystroke — otherwise
+    // "sahara" would be logged as s, sa, sah, saha, sahar, sahara.
+    function track(q, n) {
+      if (q.length < 3 || q === lastSent) return;
+      lastSent = q;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        try {
+          var body = JSON.stringify({ t: 'search', p: location.pathname, q: q, n: n });
+          if (navigator.sendBeacon) navigator.sendBeacon('/hit.php', body);
+          else fetch('/hit.php', { method: 'POST', body: body, keepalive: true });
+        } catch (e) {}
+      }, 900);
+    }
+
+    function open() {
+      overlay.hidden = false;
+      document.body.style.overflow = 'hidden';
+      load();
+      setTimeout(function () { input.focus(); }, 30);
+    }
+    function close() {
+      overlay.hidden = true;
+      document.body.style.overflow = '';
+      openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    overlay.addEventListener('mousedown', function (e) { if (e.target === overlay) close(); });
+    input.addEventListener('input', run);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === '/' && !overlay.hidden === false && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) {
+        e.preventDefault(); open(); return;
+      }
+      if (overlay.hidden) return;
+      var items = list.querySelectorAll('.ss-item a');
+      if (e.key === 'Escape') { close(); }
+      else if (e.key === 'ArrowDown' && items.length) { e.preventDefault(); cursor = Math.min(cursor + 1, items.length - 1); items[cursor].focus(); }
+      else if (e.key === 'ArrowUp' && items.length) { e.preventDefault(); cursor = Math.max(cursor - 1, 0); items[cursor].focus(); }
+    });
+  })();
+</script>
+
+<style>
+  .ss-open{display:inline-flex;align-items:center;gap:.4rem;background:transparent;border:1px solid var(--border);
+    color:inherit;border-radius:999px;padding:.42rem .8rem;font:inherit;font-size:.78rem;font-weight:600;
+    cursor:pointer;min-height:34px;transition:background .2s ease,border-color .2s ease}
+  .ss-open:hover{background:var(--wash);border-color:var(--accent)}
+  .ss-open svg{width:16px;height:16px;flex:0 0 auto}
+  @media(max-width:900px){ .ss-open-txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)} }
+
+  .ss-overlay{position:fixed;inset:0;z-index:120;background:rgba(7,38,28,.55);backdrop-filter:blur(3px);
+    display:flex;align-items:flex-start;justify-content:center;padding:clamp(1rem,6vh,4rem) 1rem}
+  .ss-overlay[hidden]{display:none}
+  .ss-panel{width:min(680px,100%);background:var(--card,#fff);border-radius:16px;overflow:hidden;
+    box-shadow:0 24px 60px rgba(0,0,0,.3);display:flex;flex-direction:column;max-height:80vh}
+  .ss-bar{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;border-bottom:1px solid var(--border)}
+  .ss-bar-ic{width:19px;height:19px;color:var(--text-l);flex:0 0 auto}
+  #ssInput{flex:1;border:0;outline:none;font:inherit;font-size:1.02rem;background:transparent;color:var(--text);min-width:0}
+  .ss-close{background:transparent;border:0;color:var(--text-l);font-size:1.05rem;cursor:pointer;
+    min-width:32px;min-height:32px;border-radius:8px}
+  .ss-close:hover{background:var(--wash);color:var(--text)}
+  .ss-status{margin:0;padding:.8rem .9rem;color:var(--text-l);font-size:.9rem}
+  .ss-status:empty{display:none}
+  .ss-results{list-style:none;margin:0;padding:.4rem;overflow-y:auto;display:grid;gap:.25rem}
+  .ss-sep{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--text-l);padding:.7rem .7rem .25rem}
+  .ss-item a{display:block;padding:.6rem .7rem;border-radius:10px;text-decoration:none;border-left:3px solid transparent}
+  .ss-item a:hover,.ss-item a:focus-visible{background:var(--wash);border-left-color:var(--accent);outline:none}
+  .ss-kind{display:inline-block;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--accent-ink);background:var(--wash);border-radius:999px;padding:.1rem .5rem;margin-bottom:.2rem}
+  .ss-title{display:block;font-weight:700;color:var(--text);font-size:.98rem;line-height:1.35}
+  .ss-blurb{display:block;color:var(--text-l);font-size:.84rem;line-height:1.45;margin-top:.1rem}
+  @media(prefers-reduced-motion:reduce){ .ss-open{transition:none} }
+</style>

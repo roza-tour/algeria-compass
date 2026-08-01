@@ -6,6 +6,7 @@
 // under small headings, so nothing is hidden behind an extra tap.
 // Language-aware: pass lang="fr" / "it" for the translated navigation.
 import { asLang, LANGS, LANG_META, ROUTES, t as tr, type Lang } from '../i18n';
+import SiteSearch from './SiteSearch.astro';
 interface Props { lang?: string }
 const lang = asLang(Astro.props.lang);
 
@@ -171,6 +172,7 @@ const groupActive = (e: Entry) => !!e.items?.some(i => isActive(i.href));
     </ul>
 
     <div class="nav-cta">
+      <SiteSearch lang={lang} />
       <a href="https://wa.me/213784193176" target="_blank" rel="noopener" class="btn-wa" aria-label="WhatsApp">WhatsApp</a>
       <a href={ROUTES[lang].contact} class="btn-book">{ctaLabel}</a>
     </div>

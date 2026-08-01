@@ -35,6 +35,7 @@ $views = 0; $viewsToday = 0; $prevViews = 0;
 $byDay = []; $byHour = array_fill(0, 24, 0); $byWeekday = array_fill(0, 7, 0);
 $pages = []; $events = []; $devices = []; $refs = []; $langs = [];
 $entryPages = []; $tourClicks = []; $notFound = []; $utms = [];
+$searches = []; $searchesEmpty = []; $searchTotal = 0;
 $sessions = [];            // sid => view count   (bounce + pages/session)
 $dwellSum = 0; $dwellN = 0;
 $scrollSum = 0; $scrollN = 0;
@@ -96,6 +97,15 @@ foreach ($files as $f) {
     } elseif ($ty === 'exit') {
       if (isset($r['sec'])) { $dwellSum += (int)$r['sec']; $dwellN++; }
       if (isset($r['sd']))  { $scrollSum += (int)$r['sd']; $scrollN++; }
+    } elseif ($ty === 'search') {
+      $q = $r['q'] ?? '';
+      if ($q !== '') {
+        $searchTotal++;
+        $searches[$q] = ($searches[$q] ?? 0) + 1;
+        // Zero-result queries are the actionable ones: each names a page a
+        // visitor went looking for and did not find.
+        if ((int)($r['n'] ?? 0) === 0) $searchesEmpty[$q] = ($searchesEmpty[$q] ?? 0) + 1;
+      }
     } elseif ($ty === 'tour_click') {
       $tp = $r['tp'] ?? '';
       if ($tp !== '') $tourClicks[$tp] = ($tourClicks[$tp] ?? 0) + 1;
@@ -112,6 +122,7 @@ foreach ($files as $f) {
 
 arsort($pages); arsort($refs); arsort($devices); arsort($langs);
 arsort($entryPages); arsort($tourClicks); arsort($notFound); arsort($utms);
+arsort($searches); arsort($searchesEmpty);
 
 $ev = fn(string $k): int => (int)($events[$k] ?? 0);
 $whatsapp = $ev('whatsapp_click');
@@ -397,6 +408,36 @@ $top = fn(array $a, int $k) => array_slice($a, 0, $k, true);
       <?php endforeach; ?>
       </tbody></table>
     </div>
+  </section>
+
+  <!-- ============ what visitors search for ============ -->
+  <section>
+    <h2>ما يبحث عنه الزوّار <small><?= n($searchTotal) ?> عملية بحث</small></h2>
+    <?php if ($searches): ?>
+      <div class="two">
+        <div>
+          <table><thead><tr><th>الكلمة</th><th>مرات</th></tr></thead><tbody>
+          <?php foreach ($top($searches, 12) as $q => $c): ?>
+            <tr><td><?= h($q) ?></td><td class="num"><?= n($c) ?></td></tr>
+          <?php endforeach; ?>
+          </tbody></table>
+        </div>
+        <div>
+          <?php if ($searchesEmpty): ?>
+            <table><thead><tr><th>بحث بلا نتائج</th><th>مرات</th></tr></thead><tbody>
+            <?php foreach ($top($searchesEmpty, 12) as $q => $c): ?>
+              <tr><td><?= h($q) ?></td><td class="num"><?= n($c) ?></td></tr>
+            <?php endforeach; ?>
+            </tbody></table>
+            <div class="note warn">كل كلمة هنا زائر دوّر على حاجة ومالقاهاش — إمّا صفحة ناقصة تستحق الكتابة، أو صفحة موجودة بمسمّى مختلف عمّا يتوقعه الناس.</div>
+          <?php else: ?>
+            <p class="muted-sm">كل عمليات البحث رجعت نتائج.</p>
+          <?php endif; ?>
+        </div>
+      </div>
+    <?php else: ?>
+      <p class="muted-sm">لم تُسجَّل عمليات بحث بعد. يبدأ التسجيل مع أول استخدام لمربع البحث في الأعلى.</p>
+    <?php endif; ?>
   </section>
 
   <!-- ============ broken links ============ -->

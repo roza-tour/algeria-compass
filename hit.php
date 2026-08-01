@@ -89,6 +89,19 @@ if (isset($in['sd'])) {                                            // scroll dep
 }
 if (!empty($in['tp'])) $rec['tp'] = clean_path($in['tp']);         // clicked tour path
 
+// Search query + how many results it returned. Stored lowercased and capped;
+// a query with n=0 is the useful one — it names something a visitor expected
+// to find and we do not have.
+if ($type === 'search' && isset($in['q'])) {
+  $q = trim(preg_replace('~\s+~u', ' ', (string) $in['q']));
+  if ($q !== '' && mb_strlen($q) <= 80) {
+    $rec['q'] = mb_strtolower(mb_substr($q, 0, 80));
+    $rec['n'] = max(0, min(999, (int) ($in['n'] ?? 0)));
+  } else {
+    http_response_code(204); exit;   // nothing worth storing
+  }
+}
+
 $dir = __DIR__ . '/data';
 if (!is_dir($dir)) @mkdir($dir, 0755, true);
 $file = $dir . '/hits-' . date('Y-m') . '.jsonl';

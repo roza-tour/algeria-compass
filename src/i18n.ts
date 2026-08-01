@@ -52,6 +52,7 @@ export const routeAlternates = (key: keyof (typeof ROUTES)['en']) =>
 export const UI: Record<Lang, Record<string, string>> = {
   en: {
     skip: 'Skip to content',
+    searchLabel: 'Search', searchPlaceholder: 'Search tours, destinations, guides…', searchAria: 'Search the site', searchNone: 'No results for', searchOther: 'Results in other languages', searchClose: 'Close search',
     planTrip: 'Plan a Trip', planShort: 'Plan trip', planAria: 'Plan your trip',
     waAria: 'Chat on WhatsApp', waMobile: 'WhatsApp us',
     waMessage: "Hi Algeria Compass — I'd like help planning a trip to Algeria.",
@@ -68,6 +69,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   fr: {
     skip: 'Aller au contenu',
+    searchLabel: 'Rechercher', searchPlaceholder: 'Circuits, destinations, guides…', searchAria: 'Rechercher sur le site', searchNone: 'Aucun résultat pour', searchOther: 'Résultats dans d’autres langues', searchClose: 'Fermer la recherche',
     planTrip: 'Planifier', planShort: 'Planifier', planAria: 'Planifier votre voyage',
     waAria: 'Discuter sur WhatsApp', waMobile: 'Nous écrire sur WhatsApp',
     waMessage: "Bonjour Algeria Compass — j'aimerais organiser un voyage en Algérie.",
@@ -84,6 +86,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   it: {
     skip: 'Vai al contenuto',
+    searchLabel: 'Cerca', searchPlaceholder: 'Viaggi, destinazioni, guide…', searchAria: 'Cerca nel sito', searchNone: 'Nessun risultato per', searchOther: 'Risultati in altre lingue', searchClose: 'Chiudi la ricerca',
     planTrip: 'Progetta il viaggio', planShort: 'Progetta', planAria: 'Progetta il tuo viaggio',
     waAria: 'Scrivici su WhatsApp', waMobile: 'Scrivici su WhatsApp',
     waMessage: 'Salve Algeria Compass — vorrei organizzare un viaggio in Algeria.',
@@ -100,6 +103,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   es: {
     skip: 'Ir al contenido',
+    searchLabel: 'Buscar', searchPlaceholder: 'Circuitos, destinos, guías…', searchAria: 'Buscar en el sitio', searchNone: 'Sin resultados para', searchOther: 'Resultados en otros idiomas', searchClose: 'Cerrar la búsqueda',
     planTrip: 'Planifica tu viaje', planShort: 'Planificar', planAria: 'Planifica tu viaje',
     waAria: 'Escríbenos por WhatsApp', waMobile: 'Escríbenos por WhatsApp',
     waMessage: 'Hola Algeria Compass — me gustaría organizar un viaje a Argelia.',
@@ -116,6 +120,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   de: {
     skip: 'Zum Inhalt springen',
+    searchLabel: 'Suche', searchPlaceholder: 'Reisen, Reiseziele, Ratgeber…', searchAria: 'Website durchsuchen', searchNone: 'Keine Treffer für', searchOther: 'Treffer in anderen Sprachen', searchClose: 'Suche schließen',
     planTrip: 'Reise planen', planShort: 'Planen', planAria: 'Ihre Reise planen',
     waAria: 'Schreiben Sie uns auf WhatsApp', waMobile: 'Schreiben Sie uns auf WhatsApp',
     waMessage: 'Hallo Algeria Compass — ich möchte eine Reise nach Algerien planen.',
