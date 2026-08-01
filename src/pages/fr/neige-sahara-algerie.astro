@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { alternatesFor } from '../../i18n';
+import { altsForFrench } from '../../lib/guide-alternates';
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
 const enUrl = site + '/blog/algeria-snow-to-sahara/';
-const alternates = [
-  { hreflang: 'en', href: enUrl },
-  { hreflang: 'fr', href: site + '/fr/neige-sahara-algerie/' },
-  { hreflang: 'x-default', href: enUrl },
-];
+const alternates = alternatesFor(site, altsForFrench('/blog/algeria-snow-to-sahara/', '/fr/neige-sahara-algerie/'));
 const title = "De la neige au Sahara : quatre saisons en un voyage";
 const description = "Neige-t-il en Algérie ? Oui — Chréa, Tikjda et les Aurès. Comment voir la neige de l'Atlas et les dunes chaudes du Sahara dans la même semaine d'hiver.";
 const faqs = [

@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { alternatesFor } from '../../i18n';
+import { altsForFrench } from '../../lib/guide-alternates';
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
 const enUrl = site + '/blog/christmas-new-year-in-algeria/';
-const alternates = [
-  { hreflang: 'en', href: enUrl },
-  { hreflang: 'fr', href: site + '/fr/noel-nouvel-an-algerie/' },
-  { hreflang: 'x-default', href: enUrl },
-];
+const alternates = alternatesFor(site, altsForFrench('/blog/christmas-new-year-in-algeria/', '/fr/noel-nouvel-an-algerie/'));
 const title = "Noël et Nouvel An en Algérie : l'évasion d'hiver";
 const description = "Passez Noël et le Nouvel An en Algérie : le Sahara en pleine saison, une côte douce, la neige dans l'Atlas — sans foule ni hausse de prix des fêtes.";
 const faqs = [

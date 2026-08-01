@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { alternatesFor } from '../../i18n';
+import { altsForFrench } from '../../lib/guide-alternates';
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
 const enUrl = site + '/blog/algeria-itinerary/';
-const alternates = [
-  { hreflang: 'en', href: enUrl },
-  { hreflang: 'fr', href: site + '/fr/itineraire-algerie/' },
-  { hreflang: 'x-default', href: enUrl },
-];
+const alternates = alternatesFor(site, altsForFrench('/blog/algeria-itinerary/', '/fr/itineraire-algerie/'));
 const title = "Itinéraire en Algérie : 7, 10 et 14 jours (2026)";
 const description = "Des itinéraires prêts à l'emploi pour l'Algérie — 7, 10 ou 14 jours : Alger, la côte, les cités romaines et le Sahara, avec trajets et saisons.";
 const faqs = [

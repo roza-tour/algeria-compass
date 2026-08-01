@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { alternatesFor } from '../../i18n';
+import { altsForEnglish } from '../../lib/guide-alternates';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import QuickAnswer from '../../components/QuickAnswer.astro';
@@ -33,16 +34,21 @@ const d = item.data;
 const { Content } = await item.render();
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const enUrl = `${site}/blog/${item.slug}/`;
-// hreflang is built from whichever translations actually exist, so it can never
-// point at a page that was not published.
-const alternates = ((d as any).frAlt || (d as any).itAlt || (d as any).esAlt || (d as any).deAlt)
-  ? alternatesFor(site, {
-      en: `/blog/${item.slug}/`,
-      fr: (d as any).frAlt || undefined,
-      it: (d as any).itAlt || undefined,
-      es: (d as any).esAlt || undefined,
-      de: (d as any).deAlt || undefined,
-    })
+// hreflang is DERIVED from the guides data (see lib/guide-alternates), because
+// the previous hand-declared frontmatter alts silently went one-way the moment
+// new translations shipped — and Google discards non-reciprocal sets entirely.
+// Frontmatter still wins where it is set, so a manual mapping can override.
+const enPath = `/blog/${item.slug}/`;
+const derived = altsForEnglish(enPath);
+const paths = {
+  en: enPath,
+  fr: (d as any).frAlt || derived.fr || undefined,
+  it: (d as any).itAlt || derived.it || undefined,
+  es: (d as any).esAlt || derived.es || undefined,
+  de: (d as any).deAlt || derived.de || undefined,
+};
+const alternates = (paths.fr || paths.it || paths.es || paths.de)
+  ? alternatesFor(site, paths)
   : [];
 const moreArticles = await related('article', { region: d.region, exclude: item.slug, limit: 3 });
 const dests = await related('destination', { region: d.region, limit: 3 });
