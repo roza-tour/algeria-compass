@@ -77,8 +77,13 @@ export const REGIONS: Region[] = [
     facts: [['Antiquity', 'Cirta · Numidian capital'], ['Setting', 'The Rhumel gorge'], ['Known for', 'Bridges & malouf'], ['Access', 'Airport · rail'], ['Pair with', 'Djémila · Timgad']],
     gallery: [T + 'constantine-1.jpg', T + 'constantine-2.jpg', T + 'constantine-4.jpg', T + 'constantine-7.jpg'],
     links: [{ label: 'Constantine state guide', href: '/provinces/constantine/' }, { label: 'Constantine', href: '/destinations/constantine/' }, { label: 'Djémila', href: '/destinations/djemila/' }],
-    seoTitle: 'Constantine — The City of Bridges Region | Algeria Compass',
-    seoDesc: 'Ancient Cirta on its rock above the Rhumel gorge: the bridges of Constantine, the Emir Abdelkader Mosque and the malouf music of the Algerian east.',
+    // Leads with the REGION, not the city: /destinations/constantine/ is the
+    // page that should own the "Constantine" query, and this one was competing
+    // with it head-on ("Constantine — The City of Bridges Region" against
+    // "Constantine: City of Bridges, Cirta & Malouf") while carrying a quarter
+    // of its content.
+    seoTitle: 'Eastern Algeria — Constantine, Cirta & Malouf | Algeria Compass',
+    seoDesc: 'The Algerian east around ancient Cirta: the bridges over the Rhumel gorge, the Emir Abdelkader Mosque, and the malouf music of the region.',
   },
   {
     id: 'roman', idx: '03', name: 'Roman Algeria', ar: 'الجزائر الرومانية', kicker: 'The Highlands & Coast · Antiquity',
@@ -131,8 +136,12 @@ export const REGIONS: Region[] = [
     facts: [['Valley', 'M’Zab · Ghardaïa'], ['Heritage', 'UNESCO 1982'], ['Founded', 'c. 1000 AD'], ['Famous craft', 'M’Zabi carpets'], ['Best time', 'Oct–Apr']],
     gallery: [T + 'ghardaia-1.jpg', T + 'ghardaia-2.jpg', T + 'ghardaia-5.jpg', T + 'ghardaia-7.jpg'],
     links: [{ label: 'Ghardaïa state guide', href: '/provinces/ghardaia/' }, { label: 'M’Zab Valley', href: '/destinations/mzab-valley/' }],
-    seoTitle: 'The M’Zab Valley — Ghardaïa Region | Algeria Compass',
-    seoDesc: 'The thousand-year-old pentapolis of the M’Zab: Ghardaïa and its five fortified Ibadi hill-towns, a UNESCO masterpiece of desert urbanism.',
+    // Three pages were chasing the same terms: this region, the province
+    // (/provinces/ghardaia/) and the destination (/destinations/mzab-valley/).
+    // The destination owns "M’Zab Valley" and the province owns "Ghardaïa", so
+    // the region takes the wider geography instead.
+    seoTitle: 'The Northern Sahara — Ghardaïa & the M’Zab | Algeria Compass',
+    seoDesc: 'Algeria’s northern Sahara: the thousand-year-old pentapolis of the M’Zab, its five fortified Ibadi hill-towns and the palm groves around them.',
   },
   {
     id: 'sahara', idx: '05', name: 'The Sahara', heading: 'The Sahara — Tassili & the Tuareg South', ar: 'الصحراء و التاسيلي', kicker: 'The Deep South · Tassili & Tadrart',

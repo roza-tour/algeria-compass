@@ -532,7 +532,9 @@ export const TOURS_FR: Record<string, TourFr> = {
     duration: '10 jours · 9 nuits',
     hook: "Dix jours pour le pays dans toute son étendue, du littoral méditerranéen aux oasis sahariennes, à un rythme qui laisse le temps de regarder.",
     full: true,
-    seoTitle: "Grand circuit Algérie 10 jours — Du littoral au M'Zab",
+    // Distinct lead from the other 10-day circuit, which opens identically
+    // with "Grand circuit Algérie 10 jours" and was competing for the phrase.
+    seoTitle: "Algérie en 10 jours : du littoral au M'Zab saharien",
     seoDescription: "Circuit privé de 10 jours en Algérie, de la Méditerranée au M'Zab : Alger, Tipaza, Djémila, Timgad, Constantine et une aventure saharienne à Ghardaïa.",
     overview: "Notre grand circuit le plus aventureux. En dix jours, vous reliez Alger et Tipaza la romaine, les cités de Djémila et Timgad, les hauts plateaux de Sétif et les ponts de Constantine, avant de finir dans la vallée du M'Zab à Ghardaïa — le tout couronné par une excursion saharienne avec quad, dromadaire et sandboard. Quatre sites UNESCO et toute l'étendue du pays, du littoral au désert, entre culture et aventure à parts égales.",
     highlights: [

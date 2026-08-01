@@ -14,8 +14,12 @@ faqs:
   - { q: "What is the national dish of Algeria?", a: "Couscous — steamed semolina with a meat-and-vegetable broth — traditionally eaten on Fridays and at celebrations." }
   - { q: "Is it easy to be vegetarian?", a: "Reasonably — salads, soups, bread and vegetable couscous are common, though many broths are meat-based." }
 seo:
-  title: "Algerian Food Guide: Couscous, Tagines & Mint Tea (2026)"
-  description: "Algerian cooking sits at a crossroads of Amazigh, Arab, Ottoman, Andalusian and French influences. Here are the dishes to seek out."
+  # Targets the traveller query ("what to eat in Algeria") rather than the
+  # broad one. /food/ is the cuisine pillar — 1,286 words against this page's
+  # 681 — and both titles previously opened with "Algerian Food ... Couscous",
+  # so they were splitting the same search intent between them.
+  title: "What to Eat in Algeria: Dishes to Try (2026)"
+  description: "What to order in Algeria and where: couscous, chorba, rechta, bourek, mhadjeb and mint tea — the dishes worth seeking out on a trip, and when to eat them."
 published: 2026-05-01
 updated: 2026-05-01
 frAlt: "/fr/cuisine-algerienne/"

@@ -33,9 +33,13 @@ faqs:
   - { q: "What should I know about etiquette in the M'Zab?", a: "This is a deeply religious, conservative Ibadi community. Dress modestly, always ask before photographing people (and not at all where it's prohibited, as in parts of Beni Isguen), visit the market in the morning when it's liveliest, and follow your local guide's guidance." }
 
 seo:
-  title: "Ghardaïa & the M'Zab Valley: Travel Guide"
-  description: "Plan Ghardaïa and the UNESCO M'Zab Valley: the five Mozabite towns, palm groves, markets, the design that influenced Le Corbusier, and etiquette."
-  primaryKeyword: "Ghardaïa M'Zab Valley travel"
+  # This page is the PLANNING guide (getting there, when to go, how many days,
+  # where to stay, etiquette); /destinations/mzab-valley/ is the heritage page
+  # (what it is, the Ibadi Mozabites, the five towns). The content was already
+  # distinct — only the titles competed, both leading on "M'Zab Valley".
+  title: "Ghardaïa Travel Guide: Getting There, Timing & Stays"
+  description: "How to plan a trip to Ghardaïa: getting there and around, the best months, how many days you need, where to stay, the markets, and local etiquette."
+  primaryKeyword: "Ghardaïa travel guide"
   keywords: ["Ghardaïa","M'Zab Valley","Beni Isguen","Mozabite","Ghardaia Algeria","Le Corbusier M'Zab"]
 updated: 2026-06-17
 lastReviewed: 2026-06-17
