@@ -54,3 +54,8 @@ Allow: /
 
 Sitemap: https://algeriacompass.com/sitemap.xml
 Sitemap: https://algeriacompass.com/sitemap-images.xml
+
+# llmstxt.org discovery file — a curated, plain-text map of this site for AI
+# assistants and answer engines. Named here because that is where crawlers look
+# first, and nothing else on the site links to it.
+# https://algeriacompass.com/llms.txt
