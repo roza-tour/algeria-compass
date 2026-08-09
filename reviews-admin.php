@@ -148,6 +148,14 @@ $stars = fn($n)=>str_repeat('★',(int)$n).str_repeat('☆',5-(int)$n);
       <div class="row"><strong><?=h($r['name'])?></strong><span class="stars"><?=$stars($r['rating'])?></span></div>
       <div class="muted"><?=h($r['country'])?> · <?=h($r['tour'])?> · <?=h($r['date'])?></div>
       <p><?=nl2br(h($r['comment']))?></p>
+      <?php // private verification contact — admin-eyes only, never copied into reviews-approved.json
+        $em = trim((string)($r['email'] ?? '')); $wa = trim((string)($r['whatsapp'] ?? '')); ?>
+      <div class="muted">Verify via:
+        <?php if($em): ?> <a href="mailto:<?=h($em)?>"><?=h($em)?></a><?php endif; ?>
+        <?php if($em && $wa): ?> · <?php endif; ?>
+        <?php if($wa): ?> <a href="https://wa.me/<?=h(preg_replace('/\D/','',$wa))?>" target="_blank" rel="noopener">WhatsApp <?=h($wa)?></a><?php endif; ?>
+        <?php if(!$em && !$wa): ?> — (none given)<?php endif; ?>
+      </div>
       <div class="row">
         <span class="muted">IP <?=h($r['ip']??'')?></span>
         <span>
