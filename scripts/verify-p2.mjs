@@ -69,13 +69,13 @@ const rev = await evalJs(`(() => {
   const agg = document.querySelector('.rvx-agg') ? document.querySelector('.rvx-agg b').textContent : null;
   const ld = [...document.querySelectorAll('script[type="application/ld+json"]')].map(s=>{try{return JSON.parse(s.textContent)}catch{return null}}).find(j=>j && j.aggregateRating);
   const stars = document.querySelectorAll('.rvx-stars input[name=rating]').length;
-  const fields = ['name','country','tour','comment','website'].filter(n=>document.querySelector('.rvx-form [name="'+n+'"]')).length;
+  const fields = ['name','country','tour','comment','email','whatsapp','website'].filter(n=>document.querySelector('.rvx-form [name="'+n+'"]')).length;
   return { cards, agg, hasSchema: !!ld, schemaRating: ld && ld.aggregateRating.ratingValue, schemaCount: ld && ld.aggregateRating.reviewCount, schemaReviews: ld ? ld.review.length : 0, starInputs: stars, formFields: fields };
 })()`);
 
 console.log('\n[verify] SLIDER: slides='+slideCount+' activeDot '+dotBefore+' -> '+dotAfter+' '+(slideCount===20 && dotAfter!==dotBefore ? 'OK':'*** FAIL ***'));
 console.log('[verify] REVIEWS:', JSON.stringify(rev));
-const ok = slideCount===20 && dotAfter!==dotBefore && rev.cards===2 && rev.agg==='4.5' && rev.hasSchema && rev.schemaCount===2 && rev.starInputs===5 && rev.formFields===5;
+const ok = slideCount===20 && dotAfter!==dotBefore && rev.cards===2 && rev.agg==='4.5' && rev.hasSchema && rev.schemaCount===2 && rev.starInputs===5 && rev.formFields===7;
 console.log('\n[verify]', ok ? 'P2 SLIDER + REVIEWS + SCHEMA ✓' : 'P2 CHECKS FAILED ✗');
 ws.close(); chrome.kill(); server.close();
 process.exit(ok?0:1);

@@ -28,7 +28,7 @@ const tours = (((data as any).tours || data) as any[]).map(t => t.title).sort();
 
     <form class="rvx-form" id="rvx-form" method="post" action="/reviews.php">
       <h3>Travelled with us? Leave a review</h3>
-      <p class="rvx-note">Your review is checked by our team before it appears — usually within a day.</p>
+      <p class="rvx-note">Your review is checked by our team before it appears — usually within a day. Want to book or ask a question instead? <a href="/contact/" style="color:var(--gold-l)">Contact us here</a>.</p>
       <label>Your name<span aria-hidden="true">*</span>
         <input type="text" name="name" required maxlength="80" autocomplete="name">
       </label>
@@ -53,6 +53,13 @@ const tours = (((data as any).tours || data) as any[]).map(t => t.title).sort();
       </fieldset>
       <label>Your review<span aria-hidden="true">*</span>
         <textarea name="comment" required maxlength="1500" rows="4" placeholder="What was your trip like?"></textarea>
+      </label>
+      <p class="rvx-note" style="margin:.9rem 0 0">So we can verify you travelled with us, leave your email <strong>or</strong> WhatsApp number — just one<span aria-hidden="true">*</span>. It stays private and is never published.</p>
+      <label>Email <span style="font-weight:400;color:rgba(255,255,255,.65)">(private)</span>
+        <input type="text" name="email" maxlength="120" inputmode="email" autocomplete="email" placeholder="you@example.com">
+      </label>
+      <label>WhatsApp number <span style="font-weight:400;color:rgba(255,255,255,.65)">(private)</span>
+        <input type="text" name="whatsapp" maxlength="25" inputmode="tel" autocomplete="tel" placeholder="+49 170 1234567">
       </label>
       <input type="text" name="website" class="rvx-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit" class="btn btn-gold">Submit review</button>
@@ -164,6 +171,17 @@ const tours = (((data as any).tours || data) as any[]).map(t => t.title).sort();
     var form = sec.querySelector('#rvx-form'); var msg = sec.querySelector('#rvx-msg');
     form.addEventListener('submit', function(e){
       e.preventDefault();
+      var email = (form.email.value||'').trim(), wa = (form.whatsapp.value||'').trim();
+      if(!email && !wa){
+        msg.hidden = false; msg.className='rvx-msg err';
+        msg.textContent = 'Please add your email or WhatsApp number (just one is fine) — we only use it to verify your trip, and it is never published.';
+        form.email.focus(); return;
+      }
+      if(email && !/^\S+@\S+\.\S+$/.test(email)){
+        msg.hidden = false; msg.className='rvx-msg err';
+        msg.textContent = 'That email address does not look right — please check it.';
+        form.email.focus(); return;
+      }
       msg.hidden = false; msg.className='rvx-msg'; msg.textContent='Sending…';
       fetch(form.action, { method:'POST', headers:{ 'X-Requested-With':'fetch' }, body:new FormData(form) })
         .then(function(r){ return r.json(); })
