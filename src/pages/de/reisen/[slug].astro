@@ -136,6 +136,11 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
               <span class="itin-day">Tag {d.day}</span>
               <h3>{d.title}</h3>
               <p>{d.body}</p>
+              {d.stops && d.stops.length > 0 && (
+                <ul class="itin-stops">
+                  {d.stops.map(s => <li><strong>{s.place}</strong> — {s.text}</li>)}
+                </ul>
+              )}
             </li>
           ))}
         </ol></>
@@ -205,9 +210,17 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
   .itin li{position:relative;padding:0 0 1.2rem 1.4rem;border-left:2px solid var(--border);margin-left:.4rem}
   .itin li:last-child{border-left-color:transparent;padding-bottom:0}
   .itin li::before{content:"";position:absolute;left:-7px;top:.35rem;width:12px;height:12px;border-radius:50%;background:var(--accent,var(--brand-green))}
-  .itin-day{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent,var(--brand-green))}
-  .itin h3{font-size:1.02rem;margin:.15rem 0 .3rem}
+  .itin-day{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink,var(--brand-green))}
+  .itin h3{font-size:1.1rem;margin:.15rem 0 .3rem}
   .itin p{color:var(--text-m);line-height:1.6;margin:0}
+  /* Named stops for the day. `border-left:0;margin-left:0` reset the `.itin li`
+     timeline rail, and this ::before must stay AFTER `.itin li::before` — equal
+     specificity, so source order is what stops the big day-dot appearing on
+     every stop. */
+  .itin-stops{list-style:none;margin:.6rem 0 0;padding:0;display:flex;flex-direction:column;gap:.45rem}
+  .itin-stops li{position:relative;padding:0 0 0 1.05rem;margin-left:0;border-left:0;color:var(--text-m);font-size:1rem;line-height:1.6}
+  .itin-stops li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--accent,var(--brand-green));opacity:.65}
+  .itin-stops strong{display:inline;color:var(--green-d);font-weight:700}
   .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:1rem}
   .incl-grid ul{margin:.6rem 0 0;padding-left:1.2rem}
   .incl-grid li{margin:.3rem 0;line-height:1.5;font-size:.92rem}

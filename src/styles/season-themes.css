@@ -36,7 +36,17 @@
    darkened variant HERE, for text only — the decorative --accent is untouched,
    so borders, rules and washes keep the season's exact colour and the design
    does not shift. */
+/* Default: a uniformly DARKENED accent for text. Following --accent raw was
+   only safe for the accents that happen to be dark — the per-tour accents set
+   inline on the tour pages (#B58A2E, #B87A0A, #C8680A) measure 3.2-3.9:1 on
+   white and failed on every eyebrow, card tag and breadcrumb they touched.
+   Mixing 65% accent with black keeps the hue and puts the worst case at 6.5:1.
+   The raw --accent is untouched, so borders, rules and washes do not shift.
+   The plain declaration first is the fallback for browsers without color-mix. */
 html { --accent-ink: var(--accent); }
+@supports (color: color-mix(in srgb, red 50%, #000)) {
+  html { --accent-ink: color-mix(in srgb, var(--accent) 65%, #000); }
+}
 
 /* --- SUMMER — high sun, bright sea, joyful warm light ------------------- */
 html[data-season='summer'] {

@@ -13,7 +13,7 @@ export interface TourEs {
   full?: boolean;
   overview?: string;
   highlights?: string[];
-  itinerary?: { day: number; title: string; body: string }[];
+  itinerary?: { day: number; title: string; body: string; stops?: { place: string; text: string }[] }[];
   includes?: string[];
   excludes?: string[];
   goodToKnow?: { label: string; value: string }[];
@@ -43,27 +43,97 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Llegada y entrada al desierto",
-        "body": "Encuentro con el equipo en Djanet y salida en 4×4 hacia el desierto. Atardecer sobre las dunas y primera noche en el campamento."
+        "body": "Encuentro con el equipo en Djanet y salida en 4×4 hacia el desierto. Atardecer sobre las dunas y primera noche en el campamento.",
+        "stops": [
+          {
+            "place": "Djanet",
+            "text": "La capital tuareg del sudeste — palmerales bajo acantilados rojos, tu puerta de entrada al Tassili."
+          },
+          {
+            "place": "Primeras dunas al atardecer",
+            "text": "Una salida en 4x4 a la arena para la última luz del día y una primera noche en el campamento del desierto."
+          },
+          {
+            "place": "El primer vivac",
+            "text": "El campamento se monta al abrigo de una duna — esteras, una mesa baja y una hoguera — y la primera noche transcurre sin una sola luz eléctrica."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "El Tadrart Rojo",
-        "body": "Travesía de los valles de roca roja y arena del Tadrart, con paradas fotográficas, hasta la puesta de sol y la noche en el campamento."
+        "body": "Travesía de los valles de roca roja y arena del Tadrart, con paradas fotográficas, hasta la puesta de sol y la noche en el campamento.",
+        "stops": [
+          {
+            "place": "El Tadrart Rouge",
+            "text": "Cañones y arcos de arenisca anaranjada esculpidos por el viento — uno de los paisajes más cinematográficos del Sahara."
+          },
+          {
+            "place": "Arcos de roca esculpidos",
+            "text": "Arcos de piedra y rocas en equilibrio modelados durante milenios — las formas emblemáticas del Tadrart."
+          },
+          {
+            "place": "Mares de arena y campamento al atardecer",
+            "text": "Extensos campos de dunas que se tiñen de carmesí al anochecer, antes de una noche bajo cielos excepcionalmente oscuros."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Arcos, grabados y grandes dunas",
-        "body": "Jornada entre arcos naturales, yacimientos de arte rupestre y cordones dunares, siguiendo la luz y los hallazgos."
+        "body": "Jornada entre arcos naturales, yacimientos de arte rupestre y cordones dunares, siguiendo la luz y los hallazgos.",
+        "stops": [
+          {
+            "place": "Las grandes dunas a pie",
+            "text": "La subida a la arena alta en busca del silencio y las vistas — el corazón de la experiencia del desierto."
+          },
+          {
+            "place": "Arte rupestre prehistórico",
+            "text": "Pinturas y grabados de pastores, cazadores y fauna de un Sahara verde, de hasta unos 10.000 años de antigüedad — más antiguos que las pirámides."
+          },
+          {
+            "place": "Ceremonia del té tuareg",
+            "text": "Los tres vasos rituales de té sahariano con una familia tuareg — la cultura viva del extremo sur."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "Regreso hacia Djanet",
-        "body": "Última mañana en el desierto y regreso hacia el oasis, con un último vivac o una noche en Djanet."
+        "body": "Última mañana en el desierto y regreso hacia el oasis, con un último vivac o una noche en Djanet.",
+        "stops": [
+          {
+            "place": "Ergs y mesetas remotas",
+            "text": "Horas de desierto abierto elegidas por su vacío, no por sus hitos — el Sahara en su forma más absoluta."
+          },
+          {
+            "place": "La larga parada del mediodía",
+            "text": "Sombra bajo una acacia o un saliente rocoso mientras pasa el calor: una estera, el almuerzo, té y dos o tres horas de no hacer absolutamente nada."
+          },
+          {
+            "place": "El último vivac",
+            "text": "El último campamento del circuito, montado allí donde la luz de la tarde es más bella, con cena junto al fuego y todo el cielo estrellado."
+          }
+        ]
       },
       {
         "day": 5,
         "title": "Salida",
-        "body": "Tiempo libre en Djanet según el horario del vuelo y traslado al aeropuerto."
+        "body": "Tiempo libre en Djanet según el horario del vuelo y traslado al aeropuerto.",
+        "stops": [
+          {
+            "place": "Desayuno en el campamento",
+            "text": "Pan del horno de arena, dátiles, mermelada y café, mientras se recoge el campamento con las primeras luces sobre la arenisca."
+          },
+          {
+            "place": "El regreso hacia el norte por el Tadrart",
+            "text": "El trayecto de vuelta al oasis — el mismo territorio de roca roja recorrido a la ida, visto ahora con una luz opuesta."
+          },
+          {
+            "place": "Djanet",
+            "text": "El oasis tuareg y el aeropuerto de Tiska, donde termina el circuito y comienza el vuelo hacia el norte."
+          }
+        ]
       }
     ],
     "includes": [
@@ -139,17 +209,59 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Llegada a Ghardaïa",
-        "body": "Recepción y alojamiento, y primera aproximación a Ghardaïa: las callejuelas en pendiente, la plaza del mercado y la vista del valle al atardecer."
+        "body": "Recepción y alojamiento, y primera aproximación a Ghardaïa: las callejuelas en pendiente, la plaza del mercado y la vista del valle al atardecer.",
+        "stops": [
+          {
+            "place": "El mercado de Ghardaïa",
+            "text": "La plaza escalonada de arcadas bajo un minarete piramidal, el corazón bullicioso del M'Zab desde hace mil años."
+          },
+          {
+            "place": "Almuerzo en una casa de patrimonio",
+            "text": "Una comida en una casa mozabita tradicional, de muros gruesos y fresca frente al calor del desierto."
+          },
+          {
+            "place": "Los palmerales y las foggaras",
+            "text": "Huertos regados desde hace mil años por la foggara, los canales subterráneos que hacen posible la vida en el valle seco."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Las ciudades del M'Zab",
-        "body": "Jornada entre Beni Isguen, El Atteuf y Melika: mezquitas, murallas, cementerios y palmerales, con las explicaciones de un guía mozabita."
+        "body": "Jornada entre Beni Isguen, El Atteuf y Melika: mezquitas, murallas, cementerios y palmerales, con las explicaciones de un guía mozabita.",
+        "stops": [
+          {
+            "place": "Beni Isguen",
+            "text": "La ciudad sagrada y amurallada del M'Zab, a la que se entra por su antigua puerta, donde el vestuario y la fotografía siguen las costumbres locales."
+          },
+          {
+            "place": "La ecociudad de Tafilelt",
+            "text": "Un asentamiento mozabita moderno construido sobre principios tradicionales — prueba de que las ideas del valle siguen vivas."
+          },
+          {
+            "place": "Safari en 4x4 hacia El Guerrara",
+            "text": "Desierto abierto más allá de las ciudades, con una cena bajo las estrellas para terminar."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Palmerales, foggaras y desierto",
-        "body": "Mañana en los huertos y el sistema hidráulico del valle, y salida en 4×4 por el desierto antes de la partida."
+        "body": "Mañana en los huertos y el sistema hidráulico del valle, y salida en 4×4 por el desierto antes de la partida.",
+        "stops": [
+          {
+            "place": "Desayuno en la terraza",
+            "text": "Un último desayuno en la casa de huéspedes con el ksar apilado en la colina de enfrente — la mejor media hora del día en el M'Zab."
+          },
+          {
+            "place": "La antigua plaza del mercado",
+            "text": "Una última hora bajo las arcadas del mercado de Ghardaïa para alfombras, dátiles y lana mozabita, si el horario del vuelo lo permite."
+          },
+          {
+            "place": "El aeropuerto Noumérat-Moufdi Zakaria",
+            "text": "El traslado privado fuera del valle, con asistencia en el check-in para el vuelo hacia el norte."
+          }
+        ]
       }
     ],
     "includes": [
@@ -225,27 +337,97 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Llegada a Argel",
-        "body": "Recepción en el aeropuerto Houari Boumediene y alojamiento. Primer contacto con la bahía y el paseo marítimo."
+        "body": "Recepción en el aeropuerto Houari Boumediene y alojamiento. Primer contacto con la bahía y el paseo marítimo.",
+        "stops": [
+          {
+            "place": "El aeropuerto Houari Boumediene",
+            "text": "El guía recibe al viajero en la propia terminal y lo traslada directamente al hotel, sin colas ni esperas en las primeras horas en el país."
+          },
+          {
+            "place": "La bahía de Argel",
+            "text": "La llegada a la capital recorre la costa, con la ciudad blanca escalonada en terrazas sobre el puerto."
+          },
+          {
+            "place": "El paseo marítimo de Argel",
+            "text": "Tras el registro en el hotel, una tarde libre para pasear por las arcadas de la fachada marítima y la plaza de los Mártires antes de comenzar el circuito."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Argel y la Casbah",
-        "body": "Jornada en la capital: la Casbah, los bulevares coloniales, la Gran Mezquita y los miradores sobre la bahía."
+        "body": "Jornada en la capital: la Casbah, los bulevares coloniales, la Gran Mezquita y los miradores sobre la bahía.",
+        "stops": [
+          {
+            "place": "La Casba de Argel",
+            "text": "La ciudadela otomana declarada Patrimonio Mundial, un laberinto blanco y empinado de palacios, mezquitas y casas con patio sobre la bahía."
+          },
+          {
+            "place": "La Gran Mezquita de Argel",
+            "text": "La Yamaa el Djazair, una de las mayores mezquitas del mundo, con un minarete de más de 265 metros que domina el litoral."
+          },
+          {
+            "place": "Los miradores sobre la bahía",
+            "text": "Entre bulevares coloniales de estilo haussmaniano, los miradores del centro ofrecen vistas de la ciudad blanca escalonada hacia el mar."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Tipaza y Cherchell",
-        "body": "Hacia el oeste por la costa: las ruinas romanas de Tipaza junto al mar, el Mausoleo real de Mauritania y el museo de Cherchell."
+        "body": "Hacia el oeste por la costa: las ruinas romanas de Tipaza junto al mar, el Mausoleo real de Mauritania y el museo de Cherchell.",
+        "stops": [
+          {
+            "place": "Las ruinas romanas de Tipaza",
+            "text": "Un puerto romano declarado Patrimonio Mundial a orillas del Mediterráneo, con basílicas, termas y un teatro a los pies de las olas."
+          },
+          {
+            "place": "El Mausoleo real de Mauritania",
+            "text": "Un gran tambor de piedra sobre una colina frente al mar, tumba del siglo I a.C. del rey bereber Juba II y de Cleopatra Selene, hija de Cleopatra de Egipto."
+          },
+          {
+            "place": "El Museo de Cherchell",
+            "text": "En la antigua Caesarea, capital de Juba II, el museo conserva algunos de los mosaicos y esculturas romanas y griegas más notables de Argelia."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "Vuelo a Ghardaïa y el M'Zab",
-        "body": "Vuelo al sur y entrada en el valle del M'Zab: Ghardaïa, su mercado y sus callejuelas en anfiteatro."
+        "body": "Vuelo al sur y entrada en el valle del M'Zab: Ghardaïa, su mercado y sus callejuelas en anfiteatro.",
+        "stops": [
+          {
+            "place": "El vuelo a Ghardaïa",
+            "text": "Un salto en avión hacia el sur que lleva del Mediterráneo al valle sahariano del M'Zab en poco más de una hora."
+          },
+          {
+            "place": "Ghardaïa",
+            "text": "La localidad principal del M'Zab, una pirámide de casas declarada Patrimonio Mundial que asciende hasta la mezquita y el minarete de su cumbre."
+          },
+          {
+            "place": "El mercado y las callejuelas de Ghardaïa",
+            "text": "La plaza porticada y escalonada bajo el minarete piramidal, corazón bullicioso del M'Zab desde hace mil años."
+          }
+        ]
       },
       {
         "day": 5,
         "title": "Beni Isguen y salida",
-        "body": "Visita de la ciudad santa de Beni Isguen con guía local, regreso y salida."
+        "body": "Visita de la ciudad santa de Beni Isguen con guía local, regreso y salida.",
+        "stops": [
+          {
+            "place": "Beni Isguen",
+            "text": "La ciudad santa y amurallada del M'Zab, a la que se entra por su antigua puerta y donde el vestido y las fotografías siguen las costumbres locales."
+          },
+          {
+            "place": "El regreso a Argel",
+            "text": "Vuelo de vuelta hacia el norte, de regreso a la capital tras los días en el Sáhara."
+          },
+          {
+            "place": "El aeropuerto Houari Boumediene",
+            "text": "Traslado privado hasta el aeropuerto y asistencia durante los trámites de facturación antes de la salida."
+          }
+        ]
       }
     ],
     "includes": [
@@ -321,27 +503,97 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Llegada a Timimoun",
-        "body": "Recepción y alojamiento, primer recorrido por la ciudad roja y atardecer sobre el palmeral y la sebja."
+        "body": "Recepción y alojamiento, primer recorrido por la ciudad roja y atardecer sobre el palmeral y la sebja.",
+        "stops": [
+          {
+            "place": "Timimoun",
+            "text": "El «oasis rojo» del Gourara — una ciudad entera construida en arquitectura de tierra de estilo sudanés, de un rojo ocre, sobre un lago salado."
+          },
+          {
+            "place": "La casa de huéspedes Ti Massin",
+            "text": "Una casa tradicional de tierra roja con patios y terrazas, base de toda la estancia."
+          },
+          {
+            "place": "El escarpe al atardecer",
+            "text": "El saliente sobre la sebja donde los muros de Timimoun se vuelven de un naranja intenso con la última luz, antes de una cena tradicional."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Los ksour del Gourara",
-        "body": "Jornada por las aldeas fortificadas en torno al oasis: callejuelas cubiertas, mezquitas de tierra y vida de los huertos."
+        "body": "Jornada por las aldeas fortificadas en torno al oasis: callejuelas cubiertas, mezquitas de tierra y vida de los huertos.",
+        "stops": [
+          {
+            "place": "El ksar de Guentour y su palmeral",
+            "text": "Un ksar de barro rojo sobre su palmeral — arquitectura clásica del Gourara."
+          },
+          {
+            "place": "El ksar y el oasis de Tala",
+            "text": "Otro oasis de torres de tierra entre las palmeras."
+          },
+          {
+            "place": "Atardecer en las dunas y velada musical",
+            "text": "Arena al anochecer y una velada de música tradicional del Gourara."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Foggaras y palmerales",
-        "body": "Descubrimiento del sistema de foggaras y de los huertos que riegan, con los hombres que aún las mantienen."
+        "body": "Descubrimiento del sistema de foggaras y de los huertos que riegan, con los hombres que aún las mantienen.",
+        "stops": [
+          {
+            "place": "Las foggaras de Ouled Saïd",
+            "text": "Antiguas galerías subterráneas de riego que llevan el agua hasta los huertos — el ingenio sahariano en su máxima expresión."
+          },
+          {
+            "place": "Beni Aïssi y su ksar",
+            "text": "Un picnic en el palmeral y té junto a un antiguo ksar."
+          },
+          {
+            "place": "Las grandes dunas",
+            "text": "Atardecer sobre la arena alta."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "El Gran Erg y el vivac",
-        "body": "Salida en 4×4 hacia las grandes dunas, atardecer y noche en el campamento del desierto."
+        "body": "Salida en 4×4 hacia las grandes dunas, atardecer y noche en el campamento del desierto.",
+        "stops": [
+          {
+            "place": "El yacimiento de Ighzer",
+            "text": "Un enclave del desierto explorado en el fresco de la mañana."
+          },
+          {
+            "place": "Safari en 4x4 por las dunas",
+            "text": "Dunas doradas hasta una puesta de sol panorámica."
+          },
+          {
+            "place": "Una cena de campamento «merdoum»",
+            "text": "Un festín tradicional de merdoum, asado bajo la arena, disfrutado bajo las estrellas."
+          }
+        ]
       },
       {
         "day": 5,
         "title": "Salida",
-        "body": "Regreso a Timimoun y traslado al aeropuerto."
+        "body": "Regreso a Timimoun y traslado al aeropuerto.",
+        "stops": [
+          {
+            "place": "El mercado de Timimoun",
+            "text": "El mercado de la ciudad roja para especias y artesanía."
+          },
+          {
+            "place": "El antiguo barrio del ksar",
+            "text": "Un último paseo por las callejuelas de tierra roja y los pasajes cubiertos de arcadas del casco antiguo."
+          },
+          {
+            "place": "La carretera hacia el norte",
+            "text": "El traslado de regreso hacia Argel bordeando el límite norte del Gran Erg Occidental."
+          }
+        ]
       }
     ],
     "includes": [
@@ -416,52 +668,192 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Llegada a Argel",
-        "body": "Recepción y alojamiento en la capital, primer contacto con la bahía y el paseo marítimo."
+        "body": "Recepción y alojamiento en la capital, primer contacto con la bahía y el paseo marítimo.",
+        "stops": [
+          {
+            "place": "El aeropuerto Houari Boumediene",
+            "text": "Recepción en la terminal y traslado directo al hotel para comenzar el gran circuito."
+          },
+          {
+            "place": "La bahía de Argel",
+            "text": "El acceso a la capital bordea la costa, con la ciudad blanca alzándose en terrazas sobre el puerto."
+          },
+          {
+            "place": "El paseo marítimo de Argel",
+            "text": "Tras el alojamiento, primer contacto con la ciudad paseando por su fachada marítima."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Argel y la Casbah",
-        "body": "La Casbah UNESCO, los bulevares coloniales, la Gran Mezquita y los museos."
+        "body": "La Casbah UNESCO, los bulevares coloniales, la Gran Mezquita y los museos.",
+        "stops": [
+          {
+            "place": "La Casba de Argel",
+            "text": "La ciudadela otomana declarada Patrimonio Mundial, un laberinto blanco de palacios, mezquitas y casas con patio sobre la bahía."
+          },
+          {
+            "place": "La Gran Mezquita de Argel",
+            "text": "La Yamaa el Djazair, con más de 265 metros de minarete, una de las mayores mezquitas del mundo."
+          },
+          {
+            "place": "Los museos de Argel",
+            "text": "El Museo del Bardo, en una villa morisca con piezas prehistóricas y etnográficas, y el Museo Nacional del Ejército, junto al Monumento a los Mártires."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Tipaza y Cherchell",
-        "body": "La costa romana al oeste de Argel: ruinas junto al mar, mausoleo real y museo de Cherchell."
+        "body": "La costa romana al oeste de Argel: ruinas junto al mar, mausoleo real y museo de Cherchell.",
+        "stops": [
+          {
+            "place": "Las ruinas romanas de Tipaza",
+            "text": "Un puerto romano declarado Patrimonio Mundial a orillas del Mediterráneo, con basílicas, termas y un teatro junto al mar."
+          },
+          {
+            "place": "El Mausoleo real de Mauritania",
+            "text": "Un gran tambor de piedra sobre una colina frente al mar, tumba del siglo I a.C. del rey bereber Juba II y de Cleopatra Selene."
+          },
+          {
+            "place": "El Museo de Cherchell",
+            "text": "En la antigua Caesarea, el museo reúne algunos de los mejores mosaicos y esculturas romanas y griegas de Argelia."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "Hacia el este",
-        "body": "Ruta hacia el este del país por las mesetas, entre los paisajes de la Cabilia y las llanuras cerealistas."
+        "body": "Ruta hacia el este del país por las mesetas, entre los paisajes de la Cabilia y las llanuras cerealistas.",
+        "stops": [
+          {
+            "place": "La ruta hacia el este",
+            "text": "Traslado por carretera desde Argel hacia el interior, cruzando las altas mesetas del Tell."
+          },
+          {
+            "place": "Los paisajes de la Cabilia",
+            "text": "El trayecto bordea las montañas de la Cabilia, con sus pueblos aferrados a las laderas."
+          },
+          {
+            "place": "Las llanuras cerealistas",
+            "text": "Antes de llegar a destino, la ruta atraviesa las grandes llanuras de cereal del interior argelino."
+          }
+        ]
       },
       {
         "day": 5,
         "title": "Djémila",
-        "body": "La ciudad romana de Djémila en su anfiteatro de colinas — uno de los yacimientos mejor conservados del norte de África."
+        "body": "La ciudad romana de Djémila en su anfiteatro de colinas — uno de los yacimientos mejor conservados del norte de África.",
+        "stops": [
+          {
+            "place": "Djémila (Cuicul)",
+            "text": "Una ciudad romana declarada Patrimonio Mundial entre montañas verdes, uno de los yacimientos mejor conservados del norte de África."
+          },
+          {
+            "place": "El foro y el teatro de Djémila",
+            "text": "Templos, foro y un empinado teatro asentados en el anfiteatro natural de colinas que rodea el yacimiento."
+          },
+          {
+            "place": "Los mosaicos de Djémila",
+            "text": "El museo del sitio conserva algunos de los mosaicos romanos más ricos que se conocen."
+          }
+        ]
       },
       {
         "day": 6,
         "title": "Constantina",
-        "body": "La ciudad de los puentes: las gargantas del Rhumel, el palacio Ahmed Bey, el museo de Cirta y el casco antiguo."
+        "body": "La ciudad de los puentes: las gargantas del Rhumel, el palacio Ahmed Bey, el museo de Cirta y el casco antiguo.",
+        "stops": [
+          {
+            "place": "Las gargantas del Rhumel",
+            "text": "La 'ciudad de los puentes' se asoma al vertiginoso cañón del Rhumel, salvado por pasarelas colgadas en el vacío."
+          },
+          {
+            "place": "El palacio de Ahmed Bey",
+            "text": "El palacio otomano de principios del siglo XIX del último bey, con galerías pintadas y patios en sombra."
+          },
+          {
+            "place": "El Museo de Cirta y el casco antiguo",
+            "text": "Las colecciones de historia y arqueología de Cirta, en el corazón del casco antiguo de Constantina."
+          }
+        ]
       },
       {
         "day": 7,
         "title": "Timgad",
-        "body": "Timgad, colonia romana fundada por Trajano y la ciudad en damero más completa que se conserva."
+        "body": "Timgad, colonia romana fundada por Trajano y la ciudad en damero más completa que se conserva.",
+        "stops": [
+          {
+            "place": "Timgad",
+            "text": "La colonia romana en damero fundada por Trajano hacia el año 100, la 'Pompeya del Aurès' extendida sobre la llanura."
+          },
+          {
+            "place": "El Arco de Trajano",
+            "text": "El arco triunfal que enmarca la calle principal de Timgad y da al yacimiento su silueta más reconocible."
+          },
+          {
+            "place": "La biblioteca y el teatro de Timgad",
+            "text": "Los restos de una rara biblioteca pública romana y un teatro de 3.500 localidades todavía en uso."
+          }
+        ]
       },
       {
         "day": 8,
         "title": "Hacia el Sáhara",
-        "body": "Descenso al sur y entrada en el mundo de los oasis."
+        "body": "Descenso al sur y entrada en el mundo de los oasis.",
+        "stops": [
+          {
+            "place": "La ruta hacia el sur",
+            "text": "El descenso deja atrás el Tell y las altas estepas para entrar en el pre-Sáhara."
+          },
+          {
+            "place": "Ghardaïa",
+            "text": "La entrada en el mundo de los oasis por Ghardaïa, pirámide de casas declarada Patrimonio Mundial que asciende hasta su mezquita."
+          },
+          {
+            "place": "Una casa de huéspedes del M'Zab",
+            "text": "Alojamiento en una vivienda mozabita restaurada, con muros gruesos, patio interior y terraza sobre el valle."
+          }
+        ]
       },
       {
         "day": 9,
         "title": "Jornada sahariana",
-        "body": "Palmerales, ksour y dunas, con una velada en el desierto."
+        "body": "Palmerales, ksour y dunas, con una velada en el desierto.",
+        "stops": [
+          {
+            "place": "Beni Isguen",
+            "text": "La ciudad santa y amurallada del M'Zab, a la que se accede por su antigua puerta siguiendo estrictas costumbres locales."
+          },
+          {
+            "place": "Los palmerales del M'Zab",
+            "text": "Huertos de palmeras regados desde hace siglos por las foggaras, los canales subterráneos que hacen posible la vida en el valle."
+          },
+          {
+            "place": "Una velada en las dunas",
+            "text": "Una tarde y una cena bajo las estrellas en las dunas a las puertas del Sáhara."
+          }
+        ]
       },
       {
         "day": 10,
         "title": "Regreso y salida",
-        "body": "Regreso a Argel y traslado al aeropuerto."
+        "body": "Regreso a Argel y traslado al aeropuerto.",
+        "stops": [
+          {
+            "place": "El regreso a Argel",
+            "text": "Vuelo o traslado por carretera de vuelta al norte, tras cerrar el círculo por el sur del país."
+          },
+          {
+            "place": "Tiempo libre en Argel",
+            "text": "Unas últimas horas en la capital antes del traslado, para un paseo final o unas compras de recuerdo."
+          },
+          {
+            "place": "El aeropuerto Houari Boumediene",
+            "text": "Traslado privado al aeropuerto con asistencia durante los trámites de facturación."
+          }
+        ]
       }
     ],
     "includes": [
@@ -536,17 +928,59 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Tipaza y Cherchell",
-        "body": "Salida de Argel hacia la costa oeste: las ruinas de Tipaza junto al mar, el Mausoleo real y el museo de Cherchell."
+        "body": "Salida de Argel hacia la costa oeste: las ruinas de Tipaza junto al mar, el Mausoleo real y el museo de Cherchell.",
+        "stops": [
+          {
+            "place": "La Tipaza romana",
+            "text": "Un puerto romano declarado Patrimonio de la Humanidad por la UNESCO, extendido a lo largo del Mediterráneo — basílicas, termas y un teatro con las olas a sus pies."
+          },
+          {
+            "place": "Cherchell (la antigua Cesarea)",
+            "text": "La antigua capital de Juba II, cuyo museo alberga algunos de los mejores mosaicos y esculturas romanas y griegas de Argelia."
+          },
+          {
+            "place": "El Mausoleo Real de Mauritania",
+            "text": "Un gran tambor de piedra sobre una colina frente al mar — la tumba, del siglo I a.C., del rey bereber Juba II y de Cleopatra Selene, hija de Cleopatra de Egipto."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Djémila",
-        "body": "Ruta hacia el este y jornada en Djémila: el foro, los templos, las casas y los mosaicos del museo."
+        "body": "Ruta hacia el este y jornada en Djémila: el foro, los templos, las casas y los mosaicos del museo.",
+        "stops": [
+          {
+            "place": "Las calles porticadas de Djémila",
+            "text": "Puertas monumentales y avenidas empedradas de la ciudad romana, enclavada en su hoya de montaña."
+          },
+          {
+            "place": "El teatro de Djémila",
+            "text": "Un teatro en pendiente excavado en la ladera, que aún domina el valle."
+          },
+          {
+            "place": "Los mosaicos de Djémila",
+            "text": "Mosaicos in situ entre los más ricos del mundo romano, expuestos en el museo del yacimiento."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Timgad",
-        "body": "Timgad y su damero intacto: arco de Trajano, teatro, termas y biblioteca, antes del regreso."
+        "body": "Timgad y su damero intacto: arco de Trajano, teatro, termas y biblioteca, antes del regreso.",
+        "stops": [
+          {
+            "place": "El Arco de Trajano",
+            "text": "El arco triunfal que enmarca la calle principal de Timgad — la silueta icónica de la ciudad."
+          },
+          {
+            "place": "La biblioteca y el teatro de Timgad",
+            "text": "Las ruinas de una infrecuente biblioteca pública romana y un teatro de 3.500 asientos que aún hoy se sigue usando."
+          },
+          {
+            "place": "La cuadrícula, las termas y los templos de Timgad",
+            "text": "El trazado romano de manual que ha dado fama a Timgad."
+          }
+        ]
       }
     ],
     "includes": [
@@ -621,27 +1055,97 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Llegada a Orán",
-        "body": "Recepción y alojamiento, primer contacto con el paseo marítimo y el centro."
+        "body": "Recepción y alojamiento, primer contacto con el paseo marítimo y el centro.",
+        "stops": [
+          {
+            "place": "El Fuerte de Santa Cruz",
+            "text": "Una fortaleza española del siglo XVI en el monte Murdjadjo, con las mejores vistas sobre Orán y el mar."
+          },
+          {
+            "place": "La Place du 1er Novembre",
+            "text": "La gran plaza central de Orán, rodeada de fachadas coloniales y de la ópera."
+          },
+          {
+            "place": "Sidi El Houari",
+            "text": "El barrio más antiguo de Orán, con vestigios otomanos y españoles alrededor del puerto viejo."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Orán",
-        "body": "El fuerte de Santa Cruz, el casco antiguo, el puerto y la ciudad española y francesa."
+        "body": "El fuerte de Santa Cruz, el casco antiguo, el puerto y la ciudad española y francesa.",
+        "stops": [
+          {
+            "place": "El Museo Nacional Ahmed Zabana",
+            "text": "El principal museo de Orán — historia natural, bellas artes y el pasado profundo de la región."
+          },
+          {
+            "place": "El Sacré-Cœur",
+            "text": "Una antigua catedral emblemática, hoy biblioteca pública, que ancla la ciudad moderna."
+          },
+          {
+            "place": "El paseo marítimo",
+            "text": "El paseo mediterráneo de Orán, su punto de encuentro al caer la tarde."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Mostaganem",
-        "body": "Hacia el este por la costa: playas, viejo barrio de Tigditt y Bordj Ettork."
+        "body": "Hacia el este por la costa: playas, viejo barrio de Tigditt y Bordj Ettork.",
+        "stops": [
+          {
+            "place": "Las playas de Mostaganem",
+            "text": "Largas arenas mediterráneas en la costa del Dahra — un relajado cambio de ritmo junto al mar."
+          },
+          {
+            "place": "Bordj el Mehal, el fuerte antiguo",
+            "text": "Un fuerte de época otomana sobre la ciudad, recuerdo del pasado estratégico de Mostaganem."
+          },
+          {
+            "place": "El barrio de Tigditt",
+            "text": "El distrito histórico de callejuelas empinadas sobre el río."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "Tlemcén",
-        "body": "Jornada andalusí: Gran Mezquita, Mansourah, El Mechouar y Sidi Bumedién."
+        "body": "Jornada andalusí: Gran Mezquita, Mansourah, El Mechouar y Sidi Bumedién.",
+        "stops": [
+          {
+            "place": "La Gran Mezquita de Tlemcen",
+            "text": "Una obra maestra almorávide del siglo XII, con un mihrab tallado entre los más bellos del Magreb."
+          },
+          {
+            "place": "El Palacio de El Mechouar",
+            "text": "La ciudadela-palacio restaurada de los sultanes zayaníes que convirtieron a Tlemcen en capital."
+          },
+          {
+            "place": "La meseta de Lalla Setti",
+            "text": "Una meseta verde sobre la ciudad, con panorámicas, jardines y un teleférico para subir."
+          }
+        ]
       },
       {
         "day": 5,
         "title": "El Ourit y salida",
-        "body": "Las cascadas de El Ourit y la meseta de Lalla Setti antes del traslado."
+        "body": "Las cascadas de El Ourit y la meseta de Lalla Setti antes del traslado.",
+        "stops": [
+          {
+            "place": "La meseta de Lalla Setti",
+            "text": "La terraza alta del Parque Nacional de Tlemcen sobre la ciudad, con toda la medina y su llanura desplegadas abajo."
+          },
+          {
+            "place": "Las cascadas de El Ourit",
+            "text": "Cascadas que caen por acantilados boscosos en el Parque Nacional de Tlemcen, al este de la ciudad."
+          },
+          {
+            "place": "Mansourah",
+            "text": "El gran minarete en ruinas de una ciudad de asedio del siglo XIV, a las afueras de Tlemcen."
+          }
+        ]
       }
     ],
     "includes": [
@@ -716,12 +1220,40 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Constantina",
-        "body": "La ciudad de los puentes: el puente Sidi M'Cid, las gargantas, el palacio Ahmed Bey, el museo de Cirta y el casco antiguo."
+        "body": "La ciudad de los puentes: el puente Sidi M'Cid, las gargantas, el palacio Ahmed Bey, el museo de Cirta y el casco antiguo.",
+        "stops": [
+          {
+            "place": "Los puentes de Constantina",
+            "text": "La «Ciudad de los Puentes», tendida sobre el vertiginoso desfiladero del Rhumel, con la pasarela de Sidi M'Cid suspendida muy por encima."
+          },
+          {
+            "place": "El Palacio de Ahmed Bey",
+            "text": "El palacio otomano de principios del siglo XIX del último bey, con galerías pintadas y patios en sombra."
+          },
+          {
+            "place": "El Museo Nacional de Cirta",
+            "text": "Antigüedades de la antigua Cirta — mosaicos, bronces y reliquias numidas."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Timgad",
-        "body": "Hacia el sur y jornada en Timgad: el trazado romano completo, el arco de Trajano, el teatro y el museo de mosaicos."
+        "body": "Hacia el sur y jornada en Timgad: el trazado romano completo, el arco de Trajano, el teatro y el museo de mosaicos.",
+        "stops": [
+          {
+            "place": "El Arco de Trajano",
+            "text": "El arco triunfal que enmarca la calle principal de Timgad — la silueta icónica de la ciudad."
+          },
+          {
+            "place": "La biblioteca y el teatro de Timgad",
+            "text": "Las ruinas de una infrecuente biblioteca pública romana y un teatro de 3.500 asientos que aún hoy se sigue usando."
+          },
+          {
+            "place": "El foro y los templos de Timgad",
+            "text": "El corazón en cuadrícula de la colonia de Trajano, con sus termas y templos."
+          }
+        ]
       }
     ],
     "includes": [
@@ -795,32 +1327,116 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "De Argel a Constantina",
-        "body": "Llegada a Argel y traslado a Constantina: los puentes colgantes, la mezquita Emir Abdelkader y el casco antiguo. Noche en Constantina."
+        "body": "Llegada a Argel y traslado a Constantina: los puentes colgantes, la mezquita Emir Abdelkader y el casco antiguo. Noche en Constantina.",
+        "stops": [
+          {
+            "place": "Los puentes de Constantina",
+            "text": "La «Ciudad de los Puentes», tendida sobre el vertiginoso desfiladero del Rhumel, con la pasarela de Sidi M'Cid suspendida muy por encima."
+          },
+          {
+            "place": "La Mezquita Emir Abdelkader",
+            "text": "Una de las mezquitas más grandes de África, cuyos minaretes gemelos son un hito moderno de Constantina."
+          },
+          {
+            "place": "El casco antiguo de Souika",
+            "text": "Las estrechas callejuelas de la antigua medina de Constantina, aferradas a la roca."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "De Constantina a Sétif",
-        "body": "Ruta hacia Sétif y las ruinas romanas de Djémila, Patrimonio de la UNESCO, con un paseo por el centro de la ciudad. Noche en Sétif."
+        "body": "Ruta hacia Sétif y las ruinas romanas de Djémila, Patrimonio de la UNESCO, con un paseo por el centro de la ciudad. Noche en Sétif.",
+        "stops": [
+          {
+            "place": "Djémila (Cuicul)",
+            "text": "Una ciudad romana Patrimonio de la Humanidad en montañas verdes, magníficamente conservada — foro, templos y un teatro en pendiente."
+          },
+          {
+            "place": "Los mosaicos de Djémila",
+            "text": "Mosaicos in situ entre los más ricos del mundo romano, expuestos en el museo del yacimiento."
+          },
+          {
+            "place": "Aïn El Fouara, Sétif",
+            "text": "La querida fuente de 1898 en el corazón de la ciudad, símbolo perdurable de Sétif."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "De Sétif a Batna",
-        "body": "Continuación hacia Batna y la ciudad romana de Timgad, Patrimonio de la UNESCO, con tiempo para el patrimonio local. Noche en Batna."
+        "body": "Continuación hacia Batna y la ciudad romana de Timgad, Patrimonio de la UNESCO, con tiempo para el patrimonio local. Noche en Batna.",
+        "stops": [
+          {
+            "place": "Timgad",
+            "text": "La colonia de Trajano del año 100 d.C., trazada en cuadrícula — la «Pompeya del Aurès», extendida sobre la llanura abierta."
+          },
+          {
+            "place": "El Arco de Trajano",
+            "text": "El arco triunfal que enmarca la calle principal de Timgad — la silueta icónica de la ciudad."
+          },
+          {
+            "place": "La biblioteca y el teatro de Timgad",
+            "text": "Las ruinas de una infrecuente biblioteca pública romana y un teatro de 3.500 asientos que aún hoy se sigue usando."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "De Batna a Bou Saada por Biskra",
-        "body": "Paso por Biskra, puerta del Sáhara, con sus palmerales y su paisaje de oasis, y continuación hasta Bou Saada y sus mercados tradicionales. Noche en Bou Saada."
+        "body": "Paso por Biskra, puerta del Sáhara, con sus palmerales y su paisaje de oasis, y continuación hasta Bou Saada y sus mercados tradicionales. Noche en Bou Saada.",
+        "stops": [
+          {
+            "place": "Los palmerales de Biskra",
+            "text": "La «Reina del Ziban» — un gran oasis de palmeras datileras que marca el verdadero inicio del Sahara."
+          },
+          {
+            "place": "Bou Saada",
+            "text": "La «Ciudad de la Felicidad», una localidad oasis que los pintores adoran desde hace mucho tiempo."
+          },
+          {
+            "place": "Los zocos de Bou Saada",
+            "text": "Mercados tradicionales de plata, lana y dátiles."
+          }
+        ]
       },
       {
         "day": 5,
         "title": "De Bou Saada a Argel",
-        "body": "Visita de la zauia de El Hamel y su entorno, y traslado a Argel con la tarde libre. Noche en Argel."
+        "body": "Visita de la zauia de El Hamel y su entorno, y traslado a Argel con la tarde libre. Noche en Argel.",
+        "stops": [
+          {
+            "place": "La zauia de El Hamel",
+            "text": "Un santuario sufí rahmaniyya y escuela coránica en lo alto de una colina sobre Bou Saada — tranquilo, austero y panorámico."
+          },
+          {
+            "place": "Bou Saada y las estribaciones de Ouled Naïl",
+            "text": "La «ciudad de la felicidad» — un oasis de palmeras al pie de colinas ocres y desnudas, y localidad de pintores desde el siglo XIX."
+          },
+          {
+            "place": "La carretera hacia el norte, a Argel",
+            "text": "Saliendo de la estepa a través de la llanura del Hodna y cruzando el Tell Atlas, con llegada a la capital para una tarde libre."
+          }
+        ]
       },
       {
         "day": 6,
         "title": "Béjaïa y salida",
-        "body": "Excursión de un día a Béjaïa — la fortaleza, Cap Carbon y las vistas de la costa — antes del traslado al aeropuerto."
+        "body": "Excursión de un día a Béjaïa — la fortaleza, Cap Carbon y las vistas de la costa — antes del traslado al aeropuerto.",
+        "stops": [
+          {
+            "place": "El fuerte de Gouraya, Béjaïa",
+            "text": "Un fuerte en lo alto sobre Béjaïa con amplias vistas de la costa cabilia."
+          },
+          {
+            "place": "Cap Carbon",
+            "text": "Un cabo espectacular y su faro, en una de las costas más bellas del Mediterráneo."
+          },
+          {
+            "place": "La corniche de Béjaïa",
+            "text": "La carretera de acantilados entre Gouraya y Cap Carbon, sobre las calas que dieron fama a este tramo de la costa cabilia."
+          }
+        ]
       }
     ],
     "includes": [
@@ -896,32 +1512,116 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Llegada a Djanet",
-        "body": "Recepción en el aeropuerto de Djanet y traslado a una casa de huéspedes o un campamento, con una salida al atardecer a las dunas cercanas y una cena sahariana tradicional."
+        "body": "Recepción en el aeropuerto de Djanet y traslado a una casa de huéspedes o un campamento, con una salida al atardecer a las dunas cercanas y una cena sahariana tradicional.",
+        "stops": [
+          {
+            "place": "El aeropuerto de Tiska, Djanet",
+            "text": "Recibimiento en el aeropuerto más austral de Argelia y traslado a través de los palmerales — 30 km del asfalto al oasis."
+          },
+          {
+            "place": "Djanet y las dunas al atardecer",
+            "text": "Una localidad oasis tuareg bajo acantilados rojos, con una primera excursión al atardecer a las dunas cercanas."
+          },
+          {
+            "place": "Una cena sahariana de bienvenida",
+            "text": "Taguella cocida en la arena con un tayín y té tuareg, servidos en el campamento o la casa de huéspedes en tu primera noche en el sur."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "El Tadrart Rojo",
-        "body": "Jornada en 4×4 por el Tadrart entre formaciones rocosas y grabados antiguos, con pícnic en el desierto, atardecer sobre las dunas rojas y noche de campamento bajo las estrellas."
+        "body": "Jornada en 4×4 por el Tadrart entre formaciones rocosas y grabados antiguos, con pícnic en el desierto, atardecer sobre las dunas rojas y noche de campamento bajo las estrellas.",
+        "stops": [
+          {
+            "place": "El Tadrart Rouge",
+            "text": "Cañones y arcos de arenisca anaranjada esculpidos por el viento — uno de los paisajes más cinematográficos del Sahara."
+          },
+          {
+            "place": "Arte rupestre prehistórico",
+            "text": "Pinturas y grabados de pastores, cazadores y fauna de un Sahara verde, de hasta unos 10.000 años de antigüedad — más antiguos que las pirámides."
+          },
+          {
+            "place": "Dunas rojas y campamento bajo las estrellas",
+            "text": "Un picnic en el desierto, atardecer sobre las dunas rojas y una noche de campamento bajo las estrellas."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "El Tassili n'Ajjer",
-        "body": "Descubrimiento de la meseta del Tassili y sus pinturas rupestres, caminando entre cañones y paisajes de arenisca, con cena y noche en el campamento."
+        "body": "Descubrimiento de la meseta del Tassili y sus pinturas rupestres, caminando entre cañones y paisajes de arenisca, con cena y noche en el campamento.",
+        "stops": [
+          {
+            "place": "La meseta del Tassili n'Ajjer",
+            "text": "Un vasto «bosque de roca» de arenisca, declarado Patrimonio de la Humanidad por albergar una de las mayores concentraciones de arte prehistórico del mundo."
+          },
+          {
+            "place": "Las pinturas rupestres del Tassili",
+            "text": "Miles de pinturas de pastores y fauna de un Sahara más húmedo, a las que se llega caminando por cañones."
+          },
+          {
+            "place": "Cañones y torres de arenisca",
+            "text": "Pináculos erosionados y gargantas que parecen de otro planeta."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "Oasis y cultura del desierto",
-        "body": "Visita de un oasis local y sus palmerales, encuentro con una comunidad tuareg en torno a la ceremonia del té y regreso a Djanet para pasar la noche."
+        "body": "Visita de un oasis local y sus palmerales, encuentro con una comunidad tuareg en torno a la ceremonia del té y regreso a Djanet para pasar la noche.",
+        "stops": [
+          {
+            "place": "Un oasis y sus palmerales",
+            "text": "Huertos umbríos y canales de riego en pleno desierto."
+          },
+          {
+            "place": "Ceremonia del té tuareg",
+            "text": "Los tres vasos rituales de té sahariano con una familia tuareg — la cultura viva del extremo sur."
+          },
+          {
+            "place": "Los antiguos ksour de Djanet",
+            "text": "Los tres poblados de adobe apilados — Azellouaz, El Mihan y Adjahil — en torno a los cuales creció el oasis moderno."
+          }
+        ]
       },
       {
         "day": 5,
         "title": "Traslado a Ghardaïa",
-        "body": "Viaje hasta Ghardaïa, en el valle del M'Zab, alojamiento en una casa tradicional y paseo vespertino por el casco antiguo."
+        "body": "Viaje hasta Ghardaïa, en el valle del M'Zab, alojamiento en una casa tradicional y paseo vespertino por el casco antiguo.",
+        "stops": [
+          {
+            "place": "El viaje hacia el norte, al M'Zab",
+            "text": "El largo traslado desde el extremo sur, unos 1.000 km, del Tassili al borde del Sahara septentrional."
+          },
+          {
+            "place": "Una casa de huéspedes tradicional del M'Zab",
+            "text": "Una casa mozabita restaurada de muros gruesos, patio interior y terraza en la azotea — dentro del casco antiguo y no en la periferia."
+          },
+          {
+            "place": "Paseo por el casco antiguo de Ghardaïa",
+            "text": "Una tarde por las callejuelas de la ciudad colina del M'Zab tras el viaje hacia el norte."
+          }
+        ]
       },
       {
         "day": 6,
         "title": "El valle del M'Zab y salida",
-        "body": "Visita de Beni Isguen, El Atteuf y Melika — mezquitas, zocos y talleres — con almuerzo antes del traslado al aeropuerto."
+        "body": "Visita de Beni Isguen, El Atteuf y Melika — mezquitas, zocos y talleres — con almuerzo antes del traslado al aeropuerto.",
+        "stops": [
+          {
+            "place": "Beni Isguen",
+            "text": "La ciudad sagrada y amurallada del M'Zab, a la que se entra por su antigua puerta, donde el vestuario y la fotografía siguen las costumbres locales."
+          },
+          {
+            "place": "El Atteuf",
+            "text": "La más antigua de las cinco ciudades del M'Zab, cuya sencilla mezquita de Sidi Brahim impresionó tanto a Le Corbusier que llegó a marcar la arquitectura moderna."
+          },
+          {
+            "place": "Melika",
+            "text": "Una localidad del M'Zab en lo alto de una colina, con tumbas de marabutos y amplias vistas sobre el valle."
+          }
+        ]
       }
     ],
     "includes": [
@@ -995,27 +1695,97 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Argel",
-        "body": "Recepción en el aeropuerto y traslado, y jornada en la capital: el museo nacional del Bardo, un paseo por la Casbah UNESCO y el Monumento al Mártir con su vista sobre la ciudad."
+        "body": "Recepción en el aeropuerto y traslado, y jornada en la capital: el museo nacional del Bardo, un paseo por la Casbah UNESCO y el Monumento al Mártir con su vista sobre la ciudad.",
+        "stops": [
+          {
+            "place": "El Museo del Bardo",
+            "text": "Prehistoria y etnografía en una elegante villa morisca, desde reproducciones de arte rupestre sahariano hasta joyas de plata y la Argelia cotidiana."
+          },
+          {
+            "place": "La Casba de Argel",
+            "text": "La ciudadela otomana declarada Patrimonio de la Humanidad — un empinado laberinto blanco de palacios, mezquitas y casas de patio que trepa sobre la bahía."
+          },
+          {
+            "place": "El Monumento a los Mártires (Maqam Echahid)",
+            "text": "Tres esbeltas hojas de palmera de hormigón alzadas en 1982 sobre la ciudad, en homenaje a los caídos de la guerra de independencia."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Tipaza y Cherchell",
-        "body": "Hacia el oeste por la costa: las ruinas romanas de Tipaza, el Mausoleo real de Mauritania y el museo y el viejo puerto de Cherchell."
+        "body": "Hacia el oeste por la costa: las ruinas romanas de Tipaza, el Mausoleo real de Mauritania y el museo y el viejo puerto de Cherchell.",
+        "stops": [
+          {
+            "place": "La Tipaza romana",
+            "text": "Un puerto romano declarado Patrimonio de la Humanidad por la UNESCO, extendido a lo largo del Mediterráneo — basílicas, termas y un teatro con las olas a sus pies."
+          },
+          {
+            "place": "El Mausoleo Real de Mauritania",
+            "text": "Un gran tambor de piedra sobre una colina frente al mar — la tumba, del siglo I a.C., del rey bereber Juba II y de Cleopatra Selene, hija de Cleopatra de Egipto."
+          },
+          {
+            "place": "Cherchell (la antigua Cesarea)",
+            "text": "La antigua capital de Juba II, cuyo museo alberga algunos de los mejores mosaicos y esculturas romanas y griegas de Argelia."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Constantina y Timgad",
-        "body": "Hacia el este: los puentes colgantes de Constantina y el palacio Ahmed Bey, y continuación hasta la ciudad romana de Timgad."
+        "body": "Hacia el este: los puentes colgantes de Constantina y el palacio Ahmed Bey, y continuación hasta la ciudad romana de Timgad.",
+        "stops": [
+          {
+            "place": "Los puentes de Constantina",
+            "text": "La «Ciudad de los Puentes», tendida sobre el vertiginoso desfiladero del Rhumel, con la pasarela de Sidi M'Cid suspendida muy por encima."
+          },
+          {
+            "place": "El Palacio de Ahmed Bey",
+            "text": "El palacio otomano de principios del siglo XIX del último bey, con galerías pintadas y patios en sombra."
+          },
+          {
+            "place": "Timgad",
+            "text": "La colonia de Trajano del año 100 d.C., trazada en cuadrícula — la «Pompeya del Aurès», extendida sobre la llanura abierta."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "Djémila y Sétif",
-        "body": "La ciudad romana de Djémila, Patrimonio de la UNESCO, con su foro, su teatro y sus mosaicos, y la fuente de Aïn El Fouara en Sétif."
+        "body": "La ciudad romana de Djémila, Patrimonio de la UNESCO, con su foro, su teatro y sus mosaicos, y la fuente de Aïn El Fouara en Sétif.",
+        "stops": [
+          {
+            "place": "Djémila (Cuicul)",
+            "text": "Una ciudad romana Patrimonio de la Humanidad en montañas verdes, magníficamente conservada — foro, templos y un teatro en pendiente."
+          },
+          {
+            "place": "Los mosaicos de Djémila",
+            "text": "Mosaicos in situ entre los más ricos del mundo romano, expuestos en el museo del yacimiento."
+          },
+          {
+            "place": "Aïn El Fouara, Sétif",
+            "text": "La querida fuente de 1898 en el corazón de la ciudad, símbolo perdurable de Sétif."
+          }
+        ]
       },
       {
         "day": 5,
         "title": "Bou Saada y regreso",
-        "body": "Hacia el sur hasta Bou Saada, puerta del Sáhara, con su oasis y una excursión entre las dunas, antes del regreso a Argel."
+        "body": "Hacia el sur hasta Bou Saada, puerta del Sáhara, con su oasis y una excursión entre las dunas, antes del regreso a Argel.",
+        "stops": [
+          {
+            "place": "El oasis de Bou Saada",
+            "text": "La puerta del Sahara, con una excursión al desierto entre las dunas."
+          },
+          {
+            "place": "El Moulin Ferrero",
+            "text": "El antiguo molino sobre el Oued Bou Saada, junto al desfiladero y los huertos de palmeras que pintó Étienne Dinet."
+          },
+          {
+            "place": "Las dunas al sur de Bou Saada",
+            "text": "Una breve excursión a la arena — el primer Sahara auténtico en la ruta hacia el sur, y el punto de inflexión del día."
+          }
+        ]
       }
     ],
     "includes": [
@@ -1087,22 +1857,78 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Argel",
-        "body": "El museo del Bardo y sus colecciones, la basílica de Notre-Dame d'Afrique sobre la bahía y el Monumento al Mártir."
+        "body": "El museo del Bardo y sus colecciones, la basílica de Notre-Dame d'Afrique sobre la bahía y el Monumento al Mártir.",
+        "stops": [
+          {
+            "place": "El Museo del Bardo",
+            "text": "Prehistoria y etnografía en una elegante villa morisca, desde reproducciones de arte rupestre sahariano hasta joyas de plata y la Argelia cotidiana."
+          },
+          {
+            "place": "Notre-Dame d'Afrique",
+            "text": "Una basílica del siglo XIX — «Nuestra Señora de África» — en los acantilados sobre la bahía, dedicada por igual a musulmanes y cristianos."
+          },
+          {
+            "place": "El Monumento a los Mártires (Maqam Echahid)",
+            "text": "Tres esbeltas hojas de palmera de hormigón alzadas en 1982 sobre la ciudad, en homenaje a los caídos de la guerra de independencia."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Tipaza y Cherchell",
-        "body": "El Mausoleo real de Mauritania, el parque arqueológico romano de Tipaza y el museo de Cherchell."
+        "body": "El Mausoleo real de Mauritania, el parque arqueológico romano de Tipaza y el museo de Cherchell.",
+        "stops": [
+          {
+            "place": "El Mausoleo Real de Mauritania",
+            "text": "Un gran tambor de piedra sobre una colina frente al mar — la tumba, del siglo I a.C., del rey bereber Juba II y de Cleopatra Selene, hija de Cleopatra de Egipto."
+          },
+          {
+            "place": "La Tipaza romana",
+            "text": "Un puerto romano declarado Patrimonio de la Humanidad por la UNESCO, extendido a lo largo del Mediterráneo — basílicas, termas y un teatro con las olas a sus pies."
+          },
+          {
+            "place": "Cherchell (la antigua Cesarea)",
+            "text": "La antigua capital de Juba II, cuyo museo alberga algunos de los mejores mosaicos y esculturas romanas y griegas de Argelia."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Bou Saada",
-        "body": "Hacia el sur hasta Bou Saada: la fortaleza y sus panorámicas, el museo Nasreddine Dinet y su mezquita histórica."
+        "body": "Hacia el sur hasta Bou Saada: la fortaleza y sus panorámicas, el museo Nasreddine Dinet y su mezquita histórica.",
+        "stops": [
+          {
+            "place": "Panorámicas de Bou Saada",
+            "text": "La fortaleza y los miradores sobre la localidad oasis."
+          },
+          {
+            "place": "El Museo Nasreddine Dinet",
+            "text": "El museo del pintor orientalista que dio fama a Bou Saada, con sus obras y objetos personales."
+          },
+          {
+            "place": "La mezquita histórica",
+            "text": "La mezquita del casco antiguo, en el corazón de Bou Saada."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "Argel",
-        "body": "Regreso a Argel para la Casbah UNESCO, el jardín botánico de Hamma y el museo de los Muyahidines."
+        "body": "Regreso a Argel para la Casbah UNESCO, el jardín botánico de Hamma y el museo de los Muyahidines.",
+        "stops": [
+          {
+            "place": "La Casba de Argel",
+            "text": "La ciudadela otomana declarada Patrimonio de la Humanidad — un empinado laberinto blanco de palacios, mezquitas y casas de patio que trepa sobre la bahía."
+          },
+          {
+            "place": "El Jardín Botánico de Hamma",
+            "text": "El gran Jardin d'Essai del siglo XIX, uno de los mejores jardines botánicos de África."
+          },
+          {
+            "place": "El Museo de los Muyahidines",
+            "text": "La historia de los combatientes de la independencia, contada a los pies del Monumento a los Mártires."
+          }
+        ]
       }
     ],
     "includes": [
@@ -1168,42 +1994,154 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Llegada a Argel",
-        "body": "Recepción en el aeropuerto, alojamiento en un hotel céntrico, paseo vespertino por la ciudad y cena."
+        "body": "Recepción en el aeropuerto, alojamiento en un hotel céntrico, paseo vespertino por la ciudad y cena.",
+        "stops": [
+          {
+            "place": "El aeropuerto Houari Boumediene",
+            "text": "Recibimiento a la llegada y traslado a un hotel del centro, con todos los trámites resueltos."
+          },
+          {
+            "place": "Un recorrido nocturno por la ciudad",
+            "text": "Una primera vuelta de orientación al encenderse las luces — las arcadas del paseo marítimo, la Plaza de los Mártires y la Grande Poste."
+          },
+          {
+            "place": "Cena en Argel",
+            "text": "Una primera mesa argelina en el centro, mientras se repasan los ocho días por delante."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Argel cultural",
-        "body": "El museo del Bardo, la Casbah Patrimonio de la UNESCO y el Monumento al Mártir (Maqam Echahid)."
+        "body": "El museo del Bardo, la Casbah Patrimonio de la UNESCO y el Monumento al Mártir (Maqam Echahid).",
+        "stops": [
+          {
+            "place": "El Museo del Bardo",
+            "text": "Prehistoria y etnografía en una elegante villa morisca, desde reproducciones de arte rupestre sahariano hasta joyas de plata y la Argelia cotidiana."
+          },
+          {
+            "place": "La Casba de Argel",
+            "text": "La ciudadela otomana declarada Patrimonio de la Humanidad — un empinado laberinto blanco de palacios, mezquitas y casas de patio que trepa sobre la bahía."
+          },
+          {
+            "place": "El Monumento a los Mártires (Maqam Echahid)",
+            "text": "Tres esbeltas hojas de palmera de hormigón alzadas en 1982 sobre la ciudad, en homenaje a los caídos de la guerra de independencia."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Tipaza y Cherchell",
-        "body": "El Mausoleo real de Mauritania, el parque arqueológico de Tipaza y el museo de Cherchell."
+        "body": "El Mausoleo real de Mauritania, el parque arqueológico de Tipaza y el museo de Cherchell.",
+        "stops": [
+          {
+            "place": "El Mausoleo Real de Mauritania",
+            "text": "Un gran tambor de piedra sobre una colina frente al mar — la tumba, del siglo I a.C., del rey bereber Juba II y de Cleopatra Selene, hija de Cleopatra de Egipto."
+          },
+          {
+            "place": "La Tipaza romana",
+            "text": "Un puerto romano declarado Patrimonio de la Humanidad por la UNESCO, extendido a lo largo del Mediterráneo — basílicas, termas y un teatro con las olas a sus pies."
+          },
+          {
+            "place": "Cherchell (la antigua Cesarea)",
+            "text": "La antigua capital de Juba II, cuyo museo alberga algunos de los mejores mosaicos y esculturas romanas y griegas de Argelia."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "Constantina",
-        "body": "El puente Sidi M'Cid, el palacio Ahmed Bey, la mezquita Emir Abdelkader y un paseo por la ciudad."
+        "body": "El puente Sidi M'Cid, el palacio Ahmed Bey, la mezquita Emir Abdelkader y un paseo por la ciudad.",
+        "stops": [
+          {
+            "place": "Los puentes de Constantina",
+            "text": "La «Ciudad de los Puentes», tendida sobre el vertiginoso desfiladero del Rhumel, con la pasarela de Sidi M'Cid suspendida muy por encima."
+          },
+          {
+            "place": "El Palacio de Ahmed Bey",
+            "text": "El palacio otomano de principios del siglo XIX del último bey, con galerías pintadas y patios en sombra."
+          },
+          {
+            "place": "La Mezquita Emir Abdelkader",
+            "text": "Una de las mezquitas más grandes de África, cuyos minaretes gemelos son un hito moderno de Constantina."
+          }
+        ]
       },
       {
         "day": 5,
         "title": "Djémila",
-        "body": "El sitio romano de Djémila, Patrimonio de la UNESCO — su teatro y sus templos — con un almuerzo local."
+        "body": "El sitio romano de Djémila, Patrimonio de la UNESCO — su teatro y sus templos — con un almuerzo local.",
+        "stops": [
+          {
+            "place": "El teatro y los templos de Djémila",
+            "text": "Los monumentos mejor conservados de la ciudad romana Patrimonio de la Humanidad, con un almuerzo local."
+          },
+          {
+            "place": "El Arco de Caracalla",
+            "text": "El arco triunfal del año 216 d.C. en el límite del nuevo foro de Djémila — la imagen por la que se conoce el yacimiento."
+          },
+          {
+            "place": "Los mosaicos de Djémila",
+            "text": "Mosaicos in situ entre los más ricos del mundo romano, expuestos en el museo del yacimiento."
+          }
+        ]
       },
       {
         "day": 6,
         "title": "Hacia Bou Saada",
-        "body": "La carretera de Constantina a Bou Saada, alojamiento y tiempo libre, y cena tradicional con música local."
+        "body": "La carretera de Constantina a Bou Saada, alojamiento y tiempo libre, y cena tradicional con música local.",
+        "stops": [
+          {
+            "place": "La llanura del Hodna",
+            "text": "La carretera al suroeste de Constantina, a través de la alta estepa y los salares del Chott El Hodna."
+          },
+          {
+            "place": "Bou Saada",
+            "text": "La «ciudad de la felicidad» — un oasis de palmeras al pie de la sierra de Ouled Naïl, final del trayecto."
+          },
+          {
+            "place": "Una cena con música local",
+            "text": "Comida tradicional y música sahariana en vivo en la casa de huéspedes — la velada en torno a la que gira todo el día."
+          }
+        ]
       },
       {
         "day": 7,
         "title": "Bou Saada y regreso",
-        "body": "La cascada de Bou Saada, el molino Ferrero y la zauia de El Hamel, y regreso a Argel."
+        "body": "La cascada de Bou Saada, el molino Ferrero y la zauia de El Hamel, y regreso a Argel.",
+        "stops": [
+          {
+            "place": "La cascada de Bou Saada",
+            "text": "Una cascada natural en el oasis — el rincón verde y fresco de la «Ciudad de la Felicidad»."
+          },
+          {
+            "place": "El Molino Ferrero",
+            "text": "Un molino histórico junto al río, un hito del viejo Bou Saada."
+          },
+          {
+            "place": "La zauia de El Hamel",
+            "text": "Un santuario sufí rahmaniyya y escuela coránica en lo alto de una colina sobre Bou Saada — tranquilo, austero y panorámico."
+          }
+        ]
       },
       {
         "day": 8,
         "title": "Salida",
-        "body": "Desayuno, salida del hotel y traslado al aeropuerto de Argel."
+        "body": "Desayuno, salida del hotel y traslado al aeropuerto de Argel.",
+        "stops": [
+          {
+            "place": "Una mañana libre",
+            "text": "Tiempo para lo que la semana haya dejado pendiente en la capital, o un último paseo por el paseo marítimo, según tu vuelo."
+          },
+          {
+            "place": "Últimas compras",
+            "text": "Plata cabilia, cuero tuareg, dátiles y repostería en los talleres artesanales del centro."
+          },
+          {
+            "place": "El aeropuerto Houari Boumediene",
+            "text": "Salida del hotel, traslado privado y asistencia durante el check-in."
+          }
+        ]
       }
     ],
     "includes": [
@@ -1269,52 +2207,192 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Llegada a Argel",
-        "body": "Recepción en el aeropuerto, alojamiento en el hotel y cena de bienvenida."
+        "body": "Recepción en el aeropuerto, alojamiento en el hotel y cena de bienvenida.",
+        "stops": [
+          {
+            "place": "El aeropuerto Houari Boumediene",
+            "text": "Recibimiento en llegadas y traslado a la ciudad — la parte práctica del primer día, resuelta para ti."
+          },
+          {
+            "place": "La bahía de Argel",
+            "text": "El trayecto de llegada bordeando el mar, con la capital blanca alzándose en terrazas sobre el puerto."
+          },
+          {
+            "place": "Una cena de bienvenida",
+            "text": "Una primera mesa argelina — chorba, pescado de la bahía o un tayín de pollo — mientras se repasan los diez días por delante."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "Tipaza y Cherchell",
-        "body": "Las ruinas romanas y el anfiteatro de Tipaza, el Mausoleo real de Mauritania, el museo de Cherchell y las vistas de la costa."
+        "body": "Las ruinas romanas y el anfiteatro de Tipaza, el Mausoleo real de Mauritania, el museo de Cherchell y las vistas de la costa.",
+        "stops": [
+          {
+            "place": "La Tipaza romana",
+            "text": "Un puerto romano declarado Patrimonio de la Humanidad por la UNESCO, extendido a lo largo del Mediterráneo — basílicas, termas y un teatro con las olas a sus pies."
+          },
+          {
+            "place": "El Mausoleo Real de Mauritania",
+            "text": "Un gran tambor de piedra sobre una colina frente al mar — la tumba, del siglo I a.C., del rey bereber Juba II y de Cleopatra Selene, hija de Cleopatra de Egipto."
+          },
+          {
+            "place": "Cherchell (la antigua Cesarea)",
+            "text": "La antigua capital de Juba II, cuyo museo alberga algunos de los mejores mosaicos y esculturas romanas y griegas de Argelia."
+          }
+        ]
       },
       {
         "day": 3,
         "title": "Argel histórica",
-        "body": "La Casbah Patrimonio de la UNESCO, el Monumento al Mártir y el Museo Nacional del Ejército."
+        "body": "La Casbah Patrimonio de la UNESCO, el Monumento al Mártir y el Museo Nacional del Ejército.",
+        "stops": [
+          {
+            "place": "La Casba de Argel",
+            "text": "La ciudadela otomana declarada Patrimonio de la Humanidad — un empinado laberinto blanco de palacios, mezquitas y casas de patio que trepa sobre la bahía."
+          },
+          {
+            "place": "El Monumento a los Mártires (Maqam Echahid)",
+            "text": "Tres esbeltas hojas de palmera de hormigón alzadas en 1982 sobre la ciudad, en homenaje a los caídos de la guerra de independencia."
+          },
+          {
+            "place": "El Museo Nacional del Ejército",
+            "text": "La larga historia militar de Argelia, desde la Antigüedad hasta 1962, junto al Monumento a los Mártires."
+          }
+        ]
       },
       {
         "day": 4,
         "title": "Hacia Sétif",
-        "body": "Traslado a Sétif y visita de las ruinas romanas de Djémila, Patrimonio de la UNESCO. Noche en Sétif."
+        "body": "Traslado a Sétif y visita de las ruinas romanas de Djémila, Patrimonio de la UNESCO. Noche en Sétif.",
+        "stops": [
+          {
+            "place": "Djémila (Cuicul)",
+            "text": "Una ciudad romana Patrimonio de la Humanidad en montañas verdes, magníficamente conservada — foro, templos y un teatro en pendiente."
+          },
+          {
+            "place": "Los mosaicos de Djémila",
+            "text": "Mosaicos in situ entre los más ricos del mundo romano, expuestos en el museo del yacimiento."
+          },
+          {
+            "place": "Sétif y la fuente de Ain El Fouara",
+            "text": "La ciudad de los altos llanos a 1.100 m y su célebre fuente de mármol de 1898, donde se pasa la noche."
+          }
+        ]
       },
       {
         "day": 5,
         "title": "Constantina",
-        "body": "Los puentes colgantes de Constantina, la mezquita Emir Abdelkader y el palacio Ahmed Bey. Noche en Constantina."
+        "body": "Los puentes colgantes de Constantina, la mezquita Emir Abdelkader y el palacio Ahmed Bey. Noche en Constantina.",
+        "stops": [
+          {
+            "place": "Los puentes de Constantina",
+            "text": "La «Ciudad de los Puentes», tendida sobre el vertiginoso desfiladero del Rhumel, con la pasarela de Sidi M'Cid suspendida muy por encima."
+          },
+          {
+            "place": "La Mezquita Emir Abdelkader",
+            "text": "Una de las mezquitas más grandes de África, cuyos minaretes gemelos son un hito moderno de Constantina."
+          },
+          {
+            "place": "El Palacio de Ahmed Bey",
+            "text": "El palacio otomano de principios del siglo XIX del último bey, con galerías pintadas y patios en sombra."
+          }
+        ]
       },
       {
         "day": 6,
         "title": "Batna y Timgad",
-        "body": "Ruta hacia Batna y la ciudad romana de Timgad, Patrimonio de la UNESCO, con el patrimonio local. Noche en Batna."
+        "body": "Ruta hacia Batna y la ciudad romana de Timgad, Patrimonio de la UNESCO, con el patrimonio local. Noche en Batna.",
+        "stops": [
+          {
+            "place": "Timgad",
+            "text": "La colonia de Trajano del año 100 d.C., trazada en cuadrícula — la «Pompeya del Aurès», extendida sobre la llanura abierta."
+          },
+          {
+            "place": "El Arco de Trajano",
+            "text": "El arco triunfal que enmarca la calle principal de Timgad — la silueta icónica de la ciudad."
+          },
+          {
+            "place": "La biblioteca y el teatro de Timgad",
+            "text": "Las ruinas de una infrecuente biblioteca pública romana y un teatro de 3.500 asientos que aún hoy se sigue usando."
+          }
+        ]
       },
       {
         "day": 7,
         "title": "Hacia Ghardaïa",
-        "body": "Larga ruta hacia el sur hasta el valle del M'Zab y alojamiento en una casa tradicional, con la tarde libre."
+        "body": "Larga ruta hacia el sur hasta el valle del M'Zab y alojamiento en una casa tradicional, con la tarde libre.",
+        "stops": [
+          {
+            "place": "La carretera hacia el sur, sobre el Atlas",
+            "text": "Saliendo del Tell, cruzando la alta estepa y descendiendo hacia el presáhara — el trayecto en el que Argelia cambia de clima."
+          },
+          {
+            "place": "Ghardaïa",
+            "text": "La ciudad principal del M'Zab, una pirámide de casas, Patrimonio de la Humanidad, que trepa hasta la mezquita y el minarete de su cima."
+          },
+          {
+            "place": "Una casa de huéspedes tradicional en el M'Zab",
+            "text": "Registro en una casa mozabita restaurada — muros gruesos, patio interior y terraza en la azotea — con una tarde libre."
+          }
+        ]
       },
       {
         "day": 8,
         "title": "Ghardaïa cultural",
-        "body": "Las ciudades de El Atteuf, Beni Isguen y Melika, sus mezquitas y su arquitectura, los zocos y un almuerzo con una familia local."
+        "body": "Las ciudades de El Atteuf, Beni Isguen y Melika, sus mezquitas y su arquitectura, los zocos y un almuerzo con una familia local.",
+        "stops": [
+          {
+            "place": "El Atteuf",
+            "text": "La más antigua de las cinco ciudades del M'Zab, cuya sencilla mezquita de Sidi Brahim impresionó tanto a Le Corbusier que llegó a marcar la arquitectura moderna."
+          },
+          {
+            "place": "Beni Isguen",
+            "text": "La ciudad sagrada y amurallada del M'Zab, a la que se entra por su antigua puerta, donde el vestuario y la fotografía siguen las costumbres locales."
+          },
+          {
+            "place": "Melika",
+            "text": "Una localidad del M'Zab en lo alto de una colina, con tumbas de marabutos y amplias vistas sobre el valle."
+          }
+        ]
       },
       {
         "day": 9,
         "title": "Regreso a Argel",
-        "body": "Vuelta a Argel con el jardín botánico de Hamma, el museo del Bardo y Notre-Dame d'Afrique."
+        "body": "Vuelta a Argel con el jardín botánico de Hamma, el museo del Bardo y Notre-Dame d'Afrique.",
+        "stops": [
+          {
+            "place": "El Jardín Botánico de Hamma",
+            "text": "El gran Jardin d'Essai del siglo XIX, uno de los mejores jardines botánicos de África."
+          },
+          {
+            "place": "El Museo del Bardo",
+            "text": "Prehistoria y etnografía en una elegante villa morisca, desde reproducciones de arte rupestre sahariano hasta joyas de plata y la Argelia cotidiana."
+          },
+          {
+            "place": "Notre-Dame d'Afrique",
+            "text": "Una basílica del siglo XIX — «Nuestra Señora de África» — en los acantilados sobre la bahía, dedicada por igual a musulmanes y cristianos."
+          }
+        ]
       },
       {
         "day": 10,
         "title": "Salida",
-        "body": "Desayuno y traslado al aeropuerto."
+        "body": "Desayuno y traslado al aeropuerto.",
+        "stops": [
+          {
+            "place": "Una mañana libre en Argel",
+            "text": "Lo que hayan dejado pendiente los diez días — el Jardin d'Essai, la mezquita de Ketchaoua o simplemente el paseo marítimo — según el horario de tu vuelo."
+          },
+          {
+            "place": "Últimas compras",
+            "text": "Plata cabilia, cuero tuareg, dátiles Deglet Nour y repostería, en la Rue Didouche Mourad o en los talleres de la Casba."
+          },
+          {
+            "place": "El aeropuerto Houari Boumediene",
+            "text": "El traslado privado de salida y asistencia durante el check-in."
+          }
+        ]
       }
     ],
     "includes": [
@@ -1386,12 +2464,40 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "De Argel a Bou Saada",
-        "body": "Salida de Argel por la mañana en vehículo turístico y alojamiento en el hotel; por la tarde, la cascada natural, el histórico molino Ferrero y los mercados tradicionales, con una cena beduina y música local por la noche."
+        "body": "Salida de Argel por la mañana en vehículo turístico y alojamiento en el hotel; por la tarde, la cascada natural, el histórico molino Ferrero y los mercados tradicionales, con una cena beduina y música local por la noche.",
+        "stops": [
+          {
+            "place": "La cascada de Bou Saada",
+            "text": "Una cascada natural en el oasis — el rincón verde y fresco de la «Ciudad de la Felicidad»."
+          },
+          {
+            "place": "El Molino Ferrero",
+            "text": "Un molino histórico junto al río, un hito del viejo Bou Saada."
+          },
+          {
+            "place": "Los mercados tradicionales",
+            "text": "Zocos de joyas de plata, lana y dátiles, con una cena beduina y música por la noche."
+          }
+        ]
       },
       {
         "day": 2,
         "title": "La zauia de El Hamel y regreso",
-        "body": "Tras el desayuno, visita del santuario sufí de El Hamel en la montaña, con tiempo para las fotos y el paisaje, almuerzo local en Bou Saada y regreso a Argel por la tarde."
+        "body": "Tras el desayuno, visita del santuario sufí de El Hamel en la montaña, con tiempo para las fotos y el paisaje, almuerzo local en Bou Saada y regreso a Argel por la tarde.",
+        "stops": [
+          {
+            "place": "Las estribaciones de Ouled Naïl",
+            "text": "El trayecto hacia El Hamel a través de colinas ocres y desnudas — el paisaje que convirtió a Bou Saada en localidad de pintores."
+          },
+          {
+            "place": "La zauia de El Hamel",
+            "text": "Un santuario sufí rahmaniyya y escuela coránica en lo alto de una colina sobre Bou Saada — tranquilo, austero y panorámico."
+          },
+          {
+            "place": "Almuerzo en Bou Saada",
+            "text": "Una mesa local de vuelta en el oasis antes de la carretera hacia el norte — cuscús o un tayín a la sombra de las palmeras."
+          }
+        ]
       }
     ],
     "includes": [
@@ -1466,7 +2572,21 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "La fortaleza de Béjaïa, Cap Carbon y la costa",
-        "body": "Recogida en Argel, visita guiada de la fortaleza histórica y su museo, paseo por la cornisa de Cap Carbon, tiempo de playa en Les Aiguades y almuerzo tradicional antes del regreso."
+        "body": "Recogida en Argel, visita guiada de la fortaleza histórica y su museo, paseo por la cornisa de Cap Carbon, tiempo de playa en Les Aiguades y almuerzo tradicional antes del regreso.",
+        "stops": [
+          {
+            "place": "El fuerte de Gouraya y su museo",
+            "text": "La fortaleza en lo alto sobre Béjaïa, con la bahía, el puerto y las montañas cabilias desplegados abajo."
+          },
+          {
+            "place": "Cap Carbon",
+            "text": "El cabo y su faro, asentado sobre un arco de roca natural — uno de los faros marítimos más altos del mundo."
+          },
+          {
+            "place": "Les Aiguades",
+            "text": "Una cala de aguas claras bajo la corniche, con tiempo en la playa antes de un almuerzo tradicional."
+          }
+        ]
       }
     ],
     "includes": [
@@ -1538,7 +2658,21 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Las ruinas de Tipaza y el museo de Cherchell",
-        "body": "Recogida en el hotel y trayecto privado hasta Tipaza para una visita guiada del foro, las termas y los barrios antiguos; después, Cherchell — la antigua Cesarea — con su museo de estatuas y mosaicos romanos y un breve paseo por el casco antiguo, antes del regreso."
+        "body": "Recogida en el hotel y trayecto privado hasta Tipaza para una visita guiada del foro, las termas y los barrios antiguos; después, Cherchell — la antigua Cesarea — con su museo de estatuas y mosaicos romanos y un breve paseo por el casco antiguo, antes del regreso.",
+        "stops": [
+          {
+            "place": "La Tipaza romana",
+            "text": "Una ciudad portuaria Patrimonio de la Humanidad, extendida a lo largo del Mediterráneo — foro, termas, basílicas y barrios antiguos con las olas a sus pies."
+          },
+          {
+            "place": "El Museo Arqueológico de Cherchell",
+            "text": "El museo de la antigua Cesarea, que alberga algunos de los mejores mosaicos y esculturas romanas y griegas de Argelia."
+          },
+          {
+            "place": "El casco antiguo de Cherchell",
+            "text": "Un breve paseo por el antiguo puerto y el trazado romano de calles, aún legible bajo la ciudad moderna."
+          }
+        ]
       }
     ],
     "includes": [
@@ -1610,7 +2744,21 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Casbah, museo del Bardo y Monumento al Mártir",
-        "body": "Recorrido guiado de jornada completa por el viejo barrio de la Casbah, las colecciones del museo nacional del Bardo y el Monumento al Mártir, con un almuerzo tradicional en un restaurante local entre las visitas."
+        "body": "Recorrido guiado de jornada completa por el viejo barrio de la Casbah, las colecciones del museo nacional del Bardo y el Monumento al Mártir, con un almuerzo tradicional en un restaurante local entre las visitas.",
+        "stops": [
+          {
+            "place": "La Casba de Argel",
+            "text": "La ciudadela otomana declarada Patrimonio de la Humanidad — un empinado laberinto blanco de palacios, mezquitas y casas de patio que trepa sobre la bahía."
+          },
+          {
+            "place": "El Museo Nacional del Bardo",
+            "text": "Prehistoria y etnografía en una elegante villa morisca, desde reproducciones de arte rupestre sahariano hasta joyas de plata y la Argelia cotidiana."
+          },
+          {
+            "place": "El Monumento a los Mártires (Maqam Echahid)",
+            "text": "Tres esbeltas hojas de palmera de hormigón alzadas en 1982 sobre la ciudad, en homenaje a los caídos de la guerra de independencia."
+          }
+        ]
       }
     ],
     "includes": [
@@ -1681,7 +2829,21 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Jardín de Hamma, Notre-Dame d'Afrique y Museo del Ejército",
-        "body": "Recogida en el hotel o el aeropuerto y jornada guiada por tres lugares: el jardín botánico de Hamma, la basílica de Notre-Dame d'Afrique en su colina sobre el Mediterráneo y el Museo del Ejército, con un almuerzo tradicional por el camino antes del regreso."
+        "body": "Recogida en el hotel o el aeropuerto y jornada guiada por tres lugares: el jardín botánico de Hamma, la basílica de Notre-Dame d'Afrique en su colina sobre el Mediterráneo y el Museo del Ejército, con un almuerzo tradicional por el camino antes del regreso.",
+        "stops": [
+          {
+            "place": "El Jardín Botánico de El Hamma",
+            "text": "Diez hectáreas trazadas en 1832 a los pies del Monumento a los Mártires — un jardín francés a la francesa, un parque paisajístico inglés, avenidas de palmeras y un bambusal."
+          },
+          {
+            "place": "Notre-Dame d'Afrique",
+            "text": "La basílica del siglo XIX en el acantilado sobre Bab El Oued, célebre por la inscripción del ábside que pide a Nuestra Señora de África que ruegue «por nosotros y por los musulmanes»."
+          },
+          {
+            "place": "El Museo Central del Ejército",
+            "text": "La colección militar nacional junto al Maqam Echahid, que recorre desde las campañas del emir Abdelkader hasta la guerra de independencia."
+          }
+        ]
       }
     ],
     "includes": [
@@ -1752,7 +2914,21 @@ export const TOURS_ES: Record<string, TourEs> = {
       {
         "day": 1,
         "title": "Paseo a pie por la Casbah",
-        "body": "Encuentro con el guía junto al mar, al pie de la Casbah, y subida por la plaza de los Mártires y su mezquita histórica, el palacio de Mustafá Pachá, una terraza panorámica, la ciudadela y la casa del héroe de la independencia Ali La Pointe, para terminar en el palacio del Rais, junto al mar."
+        "body": "Encuentro con el guía junto al mar, al pie de la Casbah, y subida por la plaza de los Mártires y su mezquita histórica, el palacio de Mustafá Pachá, una terraza panorámica, la ciudadela y la casa del héroe de la independencia Ali La Pointe, para terminar en el palacio del Rais, junto al mar.",
+        "stops": [
+          {
+            "place": "La Plaza de los Mártires y la Mezquita de Ketchaoua",
+            "text": "La plaza a los pies de la Casba y su mezquita otomana del siglo XVII, reabierta tras una década de restauración."
+          },
+          {
+            "place": "El Palacio de Mustafa Pasha y la ciudadela",
+            "text": "El palacio del dey del siglo XVIII, con sus azulejos pintados, y la ciudadela en lo alto de la Casba, donde el golpe de abanico de 1830 desencadenó la invasión francesa."
+          },
+          {
+            "place": "La casa de Ali La Pointe y el Palacio de los Rais",
+            "text": "El escondite bombardeado, conservado en el corazón de la Casba, y los palacios otomanos frente al mar del Bastión 23, donde termina el paseo."
+          }
+        ]
       }
     ],
     "includes": [

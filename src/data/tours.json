@@ -92,7 +92,21 @@
           "day": 1,
           "title": "Arrival in Algiers",
           "body": "Welcome at Houari Boumediene Airport and a private transfer to your hotel. Settle in and rest; overnight in Algiers.",
-          "note": "Arrival day — a private airport welcome and transfer, with the evening free to settle into Algiers."
+          "note": "Arrival day — a private airport welcome and transfer, with the evening free to settle into Algiers.",
+          "stops": [
+            {
+              "place": "Houari Boumediene Airport",
+              "text": "Met inside the terminal by your guide and driven straight out — no queues at the taxi rank, no haggling on your first hour in the country."
+            },
+            {
+              "place": "The bay road into Algiers",
+              "text": "The coastal approach to the capital, with the white terraces of the city stacked in tiers above the harbour."
+            },
+            {
+              "place": "Central Algiers",
+              "text": "Check-in and an evening free to walk the seafront arcades and Martyrs’ Square at your own pace before the touring starts."
+            }
+          ]
         },
         {
           "day": 2,
@@ -141,6 +155,10 @@
             {
               "place": "The palm groves & foggaras",
               "text": "Gardens watered for a thousand years by the foggara — underground channels that make life possible in the dry valley."
+            },
+            {
+              "place": "A traditional Saharan lunch",
+              "text": "Taguella — flatbread baked in the hot sand — with grilled meat and mint tea, eaten under an awning at the dune’s edge."
             },
             {
               "place": "The dunes near Ghardaïa",
@@ -280,6 +298,10 @@
             {
               "place": "First dunes at sunset",
               "text": "A 4×4 run onto the sand for the day’s last light and a first night at desert camp."
+            },
+            {
+              "place": "The first bivouac",
+              "text": "Camp goes up in the lee of a dune — mats, a low table and a wood fire — and the first night passes without a single electric light."
             }
           ],
           "note": "An arrival-led day, lighter on stops as you head into the desert."
@@ -330,6 +352,14 @@
             {
               "place": "Remote ergs & plateaus",
               "text": "Hours of open desert chosen for emptiness, not landmarks — the Sahara at its most absolute."
+            },
+            {
+              "place": "The long midday halt",
+              "text": "Shade under an acacia or a rock overhang while the heat passes: a mat, lunch, tea, and two or three hours of doing nothing at all."
+            },
+            {
+              "place": "The final bivouac",
+              "text": "The last camp of the circuit, pitched wherever the evening light is best, with dinner over the fire and the full sweep of stars."
             }
           ],
           "note": "This day is deliberately about distance and silence rather than ticking off named sights."
@@ -338,7 +368,21 @@
           "day": 5,
           "title": "Return to Djanet",
           "body": "Breakfast in the desert and a scenic drive back to Djanet, where the journey ends.",
-          "note": "A breakfast in the desert and a scenic drive back to Djanet, where the journey ends."
+          "note": "A breakfast in the desert and a scenic drive back to Djanet, where the journey ends.",
+          "stops": [
+            {
+              "place": "Breakfast at camp",
+              "text": "Bread from the sand oven, dates, jam and coffee, packed up as the first light comes over the sandstone."
+            },
+            {
+              "place": "The drive north through the Tadrart",
+              "text": "The return run to the oasis — the same red rock country you came through, seen in the opposite light."
+            },
+            {
+              "place": "Djanet",
+              "text": "The Tuareg oasis and Tiska Airport, where the circuit ends and the flight north begins."
+            }
+          ]
         }
       ],
       "includes": [
@@ -485,7 +529,21 @@
           "day": 3,
           "title": "Departure",
           "body": "A relaxed breakfast, then transfer back to the airport — the end of a journey through Algeria's Saharan heart.",
-          "note": "A relaxed breakfast, then the transfer back to the airport."
+          "note": "A relaxed breakfast, then the transfer back to the airport.",
+          "stops": [
+            {
+              "place": "Breakfast on the terrace",
+              "text": "A last guesthouse breakfast with the ksar stacked up the hill opposite — the best half-hour of the day in the M’Zab."
+            },
+            {
+              "place": "The old market square",
+              "text": "A final hour under the arcades of Ghardaïa’s market for carpets, dates and Mozabite wool, if the flight time allows."
+            },
+            {
+              "place": "Noumérat–Moufdi Zakaria Airport",
+              "text": "The private transfer out of the valley, with assistance to check-in for the flight north."
+            }
+          ]
         }
       ],
       "includes": [
@@ -671,6 +729,10 @@
           "body": "Visit Tlemcen National Park and the El Ourit waterfalls before departure.",
           "stops": [
             {
+              "place": "Lalla Setti plateau",
+              "text": "Tlemcen National Park’s high terrace above the city, with the whole medina and its plain laid out below."
+            },
+            {
               "place": "The El Ourit waterfalls",
               "text": "Cascades tumbling down wooded cliffs in Tlemcen National Park east of the city."
             },
@@ -782,7 +844,21 @@
         {
           "day": 1,
           "title": "Hamma Garden, Notre-Dame d'Afrique & Army Museum",
-          "body": "Pickup from your hotel or the airport, then a guided day across three sights: the botanical Hamma garden, the basilica of Notre-Dame d'Afrique on its hill above the Mediterranean, and the Army Museum, with a traditional lunch along the way before returning."
+          "body": "Pickup from your hotel or the airport, then a guided day across three sights: the botanical Hamma garden, the basilica of Notre-Dame d'Afrique on its hill above the Mediterranean, and the Army Museum, with a traditional lunch along the way before returning.",
+          "stops": [
+            {
+              "place": "El Hamma Botanical Garden",
+              "text": "Ten hectares laid out in 1832 below the Martyrs’ Memorial — a French formal garden, an English landscape park, palm alleys and a bamboo grove."
+            },
+            {
+              "place": "Notre-Dame d’Afrique",
+              "text": "The 19th-century basilica on the cliff above Bab El Oued, famous for the apse inscription asking Our Lady of Africa to pray \"for us and for the Muslims\"."
+            },
+            {
+              "place": "The Central Army Museum",
+              "text": "The national military collection beside the Maqam Echahid, running from the Emir Abdelkader’s campaigns to the war of independence."
+            }
+          ]
         }
       ],
       "includes": [
@@ -885,7 +961,21 @@
         {
           "day": 1,
           "title": "Casbah, Bardo Museum & Martyrs' Memorial",
-          "body": "A guided full-day loop through the old Casbah quarter, the collections of the Bardo National Museum, and the Martyrs' Memorial, with a traditional lunch at a local restaurant between visits."
+          "body": "A guided full-day loop through the old Casbah quarter, the collections of the Bardo National Museum, and the Martyrs' Memorial, with a traditional lunch at a local restaurant between visits.",
+          "stops": [
+            {
+              "place": "The Casbah of Algiers",
+              "text": "The UNESCO-listed Ottoman citadel — a steep white labyrinth of palaces, mosques and courtyard houses climbing above the bay."
+            },
+            {
+              "place": "The Bardo National Museum",
+              "text": "Prehistory and ethnography inside a graceful Moorish villa, from Saharan rock-art casts to silver jewellery and everyday Algeria."
+            },
+            {
+              "place": "The Martyrs’ Memorial (Maqam Echahid)",
+              "text": "Three soaring concrete palm-fronds raised in 1982 over the city, honouring the dead of the war of independence."
+            }
+          ]
         }
       ],
       "includes": [
@@ -994,8 +1084,16 @@
           "body": "Met at Djanet airport and transferred to a guesthouse or desert camp, with a sunset excursion to nearby dunes and a traditional Saharan dinner.",
           "stops": [
             {
+              "place": "Tiska Airport, Djanet",
+              "text": "Met at Algeria’s deepest-south airport and driven in through the palmeries — 30 km from tarmac to oasis."
+            },
+            {
               "place": "Djanet & sunset dunes",
               "text": "A Tuareg oasis town under red cliffs, with a first sunset excursion to nearby dunes."
+            },
+            {
+              "place": "A Saharan welcome dinner",
+              "text": "Taguella baked in the sand with a tagine and Tuareg tea, served at the camp or guesthouse on your first night in the south."
             }
           ],
           "note": "Arrival day in the deep south, easing you into the desert."
@@ -1050,6 +1148,10 @@
             {
               "place": "Tuareg tea ceremony",
               "text": "The customary three glasses of Saharan tea with a Tuareg family — the living culture of the deep south."
+            },
+            {
+              "place": "Djanet’s old ksour",
+              "text": "The three stacked mud-brick villages — Azellouaz, El Mihan and Adjahil — that the modern oasis grew up around."
             }
           ],
           "note": "Then back to Djanet for the night."
@@ -1059,6 +1161,14 @@
           "title": "Transfer to Ghardaïa",
           "body": "Travel to Ghardaïa in the M'Zab Valley, check in at a traditional guesthouse, and take an evening walk through the old town.",
           "stops": [
+            {
+              "place": "The journey north to the M’Zab",
+              "text": "The long transfer out of the deep south, roughly 1,000 km, from the Tassili to the edge of the northern Sahara."
+            },
+            {
+              "place": "A traditional M’Zab guesthouse",
+              "text": "A restored Mozabite house of thick walls, an internal courtyard and a roof terrace — inside the old town rather than out on the bypass."
+            },
             {
               "place": "Ghardaïa old town walk",
               "text": "An evening through the M'Zab's hill-town lanes after the journey north."
@@ -1278,6 +1388,14 @@
             {
               "place": "The El Hamel zawiya",
               "text": "A hilltop Rahmaniyya Sufi shrine and Quranic school above Bou Saada — calm, austere and panoramic."
+            },
+            {
+              "place": "Bou Saada and the Ouled Naïl foothills",
+              "text": "The \"city of happiness\" — a palm oasis at the foot of bare ochre hills, and a painters’ town since the 19th century."
+            },
+            {
+              "place": "The road north to Algiers",
+              "text": "Up out of the steppe across the Hodna plain and over the Tell Atlas, arriving in the capital for a free evening."
             }
           ],
           "note": "Then the transfer to Algiers for a free evening."
@@ -1294,6 +1412,10 @@
             {
               "place": "Cap Carbon",
               "text": "A dramatic cape and lighthouse on one of the Mediterranean's most beautiful coastlines."
+            },
+            {
+              "place": "The Béjaïa corniche",
+              "text": "The cliff road between Gouraya and Cap Carbon, above the coves that made this stretch of the Kabyle coast famous."
             }
           ],
           "note": "A coastal day trip before the airport transfer."
@@ -1408,7 +1530,21 @@
           "day": 1,
           "title": "Arrival in Algiers",
           "body": "Airport welcome, hotel check-in and a welcome dinner.",
-          "note": "Airport welcome, hotel check-in and a welcome dinner."
+          "note": "Airport welcome, hotel check-in and a welcome dinner.",
+          "stops": [
+            {
+              "place": "Houari Boumediene Airport",
+              "text": "Met in arrivals and driven into the city — the practical part of the first day handled for you."
+            },
+            {
+              "place": "The Bay of Algiers",
+              "text": "The seafront drive in, with the white capital rising in tiers above the harbour."
+            },
+            {
+              "place": "A welcome dinner",
+              "text": "A first Algerian table — chorba, fish from the bay or a chicken tagine — with the ten days ahead talked through."
+            }
+          ]
         },
         {
           "day": 2,
@@ -1460,6 +1596,10 @@
             {
               "place": "The Djémila mosaics",
               "text": "On-site mosaics among the richest in the Roman world, in the site museum."
+            },
+            {
+              "place": "Sétif and the Ain El Fouara fountain",
+              "text": "The high-plateau city at 1,100 m and its famous marble fountain of 1898, where the day ends."
             }
           ],
           "note": "A transfer day east, ending at Djémila."
@@ -1506,7 +1646,21 @@
           "day": 7,
           "title": "Journey to Ghardaïa",
           "body": "Travel south to the M'Zab Valley and check in at a guesthouse.",
-          "note": "A long drive south to the M’Zab Valley and check-in at a guesthouse."
+          "note": "A long drive south to the M’Zab Valley and check-in at a guesthouse.",
+          "stops": [
+            {
+              "place": "The road south over the Atlas",
+              "text": "Out of the Tell, across the high steppe and down into the pre-Sahara — the drive on which Algeria changes climate."
+            },
+            {
+              "place": "Ghardaïa",
+              "text": "The M’Zab’s main town, a UNESCO-listed pyramid of houses climbing to the mosque and minaret at its summit."
+            },
+            {
+              "place": "A traditional guesthouse in the M’Zab",
+              "text": "Check-in at a restored Mozabite house — thick walls, an internal courtyard and a roof terrace over the valley."
+            }
+          ]
         },
         {
           "day": 8,
@@ -1551,7 +1705,21 @@
           "day": 10,
           "title": "Departure",
           "body": "Breakfast and transfer to the airport.",
-          "note": "Breakfast and the transfer to the airport."
+          "note": "Breakfast and the transfer to the airport.",
+          "stops": [
+            {
+              "place": "A free morning in Algiers",
+              "text": "Whatever the ten days missed — the Jardin d’Essai, the Ketchaoua Mosque or simply the seafront — depending on your flight time."
+            },
+            {
+              "place": "Last shopping",
+              "text": "Kabyle silver, Tuareg leather, Deglet Nour dates and pastries, on Rue Didouche Mourad or in the Casbah workshops."
+            },
+            {
+              "place": "Houari Boumediene Airport",
+              "text": "The private transfer out and assistance through check-in."
+            }
+          ]
         }
       ],
       "includes": [
@@ -1660,7 +1828,21 @@
           "day": 1,
           "title": "Arrival in Timimoun",
           "body": "Welcome at Timimoun and transfer to the Ti Massin guesthouse, with time to settle in before a traditional dinner and overnight stay.",
-          "note": "Arrival at Timimoun, transfer to the guesthouse and a traditional dinner."
+          "note": "Arrival at Timimoun, transfer to the guesthouse and a traditional dinner.",
+          "stops": [
+            {
+              "place": "Timimoun",
+              "text": "The \"red oasis\" of the Gourara — an entire town built in red-ochre Sudanese-style earth architecture above a salt lake."
+            },
+            {
+              "place": "The Ti Massin guesthouse",
+              "text": "A traditional red-earth house of courtyards and terraces, and the base for the whole stay."
+            },
+            {
+              "place": "The escarpment at sunset",
+              "text": "The ledge above the sebkha where Timimoun’s walls turn deep orange in the last light, before a traditional dinner."
+            }
+          ]
         },
         {
           "day": 2,
@@ -1727,6 +1909,14 @@
             {
               "place": "Timimoun's market",
               "text": "The red town's market for spices and handicrafts."
+            },
+            {
+              "place": "The old ksar quarter",
+              "text": "A last walk through the red-earth lanes and the arcaded covered passages of the old town."
+            },
+            {
+              "place": "The road north",
+              "text": "The return transfer toward Algiers along the northern edge of the Grand Erg Occidental."
             }
           ],
           "note": "Then the return transfer toward Algiers."
@@ -1838,7 +2028,21 @@
         {
           "day": 1,
           "title": "Béjaïa fortress, Cap Carbon & the coast",
-          "body": "Pickup from Algiers, a guided visit of the historic fortress and its museum, a walk along the Cap Carbon corniche, beach time at Les Aiguades, and a traditional lunch before the return transfer."
+          "body": "Pickup from Algiers, a guided visit of the historic fortress and its museum, a walk along the Cap Carbon corniche, beach time at Les Aiguades, and a traditional lunch before the return transfer.",
+          "stops": [
+            {
+              "place": "Fort Gouraya and its museum",
+              "text": "The fortress high above Béjaïa, with the bay, the port and the Kabyle mountains laid out below."
+            },
+            {
+              "place": "Cap Carbon",
+              "text": "The cape and its lighthouse set on a natural rock arch — among the highest sea lighthouses in the world."
+            },
+            {
+              "place": "Les Aiguades",
+              "text": "A cove of clear water below the corniche, with time on the beach before a traditional lunch."
+            }
+          ]
         }
       ],
       "includes": [
@@ -1942,7 +2146,21 @@
         {
           "day": 1,
           "title": "Tipaza ruins & Cherchell museum",
-          "body": "Hotel pickup and a private drive to Tipaza for a guided tour of its forum, baths and ancient quarters, then on to Cherchell — ancient Caesarea — for its museum of Roman statues and mosaics and a short walk in the old town, before the return transfer."
+          "body": "Hotel pickup and a private drive to Tipaza for a guided tour of its forum, baths and ancient quarters, then on to Cherchell — ancient Caesarea — for its museum of Roman statues and mosaics and a short walk in the old town, before the return transfer.",
+          "stops": [
+            {
+              "place": "Roman Tipaza",
+              "text": "A UNESCO-listed port city strung along the Mediterranean — forum, baths, basilicas and ancient quarters with the waves at their feet."
+            },
+            {
+              "place": "The Cherchell Archaeological Museum",
+              "text": "Ancient Caesarea’s museum, holding some of Algeria’s finest Roman and Greek mosaics and statuary."
+            },
+            {
+              "place": "Cherchell old town",
+              "text": "A short walk around the old harbour and the Roman street plan still legible beneath the modern town."
+            }
+          ]
         }
       ],
       "includes": [
@@ -2069,8 +2287,16 @@
           "body": "After breakfast, visit the mountain Sufi shrine of El Hamel with time for photos and the landscape, a local lunch in Bou Saada, then the afternoon return to Algiers.",
           "stops": [
             {
+              "place": "The Ouled Naïl foothills",
+              "text": "The drive out to El Hamel through bare ochre hills — the landscape that made Bou Saada a painters’ town."
+            },
+            {
               "place": "The El Hamel zawiya",
               "text": "A hilltop Rahmaniyya Sufi shrine and Quranic school above Bou Saada — calm, austere and panoramic."
+            },
+            {
+              "place": "Lunch in Bou Saada",
+              "text": "A local table back in the oasis before the road north — couscous or a tagine in the shade of the palms."
             }
           ],
           "note": "A local lunch in Bou Saada, then the afternoon return to Algiers."
@@ -2265,6 +2491,14 @@
             {
               "place": "Bou Saada oasis",
               "text": "The gateway to the Sahara, with a desert excursion among the dunes."
+            },
+            {
+              "place": "The Moulin Ferrero",
+              "text": "The old mill on the Oued Bou Saada beside the gorge and the palm gardens that Étienne Dinet painted."
+            },
+            {
+              "place": "The dunes south of Bou Saada",
+              "text": "A short excursion onto the sand — the first real Sahara on the road south, and the turning point of the day."
             }
           ],
           "note": "Then the road back to Algiers."
@@ -2371,7 +2605,21 @@
         {
           "day": 1,
           "title": "Walking tour of the Casbah",
-          "body": "Meet your guide by the sea at the foot of the Casbah and climb through Martyrs' Square and its historic mosque, Mustafa Pasha Palace, a panoramic terrace, the citadel and the home of independence figure Ali La Pointe, ending at the seaside Rais Palace."
+          "body": "Meet your guide by the sea at the foot of the Casbah and climb through Martyrs' Square and its historic mosque, Mustafa Pasha Palace, a panoramic terrace, the citadel and the home of independence figure Ali La Pointe, ending at the seaside Rais Palace.",
+          "stops": [
+            {
+              "place": "Martyrs’ Square and the Ketchaoua Mosque",
+              "text": "The square at the foot of the Casbah and its 17th-century Ottoman mosque, reopened after a decade of restoration."
+            },
+            {
+              "place": "Mustafa Pasha Palace and the citadel",
+              "text": "The 18th-century dey’s palace with its painted tilework, and the citadel at the top of the Casbah where the 1830 blow of the fan set off the French invasion."
+            },
+            {
+              "place": "Ali La Pointe’s house and the Rais Palace",
+              "text": "The bombed hideout preserved in the heart of the Casbah, and the seaside Ottoman palaces of Bastion 23 where the walk ends."
+            }
+          ]
         }
       ],
       "includes": [
@@ -2937,7 +3185,21 @@
           "day": 1,
           "title": "Arrival in Algiers",
           "body": "Airport welcome, check-in at a city-center hotel, an evening city tour and dinner.",
-          "note": "Airport welcome, check-in, an evening city tour and dinner."
+          "note": "Airport welcome, check-in, an evening city tour and dinner.",
+          "stops": [
+            {
+              "place": "Houari Boumediene Airport",
+              "text": "Met on arrival and transferred to a city-centre hotel, with the practicalities handled."
+            },
+            {
+              "place": "An evening city tour",
+              "text": "A first orientation loop as the lights come on — the seafront arcades, Martyrs’ Square and the Grande Poste."
+            },
+            {
+              "place": "Dinner in Algiers",
+              "text": "A first Algerian table in the centre, with the eight days ahead talked through."
+            }
+          ]
         },
         {
           "day": 2,
@@ -3006,6 +3268,10 @@
               "text": "The best-preserved monuments of the UNESCO Roman city, with a local lunch."
             },
             {
+              "place": "The Arch of Caracalla",
+              "text": "The triumphal arch of AD 216 at the edge of Djémila’s new forum — the image the site is known by."
+            },
+            {
               "place": "The Djémila mosaics",
               "text": "On-site mosaics among the richest in the Roman world, in the site museum."
             }
@@ -3015,7 +3281,21 @@
           "day": 6,
           "title": "To Bou Saada",
           "body": "The road from Constantine to Bou Saada, check-in and free time, and a traditional dinner with local music.",
-          "note": "The road from Constantine to Bou Saada, free time, and a traditional dinner with music."
+          "note": "The road from Constantine to Bou Saada, free time, and a traditional dinner with music.",
+          "stops": [
+            {
+              "place": "The Hodna plain",
+              "text": "The road south-west from Constantine across the high steppe and the salt flats of the Chott El Hodna."
+            },
+            {
+              "place": "Bou Saada",
+              "text": "The \"city of happiness\" — a palm oasis at the foot of the Ouled Naïl range, and the end of the drive."
+            },
+            {
+              "place": "A dinner with local music",
+              "text": "Traditional food and live Saharan music at the guesthouse — the evening the whole day is built around."
+            }
+          ]
         },
         {
           "day": 7,
@@ -3041,7 +3321,21 @@
           "day": 8,
           "title": "Departure",
           "body": "Breakfast, check-out and transfer to Algiers airport.",
-          "note": "Breakfast, check-out and transfer to Algiers airport."
+          "note": "Breakfast, check-out and transfer to Algiers airport.",
+          "stops": [
+            {
+              "place": "A free morning",
+              "text": "Time for anything the week missed in the capital, or a last walk on the seafront, depending on your flight."
+            },
+            {
+              "place": "Last shopping",
+              "text": "Kabyle silver, Tuareg leather, dates and pastries from the city-centre artisan shops."
+            },
+            {
+              "place": "Houari Boumediene Airport",
+              "text": "Check-out, the private transfer and assistance through check-in."
+            }
+          ]
         }
       ],
       "includes": [
@@ -3144,7 +3438,21 @@
           "day": 1,
           "title": "Arrival in Algiers",
           "body": "Airport reception, hotel check-in and a welcome dinner.",
-          "note": "Airport reception, hotel check-in and a welcome dinner."
+          "note": "Airport reception, hotel check-in and a welcome dinner.",
+          "stops": [
+            {
+              "place": "Houari Boumediene Airport",
+              "text": "Met in arrivals and driven into the city — the practical part of the first day handled for you."
+            },
+            {
+              "place": "The Bay of Algiers",
+              "text": "The seafront drive in, with the white capital rising in tiers above the harbour."
+            },
+            {
+              "place": "A welcome dinner",
+              "text": "A first Algerian table — chorba, fish from the bay or a chicken tagine — with the ten days ahead talked through."
+            }
+          ]
         },
         {
           "day": 2,
@@ -3196,6 +3504,10 @@
             {
               "place": "The Djémila mosaics",
               "text": "On-site mosaics among the richest in the Roman world, in the site museum."
+            },
+            {
+              "place": "Sétif and the Ain El Fouara fountain",
+              "text": "The high-plateau city at 1,100 m and its famous marble fountain of 1898, where the night is spent."
             }
           ],
           "note": "A transfer day to Sétif, ending at Djémila."
@@ -3242,7 +3554,21 @@
           "day": 7,
           "title": "Journey to Ghardaïa",
           "body": "Travel south to the M'Zab Valley and check in at a traditional guesthouse, with a free evening.",
-          "note": "A long drive south to the M’Zab Valley and check-in, with a free evening."
+          "note": "A long drive south to the M’Zab Valley and check-in, with a free evening.",
+          "stops": [
+            {
+              "place": "The road south over the Atlas",
+              "text": "Out of the Tell, across the high steppe and down into the pre-Sahara — the drive on which Algeria changes climate."
+            },
+            {
+              "place": "Ghardaïa",
+              "text": "The M’Zab’s main town, a UNESCO-listed pyramid of houses climbing to the mosque and minaret at its summit."
+            },
+            {
+              "place": "A traditional guesthouse in the M’Zab",
+              "text": "Check-in at a restored Mozabite house — thick walls, an internal courtyard and a roof terrace — with a free evening."
+            }
+          ]
         },
         {
           "day": 8,
@@ -3287,7 +3613,21 @@
           "day": 10,
           "title": "Departure",
           "body": "Breakfast and transfer to the airport.",
-          "note": "Breakfast and the transfer to the airport."
+          "note": "Breakfast and the transfer to the airport.",
+          "stops": [
+            {
+              "place": "A free morning in Algiers",
+              "text": "Whatever the ten days missed — the Jardin d’Essai, the Ketchaoua Mosque or simply the seafront — depending on your flight time."
+            },
+            {
+              "place": "Last shopping",
+              "text": "Kabyle silver, Tuareg leather, Deglet Nour dates and pastries, on Rue Didouche Mourad or in the Casbah workshops."
+            },
+            {
+              "place": "Houari Boumediene Airport",
+              "text": "The private transfer out and assistance through check-in."
+            }
+          ]
         }
       ],
       "includes": [
@@ -3393,6 +3733,10 @@
             {
               "place": "Tigharghart",
               "text": "The first camp, at the edge of the rock-art country you will return to on the last morning."
+            },
+            {
+              "place": "The first bivouac",
+              "text": "Camp goes up at Tigharghart — mats, a fire, dinner cooked on it, and the choice between a tent and simply the open sky."
             }
           ]
         },
@@ -3402,8 +3746,16 @@
           "body": "Breakfast at camp, then a crossing into the gorges of El Berdj — deep-cut walls of sandstone with engravings and paintings along them. Picnic lunch in the shade, camp pitched at El Berdj, and sunset from the dunes above it.",
           "stops": [
             {
+              "place": "The crossing to El Berdj",
+              "text": "A morning of 4×4 between the two camps, alternating soft sand and black rock."
+            },
+            {
               "place": "El Berdj",
               "text": "Impressive gorges whose walls carry both engravings and painted panels."
+            },
+            {
+              "place": "The dunes above El Berdj",
+              "text": "The climb up for sunset over the gorge system, with camp pitched at their foot."
             }
           ]
         },
@@ -3412,6 +3764,14 @@
           "title": "El Berdj → Moul Naga",
           "body": "A day of landscapes that alternate between sand and rock, stopping at several notable rock-art sites along the way. Picnic lunch, then on to Moul Naga, where camp is set among majestic dunes and dinner is eaten under the stars.",
           "stops": [
+            {
+              "place": "Sand-and-rock country",
+              "text": "A day that alternates dune fields with sandstone massifs — the mix that gives the Tadrart its character."
+            },
+            {
+              "place": "Rock-art stops along the route",
+              "text": "Several engraved and painted panels visited on the way: cattle, hunters and the wildlife of a Sahara that had rivers."
+            },
             {
               "place": "Moul Naga",
               "text": "A bivouac pitched in the middle of the dunes."
@@ -3424,8 +3784,16 @@
           "body": "Walking in the rose-coloured dunes and the emblematic scenery of the Tadrart Rouge, then arrival at Erg Tin Merzouga — the great sand sea. Climb the high dunes for a sunset that is the reason many people come, and camp at their foot.",
           "stops": [
             {
+              "place": "A morning in the rose dunes",
+              "text": "On foot through the pink sand and wind-cut rock that give the Tadrart Rouge its name."
+            },
+            {
               "place": "Erg Tin Merzouga",
               "text": "The great dune field of the Tadrart, and its most famous sunset."
+            },
+            {
+              "place": "The high dune at sunset",
+              "text": "The climb most people come for — the whole erg turning red, then violet, from the top."
             }
           ]
         },
@@ -3434,6 +3802,10 @@
           "title": "Tin Merzouga → Tissetka → Ouanahar",
           "body": "Down to the Oued In Djaren and on to Tin Abadène, whose engravings show giraffes and elephants — animals from a Sahara that was green. Picnic lunch, then the road to Ouanahar and the evening camp.",
           "stops": [
+            {
+              "place": "Oued In Djaren",
+              "text": "A dry valley threaded between sandstone walls, and the way down out of the erg."
+            },
             {
               "place": "Tin Abadène",
               "text": "Engraved giraffes and elephants, from the era when this desert held rivers."
@@ -3450,6 +3822,10 @@
           "body": "A morning among monumental natural arches, then the Tamezguida \"cathedral\" — a sandstone formation that earns the name. A walk in the Oued In Djaren, picnic lunch, and camp at Ajelati for sunset over the black dunes.",
           "stops": [
             {
+              "place": "The natural arches",
+              "text": "A morning among the Tadrart’s monumental wind-cut arches — the most photographed formations in the park."
+            },
+            {
               "place": "Tamezguida",
               "text": "The sandstone \"cathedral\" of the Tadrart."
             },
@@ -3465,8 +3841,16 @@
           "body": "Back to Tigharghart for the two engravings everyone comes to see: the \"Crying Cow\" and the Elephant Rock. Return to Djanet, then the transfer to the airport for the flight north.",
           "stops": [
             {
-              "place": "Tigharghart",
-              "text": "The \"Crying Cow\" — the Sahara’s most photographed engraving — and the Elephant Rock."
+              "place": "Tigharghart — the \"Crying Cow\"",
+              "text": "The Sahara’s most photographed engraving, a weeping bovine carved into a low rock face thousands of years ago."
+            },
+            {
+              "place": "The Elephant Rock",
+              "text": "Tigharghart’s second famous engraving, a few minutes’ walk from the first."
+            },
+            {
+              "place": "Djanet and Tiska Airport",
+              "text": "Back to the oasis for a wash and a last meal before the transfer for the flight north."
             }
           ],
           "note": "A departure day: the timing follows the return flight."
@@ -3597,8 +3981,16 @@
           "body": "Land at Djanet, the gateway to the Tassili n’Ajjer, and be met by our team. Transfer to the guesthouse, time to rest after the flight, and a convivial dinner before the circuit begins.",
           "stops": [
             {
+              "place": "Tiska Airport",
+              "text": "Met on arrival at Algeria’s deepest-south airport, 30 km from the oasis."
+            },
+            {
               "place": "Djanet",
               "text": "Tuareg oasis capital of the south-east — palm groves beneath red cliffs."
+            },
+            {
+              "place": "The guesthouse in Djanet",
+              "text": "A first night indoors — a courtyard house among the palms, and dinner with the team you will travel with all week."
             }
           ],
           "note": "An arrival day, deliberately unhurried."
@@ -3613,6 +4005,10 @@
               "text": "A sunken oasis whose rock pools hold water all year."
             },
             {
+              "place": "The gueltas of Ihrir",
+              "text": "Permanent rock pools along the canyon floor, with reeds, fish and birdlife in the middle of the desert."
+            },
+            {
               "place": "Idaren & Tasourt",
               "text": "Rock engravings and natural basins along the valley."
             }
@@ -3624,8 +4020,16 @@
           "body": "Breakfast at camp and a walk through the Tilalin area, then the road to Erg Admer. Climb the dunes for sunset over the erg, and camp in the middle of the desert.",
           "stops": [
             {
+              "place": "Tilalin",
+              "text": "A morning walk through the area’s rock formations and dry watercourses before the drive on."
+            },
+            {
               "place": "Erg Admer",
               "text": "A great dune field — the climb up for sunset is the day’s reward."
+            },
+            {
+              "place": "The camp in the erg",
+              "text": "Camp pitched in open sand with nothing at all on the horizon — the emptiest night of the circuit."
             }
           ]
         },
@@ -3637,6 +4041,10 @@
             {
               "place": "Oued Essendilène",
               "text": "A canyon with permanent water — swimming in season."
+            },
+            {
+              "place": "The canyon walk",
+              "text": "An hour on foot up the gorge to the water, between walls that close in as you go."
             },
             {
               "place": "Tikoubaouine",
@@ -3656,6 +4064,10 @@
             {
               "place": "Adaik",
               "text": "The \"little Sefar\" — rock art without the plateau trek."
+            },
+            {
+              "place": "Sunset at Adaik",
+              "text": "Free time on the rocks for the last light, before dinner at the bivouac."
             }
           ]
         },
@@ -3667,6 +4079,14 @@
             {
               "place": "Timghas",
               "text": "The final camp, and a closer look at what actually grows in the Sahara."
+            },
+            {
+              "place": "Saharan flora on foot",
+              "text": "A walk given to what actually grows out here — acacia, tamarisk, calotropis and the plants the Tuareg still use."
+            },
+            {
+              "place": "The last bivouac",
+              "text": "A final dinner over the fire under the whole sky, before the return to Djanet."
             }
           ]
         },
@@ -3676,8 +4096,16 @@
           "body": "Back towards Tigharghart for the \"Crying Cow\" engraving and the Elephant Rock, then return to Djanet and the transfer to the airport for the flight home.",
           "stops": [
             {
-              "place": "Tigharghart",
-              "text": "The \"Crying Cow\" and the Elephant Rock, on the way back to Djanet."
+              "place": "Tigharghart — the \"Crying Cow\"",
+              "text": "The Sahara’s most photographed engraving, on the way back in to the oasis."
+            },
+            {
+              "place": "The Elephant Rock",
+              "text": "Tigharghart’s second famous engraving, a short walk from the first."
+            },
+            {
+              "place": "Djanet and Tiska Airport",
+              "text": "Back to the oasis, then the transfer for the flight north."
             }
           ],
           "note": "A departure day: the timing follows the return flight."
@@ -3813,6 +4241,10 @@
             {
               "place": "Tassili du Tafilalet",
               "text": "Where the vehicles stop and the walking starts."
+            },
+            {
+              "place": "The trek team",
+              "text": "The guides, cooks and donkey handlers who carry the camp and travel with you for the whole week — met on the first evening."
             }
           ],
           "note": "An arrival day — the walking begins tomorrow."
@@ -3829,6 +4261,10 @@
             {
               "place": "Tin Zoumaitek",
               "text": "The first painted sites, and the valley of thousand-year-old cypresses."
+            },
+            {
+              "place": "The cypress valley",
+              "text": "Millennial Saharan cypresses (Cupressus dupreziana) on the plateau — living survivors of the green Sahara the paintings record."
             }
           ],
           "note": "Around 7 hours walking, +500 m ascent. Bivouac."
@@ -3845,6 +4281,10 @@
             {
               "place": "Tin Tazarift",
               "text": "The \"dancers\" — among the most reproduced images in Saharan art."
+            },
+            {
+              "place": "Bivouac among the needles",
+              "text": "Camp pitched among the eroded sandstone towers, with dinner cooked by the team and the plateau completely silent after dark."
             }
           ],
           "note": "5 to 6 hours walking. Bivouac."
@@ -3854,6 +4294,10 @@
           "title": "Tin Teferieste → Sefar Noir → Sefar Blanc",
           "body": "The remarkable site of Tin Teferieste, then the mythical city of Sefar itself: the famous masks of Sefar Noir and the great gods of Sefar Blanc. This sector is considered one of the most impressive ensembles of rock painting anywhere in the Sahara.",
           "stops": [
+            {
+              "place": "Tin Teferieste",
+              "text": "The morning’s site on the way in to Sefar — remarkable in its own right before the famous panels."
+            },
             {
               "place": "Sefar Noir",
               "text": "The masks — the images the site is known for."
@@ -3870,6 +4314,10 @@
           "title": "Tirassoutine → Tin Kani → Alarendemen",
           "body": "The landscape changes as you go, opening into vast plateaus in darker tones. Crossing Tirassoutine and Tin Kani before reaching Alarendemen, where camp is pitched, with several remarkably preserved sets of prehistoric painting discovered along the way.",
           "stops": [
+            {
+              "place": "The dark plateaus",
+              "text": "The landscape opening out into wide tablelands in deeper tones, with well-preserved painted panels found along the crossing."
+            },
             {
               "place": "Tirassoutine & Tin Kani",
               "text": "Painted panels along the crossing."
@@ -3889,6 +4337,14 @@
             {
               "place": "Djabarren",
               "text": "The Tassili’s largest painted ensemble — thousands of catalogued works."
+            },
+            {
+              "place": "Four periods on one wall",
+              "text": "Round Head, Bovidian, Horse and Camel period works side by side — the whole sequence of Saharan history in paint."
+            },
+            {
+              "place": "The last bivouac on the plateau",
+              "text": "A final night up on the Tassili before the descent in the morning."
             }
           ],
           "note": "4 to 5 hours walking. Bivouac."
@@ -3905,6 +4361,10 @@
             {
               "place": "Djanet",
               "text": "A last look at the oasis before the airport."
+            },
+            {
+              "place": "Tiska Airport",
+              "text": "The transfer out of the oasis for the flight north."
             }
           ],
           "note": "A departure day: the timing follows the return flight."
@@ -4048,8 +4508,16 @@
           "body": "Arrival at Houari Boumediene Airport, met by our representative, with a day-use room to freshen up. An afternoon orientation walk — Martyrs’ Square, the Grande Poste, the seafront — then an early dinner and the transfer to the domestic terminal for the direct night flight south.",
           "stops": [
             {
-              "place": "Algiers",
-              "text": "A first orientation walk through the colonial-era centre and along the bay."
+              "place": "Houari Boumediene Airport",
+              "text": "Met by our representative, with a day-use room to shower and change after the international flight."
+            },
+            {
+              "place": "Martyrs’ Square and the Grande Poste",
+              "text": "The square at the foot of the Casbah and the 1910 neo-Moorish post office — the two landmarks of central Algiers."
+            },
+            {
+              "place": "The seafront arcades",
+              "text": "The long white colonnade above the harbour, the image of Algiers seen from the sea, before the transfer for the night flight south."
             }
           ],
           "note": "Direct evening flight Algiers → Djanet."
@@ -4062,6 +4530,14 @@
             {
               "place": "Tigharghart",
               "text": "The \"Crying Cow\" — the most famous engraving in the Sahara."
+            },
+            {
+              "place": "The Tadrart Rouge",
+              "text": "Giant red dunes and sandstone towers inside the Tassili n’Ajjer National Park, crossed by 4×4 with a licensed Tuareg guide."
+            },
+            {
+              "place": "The deep-desert camp",
+              "text": "A traditional Tuareg dinner cooked on the fire, and the first night out under the stars."
             }
           ]
         },
@@ -4070,6 +4546,14 @@
           "title": "The heart of the Tadrart",
           "body": "A full day among the great landscapes of the Tadrart Rouge: El Berdj, Moul Naga and the Erg Tin Merzouga, with prehistoric engravings and panoramic viewpoints along the way. Sunset in the middle of the Sahara and a second night of wild camping.",
           "stops": [
+            {
+              "place": "El Berdj",
+              "text": "Deep sandstone gorges whose walls carry both engravings and painted panels."
+            },
+            {
+              "place": "Moul Naga",
+              "text": "Majestic dune country in the middle of the Tadrart, and the day’s panoramic viewpoints."
+            },
             {
               "place": "Erg Tin Merzouga",
               "text": "The great dunes of the Tadrart at sunset."
@@ -4081,6 +4565,10 @@
           "title": "In Djaren, Tin Abadène & Ouanahare → Djanet",
           "body": "Deeper into the park: the In Djaren valley, the giraffes and elephants engraved at Tin Abadène, Ouanahare, the Tamezguida \"cathedral\" and the natural arches. Back to Djanet after sunset.",
           "stops": [
+            {
+              "place": "The In Djaren valley and its arches",
+              "text": "A dry valley of monumental wind-cut sandstone arches — the Tadrart’s signature formations."
+            },
             {
               "place": "Tin Abadène",
               "text": "Prehistoric giraffes and elephants."
@@ -4097,8 +4585,16 @@
           "body": "A morning of Tuareg Djanet: the Tassili Museum — the only Tuareg museum in Algeria — the old ksar of Azellouaz and the local market, with free time for souvenirs. A farewell-to-the-Sahara dinner, then the late transfer to Tiska Airport.",
           "stops": [
             {
-              "place": "Djanet",
-              "text": "The Tassili Museum, the old ksar and the market."
+              "place": "The Tassili Museum",
+              "text": "The only Tuareg museum in Algeria — rock-art records, jewellery, weapons and the daily life of the Kel Ajjer."
+            },
+            {
+              "place": "The ksar of Azellouaz",
+              "text": "Djanet’s oldest quarter, a mud-brick village stacked on the rock above the palmeries."
+            },
+            {
+              "place": "Djanet market",
+              "text": "The oasis market for Tuareg silver, leather and dates, with free time for souvenirs before the farewell dinner."
             }
           ],
           "note": "Direct night flight Djanet → Constantine (weekly service)."
@@ -4115,6 +4611,10 @@
             {
               "place": "Ahmed Bey Palace",
               "text": "The painted galleries and courtyards of the last Bey."
+            },
+            {
+              "place": "The Cirta National Museum and the old town",
+              "text": "Constantine’s archaeology and fine-art collection, the Place des Martyrs and the viewpoints over the Rhumel gorge."
             }
           ]
         },
@@ -4126,6 +4626,14 @@
             {
               "place": "Timgad",
               "text": "The \"Pompeii of Africa\" — a perfect Roman grid, 115 km from Constantine."
+            },
+            {
+              "place": "The Arch of Trajan",
+              "text": "The three-bay arch standing over the decumanus — the image Timgad is known by worldwide."
+            },
+            {
+              "place": "The theatre, forum and baths",
+              "text": "A 3,500-seat theatre cut into the slope, the capitol and forum at the centre, and the bath complexes around the grid."
             }
           ]
         },
@@ -4135,8 +4643,16 @@
           "body": "Morning drive to Annaba, one of Algeria’s oldest Mediterranean cities: the Basilica of Saint Augustine, the Roman ruins of Hippo Regius, the Seybouse seafront and the corniche, and a lively city centre.",
           "stops": [
             {
+              "place": "The Basilica of Saint Augustine",
+              "text": "The 19th-century basilica on the hill above the Roman city, holding a relic of Augustine’s arm."
+            },
+            {
               "place": "Hippo Regius",
               "text": "Where Augustine was bishop — the Roman city beneath the basilica."
+            },
+            {
+              "place": "The corniche and Cours de la Révolution",
+              "text": "Annaba’s seafront drive and the plane-shaded central promenade where the whole city meets in the evening."
             }
           ]
         },
@@ -4148,6 +4664,14 @@
             {
               "place": "Djémila",
               "text": "One of the best-preserved Roman cities in the world, and among the most beautifully sited."
+            },
+            {
+              "place": "The Arch of Caracalla",
+              "text": "The triumphal arch of AD 216 at the edge of Cuicul’s new forum, 900 m up on its mountain spur."
+            },
+            {
+              "place": "The Djémila mosaic museum",
+              "text": "On-site mosaics among the richest in the Roman world, kept beside the houses they were lifted from."
             }
           ]
         },
@@ -4159,6 +4683,14 @@
             {
               "place": "The Casbah",
               "text": "The Ottoman citadel above the bay — stepped lanes, courtyards and rooftops."
+            },
+            {
+              "place": "The Bardo National Museum",
+              "text": "Prehistory and ethnography in a Moorish villa — Saharan rock-art casts, silver jewellery and everyday Algeria."
+            },
+            {
+              "place": "Notre-Dame d’Afrique and the Maqam Echahid",
+              "text": "The basilica on its cliff above Bab El Oued, and the three concrete palm-fronds of the Martyrs’ Memorial over the bay."
             }
           ]
         },
@@ -4170,6 +4702,14 @@
             {
               "place": "Tipaza",
               "text": "A Roman port city spread along the sea, where Camus walked among the ruins."
+            },
+            {
+              "place": "The Royal Mausoleum of Mauretania",
+              "text": "A great stone drum on the hill above the sea — the tomb of Juba II and Cleopatra Selene, daughter of Cleopatra of Egypt."
+            },
+            {
+              "place": "The Cherchell Archaeological Museum",
+              "text": "Ancient Caesarea’s collection of Roman and Greek mosaics and statuary, among Algeria’s finest."
             }
           ],
           "note": "Direct night flight Algiers → Ghardaïa."
@@ -4179,6 +4719,10 @@
           "title": "The M’Zab Valley",
           "body": "A full day among the five fortified ksour of the M’Zab: Ghardaïa, Beni Isguen, Melika, Bounoura and El Atteuf, with the traditional market and the Mozabite architecture whose logic fascinated Le Corbusier.",
           "stops": [
+            {
+              "place": "Ghardaïa’s market and ksar",
+              "text": "The arcaded market square at the foot of the main town, and the tiered houses climbing to the minaret above it."
+            },
             {
               "place": "Beni Isguen",
               "text": "The walled holy city of the Ibadi Mozabites."
@@ -4195,8 +4739,16 @@
           "body": "A morning excursion south to the Sebseb dunes — a last taste of the great Sahara — then back to Ghardaïa. Farewell dinner of traditional Algerian cooking before the evening flight north.",
           "stops": [
             {
+              "place": "The road south through the hamada",
+              "text": "The stone desert between Ghardaïa and the sand — the transition almost no visitor sees."
+            },
+            {
               "place": "Sebseb",
               "text": "Dunes 90 km south of Ghardaïa, and the trip’s last desert horizon."
+            },
+            {
+              "place": "A farewell dinner in Ghardaïa",
+              "text": "Traditional Algerian cooking on the last night, before the evening flight north."
             }
           ],
           "note": "Direct evening flight Ghardaïa → Algiers."
@@ -4205,7 +4757,20 @@
           "day": 14,
           "title": "Departure",
           "body": "Breakfast, a free morning for anything missed or any last shopping, then the private transfer to Houari Boumediene Airport.",
-          "stops": [],
+          "stops": [
+            {
+              "place": "A free morning in Algiers",
+              "text": "Whatever the fortnight missed — the Jardin d’Essai, the Ketchaoua Mosque, or simply the seafront."
+            },
+            {
+              "place": "Last shopping",
+              "text": "Kabyle silver, Tuareg leather, Deglet Nour dates and pastries, on Rue Didouche Mourad or in the Casbah workshops."
+            },
+            {
+              "place": "Houari Boumediene Airport",
+              "text": "The private transfer out and assistance through check-in for your international flight."
+            }
+          ],
           "note": "A departure day: timing follows your international flight."
         }
       ],
