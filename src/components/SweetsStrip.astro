@@ -38,9 +38,14 @@ const items = SWEETS.slice(0, count);
   /* Sat at the raw text height, under the 24px minimum tap target — the same
      defect fixed in the footer, caught on the live audit rather than the local
      one because the section is only measured once it renders. */
+  /* 24px cleared the minimum but Lighthouse still flagged it for spacing
+     against nearby controls. A full 44px pill satisfies the target size on its
+     own terms and reads as the call to action it actually is. */
   .sws-link{flex:0 0 auto;font-weight:800;color:#8a3f12;white-space:nowrap;
-    display:inline-flex;align-items:center;min-height:24px;padding:.3rem 0}
-  .sws-link:hover{color:#8A5A0C;text-decoration:none}
+    display:inline-flex;align-items:center;gap:.35rem;min-height:44px;
+    padding:.55rem 1.05rem;border:1px solid rgba(138,63,18,.35);border-radius:999px;
+    background:rgba(255,255,255,.5);transition:background .18s,border-color .18s}
+  .sws-link:hover{color:#7a3a10;background:#fff;border-color:rgba(138,63,18,.6);text-decoration:none}
   .sws-row{list-style:none;display:flex;gap:1rem;margin:1.2rem 0 0;padding:.2rem;overflow-x:auto;
     scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x proximity}
   .sws-row::-webkit-scrollbar{display:none}

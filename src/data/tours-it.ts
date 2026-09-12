@@ -25,15 +25,15 @@ export interface TourIt {
 
 export const TOURS_IT: Record<string, TourIt> = {
   "djanet-sahara-safari": {
-    "title": "Safari nel Sahara a Djanet — 5 giorni nel Tadrart Rosso",
+    "title": "Safari nel Sahara a Djanet — 5 giorni nel Tadrart Rouge",
     "duration": "5 giorni · 4 notti",
     "hook": "Cinque giorni nel cuore del Sahara algerino attorno a Djanet — arenaria rossa del Tadrart, dune dorate, arte rupestre preistorica e notti sotto le stelle.",
     "full": true,
-    "seoTitle": "Viaggio Sahara Djanet 5 giorni — Tadrart Rosso",
-    "seoDescription": "Viaggio privato di 5 giorni nel Sahara algerino da Djanet: Tadrart Rosso, dune, arte rupestre e campo tendato, con una squadra tuareg locale.",
-    "overview": "È il Sahara come si immagina ma si vede di rado: il Tadrart Rosso, un labirinto di arenaria arancione scolpita dal vento, archi naturali, canyon e dune che si appoggiano alla roccia nera. Da Djanet, oasi tuareg del sud-est algerino, si parte in 4×4 con una squadra locale per quattro notti di campo. Le giornate alternano piste, brevi camminate verso siti di arte rupestre vecchi di millenni e lunghe soste fotografiche nella luce della sera. Le notti si passano al campo, attorno al fuoco e al tè, senza luci e senza rete.",
+    "seoTitle": "Viaggio Sahara Djanet 5 giorni — Tadrart Rouge",
+    "seoDescription": "Viaggio privato di 5 giorni nel Sahara algerino da Djanet: Tadrart Rouge, dune, arte rupestre e campo tendato, con una squadra tuareg locale.",
+    "overview": "È il Sahara come si immagina ma si vede di rado: il Tadrart Rouge, un labirinto di arenaria arancione scolpita dal vento, archi naturali, canyon e dune che si appoggiano alla roccia nera. Da Djanet, oasi tuareg del sud-est algerino, si parte in 4×4 con una squadra locale per quattro notti di campo. Le giornate alternano piste, brevi camminate verso siti di arte rupestre vecchi di millenni e lunghe soste fotografiche nella luce della sera. Le notti si passano al campo, attorno al fuoco e al tè, senza luci e senza rete.",
     "highlights": [
-      "Il Tadrart Rosso e i suoi canyon di arenaria arancione",
+      "Il Tadrart Rouge e i suoi canyon di arenaria arancione",
       "Siti di arte rupestre preistorica del Tassili n'Ajjer",
       "Le grandi dune del Sahara algerino al tramonto",
       "Quattro notti di campo sotto un cielo senza inquinamento luminoso",
@@ -62,7 +62,7 @@ export const TOURS_IT: Record<string, TourIt> = {
       },
       {
         "day": 2,
-        "title": "Il Tadrart Rosso",
+        "title": "Il Tadrart Rouge",
         "body": "Attraversamento delle valli di roccia rossa e sabbia del Tadrart, con soste fotografiche, fino al tramonto e alla notte al campo.",
         "stops": [
           {
@@ -1499,10 +1499,10 @@ export const TOURS_IT: Record<string, TourIt> = {
     "hook": "Sei giorni che uniscono i due volti del Sahara algerino: le città del M'Zab patrimonio UNESCO e il grande deserto attorno a Djanet.",
     "full": true,
     "seoTitle": "Djanet e Ghardaïa — 6 giorni di deserto e M'Zab",
-    "seoDescription": "Viaggio privato di 6 giorni: il Tadrart rosso e l'arte rupestre del Tassili attorno a Djanet, poi le città millenarie del M'Zab a Ghardaïa. Due Sahara UNESCO.",
+    "seoDescription": "Viaggio privato di 6 giorni: il Tadrart Rouge e l'arte rupestre del Tassili attorno a Djanet, poi le città millenarie del M'Zab a Ghardaïa. Due Sahara UNESCO.",
     "overview": "Il viaggio sahariano algerino per eccellenza, che unisce i due grandi mondi del deserto. Attorno a Djanet si esplorano l'arenaria rossa scolpita del Tadrart, le gallerie preistoriche del Tassili n'Ajjer e le notti al campo con una squadra tuareg. Poi si risale verso Ghardaïa e la valle del M'Zab, patrimonio UNESCO, dove le città-oasi fortificate hanno conservato intatta la loro vita medievale. Due Sahara UNESCO in un solo viaggio, in 4×4 e sotto le stelle.",
     "highlights": [
-      "Il Tadrart rosso e le sue formazioni di arenaria",
+      "Il Tadrart Rouge e le sue formazioni di arenaria",
       "L'arte rupestre preistorica del Tassili n'Ajjer (UNESCO)",
       "Le notti al campo nel Sahara",
       "La cultura tuareg e la cerimonia del tè",
@@ -1531,7 +1531,7 @@ export const TOURS_IT: Record<string, TourIt> = {
       },
       {
         "day": 2,
-        "title": "Il Tadrart rosso",
+        "title": "Il Tadrart Rouge",
         "body": "Giornata in 4×4 nel Tadrart tra formazioni rocciose e incisioni antiche, picnic nel deserto, tramonto sulle dune rosse e notte in campo sotto le stelle.",
         "stops": [
           {
@@ -2977,6 +2977,1025 @@ export const TOURS_IT: Record<string, TourIt> = {
       {
         "q": "Chi era Ali La Pointe?",
         "a": "Una figura della guerra d'indipendenza algerina; la sua casa nella Casbah fa parte del percorso."
+      }
+    ]
+  },
+  "tadrart-rouge-7-days": {
+    "title": "Tadrart Rouge — 7 Giorni nel Sahara Rosso",
+    "duration": "7 giorni · 6 notti",
+    "hook": "La Tadrart Rouge è il Sahara che si immagina prima di averlo visto: sabbia color rosa che si appoggia alla roccia nera, archi grandi come cattedrali e un cielo senza nulla a fermarne la vista.",
+    "full": true,
+    "seoTitle": "Tour Tadrart Rouge 7 giorni — Sahara da Djanet",
+    "seoDescription": "Spedizione privata di 7 giorni nella Tadrart Rouge da Djanet: dune rosa, archi di arenaria, arte rupestre e bivacco nel deserto con guide tuareg.",
+    "overview": "Questo è il circuito classico di Djanet, percorso al ritmo che il paesaggio merita. Sette giorni, sei conclusi in un bivacco che aiuterete a montare, attraversando la Tadrart Rouge da Tigharghart alle grandi dune di Tin Merzouga e ritorno tra gli archi naturali di Ajelati. Guida e autisti sono tuareg di Djanet; il cuoco viaggia con voi; e l'intero tratto meridionale — il volo da Algeri, i trasferimenti in aeroporto, i permessi del parco — è organizzato prima del vostro arrivo. Quello che portate è una sacca da viaggio e la voglia di dormire sulla sabbia.",
+    "highlights": [
+      "Sei notti di bivacco selvaggio sotto il cielo sahariano",
+      "Le dune rosa e il grande erg di Tin Merzouga",
+      "Le gole di El Berdj e le loro incisioni rupestri",
+      "Gli archi naturali monumentali di Ajelati",
+      "Tin Abadène — giraffe ed elefanti preistorici",
+      "La «Mucca che piange» di Tigharghart e la Roccia dell'Elefante",
+      "Tamezguida, la «cattedrale» di arenaria",
+      "Guide, autisti e cuoco di campo tuareg per tutto il viaggio"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Djanet → Tigharghart",
+        "body": "Atterraggio a Djanet dopo il volo da Algeri e incontro con la squadra che vi accompagnerà per tutta la settimana. Si parte subito in 4×4 verso Tigharghart, dove si allestisce il primo bivacco e la cena si cuoce sul fuoco. Prima notte in tenda o, se preferite, semplicemente sotto le stelle.",
+        "stops": [
+          {
+            "place": "Djanet",
+            "text": "La capitale oasi tuareg del sud-est, porta d'accesso al Tassili n'Ajjer."
+          },
+          {
+            "place": "Tigharghart",
+            "text": "Il primo campo, ai margini della regione dell'arte rupestre a cui farete ritorno l'ultima mattina."
+          },
+          {
+            "place": "Il primo bivacco",
+            "text": "Il campo si allestisce a Tigharghart — stuoie, un fuoco, la cena cucinata sopra, e la scelta tra una tenda e il cielo aperto."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Tigharghart → El Berdj",
+        "body": "Colazione al campo, poi un attraversamento verso le gole di El Berdj — pareti di arenaria scavate in profondità, incise e dipinte lungo tutto il percorso. Pranzo al sacco all'ombra, campo allestito a El Berdj e tramonto dalle dune che lo sovrastano.",
+        "stops": [
+          {
+            "place": "L'attraversamento verso El Berdj",
+            "text": "Una mattinata in 4×4 tra i due campi, alternando sabbia morbida e roccia nera."
+          },
+          {
+            "place": "El Berdj",
+            "text": "Gole imponenti le cui pareti portano sia incisioni sia pannelli dipinti."
+          },
+          {
+            "place": "Le dune sopra El Berdj",
+            "text": "La salita per il tramonto sul sistema di gole, con il campo allestito ai loro piedi."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "El Berdj → Moul Naga",
+        "body": "Una giornata di paesaggi alternati tra sabbia e roccia, con soste in diversi siti di arte rupestre di rilievo lungo il percorso. Pranzo al sacco, poi proseguimento verso Moul Naga, dove il campo si allestisce tra dune maestose e si cena sotto le stelle.",
+        "stops": [
+          {
+            "place": "Terra di sabbia e roccia",
+            "text": "Una giornata che alterna campi di dune e massicci di arenaria — la combinazione che dà carattere alla Tadrart."
+          },
+          {
+            "place": "Soste di arte rupestre lungo il percorso",
+            "text": "Diversi pannelli incisi e dipinti visitati lungo il tragitto: bovini, cacciatori e la fauna selvatica di un Sahara che aveva fiumi."
+          },
+          {
+            "place": "Moul Naga",
+            "text": "Un bivacco allestito nel cuore delle dune."
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Moul Naga → Erg Tin Merzouga",
+        "body": "Cammino tra le dune color rosa e i paesaggi simbolo della Tadrart Rouge, poi arrivo all'Erg Tin Merzouga — il grande mare di sabbia. Salita sulle dune alte per un tramonto che è il motivo per cui molti vengono fin qui, e campo ai loro piedi.",
+        "stops": [
+          {
+            "place": "Una mattinata tra le dune rosa",
+            "text": "A piedi tra la sabbia rosa e la roccia scolpita dal vento che danno il nome alla Tadrart Rouge."
+          },
+          {
+            "place": "Erg Tin Merzouga",
+            "text": "Il grande campo dunale della Tadrart, e il suo tramonto più celebre."
+          },
+          {
+            "place": "La duna alta al tramonto",
+            "text": "La salita per cui molti arrivano fin qui — l'intero erg che si tinge di rosso, poi di viola, visto dall'alto."
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Tin Merzouga → Tissetka → Ouanahar",
+        "body": "Discesa verso l'Oued In Djaren e proseguimento verso Tin Abadène, le cui incisioni raffigurano giraffe ed elefanti — animali di un Sahara che era verde. Pranzo al sacco, poi la pista verso Ouanahar e il campo della sera.",
+        "stops": [
+          {
+            "place": "Oued In Djaren",
+            "text": "Una valle secca che si insinua tra pareti di arenaria, e la via di uscita dall'erg."
+          },
+          {
+            "place": "Tin Abadène",
+            "text": "Giraffe ed elefanti incisi, risalenti all'epoca in cui questo deserto aveva fiumi."
+          },
+          {
+            "place": "Ouanahar",
+            "text": "Il campo della notte, più in profondità nella Tadrart."
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "title": "Ouanahar → Ajelati → Oued In Djaren",
+        "body": "Una mattinata tra archi naturali monumentali, poi la «cattedrale» di Tamezguida — una formazione di arenaria che ne merita il nome. Una camminata nell'Oued In Djaren, pranzo al sacco, e campo ad Ajelati per il tramonto sulle dune nere.",
+        "stops": [
+          {
+            "place": "Gli archi naturali",
+            "text": "Una mattinata tra gli archi monumentali scolpiti dal vento della Tadrart — le formazioni più fotografate del parco."
+          },
+          {
+            "place": "Tamezguida",
+            "text": "La «cattedrale» di arenaria della Tadrart."
+          },
+          {
+            "place": "Ajelati",
+            "text": "Dune nere, e l'ultima notte nel deserto."
+          }
+        ]
+      },
+      {
+        "day": 7,
+        "title": "Ajelati → Tigharghart → Djanet → rientro",
+        "body": "Ritorno a Tigharghart per le due incisioni che tutti vengono a vedere: la «Mucca che piange» e la Roccia dell'Elefante. Rientro a Djanet, poi il trasferimento in aeroporto per il volo verso nord.",
+        "stops": [
+          {
+            "place": "Tigharghart — la «Mucca che piange»",
+            "text": "L'incisione più fotografata del Sahara, un bovino in lacrime scolpito su una bassa parete rocciosa migliaia di anni fa."
+          },
+          {
+            "place": "La Roccia dell'Elefante",
+            "text": "La seconda incisione celebre di Tigharghart, a pochi minuti a piedi dalla prima."
+          },
+          {
+            "place": "Djanet e l'aeroporto di Tiska",
+            "text": "Ritorno all'oasi per rinfrescarsi e un ultimo pasto prima del trasferimento per il volo verso nord."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Volo interno andata e ritorno Algeri ⇄ Djanet (Air Algérie, diretto)",
+      "Tutti i trasferimenti aeroportuali — Algeri e Djanet",
+      "Veicoli 4×4 e autisti esperti del deserto per tutto il viaggio",
+      "Guida tuareg autorizzata di Djanet",
+      "Pensione completa — colazione, pranzo e cena ogni giorno",
+      "Attrezzatura da campo: tende, materassini e coperte",
+      "Permessi e pratiche per il Parco Nazionale del Tassili n'Ajjer",
+      "Acqua in bottiglia per tutto il viaggio",
+      "Documentazione di supporto per il visto inclusa nella prenotazione"
+    ],
+    "excludes": [
+      "Voli internazionali da e per Algeri",
+      "Costo del visto algerino",
+      "Assicurazione di viaggio e medica (obbligatoria)",
+      "Bevande diverse dall'acqua; spese personali",
+      "Mance per guida, autisti e squadra di campo",
+      "Permessi per fotocamera o drone, dove applicabili"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Stagione migliore",
+        "value": "Da ottobre ad aprile (il grande sud non si percorre in estate)"
+      },
+      {
+        "label": "Ritmo",
+        "value": "Confortevole — spostamenti in 4×4, brevi camminate a ogni sito"
+      },
+      {
+        "label": "Notti",
+        "value": "Bivacco selvaggio — tende, materassini e coperte forniti"
+      },
+      {
+        "label": "Gruppo",
+        "value": "Piccolo gruppo o partenza privata"
+      },
+      {
+        "label": "Le notti sono fredde",
+        "value": "Portate strati veri e caldi — in inverno le notti nel deserto si avvicinano allo zero"
+      },
+      {
+        "label": "Rete telefonica",
+        "value": "Assente non appena si lascia Djanet — ed è proprio questo il punto"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Il volo interno è davvero incluso?",
+        "a": "Sì. Il prezzo comprende il volo Air Algérie andata e ritorno tra Algeri e Djanet, diretto, oltre a tutti i trasferimenti aeroportuali alle due estremità. Il volo internazionale fino ad Algeri lo organizzate voi; da lì in poi ci occupiamo di tutto noi."
+      },
+      {
+        "q": "Quanto è impegnativo dal punto di vista fisico?",
+        "a": "Moderato. Ci si sposta in 4×4 e le camminate sono brevi — un'ora qui, una salita su una duna là. La vera richiesta è la tolleranza per il campeggio: sei notti su un materassino in tenda, lavarsi con quello che si porta con sé, e nessuna rete."
+      },
+      {
+        "q": "Quando è possibile questo viaggio?",
+        "a": "Da ottobre ad aprile. Il grande sud non si percorre in estate, e il periodo classico va da novembre a febbraio, quando le giornate sono calde e limpide. In quella stagione le notti si avvicinano allo zero, quindi servono strati veri e caldi."
+      },
+      {
+        "q": "Serve un visto?",
+        "a": "Sì, ed è proprio su questo itinerario che si applica l'ingresso dal sud — un programma sahariano organizzato in arrivo da Djanet, aperto a viaggiatori di qualsiasi nazionalità. Prepariamo la documentazione al momento della prenotazione; verificate i requisiti aggiornati presso il vostro consolato algerino."
+      },
+      {
+        "q": "Com'è composto il gruppo?",
+        "a": "Piccolo. Il circuito viene organizzato come piccolo gruppo oppure come partenza privata per il vostro gruppo — indicateci la vostra preferenza al momento della richiesta."
+      }
+    ]
+  },
+  "ihrir-oasis-7-days": {
+    "title": "Ihrir e il Tassili — 7 Giorni tra Oasi ed Erg",
+    "duration": "7 giorni · 6 notti",
+    "hook": "Tutti si aspettano che il Sahara sia arido. A Ihrir non lo è — un'oasi incassata di acque stagnanti, canne e pozze di roccia, a un'ora dalle dune che corrono fino all'orizzonte.",
+    "full": true,
+    "seoTitle": "Ihrir e Tassili, 7 giorni — oasi e dune del Sahara",
+    "seoDescription": "Circuito di 7 giorni tra oasi e dune del Tassili n'Ajjer: Ihrir, Erg Admer, Oued Essendilène e Tikoubaouine, con guide tuareg da Djanet.",
+    "overview": "Se la Tadrart è il Sahara di sabbia, Ihrir è il Sahara d'acqua. Questo circuito percorre il versante settentrionale del Tassili n'Ajjer: un'oasi incassata le cui gueltas trattengono acqua tutto l'anno, un canyon in cui è possibile nuotare quando la stagione lo consente, torri di roccia scolpite dal vento a Tikoubaouine, e le alte dune dell'Erg Admer per il tramonto. Sei notti sotto la tela, una in una guesthouse a Djanet all'arrivo, e il volo verso sud da Algeri incluso nel prezzo. È il più tranquillo dei nostri due circuiti di sette giorni da Djanet, e quello che sorprende di più.",
+    "highlights": [
+      "L'oasi incassata di Ihrir e le sue gueltas permanenti",
+      "Incisioni rupestri e pozze naturali a Idaren e Tasourt",
+      "Tramonto dalle alte dune dell'Erg Admer",
+      "Il canyon dell'Oued Essendilène — bagno possibile in stagione",
+      "Le formazioni rocciose scolpite dal vento di Tikoubaouine",
+      "L'altopiano di In Imouroudene",
+      "Adaik, la «piccola Sefar», e la sua arte rupestre",
+      "La «Mucca che piange» di Tigharghart e la Roccia dell'Elefante"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrivo a Djanet",
+        "body": "Atterraggio a Djanet, porta d'accesso al Tassili n'Ajjer, e accoglienza da parte della nostra squadra. Trasferimento in guesthouse, tempo per riposare dopo il volo e una cena conviviale prima dell'inizio del circuito.",
+        "stops": [
+          {
+            "place": "Aeroporto di Tiska",
+            "text": "Accoglienza all'arrivo nell'aeroporto più a sud dell'Algeria, a 30 km dall'oasi."
+          },
+          {
+            "place": "Djanet",
+            "text": "Capitale oasi tuareg del sud-est — palmeti ai piedi di falesie rosse."
+          },
+          {
+            "place": "La guesthouse a Djanet",
+            "text": "Una prima notte al chiuso — una casa a corte tra le palme, e la cena con la squadra che vi accompagnerà per tutta la settimana."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Djanet → Ihrir → Idaren → Tasourt",
+        "body": "Colazione, poi partenza in 4×4 verso la valle di Ihrir — un'oasi incassata famosa per le sue gueltas naturali e per una vegetazione inaspettatamente lussureggiante. Si prosegue verso Idaren e Tasourt per esplorare incisioni rupestri e altre pozze naturali. Si allestisce il campo, la cena si cucina sul fuoco, e si dorme in tenda o sotto le stelle.",
+        "stops": [
+          {
+            "place": "Ihrir",
+            "text": "Un'oasi incassata le cui pozze di roccia trattengono acqua tutto l'anno."
+          },
+          {
+            "place": "Le gueltas di Ihrir",
+            "text": "Pozze di roccia permanenti sul fondo del canyon, con canne, pesci e uccelli nel cuore del deserto."
+          },
+          {
+            "place": "Idaren e Tasourt",
+            "text": "Incisioni rupestri e bacini naturali lungo la valle."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Ihrir → Tilalin → Erg Admer",
+        "body": "Colazione al campo e una camminata nell'area di Tilalin, poi la pista verso l'Erg Admer. Salita sulle dune per il tramonto sull'erg, e campo nel cuore del deserto.",
+        "stops": [
+          {
+            "place": "Tilalin",
+            "text": "Una camminata mattutina tra le formazioni rocciose e i corsi d'acqua secchi della zona, prima di riprendere la pista."
+          },
+          {
+            "place": "Erg Admer",
+            "text": "Un grande campo dunale — la salita per il tramonto è la ricompensa della giornata."
+          },
+          {
+            "place": "Il campo nell'erg",
+            "text": "Campo allestito in piena sabbia, senza nulla all'orizzonte — la notte più vuota del circuito."
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Erg Admer → Oued Essendilène → Tikoubaouine",
+        "body": "Partenza verso l'Oued Essendilène e una camminata nel suo canyon, dove il bagno è possibile a seconda della stagione. Pranzo al sacco, poi proseguimento verso Tikoubaouine e le sue formazioni rocciose scolpite dal vento. Campo tra le rocce.",
+        "stops": [
+          {
+            "place": "Oued Essendilène",
+            "text": "Un canyon con acqua permanente — bagno possibile in stagione."
+          },
+          {
+            "place": "La camminata nel canyon",
+            "text": "Un'ora a piedi risalendo la gola fino all'acqua, tra pareti che si stringono man mano che si procede."
+          },
+          {
+            "place": "Tikoubaouine",
+            "text": "Torri e archi scolpiti dal vento più che dall'acqua."
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "title": "In Imouroudene → Adaik",
+        "body": "Esplorazione dell'altopiano di In Imouroudene, una camminata panoramica e un pranzo al sacco. Proseguimento verso Adaik — conosciuta localmente come la «piccola Sefar» per la sua concentrazione di arte rupestre — con tempo libero per godersi il tramonto prima della cena al bivacco.",
+        "stops": [
+          {
+            "place": "In Imouroudene",
+            "text": "Un altopiano con ampie vedute sul Tassili."
+          },
+          {
+            "place": "Adaik",
+            "text": "La «piccola Sefar» — arte rupestre senza il trekking sull'altopiano."
+          },
+          {
+            "place": "Tramonto a Adaik",
+            "text": "Tempo libero sulle rocce per l'ultima luce, prima della cena al bivacco."
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "title": "Adaik → Timghas",
+        "body": "Colazione e trasferimento a Timghas, con una camminata esplorativa e del tempo dedicato alla flora sahariana che sopravvive qui. Pranzo al sacco, campo allestito e un'ultima cena sotto le stelle.",
+        "stops": [
+          {
+            "place": "Timghas",
+            "text": "L'ultimo campo, e uno sguardo più da vicino a ciò che cresce davvero nel Sahara."
+          },
+          {
+            "place": "La flora sahariana a piedi",
+            "text": "Una camminata dedicata a ciò che cresce davvero qui — acacia, tamerici, calotropis e le piante che i tuareg utilizzano ancora oggi."
+          },
+          {
+            "place": "L'ultimo bivacco",
+            "text": "Un'ultima cena sul fuoco sotto il cielo intero, prima del rientro a Djanet."
+          }
+        ]
+      },
+      {
+        "day": 7,
+        "title": "Timghas → Tigharghart → Djanet → rientro",
+        "body": "Ritorno verso Tigharghart per l'incisione della «Mucca che piange» e la Roccia dell'Elefante, poi rientro a Djanet e trasferimento in aeroporto per il volo di ritorno.",
+        "stops": [
+          {
+            "place": "Tigharghart — la «Mucca che piange»",
+            "text": "L'incisione più fotografata del Sahara, lungo il tragitto di rientro verso l'oasi."
+          },
+          {
+            "place": "La Roccia dell'Elefante",
+            "text": "La seconda incisione celebre di Tigharghart, a pochi passi dalla prima."
+          },
+          {
+            "place": "Djanet e l'aeroporto di Tiska",
+            "text": "Ritorno all'oasi, poi il trasferimento per il volo verso nord."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Volo interno andata e ritorno Algeri ⇄ Djanet (Air Algérie, diretto)",
+      "Tutti i trasferimenti aeroportuali — Algeri e Djanet",
+      "Veicoli 4×4 e autisti esperti del deserto per tutto il viaggio",
+      "Guida tuareg autorizzata di Djanet",
+      "Pensione completa — colazione, pranzo e cena ogni giorno",
+      "Attrezzatura da campo: tende, materassini e coperte",
+      "Permessi e pratiche per il Parco Nazionale del Tassili n'Ajjer",
+      "Acqua in bottiglia per tutto il viaggio",
+      "Documentazione di supporto per il visto inclusa nella prenotazione"
+    ],
+    "excludes": [
+      "Voli internazionali da e per Algeri",
+      "Costo del visto algerino",
+      "Assicurazione di viaggio e medica (obbligatoria)",
+      "Bevande diverse dall'acqua; spese personali",
+      "Mance per guida, autisti e squadra di campo",
+      "Permessi per fotocamera o drone, dove applicabili"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Stagione migliore",
+        "value": "Da ottobre ad aprile (il grande sud non si percorre in estate)"
+      },
+      {
+        "label": "Ritmo",
+        "value": "Confortevole — spostamenti in 4×4, brevi camminate a ogni sito"
+      },
+      {
+        "label": "Notti",
+        "value": "Una notte in guesthouse a Djanet, poi cinque in bivacco selvaggio"
+      },
+      {
+        "label": "Gruppo",
+        "value": "Piccolo gruppo o partenza privata"
+      },
+      {
+        "label": "Bagno",
+        "value": "Possibile nell'Oued Essendilène a seconda della stagione — portate un costume"
+      },
+      {
+        "label": "Rete telefonica",
+        "value": "Assente non appena si lascia Djanet"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "In cosa si differenzia dal circuito della Tadrart?",
+        "a": "Stessa durata, stesso prezzo, Sahara diverso. La Tadrart è sabbia — dune rosa, archi, il grande erg. Ihrir è acqua e varietà: un'oasi permanente, un canyon balneabile, torri scolpite dal vento e un altopiano scuro. Chi cerca le dune sceglie la Tadrart; chi cerca varietà sceglie questo."
+      },
+      {
+        "q": "Si può davvero nuotare nel deserto?",
+        "a": "Nell'Oued Essendilène, a seconda della stagione e del livello dell'acqua. Le gueltas di Ihrir trattengono acqua tutto l'anno ma non sono sempre adatte al bagno. Portate un costume e lasciate che sia la guida a valutare sul momento."
+      },
+      {
+        "q": "Il volo è incluso?",
+        "a": "Sì — il volo Air Algérie andata e ritorno Algeri ⇄ Djanet e tutti i trasferimenti aeroportuali. Il volo internazionale fino ad Algeri è a parte."
+      },
+      {
+        "q": "Come sono le notti?",
+        "a": "Una in guesthouse a Djanet all'arrivo, poi cinque in bivacco selvaggio con tende, materassini e coperte forniti. In inverno le notti nel Sahara sono davvero fredde — preparate il bagaglio di conseguenza."
+      },
+      {
+        "q": "Quando si svolge?",
+        "a": "Da ottobre ad aprile, con novembre-febbraio come periodo classico. Il grande sud non si percorre in estate."
+      }
+    ]
+  },
+  "sefar-tassili-trek": {
+    "title": "Trekking a Sefar — Sull'Altopiano del Tassili a Piedi",
+    "duration": "7 giorni · 6 notti",
+    "hook": "A Sefar non si arriva in auto. Ci si sale, e si cammina per giorni tra pareti dipinte che hanno da cinque a ottomila anni.",
+    "full": true,
+    "seoTitle": "Trekking a Sefar, 7 giorni sul Tassili n'Ajjer",
+    "seoDescription": "Trekking di 7 giorni sull'altopiano del Tassili n'Ajjer: Sefar, Tin Tazarift e Djabarren, pitture rupestri millenarie, guide e asini da Djanet.",
+    "overview": "Questo è il viaggio serio. Da Djanet la pista sale sull'altopiano del Tassili, e da lì in poi tutto si muove al passo del cammino — guide, cuochi e conducenti d'asini portano il campo mentre voi percorrete dalle cinque alle sette ore al giorno tra i siti di arte rupestre. Tin Zoumaitek e la valle dei cipressi millenari, le «danzatrici» dipinte di Tin Tazarift, le maschere di Sefar Noir e i grandi dèi di Sefar Blanc, e infine Djabarren, il più grande insieme di pitture del Tassili. Migliaia di opere, testimonianza di un Sahara che era verde e popolato di uomini e animali. Lassù non c'è alcun supporto motorizzato né campo telefonico; è un trekking, ed è il motivo per cui i viaggiatori più esigenti vengono in Algeria.",
+    "highlights": [
+      "La salita sull'altopiano del Tassili da Tamrit",
+      "Tin Zoumaitek e la valle dei cipressi millenari",
+      "Le «danzatrici» dipinte di Tin Tazarift",
+      "Le maschere di Sefar Noir e i grandi dèi di Sefar Blanc",
+      "Pannelli preistorici a Tirassoutine, Tin Kani e Alarendemen",
+      "Djabarren — il più grande insieme di pitture del Tassili",
+      "Bivacco sull'altopiano ogni notte"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrivo a Djanet → Tassili du Tafilalet",
+        "body": "Arrivo a Djanet e accoglienza da parte della squadra locale. Qualche ora di riposo dopo il volo, poi il trasferimento verso il Tassili du Tafilalet, dove inizia la spedizione e dove ad aspettarvi ci sono le guide, i cuochi e i conducenti d'asini che vi accompagneranno per tutta la settimana.",
+        "stops": [
+          {
+            "place": "Djanet",
+            "text": "La capitale oasi tuareg del sud-est, e l'ultimo centro abitato prima dell'altopiano."
+          },
+          {
+            "place": "Tassili du Tafilalet",
+            "text": "Dove i veicoli si fermano e inizia il cammino."
+          },
+          {
+            "place": "La squadra del trekking",
+            "text": "Le guide, i cuochi e i conducenti d'asini che trasportano il campo e vi accompagnano per l'intera settimana — incontrati la prima sera."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "La salita → Tin Zoumaitek",
+        "body": "La salita sull'altopiano del Tassili, con le squadre di asini che trasportano il campo. In cima, i primi siti di arte rupestre a Tin Zoumaitek e la valle dei cipressi millenari — autentici superstiti del Sahara più umido raccontato dalle pitture. Prima notte in bivacco sotto le stelle.",
+        "stops": [
+          {
+            "place": "La salita",
+            "text": "La scarpata che conduce sull'altopiano: circa 7 ore di cammino, +500 m di dislivello."
+          },
+          {
+            "place": "Tin Zoumaitek",
+            "text": "I primi siti dipinti, e la valle dei cipressi millenari."
+          },
+          {
+            "place": "La valle dei cipressi",
+            "text": "Cipressi sahariani millenari (Cupressus dupreziana) sull'altopiano — superstiti viventi del Sahara verde raccontato dalle pitture."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "In Tinen → Tin Tazarift",
+        "body": "Una giornata dedicata alle pitture degli spuntoni di In Tinen — scene di caccia, mandrie, figure mitologiche, e una testimonianza unica della vita preistorica. Dopo pranzo, il celebre sito di Tin Tazarift e le sue figure emblematiche, note come «le danzatrici».",
+        "stops": [
+          {
+            "place": "In Tinen",
+            "text": "Spuntoni dipinti: cacce, mandrie e figure mitologiche."
+          },
+          {
+            "place": "Tin Tazarift",
+            "text": "Le «danzatrici» — tra le immagini più riprodotte dell'arte sahariana."
+          },
+          {
+            "place": "Bivacco tra gli spuntoni",
+            "text": "Campo allestito tra le torri di arenaria erose, con la cena cucinata dalla squadra e l'altopiano completamente silenzioso dopo il tramonto."
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Tin Teferieste → Sefar Noir → Sefar Blanc",
+        "body": "Il notevole sito di Tin Teferieste, poi la mitica città di Sefar vera e propria: le celebri maschere di Sefar Noir e i grandi dèi di Sefar Blanc. Questo settore è considerato uno degli insiemi di pittura rupestre più impressionanti di tutto il Sahara.",
+        "stops": [
+          {
+            "place": "Tin Teferieste",
+            "text": "Il sito della mattinata lungo il percorso verso Sefar — notevole di per sé, prima dei pannelli celebri."
+          },
+          {
+            "place": "Sefar Noir",
+            "text": "Le maschere — le immagini per cui il sito è conosciuto."
+          },
+          {
+            "place": "Sefar Blanc",
+            "text": "I «grandi dèi», tra le figure più straordinarie dell'arte sahariana."
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Tirassoutine → Tin Kani → Alarendemen",
+        "body": "Il paesaggio cambia man mano che si avanza, aprendosi in vasti altopiani dalle tonalità più scure. Si attraversano Tirassoutine e Tin Kani prima di raggiungere Alarendemen, dove si allestisce il campo, con diversi insiemi di pittura preistorica notevolmente conservati scoperti lungo il percorso.",
+        "stops": [
+          {
+            "place": "Gli altopiani scuri",
+            "text": "Il paesaggio che si apre in ampi tavolati dalle tonalità più scure, con pannelli dipinti ben conservati incontrati lungo l'attraversamento."
+          },
+          {
+            "place": "Tirassoutine e Tin Kani",
+            "text": "Pannelli dipinti lungo l'attraversamento."
+          },
+          {
+            "place": "Alarendemen",
+            "text": "Il bivacco della notte sull'altopiano scuro."
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "title": "Djabarren",
+        "body": "Arrivo al celebre sito di Djabarren, considerato il più grande insieme di pittura rupestre del Tassili. Qui sono catalogate migliaia di opere, che illustrano i diversi periodi della storia sahariana — una giornata eccezionale nel cuore di quello che è a tutti gli effetti un museo a cielo aperto.",
+        "stops": [
+          {
+            "place": "Djabarren",
+            "text": "Il più grande insieme dipinto del Tassili — migliaia di opere catalogate."
+          },
+          {
+            "place": "Quattro periodi su una sola parete",
+            "text": "Opere dei periodi Teste Rotonde, Bovidiano, dei Cavalli e dei Cammelli fianco a fianco — l'intera sequenza della storia sahariana dipinta su roccia."
+          },
+          {
+            "place": "L'ultimo bivacco sull'altopiano",
+            "text": "Un'ultima notte lassù sul Tassili prima della discesa del mattino."
+          }
+        ]
+      },
+      {
+        "day": 7,
+        "title": "Discesa dall'altopiano → Djanet → rientro",
+        "body": "Un'ultima mattina sul Tassili, poi la discesa dall'altopiano con le guide e le squadre di asini — la stessa salita del primo giorno, ma al contrario e con una settimana ormai alle spalle. Si ridiscende fino ai veicoli e si prosegue verso Djanet, poi il trasferimento all'aeroporto di Tiska per il volo verso nord.",
+        "stops": [
+          {
+            "place": "La discesa",
+            "text": "Giù per la scarpata salita il primo giorno, fino al punto in cui attendono i veicoli."
+          },
+          {
+            "place": "Djanet",
+            "text": "Un ultimo sguardo all'oasi prima dell'aeroporto."
+          },
+          {
+            "place": "L'aeroporto di Tiska",
+            "text": "Il trasferimento fuori dall'oasi per il volo verso nord."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Volo interno andata e ritorno Algeri ⇄ Djanet (Air Algérie, diretto)",
+      "Tutti i trasferimenti aeroportuali — Algeri e Djanet",
+      "Pensione completa per tutto il circuito",
+      "Attrezzatura da bivacco e logistica di campo sull'altopiano",
+      "Guide locali esperte, cuochi e conducenti d'asini",
+      "Asini per il trasporto dell'attrezzatura da campo e dei bagagli",
+      "Permessi e pratiche per il Parco Nazionale del Tassili n'Ajjer",
+      "Documentazione di supporto per il visto inclusa nella prenotazione"
+    ],
+    "excludes": [
+      "Voli internazionali da e per Algeri",
+      "Costo del visto algerino",
+      "Assicurazione di viaggio e medica (obbligatoria)",
+      "Bevande diverse dall'acqua; spese personali",
+      "Mance per guida, autisti e squadra di campo",
+      "Permessi per fotocamera o drone, dove applicabili"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Stagione migliore",
+        "value": "Da ottobre ad aprile (il grande sud non si percorre in estate)"
+      },
+      {
+        "label": "Ritmo",
+        "value": "Impegnativo — da 4 a 7 ore di cammino al giorno, +500 m di dislivello il primo giorno"
+      },
+      {
+        "label": "Notti",
+        "value": "Sei notti di campo e bivacco sull'altopiano"
+      },
+      {
+        "label": "Supporto",
+        "value": "Guide, cuochi e conducenti d'asini; nessun accesso motorizzato sull'altopiano"
+      },
+      {
+        "label": "Forma fisica",
+        "value": "Solo per camminatori abituali — è un trekking, non un giro in fuoristrada"
+      },
+      {
+        "label": "Rete telefonica",
+        "value": "Assente sull'altopiano"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Quanta forma fisica serve?",
+        "a": "Abbastanza in forma da camminare dalle quattro alle sette ore al giorno per sei giorni consecutivi, iniziando con un dislivello di 500 m per salire sull'altopiano e terminando con la discesa. Si porta solo uno zaino leggero — gli asini trasportano il campo — ma non c'è alcun supporto motorizzato né modo di accorciare una giornata una volta saliti lassù. I camminatori abituali se la cavano senza difficoltà; chi cammina solo occasionalmente lo trova impegnativo."
+      },
+      {
+        "q": "Perché non si può arrivare a Sefar in auto?",
+        "a": "Il Tassili è un altopiano a cui si accede con una salita, e i siti si trovano sulla sua sommità. È proprio per questo che le pitture si sono conservate così bene, ed è per questo che le giornate lassù non somigliano a nient'altro in Algeria."
+      },
+      {
+        "q": "Quanto è antica l'arte rupestre?",
+        "a": "Le pitture coprono un arco di circa cinque-ottomila anni, testimonianza di un Sahara verde e popolato da uomini, mandrie e animali selvatici. Solo Djabarren custodisce migliaia di opere catalogate, ripartite su diversi periodi distinti."
+      },
+      {
+        "q": "Il volo è incluso?",
+        "a": "Sì — il volo andata e ritorno tra Algeri e Djanet e tutti i trasferimenti aeroportuali. Il volo internazionale fino ad Algeri è a parte."
+      },
+      {
+        "q": "Quando si svolge?",
+        "a": "Da ottobre ad aprile. L'altopiano non si percorre in estate."
+      }
+    ]
+  },
+  "algeria-grand-discovery-14-days": {
+    "title": "Grande Scoperta dell'Algeria — 14 Giorni dalla Costa al Sahara",
+    "duration": "14 giorni · 13 notti",
+    "hook": "La maggior parte delle persone deve scegliere tra l'Algeria romana e il Sahara. Quattordici giorni sono quello che serve per smettere di scegliere.",
+    "full": true,
+    "seoTitle": "Algeria in 14 giorni — Sahara, Roma e M'Zab",
+    "seoDescription": "Tour di 14 giorni in Algeria: Tadrart Rouge, città romane di Costantina, Timgad e Djémila, Algeri e il M'Zab, con 4 voli interni inclusi.",
+    "overview": "Questo è l'intero paese in un solo viaggio, organizzato in modo che ogni volo interno sia un collegamento diretto di linea — senza transiti, senza giornate perse in aeroporto. Si parte da Algeri e la stessa notte si vola verso Djanet per una spedizione in 4×4 di quattro giorni nella Tadrart Rouge, con due notti nel deserto. Poi l'est romano: Costantina sulla sua gola, Timgad, Annaba e Djémila. Ritorno nella capitale per la Casbah e il Bardo, verso ovest a Tipaza e Cherchell, e infine di nuovo a sud, a Ghardaïa, per le cinque città fortificate del M'Zab e le dune di Sebseb. Sei siti Patrimonio dell'Umanità UNESCO, quattro voli diretti, tredici notti, e una guida nazionale al vostro fianco per tutto il viaggio.",
+    "highlights": [
+      "Quattro giorni nella Tadrart Rouge con due campi nel deserto",
+      "La Casbah di Algeri, patrimonio UNESCO, e il Museo del Bardo",
+      "Timgad — la «Pompei d'Africa»",
+      "Djémila, a 900 m di altitudine su uno sperone montano",
+      "Costantina, la Città dei Ponti, sospesa sulla gola del Rhumel",
+      "Tipaza e il Mausoleo Reale di Mauretania",
+      "I cinque ksour fortificati della Valle del M'Zab",
+      "Le dune di Sebseb a sud di Ghardaïa",
+      "La basilica di Sant'Agostino e Hippo Regius ad Annaba"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrivo ad Algeri → volo notturno per Djanet",
+        "body": "Arrivo all'aeroporto Houari Boumediene, accoglienza da parte del nostro rappresentante, con una stanza a disposizione per rinfrescarsi durante il giorno. Nel pomeriggio, una camminata di orientamento — Place des Martyrs, la Grande Poste, il lungomare — poi una cena anticipata e il trasferimento al terminal interno per il volo notturno diretto verso sud.",
+        "stops": [
+          {
+            "place": "Aeroporto Houari Boumediene",
+            "text": "Accoglienza da parte del nostro rappresentante, con una stanza a disposizione per fare la doccia e cambiarsi dopo il volo internazionale."
+          },
+          {
+            "place": "Place des Martyrs e la Grande Poste",
+            "text": "La piazza ai piedi della Casbah e l'ufficio postale neomoresco del 1910 — i due simboli del centro di Algeri."
+          },
+          {
+            "place": "I portici del lungomare",
+            "text": "Il lungo colonnato bianco sopra il porto, l'immagine di Algeri vista dal mare, prima del trasferimento per il volo notturno verso sud."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Tigharghart e la Tadrart Rouge",
+        "body": "Incontro con la guida tuareg autorizzata e partenza in 4×4 verso la Tadrart Rouge, nel Parco Nazionale del Tassili n'Ajjer. Tigharghart, patria della celebre incisione della «Mucca che piange», poi il percorso tra dune rosse gigantesche e formazioni di arenaria fino al campo nel profondo deserto. Cena tuareg tradizionale sotto le stelle.",
+        "stops": [
+          {
+            "place": "Tigharghart",
+            "text": "La «Mucca che piange» — l'incisione più famosa del Sahara."
+          },
+          {
+            "place": "La Tadrart Rouge",
+            "text": "Dune rosse gigantesche e torri di arenaria all'interno del Parco Nazionale del Tassili n'Ajjer, attraversate in 4×4 con una guida tuareg autorizzata."
+          },
+          {
+            "place": "Il campo nel profondo deserto",
+            "text": "Una cena tuareg tradizionale cucinata sul fuoco, e la prima notte sotto le stelle."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Il cuore della Tadrart",
+        "body": "Una giornata intera tra i grandi paesaggi della Tadrart Rouge: El Berdj, Moul Naga e l'Erg Tin Merzouga, con incisioni preistoriche e punti panoramici lungo il percorso. Tramonto nel cuore del Sahara e una seconda notte di campeggio selvaggio.",
+        "stops": [
+          {
+            "place": "El Berdj",
+            "text": "Gole profonde di arenaria le cui pareti portano sia incisioni sia pannelli dipinti."
+          },
+          {
+            "place": "Moul Naga",
+            "text": "Un territorio di dune maestose nel cuore della Tadrart, e i punti panoramici della giornata."
+          },
+          {
+            "place": "Erg Tin Merzouga",
+            "text": "Le grandi dune della Tadrart al tramonto."
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "In Djaren, Tin Abadène e Ouanahar → Djanet",
+        "body": "Più in profondità nel parco: la valle di In Djaren, le giraffe e gli elefanti incisi a Tin Abadène, Ouanahar, la «cattedrale» di Tamezguida e gli archi naturali. Rientro a Djanet dopo il tramonto.",
+        "stops": [
+          {
+            "place": "La valle di In Djaren e i suoi archi",
+            "text": "Una valle secca di archi monumentali di arenaria scolpiti dal vento — le formazioni simbolo della Tadrart."
+          },
+          {
+            "place": "Tin Abadène",
+            "text": "Giraffe ed elefanti preistorici."
+          },
+          {
+            "place": "Tamezguida",
+            "text": "Una formazione di arenaria che merita davvero il nome di «cattedrale»."
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Djanet → volo notturno per Costantina",
+        "body": "Una mattinata dedicata alla Djanet tuareg: il Museo del Tassili — l'unico museo tuareg d'Algeria — l'antico ksar di Azellouaz e il mercato locale, con tempo libero per i souvenir. Una cena di addio al Sahara, poi il trasferimento serale all'aeroporto di Tiska.",
+        "stops": [
+          {
+            "place": "Il Museo del Tassili",
+            "text": "L'unico museo tuareg d'Algeria — documentazione sull'arte rupestre, gioielli, armi e la vita quotidiana dei Kel Ajjer."
+          },
+          {
+            "place": "Il ksar di Azellouaz",
+            "text": "Il quartiere più antico di Djanet, un villaggio in mattoni di fango arroccato sulla roccia sopra i palmeti."
+          },
+          {
+            "place": "Il mercato di Djanet",
+            "text": "Il mercato dell'oasi per l'argento tuareg, il cuoio e i datteri, con tempo libero per i souvenir prima della cena d'addio."
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "title": "Costantina, la Città dei Ponti",
+        "body": "Una partenza tranquilla e senza fretta dopo il volo notturno, poi la città: il Palazzo di Ahmed Bey, il Museo Nazionale Cirta, il ponte sospeso di Sidi M'Cid e la passerella di Mellah Slimane, Place des Martyrs e il centro storico, e i punti panoramici sulla gola del Rhumel.",
+        "stops": [
+          {
+            "place": "Il ponte di Sidi M'Cid",
+            "text": "Sospeso in alto sopra la gola del Rhumel — l'immagine simbolo di Costantina."
+          },
+          {
+            "place": "Il Palazzo di Ahmed Bey",
+            "text": "Le gallerie dipinte e i cortili dell'ultimo Bey."
+          },
+          {
+            "place": "Il Museo Nazionale Cirta e il centro storico",
+            "text": "La collezione archeologica e artistica di Costantina, Place des Martyrs e i punti panoramici sulla gola del Rhumel."
+          }
+        ]
+      },
+      {
+        "day": 7,
+        "title": "Timgad",
+        "body": "Un'escursione di un'intera giornata a Timgad, la città romana fondata da Traiano per i veterani dell'esercito e conservata dalla sabbia quasi intatta: l'Arco di Traiano, il teatro, il foro e il campidoglio, le terme e la griglia di strade che ne fanno un manuale di urbanistica romana.",
+        "stops": [
+          {
+            "place": "Timgad",
+            "text": "La «Pompei d'Africa» — una griglia romana perfetta, a 115 km da Costantina."
+          },
+          {
+            "place": "L'Arco di Traiano",
+            "text": "L'arco a tre fornici che si erge sul decumano — l'immagine per cui Timgad è conosciuta in tutto il mondo."
+          },
+          {
+            "place": "Il teatro, il foro e le terme",
+            "text": "Un teatro da 3.500 posti scavato nel pendio, il campidoglio e il foro al centro, e i complessi termali disposti lungo la griglia urbana."
+          }
+        ]
+      },
+      {
+        "day": 8,
+        "title": "Costantina → Annaba",
+        "body": "Trasferimento mattutino ad Annaba, una delle città mediterranee più antiche d'Algeria: la Basilica di Sant'Agostino, le rovine romane di Hippo Regius, il lungomare della Seybouse e la corniche, e un vivace centro cittadino.",
+        "stops": [
+          {
+            "place": "La Basilica di Sant'Agostino",
+            "text": "La basilica ottocentesca sulla collina che domina la città romana, che custodisce una reliquia del braccio di Agostino."
+          },
+          {
+            "place": "Hippo Regius",
+            "text": "Dove Agostino fu vescovo — la città romana ai piedi della basilica."
+          },
+          {
+            "place": "La corniche e il Cours de la Révolution",
+            "text": "La strada costiera di Annaba e la passeggiata centrale ombreggiata dai platani, dove tutta la città si ritrova la sera."
+          }
+        ]
+      },
+      {
+        "day": 9,
+        "title": "Annaba → Djémila → Algeri",
+        "body": "Partenza mattutina verso ovest lungo l'autostrada in direzione di Djémila: il foro, la basilica, i templi, l'arco di trionfo e il museo dei mosaici dell'antica Cuicul, a 900 m di altitudine sul suo sperone montano. Poi proseguimento verso Algeri per la sera.",
+        "stops": [
+          {
+            "place": "Djémila",
+            "text": "Una delle città romane meglio conservate al mondo, e tra le più suggestivamente collocate."
+          },
+          {
+            "place": "L'Arco di Caracalla",
+            "text": "L'arco di trionfo del 216 d.C. al margine del nuovo foro di Cuicul, a 900 m di altitudine sul suo sperone montano."
+          },
+          {
+            "place": "Il museo dei mosaici di Djémila",
+            "text": "Mosaici in loco tra i più ricchi del mondo romano, conservati accanto alle case da cui sono stati sollevati."
+          }
+        ]
+      },
+      {
+        "day": 10,
+        "title": "Algeri in giornata piena",
+        "body": "Una giornata intera nella capitale: la Casbah, patrimonio UNESCO, il Museo Nazionale del Bardo, la basilica di Notre-Dame d'Afrique, il Maqam Echahid e i punti panoramici sulla baia di Algeri.",
+        "stops": [
+          {
+            "place": "La Casbah",
+            "text": "La cittadella ottomana che domina la baia — vicoli a gradoni, cortili e terrazze."
+          },
+          {
+            "place": "Il Museo Nazionale del Bardo",
+            "text": "Preistoria ed etnografia in una villa moresca — calchi di arte rupestre sahariana, gioielli d'argento e l'Algeria quotidiana."
+          },
+          {
+            "place": "Notre-Dame d'Afrique e il Maqam Echahid",
+            "text": "La basilica sulla sua rupe sopra Bab El Oued, e le tre foglie di palma in cemento del Memoriale dei Martiri che dominano la baia."
+          }
+        ]
+      },
+      {
+        "day": 11,
+        "title": "Tipaza e Cherchell → volo notturno per Ghardaïa",
+        "body": "Verso ovest lungo la costa fino al sito romano di Tipaza, il Mausoleo Reale di Mauretania e il museo archeologico di Cherchell. Rientro ad Algeri per la cena, poi l'aeroporto.",
+        "stops": [
+          {
+            "place": "Tipaza",
+            "text": "Una città portuale romana distesa lungo il mare, dove Camus passeggiava tra le rovine."
+          },
+          {
+            "place": "Il Mausoleo Reale di Mauretania",
+            "text": "Un grande tamburo di pietra sulla collina sopra il mare — la tomba di Giuba II e Cleopatra Selene, figlia di Cleopatra d'Egitto."
+          },
+          {
+            "place": "Il Museo Archeologico di Cherchell",
+            "text": "La collezione di mosaici e statue romane e greche dell'antica Cesarea, tra le più belle d'Algeria."
+          }
+        ]
+      },
+      {
+        "day": 12,
+        "title": "La Valle del M'Zab",
+        "body": "Una giornata intera tra i cinque ksour fortificati del M'Zab: Ghardaïa, Beni Isguen, Melika, Bounoura ed El Atteuf, con il mercato tradizionale e l'architettura mozabita la cui logica affascinò Le Corbusier.",
+        "stops": [
+          {
+            "place": "Il mercato e il ksar di Ghardaïa",
+            "text": "La piazza del mercato porticata ai piedi del centro principale, e le case a terrazze che salgono fino al minareto che le sovrasta."
+          },
+          {
+            "place": "Beni Isguen",
+            "text": "La città santa fortificata dei mozabiti ibaditi."
+          },
+          {
+            "place": "El Atteuf",
+            "text": "La più antica delle cinque città."
+          }
+        ]
+      },
+      {
+        "day": 13,
+        "title": "Le dune di Sebseb → volo serale per Algeri",
+        "body": "Un'escursione mattutina verso sud fino alle dune di Sebseb — un ultimo assaggio del grande Sahara — poi ritorno a Ghardaïa. Cena d'addio a base di cucina algerina tradizionale prima del volo serale verso nord.",
+        "stops": [
+          {
+            "place": "La pista verso sud attraverso l'hamada",
+            "text": "Il deserto di pietra tra Ghardaïa e la sabbia — la transizione che quasi nessun visitatore vede."
+          },
+          {
+            "place": "Sebseb",
+            "text": "Dune a 90 km a sud di Ghardaïa, e l'ultimo orizzonte desertico del viaggio."
+          },
+          {
+            "place": "Una cena d'addio a Ghardaïa",
+            "text": "Cucina algerina tradizionale nell'ultima serata, prima del volo serale verso nord."
+          }
+        ]
+      },
+      {
+        "day": 14,
+        "title": "Partenza",
+        "body": "Colazione, una mattinata libera per tutto ciò che è rimasto da vedere o per gli ultimi acquisti, poi il trasferimento privato all'aeroporto Houari Boumediene.",
+        "stops": [
+          {
+            "place": "Una mattinata libera ad Algeri",
+            "text": "Tutto ciò che le due settimane hanno lasciato fuori — il Jardin d'Essai, la Moschea Ketchaoua, o semplicemente il lungomare."
+          },
+          {
+            "place": "Ultimi acquisti",
+            "text": "Argento cabilo, cuoio tuareg, datteri Deglet Nour e dolci, lungo Rue Didouche Mourad o nelle botteghe della Casbah."
+          },
+          {
+            "place": "Aeroporto Houari Boumediene",
+            "text": "Il trasferimento privato e l'assistenza al check-in per il vostro volo internazionale."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Tutti i 4 voli interni (Air Algérie, classe economica, tutti diretti), tasse incluse",
+      "13 notti di alloggio, in camera doppia",
+      "Colazione giornaliera per tutto il viaggio",
+      "Pensione completa durante la spedizione a Djanet/Sahara e nel tratto di Ghardaïa",
+      "Tutti i trasferimenti e le visite in veicoli privati con aria condizionata",
+      "Veicoli 4×4 nel Tassili n'Ajjer",
+      "Guida nazionale in lingua inglese per tutto il viaggio; guide tuareg autorizzate a Djanet",
+      "Permessi per i parchi nazionali e tutti i biglietti d'ingresso ai siti e ai musei indicati",
+      "Attrezzatura completa da campeggio nel deserto e un cuoco dedicato alla spedizione",
+      "Documentazione di supporto per il visto / lettera di invito",
+      "Acqua in bottiglia durante tutte le escursioni"
+    ],
+    "excludes": [
+      "Voli internazionali da e per Algeri",
+      "Costo del visto algerino",
+      "Pranzi e cene non specificati; bevande diverse dall'acqua",
+      "Mance per guide, autisti e squadra di campo",
+      "Assicurazione di viaggio e medica (obbligatoria — da esibire prima della partenza)",
+      "Spese personali; permessi per fotocamera o drone, dove applicabili",
+      "Supplemento camera singola; check-in anticipato o check-out posticipato salvo diversa indicazione"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Stagione migliore",
+        "value": "Da ottobre ad aprile (il tratto sahariano richiede la stagione fresca)"
+      },
+      {
+        "label": "Ritmo",
+        "value": "Intenso ma non frettoloso — basi di tre notti a Costantina e Algeri"
+      },
+      {
+        "label": "Notti",
+        "value": "11 in hotel, 2 in campo nel deserto durante la spedizione nella Tadrart"
+      },
+      {
+        "label": "Voli",
+        "value": "4 voli interni diretti inclusi, tasse comprese"
+      },
+      {
+        "label": "Gruppo",
+        "value": "Prezzo calcolato per un gruppo di 4 persone in camera doppia"
+      },
+      {
+        "label": "Guida",
+        "value": "Guida nazionale in lingua inglese per tutto il viaggio, guide tuareg a Djanet"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "I voli interni sono davvero tutti diretti?",
+        "a": "Sì. L'itinerario è studiato apposta attorno ai collegamenti diretti di linea di Air Algérie — incluso il volo settimanale Djanet → Costantina — così da eliminare transiti e coincidenze. Se l'orario invernale dovesse cambiare, riorganizziamo il programma senza costi aggiuntivi e mantenendo tutti i siti previsti."
+      },
+      {
+        "q": "Quanto spazio occupa il deserto in questo viaggio?",
+        "a": "Quattro giorni, dal secondo al quinto, nel Tassili n'Ajjer con due notti di campeggio selvaggio nella Tadrart Rouge — una vera spedizione, non una semplice escursione tra le dune. Il resto è l'Algeria romana, ottomana e mozabita, con un ultimo pomeriggio sahariano alle dune di Sebseb."
+      },
+      {
+        "q": "Quattordici giorni sono troppi?",
+        "a": "È quello di cui il paese ha bisogno se si vuole vedere sia l'est romano sia il grande sud senza una marcia forzata. Ci sono basi di tre notti a Costantina e Algeri e di due notti a Ghardaïa, quindi il ritmo è intenso ma non frenetico."
+      },
+      {
+        "q": "Su cosa si basa il prezzo?",
+        "a": "Su un gruppo di quattro persone che viaggiano insieme, in camera doppia, e comprende tutto quanto elencato ne «La quota comprende» — inclusi tutti e quattro i voli interni. Comunicateci la dimensione del vostro gruppo e le date, e vi confermeremo per iscritto il prezzo esatto a persona."
+      },
+      {
+        "q": "Quando conviene partire?",
+        "a": "Da ottobre ad aprile. Il tratto sahariano richiede la stagione fresca, ed è anche il periodo in cui è più piacevole visitare a piedi i siti romani."
       }
     ]
   }

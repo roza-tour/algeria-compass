@@ -118,11 +118,27 @@ const schema = [
       availability: 'https://schema.org/InStock',
       url
     },
+    // Each day is a TouristDestination and its named stops are the attractions
+    // it includes. That is the vocabulary search and answer engines can
+    // actually read a per-day answer out of ("what do I see on day 3?"), which
+    // a flat list of day summaries cannot support.
     itinerary: {
       '@type': 'ItemList',
       numberOfItems: days,
       itemListElement: (tour.itinerary || []).map((d: any) => ({
-        '@type': 'ListItem', position: d.day, name: `Day ${d.day}: ${d.title}`, description: d.body
+        '@type': 'ListItem',
+        position: d.day,
+        name: `Day ${d.day}: ${d.title}`,
+        item: {
+          '@type': 'TouristDestination',
+          name: `Day ${d.day}: ${d.title}`,
+          description: d.body,
+          ...(d.stops?.length ? {
+            includesAttraction: d.stops.map((s: any) => ({
+              '@type': 'TouristAttraction', name: s.place, description: s.text
+            }))
+          } : {})
+        }
       }))
     }
   },

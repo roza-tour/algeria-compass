@@ -25,9 +25,11 @@ export const CONTACT = {
   hours24: true,
 };
 
-// Real Google Business rating (owner-confirmed 2026-06-20). Single source of
-// truth for the homepage badge AND the aggregateRating schema. Keep in sync
-// with the Google profile.
+// Real Google Business rating (owner-confirmed 2026-06-20). Keep in sync with
+// the Google profile.
+// NOT used in structured data: this rating was collected by Google, not shown
+// on our pages, so marking it up would breach Google's review-snippet rules.
+// It is here for the visible, plainly-attributed "5.0 on Google" link only.
 export const REVIEWS = { ratingValue: 5.0, reviewCount: 9, source: CONTACT.googleProfile };
 
 // Languages the business operates in (owner-confirmed 2026-06-20).

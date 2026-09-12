@@ -62,19 +62,15 @@ html[data-region="sahara"][data-civ="02"] .tour .iday-note {
   font-weight: 500 !important;
 }
 
-/* --- Booking section text (reinforces the blanket; .book-sec is in .tour) --- */
+/* --- Booking section text sitting directly on the dark page ground.
+   .book-note and .form-note are deliberately NOT in this list: they live on
+   light --wash panels and are handled in the light-panel block below. --- */
 html[data-region="sahara"][data-civ="02"] .book-lead,
-html[data-region="sahara"][data-civ="02"] .book-note,
-html[data-region="sahara"][data-civ="02"] .book-sec p,
+html[data-region="sahara"][data-civ="02"] .book-sec > .wrap > h2,
+html[data-region="sahara"][data-civ="02"] .book-terms > p,
 html[data-region="sahara"][data-civ="02"] .book-sec li {
   color: #e8dfc8 !important;
   font-weight: 500 !important;
-}
-
-/* --- Form notes -> dimmer small print (.tour bump beats the blanket .tour p) --- */
-html[data-region="sahara"][data-civ="02"] .tour .form-note {
-  color: #d0c8b0 !important;
-  opacity: 1 !important;
 }
 
 /* --- FAQ accordion (Phase-4 refinement). The FAQ panels are now solid WHITE
@@ -93,12 +89,40 @@ html[data-region="sahara"][data-civ="02"] .faq details[open] { border-color: var
    on .tour .btn-gold), because the same failure hit the Ghardaia and Timimoun
    accents too, so the Sahara-only override has been removed as redundant. */
 
-/* --- Light panels inside .tour. The blanket rules above paint all .tour text
-   cream/white, which is correct over the dark page ground but catastrophic on
-   the handful of panels that keep a LIGHT background: the visa note rendered
-   white-on-cream (1.14:1) and its body cream-on-cream (1.16:1) — effectively
-   invisible. Same fix pattern as the FAQ block above. --- */
-html[data-region="sahara"][data-civ="02"] .tour .visa-note strong { color: var(--green-d) !important; }
+/* --- LIGHT PANELS INSIDE A DARK PAGE ------------------------------------
+   Root cause, worth stating once: the dark skin sets --wash to a translucent
+   white so these panels would sit dark on the navy ground, but season-themes.css
+   redefines --wash to a light cream at higher specificity AND loads after
+   civ-skins.css, so it wins. The panels therefore render LIGHT while the
+   blanket rules above paint everything inside .tour cream/white — the visa note
+   came out white-on-cream (1.14:1) and the booking note cream-on-cream (1.16:1),
+   i.e. invisible.
+
+   Rather than force --wash dark (which would restyle every panel on these
+   pages), each light panel gets readable dark text, the same way the FAQ cards
+   above already do. Add any new --wash panel here.
+   Applies to skin 02 only: it is the sole dark skin in civSkins.mjs. --- */
+html[data-region="sahara"][data-civ="02"] .tour .visa-note strong,
+html[data-region="sahara"][data-civ="02"] .tour .book-note strong,
+html[data-region="sahara"][data-civ="02"] .tour .book-form h3,
+html[data-region="sahara"][data-civ="02"] .tour .book-form label,
+html[data-region="sahara"][data-civ="02"] .tour .book-form legend,
+html[data-region="sahara"][data-civ="02"] .tour .qbox b { color: var(--green-d) !important; }
+
+html[data-region="sahara"][data-civ="02"] .tour .visa-note,
 html[data-region="sahara"][data-civ="02"] .tour .visa-note p,
-html[data-region="sahara"][data-civ="02"] .tour .visa-note li { color: var(--text-m) !important; font-weight: 500 !important; }
-html[data-region="sahara"][data-civ="02"] .tour .visa-note a { color: var(--green-d) !important; }
+html[data-region="sahara"][data-civ="02"] .tour .visa-note li,
+html[data-region="sahara"][data-civ="02"] .tour .book-note,
+html[data-region="sahara"][data-civ="02"] .tour .book-note p,
+html[data-region="sahara"][data-civ="02"] .tour .book-note li,
+html[data-region="sahara"][data-civ="02"] .tour .book-form p,
+html[data-region="sahara"][data-civ="02"] .tour .book-form li,
+html[data-region="sahara"][data-civ="02"] .tour .book-form span,
+html[data-region="sahara"][data-civ="02"] .tour .form-note,
+html[data-region="sahara"][data-civ="02"] .tour .qbox,
+html[data-region="sahara"][data-civ="02"] .tour .qbox p { color: var(--text-m) !important; font-weight: 500 !important; opacity: 1 !important; }
+
+html[data-region="sahara"][data-civ="02"] .tour .visa-note a,
+html[data-region="sahara"][data-civ="02"] .tour .book-note a,
+html[data-region="sahara"][data-civ="02"] .tour .form-note a,
+html[data-region="sahara"][data-civ="02"] .tour .qbox a { color: var(--green-d) !important; }

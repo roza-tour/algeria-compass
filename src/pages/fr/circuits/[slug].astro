@@ -76,8 +76,21 @@ const productSchema = {
   itinerary: {
     '@type': 'ItemList',
     numberOfItems: (fr.itinerary || []).length,
+    // Each day is a TouristDestination whose named stops are the attractions
+    // it includes — the vocabulary an answer engine can read a per-day answer
+    // out of, rather than a flat list of day summaries.
     itemListElement: (fr.itinerary || []).map((d, i) => ({
-      '@type': 'ListItem', position: i + 1, name: `Jour ${d.day} — ${d.title}`, description: d.body,
+      '@type': 'ListItem', position: i + 1, name: `Jour ${d.day} — ${d.title}`,
+      item: {
+        '@type': 'TouristDestination',
+        name: `Jour ${d.day} — ${d.title}`,
+        description: d.body,
+        ...(d.stops?.length ? {
+          includesAttraction: d.stops.map(s => ({
+            '@type': 'TouristAttraction', name: s.place, description: s.text,
+          })),
+        } : {}),
+      },
     })),
   },
 };
