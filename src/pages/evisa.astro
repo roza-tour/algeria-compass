@@ -18,6 +18,8 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
 const faqs = [
   { q: 'What is the Saharan e-Visa?', a: 'It is the visa-authorisation document we prepare for travellers on an organised Saharan program. As a licensed Algerian tour operator we issue an authorisation carrying a QR code that is verifiable on the Algerian Ministry of Interior’s portal. The visa itself is granted by the Algerian authorities — your sticker/stamp is issued on arrival; we handle every file in advance.' },
   { q: 'How much does the Saharan e-Visa cost?', a: 'The visa-authorisation document is €40. Preparing all of the required files is completely free on our side. A separate visa sticker/stamp tax is payable to the authorities on arrival — the amount depends on your nationality, and we tell you the figure before you travel.' },
+  { q: 'Can I get the visa on arrival for Djanet and the Tassili n’Ajjer?', a: 'Yes — Djanet is the gateway to the Tassili n’Ajjer National Park and the Tadrart Rouge, and it is one of the southern wilayas this route is designed for. The condition is that you travel on an organised program with a licensed Algerian operator: we prepare the authorisation in advance and your sticker is issued on arrival. Send us your nationality and we will confirm your eligibility before you book.' },
+  { q: 'Which southern airports do travellers fly into?', a: 'Djanet–Tiska (DJG) for the Tassili n’Ajjer and the Tadrart Rouge, Tamanrasset (TMR) for the Hoggar, Ghardaïa Noumérat (GHA) for the M’Zab Valley and Timimoun (TMX) for the Gourara. Most itineraries connect through Algiers, and we book the domestic legs as part of your program.' },
   { q: 'Can I visit the north too, or only the desert?', a: 'Both. With our support a single trip can combine the north and the south, provided that roughly half of the journey is spent in a Saharan state (wilaya). We design the itinerary so it qualifies.' },
   { q: 'Is the authorisation document official and verifiable?', a: 'Yes. It carries a QR code that can be checked on the Algerian Ministry of Interior’s portal. Issuance follows the official channels — we are your documentation partner; the Algerian authorities issue the visa.' },
   { q: 'Do I need to book a full tour to get it?', a: 'Yes. The Saharan e-Visa authorisation is available when you book a complete program with us — it is part of arranging your organised trip, not a standalone service.' },
@@ -31,7 +33,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
   title="Algeria e-Visa & Entry: How It Really Works | Algeria Compass"
   description="Straight facts on entering Algeria: there is no general tourist e-Visa. The routes are a consulate visa or visa on arrival for organised Sahara tours."
   image="/assets/img/algiers-great-mosque.jpg"
-  keywords={["Algeria e-Visa","Algeria visa on arrival","entry to Algeria","Algeria tourist visa","Algeria visa online"]}
+  keywords={["Algeria e-Visa","Algeria visa on arrival","entry to Algeria","Algeria tourist visa","Algeria visa online","Djanet visa on arrival","Tassili n'Ajjer visa","Tamanrasset visa","Algeria Sahara visa"]}
   alternates={alternates}
   schema={[breadcrumb, faqSchema]}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'e-Visa & Entry'}]} />
@@ -49,6 +51,9 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
 
       <h2>Route 2 — The Saharan e-Visa (organised desert programs)</h2>
       <p>This is the closest thing to an "online" route. For an <strong>organised Saharan program</strong>, we prepare a <strong>visa-authorisation document</strong> in advance — no consulate visit needed — and your visa sticker is issued on arrival at the southern gateway airports. It is <strong>open to travellers of any nationality</strong>, but only on organised Saharan travel. <a href="#saharan-evisa">See exactly how the Saharan e-Visa works ↓</a></p>
+
+      <h2>Which parts of Algeria count as "the south"</h2>
+      <p>The southern route is built around Algeria's Saharan wilayas. The ones our programs actually use are <strong>Djanet</strong> — the gateway to the <strong>Tassili n'Ajjer</strong> National Park and the <strong>Tadrart Rouge</strong> — <strong>Tamanrasset</strong> in the Hoggar, <strong>Ghardaïa</strong> in the M'Zab Valley and <strong>Timimoun</strong> in the Gourara. Travellers reach them through the southern airports that serve each one: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> and <strong>Timimoun (TMX)</strong>, usually connecting through Algiers. If you are booking one of our <a href="/tours/">Saharan programs</a>, the itinerary is already built to qualify.</p>
 
       <h2>How our visa support fits in</h2>
       <p>Whichever route applies, we prepare the documentation consulates and authorities expect, free with your booking — see <a href="/visa-support/">Visa Support</a> for the full detail and required documents, and <a href="/algeria-visa-requirements/">Algeria visa requirements</a> for a side-by-side comparison of the two routes. We are your documentation partner; the consulate or government issues the visa.</p>
@@ -111,7 +116,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
     <div class="sev-faq">
       <h3>Saharan e-Visa — quick answers</h3>
       <div class="faq">
-        {faqs.slice(0,5).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+        {faqs.slice(0,7).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </div>
     </div>
   </div></section>

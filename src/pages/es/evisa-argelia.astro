@@ -27,6 +27,8 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
 const faqs = [
   { q: '¿Qué es el e-Visa sahariano?', a: 'Es el documento de autorización de visado que preparamos para los viajeros de un programa sahariano organizado. Como turoperador argelino autorizado, emitimos una autorización con un código QR verificable en el portal del Ministerio del Interior argelino. El visado en sí lo conceden las autoridades argelinas — su etiqueta/sello se emite a la llegada; nosotros gestionamos cada expediente con antelación.' },
   { q: '¿Cuánto cuesta el e-Visa sahariano?', a: 'El documento de autorización de visado cuesta 40 €. La preparación de todos los expedientes requeridos es completamente gratuita por nuestra parte. A la llegada se paga a las autoridades una tasa aparte por la etiqueta/sello del visado — el importe depende de su nacionalidad, y le comunicamos la cifra antes de viajar.' },
+  { q: '¿Puedo obtener el visado a la llegada para Djanet y el Tassili n\'Ajjer?', a: 'Sí — Djanet es la puerta de entrada al Parque Nacional del Tassili n\'Ajjer y al Tadrart Rouge, y es una de las wilayas del sur previstas para esta vía. La condición es viajar en un programa organizado con un operador argelino autorizado: preparamos la autorización por adelantado y la viñeta se expide a la llegada. Indícanos tu nacionalidad y confirmaremos tu elegibilidad antes de reservar.' },
+  { q: '¿En qué aeropuertos del sur se aterriza?', a: 'Djanet–Tiska (DJG) para el Tassili n\'Ajjer y el Tadrart Rouge, Tamanrasset (TMR) para el Hoggar, Ghardaïa Noumérat (GHA) para el valle del M\'Zab y Timimoun (TMX) para el Gourara. La mayoría de los itinerarios conectan por Argel, y nosotros reservamos los vuelos internos como parte de tu programa.' },
   { q: '¿Puedo visitar también el norte, o solo el desierto?', a: 'Ambos. Con nuestro apoyo, un solo viaje puede combinar el norte y el sur, siempre que aproximadamente la mitad del recorrido transcurra en una provincia sahariana (wilaya). Diseñamos el itinerario para que cumpla ese requisito.' },
   { q: '¿El documento de autorización es oficial y verificable?', a: 'Sí. Lleva un código QR que puede comprobarse en el portal del Ministerio del Interior argelino. La emisión sigue los canales oficiales — nosotros somos su socio documental; las autoridades argelinas emiten el visado.' },
   { q: '¿Necesito reservar un circuito completo para obtenerlo?', a: 'Sí. La autorización del e-Visa sahariano está disponible cuando reserva un programa completo con nosotros — forma parte de la organización de su viaje organizado, no es un servicio independiente.' },
@@ -59,6 +61,9 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'es',
 
       <h2>Vía 2 — El e-Visa sahariano (programas organizados en el desierto)</h2>
       <p>Es lo más parecido a una vía "en línea". Para un <strong>programa sahariano organizado</strong>, preparamos con antelación un <strong>documento de autorización de visado</strong> — sin necesidad de acudir al consulado — y su etiqueta de visado se emite a la llegada en los aeropuertos de entrada del sur. Está <strong>abierto a viajeros de cualquier nacionalidad</strong>, pero únicamente en viajes saharianos organizados. <a href="#saharan-evisa">Vea exactamente cómo funciona el e-Visa sahariano ↓</a></p>
+
+      <h2>Qué zonas de Argelia cuentan como «el sur»</h2>
+      <p>La vía sahariana se organiza en torno a las wilayas saharianas. Las que nuestros programas utilizan realmente son <strong>Djanet</strong> — la puerta del Parque Nacional del <strong>Tassili n'Ajjer</strong> y del <strong>Tadrart Rouge</strong> —, <strong>Tamanrasset</strong> en el Hoggar, <strong>Ghardaïa</strong> en el valle del M'Zab y <strong>Timimoun</strong> en el Gourara. Se llega por los aeropuertos del sur que las sirven: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> y <strong>Timimoun (TMX)</strong>, normalmente con escala en Argel. Si reservas uno de nuestros <a href="/es/circuitos/">circuitos saharianos</a>, el itinerario ya está diseñado para cumplir los requisitos.</p>
 
       <h2>Cómo encaja nuestra asistencia de visado</h2>
       <p>Sea cual sea la vía que le corresponda, preparamos la documentación que los consulados y las autoridades esperan, gratis con su reserva — consulte <a href="/es/asistencia-visado-argelia/">Asistencia de visado</a> para el detalle completo y los documentos requeridos, y los <a href="/es/visado-llegada-argelia/">requisitos de visado para Argelia</a> para una comparación lado a lado de las dos vías. Somos su socio documental; el visado lo emite el consulado o el gobierno.</p>
@@ -121,7 +126,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'es',
     <div class="sev-faq">
       <h3>e-Visa sahariano — respuestas rápidas</h3>
       <div class="faq">
-        {faqs.slice(0,5).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+        {faqs.slice(0,7).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </div>
     </div>
   </div></section>

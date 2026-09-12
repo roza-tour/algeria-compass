@@ -24,6 +24,8 @@ const description = "Ingresso in Algeria, i fatti: non esiste un e-Visa turistic
 const faqs = [
   { q: "Che cos'è l'e-Visa sahariano?", a: "È il documento di autorizzazione al visto che prepariamo per i viaggiatori su un programma sahariano organizzato. In quanto tour operator algerino autorizzato, emettiamo un'autorizzazione con codice QR verificabile sul portale del Ministero dell'Interno algerino. Il visto in sé è concesso dalle autorità algerine — la vignetta/il timbro viene rilasciato all'arrivo; noi curiamo in anticipo tutta la pratica." },
   { q: "Quanto costa l'e-Visa sahariano?", a: "Il documento di autorizzazione al visto costa 40 €. La preparazione di tutti i documenti richiesti è completamente gratuita da parte nostra. All'arrivo si paga alle autorità una tassa separata per la vignetta/il timbro del visto — l'importo dipende dalla vostra nazionalità, e vi comunichiamo la cifra prima della partenza." },
+  { q: "Posso ottenere il visto all'arrivo per Djanet e il Tassili n'Ajjer?", a: "Sì — Djanet è la porta d'accesso al Parco Nazionale del Tassili n'Ajjer e al Tadrart Rouge, ed è una delle wilaya del sud previste da questa via. La condizione è viaggiare con un programma organizzato da un operatore algerino autorizzato: prepariamo l'autorizzazione in anticipo e il visto viene apposto all'arrivo. Comunicateci la vostra nazionalità e confermeremo l'idoneità prima della prenotazione." },
+  { q: "Su quali aeroporti del sud si atterra?", a: "Djanet–Tiska (DJG) per il Tassili n'Ajjer e il Tadrart Rouge, Tamanrasset (TMR) per l'Hoggar, Ghardaïa Noumérat (GHA) per la valle del M'Zab e Timimoun (TMX) per il Gourara. La maggior parte degli itinerari fa scalo ad Algeri e i voli interni sono inclusi nel programma." },
   { q: "Posso visitare anche il nord, o solo il deserto?", a: "Entrambi. Con il nostro supporto un unico viaggio può combinare nord e sud, a condizione che circa metà del viaggio si svolga in uno stato sahariano (wilaya). Costruiamo l'itinerario in modo che sia idoneo." },
   { q: "Il documento di autorizzazione è ufficiale e verificabile?", a: "Sì. Riporta un codice QR che può essere verificato sul portale del Ministero dell'Interno algerino. Il rilascio segue i canali ufficiali — noi siamo il vostro partner per la documentazione; il visto è rilasciato dalle autorità algerine." },
   { q: "Devo prenotare un tour completo per ottenerlo?", a: "Sì. L'autorizzazione e-Visa sahariana è disponibile quando prenotate con noi un programma completo — fa parte dell'organizzazione del vostro viaggio organizzato, non è un servizio a sé stante." },
@@ -68,6 +70,9 @@ const breadcrumb = {
 
       <h2>Via 2 — L'e-Visa sahariano (programmi organizzati nel deserto)</h2>
       <p>È la cosa più vicina a una via «online». Per un <strong>programma sahariano organizzato</strong>, prepariamo in anticipo un <strong>documento di autorizzazione al visto</strong> — senza alcuna visita al consolato — e la vignetta del visto viene rilasciata all'arrivo negli aeroporti d'accesso del sud. È <strong>aperto ai viaggiatori di qualsiasi nazionalità</strong>, ma solo per viaggi sahariani organizzati. <a href="#saharan-evisa">Ecco come funziona esattamente l'e-Visa sahariano ↓</a></p>
+
+      <h2>Quali zone dell'Algeria contano come «il sud»</h2>
+      <p>La via sahariana ruota attorno alle wilaya sahariane. Quelle che i nostri programmi utilizzano davvero sono <strong>Djanet</strong> — la porta del Parco Nazionale del <strong>Tassili n'Ajjer</strong> e del <strong>Tadrart Rouge</strong> —, <strong>Tamanrasset</strong> nell'Hoggar, <strong>Ghardaïa</strong> nella valle del M'Zab e <strong>Timimoun</strong> nel Gourara. Vi si arriva dagli aeroporti del sud che le servono: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> e <strong>Timimoun (TMX)</strong>, di norma con scalo ad Algeri. Se prenotate uno dei nostri <a href="/it/circuiti/">circuiti sahariani</a>, l'itinerario è già costruito per essere idoneo.</p>
 
       <h2>Come si inserisce la nostra assistenza visti</h2>
       <p>Qualunque sia la via che vi riguarda, prepariamo la documentazione che consolati e autorità si aspettano, gratuitamente con la prenotazione — vedete <a href="/it/assistenza-visto-algeria/">Assistenza visto</a> per il dettaglio completo e i documenti richiesti, e <a href="/it/visto-arrivo-algeria/">i requisiti per il visto algerino</a> per un confronto fianco a fianco delle due vie. Noi siamo il vostro partner per la documentazione; il visto lo rilascia il consolato o il governo.</p>
@@ -130,7 +135,7 @@ const breadcrumb = {
     <div class="sev-faq">
       <h3>e-Visa sahariano — risposte rapide</h3>
       <div class="faq">
-        {faqs.slice(0,5).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+        {faqs.slice(0,7).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </div>
     </div>
   </div></section>

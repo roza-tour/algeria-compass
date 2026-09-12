@@ -44,7 +44,7 @@
   --fs-sm:.95rem; --fs-xs:.86rem; --fs-eyebrow:.76rem;
 
   /* ---- Type: weights / line-height / tracking ---- */
-  --fw-body:500; --fw-medium:600; --fw-bold:700; --fw-display:800; --fw-display-heavy:900;
+  --fw-body:500; --fw-medium:600; --fw-bold:700; --fw-display:800; --fw-display-heavy:800;
   --lh-tight:1.2; --lh-body:1.7; --ls-eyebrow:.14em; --ls-wordmark:.04em;
 
   /* ---- Radius ---- */
