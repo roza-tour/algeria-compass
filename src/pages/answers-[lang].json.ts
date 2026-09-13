@@ -6,6 +6,11 @@ import { TOURS_IT } from '../data/tours-it';
 import { TOURS_ES } from '../data/tours-es';
 import { TOURS_DE } from '../data/tours-de';
 import { FAQ } from '../data/faq';
+import { QUESTIONS_FR } from '../data/questions-fr';
+import { QUESTIONS_IT } from '../data/questions-it';
+import { QUESTIONS_ES } from '../data/questions-es';
+import { QUESTIONS_DE } from '../data/questions-de';
+import { FAQ_I18N } from '../data/faq-i18n';
 import { LANGS, ROUTES, type Lang } from '../i18n';
 
 // Answer index for the on-site assistant (src/components/AskWidget.astro).
@@ -37,6 +42,10 @@ const clean = (s: unknown) =>
 
 const TOURS_BY_LANG: Record<Lang, Record<string, any> | null> = {
   en: null, fr: TOURS_FR, it: TOURS_IT, es: TOURS_ES, de: TOURS_DE,
+};
+
+const QUESTIONS_BY_LANG: Record<string, Record<string, { q: string; a: string; kf: [string, string][] }>> = {
+  fr: QUESTIONS_FR, it: QUESTIONS_IT, es: QUESTIONS_ES, de: QUESTIONS_DE,
 };
 
 // Kind labels shown as a chip beside each answer.
@@ -203,9 +212,49 @@ export const GET: APIRoute = async ({ params }) => {
     }
   }
 
-  // 2. English-only sources: the 44 dedicated question pages (whose
-  //    `shortAnswer` is written precisely to be the whole answer) and the
-  //    categorised site FAQ.
+  // 2. The 44 dedicated question pages, whose `shortAnswer` is written
+  //    precisely to be the whole answer. In English they come from the content
+  //    collection; the other four languages carry the same 44 questions in
+  //    src/data/questions-<lang>.ts, keyed by the same slugs. Their `u` points
+  //    at the English page, which is where the long-form answer lives — the
+  //    answer itself is in the visitor's language, which is what decides
+  //    whether they get helped or handed to WhatsApp.
+  if (lang !== 'en') {
+    const local = QUESTIONS_BY_LANG[lang];
+    for (const [slug, d] of Object.entries(local)) {
+      items.push({ q: clean(d.q), a: clean(d.a), u: `/questions/${slug}/`, k: KIND.question[lang] });
+      for (const [label, value] of d.kf || []) {
+        if (!label || !value) continue;
+        items.push({
+          q: `${clean(label)} — ${clean(d.q)}`,
+          a: clean(value),
+          u: `/questions/${slug}/`,
+          k: KIND.practical[lang],
+        });
+      }
+    }
+
+    // The categorised site FAQ, translated positionally (see faq-i18n.ts).
+    // Flatten faq.ts in the same order it was flattened when the translations
+    // were written, and refuse to ship a mismatch: pairing answer N with
+    // question N+1 would put the cancellation policy under a different
+    // question, which is worse than having no French FAQ at all.
+    const flat = FAQ.flatMap(c => c.items);
+    const tr = FAQ_I18N[lang] || [];
+    if (tr.length !== flat.length) {
+      throw new Error(
+        `faq-i18n.ts is out of step with faq.ts for "${lang}": ` +
+        `${tr.length} translations for ${flat.length} questions. ` +
+        `Add or remove the matching entry in src/data/faq-i18n.ts.`
+      );
+    }
+    flat.forEach((f, i) => {
+      const [q, a] = tr[i];
+      if (!q || !a) return;
+      items.push({ q: clean(q), a: clean(a), u: f.href || '/questions/', k: KIND.faq[lang] });
+    });
+  }
+
   if (lang === 'en') {
     const questions = await getCollection('question');
     for (const entry of questions) {

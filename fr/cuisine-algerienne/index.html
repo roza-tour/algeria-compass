@@ -397,6 +397,15 @@ La cuisine algérienne mêle traditions <strong>berbère, arabe, ottomane et mé
       if (/['\u2019]/.test(w)) {
         var bare = w.replace(/['\u2019]/g, '');
         if (bare.length > 1 && bare !== w && STOP.indexOf(' ' + bare + ' ') === -1) out.push(bare);
+        // French and Italian elision: the site writes "l'eau", "d'Alger",
+        // "dell'Hamma", but a visitor types "eau", "Alger", "Hamma". Index the
+        // noun on its own too \u2014 without this, "puis-je boire l eau du robinet"
+        // matched nothing at all, because "eau" and "l'eau" were different
+        // words. Only a short prefix counts as an article, so "aujourd'hui"
+        // does not turn into "hui".
+        var cut = w.split(/['\u2019]/);
+        if (cut.length === 2 && cut[0].length <= 3 && cut[1].length > 1
+            && STOP.indexOf(' ' + cut[1] + ' ') === -1) out.push(cut[1]);
       }
     });
     return out;
@@ -462,30 +471,52 @@ La cuisine algérienne mêle traditions <strong>berbère, arabe, ottomane et mé
     var a = (data.syn || {})[w];
     return a ? list.indexOf(a) !== -1 : false;
   }
-  function score(qt, it) {
+  function inQuery(qset, w) {
+    if (qset[w]) return true;
+    var a = (data.syn || {})[w];
+    return a ? !!qset[a] : false;
+  }
+
+  function score(qt, qset, it) {
     var s = 0, mass = 0;
     for (var k = 0; k < qt.length; k++) {
       var w = qt[k], g = idfOf(w);
       if (has(it._q, w)) { s += g * 3; mass += g; }   // hit in the question line counts most
       else if (has(it._a, w)) { s += g; mass += g; }
     }
-    return { s: s, mass: mass };
+    // How much of the INDEXED question the visitor's words cover — the mirror
+    // of the score above, which measures how much of the QUERY we matched.
+    // Used only for confidence, not for ranking: as a ranking multiplier it
+    // favoured short index entries (a four-word "Good to know" label beat the
+    // full answer it belongs to) and measurably made results worse, so it
+    // stays out of the sort.
+    var iq = it._q, cov = 0;
+    for (var j = 0; j < iq.length; j++) if (inQuery(qset, iq[j])) cov++;
+    var qcov = iq.length ? cov / iq.length : 0;
+    return { s: s, mass: mass, qcov: qcov };
   }
 
   function search(q) {
     var qt = toks(q);
     if (!qt.length) return [];
-    var qMass = 0, i;
-    for (i = 0; i < qt.length; i++) qMass += idfOf(qt[i]);
+    var qMass = 0, i, qset = Object.create(null);
+    for (i = 0; i < qt.length; i++) { qMass += idfOf(qt[i]); qset[qt[i]] = 1; }
     // An answer must carry most of what was asked, not one incidental word.
     // Without this gate "can I bring my pet iguana to the moon" matched a
     // packing list on the single word "bring" and answered it confidently.
     var need = qt.length === 1 ? 0.9 : 0.55;
     var out = [];
     for (i = 0; i < data.items.length; i++) {
-      var r = score(qt, data.items[i]);
+      var r = score(qt, qset, data.items[i]);
       var ratio = r.mass / qMass;
-      if (r.s > 0 && ratio >= need) out.push({ s: r.s, r: ratio, it: data.items[i] });
+      // Confidence is the better of the two readings. A visitor who types
+      // "puis-je boire l'eau du robinet" has asked our published question
+      // almost word for word, but `puis` is a word the site has never
+      // published, so query-coverage alone dragged a perfect match below the
+      // caveat line and we told them it was only the closest thing we had.
+      if (r.s > 0 && ratio >= need) {
+        out.push({ s: r.s, r: Math.max(ratio, r.qcov), it: data.items[i] });
+      }
     }
     out.sort(function (a, b) { return b.s - a.s; });
     return out.slice(0, 4);

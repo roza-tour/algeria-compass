@@ -68,8 +68,11 @@ const schema = [{
         <li><a href="/it/quando-andare-algeria/">Quando andare in Algeria</a></li>
         <li><a href="/it/sahara-algeria/">Il Sahara algerino</a></li>
       </ul>
+      {/* Underlined explicitly: colour alone is not a distinguishable cue for a
+          link inside a paragraph (WCAG 1.4.1), and this <p> sets its own inline
+          colour, which the site-wide in-prose underline rule does not reach. */}
       <p style="margin-top:1rem;color:var(--text-l)">
-        Vedete anche le <a href="/it/destinazioni/">destinazioni</a> — i sette siti UNESCO e le città che
+        Vedete anche le <a href="/it/destinazioni/" style="text-decoration:underline;text-underline-offset:2px">destinazioni</a> — i sette siti UNESCO e le città che
         fanno da base a un viaggio.
       </p>
     </div>
