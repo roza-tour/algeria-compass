@@ -80,8 +80,8 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "day": 3,
-        "title": "Bögen, Gravuren und große Dünen",
-        "body": "Ein Tag zwischen Naturbögen, Felskunststätten und Dünenzügen, dem Licht und den Funden folgend.",
+        "title": "Dünen und Felskunst",
+        "body": "Erkundung der großen Dünen und der alten Gravuren zu Fuß, eine Teepause, Sonnenuntergang und Übernachtung im Camp.",
         "stops": [
           {
             "place": "Die großen Dünen zu Fuß",
@@ -99,8 +99,8 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "day": 4,
-        "title": "Rückweg nach Djanet",
-        "body": "Letzter Morgen in der Wüste und Rückfahrt zur Oase, mit einem letzten Camp oder einer Nacht in Djanet.",
+        "title": "Tief in der Wüste",
+        "body": "Weiter hinein in die abgelegene Wüste, in die Stille und die weiten Horizonte der Sahara; letzte Nacht im Camp.",
         "stops": [
           {
             "place": "Abgelegene Ergs & Plateaus",
@@ -118,8 +118,8 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "day": 5,
-        "title": "Abreise",
-        "body": "Freie Zeit in Djanet je nach Flugzeit, dann Transfer zum Flughafen.",
+        "title": "Rückkehr nach Djanet",
+        "body": "Frühstück in der Wüste und eine landschaftlich reizvolle Rückfahrt nach Djanet, wo die Reise endet.",
         "stops": [
           {
             "place": "Frühstück im Camp",
@@ -208,8 +208,8 @@ export const TOURS_DE: Record<string, TourDe> = {
     "itinerary": [
       {
         "day": 1,
-        "title": "Ankunft in Ghardaïa",
-        "body": "Empfang und Unterkunft, dann erste Annäherung an Ghardaïa: die steilen Gassen, der Marktplatz und der Blick über das Tal bei Sonnenuntergang.",
+        "title": "Ghardaïa und die Oase",
+        "body": "Empfang am Flughafen Ghardaïa und Transfer zur Unterkunft. Erkundung der steilen Gassen der Stadt und ihres lebhaften Marktes, Mittagessen in einem restaurierten Altstadthaus, danach der Palmenhain und die Foggara-Kanäle. Abendessen und Übernachtung in Ghardaïa.",
         "stops": [
           {
             "place": "Der Markt von Ghardaïa",
@@ -227,8 +227,8 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "day": 2,
-        "title": "Die Städte des M'Zab",
-        "body": "Ein Tag zwischen Beni Isguen, El Atteuf und Melika: Moscheen, Mauern, Friedhöfe und Palmenhaine, erklärt von einem mozabitischen Guide.",
+        "title": "Beni Isguen und Wüstensafari",
+        "body": "Vormittag im befestigten Dorf Beni Isguen und in der Ökostadt Tafilelt, mit Panoramablicken über das Tal. Nach einem traditionellen Mittagessen eine 4×4-Safari Richtung El Guerrara und Abendessen in der offenen Wüste unter den Sternen.",
         "stops": [
           {
             "place": "Beni Isguen",
@@ -246,8 +246,8 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "day": 3,
-        "title": "Palmenhaine, Foggaras und Wüste",
-        "body": "Vormittag in den Gärten und im Wassersystem des Tals, danach Ausfahrt im 4×4 in die Wüste vor der Abreise.",
+        "title": "Abreise",
+        "body": "Ein gemütliches Frühstück, dann der Transfer zurück zum Flughafen — das Ende einer Reise durch das saharische Herz Algeriens.",
         "stops": [
           {
             "place": "Frühstück auf der Terrasse",
@@ -337,11 +337,11 @@ export const TOURS_DE: Record<string, TourDe> = {
       {
         "day": 1,
         "title": "Ankunft in Algier",
-        "body": "Empfang am Flughafen Houari Boumediene und Unterkunft. Erster Eindruck von Bucht und Uferpromenade.",
+        "body": "Empfang am Flughafen Houari Boumediene und privater Transfer zu Ihrem Hotel. Ankommen und ausruhen; Übernachtung in Algier.",
         "stops": [
           {
             "place": "Flughafen Houari Boumediene",
-            "text": "Empfang direkt im Terminal durch Ihren Guide und Weiterfahrt ohne Umwege — keine Warteschlangen am Taxistand, kein Verhandeln in der ersten Stunde im Land."
+            "text": "Empfang bei Ankunft und Transfer in ein Hotel im Stadtzentrum — organisatorisch bereits alles erledigt."
           },
           {
             "place": "Die Küstenstraße nach Algier",
@@ -355,77 +355,77 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "day": 2,
-        "title": "Algier und die Kasbah",
-        "body": "Ein Tag in der Hauptstadt: die Kasbah, die kolonialen Boulevards, die Große Moschee und die Aussichtspunkte über die Bucht.",
+        "title": "Tipaza und Cherchell",
+        "body": "Nach dem Frühstück entlang der Küste zum Königlichen Mausoleum von Mauretanien und zu den römischen Ruinen von Tipaza. Mittagessen am Mittelmeer, danach das Archäologische Museum von Cherchell. Rückkehr zur Übernachtung nach Algier.",
         "stops": [
           {
-            "place": "Die Kasbah von Algier",
-            "text": "Die von der UNESCO gelistete osmanische Zitadelle, ein steiles weißes Labyrinth aus Palästen, Moscheen und Innenhofhäusern, das sich über der Bucht erhebt."
+            "place": "Das Königliche Mausoleum von Mauretanien",
+            "text": "Ein gewaltiger steinerner Rundbau auf einem Hügel über dem Meer — die Grabstätte des Berberkönigs Juba II. und Kleopatra Selenes, der Tochter Kleopatras von Ägypten, aus dem 1. Jahrhundert v. Chr."
           },
           {
-            "place": "Die kolonialen Boulevards",
-            "text": "Breite Alleen im französischen Kolonialstil mit Häuserfronten aus der Belle Époque, die das Zentrum von Algier prägen."
+            "place": "Das römische Tipaza",
+            "text": "Eine zum UNESCO-Welterbe zählende römische Hafenstadt entlang des Mittelmeers — Basiliken, Thermen und ein Theater, dem die Wellen zu Füßen liegen."
           },
           {
-            "place": "Die Große Moschee von Algier",
-            "text": "Die Djamaa el-Kebir, errichtet im 11. Jahrhundert, ist die älteste Moschee der Stadt und liegt am Rand der Kasbah."
+            "place": "Cherchell (das antike Caesarea)",
+            "text": "Die einstige Hauptstadt Juba II., deren Museum einige der schönsten römischen und griechischen Mosaiken und Statuen Algeriens bewahrt."
           }
         ]
       },
       {
         "day": 3,
-        "title": "Tipaza und Cherchell",
-        "body": "Westwärts an der Küste: die römischen Ruinen von Tipaza am Meer, das Königliche Mausoleum von Mauretanien und das Museum von Cherchell.",
+        "title": "Algier und Flug nach Ghardaïa",
+        "body": "Besuch der UNESCO-Kasbah, des Bardo-Museums und des Märtyrerdenkmals. Am Abend Flug nach Süden zur Übernachtung in Ghardaïa.",
         "stops": [
           {
-            "place": "Die römischen Ruinen von Tipaza",
-            "text": "Eine von der UNESCO gelistete römische Hafenstadt am Mittelmeer — Basiliken, Thermen und ein Theater, dem die Wellen zu Füßen liegen."
+            "place": "Die Kasbah von Algier",
+            "text": "Die zum UNESCO-Welterbe zählende osmanische Zitadelle — ein steiles, weißes Labyrinth aus Palästen, Moscheen und Hofhäusern, das sich über der Bucht erhebt."
           },
           {
-            "place": "Das Königliche Mausoleum von Mauretanien",
-            "text": "Eine gewaltige steinerne Trommel auf einem Hügel über dem Meer — das Grabmal des Berberkönigs Juba II. und Kleopatra Selenes, der Tochter Kleopatras von Ägypten, aus dem 1. Jahrhundert v. Chr."
+            "place": "Das Bardo-Museum",
+            "text": "Vor- und Frühgeschichte sowie Völkerkunde in einer eleganten maurischen Villa, von Abgüssen saharischer Felskunst bis zu Silberschmuck und dem Alltag Algeriens."
           },
           {
-            "place": "Das Museum von Cherchell",
-            "text": "Die einstige Hauptstadt Juba II. beherbergt in ihrem Museum einige der schönsten römischen und griechischen Mosaiken und Statuen Algeriens."
+            "place": "Das Märtyrerdenkmal (Maqam Echahid)",
+            "text": "Drei aufragende Betonpalmwedel, 1982 über der Stadt errichtet, zum Gedenken an die Gefallenen des Unabhängigkeitskrieges."
           }
         ]
       },
       {
         "day": 4,
-        "title": "Flug nach Ghardaïa und ins M'Zab",
-        "body": "Flug in den Süden und Eintritt ins M'Zab-Tal: Ghardaïa, sein Markt und seine amphitheatralischen Gassen.",
+        "title": "Sahara rund um Ghardaïa",
+        "body": "Ein Wüstentag rund um Ghardaïa mit einem traditionellen Mittagessen und Zeit in den Dünen. Übernachtung in Ghardaïa.",
         "stops": [
           {
-            "place": "Der Flug nach Ghardaïa",
-            "text": "Ein kurzer Inlandsflug bringt Sie von Algier über die Hochebenen direkt an den Rand der Sahara ins M'Zab-Tal."
+            "place": "Die Palmenhaine & Foggaras",
+            "text": "Gärten, seit tausend Jahren durch die Foggara bewässert — unterirdische Kanäle, die das Leben im trockenen Tal erst möglich machen."
           },
           {
-            "place": "Die Altstadt von Ghardaïa",
-            "text": "Die von der UNESCO gelistete Stadt steigt amphitheatralisch in engen, ockerfarbenen Gassen zur Moschee und ihrem pyramidenförmigen Minarett empor."
+            "place": "Ein traditionelles Sahara-Mittagessen",
+            "text": "Taguella — im heißen Sand gebackenes Fladenbrot — mit Grillfleisch und Minztee, unter einem Sonnensegel am Fuß der Düne."
           },
           {
-            "place": "Der Markt von Ghardaïa",
-            "text": "Der abgestufte Arkadenplatz unter dem pyramidenförmigen Minarett ist seit tausend Jahren das pulsierende Herz des M'Zab-Tals."
+            "place": "Die Dünen bei Ghardaïa",
+            "text": "Ein Nachmittag im Sand am Rand der Sahara, mit einem traditionellen Mittagessen unter dem Wüstenhimmel."
           }
         ]
       },
       {
         "day": 5,
-        "title": "Beni Isguen und Abreise",
-        "body": "Besuch der heiligen Stadt Beni Isguen mit lokalem Guide, dann Rückreise und Abflug.",
+        "title": "Das M'Zab-Tal und Rückreise",
+        "body": "Besuch von El Atteuf und des Sidi-Brahim-Mausoleums, Mittagessen in Ghardaïa und Rückflug nach Algier.",
         "stops": [
           {
-            "place": "Die heilige Stadt Beni Isguen",
-            "text": "Die heilige Stadt des M'Zab wird durch ihr altes Stadttor betreten, wo Kleidung und Fotografieren den strengen lokalen Regeln folgen."
+            "place": "El Atteuf",
+            "text": "Die älteste der fünf Städte des M'Zab, deren schlichte Sidi-Brahim-Moschee Le Corbusier so beeindruckte, dass sie die moderne Architektur mitprägte."
           },
           {
-            "place": "Die Rückreise nach Algier",
-            "text": "Rückflug von Ghardaïa in die Hauptstadt Algier zum Abschluss der Rundreise."
+            "place": "Das Sidi-Brahim-Mausoleum",
+            "text": "Weiß gekalkt und von Hand geformt, fast skulptural — die kubistische Klarheit, die europäische Architekten ins M'Zab zog."
           },
           {
-            "place": "Abflug vom Flughafen Houari Boumediene",
-            "text": "Transfer zum Flughafen Houari Boumediene für den internationalen Anschlussflug nach Hause."
+            "place": "Der Markt von Ghardaïa",
+            "text": "Der terrassierte Arkadenplatz unterhalb des pyramidenförmigen Minaretts — seit tausend Jahren das pulsierende Herz des M'Zab."
           }
         ]
       }
@@ -503,7 +503,7 @@ export const TOURS_DE: Record<string, TourDe> = {
       {
         "day": 1,
         "title": "Ankunft in Timimoun",
-        "body": "Empfang und Unterkunft, erster Rundgang durch die rote Stadt und Sonnenuntergang über Palmenhain und Salzsenke.",
+        "body": "Empfang in Timimoun und Transfer zum Gästehaus Ti Massin, mit Zeit zum Ankommen vor einem traditionellen Abendessen und der Übernachtung.",
         "stops": [
           {
             "place": "Timimoun",
@@ -521,8 +521,8 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "day": 2,
-        "title": "Die Ksour des Gourara",
-        "body": "Ein Tag in den befestigten Dörfern rund um die Oase: überdachte Gassen, Lehmmoscheen und das Leben in den Gärten.",
+        "title": "Charouine — Ksour und Palmenhaine",
+        "body": "Ausflug nach Charouine zum Ksar Guentour und seinem Palmenhain, Mittagessen im Freien, dann der Ksar und die Oase von Tala, mit Rückkehr zum Sonnenuntergang über den Dünen und einem festlichen Abend mit Musik.",
         "stops": [
           {
             "place": "Ksar Guentour & sein Palmenhain",
@@ -540,8 +540,8 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "day": 3,
-        "title": "Foggaras und Palmenhaine",
-        "body": "Das System der Foggaras und die Gärten, die sie bewässern, gezeigt von den Männern, die sie bis heute instand halten.",
+        "title": "Aghlad und Ouled Saïd — die Foggaras",
+        "body": "Besuch der Gärten und der alten Foggara-Kanäle von Ouled Saïd, ein Picknick mit Tee im Palmenhain von Beni Aïssi und seinem Ksar, und Sonnenuntergang über den großen Dünen.",
         "stops": [
           {
             "place": "Die Foggaras von Ouled Saïd",
@@ -559,8 +559,8 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "day": 4,
-        "title": "Der Große Erg und das Camp",
-        "body": "Ausfahrt im 4×4 zu den großen Dünen, Sonnenuntergang und Nacht im Wüstencamp.",
+        "title": "Wüstenabenteuer und Abendessen unter Sternen",
+        "body": "Am Vormittag die Stätte Ighzer, am Nachmittag eine 4×4-Safari über goldene Dünen zu einem Panorama-Sonnenuntergang, gefolgt von einem „Merdoum“-Abendessen im Wüstencamp unter den Sternen.",
         "stops": [
           {
             "place": "Die Stätte von Ighzer",
@@ -578,8 +578,8 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "day": 5,
-        "title": "Abreise",
-        "body": "Rückkehr nach Timimoun und Transfer zum Flughafen.",
+        "title": "Markt und Abreise",
+        "body": "Besuch des traditionellen Marktes von Timimoun mit Gewürzen und Kunsthandwerk, danach der Rücktransfer Richtung Algier.",
         "stops": [
           {
             "place": "Der Markt von Timimoun",
@@ -668,190 +668,190 @@ export const TOURS_DE: Record<string, TourDe> = {
       {
         "day": 1,
         "title": "Ankunft in Algier",
-        "body": "Empfang und Unterkunft in der Hauptstadt, erster Kontakt mit Bucht und Uferpromenade.",
+        "body": "Empfang am Flughafen, Check-in im Hotel und ein Willkommensessen.",
         "stops": [
           {
             "place": "Flughafen Houari Boumediene",
-            "text": "Empfang in der Ankunftshalle und Fahrt in die Stadt — der organisatorische Teil des ersten Tages wird für Sie erledigt."
+            "text": "Empfang in der Ankunftshalle und Fahrt in die Stadt — der organisatorische Teil des ersten Tages ist bereits erledigt."
           },
           {
             "place": "Die Bucht von Algier",
-            "text": "Die Fahrt entlang der Uferpromenade, während sich die weiße Hauptstadt in Terrassen über dem Hafen erhebt."
+            "text": "Die Fahrt entlang der Küste, während sich die weiße Hauptstadt stufenweise über dem Hafen erhebt."
           },
           {
             "place": "Ein Willkommensessen",
-            "text": "Ein erster algerischer Tisch — Chorba, Fisch aus der Bucht oder ein Hühnchen-Tajine — bei dem die kommenden zehn Tage besprochen werden."
+            "text": "Eine erste algerische Tafel — Chorba, Fisch aus der Bucht oder ein Hühnertajine — bei der die kommenden zehn Tage besprochen werden."
           }
         ]
       },
       {
         "day": 2,
-        "title": "Algier und die Kasbah",
-        "body": "Die UNESCO-Kasbah, die kolonialen Boulevards, die Große Moschee und die Museen.",
+        "title": "Tipaza und Cherchell",
+        "body": "Ein Küstentag bei den römischen Ruinen von Tipaza — Amphitheater und Mausoleum — mit dem Museum von Cherchell und Blick aufs Meer.",
         "stops": [
           {
-            "place": "Die Kasbah von Algier",
-            "text": "Die von der UNESCO gelistete osmanische Zitadelle, ein steiles weißes Labyrinth aus Palästen, Moscheen und Innenhofhäusern, das sich über der Bucht erhebt."
+            "place": "Das römische Tipaza",
+            "text": "Eine zum UNESCO-Welterbe zählende römische Hafenstadt entlang des Mittelmeers — Basiliken, Thermen und ein Theater, dem die Wellen zu Füßen liegen."
           },
           {
-            "place": "Die Große Moschee von Algier",
-            "text": "Die Djamaa el-Kebir, errichtet im 11. Jahrhundert, ist die älteste Moschee der Stadt und liegt am Rand der Kasbah."
+            "place": "Das Königliche Mausoleum von Mauretanien",
+            "text": "Ein gewaltiger steinerner Rundbau auf einem Hügel über dem Meer — die Grabstätte des Berberkönigs Juba II. und Kleopatra Selenes, der Tochter Kleopatras von Ägypten, aus dem 1. Jahrhundert v. Chr."
           },
           {
-            "place": "Das Nationale Armeemuseum",
-            "text": "Algeriens lange Militärgeschichte von der Antike bis 1962, direkt neben dem Märtyrer-Denkmal gelegen."
+            "place": "Cherchell (das antike Caesarea)",
+            "text": "Die einstige Hauptstadt Juba II., deren Museum einige der schönsten römischen und griechischen Mosaiken und Statuen Algeriens bewahrt."
           }
         ]
       },
       {
         "day": 3,
-        "title": "Tipaza und Cherchell",
-        "body": "Die römische Küste westlich von Algier: Ruinen am Meer, Königliches Mausoleum und Museum von Cherchell.",
+        "title": "Historisches Algier",
+        "body": "Die Kasbah, das Märtyrerdenkmal und das Nationale Armeemuseum.",
         "stops": [
           {
-            "place": "Die römischen Ruinen von Tipaza",
-            "text": "Eine von der UNESCO gelistete römische Hafenstadt am Mittelmeer — Basiliken, Thermen und ein Theater, dem die Wellen zu Füßen liegen."
+            "place": "Die Kasbah von Algier",
+            "text": "Die zum UNESCO-Welterbe zählende osmanische Zitadelle — ein steiles, weißes Labyrinth aus Palästen, Moscheen und Hofhäusern, das sich über der Bucht erhebt."
           },
           {
-            "place": "Das Königliche Mausoleum von Mauretanien",
-            "text": "Eine gewaltige steinerne Trommel auf einem Hügel über dem Meer — das Grabmal des Berberkönigs Juba II. und Kleopatra Selenes, der Tochter Kleopatras von Ägypten, aus dem 1. Jahrhundert v. Chr."
+            "place": "Das Märtyrerdenkmal (Maqam Echahid)",
+            "text": "Drei aufragende Betonpalmwedel, 1982 über der Stadt errichtet, zum Gedenken an die Gefallenen des Unabhängigkeitskrieges."
           },
           {
-            "place": "Das Museum von Cherchell",
-            "text": "Die einstige Hauptstadt Juba II. beherbergt in ihrem Museum einige der schönsten römischen und griechischen Mosaiken und Statuen Algeriens."
+            "place": "Das Nationale Armeemuseum",
+            "text": "Algeriens lange Militärgeschichte von der Antike bis 1962, gleich neben dem Märtyrerdenkmal."
           }
         ]
       },
       {
         "day": 4,
-        "title": "Nach Osten",
-        "body": "Fahrt in den Osten über die Hochebenen, durch die Landschaften der Kabylei und die Getreideebenen.",
+        "title": "Fahrt nach Sétif",
+        "body": "Fahrt nach Osten und Besuch der römischen UNESCO-Ruinen von Djémila.",
         "stops": [
           {
-            "place": "Die Hochebenen",
-            "text": "Die Fahrt führt zunächst über die weiten Hochebenen im Landesinneren, mit ihren Steppenlandschaften und Schafherden."
+            "place": "Djémila (Cuicul)",
+            "text": "Eine römische UNESCO-Stadt in grünen Bergen, hervorragend erhalten — Forum, Tempel und ein steil angelegtes Theater."
           },
           {
-            "place": "Die Landschaften der Kabylei",
-            "text": "Am Horizont erscheinen die grünen Berge und Dörfer der Kabylei, der Heimat der Berber im Norden Algeriens."
+            "place": "Die Mosaiken von Djémila",
+            "text": "Mosaiken vor Ort, zu den prächtigsten der römischen Welt zählend, im Museum der Ausgrabungsstätte."
           },
           {
-            "place": "Die Getreideebenen",
-            "text": "Weite Getreideebenen kündigen die Nähe der fruchtbaren Ostregion um Sétif und Constantine an."
+            "place": "Sétif und der Brunnen Ain El Fouara",
+            "text": "Die Hochplateau-Stadt auf 1.100 m und ihr berühmter Marmorbrunnen von 1898, wo übernachtet wird."
           }
         ]
       },
       {
         "day": 5,
-        "title": "Djémila",
-        "body": "Die römische Stadt Djémila in ihrem Hügelkessel — eine der besterhaltenen Stätten Nordafrikas.",
+        "title": "Constantine",
+        "body": "Stadtrundgang in Constantine — seine Hängebrücken, die Moschee und der Palast.",
         "stops": [
           {
-            "place": "Die römische Stadt Djémila",
-            "text": "Eine von der UNESCO gelistete römische Stadt in grünen Bergen, hervorragend erhalten — mit Forum, Tempeln und einem steilen Theater."
+            "place": "Die Brücken von Constantine",
+            "text": "Die „Stadt der Brücken“ überspannt die schwindelerregende Rhumel-Schlucht, hoch über der die Fußgängerbrücke Sidi M'Cid gespannt ist."
           },
           {
-            "place": "Die Mosaiken von Djémila",
-            "text": "Die Mosaiken im Museum vor Ort zählen zu den reichsten der römischen Welt."
+            "place": "Die Emir-Abdelkader-Moschee",
+            "text": "Eine der größten Moscheen Afrikas, deren Zwillingsminarette ein modernes Wahrzeichen Constantines sind."
           },
           {
-            "place": "Der Hügelkessel von Djémila",
-            "text": "Die Stadt liegt eingebettet zwischen zwei Flusstälern auf über 900 Metern Höhe, was sie zu einer der besterhaltenen Ruinenstädte Nordafrikas macht."
+            "place": "Der Palast von Ahmed Bey",
+            "text": "Der osmanische Palast des letzten Bey aus dem frühen 19. Jahrhundert, mit bemalten Galerien und schattigen Innenhöfen."
           }
         ]
       },
       {
         "day": 6,
-        "title": "Constantine",
-        "body": "Die Brückenstadt: die Rhumel-Schluchten, der Ahmed-Bey-Palast, das Cirta-Museum und die Altstadt.",
+        "title": "Batna und Timgad",
+        "body": "Fahrt nach Batna und Besuch der römischen UNESCO-Stadt Timgad.",
         "stops": [
           {
-            "place": "Die Rhumel-Schluchten",
-            "text": "Die Stadt der Brücken überspannt die schwindelerregende Rhumel-Schlucht, hoch über der die Fußgängerbrücke Sidi M'Cid hängt."
+            "place": "Timgad",
+            "text": "Trajans schachbrettartig angelegte Kolonie aus dem Jahr 100 n. Chr. — das „Pompeji des Aurès“, ausgebreitet über die offene Ebene."
           },
           {
-            "place": "Der Ahmed-Bey-Palast",
-            "text": "Der osmanische Palast des letzten Bey aus dem frühen 19. Jahrhundert mit bemalten Galerien und schattigen Innenhöfen."
+            "place": "Der Trajansbogen",
+            "text": "Der Triumphbogen, der Timgads Hauptstraße einrahmt — die unverwechselbare Silhouette der Stadt."
           },
           {
-            "place": "Das Cirta-Museum",
-            "text": "Das archäologische Museum der Stadt zeigt Funde von der numidischen bis zur römischen Zeit, benannt nach dem antiken Namen Constantines."
+            "place": "Die Bibliothek & das Theater von Timgad",
+            "text": "Die Ruinen einer seltenen römischen öffentlichen Bibliothek und eines Theaters mit 3.500 Plätzen, das bis heute genutzt wird."
           }
         ]
       },
       {
         "day": 7,
-        "title": "Timgad",
-        "body": "Timgad, von Trajan gegründete römische Kolonie und die vollständigste erhaltene Schachbrettstadt.",
+        "title": "Fahrt nach Ghardaïa",
+        "body": "Fahrt nach Süden ins M'Zab-Tal und Bezug eines Gästehauses.",
         "stops": [
           {
-            "place": "Timgad",
-            "text": "Die im Jahr 100 n. Chr. von Trajan gegründete Kolonie im Schachbrettmuster — das Pompeji des Aurès, ausgebreitet über die offene Ebene."
+            "place": "Die Straße südwärts über den Atlas",
+            "text": "Aus dem Tell hinaus, über die Hochsteppe und hinab in die Vorsahara — die Fahrt, auf der Algerien das Klima wechselt."
           },
           {
-            "place": "Der Trajansbogen",
-            "text": "Der Triumphbogen rahmt die Hauptstraße Timgads und bildet die berühmte Silhouette der Stadt."
+            "place": "Ghardaïa",
+            "text": "Die Hauptstadt des M'Zab, eine zum UNESCO-Welterbe zählende Häuserpyramide, die bis zur Moschee und dem Minarett auf ihrer Spitze aufsteigt."
           },
           {
-            "place": "Bibliothek und Theater von Timgad",
-            "text": "Die Ruinen einer seltenen römischen öffentlichen Bibliothek und eines Theaters mit 3.500 Plätzen, das noch heute genutzt wird."
+            "place": "Ein traditionelles Gästehaus im M'Zab",
+            "text": "Check-in in einem restaurierten mosabitischen Haus — dicke Mauern, ein Innenhof und eine Dachterrasse — mit einem freien Abend."
           }
         ]
       },
       {
         "day": 8,
-        "title": "Richtung Sahara",
-        "body": "Fahrt nach Süden und Eintritt in die Welt der Oasen.",
+        "title": "Kulturtag in Ghardaïa",
+        "body": "Die befestigten Dörfer, traditionellen Moscheen, Souks und die lokale Küche des M'Zab.",
         "stops": [
           {
-            "place": "Die Straße nach Süden über den Atlas",
-            "text": "Aus dem Tell hinaus, über die Hochsteppe und hinunter in die Vorsahara — die Fahrt, auf der sich Algeriens Klima spürbar verändert."
+            "place": "Beni Isguen",
+            "text": "Die heilige ummauerte Stadt des M'Zab, betreten durch ihr altes Tor, wo Kleidung und Fotografieren den örtlichen Sitten folgen."
           },
           {
-            "place": "Ghardaïa",
-            "text": "Die Hauptstadt des M'Zab, eine von der UNESCO gelistete Pyramide aus Häusern, die zur Moschee und ihrem Minarett auf der Spitze emporsteigt."
+            "place": "El Atteuf",
+            "text": "Die älteste der fünf Städte des M'Zab, deren schlichte Sidi-Brahim-Moschee Le Corbusier so beeindruckte, dass sie die moderne Architektur mitprägte."
           },
           {
-            "place": "Ein traditionelles Gästehaus im M'Zab",
-            "text": "Check-in in einem restaurierten mozabitischen Haus — dicke Mauern, ein Innenhof und eine Dachterrasse mit Blick über das Tal."
+            "place": "Der Markt von Ghardaïa",
+            "text": "Der terrassierte Arkadenplatz unterhalb des pyramidenförmigen Minaretts — seit tausend Jahren das pulsierende Herz des M'Zab."
           }
         ]
       },
       {
         "day": 9,
-        "title": "Sahara-Tag",
-        "body": "Palmenhaine, Ksour und Dünen, mit einem Abend in der Wüste.",
+        "title": "Rückkehr nach Algier",
+        "body": "Rückfahrt in die Hauptstadt, mit dem Botanischen Garten von Hamma, dem Bardo-Museum und Notre-Dame d'Afrique.",
         "stops": [
           {
-            "place": "Die Palmenhaine des M'Zab",
-            "text": "Jahrhundertealte Palmengärten, die durch unterirdische Foggara-Kanäle bewässert werden und das Leben im trockenen Tal erst möglich machen."
+            "place": "Der Botanische Garten von Hamma",
+            "text": "Der prachtvolle Jardin d'Essai aus dem 19. Jahrhundert, einer der schönsten botanischen Gärten Afrikas."
           },
           {
-            "place": "Der Ksar Beni Isguen",
-            "text": "Die heilige ummauerte Stadt des M'Zab wird durch ihr altes Tor betreten, wo Kleidung und Fotografieren strengen örtlichen Regeln folgen."
+            "place": "Das Bardo-Museum",
+            "text": "Vor- und Frühgeschichte sowie Völkerkunde in einer eleganten maurischen Villa, von Abgüssen saharischer Felskunst bis zu Silberschmuck und dem Alltag Algeriens."
           },
           {
-            "place": "Die Dünen am Rand der Sahara",
-            "text": "Ein Abend in den Dünen vor den Toren Ghardaïas, mit Blick auf den Sonnenuntergang über der Wüste."
+            "place": "Notre-Dame d'Afrique",
+            "text": "Eine Basilika aus dem 19. Jahrhundert — „Unsere Liebe Frau von Afrika“ — auf den Klippen über der Bucht, deren Inschrift Muslimen wie Christen gleichermaßen gilt."
           }
         ]
       },
       {
         "day": 10,
-        "title": "Rückkehr und Abreise",
-        "body": "Rückkehr nach Algier und Transfer zum Flughafen.",
+        "title": "Abreise",
+        "body": "Frühstück und Transfer zum Flughafen.",
         "stops": [
           {
-            "place": "Notre-Dame d'Afrique",
-            "text": "Eine Basilika aus dem 19. Jahrhundert, Unsere Liebe Frau von Afrika, auf den Klippen über der Bucht, deren Inschrift sich an Muslime und Christen gleichermaßen richtet."
+            "place": "Ein freier Vormittag in Algier",
+            "text": "Was auch immer die zehn Tage ausgelassen haben — der Jardin d'Essai, die Ketchaoua-Moschee oder einfach die Uferpromenade — je nach Ihrer Flugzeit."
           },
           {
             "place": "Letzte Einkäufe",
-            "text": "Kabylischer Silberschmuck, Tuareg-Lederwaren, Deglet-Nour-Datteln und Gebäck, auf der Rue Didouche Mourad oder in den Werkstätten der Kasbah."
+            "text": "Kabylischer Silberschmuck, Tuareg-Leder, Deglet-Nour-Datteln und Gebäck, in der Rue Didouche Mourad oder in den Werkstätten der Kasbah."
           },
           {
             "place": "Flughafen Houari Boumediene",
-            "text": "Der private Transfer zum Flughafen und Unterstützung beim Check-in vor dem Rückflug."
+            "text": "Der private Transfer und Unterstützung beim Check-in."
           }
         ]
       }

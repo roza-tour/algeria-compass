@@ -83,8 +83,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 3,
-        "title": "Arches, gravures et grandes dunes",
-        "body": "Journée entre arches naturelles, sites d'art rupestre et cordons dunaires, au rythme de la lumière et des découvertes.",
+        "title": "Dunes et art rupestre",
+        "body": "Exploration à pied des grandes dunes et des gravures anciennes, pause thé, coucher de soleil et nuit au campement.",
         "stops": [
           {
             "place": "Les grandes dunes à pied",
@@ -102,8 +102,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 4,
-        "title": "Retour vers Djanet",
-        "body": "Dernière matinée dans le désert et route de retour vers l'oasis, avec un dernier bivouac ou une nuit à Djanet.",
+        "title": "Au cœur du désert",
+        "body": "Progression plus loin dans le désert isolé, dans le silence et les vastes horizons du Sahara ; dernière nuit au campement.",
         "stops": [
           {
             "place": "Ergs et plateaux isolés",
@@ -121,8 +121,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 5,
-        "title": "Départ",
-        "body": "Temps libre à Djanet selon l'horaire de votre vol, puis transfert vers l'aéroport.",
+        "title": "Retour à Djanet",
+        "body": "Petit-déjeuner dans le désert puis route panoramique de retour vers Djanet, où s'achève le voyage.",
         "stops": [
           {
             "place": "Petit-déjeuner au campement",
@@ -211,8 +211,8 @@ export const TOURS_FR: Record<string, TourFr> = {
     "itinerary": [
       {
         "day": 1,
-        "title": "Arrivée à Ghardaïa",
-        "body": "Accueil et installation, puis première approche de Ghardaïa : les ruelles en pente, la place du marché et le point de vue sur la vallée au coucher du soleil.",
+        "title": "Ghardaïa et l'oasis",
+        "body": "Accueil à l'aéroport de Ghardaïa et transfert jusqu'à votre hébergement. Découverte des ruelles en pente de la ville et de son marché animé, déjeuner dans une maison de caractère restaurée, puis la palmeraie et les galeries des foggaras. Dîner et nuit à Ghardaïa.",
         "stops": [
           {
             "place": "Le marché de Ghardaïa",
@@ -230,8 +230,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 2,
-        "title": "Les cités du M'Zab",
-        "body": "Journée entre Beni Isguen, El Atteuf et Melika : mosquées, remparts, cimetières et palmeraies, avec les explications d'un guide mozabite.",
+        "title": "Beni Isguen et safari dans le désert",
+        "body": "Matinée dans le village fortifié de Beni Isguen et dans l'éco-cité de Tafilelt, avec les panoramas sur la vallée. Après un déjeuner traditionnel, safari en 4×4 vers El Guerrara et dîner en plein désert sous les étoiles.",
         "stops": [
           {
             "place": "Beni Isguen",
@@ -249,8 +249,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 3,
-        "title": "Palmeraies, foggaras et désert",
-        "body": "Matinée dans les jardins et le système hydraulique de la vallée, puis sortie en 4×4 dans le désert avant le départ.",
+        "title": "Départ",
+        "body": "Un petit-déjeuner sans hâte, puis le transfert vers l'aéroport — la fin d'un voyage au cœur saharien de l'Algérie.",
         "stops": [
           {
             "place": "Petit-déjeuner sur la terrasse",
@@ -340,7 +340,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       {
         "day": 1,
         "title": "Arrivée à Timimoun",
-        "body": "Accueil et installation, premier tour de la ville rouge et coucher de soleil sur la palmeraie et la sebkha.",
+        "body": "Accueil à Timimoun et transfert vers la maison d'hôtes Ti Massin, avec le temps de s'installer avant un dîner traditionnel et la nuit sur place.",
         "stops": [
           {
             "place": "Timimoun",
@@ -358,8 +358,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 2,
-        "title": "Les ksour du Gourara",
-        "body": "Journée dans les villages fortifiés autour de l'oasis : ruelles couvertes, mosquées de terre et vie des jardins.",
+        "title": "Charouine — ksour et palmeraies",
+        "body": "Excursion à Charouine pour le ksar Guentour et sa palmeraie, déjeuner en plein air, puis le ksar et l'oasis de Tala, avant un retour pour le coucher du soleil sur les dunes et une soirée festive en musique.",
         "stops": [
           {
             "place": "Le ksar Guentour et sa palmeraie",
@@ -377,8 +377,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 3,
-        "title": "Foggaras et palmeraies",
-        "body": "Découverte du système des foggaras et des jardins qu'elles irriguent, avec les hommes qui les entretiennent encore.",
+        "title": "Aghlad et Ouled Saïd — les foggaras",
+        "body": "Visite des jardins et des anciennes galeries de foggaras d'Ouled Saïd, pique-nique et thé dans la palmeraie de Beni Aïssi et de son ksar, puis coucher de soleil sur les grandes dunes.",
         "stops": [
           {
             "place": "Les foggaras d'Ouled Saïd",
@@ -396,8 +396,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 4,
-        "title": "Le Grand Erg et le bivouac",
-        "body": "Sortie en 4×4 vers les grandes dunes, coucher de soleil et nuit au campement du désert.",
+        "title": "Aventure dans le désert et dîner sous les étoiles",
+        "body": "Le site d'Ighzer le matin, puis un safari en 4×4 l'après-midi à travers les dunes dorées jusqu'à un coucher de soleil panoramique, suivi d'un dîner « Merdoum » au campement, sous les étoiles.",
         "stops": [
           {
             "place": "Le site d'Ighzer",
@@ -415,8 +415,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 5,
-        "title": "Départ",
-        "body": "Retour à Timimoun et transfert vers l'aéroport.",
+        "title": "Le marché et départ",
+        "body": "Visite du marché traditionnel de Timimoun, entre épices et artisanat, puis transfert de retour vers Alger.",
         "stops": [
           {
             "place": "Le marché de Timimoun",
@@ -505,95 +505,95 @@ export const TOURS_FR: Record<string, TourFr> = {
       {
         "day": 1,
         "title": "Arrivée à Alger",
-        "body": "Accueil à l'aéroport Houari Boumediene et installation. Première découverte de la baie et du front de mer.",
+        "body": "Accueil à l'aéroport Houari Boumediene et transfert privé jusqu'à votre hôtel. Installation et repos ; nuit à Alger.",
         "stops": [
           {
             "place": "L'aéroport Houari Boumediene",
-            "text": "Accueil dans le terminal par votre guide, avec un transfert direct vers la ville dès la première heure sur place."
+            "text": "Accueil à l'arrivée et transfert vers un hôtel du centre-ville, avec toutes les formalités prises en charge."
           },
           {
             "place": "La route de la baie d'Alger",
             "text": "L'arrivée se fait par la corniche, avec les terrasses blanches de la capitale étagées au-dessus du port."
           },
           {
-            "place": "Alger et le front de mer",
-            "text": "Installation à l'hôtel puis une soirée libre pour longer les arcades du front de mer avant le début des visites."
+            "place": "Le centre d'Alger",
+            "text": "Installation à l'hôtel puis une soirée libre pour longer à votre rythme les arcades du front de mer et la place des Martyrs, avant le début des visites."
           }
         ]
       },
       {
         "day": 2,
-        "title": "Alger et la Casbah",
-        "body": "Journée dans la capitale : la Casbah, les boulevards coloniaux, la Grande Mosquée et les points de vue sur la baie.",
+        "title": "Tipaza et Cherchell",
+        "body": "Après le petit-déjeuner, route côtière vers le Mausolée royal de Maurétanie et les ruines romaines de Tipaza. Déjeuner en bord de Méditerranée, puis le musée archéologique de Cherchell. Retour pour la nuit à Alger.",
         "stops": [
           {
-            "place": "La Casbah d'Alger",
-            "text": "La citadelle ottomane classée UNESCO, un labyrinthe blanc escarpé de palais, de mosquées et de maisons à cour qui grimpe au-dessus de la baie."
+            "place": "Le Mausolée royal de Maurétanie",
+            "text": "Un immense tambour de pierre sur une colline dominant la mer — le tombeau du 1er siècle avant J.-C. du roi berbère Juba II et de Cléopâtre Séléné, fille de Cléopâtre d'Égypte."
           },
           {
-            "place": "La Grande Mosquée d'Alger",
-            "text": "La plus ancienne mosquée du pays, au pied de la Casbah, au bout des boulevards hérités de l'époque coloniale."
+            "place": "Tipaza romaine",
+            "text": "Un port romain classé à l'UNESCO, étiré le long de la Méditerranée — basiliques, thermes et théâtre les pieds dans les vagues."
           },
           {
-            "place": "Les belvédères sur la baie d'Alger",
-            "text": "Des points de vue depuis les hauteurs de la ville offrant un panorama sur toute la baie et le port."
+            "place": "Cherchell (l'antique Césarée)",
+            "text": "L'ancienne capitale de Juba II, dont le musée abrite quelques-unes des plus belles mosaïques et statues romaines et grecques d'Algérie."
           }
         ]
       },
       {
         "day": 3,
-        "title": "Tipaza et Cherchell",
-        "body": "Route vers l'ouest le long de la côte : les ruines romaines de Tipaza en bord de mer, le Mausolée royal de Maurétanie et le musée de Cherchell.",
+        "title": "Alger et vol vers Ghardaïa",
+        "body": "Découverte de la Casbah classée UNESCO, du musée du Bardo et du Mémorial du Martyr. En soirée, vol vers le sud jusqu'à Ghardaïa pour la nuit.",
         "stops": [
           {
-            "place": "Les ruines romaines de Tipaza",
-            "text": "Un port romain classé UNESCO égrené le long de la Méditerranée, entre basiliques, thermes et théâtre les pieds dans les vagues."
+            "place": "La Casbah d'Alger",
+            "text": "La citadelle ottomane classée à l'UNESCO — un labyrinthe blanc et escarpé de palais, de mosquées et de maisons à cour qui grimpe au-dessus de la baie."
           },
           {
-            "place": "Le Mausolée royal de Maurétanie",
-            "text": "Un vaste tambour de pierre sur une colline dominant la mer, tombeau du 1er siècle avant J.-C. du roi berbère Juba II et de Cléopâtre Séléné, fille de Cléopâtre d'Égypte."
+            "place": "Le musée du Bardo",
+            "text": "Préhistoire et ethnographie dans une élégante villa mauresque, des moulages d'art rupestre saharien aux bijoux d'argent et à l'Algérie du quotidien."
           },
           {
-            "place": "Le musée de Cherchell",
-            "text": "L'ancienne capitale de Juba II, dont le musée conserve certaines des plus belles mosaïques et statues romaines et grecques d'Algérie."
+            "place": "Le Mémorial du Martyr (Maqam Echahid)",
+            "text": "Trois palmes de béton élancées, dressées en 1982 au-dessus de la ville, en hommage aux morts de la guerre d'indépendance."
           }
         ]
       },
       {
         "day": 4,
-        "title": "Vol vers Ghardaïa et le M'Zab",
-        "body": "Vol vers le sud et entrée dans la vallée du M'Zab : Ghardaïa, son marché et ses ruelles en amphithéâtre.",
+        "title": "Le Sahara autour de Ghardaïa",
+        "body": "Une journée dans le désert aux environs de Ghardaïa, avec un déjeuner traditionnel et du temps dans les dunes. Nuit à Ghardaïa.",
         "stops": [
           {
-            "place": "Le vol vers Ghardaïa",
-            "text": "Un court vol vers le sud fait passer en une heure des rivages méditerranéens aux confins du Sahara."
+            "place": "Les palmeraies et les foggaras",
+            "text": "Des jardins irrigués depuis mille ans par la foggara — ces galeries souterraines qui rendent la vie possible dans cette vallée aride."
           },
           {
-            "place": "Ghardaïa",
-            "text": "La ville principale du M'Zab, pyramide de maisons classée UNESCO qui grimpe jusqu'à la mosquée et son minaret au sommet."
+            "place": "Un déjeuner saharien traditionnel",
+            "text": "La taguella — galette cuite dans le sable chaud — servie avec des grillades et du thé à la menthe, sous un auvent au pied de la dune."
           },
           {
-            "place": "Le marché de Ghardaïa",
-            "text": "La place à arcades étagée sous un minaret-pyramide, cœur battant du M'Zab depuis un millénaire."
+            "place": "Les dunes près de Ghardaïa",
+            "text": "Un après-midi sur le sable aux portes du Sahara, avec un déjeuner traditionnel sous le ciel du désert."
           }
         ]
       },
       {
         "day": 5,
-        "title": "Beni Isguen et départ",
-        "body": "Visite de la cité sainte de Beni Isguen avec un guide local, puis retour et départ.",
+        "title": "La vallée du M'Zab et retour",
+        "body": "Visite d'El Atteuf et du mausolée Sidi Brahim, déjeuner à Ghardaïa, puis vol retour vers Alger.",
         "stops": [
           {
-            "place": "Beni Isguen",
-            "text": "La ville sainte et fortifiée du M'Zab, franchie par son ancienne porte, où la tenue et la photographie suivent des règles locales strictes."
+            "place": "El Atteuf",
+            "text": "La plus ancienne des cinq cités du M'Zab, dont la sobre mosquée Sidi Brahim frappa tant Le Corbusier qu'elle influença l'architecture moderne."
           },
           {
-            "place": "Le retour vers Alger",
-            "text": "Un vol retour vers le nord ramène le groupe de la vallée du M'Zab jusqu'à la capitale."
+            "place": "Le mausolée Sidi Brahim",
+            "text": "Blanchi à la chaux et modelé à la main, presque sculptural — la pureté cubiste qui attira les architectes européens dans le M'Zab."
           },
           {
-            "place": "L'aéroport Houari Boumediene",
-            "text": "Le transfert privé jusqu'à l'aéroport et l'assistance jusqu'à l'enregistrement pour le vol retour."
+            "place": "Le marché de Ghardaïa",
+            "text": "La place à arcades étagée au pied du minaret-pyramide, cœur battant du M'Zab depuis mille ans."
           }
         ]
       }
@@ -671,190 +671,190 @@ export const TOURS_FR: Record<string, TourFr> = {
       {
         "day": 1,
         "title": "Arrivée à Alger",
-        "body": "Accueil et installation dans la capitale, premier contact avec la baie et le front de mer.",
+        "body": "Accueil à l'aéroport, installation à l'hôtel et dîner de bienvenue.",
         "stops": [
           {
             "place": "L'aéroport Houari Boumediene",
-            "text": "Accueil à l'arrivée et transfert direct vers la ville, la partie logistique du premier jour prise en charge de bout en bout."
+            "text": "Accueil à l'arrivée et transfert vers la ville — l'aspect pratique du premier jour entièrement pris en charge."
           },
           {
             "place": "La baie d'Alger",
-            "text": "La route longe le front de mer à l'arrivée, avec la capitale blanche étagée en amphithéâtre au-dessus du port."
+            "text": "L'arrivée en bord de mer, avec la capitale blanche qui s'étage au-dessus du port."
           },
           {
-            "place": "Installation à Alger",
-            "text": "Installation à l'hôtel puis une soirée libre sur le front de mer avant le début du circuit."
+            "place": "Un dîner de bienvenue",
+            "text": "Une première table algérienne — chorba, poisson de la baie ou tajine de poulet — pour évoquer les dix jours à venir."
           }
         ]
       },
       {
         "day": 2,
-        "title": "Alger et la Casbah",
-        "body": "La Casbah classée UNESCO, les boulevards coloniaux, la Grande Mosquée et les musées.",
+        "title": "Tipaza et Cherchell",
+        "body": "Une journée sur la côte, entre les ruines romaines de Tipaza — amphithéâtre et mausolée —, le musée de Cherchell et les vues sur la mer.",
         "stops": [
           {
-            "place": "La Casbah d'Alger",
-            "text": "La citadelle ottomane classée UNESCO, un labyrinthe blanc escarpé de palais, de mosquées et de maisons à cour qui grimpe au-dessus de la baie."
+            "place": "Tipaza romaine",
+            "text": "Un port romain classé à l'UNESCO, étiré le long de la Méditerranée — basiliques, thermes et théâtre les pieds dans les vagues."
           },
           {
-            "place": "La Grande Mosquée d'Alger",
-            "text": "La plus ancienne mosquée du pays, au pied de la Casbah, au bout des boulevards hérités de l'époque coloniale."
+            "place": "Le Mausolée royal de Maurétanie",
+            "text": "Un immense tambour de pierre sur une colline dominant la mer — le tombeau du 1er siècle avant J.-C. du roi berbère Juba II et de Cléopâtre Séléné, fille de Cléopâtre d'Égypte."
           },
           {
-            "place": "Le musée national des Moudjahidine",
-            "text": "Un musée retraçant l'histoire militaire de l'Algérie de l'Antiquité à 1962, à deux pas du Sanctuaire du Martyr."
+            "place": "Cherchell (l'antique Césarée)",
+            "text": "L'ancienne capitale de Juba II, dont le musée abrite quelques-unes des plus belles mosaïques et statues romaines et grecques d'Algérie."
           }
         ]
       },
       {
         "day": 3,
-        "title": "Tipaza et Cherchell",
-        "body": "La côte romaine à l'ouest d'Alger : ruines en bord de mer, mausolée royal et musée de Cherchell.",
+        "title": "Alger historique",
+        "body": "La Casbah, le Mémorial du Martyr et le Musée national de l'Armée.",
         "stops": [
           {
-            "place": "Les ruines romaines de Tipaza",
-            "text": "Un port romain classé UNESCO égrené le long de la Méditerranée, entre basiliques, thermes et théâtre les pieds dans les vagues."
+            "place": "La Casbah d'Alger",
+            "text": "La citadelle ottomane classée à l'UNESCO — un labyrinthe blanc et escarpé de palais, de mosquées et de maisons à cour qui grimpe au-dessus de la baie."
           },
           {
-            "place": "Le Mausolée royal de Maurétanie",
-            "text": "Un vaste tambour de pierre sur une colline dominant la mer, tombeau du 1er siècle avant J.-C. du roi berbère Juba II et de Cléopâtre Séléné, fille de Cléopâtre d'Égypte."
+            "place": "Le Mémorial du Martyr (Maqam Echahid)",
+            "text": "Trois palmes de béton élancées, dressées en 1982 au-dessus de la ville, en hommage aux morts de la guerre d'indépendance."
           },
           {
-            "place": "Le musée de Cherchell",
-            "text": "L'ancienne capitale de Juba II, dont le musée conserve certaines des plus belles mosaïques et statues romaines et grecques d'Algérie."
+            "place": "Le Musée national de l'Armée",
+            "text": "La longue histoire militaire de l'Algérie, de l'Antiquité à 1962, aux côtés du Mémorial du Martyr."
           }
         ]
       },
       {
         "day": 4,
-        "title": "Vers l'est",
-        "body": "Route vers l'est du pays à travers les hauts plateaux, avec les paysages de la Kabylie et des plaines céréalières.",
+        "title": "Route vers Sétif",
+        "body": "Transfert vers l'est et visite des ruines romaines de Djémila, classées à l'UNESCO.",
         "stops": [
           {
-            "place": "La route vers l'est",
-            "text": "La traversée des hauts plateaux relie la côte aux terres intérieures sur plusieurs heures de route."
+            "place": "Djémila (Cuicul)",
+            "text": "Une cité romaine classée à l'UNESCO nichée dans des montagnes verdoyantes, superbement conservée — forum, temples et théâtre escarpé."
           },
           {
-            "place": "Les paysages de Kabylie",
-            "text": "Les reliefs verdoyants et les villages perchés de Kabylie défilent en bordure de route."
+            "place": "Les mosaïques de Djémila",
+            "text": "Des mosaïques parmi les plus riches du monde romain, conservées dans le musée du site."
           },
           {
-            "place": "Les plaines céréalières des hauts plateaux",
-            "text": "De vastes étendues de blé et d'orge s'ouvrent à l'approche du soir, annonçant l'arrivée dans l'Est algérien."
+            "place": "Sétif et la fontaine Aïn El Fouara",
+            "text": "La ville des hauts plateaux, à 1 100 m d'altitude, et sa célèbre fontaine de marbre de 1898, où l'on passe la nuit."
           }
         ]
       },
       {
         "day": 5,
-        "title": "Djémila",
-        "body": "La cité romaine de Djémila dans son cirque de collines — l'un des sites les mieux préservés d'Afrique du Nord.",
+        "title": "Constantine",
+        "body": "Tour de ville à Constantine — ses ponts suspendus, sa mosquée et son palais.",
         "stops": [
           {
-            "place": "Djémila (Cuicul)",
-            "text": "Une cité romaine classée UNESCO nichée dans un cirque de montagnes verdoyantes, remarquablement conservée, avec son forum, ses temples et son théâtre en pente raide."
+            "place": "Les ponts de Constantine",
+            "text": "La « ville des ponts », suspendue au-dessus des vertigineuses gorges du Rhumel, avec la passerelle Sidi M'Cid jetée haut dans les airs."
           },
           {
-            "place": "Les mosaïques de Djémila",
-            "text": "Des mosaïques in situ parmi les plus riches du monde romain, présentées dans le musée du site."
+            "place": "La mosquée Émir Abdelkader",
+            "text": "L'une des plus grandes mosquées d'Afrique, dont les deux minarets sont devenus un repère moderne de Constantine."
           },
           {
-            "place": "La route vers Constantine",
-            "text": "Le trajet se poursuit ensuite vers Constantine, où le groupe passe la nuit."
+            "place": "Le palais Ahmed Bey",
+            "text": "Le palais ottoman du début du XIXe siècle du dernier bey, avec ses galeries peintes et ses cours ombragées."
           }
         ]
       },
       {
         "day": 6,
-        "title": "Constantine",
-        "body": "La ville des ponts : les gorges du Rhumel, le palais Ahmed Bey, le musée de Cirta et la vieille ville.",
+        "title": "Batna et Timgad",
+        "body": "Route vers Batna et découverte de la cité romaine de Timgad, classée à l'UNESCO.",
         "stops": [
           {
-            "place": "Les gorges du Rhumel et les ponts de Constantine",
-            "text": "La ville des ponts, suspendue au-dessus des vertigineuses gorges du Rhumel, avec sa passerelle Sidi M'Cid lancée dans le vide."
+            "place": "Timgad",
+            "text": "La colonie de Trajan bâtie en damier vers l'an 100 — la « Pompéi des Aurès », déployée à ciel ouvert sur la plaine."
           },
           {
-            "place": "Le palais Ahmed Bey",
-            "text": "Le palais ottoman du début du XIXe siècle du dernier bey, avec ses galeries peintes et ses cours ombragées."
+            "place": "L'arc de Trajan",
+            "text": "L'arc de triomphe qui encadre l'artère principale de Timgad — la silhouette emblématique de la cité."
           },
           {
-            "place": "Le musée de Cirta et la vieille ville",
-            "text": "Le musée de Cirta rassemble les collections numides et romaines de l'antique cité, au cœur de la vieille ville de Constantine."
+            "place": "La bibliothèque et le théâtre de Timgad",
+            "text": "Les vestiges d'une rare bibliothèque publique romaine et d'un théâtre de 3 500 places toujours utilisé aujourd'hui."
           }
         ]
       },
       {
         "day": 7,
-        "title": "Timgad",
-        "body": "Timgad, colonie romaine fondée par Trajan et la cité en damier la plus complète qui subsiste.",
+        "title": "Vers Ghardaïa",
+        "body": "Descente vers le sud jusqu'à la vallée du M'Zab et installation en maison d'hôtes.",
         "stops": [
           {
-            "place": "Timgad",
-            "text": "La colonie de Trajan fondée en l'an 100, la Pompéi des Aurès, déployée en damier sur la plaine."
+            "place": "La route vers le sud, par-delà l'Atlas",
+            "text": "En quittant le Tell, à travers les hauts plateaux puis vers le pré-Sahara — le trajet où l'Algérie change de climat."
           },
           {
-            "place": "L'Arc de Trajan",
-            "text": "L'arc de triomphe qui encadre l'artère principale de Timgad, silhouette emblématique du site."
+            "place": "Ghardaïa",
+            "text": "La ville principale du M'Zab, une pyramide de maisons classée à l'UNESCO qui s'élève jusqu'à la mosquée et son minaret au sommet."
           },
           {
-            "place": "La bibliothèque et le théâtre de Timgad",
-            "text": "Les vestiges d'une rare bibliothèque publique romaine et d'un théâtre de 3 500 places toujours en usage aujourd'hui."
+            "place": "Une maison d'hôtes traditionnelle du M'Zab",
+            "text": "Installation dans une maison mozabite restaurée — murs épais, cour intérieure et terrasse sur le toit — avec une soirée libre."
           }
         ]
       },
       {
         "day": 8,
-        "title": "Vers le Sahara",
-        "body": "Descente vers le sud et entrée dans le monde des oasis.",
+        "title": "Ghardaïa et le M'Zab",
+        "body": "Les villages fortifiés, les mosquées traditionnelles, les souks et la cuisine locale du M'Zab.",
         "stops": [
           {
-            "place": "La route vers le sud, à travers l'Atlas",
-            "text": "La route quitte le Tell, traverse les hauts plateaux et descend vers le pré-Sahara, le trajet où l'Algérie change de climat."
+            "place": "Beni Isguen",
+            "text": "La cité sainte fortifiée du M'Zab, dont on franchit l'ancienne porte, où la tenue vestimentaire et les photographies obéissent aux usages locaux."
           },
           {
-            "place": "Ghardaïa",
-            "text": "La ville principale du M'Zab, pyramide de maisons classée UNESCO qui grimpe jusqu'à la mosquée et son minaret au sommet."
+            "place": "El Atteuf",
+            "text": "La plus ancienne des cinq cités du M'Zab, dont la sobre mosquée Sidi Brahim frappa tant Le Corbusier qu'elle influença l'architecture moderne."
           },
           {
-            "place": "Une auberge traditionnelle du M'Zab",
-            "text": "Installation dans une maison mozabite restaurée, avec ses murs épais, sa cour intérieure et sa terrasse sur la vallée."
+            "place": "Le marché de Ghardaïa",
+            "text": "La place à arcades étagée au pied du minaret-pyramide, cœur battant du M'Zab depuis mille ans."
           }
         ]
       },
       {
         "day": 9,
-        "title": "Journée saharienne",
-        "body": "Palmeraies, ksour et dunes, avec une soirée dans le désert.",
+        "title": "Retour vers Alger",
+        "body": "Retour vers la capitale, avec le jardin botanique du Hamma, le musée du Bardo et Notre-Dame d'Afrique.",
         "stops": [
           {
-            "place": "Les palmeraies et les foggaras du M'Zab",
-            "text": "Des jardins irrigués depuis un millénaire par la foggara, ces galeries souterraines qui rendent la vie possible dans cette vallée aride."
+            "place": "Le Jardin botanique du Hamma",
+            "text": "Le grand Jardin d'Essai du XIXe siècle, l'un des plus beaux jardins botaniques d'Afrique."
           },
           {
-            "place": "Les ksour du M'Zab : Beni Isguen",
-            "text": "La ville sainte et fortifiée de Beni Isguen, franchie par son ancienne porte, où la tenue et la photographie suivent des règles locales strictes."
+            "place": "Le musée du Bardo",
+            "text": "Préhistoire et ethnographie dans une élégante villa mauresque, des moulages d'art rupestre saharien aux bijoux d'argent et à l'Algérie du quotidien."
           },
           {
-            "place": "Les dunes et la soirée dans le désert",
-            "text": "Un après-midi sur le sable aux portes du Sahara, suivi d'un dîner traditionnel sous les étoiles."
+            "place": "Notre-Dame d'Afrique",
+            "text": "Une basilique du XIXe siècle — « Notre-Dame d'Afrique » — perchée sur la falaise au-dessus de la baie, dédiée aussi bien aux musulmans qu'aux chrétiens."
           }
         ]
       },
       {
         "day": 10,
-        "title": "Retour et départ",
-        "body": "Retour vers Alger et transfert aéroport.",
+        "title": "Départ",
+        "body": "Petit déjeuner et transfert vers l'aéroport.",
         "stops": [
           {
-            "place": "Le retour vers Alger",
-            "text": "La route ou le vol retour ramène le groupe des oasis du sud jusqu'à la capitale."
+            "place": "Une matinée libre à Alger",
+            "text": "Pour rattraper ce que les dix jours n'ont pas permis de voir — le Jardin d'Essai, la mosquée Ketchaoua ou simplement le front de mer — selon l'horaire de votre vol."
           },
           {
-            "place": "Derniers achats à Alger",
-            "text": "Argenterie kabyle, cuir touareg, dattes Deglet Nour et pâtisseries à emporter avant le départ."
+            "place": "Derniers achats",
+            "text": "Argent kabyle, cuir touareg, dattes deglet nour et pâtisseries, rue Didouche Mourad ou dans les ateliers de la Casbah."
           },
           {
             "place": "L'aéroport Houari Boumediene",
-            "text": "Le transfert privé jusqu'à l'aéroport et l'assistance jusqu'à l'enregistrement."
+            "text": "Le transfert privé vers l'aéroport et une assistance à l'enregistrement."
           }
         ]
       }
