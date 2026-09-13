@@ -36,6 +36,7 @@ $byDay = []; $byHour = array_fill(0, 24, 0); $byWeekday = array_fill(0, 7, 0);
 $pages = []; $events = []; $devices = []; $refs = []; $langs = [];
 $entryPages = []; $tourClicks = []; $notFound = []; $utms = [];
 $searches = []; $searchesEmpty = []; $searchTotal = 0;
+$asked = []; $askedEmpty = []; $askedTotal = 0; $askedLang = [];   // on-site assistant
 $sessions = [];            // sid => view count   (bounce + pages/session)
 $dwellSum = 0; $dwellN = 0;
 $scrollSum = 0; $scrollN = 0;
@@ -106,6 +107,17 @@ foreach ($files as $f) {
         // visitor went looking for and did not find.
         if ((int)($r['n'] ?? 0) === 0) $searchesEmpty[$q] = ($searchesEmpty[$q] ?? 0) + 1;
       }
+    } elseif ($ty === 'ask') {
+      // Questions typed into the on-site assistant. Unlike a search box these
+      // are whole sentences in the visitor's own words, so the n=0 list reads
+      // like a list of things the site should say and does not.
+      $q = $r['q'] ?? '';
+      if ($q !== '') {
+        $askedTotal++;
+        $asked[$q] = ($asked[$q] ?? 0) + 1;
+        $askedLang[$ln] = ($askedLang[$ln] ?? 0) + 1;
+        if ((int)($r['n'] ?? 0) === 0) $askedEmpty[$q] = ($askedEmpty[$q] ?? 0) + 1;
+      }
     } elseif ($ty === 'tour_click') {
       $tp = $r['tp'] ?? '';
       if ($tp !== '') $tourClicks[$tp] = ($tourClicks[$tp] ?? 0) + 1;
@@ -123,6 +135,7 @@ foreach ($files as $f) {
 arsort($pages); arsort($refs); arsort($devices); arsort($langs);
 arsort($entryPages); arsort($tourClicks); arsort($notFound); arsort($utms);
 arsort($searches); arsort($searchesEmpty);
+arsort($asked); arsort($askedEmpty); arsort($askedLang);
 
 $ev = fn(string $k): int => (int)($events[$k] ?? 0);
 $whatsapp = $ev('whatsapp_click');
@@ -437,6 +450,43 @@ $top = fn(array $a, int $k) => array_slice($a, 0, $k, true);
       </div>
     <?php else: ?>
       <p class="muted-sm">لم تُسجَّل عمليات بحث بعد. يبدأ التسجيل مع أول استخدام لمربع البحث في الأعلى.</p>
+    <?php endif; ?>
+  </section>
+
+  <!-- ============ what visitors ask the assistant ============ -->
+  <section>
+    <h2>ما يسأل عنه الزوّار <small><?= n($askedTotal) ?> سؤال للمساعد</small></h2>
+    <?php if ($asked): ?>
+      <div class="two">
+        <div>
+          <table><thead><tr><th>السؤال</th><th>مرات</th></tr></thead><tbody>
+          <?php foreach ($top($asked, 15) as $q => $c): ?>
+            <tr><td><?= h($q) ?></td><td class="num"><?= n($c) ?></td></tr>
+          <?php endforeach; ?>
+          </tbody></table>
+        </div>
+        <div>
+          <?php if ($askedEmpty): ?>
+            <table><thead><tr><th>سؤال بلا إجابة</th><th>مرات</th></tr></thead><tbody>
+            <?php foreach ($top($askedEmpty, 15) as $q => $c): ?>
+              <tr><td><?= h($q) ?></td><td class="num"><?= n($c) ?></td></tr>
+            <?php endforeach; ?>
+            </tbody></table>
+            <div class="note warn">دي أهم قائمة في الصفحة. كل سطر هنا زائر كتب سؤاله بكلماته والموقع مالقاش له إجابة — فاتحوّل لواتساب بدل ما ياخد رده فورًا. أضيفي الإجابة في صفحة الأسئلة أو في صفحة الرحلة المناسبة والسؤال ده هيتردّ عليه لوحده بعد كده.</div>
+          <?php else: ?>
+            <p class="muted-sm">كل الأسئلة لقت إجابة على الموقع.</p>
+          <?php endif; ?>
+          <?php if ($askedLang): ?>
+            <table><thead><tr><th>لغة السؤال</th><th>مرات</th></tr></thead><tbody>
+            <?php foreach ($askedLang as $ln => $c): ?>
+              <tr><td><?= h($LANG_LABELS[$ln] ?? $ln) ?></td><td class="num"><?= n($c) ?></td></tr>
+            <?php endforeach; ?>
+            </tbody></table>
+          <?php endif; ?>
+        </div>
+      </div>
+    <?php else: ?>
+      <p class="muted-sm">لم يُسجَّل أي سؤال بعد. يبدأ التسجيل مع أول استخدام لزرّ المساعد أسفل يسار أي صفحة.</p>
     <?php endif; ?>
   </section>
 

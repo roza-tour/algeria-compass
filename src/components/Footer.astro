@@ -110,12 +110,15 @@ const columns = [
   </div>
 </footer>
 <style>
-  .f-nap{font-style:normal;font-size:.76rem;line-height:1.7;color:rgba(255,255,255,.42);margin-bottom:1rem;text-align:center}
+  /* White at 0.42 over the footer green is 3.9:1 — under AA. axe reports the
+     footer as "incomplete" rather than failing because of the SVG background
+     pattern, so this one never showed up as a violation. 0.78 gives 10.2:1. */
+  .f-nap{font-style:normal;font-size:.86rem;line-height:1.7;color:rgba(255,255,255,.78);margin-bottom:1rem;text-align:center}
   /* The phone and email links sat at the raw 0.76rem line height, well under
      the 24px minimum tap target, and close enough together to mis-tap. Padding
      plus inline-block gives them a real hit area without changing the layout
      (the address block is centred and the extra height is absorbed by the
      existing 1.7 line-height). */
-  .f-nap a{color:rgba(255,255,255,.55);display:inline-block;min-height:24px;padding:.28rem .1rem}
+  .f-nap a{color:rgba(255,255,255,.9);font-weight:600;display:inline-block;min-height:24px;padding:.28rem .1rem}
   .f-nap a:hover{color:#fff;text-decoration:none}
 </style>

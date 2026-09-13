@@ -154,7 +154,11 @@ const m = MSG[lang]?.[season];
   .sbn-ic { display: inline-flex; color: var(--sbn-accent, var(--accent-2)); flex: 0 0 auto; }
   .sbn-ic svg { width: 17px; height: 17px; }
   .sbn-txt { margin: 0; line-height: 1.45; }
-  .sbn-txt a { font-weight: 700; color: var(--sbn-accent, var(--accent-2)); white-space: nowrap; margin-inline-start: .35em; }
+  /* !important because this banner carries its own per-season surface and ink,
+     independent of the page's civilisation skin. Without it the dark-skin rule
+     in civ-skins.css ([data-civ] a:not(...), far higher specificity) repainted
+     this link desert gold on the banner's light autumn ground — 1.87:1. */
+  .sbn-txt a { font-weight: 700; color: var(--sbn-accent, var(--accent-2)) !important; white-space: nowrap; margin-inline-start: .35em; }
   .sbn-x {
     margin-inline-start: auto; flex: 0 0 auto;
     /* 44x44 touch target (WCAG 2.5.5); visually light via transparency */

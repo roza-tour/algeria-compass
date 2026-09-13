@@ -92,19 +92,34 @@ if (!empty($in['tp'])) $rec['tp'] = clean_path($in['tp']);         // clicked to
 // Search query + how many results it returned. Stored lowercased and capped;
 // a query with n=0 is the useful one — it names something a visitor expected
 // to find and we do not have.
-if ($type === 'search' && isset($in['q'])) {
+// 'ask' is the on-site assistant (AskWidget): same shape, and its n=0 rows are
+// the most valuable of all — a question a visitor typed in their own words that
+// nothing on the site answers.
+// A question is truncated, never rejected for being long: a searcher types two
+// words but a visitor asks the assistant a whole sentence, and an 80-character
+// ceiling that DROPS the beacon would throw away precisely the detailed
+// questions the owner most wants to read. 200 characters holds any real
+// question; anything past that is trimmed and still recorded.
+if (($type === 'search' || $type === 'ask') && isset($in['q'])) {
+  $cap = $type === 'ask' ? 200 : 80;
   $q = trim(preg_replace('~\s+~u', ' ', (string) $in['q']));
-  if ($q !== '' && mb_strlen($q) <= 80) {
-    $rec['q'] = mb_strtolower(mb_substr($q, 0, 80));
-    $rec['n'] = max(0, min(999, (int) ($in['n'] ?? 0)));
-  } else {
-    http_response_code(204); exit;   // nothing worth storing
-  }
+  if ($q === '') { http_response_code(204); exit; }   // nothing worth storing
+  $rec['q'] = mb_strtolower(mb_substr($q, 0, $cap));
+  $rec['n'] = max(0, min(999, (int) ($in['n'] ?? 0)));
 }
 
 $dir = __DIR__ . '/data';
 if (!is_dir($dir)) @mkdir($dir, 0755, true);
 $file = $dir . '/hits-' . date('Y-m') . '.jsonl';
+
+// Size cap. This endpoint is unauthenticated and unthrottled by design (it has
+// to accept a beacon from every visitor), so without a ceiling anyone scripting
+// POSTs could grow this file until the hosting account runs out of disk — which
+// would take the whole site down, not just the stats. 32 MB is roughly 200k
+// hits, far beyond real traffic for a month; past that we stop appending and
+// the counters simply plateau instead of the site falling over.
+if (is_file($file) && filesize($file) > 32 * 1024 * 1024) { http_response_code(204); exit; }
+
 @file_put_contents($file, json_encode($rec, JSON_UNESCAPED_SLASHES) . "\n", FILE_APPEND | LOCK_EX);
 
 http_response_code(204);

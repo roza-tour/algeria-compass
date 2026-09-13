@@ -1,0 +1,464 @@
+---
+// On-site assistant — RETRIEVAL ONLY, no language model, no API, no cost.
+//
+// Every answer it shows is a string the team already wrote and published,
+// pulled verbatim from /answers-<lang>.json (see src/pages/answers-[lang].json.ts)
+// and always shown next to a link to the page it came from. Nothing is
+// generated at answer time, so it cannot invent a price, a date or a visa rule.
+// When nothing matches well enough it says so and hands the visitor to a human
+// rather than guessing — and logs the question so the gap is visible.
+//
+// The index is fetched on FIRST OPEN only, so a visitor who never uses the
+// widget never pays for it.
+import { CONTACT } from '../config';
+import { ROUTES, type Lang } from '../i18n';
+
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props as Props;
+
+const T: Record<Lang, Record<string, string>> = {
+  en: { launch: 'Ask a question', title: 'Ask Algeria Compass',
+        sub: 'Answers come straight from our published pages — we do not guess.',
+        ph: 'e.g. When is the best time for the Sahara?', send: 'Ask', close: 'Close',
+        none: 'I could not find that on our pages, and I will not guess at it. Send it to our team — you will get a real answer, usually within a few hours.',
+        more: 'Read the full page', wa: 'Ask our team on WhatsApp', msg: 'Send us a message',
+        also: 'Related', from: 'From our published pages', thinking: 'Looking…',
+        near: 'That is not an exact match. The closest thing we have published is this — if you meant something else, ask our team.' },
+  fr: { launch: 'Poser une question', title: 'Demandez à Algeria Compass',
+        sub: 'Les réponses viennent directement de nos pages publiées — nous ne devinons pas.',
+        ph: 'ex. Quelle est la meilleure saison pour le Sahara ?', send: 'Demander', close: 'Fermer',
+        none: "Je n'ai pas trouvé cela dans nos pages, et je ne vais pas deviner. Envoyez la question à notre équipe — vous aurez une vraie réponse, en général en quelques heures.",
+        more: 'Lire la page complète', wa: 'Demander à notre équipe sur WhatsApp', msg: 'Nous écrire',
+        also: 'À voir aussi', from: 'Extrait de nos pages publiées', thinking: 'Recherche…',
+        near: "Ce n'est pas une correspondance exacte. Voici ce que nous avons publié de plus proche — si vous vouliez dire autre chose, demandez à notre équipe." },
+  de: { launch: 'Frage stellen', title: 'Fragen Sie Algeria Compass',
+        sub: 'Die Antworten stammen direkt aus unseren veröffentlichten Seiten — wir raten nicht.',
+        ph: 'z. B. Wann ist die beste Zeit für die Sahara?', send: 'Fragen', close: 'Schließen',
+        none: 'Das habe ich auf unseren Seiten nicht gefunden, und ich rate nicht. Schicken Sie die Frage an unser Team — Sie bekommen eine echte Antwort, meist innerhalb weniger Stunden.',
+        more: 'Ganze Seite lesen', wa: 'Unser Team über WhatsApp fragen', msg: 'Schreiben Sie uns',
+        also: 'Auch dazu', from: 'Aus unseren veröffentlichten Seiten', thinking: 'Suche…',
+        near: 'Das ist keine exakte Übereinstimmung. Das Nächstliegende aus unseren Seiten ist dies — wenn Sie etwas anderes meinten, fragen Sie unser Team.' },
+  es: { launch: 'Haz una pregunta', title: 'Pregunta a Algeria Compass',
+        sub: 'Las respuestas salen directamente de nuestras páginas publicadas — no suponemos.',
+        ph: 'p. ej. ¿Cuál es la mejor época para el Sáhara?', send: 'Preguntar', close: 'Cerrar',
+        none: 'No he encontrado eso en nuestras páginas, y no voy a suponer. Envía la pregunta a nuestro equipo — tendrás una respuesta real, normalmente en unas horas.',
+        more: 'Leer la página completa', wa: 'Preguntar al equipo por WhatsApp', msg: 'Escríbenos',
+        also: 'También', from: 'De nuestras páginas publicadas', thinking: 'Buscando…',
+        near: 'No es una coincidencia exacta. Lo más parecido que tenemos publicado es esto — si querías decir otra cosa, pregunta a nuestro equipo.' },
+  it: { launch: 'Fai una domanda', title: 'Chiedi ad Algeria Compass',
+        sub: 'Le risposte vengono direttamente dalle nostre pagine pubblicate — non tiriamo a indovinare.',
+        ph: 'es. Qual è il periodo migliore per il Sahara?', send: 'Chiedi', close: 'Chiudi',
+        none: "Non l'ho trovato nelle nostre pagine, e non voglio tirare a indovinare. Manda la domanda al nostro team — avrai una risposta vera, di solito in poche ore.",
+        more: 'Leggi la pagina completa', wa: 'Chiedi al team su WhatsApp', msg: 'Scrivici',
+        also: 'Vedi anche', from: 'Dalle nostre pagine pubblicate', thinking: 'Cerco…',
+        near: "Non è una corrispondenza esatta. La cosa più vicina che abbiamo pubblicato è questa — se intendevate altro, chiedete al nostro team." },
+};
+
+const SUGGEST: Record<Lang, string[]> = {
+  en: ['How much do your tours cost?', 'When is the best time to visit?', 'Do I need a visa?', 'Are your tours private?'],
+  fr: ['Combien coûtent vos circuits ?', 'Quelle est la meilleure période ?', 'Ai-je besoin d’un visa ?', 'Vos circuits sont-ils privés ?'],
+  de: ['Was kosten Ihre Reisen?', 'Wann ist die beste Reisezeit?', 'Brauche ich ein Visum?', 'Sind Ihre Reisen privat?'],
+  es: ['¿Cuánto cuestan vuestros circuitos?', '¿Cuál es la mejor época?', '¿Necesito visado?', '¿Vuestros circuitos son privados?'],
+  it: ['Quanto costano i vostri circuiti?', 'Qual è il periodo migliore?', 'Serve un visto?', 'I vostri circuiti sono privati?'],
+};
+
+const t = T[lang];
+const waHref = `https://wa.me/${CONTACT.whatsapp}`;
+const contactHref = ROUTES[lang].contact;
+---
+
+<button class="ask-launch" id="askLaunch" type="button" aria-expanded="false" aria-controls="askPanel">
+  <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l1.9-4.9A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/>
+  </svg>
+  <span>{t.launch}</span>
+</button>
+
+<div class="ask-panel" id="askPanel" role="dialog" aria-modal="false" aria-labelledby="askTitle" hidden
+     data-lang={lang} data-src={`/answers-${lang}.json`}
+     data-wa={waHref} data-contact={contactHref}
+     data-none={t.none} data-more={t.more} data-walabel={t.wa} data-msg={t.msg}
+     data-from={t.from} data-also={t.also} data-thinking={t.thinking} data-near={t.near}>
+  <div class="ask-head">
+    <div>
+      <h2 id="askTitle">{t.title}</h2>
+      <p>{t.sub}</p>
+    </div>
+    <button class="ask-x" id="askClose" type="button" aria-label={t.close}>&times;</button>
+  </div>
+
+  <div class="ask-log" id="askLog" role="log" aria-live="polite">
+    <ul class="ask-sugg" id="askSugg">
+      {SUGGEST[lang].map(s => <li><button type="button" data-q={s}>{s}</button></li>)}
+    </ul>
+  </div>
+
+  <form class="ask-form" id="askForm">
+    <label class="ask-sr" for="askInput">{t.title}</label>
+    <input id="askInput" name="q" type="text" autocomplete="off" placeholder={t.ph} maxlength="200" />
+    <button type="submit">{t.send}</button>
+  </form>
+</div>
+
+<!-- is:global is required, not laziness: the answer bubbles, the related list and
+     the handoff buttons are created in JS, so they never receive Astro's scope
+     attribute and scoped rules simply do not match them — the panel rendered as
+     unstyled run-together text. Every selector here is namespaced .ask-*. -->
+<style is:global>
+  .ask-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* The open/closed state is the `hidden` attribute, and the browser's own
+     [hidden]{display:none} is the weakest rule there is — the `display:flex`
+     and `display:inline-flex` below beat it on specificity, so without this
+     line the panel is never actually closed: it sits open over the bottom-left
+     of every page with the launcher buried underneath it. */
+  .ask-launch[hidden], .ask-panel[hidden]{display:none !important}
+
+  /* --ask-up is the height of the cookie banner while it is on screen (set in
+     JS below), so the launcher and the panel ride above it instead of under
+     it. It is 0 the rest of the time, which is every visit after the first. */
+  .ask-launch{position:fixed;left:16px;bottom:calc(16px + var(--ask-up,0px));z-index:90;
+    display:inline-flex;align-items:center;gap:.45rem;min-height:44px;
+    padding:.7rem 1.05rem;border:0;border-radius:var(--radius-pill);cursor:pointer;
+    background:var(--green-d);color:#fff;font:inherit;font-weight:800;font-size:.92rem;
+    box-shadow:var(--shadow-pill);transition:background .18s}
+  .ask-launch:hover{background:var(--brand-green)}
+  .ask-launch:focus-visible{outline:3px solid var(--gold-l);outline-offset:2px}
+
+  /* Above the cookie banner (z-index 200): the banner is centred and overlaps
+     the right half of this panel, so at 95 the input and the send button sat
+     underneath it and clicks landed on the banner instead. The launcher stays
+     below the banner — the banner is answered once, then it is gone. */
+  .ask-panel{position:fixed;left:16px;bottom:calc(16px + var(--ask-up,0px));z-index:210;
+    width:min(400px,calc(100vw - 32px));
+    max-height:min(620px,calc(100vh - 32px - var(--ask-up,0px)));
+    display:flex;flex-direction:column;overflow:hidden;
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    box-shadow:0 18px 50px rgba(7,38,28,.28)}
+
+  .ask-head{display:flex;align-items:flex-start;gap:.6rem;padding:1rem 1.1rem .85rem;
+    background:linear-gradient(160deg,var(--brand-green),var(--green-d));color:#fff}
+  .ask-head h2{font-size:1.08rem;color:#fff;margin:0;font-family:var(--sans);font-weight:800}
+  .ask-head p{margin:.25rem 0 0;font-size:.86rem;color:rgba(255,255,255,.88);line-height:1.5}
+  .ask-x{margin-inline-start:auto;background:transparent;border:0;color:#fff;cursor:pointer;
+    font-size:1.6rem;line-height:1;padding:0 .2rem;min-width:44px;min-height:44px}
+  .ask-x:focus-visible{outline:2px solid var(--gold-l);outline-offset:2px;border-radius:6px}
+
+  .ask-log{flex:1;overflow-y:auto;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.9rem;
+    background:var(--paper)}
+
+  .ask-sugg{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.45rem}
+  .ask-sugg button{width:100%;text-align:start;font:inherit;font-size:.93rem;font-weight:600;
+    color:var(--green-d);background:var(--card);border:1px solid var(--border);
+    border-radius:10px;padding:.6rem .8rem;min-height:44px;cursor:pointer;transition:border-color .16s,background .16s}
+  .ask-sugg button:hover{border-color:var(--green);background:#fff}
+  .ask-sugg button:focus-visible{outline:2px solid var(--green);outline-offset:1px}
+
+  .ask-q{align-self:flex-end;max-width:88%;background:var(--green-d);color:#fff;
+    border-radius:12px 12px 3px 12px;padding:.55rem .8rem;font-size:.93rem;font-weight:600;line-height:1.5}
+  .ask-a{background:var(--card);border:1px solid var(--border);border-radius:12px 12px 12px 3px;
+    padding:.8rem .9rem;max-width:96%}
+  .ask-a .chip{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--accent-ink);margin-bottom:.35rem}
+  .ask-a .qt{display:block;font-weight:700;color:var(--green-d);font-size:.95rem;margin-bottom:.25rem}
+  .ask-a p{margin:0;color:var(--text-m);font-size:.95rem;line-height:1.6}
+  .ask-a .src{display:inline-block;margin-top:.55rem;font-size:.88rem;font-weight:700;
+    color:var(--green-d);text-decoration:underline;text-underline-offset:2px}
+  .ask-a .foot{margin-top:.5rem;font-size:.76rem;color:var(--text-l)}
+  .ask-a .near{margin:0 0 .55rem;padding:.45rem .6rem;border-radius:8px;
+    background:var(--warn-wash,#FAF2E2);color:var(--gold-d);font-size:.86rem;font-weight:600;line-height:1.5}
+
+  .ask-also{margin-top:.6rem;padding-top:.55rem;border-top:1px solid var(--border)}
+  .ask-also b{display:block;font-size:.74rem;font-weight:800;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--text-l);margin-bottom:.3rem}
+  .ask-also a{display:block;font-size:.9rem;font-weight:600;color:var(--green-d);
+    padding:.2rem 0;text-decoration:underline;text-underline-offset:2px}
+
+  .ask-hand{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.6rem}
+  .ask-hand a{display:inline-flex;align-items:center;min-height:40px;padding:.45rem .8rem;
+    border-radius:var(--radius-pill);font-size:.87rem;font-weight:800;text-decoration:none}
+  .ask-hand .wa{background:#1ebe5d;color:#06351f}
+  .ask-hand .ct{background:var(--wash);color:var(--green-d);border:1px solid var(--border)}
+
+  .ask-form{display:flex;gap:.5rem;padding:.75rem .8rem;border-top:1px solid var(--border);background:var(--card)}
+  .ask-form input{flex:1;min-width:0;font:inherit;font-size:.95rem;padding:.6rem .75rem;
+    border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);min-height:44px}
+  .ask-form input:focus-visible{outline:2px solid var(--green);outline-offset:0;border-color:var(--green)}
+  .ask-form button{font:inherit;font-weight:800;font-size:.92rem;padding:.6rem 1.05rem;min-height:44px;
+    border:0;border-radius:10px;background:var(--gold);color:#1a1a1a;cursor:pointer}
+  .ask-form button:hover{background:var(--gold-l)}
+  .ask-form button:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+
+  /* On phones the launcher sits opposite the WhatsApp bar and loses its label;
+     the panel goes full width so the answer text is not squeezed. */
+  @media(max-width:520px){
+    .ask-launch span{display:none}
+    .ask-launch{padding:.6rem .75rem}
+    .ask-panel{left:8px;right:8px;bottom:calc(8px + var(--ask-up,0px));width:auto;
+      max-height:calc(100vh - 16px - var(--ask-up,0px))}
+  }
+  @media(prefers-reduced-motion:reduce){.ask-launch{transition:none}}
+</style>
+
+<script is:inline>
+(function () {
+  var panel = document.getElementById('askPanel');
+  var launch = document.getElementById('askLaunch');
+  if (!panel || !launch) return;
+
+  var log = document.getElementById('askLog');
+  var form = document.getElementById('askForm');
+  var input = document.getElementById('askInput');
+  var closeBtn = document.getElementById('askClose');
+  var D = panel.dataset;
+
+  var data = null, loading = null, idf = null;
+
+  // ---- text handling -------------------------------------------------
+  // Strip accents so "Ghardaia" matches "Ghardaïa" and "cout" matches "coût".
+  function norm(s) {
+    return String(s || '').toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9À-ɏ\s'’-]/g, ' ')
+      .replace(/\s+/g, ' ').trim();
+  }
+  // Interrogatives are deliberately NOT stopped: the indexed questions contain
+  // them too, so "when…" matching "When is…" is real signal, not noise.
+  var STOP = ' a an the is are do does did can could would should i my me we our you your of in on at to for from with and or but it its this that these those there any some be been was were will shall les des une un le la de du et ou est sont pour avec dans sur je vous nous mon votre der die das ein eine und oder ist sind fur mit auf im den dem ich wir sie ihr el los las una y o es son para con en al mi su i gli lo delle della e per con nel sul mio vostro ';
+  function toks(s) {
+    return norm(s).split(' ').filter(function (w) {
+      return w.length > 1 && STOP.indexOf(' ' + w + ' ') === -1;
+    });
+  }
+
+  var IDF_MAX = 1;
+  function buildIdf(items) {
+    var df = Object.create(null), n = items.length;
+    items.forEach(function (it) {
+      var seen = Object.create(null);
+      toks(it.q + ' ' + it.a).forEach(function (w) {
+        if (!seen[w]) { seen[w] = 1; df[w] = (df[w] || 0) + 1; }
+      });
+    });
+    var out = Object.create(null);
+    for (var w in df) out[w] = Math.log(1 + n / df[w]);
+    // A word the site has never published is maximally rare. Scoring it as
+    // common would let "iguana" cost nothing and a stray match on one ordinary
+    // word carry an unrelated answer through.
+    IDF_MAX = Math.log(1 + n);
+    return out;
+  }
+  function idfOf(w) { return idf[w] !== undefined ? idf[w] : IDF_MAX; }
+
+  function load() {
+    if (data) return Promise.resolve(data);
+    if (loading) return loading;
+    loading = fetch(D.src, { cache: 'force-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) {
+        data = j || { rules: [], items: [] };
+        // Pre-tokenise once; scoring then runs over arrays, not strings.
+        data.items.forEach(function (it) { it._q = toks(it.q); it._a = toks(it.a); });
+        idf = buildIdf(data.items);
+        return data;
+      })
+      .catch(function () { data = { rules: [], items: [] }; idf = Object.create(null); return data; });
+    return loading;
+  }
+
+  // ---- retrieval -----------------------------------------------------
+  function ruleFor(q) {
+    var n = ' ' + norm(q) + ' ';
+    for (var i = 0; i < (data.rules || []).length; i++) {
+      var r = data.rules[i];
+      for (var j = 0; j < r.p.length; j++) {
+        var p = norm(r.p[j]);
+        if (n.indexOf(' ' + p + ' ') !== -1 || n.indexOf(' ' + p) !== -1) return r;
+      }
+    }
+    return null;
+  }
+
+  // Returns the ranking score plus how much of the question's meaning the item
+  // actually covers, measured in IDF mass rather than word count so that
+  // matching "algeria" (common here) counts for far less than "foggara".
+  // A query word counts as present if the word itself OR the term our pages
+  // actually use for it appears (data.syn) — "women travelling alone" scored
+  // zero against "solo female travellers" before this.
+  function has(list, w) {
+    if (list.indexOf(w) !== -1) return true;
+    var a = (data.syn || {})[w];
+    return a ? list.indexOf(a) !== -1 : false;
+  }
+  function score(qt, it) {
+    var s = 0, mass = 0;
+    for (var k = 0; k < qt.length; k++) {
+      var w = qt[k], g = idfOf(w);
+      if (has(it._q, w)) { s += g * 3; mass += g; }   // hit in the question line counts most
+      else if (has(it._a, w)) { s += g; mass += g; }
+    }
+    return { s: s, mass: mass };
+  }
+
+  function search(q) {
+    var qt = toks(q);
+    if (!qt.length) return [];
+    var qMass = 0, i;
+    for (i = 0; i < qt.length; i++) qMass += idfOf(qt[i]);
+    // An answer must carry most of what was asked, not one incidental word.
+    // Without this gate "can I bring my pet iguana to the moon" matched a
+    // packing list on the single word "bring" and answered it confidently.
+    var need = qt.length === 1 ? 0.9 : 0.55;
+    var out = [];
+    for (i = 0; i < data.items.length; i++) {
+      var r = score(qt, data.items[i]);
+      var ratio = r.mass / qMass;
+      if (r.s > 0 && ratio >= need) out.push({ s: r.s, r: ratio, it: data.items[i] });
+    }
+    out.sort(function (a, b) { return b.s - a.s; });
+    return out.slice(0, 4);
+  }
+
+  // ---- rendering -----------------------------------------------------
+  function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+
+  function handoff(q) {
+    var wa = D.wa + '?text=' + encodeURIComponent(q ? q : '');
+    return '<div class="ask-hand">' +
+      '<a class="wa" href="' + esc(wa) + '" target="_blank" rel="noopener">' + esc(D.walabel) + '</a>' +
+      '<a class="ct" href="' + esc(D.contact) + '">' + esc(D.msg) + '</a></div>';
+  }
+
+  function addQ(q) {
+    var el = document.createElement('div');
+    el.className = 'ask-q';
+    el.textContent = q;
+    log.appendChild(el);
+  }
+
+  function addA(html) {
+    var el = document.createElement('div');
+    el.className = 'ask-a';
+    el.innerHTML = html;
+    log.appendChild(el);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function answer(q) {
+    var sugg = document.getElementById('askSugg');
+    if (sugg) sugg.remove();
+    addQ(q);
+
+    var rule = ruleFor(q);
+    if (rule) {
+      addA('<p>' + esc(rule.a) + '</p>' +
+           '<a class="src" href="' + esc(rule.u) + '">' + esc(D.more) + '</a>' +
+           handoff(q));
+      report(q, 1);
+      return;
+    }
+
+    var hits = search(q);
+    if (!hits.length) {
+      addA('<p>' + esc(D.none) + '</p>' + handoff(q));
+      report(q, 0);
+      return;
+    }
+
+    var top = hits[0].it;
+    // Good and near-miss matches overlap in score — measured on real queries,
+    // legitimate ones bottom out around 0.53 and the worst false positive sat
+    // at 0.63, so no threshold separates them. Rather than silently present a
+    // weak match as an answer, say plainly that it is only the closest thing.
+    var html = (hits[0].r < 0.75 ? '<p class="near">' + esc(D.near) + '</p>' : '') +
+      '<span class="chip">' + esc(top.k) + '</span>' +
+      '<span class="qt">' + esc(top.q) + '</span>' +
+      '<p>' + esc(top.a) + '</p>' +
+      '<a class="src" href="' + esc(top.u) + '">' + esc(D.more) + '</a>' +
+      '<div class="foot">' + esc(D.from) + '</div>';
+
+    var rest = hits.slice(1, 4);
+    if (rest.length) {
+      html += '<div class="ask-also"><b>' + esc(D.also) + '</b>' +
+        rest.map(function (r) {
+          return '<a href="' + esc(r.it.u) + '">' + esc(r.it.q) + '</a>';
+        }).join('') + '</div>';
+    }
+    html += handoff(q);
+    addA(html);
+    report(q, hits.length);
+  }
+
+  // ---- logging -------------------------------------------------------
+  // Same beacon the site search already uses. n = 0 marks a question our pages
+  // could not answer, which is the row the owner actually wants to read.
+  function report(q, n) {
+    try {
+      var body = JSON.stringify({ t: 'ask', p: location.pathname, q: q.slice(0, 200), n: n });
+      if (navigator.sendBeacon) navigator.sendBeacon('/hit.php', new Blob([body], { type: 'application/json' }));
+      else fetch('/hit.php', { method: 'POST', body: body, keepalive: true });
+    } catch (e) { /* analytics must never break the answer */ }
+  }
+
+  // ---- open / close --------------------------------------------------
+  function open() {
+    panel.hidden = false;
+    launch.hidden = true;
+    launch.setAttribute('aria-expanded', 'true');
+    load().then(function () { input.focus(); });
+  }
+  function close() {
+    panel.hidden = true;
+    launch.hidden = false;
+    launch.setAttribute('aria-expanded', 'false');
+    launch.focus();
+  }
+
+  // ---- stay clear of the cookie banner --------------------------------
+  // The banner is a fixed bar pinned to the same bottom edge at z-index 200,
+  // and on narrow viewports it is wide enough to sit right on top of this
+  // launcher — so on a visitor's very first page view the assistant button was
+  // unclickable, which is exactly the visit where it is most wanted. Measure
+  // the banner and lift the widget above it until the choice is made.
+  // This script is is:inline, so it runs while the document is still parsing
+  // and the banner's markup is not in the DOM yet — wait for it rather than
+  // depending on the order the two components happen to be mounted in.
+  function watchBanner() {
+    var cc = document.getElementById('cookie-consent');
+    if (!cc) return;
+    var fit = function () {
+      var up = cc.hidden ? 0 : Math.round(cc.getBoundingClientRect().height) + 12;
+      document.documentElement.style.setProperty('--ask-up', up + 'px');
+    };
+    fit();
+    new MutationObserver(fit).observe(cc, { attributes: true, attributeFilter: ['hidden'] });
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(cc);
+    window.addEventListener('resize', fit);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', watchBanner);
+  } else {
+    watchBanner();
+  }
+
+  launch.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !panel.hidden) close();
+  });
+
+  log.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-q]');
+    if (!b) return;
+    load().then(function () { answer(b.dataset.q); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var q = (input.value || '').trim();
+    if (!q) return;
+    input.value = '';
+    load().then(function () { answer(q); });
+  });
+})();
+</script>

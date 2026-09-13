@@ -1,7 +1,7 @@
 ---
 // Linked JSON-LD graph. Country is a real @id entity; WebSite carries a sitelinks
 // SearchAction wired to the real /search/ endpoint (P8).
-import { CONTACT, REVIEWS, LANGUAGES } from '../config';
+import { CONTACT, LANGUAGES } from '../config';
 export interface Props { nodes?: any[]; }
 const { nodes = [] } = Astro.props;
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
@@ -39,7 +39,18 @@ const org: any = {
   "areaServed": [{ "@id": site + "/#algeria" }],
   "audience": { "@type": "Audience", "audienceType": "International leisure travellers" },
   "knowsLanguage": LANGUAGES.codes,
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": REVIEWS.ratingValue, "reviewCount": REVIEWS.reviewCount, "bestRating": 5, "worstRating": 1 },
+  // NO aggregateRating here, deliberately. Our 5.0 / 9 rating lives on the
+  // Google Business profile, not on this site, and reviews-approved.json is
+  // empty — so marking it up sitewide would be rating markup that (a) the
+  // visitor cannot see on the page and (b) we collected from a third party,
+  // both of which Google's review-snippet guidelines prohibit, on top of the
+  // self-serving restriction for Organization/LocalBusiness. A structured-data
+  // manual action would cost the whole site its rich results.
+  // The visible "5.0 on Google" banner in Reviews.astro is plain text linking
+  // to the real profile, which is fine and stays.
+  // Reviews.astro DOES emit an aggregateRating client-side, but only from
+  // approved reviews that are actually rendered on the page — that one is
+  // compliant. Restore a sitewide rating only once real on-site reviews exist.
   "knowsAbout": ["Algeria travel","Sahara desert","UNESCO World Heritage Algeria","Roman Algeria","Amazigh culture","M'Zab Valley"],
   "publishingPrinciples": site + "/editorial/editorial-policy/",
   "actionableFeedbackPolicy": site + "/editorial/corrections-policy/",

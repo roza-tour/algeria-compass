@@ -27,6 +27,8 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
 const faqs = [
   { q: 'Was ist das Sahara-e-Visum?', a: 'Es ist das Visum-Genehmigungsdokument, das wir für Reisende eines organisierten Sahara-Programms vorbereiten. Als lizenzierter algerischer Reiseveranstalter stellen wir eine Genehmigung mit QR-Code aus, der auf dem Portal des algerischen Innenministeriums überprüfbar ist. Das Visum selbst wird von den algerischen Behörden erteilt — Ihre Vignette bzw. Ihr Stempel wird bei der Ankunft ausgestellt; wir bereiten jede Unterlage im Voraus vor.' },
   { q: 'Was kostet das Sahara-e-Visum?', a: 'Das Visum-Genehmigungsdokument kostet 40 €. Die Vorbereitung aller erforderlichen Unterlagen ist bei uns völlig kostenlos. Eine separate Vignetten-/Stempelgebühr ist bei der Ankunft an die Behörden zu zahlen — die Höhe hängt von Ihrer Staatsangehörigkeit ab, und wir nennen Ihnen den Betrag vor der Reise.' },
+  { q: 'Bekomme ich das Visum bei Ankunft für Djanet und das Tassili n\'Ajjer?', a: 'Ja — Djanet ist das Tor zum Nationalpark Tassili n\'Ajjer und zum Tadrart Rouge und gehört zu den südlichen Wilayas, für die diese Route gedacht ist. Voraussetzung ist eine organisierte Reise mit einem lizenzierten algerischen Veranstalter: Wir bereiten die Autorisierung vorab vor, die Vignette wird bei Ankunft ausgestellt. Nennen Sie uns Ihre Staatsangehörigkeit, dann bestätigen wir Ihre Berechtigung vor der Buchung.' },
+  { q: 'Welche Flughäfen im Süden werden angeflogen?', a: 'Djanet–Tiska (DJG) für das Tassili n\'Ajjer und das Tadrart Rouge, Tamanrasset (TMR) für den Hoggar, Ghardaïa Noumérat (GHA) für das M\'Zab-Tal und Timimoun (TMX) für den Gourara. Die meisten Routen führen über Algier; die Inlandsflüge buchen wir als Teil Ihres Programms.' },
   { q: 'Kann ich auch den Norden besuchen oder nur die Wüste?', a: 'Beides. Mit unserer Unterstützung kann eine einzige Reise den Norden und den Süden verbinden, sofern ungefähr die Hälfte der Reise in einer Sahara-Provinz (Wilaya) verbracht wird. Wir gestalten die Route so, dass sie die Voraussetzungen erfüllt.' },
   { q: 'Ist das Genehmigungsdokument offiziell und überprüfbar?', a: 'Ja. Es trägt einen QR-Code, der auf dem Portal des algerischen Innenministeriums überprüft werden kann. Die Ausstellung folgt den offiziellen Wegen — wir sind Ihr Partner für die Unterlagen; das Visum erteilen die algerischen Behörden.' },
   { q: 'Muss ich eine komplette Tour buchen, um es zu erhalten?', a: 'Ja. Die Sahara-e-Visum-Genehmigung ist verfügbar, wenn Sie ein vollständiges Programm bei uns buchen — sie ist Teil der Organisation Ihrer Reise, keine eigenständige Dienstleistung.' },
@@ -58,6 +60,9 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
 
       <h2>Weg 2 — Das Sahara-e-Visum (organisierte Wüstenprogramme)</h2>
       <p>Das kommt einem „Online“-Weg am nächsten. Für ein <strong>organisiertes Sahara-Programm</strong> bereiten wir im Voraus ein <strong>Visum-Genehmigungsdokument</strong> vor — kein Konsulatsbesuch nötig — und Ihre Visumvignette wird bei der Ankunft an den südlichen Gateway-Flughäfen ausgestellt. Dieser Weg steht <strong>Reisenden aller Nationalitäten offen</strong>, jedoch nur bei organisierten Sahara-Reisen. <a href="#saharan-evisa">So funktioniert das Sahara-e-Visum im Detail ↓</a></p>
+
+      <h2>Welche Teile Algeriens als „der Süden" gelten</h2>
+      <p>Die Südroute ist auf Algeriens saharische Wilayas ausgelegt. Unsere Programme nutzen konkret <strong>Djanet</strong> — das Tor zum Nationalpark <strong>Tassili n'Ajjer</strong> und zum <strong>Tadrart Rouge</strong> —, <strong>Tamanrasset</strong> im Hoggar, <strong>Ghardaïa</strong> im M'Zab-Tal und <strong>Timimoun</strong> im Gourara. Erreicht werden sie über die zugehörigen Flughäfen im Süden: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> und <strong>Timimoun (TMX)</strong>, in der Regel mit Umstieg in Algier. Wenn Sie eine unserer <a href="/de/reisen/">Sahara-Reisen</a> buchen, ist die Route bereits entsprechend angelegt.</p>
 
       <h2>Wie unsere Visum-Unterstützung dazu passt</h2>
       <p>Welcher Weg auch gilt: Wir bereiten die Unterlagen vor, die Konsulate und Behörden erwarten — kostenlos bei Ihrer Buchung. Alle Details und erforderlichen Dokumente finden Sie unter <a href="/de/visum-hilfe-algerien/">Visum-Unterstützung</a>, und die <a href="/de/visum-bei-ankunft-algerien/">Visabestimmungen für Algerien</a> stellen die beiden Wege direkt gegenüber. Wir sind Ihr Partner für die Unterlagen; das Visum erteilt das Konsulat bzw. der Staat.</p>
@@ -120,7 +125,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
     <div class="sev-faq">
       <h3>Sahara-e-Visum — kurze Antworten</h3>
       <div class="faq">
-        {faqs.slice(0,5).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+        {faqs.slice(0,7).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </div>
     </div>
   </div></section>

@@ -25,25 +25,25 @@
 [data-civ="02"] .pgrid figure{border-color:rgba(224,168,90,0.4);}
 [data-civ="02"] .qbox{background:rgba(224,168,90,0);}
 /* dark-skin content (AA light-on-dark) */
-[data-civ="02"] body{color:rgba(243,233,216,0.86);}
+[data-civ="02"] body{color:rgba(243,233,216,0.95);}
 [data-civ="02"] h1,[data-civ="02"] h2,[data-civ="02"] h3,[data-civ="02"] h4{color:#F3E9D8;}
-[data-civ="02"] .prose{color:rgba(243,233,216,0.86);}
+[data-civ="02"] .prose{color:rgba(243,233,216,0.95);}
 [data-civ="02"] .prose h2,[data-civ="02"] .prose h3{color:#E0A85A;}
-[data-civ="02"] a{color:#E0A85A;}
-[data-civ="02"] .crumbs,[data-civ="02"] .byline,[data-civ="02"] .ed-k,[data-civ="02"] .sources-note,[data-civ="02"] .pgrid figcaption{color:rgba(243,233,216,0.62);}
+[data-civ="02"] a:not(.btn):not(.btn-wa):not(.btn-book):not(.btn-gold):not(.btn-ghost):not(.btn-ghost-light):not(.btn-wa-2):not(.bw-cta):not(.nav-links a):not(.sticky-contact a){color:#E0A85A;}
+[data-civ="02"] .crumbs,[data-civ="02"] .byline,[data-civ="02"] .ed-k,[data-civ="02"] .sources-note,[data-civ="02"] .pgrid figcaption{color:rgba(243,233,216,0.8);}
 [data-civ="02"] .byline a,[data-civ="02"] .ed-v a,[data-civ="02"] .sources a{color:#E0A85A;}
 [data-civ="02"] .card{background:rgb(30,47,83);border-color:rgba(224,168,90,0.32);}
-[data-civ="02"] .card h3{color:#F3E9D8;}[data-civ="02"] .card p{color:rgba(243,233,216,0.86);}[data-civ="02"] .card .tag,[data-civ="02"] .card .meta{color:rgba(243,233,216,0.62);border-color:rgba(255,255,255,.13);}
-[data-civ="02"] .facts{background:rgba(255,255,255,.055);border-color:rgba(224,168,90,0.22);}[data-civ="02"] .facts td{color:rgba(243,233,216,0.86);border-color:rgba(255,255,255,.13);}[data-civ="02"] .facts td:first-child{color:rgba(243,233,216,0.62);}
-[data-civ="02"] .qbox{color:rgba(243,233,216,0.86);}
+[data-civ="02"] .card h3{color:#F3E9D8;}[data-civ="02"] .card p{color:rgba(243,233,216,0.95);}[data-civ="02"] .card .tag,[data-civ="02"] .card .meta{color:rgba(243,233,216,0.8);border-color:rgba(255,255,255,.13);}
+[data-civ="02"] .facts{background:rgba(255,255,255,.055);border-color:rgba(224,168,90,0.22);}[data-civ="02"] .facts td{color:rgba(243,233,216,0.95);border-color:rgba(255,255,255,.13);}[data-civ="02"] .facts td:first-child{color:rgba(243,233,216,0.8);}
+[data-civ="02"] .qbox{color:rgba(243,233,216,0.95);}
 [data-civ="02"] .pgrid figure{background:rgb(30,47,83);}
-[data-civ="02"] .sources,[data-civ="02"] .ed-meta,[data-civ="02"] .entity-snapshot,[data-civ="02"] .key-takeaways,[data-civ="02"] .related,[data-civ="02"] .def-grid div{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.13);color:rgba(243,233,216,0.86);}
+[data-civ="02"] .sources,[data-civ="02"] .ed-meta,[data-civ="02"] .entity-snapshot,[data-civ="02"] .key-takeaways,[data-civ="02"] .related,[data-civ="02"] .def-grid div{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.13);color:rgba(243,233,216,0.95);}
 [data-civ="02"] .ed-meta{border-left-color:#E0A85A;}
-[data-civ="02"] .sources ol,[data-civ="02"] .sources li,[data-civ="02"] .es-desc,[data-civ="02"] .es-facts dd{color:rgba(243,233,216,0.86);}
-[data-civ="02"] .el-group li a{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.13);color:rgba(243,233,216,0.86);}
-[data-civ="02"] .faq summary{color:#F3E9D8;}[data-civ="02"] .faq p{color:rgba(243,233,216,0.86);}[data-civ="02"] .faq details{border-color:rgba(255,255,255,.13);}
-[data-civ="02"] .chips-list span{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.13);color:rgba(243,233,216,0.86);}
-[data-civ="02"] .tour-lead,[data-civ="02"] .tour-highlights li,[data-civ="02"] .itinerary p,[data-civ="02"] .why-grid span,[data-civ="02"] .gtk dd,[data-civ="02"] .map-route,[data-civ="02"] .facts li{color:rgba(243,233,216,0.86);}
+[data-civ="02"] .sources ol,[data-civ="02"] .sources li,[data-civ="02"] .es-desc,[data-civ="02"] .es-facts dd{color:rgba(243,233,216,0.95);}
+[data-civ="02"] .el-group li a{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.13);color:rgba(243,233,216,0.95);}
+[data-civ="02"] .faq summary{color:#F3E9D8;}[data-civ="02"] .faq p{color:rgba(243,233,216,0.95);}[data-civ="02"] .faq details{border-color:rgba(255,255,255,.13);}
+[data-civ="02"] .chips-list span{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.13);color:rgba(243,233,216,0.95);}
+[data-civ="02"] .tour-lead,[data-civ="02"] .tour-highlights li,[data-civ="02"] .itinerary p,[data-civ="02"] .why-grid span,[data-civ="02"] .gtk dd,[data-civ="02"] .map-route,[data-civ="02"] .facts li{color:rgba(243,233,216,0.95);}
 [data-civ="02"] .itinerary strong,[data-civ="02"] .why-grid strong{color:#F3E9D8;}
 [data-civ="02"] .tour h2,[data-civ="02"] .facts h3,[data-civ="02"] .gtk dt{color:#E0A85A;}
 [data-civ="02"] .tour-map{border-color:rgba(255,255,255,.13);}
@@ -119,12 +119,3 @@
 [data-civ="08"] .card{border-color:rgba(178,58,42,0.3);border-top:3px solid var(--accent);}
 [data-civ="08"] .pgrid figure{border-color:rgba(178,58,42,0.4);}
 [data-civ="08"] .qbox{background:rgba(178,58,42,0.07);}
-
-/* L3 legibility — civ skins recolour all links by accent; keep BUTTON text
-   legible by re-asserting correct colours with higher specificity. */
-[data-civ] a.btn{color:#fff;}
-[data-civ] a.btn-gold{color:#1a1a1a;}
-[data-civ] .tour a.btn-gold,[data-civ] a.btn-gold.bw-cta{color:#fff;}
-[data-civ] a.btn-wa,[data-civ] a.btn-wa-2{color:#06351f;}
-[data-civ] a.btn-book{color:#07261C;}
-[data-civ] a.btn-ghost{color:inherit;}

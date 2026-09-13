@@ -53,8 +53,11 @@ for (const s of SKINS) {
   css += `${sel} .qbox{background:${rgba(s.accent, s.dark ? 0.0 : 0.07)};}\n`;
 
   if (s.dark) {
-    const cream = s.ink, soft = rgba(s.ink, 0.62), softer = rgba(s.ink, 0.5);
-    const body2 = rgba(s.ink, 0.86);
+    // Opacities raised (was .62 / .5 / .86): at the old values the body copy on
+    // the dark skins read as grey-on-navy rather than text, which is the single
+    // biggest legibility complaint on the Sahara tour pages.
+    const cream = s.ink, soft = rgba(s.ink, 0.80), softer = rgba(s.ink, 0.72);
+    const body2 = rgba(s.ink, 0.95);
     const panel = 'rgba(255,255,255,.055)', line = 'rgba(255,255,255,.13)';
     const cardBg = shade(s.surface, -0.12); // slightly lighter than surface
     css += `/* dark-skin content (AA light-on-dark) */\n`;
@@ -62,7 +65,12 @@ for (const s of SKINS) {
     css += `${sel} h1,${sel} h2,${sel} h3,${sel} h4{color:${cream};}\n`;
     css += `${sel} .prose{color:${body2};}\n`;
     css += `${sel} .prose h2,${sel} .prose h3{color:${s.accent};}\n`;
-    css += `${sel} a{color:${s.accent};}\n`;
+    // Links only — never buttons. Unscoped, this recoloured the header's
+    // WhatsApp and "Plan a Trip" buttons to the skin accent, leaving desert
+    // gold on WhatsApp green (1.06:1) and gold on gold (1.32:1) on every
+    // dark-skin tour page.
+    const notBtn = ':not(.btn):not(.btn-wa):not(.btn-book):not(.btn-gold):not(.btn-ghost):not(.btn-ghost-light):not(.btn-wa-2):not(.bw-cta):not(.nav-links a):not(.sticky-contact a)';
+    css += `${sel} a${notBtn}{color:${s.accent};}\n`;
     css += `${sel} .crumbs,${sel} .byline,${sel} .ed-k,${sel} .sources-note,${sel} .pgrid figcaption{color:${soft};}\n`;
     css += `${sel} .byline a,${sel} .ed-v a,${sel} .sources a{color:${s.accent};}\n`;
     css += `${sel} .card{background:${cardBg};border-color:${rgba(s.accent,0.32)};}\n`;
