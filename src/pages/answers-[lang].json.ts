@@ -24,6 +24,9 @@ import { LANGS, ROUTES, type Lang } from '../i18n';
 
 type Item = { q: string; a: string; u: string; k: string };
 type Rule = { id: string; p: string[]; a: string; u: string };
+// A bookable tour, for the suggestions shown under every answer.
+// t = title, u = url, d = duration, p = price in EUR, w = words to match on.
+type Tour = { t: string; u: string; d: string; p: number; w: string };
 
 export function getStaticPaths() {
   return LANGS.map(lang => ({ params: { lang } }));
@@ -241,7 +244,31 @@ export const GET: APIRoute = async ({ params }) => {
     return true;
   });
 
-  return new Response(JSON.stringify({ lang, rules: RULES[lang], syn: SYN[lang], items: deduped }), {
+  // The bookable catalogue, so an answer can end with the two trips that
+  // actually match what was asked. A visitor who asks "when is the best time
+  // for the desert?" has told us what they want; sending them back to a
+  // 24-tour index to find it themselves wastes that. Matching happens in the
+  // widget, against `w` — the words that describe the trip, in this language.
+  const catalogue: Tour[] = [];
+  for (const t of tours) {
+    const loc = local ? local[t.id] : null;
+    if (local && !loc?.full) continue;                 // no page in this language
+    const src = loc || t;
+    catalogue.push({
+      t: clean(src.title),
+      u: `${tourBase}${t.id}/`,
+      d: clean(src.duration),
+      p: Number(t.price_eur) || 0,
+      w: clean([
+        src.title, src.hook, src.summary, src.overview,
+        (src.highlights || []).join(' '),
+        (src.itinerary || []).map((d: any) => d.title).join(' '),
+        (t.wilayas || []).join(' '), t.theme,
+      ].filter(Boolean).join(' ')).slice(0, 900),
+    });
+  }
+
+  return new Response(JSON.stringify({ lang, rules: RULES[lang], syn: SYN[lang], items: deduped, tours: catalogue }), {
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
   });
 };

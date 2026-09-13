@@ -23,35 +23,40 @@ const T: Record<Lang, Record<string, string>> = {
         none: 'I could not find that on our pages, and I will not guess at it. Send it to our team — you will get a real answer, usually within a few hours.',
         more: 'Read the full page', wa: 'Ask our team on WhatsApp', msg: 'Send us a message',
         also: 'Related', from: 'From our published pages', thinking: 'Looking…',
-        near: 'That is not an exact match. The closest thing we have published is this — if you meant something else, ask our team.' },
+        near: 'That is not an exact match. The closest thing we have published is this — if you meant something else, ask our team.',
+        trips: 'Trips that match', per: 'per person' },
   fr: { launch: 'Poser une question', title: 'Demandez à Algeria Compass',
         sub: 'Les réponses viennent directement de nos pages publiées — nous ne devinons pas.',
         ph: 'ex. Quelle est la meilleure saison pour le Sahara ?', send: 'Demander', close: 'Fermer',
         none: "Je n'ai pas trouvé cela dans nos pages, et je ne vais pas deviner. Envoyez la question à notre équipe — vous aurez une vraie réponse, en général en quelques heures.",
         more: 'Lire la page complète', wa: 'Demander à notre équipe sur WhatsApp', msg: 'Nous écrire',
         also: 'À voir aussi', from: 'Extrait de nos pages publiées', thinking: 'Recherche…',
-        near: "Ce n'est pas une correspondance exacte. Voici ce que nous avons publié de plus proche — si vous vouliez dire autre chose, demandez à notre équipe." },
+        near: "Ce n'est pas une correspondance exacte. Voici ce que nous avons publié de plus proche — si vous vouliez dire autre chose, demandez à notre équipe.",
+        trips: 'Des circuits qui correspondent', per: 'par personne' },
   de: { launch: 'Frage stellen', title: 'Fragen Sie Algeria Compass',
         sub: 'Die Antworten stammen direkt aus unseren veröffentlichten Seiten — wir raten nicht.',
         ph: 'z. B. Wann ist die beste Zeit für die Sahara?', send: 'Fragen', close: 'Schließen',
         none: 'Das habe ich auf unseren Seiten nicht gefunden, und ich rate nicht. Schicken Sie die Frage an unser Team — Sie bekommen eine echte Antwort, meist innerhalb weniger Stunden.',
         more: 'Ganze Seite lesen', wa: 'Unser Team über WhatsApp fragen', msg: 'Schreiben Sie uns',
         also: 'Auch dazu', from: 'Aus unseren veröffentlichten Seiten', thinking: 'Suche…',
-        near: 'Das ist keine exakte Übereinstimmung. Das Nächstliegende aus unseren Seiten ist dies — wenn Sie etwas anderes meinten, fragen Sie unser Team.' },
+        near: 'Das ist keine exakte Übereinstimmung. Das Nächstliegende aus unseren Seiten ist dies — wenn Sie etwas anderes meinten, fragen Sie unser Team.',
+        trips: 'Passende Reisen', per: 'pro Person' },
   es: { launch: 'Haz una pregunta', title: 'Pregunta a Algeria Compass',
         sub: 'Las respuestas salen directamente de nuestras páginas publicadas — no suponemos.',
         ph: 'p. ej. ¿Cuál es la mejor época para el Sáhara?', send: 'Preguntar', close: 'Cerrar',
         none: 'No he encontrado eso en nuestras páginas, y no voy a suponer. Envía la pregunta a nuestro equipo — tendrás una respuesta real, normalmente en unas horas.',
         more: 'Leer la página completa', wa: 'Preguntar al equipo por WhatsApp', msg: 'Escríbenos',
         also: 'También', from: 'De nuestras páginas publicadas', thinking: 'Buscando…',
-        near: 'No es una coincidencia exacta. Lo más parecido que tenemos publicado es esto — si querías decir otra cosa, pregunta a nuestro equipo.' },
+        near: 'No es una coincidencia exacta. Lo más parecido que tenemos publicado es esto — si querías decir otra cosa, pregunta a nuestro equipo.',
+        trips: 'Circuitos que encajan', per: 'por persona' },
   it: { launch: 'Fai una domanda', title: 'Chiedi ad Algeria Compass',
         sub: 'Le risposte vengono direttamente dalle nostre pagine pubblicate — non tiriamo a indovinare.',
         ph: 'es. Qual è il periodo migliore per il Sahara?', send: 'Chiedi', close: 'Chiudi',
         none: "Non l'ho trovato nelle nostre pagine, e non voglio tirare a indovinare. Manda la domanda al nostro team — avrai una risposta vera, di solito in poche ore.",
         more: 'Leggi la pagina completa', wa: 'Chiedi al team su WhatsApp', msg: 'Scrivici',
         also: 'Vedi anche', from: 'Dalle nostre pagine pubblicate', thinking: 'Cerco…',
-        near: "Non è una corrispondenza esatta. La cosa più vicina che abbiamo pubblicato è questa — se intendevate altro, chiedete al nostro team." },
+        near: "Non è una corrispondenza esatta. La cosa più vicina che abbiamo pubblicato è questa — se intendevate altro, chiedete al nostro team.",
+        trips: 'Viaggi adatti', per: 'a persona' },
 };
 
 const SUGGEST: Record<Lang, string[]> = {
@@ -78,7 +83,8 @@ const contactHref = ROUTES[lang].contact;
      data-lang={lang} data-src={`/answers-${lang}.json`}
      data-wa={waHref} data-contact={contactHref}
      data-none={t.none} data-more={t.more} data-walabel={t.wa} data-msg={t.msg}
-     data-from={t.from} data-also={t.also} data-thinking={t.thinking} data-near={t.near}>
+     data-from={t.from} data-also={t.also} data-thinking={t.thinking} data-near={t.near}
+     data-trips={t.trips} data-per={t.per}>
   <div class="ask-head">
     <div>
       <h2 id="askTitle">{t.title}</h2>
@@ -174,6 +180,20 @@ const contactHref = ROUTES[lang].contact;
   .ask-also a{display:block;font-size:.9rem;font-weight:600;color:var(--green-d);
     padding:.2rem 0;text-decoration:underline;text-underline-offset:2px}
 
+  /* Trip suggestions read as cards, not as another list of links: they are the
+     one place in the panel where we are selling rather than answering, and the
+     price is the fact the visitor is looking for. */
+  .ask-trips{margin-top:.6rem;padding-top:.55rem;border-top:1px solid var(--border)}
+  .ask-trips b{display:block;font-size:.74rem;font-weight:800;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--text-l);margin-bottom:.35rem}
+  .ask-trips a{display:block;padding:.5rem .65rem;margin-bottom:.35rem;text-decoration:none;
+    background:var(--paper);border:1px solid var(--border);border-radius:10px;
+    transition:border-color .16s,background .16s}
+  .ask-trips a:hover{border-color:var(--green);background:#fff}
+  .ask-trips a:focus-visible{outline:2px solid var(--green);outline-offset:1px}
+  .ask-trips .tt{display:block;font-size:.9rem;font-weight:700;color:var(--green-d);line-height:1.35}
+  .ask-trips .tm{display:block;margin-top:.15rem;font-size:.8rem;font-weight:600;color:var(--text-m)}
+
   .ask-hand{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.6rem}
   .ask-hand a{display:inline-flex;align-items:center;min-height:40px;padding:.45rem .8rem;
     border-radius:var(--radius-pill);font-size:.87rem;font-weight:800;text-decoration:none}
@@ -224,11 +244,29 @@ const contactHref = ROUTES[lang].contact;
   }
   // Interrogatives are deliberately NOT stopped: the indexed questions contain
   // them too, so "when…" matching "When is…" is real signal, not noise.
-  var STOP = ' a an the is are do does did can could would should i my me we our you your of in on at to for from with and or but it its this that these those there any some be been was were will shall les des une un le la de du et ou est sont pour avec dans sur je vous nous mon votre der die das ein eine und oder ist sind fur mit auf im den dem ich wir sie ihr el los las una y o es son para con en al mi su i gli lo delle della e per con nel sul mio vostro ';
+  var STOP = ' a an the is are do does did can could would should i my me we our you your of in on at to for from with and or but it its this that these those there any some be been was were will shall les des une un le la de du et ou est sont pour avec dans sur je vous nous mon votre der die das ein eine und oder ist sind fur mit auf im den dem ich wir sie ihr el los las una y o es son para con en al mi su i gli lo delle della e per con nel sul mio vostro '
+    // Conversational framing verbs. They carry no topic, but the site has
+    // never published most of them, so they scored as maximally rare and
+    // hijacked the "rarest word in the question" test — "tell me about the
+    // Tadrart Rouge" was judged to be a question about `tell`.
+    + 'tell show want wants wanted wish looking look plan planning see seeing know about please help thinking interested trip trips '
+    + 'voir veux veut voudrais aimerais souhaite savoir dire aller montrer '
+    + 'quiero quiere queria querria ver saber ir mostrar decir '
+    + 'vorrei voglio vuole vedere sapere andare mostrare dire '
+    + 'mochte mochten will wollen sehen wissen gehen zeigen sagen ';
   function toks(s) {
-    return norm(s).split(' ').filter(function (w) {
-      return w.length > 1 && STOP.indexOf(' ' + w + ' ') === -1;
+    var out = [];
+    norm(s).split(' ').forEach(function (w) {
+      if (w.length < 2 || STOP.indexOf(' ' + w + ' ') !== -1) return;
+      out.push(w);
+      // Someone typing quickly writes "mzab", not "M'Zab"; index both so the
+      // apostrophe is not the reason a place fails to match.
+      if (/['\u2019]/.test(w)) {
+        var bare = w.replace(/['\u2019]/g, '');
+        if (bare.length > 1 && bare !== w && STOP.indexOf(' ' + bare + ' ') === -1) out.push(bare);
+      }
     });
+    return out;
   }
 
   var IDF_MAX = 1;
@@ -259,6 +297,7 @@ const contactHref = ROUTES[lang].contact;
         data = j || { rules: [], items: [] };
         // Pre-tokenise once; scoring then runs over arrays, not strings.
         data.items.forEach(function (it) { it._q = toks(it.q); it._a = toks(it.a); });
+        (data.tours || []).forEach(function (t) { t._w = toks(t.t + ' ' + t.w); });
         idf = buildIdf(data.items);
         return data;
       })
@@ -329,6 +368,60 @@ const contactHref = ROUTES[lang].contact;
       '<a class="ct" href="' + esc(D.contact) + '">' + esc(D.msg) + '</a></div>';
   }
 
+  // ---- trip suggestions ------------------------------------------------
+  // The assistant's job is to shorten the path to a booking, not just to
+  // answer trivia. Once we know what someone asked about — the Sahara in
+  // winter, Roman ruins, a week with children — the two trips that match are
+  // more useful than the answer alone. Scored on the same rare-word principle
+  // as the answers, and shown only when the match is real: a generic question
+  // suggests nothing rather than padding every reply with the same two tours.
+  function suggestTrips(q) {
+    var list = (data && data.tours) || [];
+    if (!list.length) return [];
+    var qt = toks(q);
+    if (!qt.length) return [];
+    var total = 0, peak = 0;
+    qt.forEach(function (w) { var v = idfOf(w); total += v; if (v > peak) peak = v; });
+    if (!total) return [];
+    var scored = [];
+    for (var i = 0; i < list.length; i++) {
+      var t = list[i], mass = 0, seen = Object.create(null), gotPeak = false;
+      for (var j = 0; j < qt.length; j++) {
+        var w = qt[j];
+        if (seen[w]) continue;
+        if (has(t._w, w)) {
+          seen[w] = 1; mass += idfOf(w);
+          if (idfOf(w) >= peak - 1e-9) gotPeak = true;
+        }
+      }
+      // The rarest word in the question IS the question — "timgad" in "roman
+      // ruins like timgad", "japan" in "capital of japan". A trip that matches
+      // everything except that word has matched the filler, so "what is the
+      // capital of japan" was scoring 0.45 on `what` and `capital` alone and
+      // recommending a 14-day tour. If the rare word is one the site has never
+      // published, no trip can carry it, and nothing is suggested.
+      if (mass > 0 && gotPeak) scored.push({ t: t, r: mass / total });
+    }
+    scored.sort(function (a, b) { return b.r - a.r; });
+    // A trip has to cover a real share of what was asked. Below this the
+    // "match" is one common word and the suggestion is noise.
+    return scored.filter(function (s) { return s.r >= 0.34; }).slice(0, 2);
+  }
+
+  function tripsHtml(q) {
+    var picks = suggestTrips(q);
+    if (!picks.length) return '';
+    return '<div class="ask-trips"><b>' + esc(D.trips) + '</b>' +
+      picks.map(function (p) {
+        var t = p.t;
+        return '<a href="' + esc(t.u) + '">' +
+          '<span class="tt">' + esc(t.t) + '</span>' +
+          '<span class="tm">' + esc(t.d) +
+          (t.p ? ' · €' + esc(String(t.p)) + ' ' + esc(D.per) : '') +
+          '</span></a>';
+      }).join('') + '</div>';
+  }
+
   function addQ(q) {
     var el = document.createElement('div');
     el.className = 'ask-q';
@@ -353,14 +446,14 @@ const contactHref = ROUTES[lang].contact;
     if (rule) {
       addA('<p>' + esc(rule.a) + '</p>' +
            '<a class="src" href="' + esc(rule.u) + '">' + esc(D.more) + '</a>' +
-           handoff(q));
+           tripsHtml(q) + handoff(q));
       report(q, 1);
       return;
     }
 
     var hits = search(q);
     if (!hits.length) {
-      addA('<p>' + esc(D.none) + '</p>' + handoff(q));
+      addA('<p>' + esc(D.none) + '</p>' + tripsHtml(q) + handoff(q));
       report(q, 0);
       return;
     }
@@ -384,7 +477,7 @@ const contactHref = ROUTES[lang].contact;
           return '<a href="' + esc(r.it.u) + '">' + esc(r.it.q) + '</a>';
         }).join('') + '</div>';
     }
-    html += handoff(q);
+    html += tripsHtml(q) + handoff(q);
     addA(html);
     report(q, hits.length);
   }
