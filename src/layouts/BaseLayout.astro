@@ -15,6 +15,7 @@ import SeasonAmbience from '../components/SeasonAmbience.astro';
 import SeasonBanner from '../components/SeasonBanner.astro';
 import { seasonForDate } from '../lib/season';
 import StickyContact from '../components/StickyContact.astro';
+import AskWidget from '../components/AskWidget.astro';
 export interface Props {
   title: string; description: string; image?: string; imageAlt?: string; type?: string;
   region?: string; civ?: string; schema?: any[]; sticky?: boolean; keywords?: string | string[]; bodyClass?: string; noindex?: boolean;
@@ -80,6 +81,7 @@ const siteSeason = (import.meta.env.SEASON_PREVIEW as string) || seasonForDate(n
   </main>
   <Footer lang={lang} />
   {sticky && <StickyContact lang={lang} />}
+  <AskWidget lang={asLang(lang)} />
   <CookieConsent lang={lang} />
   <script is:inline>
     /* Shared scroll-reveal. Content is visible by default; the hidden state is

@@ -28,19 +28,24 @@ if (!empty($_POST['website'])) {
 }
 
 // Per-IP rate limit — guards mail() against abuse/spam-relay (5 / hour).
-function rate_limit($bucket, $max, $win) {
+// Checked here, but a hit is only RECORDED once the message actually validates,
+// so someone who mistypes their email a few times is not locked out for an hour.
+function rl_file($bucket) {
   $dir = __DIR__ . '/data';
   if (!is_dir($dir)) @mkdir($dir, 0755, true);
-  $f = $dir . '/rl-' . $bucket . '-' . md5(substr($_SERVER['REMOTE_ADDR'] ?? '0', 0, 45)) . '.json';
-  $now = time();
-  $hits = is_file($f) ? (json_decode((string) @file_get_contents($f), true) ?: []) : [];
-  $hits = array_values(array_filter($hits, fn($t) => $t > $now - $win));
-  if (count($hits) >= $max) return false;
-  $hits[] = $now;
-  @file_put_contents($f, json_encode($hits), LOCK_EX);
-  return true;
+  return $dir . '/rl-' . $bucket . '-' . md5(substr($_SERVER['REMOTE_ADDR'] ?? '0', 0, 45)) . '.json';
 }
-if (!rate_limit('contact', 5, 3600)) {
+function rl_hits($bucket, $win) {
+  $now = time();
+  $hits = is_file(rl_file($bucket)) ? (json_decode((string) @file_get_contents(rl_file($bucket)), true) ?: []) : [];
+  return array_values(array_filter($hits, fn($t) => $t > $now - $win));
+}
+function rate_limit_record($bucket, $win) {
+  $hits = rl_hits($bucket, $win);
+  $hits[] = time();
+  @file_put_contents(rl_file($bucket), json_encode($hits), LOCK_EX);
+}
+if (count(rl_hits('contact', 3600)) >= 5) {
   respond(false, 'Too many messages from your connection — please try again later or email us directly.', $ajax);
 }
 
@@ -60,6 +65,22 @@ $context   = clean('context');
 if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
   respond(false, 'Please add your name, a valid email and a message.', $ajax);
 }
+
+// Length guards. Without them a bot can POST megabytes straight into the email
+// body and the subject line — reviews.php has always capped its fields; this
+// endpoint did not.
+$name      = mb_substr($name, 0, 80);
+$email     = mb_substr($email, 0, 120);
+$country   = mb_substr($country, 0, 60);
+$when      = mb_substr($when, 0, 60);
+$days      = mb_substr($days, 0, 30);
+$people    = mb_substr($people, 0, 30);
+$interests = mb_substr($interests, 0, 200);
+$context   = mb_substr($context, 0, 200);
+$message   = mb_substr($message, 0, 4000);
+
+// The message validated — only now does this attempt count against the cap.
+rate_limit_record('contact', 3600);
 
 $subject = 'Algeria trip inquiry — ' . nohdr($name);
 $body  = "New inquiry from algeriacompass.com\n";
