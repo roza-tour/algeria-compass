@@ -105,6 +105,15 @@ if ($type === 'search' && isset($in['q'])) {
 $dir = __DIR__ . '/data';
 if (!is_dir($dir)) @mkdir($dir, 0755, true);
 $file = $dir . '/hits-' . date('Y-m') . '.jsonl';
+
+// Size cap. This endpoint is unauthenticated and unthrottled by design (it has
+// to accept a beacon from every visitor), so without a ceiling anyone scripting
+// POSTs could grow this file until the hosting account runs out of disk — which
+// would take the whole site down, not just the stats. 32 MB is roughly 200k
+// hits, far beyond real traffic for a month; past that we stop appending and
+// the counters simply plateau instead of the site falling over.
+if (is_file($file) && filesize($file) > 32 * 1024 * 1024) { http_response_code(204); exit; }
+
 @file_put_contents($file, json_encode($rec, JSON_UNESCAPED_SLASHES) . "\n", FILE_APPEND | LOCK_EX);
 
 http_response_code(204);
