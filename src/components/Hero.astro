@@ -2,8 +2,15 @@
 export interface Props { title: string; eyebrow?: string; text?: string; image: string; alt: string; }
 const { title, eyebrow, text, image, alt } = Astro.props;
 // Serve a display-sized WebP (scripts/gen-webp.mjs) with the original JPG as
-// fallback. Only JPGs get a <source> (those are the ones we pre-generate webp for).
-const webp = /\.jpe?g$/i.test(image) ? image.replace(/\.jpe?g$/i, '.sm.webp') : null;
+// fallback — but ONLY when that WebP actually exists on disk.
+//
+// <picture> does not fall back the way it looks like it should: once the
+// browser matches a <source>, a 404 on that file leaves the image broken; it
+// does not then try the <img src>. So emitting the sibling unconditionally
+// turns any hero image that has no .sm.webp into a broken hero. smWebp()
+// checks the file, which is why the galleries were never affected.
+import { smWebp } from '../lib/imageSize';
+const webp = smWebp(image);
 ---
 <section class="hero">
   <picture>

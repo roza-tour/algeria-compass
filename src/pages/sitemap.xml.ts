@@ -23,7 +23,7 @@ export const GET: APIRoute = async () => {
   //   /search/, /sitemap/, /404/.
   //   (/clusters/ was removed entirely — now 301'd to real pages in .htaccess.)
   const statics = ['', 'discover/', 'tours/', 'luxury/', 'destinations/', 'provinces/', 'regions/', 'experiences/', 'blog/',
-    'questions/', 'culture/', 'history/', 'food/', 'sweets/', 'unesco/', 'travel-guides/',
+    'questions/', 'culture/', 'history/', 'food/', 'sweets/', 'unesco/', 'travel-guides/', 'moments/',
     'visa-support/', 'evisa/', 'booking-terms/', 'algeria-visa-requirements/',
     'about/', 'contact/', 'editorial/', 'team/', 'reviewers/',
     // French (fr) pages — hreflang-paired with their English counterparts

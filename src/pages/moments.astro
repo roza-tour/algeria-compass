@@ -1,0 +1,61 @@
+---
+// "Moments from our trips" — the owner's own photographs of her own travellers,
+// published with their consent (owner-confirmed 2026-09-14).
+//
+// Every photograph below was opened and described from what is actually in the
+// frame. That is the whole reason this list is hand-written rather than globbed
+// from the folder: alt text has to say what the picture shows, and there is no
+// way to generate that from a filename. The library holds 556 of these; adding
+// more is one line each, once someone has looked at them.
+//
+// These are client photographs, not stock and not the wilaya image library.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
+import CtaSection from '../components/CtaSection.astro';
+
+const moments = [
+  { src: '/assets/img/clients/client-641.jpg', alt: 'Two travellers photographing each other in a rocky wadi below an ochre hillside town, with palms along the bank' },
+  { src: '/assets/img/clients/client-12.jpg',  alt: 'A traveller sitting on a sandstone ledge above a wide desert plateau of scrub and distant escarpments' },
+  { src: '/assets/img/clients/client-390.jpg', alt: 'The view from a shaded terrace of split-palm beams out over a palm oasis and the desert beyond' },
+  { src: '/assets/img/clients/client-60.jpg',  alt: 'A couple standing in an old prayer hall roofed with palm trunks, prayer rugs laid on the stone floor' },
+  { src: '/assets/img/clients/client-478.jpg', alt: 'A traveller walking a narrow earthen lane between the mud-rendered walls of a ksar' },
+  { src: '/assets/img/clients/client-500.jpg', alt: 'Two travellers laughing over a wooden platter of Algerian salads and dips set for lunch' },
+  { src: '/assets/img/clients/client-320.jpg', alt: 'A traveller drinking tea on a red patterned banquette in a guesthouse sitting room' },
+  { src: '/assets/img/clients/client-584.jpg', alt: 'An Algerian guide and a traveller laughing together on a stony hillside' },
+  { src: '/assets/img/clients/client-100.jpg', alt: 'Three travellers talking under the vaulted, whitewashed arch of a historic house, a pierced lantern overhead' },
+  { src: '/assets/img/clients/client-209.jpg', alt: 'Two travellers on a paved village square in front of a painted ceremonial arch' },
+  { src: '/assets/img/clients/client-450.jpg', alt: 'Visitors reading the labels in a museum gallery of glass cases and framed paintings' },
+];
+
+const hero = '/assets/img/clients/client-641.jpg';
+---
+<BaseLayout
+  title="Moments From Our Trips | Algeria Compass"
+  description="Photographs from real Algeria Compass journeys — our own travellers, in the oases, ksour, museums and deserts of Algeria."
+  image={hero}
+  keywords={["Algeria tour photos","Algeria travel photos","Algeria Compass reviews","real Algeria trips"]}
+  region="sahara">
+  <Hero
+    title="Moments from our trips"
+    eyebrow="Our travellers"
+    text="Not stock photography. These are our own guests, on our own journeys, published with their permission."
+    image={hero}
+    alt="Two travellers photographing each other in a rocky wadi below an ochre hillside town" />
+
+  <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Moments from our trips'}]} />
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <div class="prose">
+      <p>Algeria is photographed far less than its neighbours, so most pictures you will find of it are of the monuments rather than of the trip. These are the trip: tea in a guesthouse, a lane in a ksar, lunch that went on too long, someone insisting on a photo in a wadi.</p>
+      <p>Every person here agreed to appear. If you have travelled with us and would like a photograph added — or taken down — <a href="/contact/">tell us</a> and we will do it the same day.</p>
+    </div>
+  </div></section>
+
+  <PhotoGallery images={moments} heading="From our journeys" />
+
+  <CtaSection
+    title="Your own trip, on your own dates"
+    text="Private journeys across Algeria, run by a licensed Algerian operator. Tell us when you want to travel and we will build it around you." />
+</BaseLayout>
