@@ -12,6 +12,8 @@ gallery:
   - { src: "/assets/img/constantine-ahmed-bey-courtyard.jpg", alt: "Ornate courtyard of the Ahmed Bey Palace, Constantine" }
   - { src: "/assets/img/constantine-gorge.jpg", alt: "The Rhumel gorge and cliffs of Constantine" }
   - { src: "/assets/img/constantine-ahmed-bey-gallery.jpg", alt: "Arcaded gallery of the Ahmed Bey Palace, Constantine" }
+  - { src: "/assets/img/tours/constantine-20.jpg", alt: "Two travellers at a viewpoint above the Rhumel gorge, the Sidi M'Cid suspension bridge strung across it behind them" }
+  - { src: "/assets/img/tours/constantine-22.jpg", alt: "A naive wall painting of a harbour city above zellige tiling inside the Ahmed Bey Palace, Constantine" }
 quickAnswer: "Constantine is the 'City of Bridges', a dramatic highland city in north-east Algeria built across a deep gorge above the Rhumel River and spanned by spectacular bridges. Ancient Cirta — a Numidian and Roman capital and later an Ottoman seat — it is one of the oldest continuously inhabited cities on earth and the home of malouf music."
 keyFacts:
   - { label: "Ancient name", value: "Cirta (Numidian & Roman capital)" }

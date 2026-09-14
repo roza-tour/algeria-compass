@@ -11,6 +11,11 @@ gallery:
   - { src: "/assets/img/ghardaia-ksar-alley.jpg", alt: "Stepped alley in the old ksar of the M Zab, Ghardaïa" }
   - { src: "/assets/img/ghardaia-mzab-mosque.jpg", alt: "Fortified Mozabite mosque in the M Zab valley, Ghardaïa" }
   - { src: "/assets/img/ghardaia-market-square.jpg", alt: "The arcaded market square of Ghardaïa with hanging carpets" }
+  - { src: "/assets/img/tours/ghardaia-11.jpg", alt: "Ochre and whitewashed rooftops of a M'Zab town stacked up towards its plain pyramid minaret" }
+  - { src: "/assets/img/tours/ghardaia-14.jpg", alt: "A Saharan guide brewing tea over an open fire in the sand, kettle and pots beside a patterned rug" }
+  - { src: "/assets/img/tours/ghardaia-16.jpg", alt: "A flagstoned lane running under the covered passages of a M'Zab ksar towards the light" }
+  - { src: "/assets/img/tours/ghardaia-19.jpg", alt: "A whitewashed vaulted room in the M'Zab, roofed with palm trunks and lit through small pierced openings" }
+  - { src: "/assets/img/tours/ghardaia-15.jpg", alt: "Travellers browsing a M'Zab craft shop hung with leather bags, basketry and woven textiles" }
 coordinates: { lat: 32.4910, lng: 3.6736 }
 quickAnswer: "Ghardaïa is the gateway to the M'Zab Valley — a group of five fortified oasis towns built by the Ibadi Mozabites from around the 11th century and inscribed by UNESCO in 1982. Its tiered, pyramidal towns, palm groves and arcaded markets are among Algeria's most distinctive sights, and the easiest base from which to explore the valley."
 keyFacts:

@@ -9,6 +9,11 @@ gallery:
   - { src: "/assets/img/constantine-bridge-waterfall.jpg", alt: "Bridge and waterfall in the Rhumel gorge, Constantine" }
   - { src: "/assets/img/constantine-ahmed-bey-courtyard.jpg", alt: "Ornate courtyard of the Ahmed Bey Palace, Constantine" }
   - { src: "/assets/img/constantine-gorge.jpg", alt: "The deep Rhumel gorge cutting through Constantine" }
+  - { src: "/assets/img/tours/constantine-14.jpg", alt: "The natural rock arch of the Rhumel gorge at Constantine, a cable-car cabin crossing high above it" }
+  - { src: "/assets/img/tours/constantine-16.jpg", alt: "The twin minarets and dome of the Emir Abdelkader Mosque in Constantine, floodlit at dusk" }
+  - { src: "/assets/img/tours/constantine-17.jpg", alt: "The arcaded upper gallery of the Ahmed Bey Palace in Constantine, under a painted red and green timber ceiling" }
+  - { src: "/assets/img/tours/constantine-19.jpg", alt: "A large Roman mosaic of Venus among sea creatures, mounted in the Cirta National Museum, Constantine" }
+  - { src: "/assets/img/tours/constantine-21.jpg", alt: "The walkway through the Rhumel gorge beneath Constantine's cliffs, a minaret and bridge arch on the rim above" }
 coordinates: { lat: 36.3650, lng: 6.6147 }
 quickAnswer: "Constantine is a highland state in north-eastern Algeria built around one of the most dramatic city sites in the world — a rock plateau split by the deep Rhumel gorge and stitched together by soaring bridges. Ancient Cirta, a Numidian and Roman capital, it is known as the 'City of Bridges', with the Ahmed Bey Palace, the Cirta Museum and a strong tradition of malouf music."
 keyFacts:

@@ -10,6 +10,9 @@ gallery:
   - { src: "/assets/img/mzab-ksour-view.jpg", alt: "Fortified hilltop ksour of the M'Zab pentapolis" }
   - { src: "/assets/img/ghardaia-market-square.jpg", alt: "The arcaded market square of Ghardaïa with hanging carpets" }
   - { src: "/assets/img/ghardaia-ksar-alley.jpg", alt: "A stepped alley in the old ksar of the M'Zab" }
+  - { src: "/assets/img/tours/ghardaia-17.jpg", alt: "The plain ochre minaret of a M'Zab mosque rising into a deep blue sky, its four finials against the sun" }
+  - { src: "/assets/img/tours/ghardaia-18.jpg", alt: "A traveller resting in the hand-moulded arched doorway of the Sidi Brahim mausoleum at El Atteuf" }
+  - { src: "/assets/img/tours/ghardaia-20.jpg", alt: "The whitewashed arcaded front of a M'Zab prayer hall, cut into the slope below the town" }
 coordinates: { lat: 32.4910, lng: 3.6736 }
 sameAs: ["https://en.wikipedia.org/wiki/M%27zab"]
 quickAnswer: "The M'Zab Valley around Ghardaïa is a UNESCO World Heritage Site in the northern Algerian Sahara — five fortified oasis towns built by the Ibadi Mozabites from the 11th century. Their tiered, pyramidal towns, palm groves and ingenious water-sharing system survive almost unchanged, and their radical, egalitarian design famously influenced 20th-century architects including Le Corbusier."
