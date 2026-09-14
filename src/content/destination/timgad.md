@@ -9,6 +9,7 @@ gallery:
   - { src: "/assets/img/timgad-ruins-columns.jpg", alt: "Rows of columns along a colonnaded street in Roman Timgad" }
   - { src: "/assets/img/tours/batna-timgad-3.jpg", alt: "The grid-plan streets and ruins of Timgad below the Aurès mountains" }
   - { src: "/assets/img/tours/batna-timgad-7.jpg", alt: "Stone ruins of the Roman colony of Timgad in eastern Algeria" }
+  - { src: "/assets/img/tours/batna-timgad-11.jpg", alt: "The Arch of Trajan seen from the paved main street of Timgad, its flagstones still rutted by cart wheels" }
 coordinates: { lat: 35.4841, lng: 6.4686 }
 sameAs: ["https://en.wikipedia.org/wiki/Timgad"]
 quickAnswer: "Timgad (ancient Thamugadi) is a UNESCO World Heritage Site in Batna state, eastern Algeria — a Roman colony founded around 100 AD by Trajan and the most complete example of the Roman grid-plan city anywhere. Set on the edge of the Aurès mountains, its arch, theatre, forum and famous library survive in open country, earning it the nickname 'the Pompeii of Africa'."

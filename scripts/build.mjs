@@ -23,6 +23,17 @@ if (realCwd !== process.cwd()) {
   console.log(`[build] normalizing cwd casing:\n  was: ${process.cwd()}\n  now: ${realCwd}`);
 }
 
+// Fill in any missing derivative images first (thumbnails for newly added tour
+// photos, .sm.webp siblings for client photos). A photograph dropped into
+// public/assets/img/tours/ otherwise renders as a broken gallery tile, because
+// the gallery points at a thumbnail that was never generated.
+const thumbScript = join(dirname(fileURLToPath(import.meta.url)), 'gen-thumbs.mjs');
+const thumbs = spawnSync(process.execPath, [thumbScript], { cwd: realCwd, stdio: 'inherit' });
+if (thumbs.status !== 0) {
+  console.error('[build] image preparation failed — aborting before Astro build');
+  process.exit(thumbs.status ?? 1);
+}
+
 const astroBin = join(dirname(fileURLToPath(import.meta.url)), '..', 'node_modules', 'astro', 'astro.js');
 const result = spawnSync(process.execPath, [astroBin, 'build'], {
   cwd: realCwd,
