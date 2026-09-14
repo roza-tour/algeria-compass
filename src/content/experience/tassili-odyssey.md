@@ -7,6 +7,11 @@ priceFrom: 1290
 currency: "USD"
 image: "/assets/img/sahara-camp-sunset.jpg"
 imageAlt: "Desert camp at sunset among rock formations, Algerian Sahara"
+gallery:
+  - { src: "/assets/img/tours/djanet-4.jpg", alt: "Prehistoric engravings of giraffes and a human figure cut into a dark rock face in the Tassili n'Ajjer" }
+  - { src: "/assets/img/tours/djanet-6.jpg", alt: "Weathered sandstone towers standing out of pale sand in the Tadrart, near Djanet" }
+  - { src: "/assets/img/tours/djanet-11.jpg", alt: "Eroded sandstone outcrops and a long dune slope in the red Tadrart" }
+  - { src: "/assets/img/tours/djanet-12.jpg", alt: "Two great rock massifs on an open sand plain, walkers at their foot giving the scale" }
 stops:
   - { name: "Djanet oasis", image: "/assets/img/djanet-guelta-palms.jpg", alt: "A guelta, a desert pool, fringed with palms near Djanet", note: "your gateway and first night" }
   - { name: "Tassili n'Ajjer rock art", image: "/assets/img/tassili-rock-art.jpg", alt: "Prehistoric rock engravings in the Tassili n Ajjer, Algeria", note: "UNESCO prehistoric galleries" }

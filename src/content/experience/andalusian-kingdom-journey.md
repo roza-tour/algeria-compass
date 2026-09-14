@@ -7,6 +7,10 @@ priceFrom: 720
 currency: "USD"
 image: "/assets/img/tlemcen-andalusian-gallery.jpg"
 imageAlt: "Ornate Andalusian arcaded gallery, Tlemcen"
+gallery:
+  - { src: "/assets/img/tours/tlemcen-11.jpg", alt: "The whitewashed Great Mosque of Tlemcen and its tiled minaret above the square" }
+  - { src: "/assets/img/tours/tlemcen-6.jpg", alt: "The long tiled reflecting pool in the courtyard of the restored royal palace at Tlemcen" }
+  - { src: "/assets/img/tours/tlemcen-8.jpg", alt: "A cascade falling into a green pool in the red gorge outside Tlemcen" }
 stops:
   - { name: "Oran — Santa Cruz", image: "/assets/img/oran-santa-cruz-chapel.jpg", alt: "The Santa Cruz chapel above the bay of Oran", note: "the bay and the Spanish fort" }
   - { name: "Oran — Place du 1er Novembre", image: "/assets/img/oran-place-1er-novembre.jpg", alt: "Place du 1er Novembre with its monument and theatre, Oran", note: "the lively western port" }

@@ -14,6 +14,8 @@ stops:
   - { name: "Sunset over the steppe", image: "/assets/img/bou-saada-oued-sunset.jpg", alt: "Sandstone oued with water pools at sunset, Bou Saada", note: "golden light at the desert's edge" }
 gallery:
   - { src: "/assets/img/bou-saada-palm-grove.jpg", alt: "Palm grove and village at Bou Saada, Algeria" }
+  - { src: "/assets/img/tours/bousaada-4.jpg", alt: "A turquoise pool in the rocky gorge at Bou Saâda, ringed by date palms below bare hills" }
+  - { src: "/assets/img/tours/bousaada-9.jpg", alt: "Domed earthen guest lodgings and a small pool at Bou Saâda, palms and desert hills beyond" }
 highlights:
   - "The palm oasis and the Moulin Ferrero gorge"
   - "The old ksar and the town's ochre lanes"

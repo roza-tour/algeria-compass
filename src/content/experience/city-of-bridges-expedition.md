@@ -15,6 +15,12 @@ stops:
   - { name: "Timgad — Roman city", image: "/assets/img/timgad-ruins-columns.jpg", alt: "Rows of columns among the Roman ruins of Timgad, Batna state, Algeria", note: "one of the great Roman sites of Africa" }
 gallery:
   - { src: "/assets/img/timgad-theatre.jpg", alt: "The Roman theatre and ruins of Timgad, Algeria" }
+  - { src: "/assets/img/tours/constantine-14.jpg", alt: "The natural rock arch of the Rhumel gorge at Constantine, a cable-car cabin crossing high above it" }
+  - { src: "/assets/img/tours/constantine-20.jpg", alt: "Two travellers at a viewpoint above the Rhumel gorge, the Sidi M'Cid suspension bridge strung across it behind them" }
+  - { src: "/assets/img/tours/constantine-17.jpg", alt: "The arcaded upper gallery of the Ahmed Bey Palace, under its painted red and green timber ceiling" }
+  - { src: "/assets/img/tours/constantine-22.jpg", alt: "A naive wall painting of a harbour city above zellige tiling inside the Ahmed Bey Palace" }
+  - { src: "/assets/img/tours/constantine-16.jpg", alt: "The twin minarets and dome of the Emir Abdelkader Mosque in Constantine, floodlit at dusk" }
+  - { src: "/assets/img/tours/constantine-19.jpg", alt: "A large Roman mosaic of Venus among sea creatures in the Cirta National Museum, Constantine" }
 highlights:
   - "Constantine's gorge and suspension bridges"
   - "The Palace of Ahmed Bey"
