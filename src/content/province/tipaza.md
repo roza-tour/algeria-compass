@@ -6,9 +6,14 @@ region: "roman"
 image: "/assets/img/tours/tipaza-1.jpg"
 imageAlt: "Roman ruins of Tipaza beside the Mediterranean, west of Algiers"
 gallery:
-  - { src: "/assets/img/tours/tipaza-3.jpg", alt: "Columns among the seaside ruins of Tipaza" }
-  - { src: "/assets/img/tours/tipaza-5.jpg", alt: "Roman remains overlooking the sea at Tipaza" }
-  - { src: "/assets/img/tours/tipaza-8.jpg", alt: "Stonework and greenery at the archaeological park of Tipaza" }
+  - { src: "/assets/img/tours/tipaza-10.jpg", alt: "An aerial view of the ruins of Tipaza on a rocky point above the sea" }
+  - { src: "/assets/img/tours/tipaza-2.jpg", alt: "Stone ruins and an olive tree on the shore at the archaeological park of Tipaza" }
+  - { src: "/assets/img/tours/tipaza-4.jpg", alt: "A semicircular Roman structure among ruins at the water's edge in Tipaza" }
+  - { src: "/assets/img/tours/tipaza-7.jpg", alt: "The Royal Mausoleum of Mauretania, a great circular stone tomb in Tipaza province" }
+  - { src: "/assets/img/tours/tipaza-8.jpg", alt: "Engaged columns and a carved false door on the base of the Royal Mausoleum of Mauretania" }
+  - { src: "/assets/img/tours/tipaza-9.jpg", alt: "A gallery of Roman marble statues in a museum in Tipaza province" }
+  - { src: "/assets/img/tours/tipaza-5.jpg", alt: "Rock islets in a turquoise cove below wooded cliffs on the Tipaza coast" }
+  - { src: "/assets/img/tours/tipaza-1.jpg", alt: "Clear green water beneath a limestone cliff, seen from a kayak on the Tipaza coast" }
 coordinates: { lat: 36.5942, lng: 2.4470 }
 quickAnswer: "Tipaza is a coastal state on the Mediterranean just west of Algiers, best known for its UNESCO World Heritage Roman ruins set right on the sea. It pairs ancient sites — Tipaza's archaeological park, the Royal Mausoleum of Mauretania and the Roman capital of Cherchell — with beaches, fishing harbours and an easy day-trip distance from the capital."
 keyFacts:

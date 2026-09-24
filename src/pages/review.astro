@@ -1,0 +1,27 @@
+---
+// /review/ — the short link we send travellers after a trip.
+//
+// "algeriacompass.com/review" is easy to type, say on the phone and put on a
+// card, and it survives if the Google link ever changes: update
+// CONTACT.googleProfile in src/config.ts and every link already sent still works.
+//
+// It sends the traveller straight on to Google, where the review counts for
+// the business profile — that is the rating answer engines and Maps read.
+// noindex: it is a doorway, not a page anyone should land on from search.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CONTACT } from '../config';
+const target = CONTACT.googleProfile;
+---
+<BaseLayout title="Review your trip | Algeria Compass" description="Leave a review of your Algeria Compass trip on Google." noindex>
+  <meta slot="head" http-equiv="refresh" content={`3;url=${target}`} />
+  <section class="section"><div class="wrap" style="max-width:640px;text-align:center">
+    <div class="eyebrow">Thank you for travelling with us</div>
+    <h1>How was your trip?</h1>
+    <p style="color:var(--text-m);margin:1rem 0 1.6rem">A few lines on Google — where you went, what stayed with you — helps the next traveller find us more than anything we could write ourselves. Taking you there now…</p>
+    <p><a class="btn btn-gold" href={target} rel="noopener">★ Write a review on Google</a></p>
+    <p style="color:var(--text-l);font-size:.95rem;margin-top:1.4rem" lang="fr">Merci d’avoir voyagé avec nous — <a href={target} rel="noopener">laisser un avis sur Google</a></p>
+    <p style="color:var(--text-l);font-size:.95rem" lang="it">Grazie per aver viaggiato con noi — <a href={target} rel="noopener">lascia una recensione su Google</a></p>
+    <p style="color:var(--text-l);font-size:.95rem" lang="es">Gracias por viajar con nosotros — <a href={target} rel="noopener">deja una reseña en Google</a></p>
+    <p style="color:var(--text-l);font-size:.95rem" lang="de">Danke, dass Sie mit uns gereist sind — <a href={target} rel="noopener">Bewertung auf Google schreiben</a></p>
+  </div></section>
+</BaseLayout>

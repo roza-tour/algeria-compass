@@ -5,9 +5,15 @@ region: "kabylie"
 image: "/assets/img/tours/bejaia-2.jpg"
 imageAlt: "The Mediterranean bay and coast of Béjaïa, Kabylie, Algeria"
 gallery:
-  - { src: "/assets/img/tours/bejaia-4.jpg", alt: "The Corniche coastline near Béjaïa" }
-  - { src: "/assets/img/tours/bejaia-6.jpg", alt: "Sea cliffs around Cap Carbon, Béjaïa" }
-  - { src: "/assets/img/tours/bejaia-9.jpg", alt: "Beaches and bay of Béjaïa on the Kabylie coast" }
+  - { src: "/assets/img/tours/bejaia-1.jpg", alt: "A hillside street of red-roofed houses running down to the sea in Béjaïa" }
+  - { src: "/assets/img/tours/bejaia-9.jpg", alt: "The port and bay of Béjaïa with mountains behind" }
+  - { src: "/assets/img/tours/bejaia-6.jpg", alt: "A steep scrub-covered headland above the sea near Béjaïa" }
+  - { src: "/assets/img/tours/bejaia-12.jpg", alt: "A lighthouse on the summit of a red rocky headland above the sea near Béjaïa" }
+  - { src: "/assets/img/tours/bejaia-3.jpg", alt: "Wooded cliffs dropping into clear blue water on the coast near Béjaïa" }
+  - { src: "/assets/img/tours/bejaia-5.jpg", alt: "A forested headland curling into a turquoise bay near Béjaïa" }
+  - { src: "/assets/img/tours/bejaia-8.jpg", alt: "A cliffside road cut beneath an overhanging rock above the sea near Béjaïa" }
+  - { src: "/assets/img/tours/bejaia-11.jpg", alt: "The stone walls and gateway of an old fortress in Béjaïa, lit by late sun" }
+  - { src: "/assets/img/tours/bejaia-4.jpg", alt: "A dam spilling a curtain of water over its wall into a green gorge in Béjaïa province" }
 coordinates: { lat: 36.7509, lng: 5.0567 }
 quickAnswer: "Béjaïa is a coastal state in Kabylie where the Djurdjura mountains plunge straight into the Mediterranean. It's known for Gouraya National Park, the clifftop Cap Carbon lighthouse, the scenic Corniche beaches, deep Kabyle (Amazigh) culture, the dramatic Kherrata gorges, and a layered history — including its medieval role in transmitting Arabic numerals to Europe and the pivotal Soummam Congress of 1956."
 keyFacts:

@@ -70,3 +70,5 @@ Tassili is **deep-desert travel**, visited from **Djanet** on multi-day trips wi
 
 ## Explore it with us
 The plateau is the centrepiece of our deep-Sahara journeys. Walk it on the [Tassili Odyssey](/experiences/tassili-odyssey/) or the [Djanet Sahara safari](/tours/djanet-sahara-safari/), and meet the living culture of the desert in the [Djanet](/destinations/djanet/) guide. Every trip runs with licensed Algerian guides and local Tuareg crews.
+
+> **Choosing a route?** The 4×4 circuits of the Tadrart and Ihrir and the walking trek to Sefar are compared in [Tadrart Rouge, Ihrir or Sefar?](/blog/tadrart-vs-tassili/)

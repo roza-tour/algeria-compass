@@ -66,3 +66,5 @@ Timimoun is reached by **domestic flight** or long desert road, and the ksour, p
 - Travel in the **cool months** (Oct–Mar) and bring **warm layers** for night.
 - Ask about timings for an **Ahellil** performance or a local festival.
 - **Dress modestly** and respect the customs of this traditional desert region.
+
+> **Timimoun or Djanet?** See the two Saharan bases compared — landscape, comfort, season and price — in [Djanet or Timimoun?](/blog/djanet-vs-timimoun/), or go straight to the [Timimoun Desert Escape](/tours/timimoun-desert-escape/).

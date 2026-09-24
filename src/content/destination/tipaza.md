@@ -6,10 +6,12 @@ region: "roman"
 image: "/assets/img/tours/tipaza-1.jpg"
 imageAlt: "Roman ruins of Tipaza on the Mediterranean shore west of Algiers"
 gallery:
-  - { src: "/assets/img/tours/tipaza-3.jpg", alt: "Columns and stonework among the seaside ruins of Tipaza, Algeria" }
-  - { src: "/assets/img/tours/tipaza-5.jpg", alt: "Roman remains overlooking the Mediterranean at Tipaza" }
-  - { src: "/assets/img/tours/tipaza-7.jpg", alt: "Ancient walls and the sea at the archaeological park of Tipaza" }
-  - { src: "/assets/img/tours/tipaza-9.jpg", alt: "Stone ruins among greenery at Tipaza on the Algerian coast" }
+  - { src: "/assets/img/tours/tipaza-10.jpg", alt: "An aerial view of the ruins of Tipaza on a rocky point above the Mediterranean" }
+  - { src: "/assets/img/tours/tipaza-2.jpg", alt: "Stone ruins and an olive tree on the shore at the archaeological park of Tipaza" }
+  - { src: "/assets/img/tours/tipaza-3.jpg", alt: "A lone column above the rocky shore at Tipaza, with mountains across the bay" }
+  - { src: "/assets/img/tours/tipaza-4.jpg", alt: "A semicircular Roman structure among ruins at the water's edge in Tipaza" }
+  - { src: "/assets/img/tours/tipaza-6.jpg", alt: "Low Roman walls on a grassy slope above the sea at Tipaza" }
+  - { src: "/assets/img/tours/tipaza-7.jpg", alt: "The Royal Mausoleum of Mauretania, the great circular tomb that is part of the Tipasa World Heritage site" }
 coordinates: { lat: 36.5942, lng: 2.4470 }
 sameAs: ["https://en.wikipedia.org/wiki/Tipasa"]
 quickAnswer: "Tipaza is a UNESCO World Heritage Site on the Mediterranean coast about 70 km west of Algiers — a Phoenician trading post that became an important Roman port, its forum, basilicas, theatre and villas spread along the sea. Inland stands the monumental Royal Mausoleum of Mauretania, and the Roman capital of Caesarea (modern Cherchell) lies just along the coast."

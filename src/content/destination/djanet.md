@@ -6,8 +6,12 @@ region: "sahara"
 image: "/assets/img/djanet-guelta-palms.jpg"
 imageAlt: "A guelta, a desert pool, fringed with palms near Djanet"
 gallery:
-  - { src: "/assets/img/djanet-oasis-pool.jpg", alt: "Rocky peak above a green desert pool near Djanet" }
+  - { src: "/assets/img/djanet-oasis-pool.jpg", alt: "Rocky peaks above a green desert pool near Djanet" }
   - { src: "/assets/img/djanet-canyon-green.jpg", alt: "Green canyon with water in the desert near Djanet" }
+  - { src: "/assets/img/djanet-guelta-palms.jpg", alt: "A traveller sitting by a palm-fringed pool below layered sandstone near Djanet" }
+  - { src: "/assets/img/tours/djanet-12.jpg", alt: "Sandstone towers standing in open sand under a deep blue sky near Djanet" }
+  - { src: "/assets/img/tours/djanet-11.jpg", alt: "Eroded sandstone outcrops half-buried in drifted sand near Djanet" }
+  - { src: "/assets/img/tours/djanet-3.jpg", alt: "A campfire burning on the sand beside a great boulder at a desert camp near Djanet" }
 quickAnswer: "Djanet is the Tuareg oasis capital of Algeria's far south-east — a palm town of Kel Ajjer culture, the Sebeiba festival and deep desert hospitality, and the living gateway to the Tassili n'Ajjer and the red Tadrart."
 keyFacts:
   - { label: "People", value: "Tuareg (Kel Ajjer)" }
@@ -65,3 +69,5 @@ The same desert that shaped this culture holds its two great landscapes: the **[
 Djanet is the launch point for our flagship Sahara journeys. Travel with Tuareg desert teams on the [Djanet Sahara safari](/tours/djanet-sahara-safari/) or the [Djanet & Ghardaïa desert tour](/tours/djanet-ghardaia-desert-2-days/), go deeper on the [Tassili Odyssey](/experiences/tassili-odyssey/), or read the [Tassili n'Ajjer](/destinations/tassili-najjer/) heritage guide. Every trip runs with licensed Algerian guides and local Tuareg crews.
 
 > **Planning the wider trip?** For the surrounding state — how to base yourself, what else is nearby and how to get around — see our [Djanet state guide](/provinces/djanet/).
+
+> **Which Djanet trip?** The Tadrart Rouge, the Ihrir oasis and the Sefar trek are compared side by side — effort, nights and prices — in [Tadrart Rouge, Ihrir or Sefar?](/blog/tadrart-vs-tassili/)

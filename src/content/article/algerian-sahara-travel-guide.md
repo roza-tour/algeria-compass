@@ -50,3 +50,6 @@ In the west, the gateway to the Gourara — oases, red-earth ksour and the ancie
 - Warm layers for cold nights
 - A scarf for sun and sand
 - Head torch, power bank, cash
+
+## Which desert to choose
+Torn between regions? Read [Djanet or Timimoun?](/blog/djanet-vs-timimoun/) for the two great Saharan bases compared, and [Tadrart Rouge, Ihrir or Sefar?](/blog/tadrart-vs-tassili/) for the three ways into the desert around Djanet.
