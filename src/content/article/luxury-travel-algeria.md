@@ -34,7 +34,7 @@ travelerProfiles:
   - { type: "Travellers who want to book instantly online", fit: "limited", note: "Permits and internal flights have to be checked before anything is confirmed." }
 costs:
   - { item: "Guided private day tour", budget: "€30", mid: "€60", high: "€120" }
-  - { item: "Multi-day private tour, per person", budget: "€200", mid: "€600", high: "€1,200" }
+  - { item: "Multi-day private tour, per person", budget: "€200", mid: "€600", high: "€1,850" }
   - { item: "8-day all-inclusive 5-star journey", budget: "—", mid: "—", high: "€1,615+" }
   - { item: "Internal flight, one way", budget: "€60", mid: "€110", high: "€180" }
 costCurrency: "EUR"
@@ -105,7 +105,7 @@ Exclusivity, access and competence.
 
 Our all-inclusive eight-day journeys in the [5-Star Collection](/luxury/) start at **€1,615 per person**, covering internal flights, five-star hotels, all meals, the private vehicle fleet, guides and UNESCO entry fees, with visa documentation prepared as part of the booking.
 
-Below that, private multi-day tours run from roughly **€200 to €1,200 per person** depending on length, region and season, and private guided day tours start at **€30**. Every tour page on this site carries its own fixed price; there is no quote-only pricing to negotiate your way through.
+Below that, private multi-day tours run from roughly **€200 to €1,850 per person** depending on length, region and season, and private guided day tours start at **€30**. Every tour page on this site carries its own fixed price; there is no quote-only pricing to negotiate your way through.
 
 Prices change only for a custom itinerary or more days than the published programme, and we tell you the figure before you commit.
 

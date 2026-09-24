@@ -482,7 +482,7 @@ export const QUESTIONS_ES: Record<string, QuestionI18n> = {
   },
   "how-much-does-a-trip-to-algeria-cost": {
     "q": "¿Cuánto cuesta un viaje a Argelia?",
-    "a": "Argelia sigue siendo asequible para los estándares europeos. Nuestras excursiones privadas guiadas de un día parten de 30 € por persona, y los viajes privados de varios días suelen ir de unos 200 € a 1.200 € según la duración, la región y la temporada. Los gastos sobre el terreno — comidas, transporte local, compras diarias — son moderados.",
+    "a": "Argelia sigue siendo asequible para los estándares europeos. Nuestras excursiones privadas guiadas de un día parten de 30 € por persona, y los viajes privados de varios días suelen ir de unos 200 € a 1.850 € según la duración, la región y la temporada. Los gastos sobre el terreno — comidas, transporte local, compras diarias — son moderados.",
     "kf": [
       [
         "Excursiones de un día",
@@ -490,7 +490,7 @@ export const QUESTIONS_ES: Record<string, QuestionI18n> = {
       ],
       [
         "Circuitos privados de varios días",
-        "≈ 200 € - 1.200 €"
+        "≈ 200 € - 1.850 €"
       ],
       [
         "Moneda",

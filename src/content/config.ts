@@ -103,7 +103,7 @@ const experience = defineCollection({
     region,
     durationDays: z.number(),
     priceFrom: z.number().optional(),
-    currency: z.string().default('USD'),
+    currency: z.string().default('EUR'),
     image: z.string(),
     imageAlt: z.string(),
     highlights: z.array(z.string()).default([]),

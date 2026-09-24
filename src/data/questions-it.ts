@@ -482,7 +482,7 @@ export const QUESTIONS_IT: Record<string, QuestionI18n> = {
   },
   "how-much-does-a-trip-to-algeria-cost": {
     "q": "Quanto costa un viaggio in Algeria?",
-    "a": "L'Algeria resta accessibile per gli standard europei. Le nostre escursioni private guidate in giornata partono da 30 € a persona, e i viaggi privati di più giorni vanno in genere da circa 200 € a 1.200 € secondo durata, regione e stagione. Le spese sul posto — pasti, trasporti locali, acquisti quotidiani — sono contenute.",
+    "a": "L'Algeria resta accessibile per gli standard europei. Le nostre escursioni private guidate in giornata partono da 30 € a persona, e i viaggi privati di più giorni vanno in genere da circa 200 € a 1.850 € secondo durata, regione e stagione. Le spese sul posto — pasti, trasporti locali, acquisti quotidiani — sono contenute.",
     "kf": [
       [
         "Escursioni in giornata",
@@ -490,7 +490,7 @@ export const QUESTIONS_IT: Record<string, QuestionI18n> = {
       ],
       [
         "Viaggi privati di più giorni",
-        "≈ 200 € - 1.200 €"
+        "≈ 200 € - 1.850 €"
       ],
       [
         "Valuta",

@@ -26,7 +26,7 @@ export const FAQ: FaqCategory[] = [
     { q: 'Can I travel during Ramadan?', a: 'Yes — it is a special time to visit, though daytime eating options and some opening hours change. We plan itineraries around it so your trip runs smoothly.' },
   ]},
   { id: 'costs', title: 'Costs & budget', items: [
-    { q: 'How much does a trip to Algeria cost?', a: 'It depends on length and style. Our day tours start around €30, multi-day private tours run from a few hundred euros, and our longest 10-day private journeys are around €1,200 per person. Each tour page lists its price.', href: '/questions/how-much-does-a-trip-to-algeria-cost/' },
+    { q: 'How much does a trip to Algeria cost?', a: 'It depends on length and style. Our day tours start around €30, multi-day private tours run from a few hundred euros, and our longest, the 14-day Grand Discovery, is €1,850 per person. Each tour page lists its price.', href: '/questions/how-much-does-a-trip-to-algeria-cost/' },
     { q: 'Is Algeria expensive?', a: 'Day-to-day costs are moderate. The main cost of a trip is private guiding, transport, permits and domestic flights rather than high local prices.' },
     { q: 'What do tour prices include?', a: 'It varies by tour — each page has a "What\'s included / Not included" list. Typically a licensed guide, private transport and some meals or accommodation are included; international flights and visa fees are not.' },
   ]},

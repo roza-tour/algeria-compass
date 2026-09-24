@@ -482,7 +482,7 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
   },
   "how-much-does-a-trip-to-algeria-cost": {
     "q": "Was kostet eine Reise nach Algerien?",
-    "a": "Algerien ist nach europäischen Maßstäben erschwinglich. Unsere privaten geführten Tagestouren beginnen bei 30 € pro Person, mehrtägige Privatreisen liegen üblicherweise zwischen etwa 200 € und 1.200 €, je nach Dauer, Region und Saison. Die Ausgaben vor Ort — Essen, lokale Fahrten, Alltägliches — sind bescheiden.",
+    "a": "Algerien ist nach europäischen Maßstäben erschwinglich. Unsere privaten geführten Tagestouren beginnen bei 30 € pro Person, mehrtägige Privatreisen liegen üblicherweise zwischen etwa 200 € und 1.850 €, je nach Dauer, Region und Saison. Die Ausgaben vor Ort — Essen, lokale Fahrten, Alltägliches — sind bescheiden.",
     "kf": [
       [
         "Tagestouren",
@@ -490,7 +490,7 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
       ],
       [
         "Mehrtägige Privatreisen",
-        "≈ 200 € - 1.200 €"
+        "≈ 200 € - 1.850 €"
       ],
       [
         "Währung",

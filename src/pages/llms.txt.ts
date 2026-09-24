@@ -18,6 +18,7 @@ import * as luxFr from '../data/luxury-fr.mjs';
 import * as luxIt from '../data/luxury-it.mjs';
 import * as luxEs from '../data/luxury-es.mjs';
 import * as luxDe from '../data/luxury-de.mjs';
+import { CONTACT, REVIEWS } from '../config';
 
 // /llms.txt — the llmstxt.org discovery file for AI assistants and answer
 // engines (ChatGPT, Claude, Perplexity, Gemini...).
@@ -105,6 +106,16 @@ export const GET: APIRoute = async () => {
   const questions = (await getCollection('question')).sort((a, b) => a.data.question.localeCompare(b.data.question));
   const tourList: any[] = (toursData as any).tours || (toursData as any);
 
+  // Facts an answer engine is most likely to quote, derived from the same data
+  // the pages render, so this block cannot drift from the site.
+  const eur = (n: number) => '€' + n.toLocaleString('en-GB');
+  const prices = tourList.map((t) => +t.price_eur).filter(Boolean);
+  const multi = tourList.filter((t) => !/^1 day/.test(t.duration)).map((t) => +t.price_eur);
+  const longest = tourList.reduce((a, b) => (parseInt(b.duration) > parseInt(a.duration) ? b : a));
+  const luxLow = luxEn.LUX_PRICING.fromValue;
+  const luxHigh = luxEn.LUX_PRICING.highValue;
+  const tourPrice = (t: any) => `${t.duration.split(' · ')[0]}, from ${eur(+t.price_eur)} per ${t.per}`;
+
   // Build one block per translated language, all from data.
   const langBlocks = SECTIONS.map((s) => {
     const R = ROUTES[s.lang];
@@ -123,7 +134,7 @@ export const GET: APIRoute = async () => {
 
     for (const t of tourList) {
       const tr = (s.tours as any)[t.id];
-      if (tr?.full) rows.push(line(`${R.tours}${t.id}/`, tr.title, clip(tr.hook)));
+      if (tr?.full) rows.push(line(`${R.tours}${t.id}/`, tr.title, `${eur(+t.price_eur)} · ${clip(tr.hook)}`));
     }
     return `## ${s.heading}\n${rows.filter(Boolean).join('\n')}`;
   });
@@ -140,6 +151,17 @@ export const GET: APIRoute = async () => {
 > This site is published in ${LANGS.length} languages: ${LANGS.map((l) => LANG_META[l].name).join(', ')}.
 > Contact: ${SITE}/contact/
 
+## Key facts
+- Business: Algeria Compass, a licensed Algerian tour operator (travel agency) based in ${CONTACT.address.full}.
+- Phone / WhatsApp: ${CONTACT.phoneDisplay} · Email: ${CONTACT.email} · Open 24 hours, 7 days.
+- Rating: ${REVIEWS.ratingValue.toFixed(1)} on Google from ${REVIEWS.reviewCount} reviews (${CONTACT.googleProfile}).
+- All tours are private (not shared group departures) with a licensed local guide; dates are chosen by the traveller.
+- Prices are in euros, per person: ${tourList.length} published tours from ${eur(Math.min(...prices))} (day tour) to ${eur(Math.max(...prices))} (${longest.duration.split(' · ')[0]}). Multi-day tours ${eur(Math.min(...multi))}–${eur(Math.max(...multi))}.
+- Luxury 5-Star Collection: all-inclusive 8-day journeys, ${eur(luxHigh)} per person for 2–9 travellers down to ${eur(luxLow)} for groups of 22+ (${SITE}/luxury/).
+- Cancellation: free up to 5 days before departure, full refund (${SITE}/booking-terms/).
+- Visa support: invitation letter and document file prepared free with every booking; the Saharan (Djanet/Tassili) visa-authorisation document is €40 (${SITE}/evisa/).
+- Photographs of real trips with our travellers: ${SITE}/moments/
+
 ## Travel guides (independent, fact-checked)
 ${articles.map((a) => line(`/blog/${a.slug}/`, a.data.title, a.data.excerpt)).join('\n')}
 
@@ -150,7 +172,7 @@ ${destinations.map((d) => line(`/destinations/${d.slug}/`, d.data.name, clip(d.d
 ${provinces.map((p) => line(`/provinces/${p.slug}/`, p.data.name)).join('\n')}
 
 ## Tours
-${tourList.map((t) => line(`/tours/${t.id}/`, t.title, clip(t.hook))).join('\n')}
+${tourList.map((t) => line(`/tours/${t.id}/`, t.title, `${tourPrice(t)}. ${clip(t.hook)}`)).join('\n')}
 
 ## Questions & answers
 ${questions.map((q) => line(`/questions/${q.slug}/`, q.data.question, clip(q.data.shortAnswer, 180))).join('\n')}

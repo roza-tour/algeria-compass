@@ -49,7 +49,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "Combien coûte un voyage en Algérie ?",
-      "Cela dépend de la durée et du style. Nos excursions à la journée démarrent autour de 30 €, les circuits privés de plusieurs jours à partir de quelques centaines d'euros, et nos plus longs voyages privés de 10 jours tournent autour de 1 200 € par personne. Chaque page de circuit indique son prix."
+      "Cela dépend de la durée et du style. Nos excursions à la journée démarrent autour de 30 €, les circuits privés de plusieurs jours à partir de quelques centaines d'euros, et notre plus long voyage, la Grande Découverte de 14 jours, coûte 1 850 € par personne. Chaque page de circuit indique son prix."
     ],
     [
       "L'Algérie est-elle chère ?",
@@ -207,7 +207,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "Quanto costa un viaggio in Algeria?",
-      "Dipende dalla durata e dallo stile. Le nostre escursioni in giornata partono da circa 30 €, i viaggi privati di più giorni da qualche centinaio di euro, e i nostri viaggi privati più lunghi di 10 giorni si aggirano sui 1.200 € a persona. Ogni pagina di viaggio indica il suo prezzo."
+      "Dipende dalla durata e dallo stile. Le nostre escursioni in giornata partono da circa 30 €, i viaggi privati di più giorni da qualche centinaio di euro, e il nostro viaggio più lungo, la Grande Scoperta di 14 giorni, costa 1.850 € a persona. Ogni pagina di viaggio indica il suo prezzo."
     ],
     [
       "L'Algeria è cara?",
@@ -365,7 +365,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "¿Cuánto cuesta un viaje a Argelia?",
-      "Depende de la duración y del estilo. Nuestras excursiones de un día parten de unos 30 €, los circuitos privados de varios días desde unos cientos de euros, y nuestros viajes privados más largos de 10 días rondan los 1.200 € por persona. Cada página de circuito indica su precio."
+      "Depende de la duración y del estilo. Nuestras excursiones de un día parten de unos 30 €, los circuitos privados de varios días desde unos cientos de euros, y nuestro viaje más largo, el Gran Descubrimiento de 14 días, cuesta 1.850 € por persona. Cada página de circuito indica su precio."
     ],
     [
       "¿Es cara Argelia?",
@@ -523,7 +523,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "Was kostet eine Reise nach Algerien?",
-      "Das hängt von Dauer und Stil ab. Unsere Tagestouren beginnen bei rund 30 €, mehrtägige Privatreisen ab einigen hundert Euro, und unsere längsten zehntägigen Privatreisen liegen bei etwa 1.200 € pro Person. Jede Reiseseite nennt ihren Preis."
+      "Das hängt von Dauer und Stil ab. Unsere Tagestouren beginnen bei rund 30 €, mehrtägige Privatreisen ab einigen hundert Euro, und unsere längste Reise, die 14-tägige „Algeria Grand Discovery“, kostet 1.850 € pro Person. Jede Reiseseite nennt ihren Preis."
     ],
     [
       "Ist Algerien teuer?",
