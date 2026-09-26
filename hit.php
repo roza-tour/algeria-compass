@@ -89,6 +89,15 @@ if (isset($in['sd'])) {                                            // scroll dep
 }
 if (!empty($in['tp'])) $rec['tp'] = clean_path($in['tp']);         // clicked tour path
 
+// The visitor's own language, from the browser's Accept-Language header — the
+// first two-letter code only ("pl", "ar", "zh"), on page views only. It says
+// which markets are already arriving, including ones the site has no
+// translation for yet. One word per view, no country, no IP: nothing personal.
+if ($type === 'view') {
+  $al = strtolower(substr((string)($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? ''), 0, 2));
+  if (preg_match('~^[a-z]{2}$~', $al)) $rec['bl'] = $al;
+}
+
 // Search query + how many results it returned. Stored lowercased and capped;
 // a query with n=0 is the useful one — it names something a visitor expected
 // to find and we do not have.

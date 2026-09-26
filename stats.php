@@ -34,6 +34,7 @@ $files = array_unique($files);
 $views = 0; $viewsToday = 0; $prevViews = 0;
 $byDay = []; $byHour = array_fill(0, 24, 0); $byWeekday = array_fill(0, 7, 0);
 $pages = []; $events = []; $devices = []; $refs = []; $langs = [];
+$browserLangs = [];        // visitor's own browser language (market signal)
 $entryPages = []; $tourClicks = []; $notFound = []; $utms = [];
 $searches = []; $searchesEmpty = []; $searchTotal = 0;
 $asked = []; $askedEmpty = []; $askedTotal = 0; $askedLang = [];   // on-site assistant
@@ -85,6 +86,7 @@ foreach ($files as $f) {
       $pages[$p] = ($pages[$p] ?? 0) + 1;
       $devices[$dev] = ($devices[$dev] ?? 0) + 1;
       $langs[$ln] = ($langs[$ln] ?? 0) + 1;
+      if (!empty($r['bl'])) $browserLangs[$r['bl']] = ($browserLangs[$r['bl']] ?? 0) + 1;
       $refs[$r['ref'] ?? 'direct'] = ($refs[$r['ref'] ?? 'direct'] ?? 0) + 1;
       $viewsByLang[$ln] = ($viewsByLang[$ln] ?? 0) + 1;
       $viewsByDev[$dev] = ($viewsByDev[$dev] ?? 0) + 1;
@@ -132,7 +134,7 @@ foreach ($files as $f) {
   fclose($fh);
 }
 
-arsort($pages); arsort($refs); arsort($devices); arsort($langs);
+arsort($pages); arsort($refs); arsort($devices); arsort($langs); arsort($browserLangs);
 arsort($entryPages); arsort($tourClicks); arsort($notFound); arsort($utms);
 arsort($searches); arsort($searchesEmpty);
 arsort($asked); arsort($askedEmpty); arsort($askedLang);
@@ -176,6 +178,11 @@ $EVENT_LABELS = [
 ];
 $CONV_LIST = ['whatsapp_click', 'inquiry_submit', 'book_intent', 'cta_plan', 'plan_click'];
 $LANG_LABELS = ['en' => 'إنجليزي', 'fr' => 'فرنسي', 'it' => 'إيطالي', 'es' => 'إسباني', 'de' => 'ألماني'];
+// Browser languages — every market a visitor might come from, not just ours.
+$BL_LABELS = $LANG_LABELS + ['ar' => 'عربي', 'nl' => 'هولندي', 'pl' => 'بولندي', 'pt' => 'برتغالي', 'ru' => 'روسي',
+  'tr' => 'تركي', 'zh' => 'صيني', 'ja' => 'ياباني', 'ko' => 'كوري', 'cs' => 'تشيكي', 'sv' => 'سويدي', 'da' => 'دنماركي',
+  'no' => 'نرويجي', 'nb' => 'نرويجي', 'fi' => 'فنلندي', 'hu' => 'مجري', 'ro' => 'روماني', 'el' => 'يوناني', 'he' => 'عبري',
+  'hi' => 'هندي', 'id' => 'إندونيسي', 'ms' => 'ماليزي', 'fa' => 'فارسي', 'uk' => 'أوكراني'];
 $DEV_LABELS  = ['mobile' => 'موبايل', 'desktop' => 'كمبيوتر', 'tablet' => 'تابلت'];
 $WD_LABELS   = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
 
@@ -421,6 +428,20 @@ $top = fn(array $a, int $k) => array_slice($a, 0, $k, true);
       <?php endforeach; ?>
       </tbody></table>
     </div>
+  </section>
+
+  <!-- ============ visitors' own language: which markets are arriving ============ -->
+  <section>
+    <h2>لغة متصفح الزائر <small>من أي سوق يأتي الزوّار — حتى اللغات التي ليست على الموقع بعد</small></h2>
+    <?php if ($browserLangs): ?>
+      <table><thead><tr><th>لغة الزائر</th><th>مشاهدات</th><th>على الموقع؟</th></tr></thead><tbody>
+      <?php foreach ($top($browserLangs, 15) as $bl => $c): ?>
+        <tr><td><?= h($BL_LABELS[$bl] ?? $bl) ?></td><td class="num"><?= n($c) ?></td><td><?= isset($LANG_LABELS[$bl]) ? '✓' : 'لا — سوق محتمل' ?></td></tr>
+      <?php endforeach; ?>
+      </tbody></table>
+    <?php else: ?>
+      <p class="muted-sm">يبدأ التسجيل من الآن — ستظهر الأرقام مع الزيارات القادمة.</p>
+    <?php endif; ?>
   </section>
 
   <!-- ============ what visitors search for ============ -->
