@@ -43,7 +43,10 @@ let thumbs = 0, webps = 0, failed = 0;
 
 async function makeThumb(src, out) {
   try {
+    // .rotate() applies EXIF orientation: phone photos are often stored sideways
+    // with a flag, and the re-encoded file drops the flag.
     await sharp(src)
+      .rotate()
       .resize(THUMB_PX, THUMB_PX, { fit: 'cover', position: 'attention' })
       .jpeg({ quality: 78, mozjpeg: true })
       .toFile(out);
@@ -56,7 +59,7 @@ async function makeThumb(src, out) {
 
 async function makeWebp(src, out) {
   try {
-    const img = sharp(src);
+    const img = sharp(src).rotate();   // honour EXIF orientation, as above
     const meta = await img.metadata();
     const pipe = meta.width && meta.width > WEBP_PX ? img.resize({ width: WEBP_PX }) : img;
     await pipe.webp({ quality: 78 }).toFile(out);
