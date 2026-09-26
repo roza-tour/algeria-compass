@@ -156,5 +156,5 @@ The biggest planning errors are trying to see everything at once, underestimatin
 ## Frequently asked questions
 The questions below cover visas, safety, timing, budget and logistics. For anything time-sensitive — entry rules, advisories, prices — confirm against the official sources listed at the foot of this guide and our specialist pillars.
 
-## Sources
+## About these sources
 This guide draws on UNESCO, Encyclopædia Britannica and current government travel advice; see the sourced list below. Our editorial standards, review process and corrections policy are published on the [editorial pages](/editorial/).

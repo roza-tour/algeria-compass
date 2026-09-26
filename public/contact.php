@@ -82,7 +82,9 @@ $message   = mb_substr($message, 0, 4000);
 // The message validated — only now does this attempt count against the cap.
 rate_limit_record('contact', 3600);
 
-$subject = 'Algeria trip inquiry — ' . nohdr($name);
+// Encoded, because a raw UTF-8 subject (an Arabic or accented name, and the
+// dash itself) arrives garbled in some mail clients.
+$subject = mb_encode_mimeheader('Algeria trip inquiry — ' . nohdr($name), 'UTF-8', 'B', "\r\n");
 $body  = "New inquiry from algeriacompass.com\n";
 $body .= "----------------------------------------\n";
 $body .= "Name:       $name\n";
@@ -97,7 +99,9 @@ $body .= "----------------------------------------\n\n";
 $body .= "Message:\n$message\n";
 
 $headers  = 'From: Algeria Compass <' . $FROM . ">\r\n";
-$headers .= 'Reply-To: ' . nohdr($name) . ' <' . nohdr($email) . ">\r\n";
+// The display name is MIME-encoded too, which also neutralises quotes and
+// angle brackets someone might type into it to smuggle in a second address.
+$headers .= 'Reply-To: ' . mb_encode_mimeheader(nohdr($name), 'UTF-8', 'B', "\r\n") . ' <' . nohdr($email) . ">\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 

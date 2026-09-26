@@ -145,5 +145,5 @@ Keep your passport and visa accessible but secure, and carry a photocopy separat
 ## Frequently asked questions
 The questions below cover the points travellers ask most. For current entry rules and fees, rely on the official sources listed at the foot of this guide, and see our [editorial standards](/editorial/) for how we research and update practical pages like this one.
 
-## Sources
+## About these sources
 This guide is based on the Algerian Ministry of Foreign Affairs and current US and UK government entry-requirement advice, with country background from Britannica.

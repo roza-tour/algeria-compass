@@ -133,5 +133,5 @@ The temperatures in the climate table are approximate long-term averages for the
 ## Frequently asked questions
 The questions below cover the most common timing decisions. Climate figures are approximate long-term patterns, not forecasts; check a current forecast close to travel and our [editorial standards](/editorial/) for how we maintain planning pages.
 
-## Sources
+## About these sources
 Climate background draws on Encyclopædia Britannica; UNESCO and UK government sources inform the desert and festival notes.

@@ -15,6 +15,10 @@ ErrorDocument 404 /404.html
   #    Internal design-handoff reference material (HTML/JSX mock-ups) also sits
   #    in the repo and would otherwise be crawlable at the docroot.
   RewriteRule ^design_handoff_algeria_compass(?:/|$)     - [F,L]
+  #    The Astro source folder public/ (its contents are already served from
+  #    the root after staging — /public/... would be a duplicate copy of the
+  #    site), internal docs data and editor config.
+  RewriteRule ^(?:public|docs|\.claude)(?:/|$)              - [F,L]
 
   # 1) Canonical host — force HTTPS + non-www in a SINGLE 301 hop
   #    (prevents redirect chains http→https→non-www that GSC flags as "Page with redirect")

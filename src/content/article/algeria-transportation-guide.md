@@ -127,5 +127,5 @@ Buy domestic flights through the airline's own channels and aim to ticket well b
 ## Frequently asked questions
 The questions below cover how travellers actually move around Algeria. For live schedules and fares, use the operators' own channels listed below, and see our [editorial standards](/editorial/) for how we keep transport pages current.
 
-## Sources
+## About these sources
 This guide draws on Air Algérie and SNTF for services, UK government advice for road safety, and Britannica for country background.

@@ -130,5 +130,5 @@ Tap water is best avoided for drinking; bottled or treated water is the norm. He
 ## Frequently asked questions
 The questions below reflect what travellers most often ask. For anything time-sensitive, defer to the official advisories listed below; our [editorial and corrections policies](/editorial/) explain how we keep safety content current.
 
-## Sources
+## About these sources
 This guide is based on US and UK government travel advice and US CDC traveller-health information, with country background from Britannica. It is general information, not a substitute for your government's current advisory or professional advice.
