@@ -11,6 +11,13 @@ import CtaSection from '../components/CtaSection.astro';
 const order = ['complete-algeria-travel-guide','algeria-visa-guide','algeria-safety-guide','best-time-to-visit-algeria','algeria-transportation-guide','algerian-sahara-travel-guide'];
 const bySlug = Object.fromEntries((await getCollection('article')).map(a => [a.slug, a]));
 const guides = order.map(s => bySlug[s]).filter(Boolean);
+// Country-of-origin guides: flights, visa, time and money from each market.
+const FROM: [string, string][] = [
+  ['algeria-tours-from-usa', 'the USA'], ['algeria-tours-from-uk', 'the UK'], ['algeria-tours-from-canada', 'Canada'],
+  ['algeria-tours-from-australia', 'Australia'], ['algeria-tours-from-netherlands', 'the Netherlands'],
+  ['algeria-tours-from-poland', 'Poland'], ['algeria-tours-from-scandinavia', 'Scandinavia'],
+];
+const fromGuides = FROM.filter(([s]) => bySlug[s]);
 ---
 <BaseLayout title="Algeria Travel Guides | Algeria Compass" description="Practical, in-depth guides to planning a trip to Algeria — visas, safety, when to go, regions and routes." image="/assets/img/mzab-ghardaia-panorama.jpg" keywords={["Algeria travel guide","Algeria visa","best time to visit Algeria","Algeria travel tips","Algeria itineraries"]} region="highlands">
   <Hero title="Algeria Travel Guides" eyebrow="Travel planning" text="Practical, in-depth guides to planning a trip to Algeria — visas, safety, when to go, regions and routes." image="/assets/img/mzab-ghardaia-panorama.jpg" alt="Panorama of a Saharan oasis town" />
@@ -35,6 +42,8 @@ const guides = order.map(s => bySlug[s]).filter(Boolean);
           text={g.data.excerpt} />
       ))}
     </div>
+    <h2 style="margin-top:2.2rem">Travelling from your country</h2>
+    <p>Flights, the visa, time difference, money and the tours that suit you, from: {fromGuides.map(([s, n], i) => (<>{i > 0 && ' · '}<a href={`/blog/${s}/`}>{n}</a></>))}</p>
     <p style="margin-top:1.2rem">Quick answers: <a href="/questions/is-algeria-safe/">Is Algeria safe?</a> · <a href="/questions/do-i-need-a-visa-for-algeria/">Do I need a visa?</a> · <a href="/questions/how-much-does-a-trip-to-algeria-cost/">How much does a trip cost?</a></p>
   </div></section>
   <CtaSection />
