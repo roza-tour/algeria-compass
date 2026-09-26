@@ -9,6 +9,9 @@ gallery:
   - { src: "/assets/img/timgad-ruins-columns.jpg", alt: "Colonnaded street in Roman Timgad" }
   - { src: "/assets/img/tours/batna-timgad-5.jpg", alt: "Ruins of Timgad below the Aurès mountains" }
   - { src: "/assets/img/tours/batna-timgad-9.jpg", alt: "The columns and paved forum of Timgad spread across the plain, with the modern town behind" }
+  - { src: "/assets/img/tours/batna-timgad-14.jpg", alt: "The Arch of Trajan and the colonnaded streets of Timgad, a visitor walking among spring flowers" }
+  - { src: "/assets/img/batna/batna-01.jpg", alt: "The Ghoufi canyon in the Aurès, abandoned cliff villages above a ribbon of palms" }
+  - { src: "/assets/img/batna/batna-02.jpg", alt: "The palm-lined river at the bottom of the Ghoufi canyon in the Aurès" }
 coordinates: { lat: 35.5556, lng: 6.1741 }
 quickAnswer: "Batna is a highland state in eastern Algeria, the gateway to the Aurès mountains and the Chaoui Amazigh heartland. Its headline sight is the UNESCO Roman city of Timgad — the most complete Roman grid-city anywhere — alongside the ancient mausoleum of Imedghassen and the dramatic gorges and cedar forests of the Aurès."
 keyFacts:

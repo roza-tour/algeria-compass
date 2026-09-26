@@ -9,6 +9,10 @@ gallery:
   - { src: "/assets/img/beni-hammad/beni-hammad-07.jpg", alt: "The minaret of Al Qal'a of Beni Hammad rising above the palace ruins" }
   - { src: "/assets/img/beni-hammad/beni-hammad-05.jpg", alt: "The minaret amid spring wildflowers and the Hodna mountains" }
   - { src: "/assets/img/beni-hammad/beni-hammad-04.jpg", alt: "View through an arched opening over the ruins of Beni Hammad" }
+  - { src: "/assets/img/beni-hammad/beni-hammad-06.jpg", alt: "The minaret of the Qal'a of Beni Hammad, the only part of its great mosque still standing" }
+  - { src: "/assets/img/beni-hammad/beni-hammad-08.jpg", alt: "The carved niches and wooden door of the Beni Hammad minaret" }
+  - { src: "/assets/img/beni-hammad/beni-hammad-09.jpg", alt: "The Beni Hammad minaret above the excavated ruins, hills behind" }
+  - { src: "/assets/img/beni-hammad/beni-hammad-10.jpg", alt: "Rows of stone column bases of the great mosque at Beni Hammad, the minaret beyond" }
 coordinates: { lat: 35.8186, lng: 4.7906 }
 sameAs: ["https://en.wikipedia.org/wiki/Beni_Hammad_Fort"]
 quickAnswer: "Al Qal'a of Beni Hammad is a UNESCO World Heritage Site in the Hodna mountains of M'Sila state — the ruined first capital of the Hammadid dynasty, founded in 1007. Set at around 1,000 m, it preserves the largest mosque minaret in Algeria and the remains of palaces and fortifications, a vivid picture of a fortified Islamic city of the 11th century."

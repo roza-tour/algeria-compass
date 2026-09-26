@@ -14,6 +14,9 @@ gallery:
   - { src: "/assets/img/tours/djanet-6.jpg", alt: "Dark rock pinnacles rising out of pale sand near Djanet" }
   - { src: "/assets/img/tours/djanet-1.jpg", alt: "The sun setting over a rocky plateau near Djanet, seen from beside a sandstone wall" }
   - { src: "/assets/img/tours/djanet-2.jpg", alt: "Tents pitched among dark rocks under a blazing sunset sky at a desert camp near Djanet" }
+  - { src: "/assets/img/tours/djanet-27.jpg", alt: "Tall white figures painted on a rock-shelter wall in the Tassili n'Ajjer" }
+  - { src: "/assets/img/tours/djanet-21.jpg", alt: "A curving dune crest running between eroded sandstone pillars near Djanet" }
+  - { src: "/assets/img/tours/djanet-22.jpg", alt: "A sandstone boulder balanced on a narrow pedestal against a deep blue sky near Djanet" }
 coordinates: { lat: 24.5539, lng: 9.4851 }
 quickAnswer: "Djanet is a desert state in Algeria's far south-east, the Tuareg gateway to the Sahara at its most spectacular. It is the base for the UNESCO Tassili n'Ajjer plateau and its prehistoric rock art, and for the red sandstone and dunes of the Tadrart — a region of guided 4x4 journeys, desert camps and some of the clearest night skies on Earth."
 keyFacts:

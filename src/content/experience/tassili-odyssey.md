@@ -12,6 +12,10 @@ gallery:
   - { src: "/assets/img/tours/djanet-6.jpg", alt: "Weathered sandstone towers standing out of pale sand in the Tadrart, near Djanet" }
   - { src: "/assets/img/tours/djanet-11.jpg", alt: "Eroded sandstone outcrops and a long dune slope in the red Tadrart" }
   - { src: "/assets/img/tours/djanet-12.jpg", alt: "Two great rock massifs on an open sand plain, walkers at their foot giving the scale" }
+  - { src: "/assets/img/tours/djanet-27.jpg", alt: "Tall white figures painted on a rock-shelter wall in the Tassili n'Ajjer" }
+  - { src: "/assets/img/tours/djanet-28.jpg", alt: "A prehistoric painting of a horned figure in dotted patterns in the Tassili n'Ajjer" }
+  - { src: "/assets/img/tours/djanet-29.jpg", alt: "A Tuareg man in a white turban pouring tea from a height on the dunes" }
+  - { src: "/assets/img/tours/djanet-18.jpg", alt: "A still pool reflecting sandstone walls in a narrow desert canyon near Djanet" }
 stops:
   - { name: "Djanet oasis", image: "/assets/img/djanet-guelta-palms.jpg", alt: "A guelta, a desert pool, fringed with palms near Djanet", note: "your gateway and first night" }
   - { name: "Tassili n'Ajjer rock art", image: "/assets/img/tassili-rock-art.jpg", alt: "Prehistoric rock engravings in the Tassili n Ajjer, Algeria", note: "UNESCO prehistoric galleries" }

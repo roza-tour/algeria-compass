@@ -11,6 +11,11 @@ gallery:
   - { src: "/assets/img/algiers-boulevards-aerial.jpg", alt: "Aerial view of the French-colonial boulevards of Algiers" }
   - { src: "/assets/img/algiers-colonial-corner.jpg", alt: "Grand colonial-era building in central Algiers" }
   - { src: "/assets/img/algiers-martyrs-trees.jpg", alt: "The Martyrs Memorial framed by trees, Algiers" }
+  - { src: "/assets/img/tours/algiers-14.jpg", alt: "A tiled Ottoman fountain beside a stepped cobbled lane in the Casbah of Algiers" }
+  - { src: "/assets/img/tours/algiers-18.jpg", alt: "A marble fountain in the arcaded courtyard of an Ottoman palace in the Casbah of Algiers" }
+  - { src: "/assets/img/tours/algiers-22.jpg", alt: "The domed basilica of Notre-Dame d'Afrique above Algiers" }
+  - { src: "/assets/img/tours/algiers-24.jpg", alt: "The apse of Notre-Dame d'Afrique, its mural inscribed with a prayer for Christians and Muslims" }
+  - { src: "/assets/img/tours/algiers-26.jpg", alt: "The twin minarets and carved façade of the Ketchaoua Mosque at the foot of the Casbah" }
 coordinates: { lat: 36.7538, lng: 3.0588 }
 quickAnswer: "Algiers (El Djazaïr) is Algeria's capital and largest city — a Mediterranean port famous for its UNESCO-listed Ottoman Casbah, white tiered waterfront, French-colonial boulevards, the vast new Great Mosque of Algiers, and grand monuments like Notre-Dame d'Afrique and the Maqam Echahid. It's the country's main gateway and a city best explored on foot, with a guide for the Casbah."
 keyFacts:

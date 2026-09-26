@@ -12,6 +12,8 @@ gallery:
   - { src: "/assets/img/tlemcen-tiled-courtyard.jpg", alt: "Tiled Andalusian palace courtyard, Tlemcen" }
   - { src: "/assets/img/tlemcen-lalla-setti.jpg", alt: "Monument on the Lalla Setti plateau above Tlemcen" }
   - { src: "/assets/img/tlemcen-el-ourit-gorge.jpg", alt: "The El Ourit gorge and falls near Tlemcen" }
+  - { src: "/assets/img/tours/tlemcen-14.jpg", alt: "The half-ruined minaret of the Mansourah mosque in Tlemcen" }
+  - { src: "/assets/img/tours/tlemcen-15.jpg", alt: "The minaret of Mansourah rising above the ruined walls of the mosque, Tlemcen" }
 quickAnswer: "Tlemcen is a historic city in north-west Algeria, the country's great centre of Andalusian and Islamic heritage — the medieval Zayyanid capital famous for the Great Mosque, the ruins of Mansourah, the Sidi Boumediene complex and the classical gharnati music tradition. It is often called the Pearl of the Maghreb."
 keyFacts:
   - { label: "Known as", value: "Pearl of the Maghreb" }

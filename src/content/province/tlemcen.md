@@ -10,6 +10,8 @@ gallery:
   - { src: "/assets/img/tlemcen-el-ourit-falls.jpg", alt: "The El Ourit waterfalls near Tlemcen" }
   - { src: "/assets/img/tours/tlemcen-4.jpg", alt: "Historic Andalusian architecture in Tlemcen" }
   - { src: "/assets/img/tours/tlemcen-6.jpg", alt: "The long tiled reflecting pool in the courtyard of the restored royal palace at Tlemcen" }
+  - { src: "/assets/img/tours/tlemcen-14.jpg", alt: "The half-ruined minaret of the Mansourah mosque in Tlemcen" }
+  - { src: "/assets/img/tours/tlemcen-15.jpg", alt: "The minaret of Mansourah rising above the ruined walls of the mosque, Tlemcen" }
 coordinates: { lat: 34.8783, lng: -1.3150 }
 quickAnswer: "Tlemcen is a western highland state near the Moroccan border, the cultural capital of Andalusian Algeria. Once a great medieval royal city, it preserves the Great Mosque, the Mansourah minaret, the El Mechouar palace and the shrine-complex of Sidi Boumediene, set among cool plateaus, the El Ourit waterfalls and a living tradition of Andalusian music."
 keyFacts:

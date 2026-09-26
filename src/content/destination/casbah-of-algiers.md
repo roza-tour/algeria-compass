@@ -6,6 +6,15 @@ image: "/assets/img/casbah-old-city-mosque.jpg"
 imageAlt: "White domed mosque and Algerian flag in the old city of Algiers"
 gallery:
   - { src: "/assets/img/casbah-old-street.jpg", alt: "Street in the old lower city near the Casbah of Algiers" }
+  - { src: "/assets/img/tours/algiers-14.jpg", alt: "A tiled Ottoman fountain beside a stepped cobbled lane in the Casbah of Algiers" }
+  - { src: "/assets/img/tours/algiers-15.jpg", alt: "A stepped cobbled lane in the Casbah of Algiers, brass and copperware laid out at a doorway" }
+  - { src: "/assets/img/tours/algiers-18.jpg", alt: "A marble fountain in the arcaded courtyard of an Ottoman palace in the Casbah of Algiers" }
+  - { src: "/assets/img/tours/algiers-17.jpg", alt: "A quiet cobbled lane of whitewashed houses and wooden doors in the Casbah of Algiers" }
+  - { src: "/assets/img/tours/algiers-19.jpg", alt: "Looking down into the tiled courtyard of an Ottoman palace in the Casbah from its upper gallery" }
+  - { src: "/assets/img/tours/algiers-16.jpg", alt: "An arched passage opening onto a restored lane in the Casbah of Algiers" }
+  - { src: "/assets/img/tours/algiers-20.jpg", alt: "Twisted marble columns framing the courtyard fountain of an Ottoman palace in the Casbah" }
+  - { src: "/assets/img/tours/algiers-21.jpg", alt: "Horseshoe arches and blue-and-white tilework around an Ottoman palace courtyard in the Casbah" }
+  - { src: "/assets/img/tours/algiers-26.jpg", alt: "The twin minarets and carved façade of the Ketchaoua Mosque at the foot of the Casbah" }
 coordinates: { lat: 36.7833, lng: 3.0603 }
 sameAs: ["https://en.wikipedia.org/wiki/Casbah_of_Algiers"]
 quickAnswer: "The Casbah of Algiers is the city's historic Ottoman citadel and old town — a steep maze of whitewashed houses, palaces, mosques and covered lanes overlooking the bay. A UNESCO World Heritage Site since 1992, it is best explored on foot with a local guide."

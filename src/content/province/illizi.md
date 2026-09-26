@@ -9,6 +9,8 @@ gallery:
   - { src: "/assets/img/tassili-dune-rocks.jpg", alt: "Dunes banked against sandstone formations in the Tassili n'Ajjer" }
   - { src: "/assets/img/sahara-rock-arch.jpg", alt: "A natural sandstone arch in the Algerian Sahara" }
   - { src: "/assets/img/sahara-camp-sunset.jpg", alt: "A desert camp at sunset in the Algerian Sahara" }
+  - { src: "/assets/img/tours/djanet-23.jpg", alt: "Dark sandstone pinnacles scattered across orange sand in the Tassili n'Ajjer" }
+  - { src: "/assets/img/tours/djanet-24.jpg", alt: "A maze of rock towers and dunes seen from above in the Tassili n'Ajjer" }
 coordinates: { lat: 26.4833, lng: 8.4667 }
 quickAnswer: "Illizi is a vast desert state in the far south-east of Algeria, covering much of the Tassili n'Ajjer — a UNESCO-listed sandstone plateau holding one of the greatest concentrations of prehistoric rock art on earth, alongside eroded rock forests, canyons and dunes. It is visited between November and February, with a licensed operator, a guide and permits."
 keyFacts:

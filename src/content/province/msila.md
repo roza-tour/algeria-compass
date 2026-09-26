@@ -9,6 +9,8 @@ gallery:
   - { src: "/assets/img/beni-hammad/beni-hammad-04.jpg", alt: "Excavated foundations of the Hammadid palaces at Beni Hammad" }
   - { src: "/assets/img/msila-bousaada/msila-bousaada-01.jpg", alt: "The oasis town of Bou Saada in M'Sila state, Algeria" }
   - { src: "/assets/img/msila-bousaada/msila-bousaada-04.jpg", alt: "Palm grove and gorge at Bou Saada, M'Sila" }
+  - { src: "/assets/img/beni-hammad/beni-hammad-06.jpg", alt: "The minaret of the Qal'a of Beni Hammad, the only part of its great mosque still standing" }
+  - { src: "/assets/img/beni-hammad/beni-hammad-10.jpg", alt: "Rows of stone column bases of the great mosque at Beni Hammad, the minaret beyond" }
 coordinates: { lat: 35.7053, lng: 4.5419 }
 quickAnswer: "M'Sila is a highland state on the Hodna plain in central-eastern Algeria, holding two very different landmarks: Al Qal'a of Beni Hammad, the ruined 11th-century Hammadid capital inscribed by UNESCO in 1980, and Bou Saada, the classic oasis town on the northern edge of the Sahara. It is the natural bridge between the Tell and the desert."
 keyFacts:

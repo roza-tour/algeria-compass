@@ -22,6 +22,10 @@ The place names in use:
 `ghardaia` · `bousaada` · `bejaia` · `constantine` · `setif` · `djemila` ·
 `batna-timgad` · `timimoun`
 
+Places no tour visits (so their photos must not join a tour gallery) have
+their own folders instead: `beni-hammad/`, `batna/` (Ghoufi canyon).
+They appear only where listed in a `gallery:` block.
+
 So the next Djanet photograph is `djanet-18.jpg`, the next Tlemcen one is
 `tlemcen-14.jpg`.
 

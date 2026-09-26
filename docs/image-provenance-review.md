@@ -34,3 +34,37 @@ Neither is a rights question; both are quality questions.
 ## For new photographs
 
 See `docs/adding-photos.md`.
+
+## Batch of 2026-09-26 (108 photos sent on WhatsApp)
+
+Sent by the owner in answer to the "missing photos" inventory: the Casbah,
+Notre-Dame d'Afrique, Ketchaoua, Cherchell, Mansourah, Beni Hammad, Timimoun
+foggaras, Tassili rock art and Tuareg life.
+
+**39 published.** Each was opened, its place identified from what is in the
+frame, and filed under the place it shows: `tours/algiers-14..26`,
+`tipaza-11..12`, `batna-timgad-14`, `timimoun-11..13`, `tlemcen-14..15`,
+`djanet-18..29`, `beni-hammad/beni-hammad-06,08,09,10`, `batna/batna-01..02`.
+
+**Rights: needs the owner's confirmation.** Unlike the earlier library, this
+batch shows signs of having been collected online: most files are exactly
+736 px wide (Pinterest's download size), and four carry other photographers'
+signatures. Those four were **not** published:
+
+| File in the zip | Signature |
+|---|---|
+| `3.17.16 PM.jpeg` (Casbah lane) | "Riyad G… photography" |
+| `3.17.18 PM (3).jpeg` (Casbah lane, orange door) | "Farouk … photography" |
+| `3.17.20 PM (2).jpeg` (Tuareg round a fire) | "@…" handle |
+| `3.17.20 PM.jpeg` (rock painting) | "oussama hamdi photography" |
+
+If any of the 39 published ones are not ours to use, remove them with
+`git rm` and take the line out of the page's `gallery:` block. The tour
+galleries pick files up automatically, so deleting the file is enough there.
+
+**Not published for other reasons:** one is Antelope Canyon in the USA,
+not Algeria; several are too small (under 500 px); some could not be placed
+with confidence (a Kabylie hill village, a domed guesthouse, several canyons
+and camel scenes that could be anywhere in the Sahara); and one giraffe
+petroglyph looks digitally generated. Hoggar photographs were left for now:
+no tour or page covers the Hoggar yet.

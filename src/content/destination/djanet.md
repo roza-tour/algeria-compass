@@ -12,6 +12,10 @@ gallery:
   - { src: "/assets/img/tours/djanet-12.jpg", alt: "Sandstone towers standing in open sand under a deep blue sky near Djanet" }
   - { src: "/assets/img/tours/djanet-11.jpg", alt: "Eroded sandstone outcrops half-buried in drifted sand near Djanet" }
   - { src: "/assets/img/tours/djanet-3.jpg", alt: "A campfire burning on the sand beside a great boulder at a desert camp near Djanet" }
+  - { src: "/assets/img/tours/djanet-29.jpg", alt: "A Tuareg man in a white turban pouring tea from a height on the dunes" }
+  - { src: "/assets/img/tours/djanet-18.jpg", alt: "A still pool reflecting sandstone walls in a narrow desert canyon near Djanet" }
+  - { src: "/assets/img/tours/djanet-19.jpg", alt: "Camels among sandstone towers in the desert around Djanet" }
+  - { src: "/assets/img/tours/djanet-20.jpg", alt: "Rock towers and a mushroom-shaped boulder among pale dunes near Djanet" }
 quickAnswer: "Djanet is the Tuareg oasis capital of Algeria's far south-east — a palm town of Kel Ajjer culture, the Sebeiba festival and deep desert hospitality, and the living gateway to the Tassili n'Ajjer and the red Tadrart."
 keyFacts:
   - { label: "People", value: "Tuareg (Kel Ajjer)" }
