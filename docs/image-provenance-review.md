@@ -46,10 +46,17 @@ frame, and filed under the place it shows: `tours/algiers-14..26`,
 `tipaza-11..12`, `batna-timgad-14`, `timimoun-11..13`, `tlemcen-14..15`,
 `djanet-18..29`, `beni-hammad/beni-hammad-06,08,09,10`, `batna/batna-01..02`.
 
-**Rights: needs the owner's confirmation.** Unlike the earlier library, this
+**Rights: owner-confirmed 2026-09-26 as free, open-licence images.** If any
+turn out to be under a licence that requires credit (Creative Commons BY and
+similar), the credit line goes in the photo's alt-adjacent caption or on
+`/editorial/`. Original note follows.
+
+**Rights: originally flagged.** Unlike the earlier library, this
 batch shows signs of having been collected online: most files are exactly
 736 px wide (Pinterest's download size), and four carry other photographers'
-signatures. Those four were **not** published:
+signatures. Those four were **not** published — now for a quality reason rather than a
+rights one: another photographer's signature across a photo reads badly on a
+luxury tour page, the same reason `tlemcen-7` is kept off the site:
 
 | File in the zip | Signature |
 |---|---|
