@@ -3,8 +3,8 @@ name: "City of Bridges Expedition"
 tagline: "Four days through Algeria's dramatic north-east — Constantine's gorge, Ottoman palaces and Roman echoes."
 region: "highlands"
 durationDays: 4
-priceFrom: 540
-currency: "USD"
+priceFrom: 465
+currency: "EUR"
 image: "/assets/img/constantine-bridge-waterfall.jpg"
 imageAlt: "Bridge and waterfall in the Rhumel gorge, Constantine"
 stops:

@@ -32,11 +32,11 @@ travelerProfiles:
   - { type: "Families", fit: "good", note: "Coast, accessible Roman sites and oasis towns work well." }
   - { type: "First-time Africa travellers", fit: "good", note: "Rewarding but light on tourism infrastructure; plan ahead." }
 costs:
-  - { item: "Budget guesthouse / night", budget: "$20–40", mid: "$50–90", high: "$120+" }
-  - { item: "Local meal", budget: "$3–6", mid: "$8–15", high: "$25+" }
-  - { item: "Intercity travel (per leg)", budget: "$5–20", mid: "$25–60", high: "domestic flight $60–130" }
-  - { item: "Guided desert day", budget: "—", mid: "$80–150", high: "$200+" }
-costCurrency: "USD, indicative"
+  - { item: "Budget guesthouse / night", budget: "€17–35", mid: "€45–75", high: "€100+" }
+  - { item: "Local meal", budget: "€3–5", mid: "€7–13", high: "€20+" }
+  - { item: "Intercity travel (per leg)", budget: "€4–17", mid: "€20–50", high: "domestic flight €50–110" }
+  - { item: "Guided desert day", budget: "—", mid: "€70–130", high: "€170+" }
+costCurrency: "EUR, indicative"
 costNote: "Indicative ranges only; Algeria has an official and a widely-used parallel exchange rate, so on-the-ground costs vary. Confirm current rates before you travel."
 comparisons:
   - caption: "Algeria's regions at a glance"

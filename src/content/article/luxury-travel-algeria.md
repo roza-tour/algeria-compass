@@ -36,7 +36,7 @@ costs:
   - { item: "Guided private day tour", budget: "€30", mid: "€60", high: "€120" }
   - { item: "Multi-day private tour, per person", budget: "€200", mid: "€600", high: "€1,850" }
   - { item: "8-day all-inclusive 5-star journey", budget: "—", mid: "—", high: "€1,615+" }
-  - { item: "Internal flight, one way", budget: "€60", mid: "€110", high: "€180" }
+  - { item: "Internal flight, one way", budget: "€50", mid: "€80", high: "€130+" }
 costCurrency: "EUR"
 costNote: "Indicative per-person figures at 2026 prices. Every tour page on this site carries its own fixed price; these bands are for orientation, not a quote."
 comparisons:

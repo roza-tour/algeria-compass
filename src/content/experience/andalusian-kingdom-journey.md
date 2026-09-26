@@ -3,8 +3,8 @@ name: "The Andalusian Kingdom Journey"
 tagline: "Five days through Algeria's Hispano-Moorish west — Tlemcen, Oran and the legacy of Muslim Spain."
 region: "andalusian"
 durationDays: 5
-priceFrom: 720
-currency: "USD"
+priceFrom: 620
+currency: "EUR"
 image: "/assets/img/tlemcen-andalusian-gallery.jpg"
 imageAlt: "Ornate Andalusian arcaded gallery, Tlemcen"
 gallery:

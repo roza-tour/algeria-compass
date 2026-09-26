@@ -4,13 +4,13 @@ category: "Trip Planning"
 image: "/assets/img/algiers-boulevards-aerial.jpg"
 imageAlt: "Aerial view of central Algiers boulevards, where most Algeria trips begin and where costs are highest"
 excerpt: "Is Algeria expensive? A clear, current breakdown of what a trip really costs — accommodation, food, transport, guides and the Sahara — plus the dual exchange rate that changes everything on the ground."
-quickAnswer: "Algeria is inexpensive by European standards for food and local transport, mid-priced for comfortable hotels, and pricier for guided Saharan expeditions. A mid-range traveller in the north spends roughly $60–120 a day excluding international flights; a guided deep-desert trip is the big-ticket item at around $150–300+ per day. The single biggest variable is the exchange rate: Algeria has an official rate and a widely-used parallel rate, and changing euros or dollars locally stretches a budget significantly."
+quickAnswer: "Algeria is inexpensive by European standards for food and local transport, mid-priced for comfortable hotels, and pricier for guided Saharan expeditions. A mid-range traveller in the north spends roughly €50–100 a day excluding international flights; a guided deep-desert trip is the big-ticket item at around €130–260+ per day. The single biggest variable is the exchange rate: Algeria has an official rate and a widely-used parallel rate, and changing euros or dollars locally stretches a budget significantly."
 readMinutes: 12
 keyFacts:
   - { label: "Currency", value: "Algerian dinar (DZD)" }
-  - { label: "North, mid-range/day", value: "~$60–120" }
-  - { label: "Budget/day (north)", value: "~$30–50" }
-  - { label: "Guided Sahara/day", value: "~$150–300+" }
+  - { label: "North, mid-range/day", value: "~€50–100" }
+  - { label: "Budget/day (north)", value: "~€25–45" }
+  - { label: "Guided Sahara/day", value: "~€130–260+" }
   - { label: "Cards", value: "Limited — carry cash" }
   - { label: "Key variable", value: "Official vs parallel exchange rate" }
 keyTakeaways:
@@ -20,14 +20,14 @@ keyTakeaways:
   - "The Sahara is the single biggest cost — guides, 4x4s, permits and internal flights add up."
   - "International flights are usually your largest single expense; the on-the-ground trip is comparatively affordable."
 costs:
-  - { item: "Budget guesthouse / night", budget: "$20–40", mid: "$50–90", high: "$120+" }
-  - { item: "Local restaurant meal", budget: "$3–6", mid: "$8–15", high: "$25+" }
-  - { item: "Coffee / street food", budget: "$0.50–2", mid: "—", high: "—" }
-  - { item: "Intercity train or bus (per leg)", budget: "$5–20", mid: "$20–45", high: "—" }
-  - { item: "Domestic flight (e.g. to the south)", budget: "—", mid: "$60–130", high: "$150+" }
-  - { item: "Local guide / day (north)", budget: "—", mid: "$40–90", high: "$120+" }
-  - { item: "Guided Sahara expedition / day", budget: "—", mid: "$150–250", high: "$300+" }
-costCurrency: "USD, indicative"
+  - { item: "Budget guesthouse / night", budget: "€17–35", mid: "€45–75", high: "€100+" }
+  - { item: "Local restaurant meal", budget: "€3–5", mid: "€7–13", high: "€20+" }
+  - { item: "Coffee / street food", budget: "€0.5–1.5", mid: "—", high: "—" }
+  - { item: "Intercity train or bus (per leg)", budget: "€4–17", mid: "€17–40", high: "—" }
+  - { item: "Domestic flight (e.g. to the south)", budget: "—", mid: "€50–110", high: "€130+" }
+  - { item: "Local guide / day (north)", budget: "—", mid: "€35–75", high: "€100+" }
+  - { item: "Guided Sahara expedition / day", budget: "—", mid: "€130–220", high: "€260+" }
+costCurrency: "EUR, indicative"
 costNote: "Indicative ranges for 2026 planning only. Algeria has an official exchange rate and a widely-used parallel rate, so real costs depend heavily on how and where you change money. Confirm current rates before you travel and carry cash."
 travelerProfiles:
   - { type: "Budget travellers (north)", fit: "good", note: "Cheap food and transport make the north very affordable if you skip the desert." }
@@ -39,8 +39,8 @@ commonMistakes:
   - { mistake: "Underestimating the Sahara", instead: "Budget the deep-desert leg separately — it's the big-ticket item." }
   - { mistake: "Not carrying euros or dollars", instead: "Bring some hard currency to change; it's often the best value." }
 faqs:
-  - { q: "Is Algeria expensive to travel?", a: "No, not for food and local transport, which are cheap by European standards. Comfortable hotels are mid-priced and guided Saharan trips are the expensive part. A mid-range traveller in the north spends about $60–120 a day excluding international flights." }
-  - { q: "How much money do you need per day in Algeria?", a: "Budget travellers in the north can manage on roughly $30–50 a day; mid-range travellers spend about $60–120. A guided deep-desert expedition runs far higher — around $150–300+ a day once guides, 4x4s and permits are included." }
+  - { q: "Is Algeria expensive to travel?", a: "No, not for food and local transport, which are cheap by European standards. Comfortable hotels are mid-priced and guided Saharan trips are the expensive part. A mid-range traveller in the north spends about €50–100 a day excluding international flights." }
+  - { q: "How much money do you need per day in Algeria?", a: "Budget travellers in the north can manage on roughly €25–45 a day; mid-range travellers spend about €50–100. A guided deep-desert expedition runs far higher — around €130–260+ a day once guides, 4x4s and permits are included." }
   - { q: "Should I use cash or card in Algeria?", a: "Carry cash. Card acceptance is limited outside major-city hotels and ATMs can be unreliable, so bring dinars and some euros or dollars to change." }
   - { q: "Why does the exchange rate matter so much in Algeria?", a: "Algeria has an official exchange rate and a widely-used parallel rate, and the difference is significant. Changing hard currency locally can stretch a travel budget considerably, so it's worth understanding before you arrive." }
   - { q: "What is the most expensive part of an Algeria trip?", a: "After international flights, the guided Sahara is the biggest cost, because it involves licensed guides, 4x4 transport, permits and internal flights. The northern part of a trip is comparatively affordable." }
@@ -66,11 +66,11 @@ Here's what a trip actually costs in 2026.
 
 ## The short answer
 
-- **Food and local transport are cheap.** A good restaurant meal is often under $10; intercity trains and buses are a few dollars.
-- **Hotels are mid-priced.** Comfortable rooms in cities run $50–90; budget guesthouses less.
+- **Food and local transport are cheap.** A good restaurant meal is often under €9; intercity trains and buses cost a few euros.
+- **Hotels are mid-priced.** Comfortable rooms in cities run €45–75; budget guesthouses less.
 - **The Sahara is the expensive part.** Guided desert expeditions — with 4x4s, licensed guides, permits and internal flights — are the big-ticket item.
 
-A mid-range traveller in the **north** spends roughly **$60–120 a day** excluding international flights. A **guided deep-desert** trip is a different order of magnitude, around **$150–300+ a day**.
+A mid-range traveller in the **north** spends roughly **€50–100 a day** excluding international flights. A **guided deep-desert** trip is a different order of magnitude, around **€130–260+ a day**.
 
 ## Where the money actually goes
 
@@ -90,9 +90,9 @@ Algeria is a **cash economy** for travellers. Card acceptance is limited outside
 
 ## Sample daily budgets (north, excl. international flights)
 
-- **Budget:** ~$30–50 — guesthouses, local food, trains and buses.
-- **Mid-range:** ~$60–120 — comfortable hotels, the odd private transfer, a day guide.
-- **Higher-end:** $150+ — best hotels, private driver-guide, domestic flights.
+- **Budget:** ~€25–45 — guesthouses, local food, trains and buses.
+- **Mid-range:** ~€50–100 — comfortable hotels, the odd private transfer, a day guide.
+- **Higher-end:** €130+ — best hotels, private driver-guide, domestic flights.
 
 For the Sahara, budget the guided expedition **separately** — it's arranged as its own package, and it's where careful planning saves the most.
 

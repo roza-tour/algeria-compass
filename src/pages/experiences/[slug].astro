@@ -60,7 +60,7 @@ const schemaNodes = [trip, authorEntity, reviewerEntity, breadcrumb];
   <section class="section"><div class="wrap" style="max-width:820px">
     <Byline authorName={author.name} authorHref={author.href} reviewerName={reviewer.name} reviewerHref={reviewer.href} updated={d.updated} lastReviewed={d.lastReviewed} />
     <QuickAnswer text={d.quickAnswer} />
-    {d.priceFrom && <p><strong>From {d.currency} {d.priceFrom}</strong> per person · {d.durationDays} days</p>}
+    {d.priceFrom && <p><strong>From {d.currency === 'EUR' ? '€' + d.priceFrom.toLocaleString('en-GB') : `${d.currency} ${d.priceFrom}`}</strong> per person · {d.durationDays} days</p>}
     {d.highlights.length > 0 && (<><h2>Highlights</h2><ul class="prose">{d.highlights.map((h:string) => <li>{h}</li>)}</ul></>)}
     {d.itinerary.length > 0 && (<><h2>Day by day</h2>{d.itinerary.map((s:any) => (<div style="margin:.6rem 0"><strong>{s.day} — {s.title}</strong><p style="color:var(--text-m)">{s.text}</p></div>))}</>)}
     <article class="prose"><Content /></article>

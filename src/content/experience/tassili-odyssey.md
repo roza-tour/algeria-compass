@@ -3,8 +3,8 @@ name: "The Tassili Odyssey"
 tagline: "Eight days into the prehistoric heart of the Sahara — rock art, red dunes and nights under 3,000 stars."
 region: "sahara"
 durationDays: 8
-priceFrom: 1290
-currency: "USD"
+priceFrom: 1110
+currency: "EUR"
 image: "/assets/img/sahara-camp-sunset.jpg"
 imageAlt: "Desert camp at sunset among rock formations, Algerian Sahara"
 gallery:

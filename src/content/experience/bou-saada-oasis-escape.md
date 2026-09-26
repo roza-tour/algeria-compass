@@ -3,7 +3,7 @@ name: "Bou Saada Oasis Escape"
 tagline: "Two days in the City of Happiness — a palm oasis on the edge of the Sahara, ochre gorges, an old ksar, and the light that drew painters south."
 region: "sahara"
 durationDays: 2
-currency: "USD"
+currency: "EUR"
 image: "/assets/img/bou-saada-town-aerial.jpg"
 imageAlt: "Aerial view of the oasis town of Bou Saada and its domed zawiya, Algeria"
 stops:

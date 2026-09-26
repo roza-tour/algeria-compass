@@ -34,12 +34,12 @@ comparisons:
       - { label: "Tram / metro", cells: ["Inside big cities", "Good", "Modern, cheap, easy"] }
       - { label: "Guided 4x4", cells: ["The Sahara", "Slow/expedition", "Only safe desert option"] }
 costs:
-  - { item: "City tram/metro ride", budget: "Under $1", mid: "—", high: "—" }
-  - { item: "Intercity bus (per leg)", budget: "$5–15", mid: "—", high: "—" }
-  - { item: "Train (northern intercity)", budget: "$8–30", mid: "—", high: "—" }
-  - { item: "Domestic flight", budget: "$60–130", mid: "—", high: "varies by season" }
-  - { item: "Private driver (day)", budget: "—", mid: "$60–120", high: "$150+ with 4x4" }
-costCurrency: "USD, indicative"
+  - { item: "City tram/metro ride", budget: "Under €1", mid: "—", high: "—" }
+  - { item: "Intercity bus (per leg)", budget: "€4–13", mid: "—", high: "—" }
+  - { item: "Train (northern intercity)", budget: "€7–25", mid: "—", high: "—" }
+  - { item: "Domestic flight", budget: "€50–110", mid: "—", high: "varies by season" }
+  - { item: "Private driver (day)", budget: "—", mid: "€50–100", high: "€130+ with 4x4" }
+costCurrency: "EUR, indicative"
 costNote: "Indicative only; fares vary and the official/parallel exchange rate affects costs. Confirm current prices when booking."
 practical:
   - { label: "Long legs", value: "Fly (Air Algérie & others)" }
@@ -61,7 +61,7 @@ faqs:
   - { q: "Can I rent a car in Algeria?", a: "Yes, mainly in cities and at airports. It suits the north; for the desert, use a licensed operator with a 4x4 rather than self-driving." }
   - { q: "How do I get to the Sahara?", a: "Fly to a southern gateway such as Djanet or Tamanrasset, then travel by guided 4x4 arranged by a licensed operator who handles permits." }
   - { q: "Is public transport good in Algerian cities?", a: "The big cities are well served: Algiers has a metro and tram, and Oran, Constantine, Sétif and others have modern, cheap trams." }
-  - { q: "How much does transport cost in Algeria?", a: "City rides cost under a dollar; intercity buses and trains are inexpensive; domestic flights are the priciest common option. The exchange rate affects real costs, so confirm when booking." }
+  - { q: "How much does transport cost in Algeria?", a: "City rides cost under €1; intercity buses and trains are inexpensive; domestic flights are the priciest common option. The exchange rate affects real costs, so confirm when booking." }
 seo:
   title: "Getting Around Algeria: Transport Guide (2026)"
   description: "Flights, trains, buses, shared taxis, trams and desert 4x4 in Algeria — routes, travel times, costs and booking advice in one sourced, practical guide."
@@ -119,7 +119,7 @@ Algiers' Houari Boumediene Airport is the main international gateway, with Oran 
 Think in regions. Within the north, trains, buses and louages connect cities in a few hours each; a driver can string several sights together in a day. Between the north and the south, plan to fly — overland desert crossings are long, demanding and, in places, restricted. Always pad connections: schedules can slip, and the country's scale punishes tight planning.
 
 ## Costs and booking advice
-Costs are modest by international standards: city tram and metro rides cost under a dollar, intercity buses and trains are inexpensive, and domestic flights are the main expense — see the cost table on this page for indicative ranges. Carry cash, as many fares and louages are cash-only and card acceptance is patchy. Book flights ahead, especially to the south; for trains and buses, buy in advance on busy routes; and let a reputable operator handle desert logistics. Remember that the gap between the official and parallel exchange rate shifts what everything really costs.
+Costs are modest by international standards: city tram and metro rides cost under €1, intercity buses and trains are inexpensive, and domestic flights are the main expense — see the cost table on this page for indicative ranges. Carry cash, as many fares and louages are cash-only and card acceptance is patchy. Book flights ahead, especially to the south; for trains and buses, buy in advance on busy routes; and let a reputable operator handle desert logistics. Remember that the gap between the official and parallel exchange rate shifts what everything really costs.
 
 ## Tickets, apps and practicalities
 Buy domestic flights through the airline's own channels and aim to ticket well before travel; for trains, the SNTF network and main stations sell intercity seats, while buses and louages are bought at the station, usually in cash. English-language online booking is limited, so a hotel, a local contact or your operator can save time. Keep small notes for short fares, screenshot your bookings in case of patchy data, and confirm the first departure of any onward connection the day before.
