@@ -61,6 +61,8 @@ $days      = clean('days');
 $people    = clean('people');
 $interests = clean('interests');
 $context   = clean('context');
+$company   = clean('company');        // /partners/ (B2B) form only
+$csite     = clean('company_site');
 
 if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
   respond(false, 'Please add your name, a valid email and a message.', $ajax);
@@ -77,6 +79,8 @@ $days      = mb_substr($days, 0, 30);
 $people    = mb_substr($people, 0, 30);
 $interests = mb_substr($interests, 0, 200);
 $context   = mb_substr($context, 0, 200);
+$company   = mb_substr($company, 0, 100);
+$csite     = mb_substr($csite, 0, 150);
 $message   = mb_substr($message, 0, 4000);
 
 // The message validated — only now does this attempt count against the cap.
@@ -84,9 +88,11 @@ rate_limit_record('contact', 3600);
 
 // Encoded, because a raw UTF-8 subject (an Arabic or accented name, and the
 // dash itself) arrives garbled in some mail clients.
-$subject = mb_encode_mimeheader('Algeria trip inquiry — ' . nohdr($name), 'UTF-8', 'B', "\r\n");
+$subject = mb_encode_mimeheader(($company !== '' ? 'PARTNER enquiry — ' . nohdr($company) . ' / ' : 'Algeria trip inquiry — ') . nohdr($name), 'UTF-8', 'B', "\r\n");
 $body  = "New inquiry from algeriacompass.com\n";
 $body .= "----------------------------------------\n";
+if ($company !== '') $body .= "Company:    $company\n";
+if ($csite !== '')   $body .= "Website:    $csite\n";
 $body .= "Name:       $name\n";
 $body .= "Email:      $email\n";
 $body .= "Country:    $country\n";

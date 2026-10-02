@@ -1,0 +1,211 @@
+---
+// /partners/ — the landing page for the trade: tour operators, travel agencies
+// and expedition organisers who want to sell Algeria with a licensed local
+// ground handler.
+//
+// Written for the questions a partner actually asks before the first email —
+// what you handle, which programmes, how quoting and payment work, whether
+// 4x4/motorbike expeditions are possible — and for answer engines asked
+// "receptive tour operator in Algeria" / "Algeria DMC".
+//
+// Every fact here mirrors the rest of the site: prices are read from
+// tours.json, the luxury tiers from luxury.mjs, contact and languages from
+// config.ts, the payment model from /booking-terms/. Partner (net) rates are
+// deliberately NOT published: they are quoted per programme.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuickAnswer from '../components/QuickAnswer.astro';
+import { CONTACT, LANGUAGES, REVIEWS } from '../config';
+import toursData from '../data/tours.json';
+import { LUX_PRICING } from '../data/luxury.mjs';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const tours: any[] = (toursData as any).tours;
+const T = Object.fromEntries(tours.map((t) => [t.id, t]));
+const eur = (n: number) => '€' + n.toLocaleString('en-GB');
+
+const PROGRAMMES = [
+  { id: 'tadrart-rouge-7-days',             label: 'Deep Sahara' },
+  { id: 'sefar-tassili-trek',               label: 'Trekking' },
+  { id: 'timimoun-desert-escape',           label: 'Oasis & culture' },
+  { id: 'algeria-tour',                     label: 'Classic circuit' },
+  { id: 'algeria-grand-discovery-14-days',  label: 'Coast to Sahara' },
+  { id: 'algeria-through-time-and-tradition', label: 'Roman Algeria' },
+].map((p) => ({ ...p, t: T[p.id] })).filter((p) => p.t);
+
+const SERVICES = [
+  ['Itinerary design', 'Your route, your branding — or one of our tested programmes, adapted to your clients.'],
+  ['Hotels', 'From traditional guesthouses and desert camps to five-star hotels in Algiers, Oran and Constantine.'],
+  ['4x4 fleet & drivers', 'Experienced desert drivers, vehicles for the north and the Sahara, and support vehicles for expeditions.'],
+  ['Licensed guides', 'Local guides at every site and Tuareg guides and crews in the deep south.'],
+  ['Permits', 'Sahara and national-park permits and the formalities for protected zones, applied for as a licensed operator.'],
+  ['Domestic flights', 'Algiers to Djanet, Timimoun, Ghardaïa and the other southern gateways, booked as part of the programme.'],
+  ['Visa paperwork', 'Invitation letters and confirmed programmes for consulates — and, for organised Sahara programmes, the Saharan visa-on-arrival authorisation.'],
+  ['On the ground, 24/7', 'One operations contact in Algeria for you and your tour leader, day and night, throughout the trip.'],
+];
+
+const STEPS = [
+  ['Your brief', 'Tell us the kind of trip, group size, season, length and hotel level — or send an itinerary you already sell elsewhere.'],
+  ['Proposal & net rates', 'We send a day-by-day programme and partner net rates per person by group size, with exactly what is included.'],
+  ['Feasibility confirmed', 'Permits, domestic flights and anything route-specific are checked and confirmed in writing before you sell.'],
+  ['Deposit & balance', 'A deposit secures the dates; the balance is due before arrival. Payment by bank transfer.'],
+  ['We run it', 'Arrival to departure: transfers, guides, vehicles, hotels and a 24/7 operations line.'],
+];
+
+const faqs = [
+  { q: 'Do you work with foreign tour operators and travel agencies?', a: 'Yes. Algeria Compass is a licensed Algerian tour operator based in Algiers, and we act as the ground handler (receptive operator) for agencies and tour operators abroad — hotels, transport, guides, permits, domestic flights and visa paperwork, under your brand or ours.' },
+  { q: 'What are your partner rates?', a: 'Partner rates are net rates, quoted per programme and group size, below our public prices. The public prices on this site — for example ' + eur(T['tadrart-rouge-7-days']?.price_eur ?? 920) + ' per person for seven days in the Tadrart Rouge — are the retail reference. Send us the programme and group size and we quote net.' },
+  { q: 'Can you organise 4x4 or motorbike expeditions (raids) in Algeria?', a: 'Yes, on many routes, with the permits and accompaniment the authorities require, which we arrange as the licensed operator. Expeditions with vehicles brought from abroad need extra steps, including temporary import of the vehicles, so we confirm feasibility route by route before you sell anything.' },
+  { q: 'How do your clients get a visa?', a: 'Most nationalities need a visa. We prepare the invitation letter and confirmed programme that Algerian consulates ask for. For organised programmes entering through the south, such as Djanet or Timimoun, our Saharan visa authorisation lets the visa be issued on arrival. We confirm the route for each nationality.' },
+  { q: 'Which languages do your guides speak?', a: 'Our guides work in ' + LANGUAGES.names.join(', ') + '.' },
+  { q: 'How does payment work?', a: 'A deposit secures the dates once permits and flights are confirmed, and the balance is due before arrival. Payment is by bank transfer.' },
+];
+
+const schema = [
+  {
+    '@type': 'WebPage', '@id': `${site}/partners/#webpage`, url: `${site}/partners/`,
+    name: 'Ground partner in Algeria for tour operators and agencies',
+    about: { '@id': `${site}/#organization` },
+    audience: { '@type': 'BusinessAudience', audienceType: 'Tour operators, travel agencies and expedition organisers' },
+  },
+  {
+    '@type': 'Service', '@id': `${site}/partners/#service`,
+    name: 'Ground handling and receptive services in Algeria',
+    serviceType: 'Destination management / receptive tour operator',
+    provider: { '@id': `${site}/#organization` },
+    areaServed: { '@id': `${site}/#algeria` },
+    audience: { '@type': 'BusinessAudience', audienceType: 'Tour operators and travel agencies' },
+  },
+  {
+    '@type': 'FAQPage', '@id': `${site}/partners/#faq`,
+    mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+
+const hero = '/assets/img/tours/djanet-13.jpg';
+---
+<BaseLayout
+  title="Ground Partner in Algeria for Tour Operators | Algeria Compass"
+  description="Sell Algeria with a licensed local ground handler: hotels, 4x4s, guides, permits, domestic flights and visas. Partner net rates on request."
+  image={hero}
+  imageAlt="A natural sandstone arch rising above smooth orange sand in the desert around Djanet"
+  keywords={['Algeria DMC', 'Algeria ground handler', 'receptive tour operator Algeria', 'Algeria B2B tours', 'Algeria tour operator partner', 'Sahara expeditions Algeria']}
+  schema={schema}
+  region="sahara">
+  <Hero
+    title="Your ground partner in Algeria"
+    eyebrow="For tour operators & agencies"
+    text="Add Algeria to your programme with a licensed Algerian operator handling everything on the ground."
+    image={hero}
+    alt="A natural sandstone arch rising above smooth orange sand in the desert around Djanet" />
+
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Partners' }]} />
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <QuickAnswer text={`Algeria Compass is a licensed Algerian tour operator in Algiers that works as the ground partner for tour operators, travel agencies and expedition organisers abroad. We handle itineraries, hotels, 4x4 vehicles and drivers, licensed local and Tuareg guides, Sahara permits, domestic flights and visa paperwork, with net rates quoted per programme. We have worked in Algerian tourism for over seven years and hold a ${REVIEWS.ratingValue.toFixed(1)} rating on Google.`} />
+    <div class="prose">
+      <p>Algeria is the largest country in Africa, with seven UNESCO World Heritage sites, the biggest slice of the Sahara and very few visitors. For a tour operator that is the opportunity — and the reason a local partner matters: desert permits, internal flights and visa paperwork have to be handled in-country, by a licensed operator, in Arabic and French. That is what we do.</p>
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="eyebrow">What we handle</div>
+    <h2>Everything on the ground</h2>
+    <div class="pt-grid">
+      {SERVICES.map(([h, p]) => (<div class="pt-card"><h3>{h}</h3><p>{p}</p></div>))}
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="eyebrow">Ready to sell</div>
+    <h2>Programmes you can add to your catalogue</h2>
+    <p class="pt-lead">Public prices per person, as a reference. Partner net rates are quoted on request, by group size.</p>
+    <div class="pt-grid">
+      {PROGRAMMES.map((p) => (
+        <a class="pt-card pt-link" href={`/tours/${p.id}/`}>
+          <span class="pt-tag">{p.label}</span>
+          <h3>{p.t.title}</h3>
+          <p>{p.t.duration.split(' · ')[0]} · public price from {eur(p.t.price_eur)}</p>
+        </a>
+      ))}
+      <a class="pt-card pt-link" href="/luxury/">
+        <span class="pt-tag">Luxury</span>
+        <h3>The 5-Star Collection</h3>
+        <p>8 days all-inclusive · public price {eur(LUX_PRICING.fromValue)} (22+ pax) to {eur(LUX_PRICING.highValue)} (2–9 pax)</p>
+      </a>
+    </div>
+    <p style="margin-top:1rem">All {tours.length} programmes: <a href="/tours/">English</a> · <a href="/fr/circuits/">Français</a> · <a href="/es/circuitos/">Español</a> · <a href="/it/circuiti/">Italiano</a> · <a href="/de/reisen/">Deutsch</a></p>
+  </div></section>
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <div class="eyebrow">Expeditions</div>
+    <h2>4x4 and motorbike raids</h2>
+    <div class="prose">
+      <p>Algeria has some of the greatest desert driving in the world — the Tadrart, the Tassili, the Grand Erg Occidental around Timimoun — and almost none of it is on the expedition circuit yet. We organise vehicle expeditions with the permits, guides and accompaniment the authorities require in the south, plus support vehicles, camps and logistics.</p>
+      <p>If your participants bring their own vehicles or motorbikes from abroad, there are extra formalities, starting with temporary import. We check every route and every requirement with you <strong>before</strong> you put a date on sale.</p>
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <div class="eyebrow">How we work</div>
+    <h2>From brief to departure</h2>
+    <ol class="pt-steps">
+      {STEPS.map(([h, p]) => (<li><strong>{h}.</strong> {p}</li>))}
+    </ol>
+  </div></section>
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <h2>Questions partners ask</h2>
+    {faqs.map((f) => (<details class="pt-faq"><summary>{f.q}</summary><p>{f.a}</p></details>))}
+  </div></section>
+
+  <section class="section" id="request"><div class="wrap" style="max-width:820px">
+    <div class="eyebrow">Get net rates</div>
+    <h2>Tell us about your company</h2>
+    <p>We reply by email, usually within a few hours. Prefer to talk? WhatsApp <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">{CONTACT.phoneDisplay}</a> or email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.</p>
+    <form class="pt-form" method="POST" action="/contact.php">
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+      <input type="hidden" name="context" value="B2B partner enquiry (/partners/)" />
+      <input type="hidden" name="interests" value="Partner / B2B" />
+      <div class="pt-row">
+        <label>Your name *<input name="name" type="text" required maxlength="80" autocomplete="name" /></label>
+        <label>Email *<input name="email" type="email" required maxlength="120" autocomplete="email" /></label>
+      </div>
+      <div class="pt-row">
+        <label>Company *<input name="company" type="text" required maxlength="100" autocomplete="organization" /></label>
+        <label>Company website<input name="company_site" type="url" maxlength="150" placeholder="https://" /></label>
+      </div>
+      <div class="pt-row">
+        <label>Country<input name="country" type="text" maxlength="60" autocomplete="country-name" /></label>
+        <label>Typical group size<input name="people" type="text" maxlength="30" placeholder="e.g. 8–16" /></label>
+      </div>
+      <div class="pt-row">
+        <label>Season / dates<input name="when" type="text" maxlength="60" placeholder="e.g. Nov–Mar" /></label>
+        <label>Trip length<input name="days" type="text" maxlength="30" placeholder="e.g. 7–10 days" /></label>
+      </div>
+      <label>What would you like to sell? *<textarea name="message" rows="5" required maxlength="4000" placeholder="Type of trips (circuits, Sahara, 4x4 or motorbike raids…), regions, hotel level, trips per year"></textarea></label>
+      <button type="submit" class="btn btn-gold" data-evt="partner_submit">Request partner rates</button>
+    </form>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .pt-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; margin-top:1rem }
+  .pt-card { border:1px solid var(--line, rgba(0,0,0,.12)); border-radius:14px; padding:1.1rem 1.2rem; background:var(--card, #fff) }
+  .pt-card h3 { margin:.2rem 0 .4rem; font-size:1.08rem }
+  .pt-card p { margin:0; color:var(--text-m) }
+  .pt-link { display:block; color:inherit; text-decoration:none }
+  .pt-link:hover, .pt-link:focus-visible { border-color:var(--gold, #b8862e) }
+  .pt-tag { font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--gold, #b8862e); font-weight:700 }
+  .pt-lead { color:var(--text-m) }
+  .pt-steps { padding-left:1.2rem } .pt-steps li { margin:.55rem 0 }
+  .pt-faq { border-bottom:1px solid var(--line, rgba(0,0,0,.12)); padding:.8rem 0 }
+  .pt-faq summary { cursor:pointer; font-weight:700 } .pt-faq p { margin:.6rem 0 0; color:var(--text-m) }
+  .pt-form { display:grid; gap:.9rem; margin-top:1rem }
+  .pt-form label { display:grid; gap:.3rem; font-weight:600 }
+  .pt-form input, .pt-form textarea { font:inherit; padding:.7rem .8rem; border:1px solid var(--line, rgba(0,0,0,.2)); border-radius:10px; width:100%; box-sizing:border-box }
+  .pt-row { display:grid; grid-template-columns:1fr 1fr; gap:.9rem }
+  @media (max-width:640px) { .pt-row { grid-template-columns:1fr } }
+  .pt-form .btn { justify-self:start }
+</style>

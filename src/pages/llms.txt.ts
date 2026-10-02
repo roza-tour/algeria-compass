@@ -78,6 +78,7 @@ const HUBS: [string, string, string][] = [
   ['/evisa/', 'e-Visa & entry', 'How entry to Algeria actually works — no general tourist e-Visa.'],
   ['/booking-terms/', 'Booking & cancellation terms', 'How booking, payment and cancellation work.'],
   ['/contact/', 'Contact', 'Request a custom itinerary or a quote.'],
+  ['/partners/', 'For tour operators & agencies', 'B2B ground handling in Algeria: hotels, 4x4s, guides, permits, domestic flights, visas; net rates on request.'],
   ['/about/', 'About', 'Who we are — a licensed local operator.'],
   ['/editorial/', 'Editorial standards', 'Sourcing, fact-checking and corrections policies.'],
   ['/team/', 'Team', 'The people who write and review this site.'],
