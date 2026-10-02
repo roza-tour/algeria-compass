@@ -7,7 +7,7 @@ import data from '../../data/tours.json';
 import { TOUR_VISUALS } from '../../data/tour-visuals';
 import { skinForTour } from '../../data/civSkins.mjs';
 import InquiryForm from '../../components/InquiryForm.astro';
-import { CONTACT } from '../../config';
+import { CONTACT, BOOKING } from '../../config';
 import { TOURS_FR } from '../../data/tours-fr';
 import { TOURS_IT } from '../../data/tours-it';
 import { TOURS_ES } from '../../data/tours-es';
@@ -261,7 +261,14 @@ if (tour.faqs && tour.faqs.length) schema.push({
         </ul>}
       <a class="btn btn-gold bw-cta" href="#book" data-evt="book_intent">Request to book</a>
       <a class="btn btn-wa-2 bw-cta" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">💬 Book on WhatsApp</a>
-      <p class="bw-terms">No card needed now — a deposit by bank transfer or WhatsApp secures your trip; the balance is due before departure.</p>
+      <ul class="bw-guar">
+        <li>Dates held free for {BOOKING.holdHours} hours — no payment</li>
+        <li>Visa refused? Full refund</li>
+        <li>Confirmed price locked — never goes up</li>
+        <li>Free cancellation up to {BOOKING.cancelDays} days before</li>
+        <li>−{BOOKING.earlyPct}% when you book {BOOKING.earlyDays}+ days ahead</li>
+      </ul>
+      <p class="bw-terms">No payment to request. Once we confirm, a deposit by bank transfer, card or PayPal secures your trip; the balance is due before departure. <a href="/booking-terms/#guarantees">Our guarantees</a></p>
     </aside>
   </div></section>
 
@@ -299,9 +306,8 @@ if (tour.faqs && tour.faqs.length) schema.push({
       </div>
     </div></section>}
 
-  <!-- OWNER: card payments need a Stripe / CIB-SATIM gateway tied to your accounts.
-       Until then booking = request + deposit (bank transfer / WhatsApp). Set the
-       exact deposit % and bank details here once you confirm them. -->
+  <!-- Booking promises and payment methods come from BOOKING in src/config.ts.
+       The secure card/PayPal link is sent once dates are confirmed. -->
   <section id="book" class="section book-sec"><div class="wrap">
     <div class="book-head">
       <span class="eyebrow">Request to book</span>
@@ -312,11 +318,11 @@ if (tour.faqs && tour.faqs.length) schema.push({
       <div class="book-terms">
         <h3>How booking works</h3>
         <ol class="book-steps">
-          <li><strong>Request</strong> — send the form (or WhatsApp). No payment at this stage.</li>
+          <li><strong>Request</strong> — send the form (or WhatsApp). Your dates are held free for {BOOKING.holdHours} hours; no payment at this stage.</li>
           <li><strong>We confirm</strong> — availability, permits, domestic flights and your final price, by email or WhatsApp.</li>
-          <li><strong>A deposit secures it</strong> — paid by bank transfer or arranged on WhatsApp; the balance is due before departure.</li>
+          <li><strong>A deposit secures it</strong> — by bank transfer, card or PayPal (we send a secure link); the balance is due before departure. The price we confirm is locked.</li>
         </ol>
-        <p class="book-note">We don’t take card payments online yet — booking is by request + deposit. Prefer to talk first? <a href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">Message us on WhatsApp</a> or email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.</p>
+        <p class="book-note">If your visa is refused, we refund everything you paid us. Book {BOOKING.earlyDays}+ days ahead and {BOOKING.earlyPct}% comes off. Prefer to talk first? <a href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">Message us on WhatsApp</a> or email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.</p>
         <div class="book-recap">
           <div><h4>Your price includes</h4><ul>{tour.includes.slice(0,5).map((i:string)=><li>{i}</li>)}</ul></div>
           {tour.excludes && tour.excludes.length > 0 &&
@@ -368,6 +374,10 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .bw-incl .bw-more{color:rgba(255,255,255,.6)}.bw-incl .bw-more::before{content:""}
 .bw-cta{width:100%;text-align:center;margin-top:.8rem}
 .bw-terms{font-size:.74rem;color:rgba(255,255,255,.65);margin-top:.8rem;line-height:1.45}
+.bw-guar{list-style:none;padding:0;margin:.9rem 0 0;font-size:.86rem;line-height:1.5}
+.bw-guar li{padding-left:1.3em;position:relative;margin:.25rem 0}
+.bw-guar li::before{content:'✓';position:absolute;left:0;color:var(--gold-l);font-weight:800}
+.bw-terms a{color:var(--gold-l)}
 /* ===== booking section ===== */
 .book-sec{scroll-margin-top:80px}
 .book-head{max-width:760px;margin-bottom:1.4rem}

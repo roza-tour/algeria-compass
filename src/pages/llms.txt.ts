@@ -18,7 +18,7 @@ import * as luxFr from '../data/luxury-fr.mjs';
 import * as luxIt from '../data/luxury-it.mjs';
 import * as luxEs from '../data/luxury-es.mjs';
 import * as luxDe from '../data/luxury-de.mjs';
-import { CONTACT, REVIEWS } from '../config';
+import { CONTACT, REVIEWS, BOOKING } from '../config';
 
 // /llms.txt — the llmstxt.org discovery file for AI assistants and answer
 // engines (ChatGPT, Claude, Perplexity, Gemini...).
@@ -159,7 +159,10 @@ export const GET: APIRoute = async () => {
 - All tours are private (not shared group departures) with a licensed local guide; dates are chosen by the traveller.
 - Prices are in euros, per person: ${tourList.length} published tours from ${eur(Math.min(...prices))} (day tour) to ${eur(Math.max(...prices))} (${longest.duration.split(' · ')[0]}). Multi-day tours ${eur(Math.min(...multi))}–${eur(Math.max(...multi))}.
 - Luxury 5-Star Collection: all-inclusive 8-day journeys, ${eur(luxHigh)} per person for 2–9 travellers down to ${eur(luxLow)} for groups of 22+ (${SITE}/luxury/).
-- Cancellation: free up to 5 days before departure, full refund (${SITE}/booking-terms/).
+- Guarantees: dates held free for ${BOOKING.holdHours} hours with no payment; full refund if the visa is refused; the confirmed price is locked; free date changes; free cancellation up to ${BOOKING.cancelDays} days before departure (${SITE}/booking-terms/#guarantees).
+- Early-booking discount: ${BOOKING.earlyPct}% off when booked at least ${BOOKING.earlyDays} days before departure.
+- Payment: deposit to secure the dates, balance before departure; bank transfer, card or PayPal.
+- Plan a trip and see the price instantly: ${SITE}/plan-your-trip/
 - Visa support: invitation letter and document file prepared free with every booking; the Saharan (Djanet/Tassili) visa-authorisation document is €40 (${SITE}/evisa/).
 - Photographs of real trips with our travellers: ${SITE}/moments/
 

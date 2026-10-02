@@ -46,3 +46,16 @@ export const ANALYTICS = {
 
 // Optional email-backed form fallback. Leave blank to use WhatsApp/email handoff only.
 export const FORMSPREE_ID = '';   // e.g. 'xrgkabcd'  -> https://formspree.io/f/xrgkabcd
+
+// Booking promises (owner-confirmed 2026-10-02). Single source of truth: the
+// tour pages in every language, /booking-terms/, /plan-your-trip/ and
+// llms.txt all read these, so a change here changes the promise everywhere.
+export const BOOKING = {
+  holdHours: 72,          // dates held free, no payment, while we confirm
+  earlyDays: 60,          // book at least this many days before departure…
+  earlyPct: 5,            // …and this % comes off the tour price
+  cancelDays: 5,          // free cancellation up to N days before departure
+  // Deposit methods. The secure payment link is sent once dates are confirmed,
+  // so no gateway URL needs to live in the site.
+  payMethods: ['bank transfer', 'card', 'PayPal'],
+};

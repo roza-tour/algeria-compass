@@ -11,7 +11,7 @@ import { TOURS_FR } from '../../../data/tours-fr';
 import { TOURS_ES } from '../../../data/tours-es';
 import { TOURS_DE } from '../../../data/tours-de';
 import { alternatesFor } from '../../../i18n';
-import { CONTACT } from '../../../config';
+import { CONTACT, BOOKING } from '../../../config';
 
 export async function getStaticPaths() {
   const tours = (((data as any).tours || data) as any[]);
@@ -187,6 +187,10 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
           <li>Viaggio interamente privato</li>
           <li>Guide di lingua italiana</li>
           <li>Cancellazione gratuita fino a 5 giorni prima</li>
+          <li>Visto rifiutato = rimborso totale</li>
+          <li>Date bloccate gratis per {BOOKING.holdHours} ore</li>
+          <li>Prezzo confermato garantito, senza aumenti</li>
+          <li>−{BOOKING.earlyPct}% prenotando {BOOKING.earlyDays} giorni prima</li>
         </ul>
       </div>
 

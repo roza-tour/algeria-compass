@@ -2,13 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
-import { CONTACT } from '../config';
+import { CONTACT, BOOKING } from '../config';
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
   {'@type':'ListItem',position:2,name:'Booking & Cancellation Terms',item:`${site}/booking-terms/`}]};
 const faqs = [
-  { q: 'How do I pay, and is there a deposit?', a: 'Booking is by request. Once we confirm availability, permits and any flights, a deposit secures your dates and the balance is due before departure. Payment is by bank transfer or arranged on WhatsApp — we do not take card payments online yet.' },
+  { q: 'How do I pay, and is there a deposit?', a: `Booking is by request and your dates are held free for ${BOOKING.holdHours} hours while we confirm availability, permits and any flights. A deposit then secures your dates and the balance is due before departure. You can pay by bank transfer, card or PayPal — for card and PayPal we send you a secure payment link.` },
+  { q: 'What happens if my visa is refused?', a: 'We refund everything you have paid us, in full. Fees you paid directly to the Algerian authorities or a consulate are theirs, not ours, and are outside this guarantee.' },
+  { q: 'Can the price go up after I book?', a: 'No. The price we confirm in writing is locked: it does not rise for season, demand or exchange rate. It changes only if you ask us to change the trip itself.' },
+  { q: 'Is there an early-booking discount?', a: `Yes — book at least ${BOOKING.earlyDays} days before departure and ${BOOKING.earlyPct}% comes off the tour price.` },
   { q: 'What is your refund policy if I cancel?', a: 'You can cancel free of charge up to 5 days before your tour departure date and receive a full refund. Within 5 days of departure, costs already committed on your behalf — hotels, internal flights, guides, drivers and suppliers — may no longer be recoverable, and we refund whatever remains. Government visa fees, independently booked flights and travel insurance are never refundable, as they are paid to third parties.' },
   { q: 'Can I change my dates?', a: 'Yes — date changes are free, subject to availability. Tell us as early as you can so we can re-arrange guides, transport and any permits.' },
 ];
@@ -17,7 +20,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/booking-terms/#faq`,
 ---
 <BaseLayout
   title="Booking & Cancellation Terms | Algeria Compass"
-  description="How booking, deposits, payment and refunds work — free cancellation up to 5 days before departure for a full refund, plus free date changes."
+  description="Free 72-hour date hold, full refund if your visa is refused, locked prices, free cancellation up to 5 days before departure and free date changes."
   image="/assets/img/brand-algeria.jpg"
   keywords={["Algeria Compass booking terms","cancellation policy","refund policy","Algeria tour payment","Algeria tour deposit"]}
   schema={[breadcrumb, faqSchema]}>
@@ -28,18 +31,28 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/booking-terms/#faq`,
     <div class="prose" style="margin-top:1rem">
       <p>We keep our terms short and fair. Here is exactly how booking, payment, refunds and changes work. Anything specific to your trip — particularly where domestic flights or desert permits are involved — is confirmed in writing before you pay.</p>
 
+      <h2 id="guarantees">Our guarantees</h2>
+      <ul>
+        <li><strong>Dates held free for {BOOKING.holdHours} hours.</strong> Send a request and we hold your dates while we confirm everything — no payment, no card.</li>
+        <li><strong>Visa refused? Full refund.</strong> If your Algerian visa is refused, we refund everything you have paid us. (Fees paid directly to a consulate or the authorities are theirs, not ours.)</li>
+        <li><strong>Your price is locked.</strong> The price we confirm in writing will not go up — not for season, demand or exchange rate.</li>
+        <li><strong>Free date changes</strong>, subject to availability.</li>
+        <li><strong>Free cancellation up to {BOOKING.cancelDays} days before departure</strong>, with a full refund.</li>
+        <li><strong>Early-booking discount:</strong> book at least {BOOKING.earlyDays} days ahead and {BOOKING.earlyPct}% comes off the tour price.</li>
+      </ul>
+
       <h2>How booking works</h2>
-      <p>Booking with us is by <strong>request</strong>, not instant checkout. You send your dates and group through any tour's booking form or on WhatsApp; we check availability, permits and flights; then we confirm the details and the final price. A <strong>deposit</strong> secures your dates, and the <strong>balance is due before departure</strong>.</p>
+      <p>Booking with us is by <strong>request</strong>, not instant checkout. You send your dates and group through any tour's booking form or on WhatsApp — your dates are then held free for {BOOKING.holdHours} hours — and we check availability, permits and flights; then we confirm the details and the final price. A <strong>deposit</strong> secures your dates, and the <strong>balance is due before departure</strong>.</p>
 
       <h2>Payment</h2>
-      <p>Payment is by <strong>bank transfer</strong> or arranged with us on <strong>WhatsApp</strong>. We do not currently accept card payments online; if that changes, it will be a secure, named gateway and we will say so clearly. We will never ask for card details by message or email.</p>
+      <p>You can pay by <strong>bank transfer</strong>, <strong>card</strong> or <strong>PayPal</strong>. For card and PayPal we send you a secure payment link once your dates are confirmed. We will never ask for card details by message or email.</p>
 
       <h2>Cancellations &amp; refunds</h2>
       <ul>
         <li><strong>Free cancellation up to 5 days before departure — full refund.</strong> Cancel any time up to five days before your tour departure date and we refund you in full. We keep nothing.</li>
         <li><strong>Within 5 days of departure.</strong> Costs already committed on your behalf — hotels, internal flights, guides, drivers and suppliers — may no longer be recoverable; we always refund whatever remains.</li>
       </ul>
-      <p>Some costs are paid to third parties and are <strong>never refundable</strong> through us: visa fees paid to the Algerian government, international or domestic flights you booked independently, and travel-insurance premiums.</p>
+      <p>Some costs are paid to third parties and are <strong>never refundable</strong> through us: visa fees paid to the Algerian government (if your visa is refused, everything you paid <em>us</em> is refunded — see our guarantees above), international or domestic flights you booked independently, and travel-insurance premiums.</p>
 
       <h2>Changing your dates or itinerary</h2>
       <p><strong>Date changes are free, subject to availability.</strong> We will always try to accommodate a change of plan; the earlier you tell us, the easier it is to re-arrange guides, transport and any permits. Significant itinerary changes may affect the price, which we will confirm with you first.</p>

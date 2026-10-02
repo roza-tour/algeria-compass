@@ -11,7 +11,7 @@ import { TOURS_IT } from '../../../data/tours-it';
 import { TOURS_ES } from '../../../data/tours-es';
 import { TOURS_DE } from '../../../data/tours-de';
 import { alternatesFor } from '../../../i18n';
-import { CONTACT } from '../../../config';
+import { CONTACT, BOOKING } from '../../../config';
 
 export async function getStaticPaths() {
   const tours = (((data as any).tours || data) as any[]);
@@ -187,6 +187,10 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
           <li>Circuit entièrement privé</li>
           <li>Guides francophones</li>
           <li>Annulation gratuite jusqu'à 5 jours avant</li>
+          <li>Visa refusé = remboursement intégral</li>
+          <li>Dates bloquées gratuitement {BOOKING.holdHours} h</li>
+          <li>Prix confirmé garanti, sans hausse</li>
+          <li>−{BOOKING.earlyPct} % en réservant {BOOKING.earlyDays} jours à l'avance</li>
         </ul>
       </div>
 

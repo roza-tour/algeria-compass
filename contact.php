@@ -63,6 +63,7 @@ $interests = clean('interests');
 $context   = clean('context');
 $company   = clean('company');        // /partners/ (B2B) form only
 $csite     = clean('company_site');
+$wa        = clean('whatsapp');       // optional, e.g. /plan-your-trip/ offer
 
 if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
   respond(false, 'Please add your name, a valid email and a message.', $ajax);
@@ -81,6 +82,7 @@ $interests = mb_substr($interests, 0, 200);
 $context   = mb_substr($context, 0, 200);
 $company   = mb_substr($company, 0, 100);
 $csite     = mb_substr($csite, 0, 150);
+$wa        = mb_substr($wa, 0, 30);
 $message   = mb_substr($message, 0, 4000);
 
 // The message validated — only now does this attempt count against the cap.
@@ -95,6 +97,7 @@ if ($company !== '') $body .= "Company:    $company\n";
 if ($csite !== '')   $body .= "Website:    $csite\n";
 $body .= "Name:       $name\n";
 $body .= "Email:      $email\n";
+if ($wa !== '') $body .= "WhatsApp:   $wa\n";
 $body .= "Country:    $country\n";
 $body .= "Travellers: $people\n";
 $body .= "Dates:      $when\n";
