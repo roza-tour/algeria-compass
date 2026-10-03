@@ -34,7 +34,7 @@ export const GET: APIRoute = async () => {
     'fr/visa-arrivee-algerie/', 'fr/assistance-visa-algerie/',
     'fr/contact/', 'fr/a-propos/', 'fr/unesco-algerie/', 'fr/luxe/', 'fr/evisa-algerie/', 'fr/planifier-mon-voyage/',
     // Italian (it) pages
-    'it/', 'it/circuiti/', 'it/destinazioni/',
+    'it/', 'it/circuiti/', 'it/destinazioni/', 'it/pianifica-il-viaggio/',
     'it/contatto/', 'it/chi-siamo/', 'it/unesco-algeria/', 'it/lusso/', 'it/evisa-algeria/',
     // Spanish (es) and German (de) pages
     'es/', 'es/circuitos/', 'es/destinos/', 'es/planifica-tu-viaje/', 'de/reise-planen/',

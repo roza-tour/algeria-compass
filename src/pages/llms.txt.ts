@@ -93,7 +93,7 @@ const SECTIONS: Section[] = [
   { lang: 'fr', heading: 'Site en français',  tours: TOURS_FR, dests: DESTINATIONS_FR, guides: [],        lux: luxFr,
     extra: [['/fr/planifier-mon-voyage/', 'Planifier mon voyage — prix immédiat', 'Cinq questions, le circuit privé qui vous correspond et son prix.']] },   // French standalone pages are listed in FRENCH_GUIDES below
   { lang: 'it', heading: 'Sito in italiano',  tours: TOURS_IT, dests: DESTINATIONS_IT, guides: GUIDES_IT, lux: luxIt,
-    extra: [['/it/evisa-algeria/', 'e-Visa e ingresso in Algeria', "Come funziona davvero l'ingresso: nessun e-Visa turistico generale."]] },
+    extra: [['/it/pianifica-il-viaggio/', 'Pianifica il viaggio — prezzo immediato', 'Cinque domande, il tour privato giusto e il suo prezzo.'], ['/it/evisa-algeria/', 'e-Visa e ingresso in Algeria', "Come funziona davvero l'ingresso: nessun e-Visa turistico generale."]] },
   { lang: 'es', heading: 'Sitio en español',  tours: TOURS_ES, dests: DESTINATIONS_ES, guides: GUIDES_ES, lux: luxEs,
     extra: [['/es/planifica-tu-viaje/', 'Planifica tu viaje — precio al instante', 'Cinco preguntas, el circuito privado ideal y su precio.'], ['/es/evisa-argelia/', 'e-Visa y entrada a Argelia', 'Cómo funciona realmente la entrada: no hay e-Visa turístico general.']] },
   { lang: 'de', heading: 'Website auf Deutsch', tours: TOURS_DE, dests: DESTINATIONS_DE, guides: GUIDES_DE, lux: luxDe,

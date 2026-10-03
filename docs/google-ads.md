@@ -509,6 +509,248 @@ Constantine
 
 ---
 
+# 🇮🇹🇨🇭 Italiano
+
+**Campaign name:** `AC – IT – Search`  
+**Locations:** Italia, Svizzera (italiano), San Marino  
+**Languages:** Italiano
+
+
+## Ad group: Algeria tours
+
+**Final URL**
+```
+https://algeriacompass.com/it/pianifica-il-viaggio/?utm_source=google&utm_medium=cpc&utm_campaign=it_search&utm_content=general
+```
+
+**Display path:** `algeria` / `tour-privato`
+
+
+**Headlines** (paste one per box)
+```
+Tour privati in Algeria
+Viaggio nel Sahara algerino
+Il tuo prezzo in 60 secondi
+Tour operator autorizzato
+Visto rifiutato? Rimborso
+Date bloccate 72 ore gratis
+Prezzo confermato garantito
+5% di sconto anticipato
+Djanet e la Tadrart Rouge
+Città romane senza folla
+Valutati 5,0 su Google
+Guida privata, date tue
+Cancellazione gratuita
+Pianifica il tuo viaggio
+Lettera d'invito inclusa
+```
+<details><summary>Character counts</summary>
+
+1. Tour privati in Algeria (23)  
+2. Viaggio nel Sahara algerino (27)  
+3. Il tuo prezzo in 60 secondi (27)  
+4. Tour operator autorizzato (25)  
+5. Visto rifiutato? Rimborso (25)  
+6. Date bloccate 72 ore gratis (27)  
+7. Prezzo confermato garantito (27)  
+8. 5% di sconto anticipato (23)  
+9. Djanet e la Tadrart Rouge (25)  
+10. Città romane senza folla (24)  
+11. Valutati 5,0 su Google (22)  
+12. Guida privata, date tue (23)  
+13. Cancellazione gratuita (22)  
+14. Pianifica il tuo viaggio (24)  
+15. Lettera d'invito inclusa (24)
+</details>
+
+**Descriptions**
+```
+Rispondi a 5 domande e scopri subito il tour privato giusto per te e il suo prezzo.
+Sahara, città romane e Casbah con guida autorizzata. Date bloccate gratis per 72 ore.
+Visto rifiutato? Rimborso totale. Prezzo confermato garantito. Cambio date gratuito.
+Tour privati nelle tue date. Prenota 60 giorni prima e risparmi il 5%. Scrivici.
+```
+<details><summary>Character counts</summary>
+
+1. Rispondi a 5 domande e scopri subito il tour privato giusto per te e il suo prezzo. (83)  
+2. Sahara, città romane e Casbah con guida autorizzata. Date bloccate gratis per 72 ore. (85)  
+3. Visto rifiutato? Rimborso totale. Prezzo confermato garantito. Cambio date gratuito. (84)  
+4. Tour privati nelle tue date. Prenota 60 giorni prima e risparmi il 5%. Scrivici. (80)
+</details>
+
+**Pin (optional):** pin headline 1 to position 1 so the brand promise always shows.
+
+**Keywords**
+```
+"viaggio algeria"
+[viaggio algeria]
+"viaggi in algeria"
+[viaggi in algeria]
+"tour algeria"
+[tour algeria]
+"tour privato algeria"
+[tour privato algeria]
+"agenzia viaggi algeria"
+[agenzia viaggi algeria]
+"tour operator algeria"
+[tour operator algeria]
+"visitare algeria"
+[visitare algeria]
+"vacanza algeria"
+[vacanza algeria]
+```
+
+## Ad group: Sahara
+
+**Final URL**
+```
+https://algeriacompass.com/it/pianifica-il-viaggio/?utm_source=google&utm_medium=cpc&utm_campaign=it_search&utm_content=sahara
+```
+
+**Display path:** `algeria` / `tour-privato`
+
+
+**Headlines** (paste one per box)
+```
+Tour nel Sahara algerino
+Viaggio a Djanet
+Tadrart Rouge in 7 giorni
+Arte rupestre del Tassili
+Notti sotto le stelle
+Guide tuareg e flotta 4x4
+Sahara da ottobre ad aprile
+Il Sahara senza folla
+Tour operator autorizzato
+Visto rifiutato? Rimborso
+Date bloccate 72 ore gratis
+Prezzo confermato garantito
+5% di sconto anticipato
+Valutati 5,0 su Google
+Il tuo prezzo in 60 secondi
+```
+<details><summary>Character counts</summary>
+
+1. Tour nel Sahara algerino (24)  
+2. Viaggio a Djanet (16)  
+3. Tadrart Rouge in 7 giorni (25)  
+4. Arte rupestre del Tassili (25)  
+5. Notti sotto le stelle (21)  
+6. Guide tuareg e flotta 4x4 (25)  
+7. Sahara da ottobre ad aprile (27)  
+8. Il Sahara senza folla (21)  
+9. Tour operator autorizzato (25)  
+10. Visto rifiutato? Rimborso (25)  
+11. Date bloccate 72 ore gratis (27)  
+12. Prezzo confermato garantito (27)  
+13. 5% di sconto anticipato (23)  
+14. Valutati 5,0 su Google (22)  
+15. Il tuo prezzo in 60 secondi (27)
+</details>
+
+**Descriptions**
+```
+Dune rosa, archi di arenaria e arte rupestre intorno a Djanet, con guide tuareg.
+7 giorni nella Tadrart Rouge con volo Algeri–Djanet e permessi inclusi. Notti al campo.
+Visto rifiutato? Rimborso totale. Prezzo confermato garantito. Cambio date gratuito.
+Tour privati nelle tue date. Prenota 60 giorni prima e risparmi il 5%. Scrivici.
+```
+<details><summary>Character counts</summary>
+
+1. Dune rosa, archi di arenaria e arte rupestre intorno a Djanet, con guide tuareg. (80)  
+2. 7 giorni nella Tadrart Rouge con volo Algeri–Djanet e permessi inclusi. Notti al campo. (87)  
+3. Visto rifiutato? Rimborso totale. Prezzo confermato garantito. Cambio date gratuito. (84)  
+4. Tour privati nelle tue date. Prenota 60 giorni prima e risparmi il 5%. Scrivici. (80)
+</details>
+
+**Pin (optional):** pin headline 1 to position 1 so the brand promise always shows.
+
+**Keywords**
+```
+"sahara algerino"
+[sahara algerino]
+"viaggio sahara algeria"
+[viaggio sahara algeria]
+"viaggio djanet"
+[viaggio djanet]
+"tadrart rouge"
+[tadrart rouge]
+"tassili n ajjer"
+[tassili n ajjer]
+"deserto algeria viaggio"
+[deserto algeria viaggio]
+"djanet sahara"
+[djanet sahara]
+```
+
+## Negative keywords (campaign level)
+```
+lavoro
+stipendio
+ambasciata
+consolato
+notizie
+calcio
+mappa
+meteo
+wikipedia
+pdf
+volo
+voli
+biglietto
+marocco
+marrakech
+merzouga
+tunisia
+egitto
+dubai
+```
+
+## Sitelinks
+
+- **Text:** `Tadrart Rouge in 7 giorni` (25)  
+  **Description 1:** `Djanet con guide tuareg` (23)  
+  **Description 2:** `Volo da Algeri incluso` (22)  
+  **URL:** `https://algeriacompass.com/it/circuiti/tadrart-rouge-7-days/`
+- **Text:** `Collezione di lusso` (19)  
+  **Description 1:** `8 giorni tutto incluso` (22)  
+  **Description 2:** `Hotel 5 stelle, 4x4 privati` (27)  
+  **URL:** `https://algeriacompass.com/it/lusso/`
+- **Text:** `Tutti i tour` (12)  
+  **Description 1:** `Da un giorno a 14 giorni` (24)  
+  **Description 2:** `Costa, città romane, Sahara` (27)  
+  **URL:** `https://algeriacompass.com/it/circuiti/`
+- **Text:** `Aiuto per il visto` (18)  
+  **Description 1:** `Lettera d'invito gratuita` (25)  
+  **Description 2:** `Visto all'arrivo per il Sahara` (30)  
+  **URL:** `https://algeriacompass.com/it/assistenza-visto-algeria/`
+
+## Callouts
+```
+Tour operator autorizzato
+Solo tour privati
+Date bloccate 72 ore
+Garanzia sul visto
+Prezzo garantito
+Cambio date gratuito
+Guide in italiano
+Assistenza 24 ore su 24
+```
+
+## Structured snippet
+**Header:** Destinazioni  
+**Values:**
+```
+Djanet
+Tassili n'Ajjer
+Tadrart Rouge
+Timgad
+Casbah di Algeri
+Timimoun
+Costantina
+```
+
+---
+
 # 🇪🇸 Español
 
 **Campaign name:** `AC – ES – Search`  

@@ -24,6 +24,7 @@ import { LUX_PRICING } from '../../data/luxury.mjs';
 import { TOURS_FR } from '../../data/tours-fr';
 import { TOURS_ES } from '../../data/tours-es';
 import { TOURS_DE } from '../../data/tours-de';
+import { TOURS_IT } from '../../data/tours-it';
 
 export interface Props { lang?: string }
 const lang = asLang(Astro.props.lang) as Lang;
@@ -113,6 +114,33 @@ const COPY: Record<string, any> = {
     exitEyebrow: 'Antes de irte', exitH: `−${E} % reservando pronto`, exitP: `Reserva con al menos ${D} días de antelación y se descuenta un ${E} % de cualquier circuito. Déjanos tu email y te enviamos el viaje que encaja contigo, con el descuento aplicado.`, wa: 'WhatsApp (opcional)', exitBtn: 'Enviarme mi oferta', exitMsg: 'Por favor, enviadme una propuesta de viaje con el descuento por reserva anticipada.', close: 'Cerrar',
     js: { locale: 'es-ES', best: 'Mejor opción', also: 'También ideal', from: 'Desde', pp: 'por persona', trav1: 'viajero', travN: 'viajeros', onreq: 'Precio a consultar para este número de viajeros', hold: 'Reservar mis fechas', early: (m: string) => `Viajar en ${m} da derecho al descuento por reserva anticipada: −${E} %, ya aplicado abajo.`, soon: '¿Viajas pronto? Reservar tus fechas ahora es la mejor forma de asegurar guías y vuelos.', luxT: 'La Colección 5 estrellas — 8 días todo incluido', luxH: 'Vuelos internos, hoteles de cinco estrellas, todas las comidas, flota 4x4 privada, guías y entradas.', luxD: '8 días', wants: { sahara: 'Sáhara', history: 'Romano e historia', both: 'Sáhara + historia', city: 'Argel y costa' }, styles: { comfort: 'cómodo', luxury: 'lujo' }, holdMsg: 'Quiero reservar fechas para:', waMsg: '¡Hola! Quiero reservar:', travS: 'viajero(s)' },
   },
+  it: {
+    title: 'Viaggio privato in Algeria — Prezzo immediato | Algeria Compass',
+    desc: `Cinque domande e vedi subito il tour privato giusto e il suo prezzo. Date bloccate ${H} ore gratis, visto rifiutato = rimborso, prezzo garantito.`,
+    kw: ['prezzo viaggio Algeria', 'tour privato Algeria', 'viaggio Sahara Algeria', 'prenotare tour Algeria', 'organizzare viaggio Algeria'],
+    eyebrow: 'Tour privati · tour operator algerino autorizzato', h1: 'Il tuo viaggio in Algeria, con il prezzo in 60 secondi',
+    sub: 'Sahara, città romane, la Casbah — dicci cosa ti piacerebbe vedere e scopri subito il tour privato giusto, con il suo prezzo.',
+    go: 'Pianifica il mio viaggio', chips: [`✓ Date bloccate gratis ${H} ore`, '✓ Visto rifiutato = rimborso totale', '✓ Prezzo garantito', `★ ${rating.replace('.', ',')} su Google`],
+    q1: 'Cosa ti piacerebbe vedere?', o1: ['🏜️ Il Sahara', '🏛️ Città romane e storia', '✨ Un po\' di tutto', '🕌 Algeri e la costa'],
+    q2: 'Quanti giorni hai a disposizione?', o2: ['1–3 giorni', '4–6 giorni', '7–9 giorni', '10 giorni o più'],
+    q3: 'Quanti viaggiatori?', fewer: 'Un viaggiatore in meno', more: 'Un viaggiatore in più', next: 'Avanti',
+    q4: 'Quando vorresti partire?', hint: 'Il Sahara profondo si visita da ottobre ad aprile.',
+    q5: 'Quale stile fa per te?', o5: ['Confortevole — case per ospiti, campi tendati, buoni hotel', 'Lusso — cinque stelle, tutto incluso'],
+    resH: 'Le tue scelte migliori',
+    holdH: `Blocca queste date — gratis per ${H} ore`, holdP: 'Nessun pagamento, nessuna carta. Confermiamo disponibilità, permessi e voli e ti inviamo il prezzo finale, garantito.',
+    name: 'Il tuo nome', email: 'Email', note: 'Qualcosa da dirci? (facoltativo)', holdBtn: 'Blocca le mie date gratis', waBtn: '💬 Oppure prenota su WhatsApp',
+    fine: `Poi un acconto con bonifico, carta o PayPal conferma il viaggio; il saldo si paga prima della partenza. Cancellazione gratuita fino a ${C5} giorni prima.`, terms: 'Condizioni complete',
+    restart: '↺ Ricomincia', noscript: 'Il pianificatore richiede JavaScript.', noscriptLink: 'Raccontaci il tuo viaggio qui',
+    guarEyebrow: 'Prenota senza pensieri', guarH: 'Le nostre garanzie',
+    guar: [[`Date bloccate gratis ${H} ore`, 'Chiedi ora e non paghi nulla finché non abbiamo confermato tutto.'], ['Visto rifiutato? Rimborso totale', "Ti restituiamo tutto quello che ci hai pagato. La preoccupazione più grande sull'Algeria, eliminata."], ['Il tuo prezzo è garantito', 'Il prezzo confermato non aumenta mai — né per stagione, né per domanda, né per il cambio.'], ['Cambio date gratuito', 'I programmi cambiano. Sposta le date senza costi, secondo disponibilità.'], ['Cancellazione gratuita', `Fino a ${C5} giorni prima della partenza, con rimborso totale.`], [`−${E}% prenotando presto`, `Prenota almeno ${D} giorni prima della partenza e togliamo il ${E}% dal prezzo del tour.`]],
+    proof: [[`★ ${rating.replace('.', ',')}`, 'su Google'], ['Oltre 7 anni', 'come guide in Algeria'], ['Autorizzati', 'tour operator algerino con sede ad Algeri'], [`${LANGUAGES.names.length} lingue`, 'parlate dalle nostre guide']],
+    momentsH: 'I nostri viaggiatori, non foto di repertorio', momentsAlt: 'Un momento di uno dei nostri viaggi privati in Algeria', momentsLink: 'Altri momenti dei nostri viaggi →',
+    timingH: 'Una nota sulle date', timing: 'Il Sahara profondo si visita da <strong>ottobre ad aprile</strong>, e le settimane di Natale e Capodanno sono le prime a riempirsi — i voli interni verso il sud sono pochi. Se hai già delle date in mente, bloccarle non costa nulla.',
+    faqH: 'Domande', safety: '/it/sicurezza-algeria/',
+    faqs: [["È sicuro viaggiare in Algeria?", "Il nord, la valle del M'Zab e gli itinerari organizzati nel Sahara sono tranquilli e molto accoglienti. Nel deserto profondo viaggiamo solo con permessi e guide autorizzate."], ['Serve il visto?', "Per la maggior parte delle nazionalità sì. Prepariamo gratis la lettera d'invito con ogni prenotazione; per i viaggi organizzati nel Sahara il visto può essere rilasciato all'arrivo con la nostra autorizzazione da 40 €. E se il visto viene rifiutato, ti rimborsiamo tutto quello che ci hai pagato."], ['Devo pagare per bloccare le date?', `No. Le tue date restano bloccate gratis per ${H} ore mentre confermiamo disponibilità, permessi e voli. Un acconto — con bonifico, carta o PayPal — conferma il viaggio solo quando sei soddisfatto.`], ['I tour sono privati?', `Sì, ogni tour è privato, nelle tue date, con una guida locale autorizzata. Le nostre guide parlano ${['inglese', 'francese', 'spagnolo', 'italiano', 'arabo', 'tedesco'].join(', ')}.`], ['Il prezzo può cambiare dopo la prenotazione?', 'No. Il prezzo confermato per iscritto è garantito: non aumenta per stagione, domanda o tasso di cambio.']],
+    exitEyebrow: 'Prima di andare', exitH: `−${E}% prenotando presto`, exitP: `Prenota almeno ${D} giorni prima della partenza e togliamo il ${E}% da qualsiasi tour. Lasciaci la tua email e ti inviamo il viaggio giusto per te, con lo sconto già applicato.`, wa: 'WhatsApp (facoltativo)', exitBtn: 'Inviami la mia offerta', exitMsg: 'Vorrei ricevere una proposta di viaggio con lo sconto per prenotazione anticipata.', close: 'Chiudi',
+    js: { locale: 'it-IT', best: 'Scelta migliore', also: 'Ottimo anche', from: 'Da', pp: 'a persona', trav1: 'viaggiatore', travN: 'viaggiatori', onreq: 'Prezzo su richiesta per questo numero di viaggiatori', hold: 'Blocca le mie date', early: (m: string) => `Partire a ${m} dà diritto allo sconto per prenotazione anticipata: −${E}%, già applicato qui sotto.`, soon: 'Parti presto? Bloccare ora le date è il modo migliore per assicurarti guide e voli.', luxT: 'La Collezione 5 stelle — 8 giorni tutto incluso', luxH: 'Voli interni, hotel a cinque stelle, tutti i pasti, flotta 4x4 privata, guide e ingressi.', luxD: '8 giorni', wants: { sahara: 'Sahara', history: 'Romano e storia', both: 'Sahara + storia', city: 'Algeri e costa' }, styles: { comfort: 'confortevole', luxury: 'lusso' }, holdMsg: 'Vorrei bloccare le date per:', waMsg: 'Buongiorno! Vorrei prenotare:', travS: 'viaggiatore/i' },
+  },
   de: {
     title: 'Private Algerien-Reise planen — Preis sofort | Algeria Compass',
     desc: `Fünf Fragen beantworten und sofort die passende Privatreise mit Preis sehen. Termin ${H} Std. kostenlos reserviert, volle Erstattung bei Visum-Ablehnung, Festpreis.`,
@@ -147,7 +175,7 @@ const C = COPY[lang] ?? COPY.en;
 const J = { ...C.js, early: C.js.early('%M%') };
 
 const DESERT = ['djanet', 'ghardaia', 'timimoun', 'bousaada'];
-const TR: Record<string, any> = { fr: TOURS_FR, es: TOURS_ES, de: TOURS_DE };
+const TR: Record<string, any> = { fr: TOURS_FR, es: TOURS_ES, de: TOURS_DE, it: TOURS_IT };
 const R = ROUTES[lang];
 const tours = (toursData as any).tours.map((t: any) => {
   const tr = TR[lang]?.[t.id];
@@ -176,6 +204,7 @@ const hero = '/assets/img/tours/djanet-13.jpg';
 const heroAlt = lang === 'fr' ? "Une arche de grès naturelle au-dessus du sable orange près de Djanet"
   : lang === 'es' ? 'Un arco natural de arenisca sobre la arena naranja cerca de Djanet'
   : lang === 'de' ? 'Ein natürlicher Sandsteinbogen über orangefarbenem Sand bei Djanet'
+  : lang === 'it' ? "Un arco naturale di arenaria sopra la sabbia arancione vicino a Djanet"
   : 'A natural sandstone arch rising above smooth orange sand in the desert around Djanet';
 ---
 <BaseLayout title={C.title} description={C.desc} image={hero} imageAlt={heroAlt} keywords={C.kw} schema={schema} region="sahara" lang={lang} alternates={alternates}>
