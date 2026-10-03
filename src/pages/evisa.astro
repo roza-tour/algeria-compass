@@ -1,4 +1,5 @@
 ---
+import StampFeeTable from '../components/StampFeeTable.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
@@ -17,14 +18,14 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:2,name:'e-Visa & Entry',item:`${site}/evisa/`}]};
 const faqs = [
   { q: 'What is the Saharan e-Visa?', a: 'It is the visa-authorisation document we prepare for travellers on an organised Saharan program. As a licensed Algerian tour operator we issue an authorisation carrying a QR code that is verifiable on the Algerian Ministry of Interior’s portal. The visa itself is granted by the Algerian authorities — your sticker/stamp is issued on arrival; we handle every file in advance.' },
-  { q: 'How much does the Saharan e-Visa cost?', a: 'The visa-authorisation document is €40. Preparing all of the required files is completely free on our side. A separate visa sticker/stamp tax is payable to the authorities on arrival — the amount depends on your nationality, and we tell you the figure before you travel.' },
-  { q: 'Can I get the visa on arrival for Djanet and the Tassili n’Ajjer?', a: 'Yes — Djanet is the gateway to the Tassili n’Ajjer National Park and the Tadrart Rouge, and it is one of the southern wilayas this route is designed for. The condition is that you travel on an organised program with a licensed Algerian operator: we prepare the authorisation in advance and your sticker is issued on arrival. Send us your nationality and we will confirm your eligibility before you book.' },
-  { q: 'Which southern airports do travellers fly into?', a: 'Djanet–Tiska (DJG) for the Tassili n’Ajjer and the Tadrart Rouge, Tamanrasset (TMR) for the Hoggar, Ghardaïa Noumérat (GHA) for the M’Zab Valley and Timimoun (TMX) for the Gourara. Most itineraries connect through Algiers, and we book the domestic legs as part of your program.' },
-  { q: 'Can I visit the north too, or only the desert?', a: 'Both. With our support a single trip can combine the north and the south, provided that roughly half of the journey is spent in a Saharan state (wilaya). We design the itinerary so it qualifies.' },
+  { q: 'How much does the Saharan e-Visa cost?', a: 'The visa-authorisation document is $45. Preparing all of the required files is completely free on our side. A separate visa stamp fee is paid at Algiers airport on arrival, set by your length of stay — from 5,000 DA (€35) for 1–2 days to 20,000 DA (€140) for 8–10 days; the full table is below.' },
+  { q: 'Can I get the visa on arrival for Djanet and the Tassili n’Ajjer?', a: 'Yes — Djanet is the gateway to the Tassili n’Ajjer National Park and the Tadrart Rouge, and it is one of the southern wilayas this route is designed for. The condition is that your organised program with a licensed Algerian operator includes a Sahara trip: we prepare the authorisation in advance and your sticker is issued on arrival at Algiers airport. Send us your nationality and we will confirm your eligibility before you book.' },
+  { q: 'Where is the visa issued — do I have to fly into the south?', a: 'No. You fly into Algiers as normal and your visa is issued on arrival at Algiers airport. What qualifies you is a Sahara trip in your program, not the airport you land at. Inside Algeria we book the domestic flights to the desert — Djanet–Tiska (DJG) for the Tassili n’Ajjer and the Tadrart Rouge, Tamanrasset (TMR) for the Hoggar, Ghardaïa Noumérat (GHA) for the M’Zab Valley, Timimoun (TMX) for the Gourara — as part of your program.' },
+  { q: 'Can I visit the north too, or only the desert?', a: 'Both. A single trip can combine Algiers, the coast and the Roman cities with the Sahara — what matters is that a Sahara trip is part of the program. We design the itinerary so it qualifies.' },
   { q: 'Is the authorisation document official and verifiable?', a: 'Yes. It carries a QR code that can be checked on the Algerian Ministry of Interior’s portal. Issuance follows the official channels — we are your documentation partner; the Algerian authorities issue the visa.' },
   { q: 'Do I need to book a full tour to get it?', a: 'Yes. The Saharan e-Visa authorisation is available when you book a complete program with us — it is part of arranging your organised trip, not a standalone service.' },
-  { q: 'Does Algeria have an e-Visa for tourists?', a: 'There is no general online tourist e-Visa for ordinary travel to Algeria. The two practical routes are a tourist visa from your local Algerian consulate, or — for organised Sahara tours entered via the south — the Saharan visa-authorisation we prepare, with the sticker issued on arrival. We handle the paperwork either way.' },
-  { q: 'How do I actually enter Algeria?', a: 'Most visitors fly into Algiers (or another northern airport) on a consulate tourist visa, supported by our invitation letter. Travellers on an organised Saharan program may instead use our visa-authorisation route, with the sticker issued on arrival at the southern gateway airports. We confirm which applies to you.' },
+  { q: 'Does Algeria have an e-Visa for tourists?', a: 'There is no general online tourist e-Visa for ordinary travel to Algeria. The two practical routes are a tourist visa from your local Algerian consulate, or — for organised tours that include the Sahara — the Saharan visa-authorisation we prepare, with the sticker issued on arrival at Algiers airport. We handle the paperwork either way.' },
+  { q: 'How do I actually enter Algeria?', a: 'Most visitors fly into Algiers (or another northern airport) on a consulate tourist visa, supported by our invitation letter. Travellers whose organised program includes the Sahara may instead use our visa-authorisation route, with the sticker issued on arrival at Algiers airport. We confirm which applies to you.' },
 ];
 const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
   mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
@@ -44,22 +45,22 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
       <p>Travellers often search for an "Algeria e-Visa". Here's the honest picture, so you plan on facts rather than hope.</p>
 
       <h2>Is there an Algeria e-Visa?</h2>
-      <p>For ordinary tourism, <strong>there is no general online e-Visa</strong> you can simply apply for and print. Algeria's tourist entry works through two established routes instead — and we support both, free, with every booking.</p>
+      <p>For ordinary tourism, <strong>there is no general online e-Visa</strong> you can simply apply for and print. Algeria's tourist entry works through two established routes instead — and we handle the paperwork for both.</p>
 
       <h2>Route 1 — Consulate tourist visa (the north & most trips)</h2>
       <p>You apply for a tourist visa at the <strong>Algerian consulate</strong> covering your country, normally in person. Consulates require an <strong>invitation letter / tourist voucher</strong> from a licensed Algerian agency — which we issue you, along with your hotel and tour confirmation and a checklist for your nationality. Allow roughly <strong>two to four weeks</strong>.</p>
 
       <h2>Route 2 — The Saharan e-Visa (organised desert programs)</h2>
-      <p>This is the closest thing to an "online" route. For an <strong>organised Saharan program</strong>, we prepare a <strong>visa-authorisation document</strong> in advance — no consulate visit needed — and your visa sticker is issued on arrival at the southern gateway airports. It is <strong>open to travellers of any nationality</strong>, but only on organised Saharan travel. <a href="#saharan-evisa">See exactly how the Saharan e-Visa works ↓</a></p>
+      <p>This is the closest thing to an "online" route. For an <strong>organised Saharan program</strong>, we prepare a <strong>visa-authorisation document</strong> in advance — no consulate visit needed — and your visa sticker is issued on arrival at <strong>Algiers airport</strong>. It is <strong>open to travellers of any nationality</strong>, provided your organised program includes a Sahara trip. <a href="#saharan-evisa">See exactly how the Saharan e-Visa works ↓</a></p>
 
-      <h2>Which parts of Algeria count as "the south"</h2>
-      <p>The southern route is built around Algeria's Saharan wilayas. The ones our programs actually use are <strong>Djanet</strong> — the gateway to the <strong>Tassili n'Ajjer</strong> National Park and the <strong>Tadrart Rouge</strong> — <strong>Tamanrasset</strong> in the Hoggar, <strong>Ghardaïa</strong> in the M'Zab Valley and <strong>Timimoun</strong> in the Gourara. Travellers reach them through the southern airports that serve each one: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> and <strong>Timimoun (TMX)</strong>, usually connecting through Algiers. If you are booking one of our <a href="/tours/">Saharan programs</a>, the itinerary is already built to qualify.</p>
+      <h2>What counts as a Sahara trip</h2>
+      <p>The route needs a Sahara trip in your program — it does not matter which airport you fly into, and the visa is issued at Algiers. The Saharan regions our programs actually use are <strong>Djanet</strong> — the gateway to the <strong>Tassili n'Ajjer</strong> National Park and the <strong>Tadrart Rouge</strong> — <strong>Tamanrasset</strong> in the Hoggar, <strong>Ghardaïa</strong> in the M'Zab Valley and <strong>Timimoun</strong> in the Gourara. Once you are in Algeria, we book the domestic flights to the airports that serve them: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> and <strong>Timimoun (TMX)</strong>. If you are booking one of our <a href="/tours/">Saharan programs</a>, the itinerary is already built to qualify.</p>
 
       <h2>How our visa support fits in</h2>
-      <p>Whichever route applies, we prepare the documentation consulates and authorities expect, free with your booking — see <a href="/visa-support/">Visa Support</a> for the full detail and required documents, and <a href="/algeria-visa-requirements/">Algeria visa requirements</a> for a side-by-side comparison of the two routes. We are your documentation partner; the consulate or government issues the visa.</p>
+      <p>Whichever route applies, we prepare the documentation consulates and authorities expect — see <a href="/visa-support/">Visa Support</a> for the full detail and required documents, and <a href="/algeria-visa-requirements/">Algeria visa requirements</a> for a side-by-side comparison of the two routes. We are your documentation partner; the consulate or government issues the visa.</p>
 
       <h2>Verify before you travel</h2>
-      <p>Algerian entry rules <strong>vary by nationality and change over time</strong>. Always confirm the current requirements with your official Algerian consulate, and let us know your nationality so we can tell you exactly which route — consulate visa or southern visa on arrival — fits your trip.</p>
+      <p>Algerian entry rules <strong>vary by nationality and change over time</strong>. Always confirm the current requirements with your official Algerian consulate, and let us know your nationality so we can tell you exactly which route — consulate visa or visa on arrival — fits your trip.</p>
 
       <p style="color:var(--text-l);font-size:.9rem">Not sure which route is yours? <a href="/contact/">Ask us</a> or message <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a> — we'll confirm and send your checklist.</p>
       <!-- OWNER: if Algeria introduces an official tourist e-Visa portal, link it here and update Route framing. -->
@@ -71,14 +72,14 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
     <div class="sev-head">
       <span class="eyebrow">For organised Saharan programs</span>
       <h2>The Saharan e-Visa — how it works</h2>
-      <p class="sev-lede">As a <strong>licensed Algerian tour operator</strong>, we can prepare your visa-authorisation document so you can travel through Algeria’s south. Issuance follows the official channels: we handle every file, and the Algerian authorities issue the visa. Here is exactly what that means — and what it costs.</p>
+      <p class="sev-lede">As a <strong>licensed Algerian tour operator</strong>, we can prepare your visa-authorisation document for a trip that includes the Sahara. Issuance follows the official channels: we handle every file, and the Algerian authorities issue the visa. Here is exactly what that means — and what it costs.</p>
     </div>
 
     <ol class="sev-steps">
       <li>
         <span class="sev-n">1</span>
         <div><strong>Book a complete program</strong>
-        <p>The Saharan e-Visa authorisation is available when you book a complete tour with us. We build your itinerary so that <strong>roughly half of the trip is spent in a Saharan state (wilaya)</strong> — which lets you combine the <strong>north and the south</strong> in one journey.</p></div>
+        <p>The Saharan e-Visa authorisation is available when you book a complete tour with us. What qualifies is a <strong>Sahara trip in your program</strong> — so you can combine the <strong>north and the south</strong> in one journey, and you land in Algiers as normal.</p></div>
       </li>
       <li>
         <span class="sev-n">2</span>
@@ -87,25 +88,27 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
       </li>
       <li>
         <span class="sev-n">3</span>
-        <div><strong>We issue your authorisation — €40</strong>
-        <p>You receive a <strong>visa-authorisation document carrying a QR code</strong> that is <strong>verifiable on the Algerian Ministry of Interior’s portal</strong>. The document costs <strong>€40</strong>.</p></div>
+        <div><strong>We issue your authorisation — $45</strong>
+        <p>You receive a <strong>visa-authorisation document carrying a QR code</strong> that is <strong>verifiable on the Algerian Ministry of Interior’s portal</strong>. The document costs <strong>$45</strong>.</p></div>
       </li>
       <li>
         <span class="sev-n">4</span>
         <div><strong>Pay the sticker tax on arrival</strong>
-        <p>A <strong>visa sticker/stamp tax is payable on arrival</strong> to the Algerian authorities, who issue the visa. The amount depends on your nationality — we confirm the figure before you travel.</p></div>
+        <p>A <strong>visa sticker/stamp tax is payable on arrival</strong> to the Algerian authorities, who issue the visa. The fee is set by your length of stay — see the table below.</p></div>
       </li>
     </ol>
 
+    <StampFeeTable lang="en" />
+
     <div class="sev-facts">
-      <div class="sev-fact"><span class="sev-fig">€40</span><span class="sev-lab">Authorisation document</span></div>
+      <div class="sev-fact"><span class="sev-fig">$45</span><span class="sev-lab">Authorisation document</span></div>
       <div class="sev-fact"><span class="sev-fig">Free</span><span class="sev-lab">We prepare every file</span></div>
       <div class="sev-fact"><span class="sev-fig">QR-verified</span><span class="sev-lab">On the Ministry of Interior portal</span></div>
-      <div class="sev-fact"><span class="sev-fig">North + South</span><span class="sev-lab">≈ half the trip in a Saharan state</span></div>
+      <div class="sev-fact"><span class="sev-fig">North + South</span><span class="sev-lab">Any program with a Sahara trip</span></div>
     </div>
 
     <div class="sev-note">
-      <p><strong>One honest note:</strong> the visa sticker tax on arrival is a government charge, separate from our €40 document fee, and entry rules vary by nationality. Tell us your nationality and we’ll confirm both your eligibility and the exact arrival tax before you commit.</p>
+      <p><strong>One honest note:</strong> the visa stamp fee at Algiers airport is a government charge, separate from our $45 document fee, and it is set by length of stay, not by passport. Tell us your nationality and dates and we’ll confirm your eligibility and the exact fee before you commit.</p>
     </div>
 
     <div class="sev-cta">

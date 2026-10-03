@@ -17,7 +17,7 @@ export const FAQ: FaqCategory[] = [
   ]},
   { id: 'visa', title: 'Visas & entry', items: [
     { q: 'Do I need a visa for Algeria?', a: 'Most nationalities need a visa arranged in advance at an Algerian consulate, usually supported by an invitation/voucher from a licensed agency. Rules vary by nationality and change over time — always confirm with your consulate.', href: '/questions/do-i-need-a-visa-for-algeria/' },
-    { q: 'Can you help with my visa?', a: 'Yes — as a licensed Algerian operator we provide the invitation letter / tourist voucher and booking confirmation that most consulates require for a tourist visa.' },
+    { q: 'Can you help with my visa?', a: 'Yes — as a licensed Algerian operator we provide the invitation letter / tourist voucher ($25) and booking confirmation that most consulates require, with any programme of at least 3 days that includes airport pickup and drop-off. If your programme includes the Sahara, the visa can instead be issued on arrival at Algiers airport ($45 authorisation).' },
     { q: 'Is there an e-visa or visa on arrival?', a: 'Generally not for ordinary tourism. The main exception is organised tourism to the far-south desert, where a simplified entry can be arranged for the group. Verify current rules officially before you rely on them.' },
   ]},
   { id: 'best-time', title: 'Best time to visit', items: [

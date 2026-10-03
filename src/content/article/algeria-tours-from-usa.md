@@ -4,17 +4,17 @@ category: "Trip Planning"
 image: "/assets/img/timgad-trajan-arch.jpg"
 imageAlt: "The Arch of Trajan at the Roman city of Timgad, in Batna state, Algeria"
 excerpt: "Planning a trip to Algeria from the US? Flights, the visa, time difference, money, the best season and the private tours that suit travellers from the US, with real prices."
-quickAnswer: "Americans need a visa for Algeria, arranged at an Algerian consulate with an invitation letter from a licensed operator (we prepare it free with every booking), or — for organised Sahara trips entering through the south — issued on arrival with our €40 authorisation. Non-stop service between the United States and Algeria has been limited or non-existent for years, so plan on one connection into Algiers (ALG). Our private tours suited to travellers from the US run from €920 to €1,850 per person."
+quickAnswer: "Americans need a visa for Algeria, arranged at an Algerian consulate with an invitation letter from a licensed operator ($25, with a programme of at least 3 days including airport transfers), or — for organised trips that include the Sahara — issued on arrival at Algiers airport with our $45 authorisation. Non-stop service between the United States and Algeria has been limited or non-existent for years, so plan on one connection into Algiers (ALG). Our private tours suited to travellers from the US run from €920 to €1,850 per person."
 readMinutes: 6
 keyFacts:
-  - { label: "Visa", value: "Required — invitation letter free with booking" }
-  - { label: "Sahara visa on arrival", value: "Via our €40 authorisation" }
+  - { label: "Visa", value: "Required — invitation letter $25 (3+ day programme)" }
+  - { label: "Visa on arrival", value: "$45, for programmes with a Sahara trip" }
   - { label: "Time zone", value: "Algeria is UTC+1, no daylight saving" }
   - { label: "Plugs", value: "Type C / F, 230 V" }
   - { label: "Best season", value: "Sahara Oct–Apr; north spring & autumn" }
   - { label: "Our tours", value: "€920–€1,850 per person" }
 faqs:
-  - { q: "Do Americans need a visa for Algeria?", a: "Yes. Visitors from the United States need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare free with every booking. For organised Sahara trips entering through the south, our Saharan visa-authorisation (€40) lets the visa be issued on arrival. Send us your nationality and we confirm which route applies." }
+  - { q: "Do Americans need a visa for Algeria?", a: "Yes. Visitors from the United States need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare for $25 with any programme of at least 3 days that includes airport pickup and drop-off. For organised trips that include the Sahara, our Saharan visa-authorisation ($45) lets the visa be issued on arrival at Algiers airport. Send us your nationality and we confirm which route applies." }
   - { q: "How do I fly to Algeria from the US?", a: "Non-stop service between the United States and Algeria has been limited or non-existent for years, so plan on one connection into Algiers (ALG). The usual routings run through Paris, Frankfurt, Rome, Madrid or Istanbul, or through Doha or Dubai; from the East Coast, door to door is typically 11 to 15 hours. Schedules change often — check current options when you book, and we will meet you at arrivals whichever way you come." }
   - { q: "What is the time difference between the US and Algeria?", a: "Algeria runs on UTC+1 all year, with no daylight saving. Algiers is 6 hours ahead of New York from November to mid-March and 5 hours ahead in summer; 9 hours ahead of Los Angeles in winter and 8 in summer." }
   - { q: "How much does a private tour of Algeria cost?", a: "Our private guided tours start at €30 for a day in Algiers. The tours we suggest for travellers from the US run from €920 to €1,850 per person, and the all-inclusive 5-Star Collection starts at €1,615. Every price is published on the tour page." }
@@ -43,8 +43,8 @@ Non-stop service between the United States and Algeria has been limited or non-e
 ## The visa
 Visitors from the United States need a visa for Algeria. There are two routes:
 
-1. **A tourist visa from the Algerian embassy or consulate** that serves you, applied for before you travel. Consulates want an invitation letter and a confirmed programme from a licensed Algerian operator — we prepare both **free with every booking**.
-2. **The Saharan visa-authorisation**, for organised trips that enter Algeria through the south, such as Djanet or Timimoun. We issue the authorisation (**€40**) and the visa sticker is issued on arrival; a separate sticker tax depends on your nationality.
+1. **A tourist visa from the Algerian embassy or consulate** that serves you, applied for before you travel. Consulates want an invitation letter and a confirmed programme from a licensed Algerian operator — we prepare both with any programme of **at least 3 days that includes airport pickup and drop-off** (the invitation letter is **$25**).
+2. **The Saharan visa-authorisation**, for organised trips that include the Sahara, such as Djanet or Timimoun — whichever airport you fly into. We issue the authorisation (**$45**) and the visa sticker is issued on arrival at Algiers airport; the arrival stamp is a separate fee paid at the airport.
 
 Send us your nationality and travel dates and we will tell you which route applies. The details are on our [entry and e-Visa page](/evisa/) and in our [visa guide](/blog/algeria-visa-guide/).
 

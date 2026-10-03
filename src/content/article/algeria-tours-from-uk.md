@@ -4,17 +4,17 @@ category: "Trip Planning"
 image: "/assets/img/algiers-white-city-aerial.jpg"
 imageAlt: "Aerial view of the white city of Algiers above its bay"
 excerpt: "Planning a trip to Algeria from the UK? Flights, the visa, time difference, money, the best season and the private tours that suit travellers from the UK, with real prices."
-quickAnswer: "British travellers need a visa for Algeria, arranged at an Algerian consulate with an invitation letter from a licensed operator (we prepare it free with every booking), or — for organised Sahara trips entering through the south — issued on arrival with our €40 authorisation. Algiers is only about three hours from London, and direct flights have operated from London for years. Our private tours suited to travellers from the UK run from €30 to €1,176 per person."
+quickAnswer: "British travellers need a visa for Algeria, arranged at an Algerian consulate with an invitation letter from a licensed operator ($25, with a programme of at least 3 days including airport transfers), or — for organised trips that include the Sahara — issued on arrival at Algiers airport with our $45 authorisation. Algiers is only about three hours from London, and direct flights have operated from London for years. Our private tours suited to travellers from the UK run from €30 to €1,176 per person."
 readMinutes: 6
 keyFacts:
-  - { label: "Visa", value: "Required — invitation letter free with booking" }
-  - { label: "Sahara visa on arrival", value: "Via our €40 authorisation" }
+  - { label: "Visa", value: "Required — invitation letter $25 (3+ day programme)" }
+  - { label: "Visa on arrival", value: "$45, for programmes with a Sahara trip" }
   - { label: "Time zone", value: "Algeria is UTC+1, no daylight saving" }
   - { label: "Plugs", value: "Type C / F, 230 V" }
   - { label: "Best season", value: "Sahara Oct–Apr; north spring & autumn" }
   - { label: "Our tours", value: "€30–€1,176 per person" }
 faqs:
-  - { q: "Do British travellers need a visa for Algeria?", a: "Yes. Visitors from the United Kingdom need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare free with every booking. For organised Sahara trips entering through the south, our Saharan visa-authorisation (€40) lets the visa be issued on arrival. Send us your nationality and we confirm which route applies." }
+  - { q: "Do British travellers need a visa for Algeria?", a: "Yes. Visitors from the United Kingdom need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare for $25 with any programme of at least 3 days that includes airport pickup and drop-off. For organised trips that include the Sahara, our Saharan visa-authorisation ($45) lets the visa be issued on arrival at Algiers airport. Send us your nationality and we confirm which route applies." }
   - { q: "How do I fly to Algeria from the UK?", a: "Algiers is only about three hours from London, and direct flights have operated from London for years. From regional airports, connect through Paris, Frankfurt, Amsterdam or Istanbul. Check current schedules when you book — routes and frequencies change by season." }
   - { q: "What is the time difference between the UK and Algeria?", a: "Algeria runs on UTC+1 all year, with no daylight saving. It is one hour ahead of the UK in winter and the same time in summer — no jet lag at all." }
   - { q: "How much does a private tour of Algeria cost?", a: "Our private guided tours start at €30 for a day in Algiers. The tours we suggest for travellers from the UK run from €30 to €1,176 per person, and the all-inclusive 5-Star Collection starts at €1,615. Every price is published on the tour page." }
@@ -43,8 +43,8 @@ Algiers is only about **three hours from London**, and direct flights have opera
 ## The visa
 Visitors from the United Kingdom need a visa for Algeria. There are two routes:
 
-1. **A tourist visa from the Algerian embassy or consulate** that serves you, applied for before you travel. Consulates want an invitation letter and a confirmed programme from a licensed Algerian operator — we prepare both **free with every booking**.
-2. **The Saharan visa-authorisation**, for organised trips that enter Algeria through the south, such as Djanet or Timimoun. We issue the authorisation (**€40**) and the visa sticker is issued on arrival; a separate sticker tax depends on your nationality.
+1. **A tourist visa from the Algerian embassy or consulate** that serves you, applied for before you travel. Consulates want an invitation letter and a confirmed programme from a licensed Algerian operator — we prepare both with any programme of **at least 3 days that includes airport pickup and drop-off** (the invitation letter is **$25**).
+2. **The Saharan visa-authorisation**, for organised trips that include the Sahara, such as Djanet or Timimoun — whichever airport you fly into. We issue the authorisation (**$45**) and the visa sticker is issued on arrival at Algiers airport; the arrival stamp is a separate fee paid at the airport.
 
 Send us your nationality and travel dates and we will tell you which route applies. The details are on our [entry and e-Visa page](/evisa/) and in our [visa guide](/blog/algeria-visa-guide/).
 

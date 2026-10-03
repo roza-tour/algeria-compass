@@ -1,4 +1,5 @@
 ---
+import StampFeeTable from '../../components/StampFeeTable.astro';
 // German practical guides, rendered from src/data/guides-de.ts.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -88,6 +89,7 @@ const breadcrumb = {
           {s.list && <ul class="prose">{s.list.map(i => <li>{i}</li>)}</ul>}
         </>
       ))}
+      {['visum-bei-ankunft-algerien', 'visum-hilfe-algerien'].includes(g.slug) && <StampFeeTable lang="de" />}
 
       <h2 style="margin-top:2rem">Häufige Fragen</h2>
       {g.faqs.map(f => (

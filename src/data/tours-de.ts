@@ -3192,7 +3192,7 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "q": "Brauche ich ein Visum?",
-        "a": "Ja, und dies ist die Route, für die die südliche Einreise gilt — ein organisiertes Sahara-Programm mit Ankunft über Djanet, offen für Reisende jeder Nationalität. Wir bereiten die Unterlagen mit Ihrer Buchung vor; bestätigen Sie die aktuellen Anforderungen bei Ihrem algerischen Konsulat."
+        "a": "Ja, und da dieses Programm die Sahara enthält, gilt das Visum bei Ankunft: Wir hinterlegen Ihre Unterlagen vorab, und das Visum wird bei der Ankunft am Flughafen Algier erteilt (Genehmigung 45 USD), für jede Nationalität. Wir bereiten die Unterlagen mit Ihrer Buchung vor; bestätigen Sie die aktuellen Anforderungen bei Ihrem algerischen Konsulat."
       },
       {
         "q": "Wie ist die Gruppe zusammengesetzt?",

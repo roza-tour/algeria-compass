@@ -55,7 +55,27 @@ export const BOOKING = {
   earlyDays: 60,          // book at least this many days before departure…
   earlyPct: 5,            // …and this % comes off the tour price
   cancelDays: 5,          // free cancellation up to N days before departure
+  // Invitation letter for the consulate visa (owner-confirmed 2026-10-03):
+  // issued free with a programme of at least this many days that includes
+  // airport pickup and drop-off. Day tours alone do not qualify.
+  inviteMinDays: 3,
+  // Visa fees (owner-confirmed 2026-10-03, in US dollars as quoted):
+  inviteFee: 25,          // invitation letter for the consulate route
+  saharanVisaFee: 45,     // Saharan visa-on-arrival authorisation
+  feeCurrency: 'USD',     // the arrival stamp is a separate fee paid at Algiers airport
   // Deposit methods. The secure payment link is sent once dates are confirmed,
   // so no gateway URL needs to live in the site.
   payMethods: ['bank transfer', 'card', 'PayPal'],
 };
+
+// Airport visa-stamp ("regularisation") fees, paid on arrival at Algiers
+// airport to the Banque d'Algérie desk. Set by length of stay, not
+// nationality. Source: the official notice at the airport, photographed by
+// the owner 2026-10-03. [minDays, maxDays, DZD, EUR, USD]
+export const STAMP_FEES: [number, number, number, number, number][] = [
+  [1, 2, 5000, 35, 39],
+  [3, 7, 10000, 70, 77],
+  [8, 10, 20000, 140, 154],
+  [11, 15, 25000, 170, 192],
+  [16, 30, 50000, 340, 384],
+];

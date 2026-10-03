@@ -1,4 +1,5 @@
 ---
+import StampFeeTable from '../../components/StampFeeTable.astro';
 // Italian practical guides, rendered from src/data/guides-it.ts.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -88,6 +89,7 @@ const breadcrumb = {
           {s.list && <ul class="prose">{s.list.map(i => <li>{i}</li>)}</ul>}
         </>
       ))}
+      {['visto-arrivo-algeria', 'assistenza-visto-algeria'].includes(g.slug) && <StampFeeTable lang="it" />}
 
       <h2 style="margin-top:2rem">Domande frequenti</h2>
       {g.faqs.map(f => (

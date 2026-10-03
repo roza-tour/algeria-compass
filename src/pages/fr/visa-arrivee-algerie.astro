@@ -1,7 +1,9 @@
 ---
+import StampFeeTable from '../../components/StampFeeTable.astro';
 // Version française du hub « visa & entrée ». Le contenu suit la page anglaise
 // /algeria-visa-requirements/ : deux voies d'entrée, dont celle du visa à
-// l'arrivée par le sud, ouverte à toutes les nationalités.
+// l'arrivée à l'aéroport d'Alger pour tout circuit organisé qui comprend le Sahara,
+// ouverte à toutes les nationalités (confirmé par la gérante, 2026-10-03).
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { alternatesFor } from '../../i18n';
@@ -18,12 +20,12 @@ const alternates = alternatesFor(site, {
 });
 
 const title = "Faut-il un visa pour l'Algérie ? Les deux voies";
-const description = "Deux voies d'entrée en Algérie : le visa consulaire avant le départ, ou le visa à l'arrivée par le sud sur circuit organisé — toutes nationalités.";
+const description = "Deux voies d'entrée : visa consulaire avant le départ, ou visa à l'arrivée à l'aéroport d'Alger sur circuit organisé avec Sahara — toutes nationalités.";
 
 const faqs = [
   { q: "Faut-il un visa pour visiter l'Algérie ?", a: "Presque certainement oui si vous voyagez en autonomie ou vers le nord. Le visa touristique s'obtient avant le départ au consulat dont dépend votre résidence, avec une lettre d'invitation et des réservations confirmées." },
-  { q: "Peut-on entrer sans passer par le consulat ?", a: "Oui, par une seule voie : un circuit organisé entrant par les portes du sud, Djanet ou Tamanrasset. Un opérateur algérien agréé dépose à l'avance vos données et les permis, et l'entrée est traitée à l'arrivée. Ce n'est pas quelque chose qu'un voyageur indépendant peut organiser à l'aéroport." },
-  { q: "Quelles nationalités peuvent utiliser le visa à l'arrivée ?", a: "Cette voie est ouverte aux voyageurs de toutes nationalités sur un itinéraire du sud éligible. Nous confirmons votre cas précis par écrit avant que vous ne réserviez vos vols." },
+  { q: "Peut-on entrer sans passer par le consulat ?", a: "Oui, par une seule voie : un circuit organisé qui comprend un séjour au Sahara. Un opérateur algérien agréé dépose à l'avance vos données et les permis, et le visa est délivré à l'arrivée à l'aéroport d'Alger. Ce n'est pas quelque chose qu'un voyageur indépendant peut organiser à l'aéroport." },
+  { q: "Quelles nationalités peuvent utiliser le visa à l'arrivée ?", a: "Cette voie est ouverte aux voyageurs de toutes nationalités sur un circuit organisé qui comprend le Sahara. Nous confirmons votre cas précis par écrit avant que vous ne réserviez vos vols." },
   { q: "L'Algérie a-t-elle un e-visa ?", a: "Non. Il n'existe pas de visa touristique électronique général pour l'Algérie. Méfiez-vous des sites commerciaux qui en promettent un : ce sont au mieux des services de remplissage de formulaires." },
   { q: "Combien de temps prend le visa consulaire ?", a: "D'environ deux semaines à plus d'un mois, selon le consulat et la saison. L'été et les périodes précédant les grandes fêtes sont les plus lents. N'achetez jamais de vols non remboursables avant d'avoir le visa dans votre passeport." },
 ];
@@ -32,10 +34,10 @@ const routes = [
   {
     tag: 'Voie 1',
     h: 'Visa consulaire, obtenu avant le départ',
-    who: "Pour qui visite le nord, la côte, les cités romaines ou la vallée du M'Zab — et pour qui voyage en autonomie.",
+    who: "Pour qui ne va pas au Sahara — le nord, la côte, les cités romaines — et pour qui voyage en autonomie.",
     steps: [
       'Vous nous indiquez vos dates et l\'itinéraire souhaité',
-      'Nous émettons la lettre d\'invitation et le programme confirmé sur papier à en-tête',
+      'Nous émettons la lettre d\'invitation (25 USD) et le programme confirmé — pour tout programme d\'au moins 3 jours avec transferts aéroport',
       'Vous déposez le dossier au consulat algérien dont dépend votre résidence',
       'Le visa est apposé sur votre passeport avant le départ',
     ],
@@ -44,16 +46,16 @@ const routes = [
   },
   {
     tag: 'Voie 2',
-    h: "Visa à l'arrivée, par les portes du sud",
-    who: "Pour qui voyage sur un itinéraire saharien organisé et atterrit à Djanet ou Tamanrasset — ouvert à toutes les nationalités.",
+    h: "Visa à l'arrivée à l'aéroport d'Alger",
+    who: "Pour qui voyage sur un circuit organisé qui comprend un séjour au Sahara — ouvert à toutes les nationalités.",
     steps: [
-      'Vous réservez avec nous un programme éligible dans le sud',
+      'Vous réservez avec nous un programme qui comprend un séjour au Sahara',
       'Nous déposons à l\'avance vos données de passeport et les permis du désert',
-      'Vous prenez le vol Alger → Djanet ou Tamanrasset',
-      "L'entrée est traitée à l'arrivée à l'aéroport du sud",
+      'Vous arrivez à Alger normalement',
+      "Votre visa est délivré à l'arrivée à l'aéroport d'Alger",
     ],
     time: 'Aucun rendez-vous consulaire',
-    note: 'Nous confirmons votre éligibilité par écrit avant toute réservation de vol.',
+    note: 'Autorisation saharienne : 45 USD ; le cachet d\'entrée se paie à part à l\'aéroport. Nous confirmons votre éligibilité par écrit avant toute réservation de vol.',
   },
 ];
 
@@ -98,8 +100,8 @@ const breadcrumb = {
     <div class="qbox">
       <strong>En bref.</strong> La plupart des visiteurs ont besoin d'un visa touristique algérien
       obtenu avant le départ au consulat, avec lettre d'invitation et réservations confirmées. Il existe
-      une alternative importante : sur un circuit organisé entrant par le grand sud — Djanet ou
-      Tamanrasset — un opérateur algérien agréé peut faire traiter l'entrée à l'arrivée, et cette voie
+      une alternative importante : si votre circuit organisé comprend un séjour au Sahara, un opérateur
+      algérien agréé dépose votre dossier à l'avance et le visa est délivré à l'arrivée à l'aéroport d'Alger ; cette voie
       est <strong>ouverte aux voyageurs de toutes nationalités</strong>. Un petit nombre de nationalités
       est dispensé de visa ; votre consulat algérien est l'autorité sur votre propre passeport.
       <span style="display:block;margin-top:.6rem"><a href={enUrl} hreflang="en">Read in English</a></span>
@@ -119,17 +121,19 @@ const breadcrumb = {
       ))}
     </div>
 
+    <StampFeeTable lang="fr" />
+
     <h2>Laquelle vous concerne</h2>
     <p>
-      Cela dépend de votre destination, pas de votre passeport. Si votre voyage comprend Alger, la côte
-      méditerranéenne, les cités romaines de l'est ou la <a href="/fr/destinations/vallee-du-mzab/">vallée
-      du M'Zab</a>, il vous faut le visa consulaire. Si votre voyage est une expédition saharienne entrant
-      par le sud — le <a href="/fr/destinations/tassili-najjer/">Tassili n'Ajjer</a>, le Tadrart, le
-      Hoggar — la voie du visa à l'arrivée vous est ouverte quel que soit votre passeport.
+      Cela dépend de votre destination, pas de votre passeport. Si votre circuit organisé comprend le
+      Sahara — le <a href="/fr/destinations/tassili-najjer/">Tassili n'Ajjer</a>, le Tadrart, Timimoun, la
+      <a href="/fr/destinations/vallee-du-mzab/">vallée du M'Zab</a> — la voie du visa à l'arrivée vous est
+      ouverte quel que soit votre passeport, même si le reste du voyage se passe à Alger, sur la côte et dans
+      les cités romaines. Si votre voyage reste dans le nord, ou si vous voyagez en autonomie, il vous faut le visa consulaire.
     </p>
     <p>
       Les deux passent par nous en tant qu'opérateur agréé : sur la voie consulaire nous produisons les
-      documents que le consulat exige, sur la voie du sud nous déposons les données et les permis qui
+      documents que le consulat exige, sur la voie du visa à l'arrivée nous déposons les données et les permis qui
       rendent l'entrée à l'arrivée possible. Voyez le détail des pièces que nous préparons sur
       <a href="/fr/assistance-visa-algerie/">notre page d'assistance visa</a>, ainsi que notre
       <a href="/fr/visa-algerie/">guide du visa algérien</a> et nos

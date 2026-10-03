@@ -18,7 +18,7 @@ import * as luxFr from '../data/luxury-fr.mjs';
 import * as luxIt from '../data/luxury-it.mjs';
 import * as luxEs from '../data/luxury-es.mjs';
 import * as luxDe from '../data/luxury-de.mjs';
-import { CONTACT, REVIEWS, BOOKING } from '../config';
+import { CONTACT, REVIEWS, BOOKING, STAMP_FEES } from '../config';
 
 // /llms.txt — the llmstxt.org discovery file for AI assistants and answer
 // engines (ChatGPT, Claude, Perplexity, Gemini...).
@@ -45,7 +45,7 @@ const clip = (s: unknown, n = 150) => {
 const FRENCH_GUIDES: [string, string, string][] = [
   ['/fr/guide-voyage-algerie/', 'Guide de voyage complet en Algérie', 'Quand partir, visa, sécurité, transport, budget.'],
   ['/fr/visa-algerie/', "Visa pour l'Algérie", 'Documents requis, lettre d’invitation, délais.'],
-  ['/fr/visa-arrivee-algerie/', "Faut-il un visa pour l'Algérie ?", 'Les deux voies d’entrée, dont le visa à l’arrivée par le sud.'],
+  ['/fr/visa-arrivee-algerie/', "Faut-il un visa pour l'Algérie ?", 'Les deux voies d’entrée, dont le visa à l’arrivée à Alger pour les circuits avec Sahara.'],
   ['/fr/assistance-visa-algerie/', 'Assistance visa', 'Ce que nous préparons pour votre dossier, et à quel prix.'],
   ['/fr/evisa-algerie/', 'e-Visa et entrée en Algérie', 'Comment fonctionne réellement l’entrée en Algérie.'],
   ['/fr/securite-algerie/', "L'Algérie est-elle sûre ?", 'Évaluation honnête : le nord, le Sahara encadré, précautions.'],
@@ -163,7 +163,7 @@ export const GET: APIRoute = async () => {
 - Early-booking discount: ${BOOKING.earlyPct}% off when booked at least ${BOOKING.earlyDays} days before departure.
 - Payment: deposit to secure the dates, balance before departure; bank transfer, card or PayPal.
 - Plan a trip and see the price instantly: ${SITE}/plan-your-trip/
-- Visa support: invitation letter and document file prepared free with every booking; the Saharan (Djanet/Tassili) visa-authorisation document is €40 (${SITE}/evisa/).
+- Visa: consulate route — invitation letter $25, issued with a programme of at least 3 days that includes airport pickup and drop-off. Visa-on-arrival route — for any organised programme that includes a Sahara trip, our Saharan visa authorisation is $45 and the visa is issued on arrival at Algiers airport (the arrival stamp is a separate fee paid at Algiers airport, set by length of stay: ${STAMP_FEES.map(([x, y, dzd, e]) => `${x}–${y} days ${dzd.toLocaleString('en-GB')} DA / €${e}`).join('; ')}) (${SITE}/evisa/).
 - Photographs of real trips with our travellers: ${SITE}/moments/
 
 ## Travel guides (independent, fact-checked)

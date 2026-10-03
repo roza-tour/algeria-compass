@@ -64,7 +64,7 @@ export const QUESTIONS_IT: Record<string, QuestionI18n> = {
   },
   "can-i-get-an-algeria-visa-on-arrival": {
     "q": "Si può ottenere il visto algerino all'arrivo?",
-    "a": "In generale no. Quasi tutti i visitatori devono ottenere il visto algerino prima di partire, presso un consolato. L'unica eccezione riconosciuta è un viaggio organizzato nel Sahara con ingresso dall'estremo sud (Djanet o Tamanrasset), dove un operatore algerino autorizzato può organizzare l'ingresso del gruppo. Verificate le regole in vigore con il consolato prima di prenotare i voli.",
+    "a": "In generale no. Quasi tutti i visitatori devono ottenere il visto algerino prima di partire, presso un consolato. L'unica eccezione riconosciuta è un viaggio organizzato che include il Sahara: un operatore algerino autorizzato deposita la pratica in anticipo e il visto viene rilasciato all'arrivo all'aeroporto di Algeri. Verificate le regole in vigore con il consolato prima di prenotare i voli.",
     "kf": [
       [
         "Regola generale",
@@ -72,7 +72,7 @@ export const QUESTIONS_IT: Record<string, QuestionI18n> = {
       ],
       [
         "Eccezione",
-        "Viaggi organizzati nell'estremo sud"
+        "Viaggi organizzati che includono il Sahara"
       ],
       [
         "Organizzato da",
@@ -218,7 +218,7 @@ export const QUESTIONS_IT: Record<string, QuestionI18n> = {
   },
   "do-i-need-a-visa-for-algeria": {
     "q": "Serve il visto per l'Algeria?",
-    "a": "La maggior parte delle nazionalità ha bisogno di un visto per visitare l'Algeria, richiesto in anticipo presso un consolato algerino, di solito con una lettera di invito di un tour operator. Alcune formule consentono il visto all'arrivo per i viaggi organizzati nel Sahara dal sud. Verificate sempre le regole in vigore con il consolato algerino più vicino.",
+    "a": "La maggior parte delle nazionalità ha bisogno di un visto per visitare l'Algeria, richiesto in anticipo presso un consolato algerino, di solito con una lettera di invito di un tour operator. I viaggi organizzati che includono il Sahara consentono il visto all'arrivo all'aeroporto di Algeri. Verificate sempre le regole in vigore con il consolato algerino più vicino.",
     "kf": [
       [
         "La maggior parte dei viaggiatori",
@@ -229,8 +229,8 @@ export const QUESTIONS_IT: Record<string, QuestionI18n> = {
         "Invito / prenotazione di hotel o viaggio"
       ],
       [
-        "Viaggi nel Sahara",
-        "Il visto all'arrivo può applicarsi"
+        "Viaggi con il Sahara",
+        "Visto all'arrivo all'aeroporto di Algeri"
       ],
       [
         "Da confermare con",

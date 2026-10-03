@@ -19,14 +19,14 @@ const alternates = alternatesFor(site, {
 });
 
 const title = "Assistance visa Algérie : ce que nous préparons";
-const description = "Lettre d'invitation, confirmations et liste de documents gratuites avec chaque réservation, plus l'autorisation saharienne pour entrer par le sud.";
+const description = "Lettre d'invitation (25 USD) pour tout programme de 3 jours ou plus avec transferts aéroport, et visa à l'arrivée à Alger pour les circuits avec Sahara (45 USD).";
 
 const faqs = [
-  { q: "Combien coûte votre assistance visa ?", a: "La préparation du dossier est gratuite avec chaque réservation : lettre d'invitation, confirmations et liste de documents ne coûtent rien. Le seul élément payant est le document d'autorisation saharienne, 40 €, auquel s'ajoute la taxe de vignette réglée aux autorités à l'arrivée." },
+  { q: "Combien coûte votre assistance visa ?", a: "La lettre d'invitation coûte 25 USD et s'obtient avec tout programme d'au moins 3 jours incluant l'accueil et le transfert aéroport ; confirmations et liste de documents sont sans frais. Pour la voie saharienne, l'autorisation coûte 45 USD, et le cachet d'entrée se paie à part à l'aéroport d'Alger, selon la durée du séjour." },
   { q: "Combien de temps prend le visa consulaire ?", a: "De deux à quatre semaines en moyenne, selon le consulat et la saison. Confirmez votre voyage au moins un mois à l'avance et n'achetez pas de vols non remboursables avant d'avoir le visa dans votre passeport." },
-  { q: "Peut-on combiner le nord et le désert ?", a: "Oui. Par la voie saharienne, un même voyage peut associer le nord et le sud, à condition qu'environ la moitié du séjour se déroule dans une wilaya saharienne. Nous construisons le programme pour qu'il remplisse cette condition." },
+  { q: "Peut-on combiner le nord et le désert ?", a: "Oui. Il suffit que votre programme organisé comprenne un séjour au Sahara : le reste du voyage peut se passer à Alger, sur la côte et dans les cités romaines." },
   { q: "Le document d'autorisation est-il officiel ?", a: "Oui. Il porte un QR code vérifiable sur le portail du ministère algérien de l'Intérieur. L'émission suit les canaux officiels : nous montons le dossier, ce sont les autorités algériennes qui accordent le visa." },
-  { q: "Faut-il obligatoirement réserver un circuit complet ?", a: "Pour la voie saharienne, oui : l'autorisation fait partie de l'organisation du voyage, ce n'est pas un service isolé. Pour la voie consulaire, nous émettons la lettre d'invitation pour tout itinéraire que nous opérons, y compris entièrement au nord." },
+  { q: "Faut-il obligatoirement réserver un circuit complet ?", a: "Pour la voie saharienne, oui : l'autorisation fait partie de l'organisation du voyage, ce n'est pas un service isolé. Pour la voie consulaire, nous émettons la lettre d'invitation (25 USD) pour tout programme d'au moins 3 jours incluant l'accueil et le transfert aéroport, y compris entièrement au nord." },
 ];
 
 const faqSchema = {
@@ -61,12 +61,13 @@ const breadcrumb = {
     <div class="eyebrow">Avant le départ</div>
     <h1>Assistance visa pour l'Algérie</h1>
     <div class="prose" style="margin-top:1rem">
-      <p>Le visa est la partie de la préparation qui décourage le plus de voyageurs, presque toujours pour une raison simple : les consulats réclament des pièces que seul un <strong>opérateur algérien agréé</strong> peut émettre. C'est ce que nous sommes. Nous ne délivrons pas le visa — le consulat ou l'autorité algérienne s'en charge — mais nous montons le dossier complet, <strong>gratuitement avec chaque réservation</strong>, et nous vous disons exactement quoi apporter.</p>
+      <p>Le visa est la partie de la préparation qui décourage le plus de voyageurs, presque toujours pour une raison simple : les consulats réclament des pièces que seul un <strong>opérateur algérien agréé</strong> peut émettre. C'est ce que nous sommes. Nous ne délivrons pas le visa — le consulat ou l'autorité algérienne s'en charge — mais nous montons le dossier complet, <strong>avec votre réservation</strong>, et nous vous disons exactement quoi apporter.</p>
       <p>Si vous en êtes encore à « ai-je seulement besoin d'un visa ? », commencez par <a href="/fr/visa-arrivee-algerie/">les deux voies d'entrée en Algérie</a>. Cette page-ci porte sur les documents que nous préparons une fois votre voie connue. <a href={enUrl} hreflang="en">Read in English</a>.</p>
 
-      <h2>Ce que nous préparons, gratuitement</h2>
+      <h2>Ce que nous préparons</h2>
+      <p>Pour tout programme d'<strong>au moins 3 jours incluant l'accueil et le transfert aéroport</strong> :</p>
       <ul>
-        <li>La <strong>lettre d'invitation officielle</strong> (voucher touristique) sur papier à en-tête de l'agence</li>
+        <li>La <strong>lettre d'invitation officielle</strong> (voucher touristique) sur papier à en-tête de l'agence — <strong>25 USD</strong></li>
         <li>La confirmation de l'itinéraire et des hôtels, cohérente avec la lettre</li>
         <li>La liste précise des pièces exigées pour votre nationalité</li>
         <li>Un accompagnement pas à pas jusqu'au dépôt du dossier</li>
@@ -76,7 +77,7 @@ const breadcrumb = {
       <p>C'est la voie ordinaire pour le nord, la côte, les cités romaines et la vallée du M'Zab, et la seule pour qui voyage en autonomie. La demande se dépose au consulat algérien dont dépend votre résidence, en général en personne. Presque tous les consulats exigent la lettre d'invitation d'une agence algérienne agréée : c'est précisément le document que nous vous délivrons. La cohérence entre la lettre et les réservations est ce qui fait passer — ou renvoyer — un dossier.</p>
 
       <h2>Voie 2 — l'autorisation saharienne</h2>
-      <p>Pour les voyages organisés qui entrent par le grand sud, <strong>Djanet ou Tamanrasset</strong>, nous préparons à l'avance un <strong>document d'autorisation de visa</strong> portant un QR code vérifiable sur le portail du ministère algérien de l'Intérieur. Le visa est ensuite apposé à l'arrivée, sans rendez-vous consulaire. C'est l'itinéraire qui compte, pas le passeport : cette voie est <strong>ouverte aux voyageurs de toutes nationalités</strong>, dès lors que le programme est un circuit saharien organisé. Le document coûte <strong>40 €</strong> ; le montage du dossier reste gratuit, et une taxe de vignette est réglée aux autorités à l'arrivée, dont le montant dépend de la nationalité.</p>
+      <p>Pour les voyages organisés qui comprennent un <strong>séjour au Sahara</strong> (Djanet, Tamanrasset, Timimoun, le M'Zab…), nous préparons à l'avance un <strong>document d'autorisation de visa</strong> portant un QR code vérifiable sur le portail du ministère algérien de l'Intérieur. Le visa est ensuite apposé à l'arrivée à l'aéroport d'Alger, sans rendez-vous consulaire. C'est l'itinéraire qui compte, pas le passeport : cette voie est <strong>ouverte aux voyageurs de toutes nationalités</strong>, dès lors que le programme organisé comprend le Sahara. Le document coûte <strong>45 USD</strong> ; le montage du dossier reste gratuit, et le cachet d'entrée se paie à part à l'aéroport d'Alger, selon la durée du séjour.</p>
 
       <h2>Ce qu'il faut généralement</h2>
       <ul>

@@ -23,4 +23,4 @@ If you have friends or relatives in Algeria, they can produce a **private invita
 
 The letter alone is rarely enough. Consulates typically want it alongside the confirmed hotel bookings or programme it refers to, so the two documents corroborate each other. A letter that says one thing and a booking that says another is a common reason for a file being returned.
 
-We issue this documentation for every traveller who books with us, matched to the exact itinerary the consulate will see. If you are still deciding whether you need a visa at all, start with [do I need a visa for Algeria?](/questions/do-i-need-a-visa-for-algeria/); for the whole process, see the [Algeria visa guide](/blog/algeria-visa-guide/).
+We issue this documentation for any programme of at least 3 days with us that includes airport pickup and drop-off; the invitation letter costs $25 and is matched to the exact itinerary the consulate will see. If you are still deciding whether you need a visa at all, start with [do I need a visa for Algeria?](/questions/do-i-need-a-visa-for-algeria/); for the whole process, see the [Algeria visa guide](/blog/algeria-visa-guide/).

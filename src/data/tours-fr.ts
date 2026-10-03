@@ -3195,7 +3195,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "q": "Faut-il un visa ?",
-        "a": "Oui, et c'est ici que s'applique l'entrée par le sud — un programme saharien organisé arrivant par Djanet, ouvert aux voyageurs de toute nationalité. Nous préparons les documents avec votre réservation ; vérifiez les conditions en vigueur auprès de votre consulat d'Algérie."
+        "a": "Oui, et comme ce programme comprend le Sahara, le visa à l'arrivée s'applique : nous déposons votre dossier à l'avance et le visa est délivré à l'arrivée à l'aéroport d'Alger (autorisation 45 USD), pour toutes les nationalités. Nous préparons les documents avec votre réservation ; vérifiez les conditions en vigueur auprès de votre consulat d'Algérie."
       },
       {
         "q": "Comment est constitué le groupe ?",

@@ -64,7 +64,7 @@ export const QUESTIONS_ES: Record<string, QuestionI18n> = {
   },
   "can-i-get-an-algeria-visa-on-arrival": {
     "q": "¿Se puede obtener el visado argelino a la llegada?",
-    "a": "En general no. Casi todos los visitantes deben obtener el visado argelino antes de viajar, en un consulado. La única excepción reconocida es un circuito organizado por el Sáhara que entra por el extremo sur (Djanet o Tamanrasset), donde un operador argelino autorizado puede gestionar la entrada del grupo. Confirme las normas vigentes con su consulado antes de reservar los vuelos.",
+    "a": "En general no. Casi todos los visitantes deben obtener el visado argelino antes de viajar, en un consulado. La única excepción reconocida es un circuito organizado que incluye el Sáhara: un operador argelino autorizado deposita el expediente con antelación y el visado se emite a la llegada en el aeropuerto de Argel. Confirme las normas vigentes con su consulado antes de reservar los vuelos.",
     "kf": [
       [
         "Norma general",
@@ -72,7 +72,7 @@ export const QUESTIONS_ES: Record<string, QuestionI18n> = {
       ],
       [
         "Excepción",
-        "Circuitos organizados en el extremo sur"
+        "Circuitos organizados que incluyen el Sáhara"
       ],
       [
         "Gestionado por",
@@ -218,7 +218,7 @@ export const QUESTIONS_ES: Record<string, QuestionI18n> = {
   },
   "do-i-need-a-visa-for-algeria": {
     "q": "¿Necesito visado para Argelia?",
-    "a": "La mayoría de las nacionalidades necesita visado para visitar Argelia, solicitado con antelación en un consulado argelino, normalmente con una carta de invitación de un turoperador. Algunas fórmulas permiten el visado a la llegada para circuitos organizados por el Sáhara desde el sur. Confirme siempre las normas vigentes con el consulado argelino más cercano.",
+    "a": "La mayoría de las nacionalidades necesita visado para visitar Argelia, solicitado con antelación en un consulado argelino, normalmente con una carta de invitación de un turoperador. Los circuitos organizados que incluyen el Sáhara permiten el visado a la llegada en el aeropuerto de Argel. Confirme siempre las normas vigentes con el consulado argelino más cercano.",
     "kf": [
       [
         "La mayoría de los viajeros",
@@ -229,8 +229,8 @@ export const QUESTIONS_ES: Record<string, QuestionI18n> = {
         "Invitación / reserva de hotel o circuito"
       ],
       [
-        "Circuitos por el Sáhara",
-        "Puede aplicarse el visado a la llegada"
+        "Circuitos con Sáhara",
+        "Visado a la llegada en el aeropuerto de Argel"
       ],
       [
         "Confirmar con",

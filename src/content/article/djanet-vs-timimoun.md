@@ -94,4 +94,4 @@ For a full picture of what an Algeria trip costs, see our [cost guide](/blog/alg
 ## So which should you choose?
 If you want **the Sahara itself** — emptiness, rock, sand and the oldest art in Africa — choose **Djanet**. If you want the desert **with people in it**, a warm bed and an easier pace, choose **Timimoun**. And if you have ten days, there is no rule that says you must choose: [tell us your dates](/contact/) and we will build both into one journey.
 
-Planning the paperwork? The southern airports and the visa options for the Sahara are explained on our [entry and e-Visa page](/evisa/).
+Planning the paperwork? Because both trips include the Sahara, the visa can be issued on arrival at Algiers airport — explained on our [entry and e-Visa page](/evisa/).

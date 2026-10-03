@@ -3193,7 +3193,7 @@ export const TOURS_IT: Record<string, TourIt> = {
       },
       {
         "q": "Serve un visto?",
-        "a": "Sì, ed è proprio su questo itinerario che si applica l'ingresso dal sud — un programma sahariano organizzato in arrivo da Djanet, aperto a viaggiatori di qualsiasi nazionalità. Prepariamo la documentazione al momento della prenotazione; verificate i requisiti aggiornati presso il vostro consolato algerino."
+        "a": "Sì, ed poiché questo programma include il Sahara, vale il visto all'arrivo: depositiamo la pratica in anticipo e il visto viene rilasciato all'arrivo all'aeroporto di Algeri (autorizzazione 45 USD), per qualsiasi nazionalità. Prepariamo la documentazione al momento della prenotazione; verificate i requisiti aggiornati presso il vostro consolato algerino."
       },
       {
         "q": "Com'è composto il gruppo?",

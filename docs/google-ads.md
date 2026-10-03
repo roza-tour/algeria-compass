@@ -50,7 +50,7 @@ Rated 5.0 on Google
 Private Guide, Your Own Dates
 Free Cancellation up to 5 Days
 Plan Your Algeria Trip Now
-Invitation Letter Included
+Visa on Arrival for Sahara
 ```
 <details><summary>Character counts</summary>
 
@@ -68,7 +68,7 @@ Invitation Letter Included
 12. Private Guide, Your Own Dates (29)  
 13. Free Cancellation up to 5 Days (30)  
 14. Plan Your Algeria Trip Now (26)  
-15. Invitation Letter Included (26)
+15. Visa on Arrival for Sahara (26)
 </details>
 
 **Descriptions**
@@ -236,8 +236,8 @@ cheap flights
   **Description 2:** `Coast, Roman cities, Sahara` (27)  
   **URL:** `https://algeriacompass.com/tours/`
 - **Text:** `Visa Help` (9)  
-  **Description 1:** `Invitation letter free` (22)  
-  **Description 2:** `Sahara visa on arrival` (22)  
+  **Description 1:** `Invitation letter $25` (21)  
+  **Description 2:** `Visa at Algiers for Sahara` (26)  
   **URL:** `https://algeriacompass.com/evisa/`
 
 ## Callouts
@@ -300,7 +300,7 @@ Noté 5,0 sur Google
 Guide privé, à vos dates
 Annulation gratuite à J-5
 Planifiez votre voyage
-Lettre d'invitation offerte
+Visa à l'arrivée (Sahara)
 ```
 <details><summary>Character counts</summary>
 
@@ -318,7 +318,7 @@ Lettre d'invitation offerte
 12. Guide privé, à vos dates (24)  
 13. Annulation gratuite à J-5 (25)  
 14. Planifiez votre voyage (22)  
-15. Lettre d'invitation offerte (27)
+15. Visa à l'arrivée (Sahara) (25)
 </details>
 
 **Descriptions**
@@ -478,7 +478,7 @@ dubai
   **Description 2:** `Côte, cités romaines, Sahara` (28)  
   **URL:** `https://algeriacompass.com/fr/circuits/`
 - **Text:** `Aide au visa` (12)  
-  **Description 1:** `Lettre d'invitation offerte` (27)  
+  **Description 1:** `Lettre d'invitation 25 USD` (26)  
   **Description 2:** `Visa à l'arrivée pour le Sahara` (31)  
   **URL:** `https://algeriacompass.com/fr/assistance-visa-algerie/`
 
@@ -542,7 +542,7 @@ Valutati 5,0 su Google
 Guida privata, date tue
 Cancellazione gratuita
 Pianifica il tuo viaggio
-Lettera d'invito inclusa
+Visto all'arrivo (Sahara)
 ```
 <details><summary>Character counts</summary>
 
@@ -560,7 +560,7 @@ Lettera d'invito inclusa
 12. Guida privata, date tue (23)  
 13. Cancellazione gratuita (22)  
 14. Pianifica il tuo viaggio (24)  
-15. Lettera d'invito inclusa (24)
+15. Visto all'arrivo (Sahara) (25)
 </details>
 
 **Descriptions**
@@ -720,7 +720,7 @@ dubai
   **Description 2:** `Costa, città romane, Sahara` (27)  
   **URL:** `https://algeriacompass.com/it/circuiti/`
 - **Text:** `Aiuto per il visto` (18)  
-  **Description 1:** `Lettera d'invito gratuita` (25)  
+  **Description 1:** `Lettera d'invito 25 USD` (23)  
   **Description 2:** `Visto all'arrivo per il Sahara` (30)  
   **URL:** `https://algeriacompass.com/it/assistenza-visto-algeria/`
 
@@ -784,7 +784,7 @@ Valorados 5,0 en Google
 Guía privado, en tus fechas
 Cancelación gratuita
 Planifica tu viaje a Argelia
-Carta de invitación incluida
+Visado a la llegada Sáhara
 ```
 <details><summary>Character counts</summary>
 
@@ -802,7 +802,7 @@ Carta de invitación incluida
 12. Guía privado, en tus fechas (27)  
 13. Cancelación gratuita (20)  
 14. Planifica tu viaje a Argelia (28)  
-15. Carta de invitación incluida (28)
+15. Visado a la llegada Sáhara (26)
 </details>
 
 **Descriptions**
@@ -963,8 +963,8 @@ dubai
   **Description 2:** `Costa, ciudades romanas, Sáhara` (31)  
   **URL:** `https://algeriacompass.com/es/circuitos/`
 - **Text:** `Ayuda con el visado` (19)  
-  **Description 1:** `Carta de invitación gratis` (26)  
-  **Description 2:** `Visado a la llegada al Sáhara` (29)  
+  **Description 1:** `Carta de invitación 25 USD` (26)  
+  **Description 2:** `Visado a la llegada, Sáhara` (27)  
   **URL:** `https://algeriacompass.com/es/asistencia-visado-argelia/`
 
 ## Callouts
@@ -1027,7 +1027,7 @@ Bei Google mit 5,0 bewertet
 Privater Guide, Ihr Termin
 Kostenlose Stornierung
 Algerien-Reise jetzt planen
-Einladungsschreiben inklusive
+Visum bei Ankunft (Sahara)
 ```
 <details><summary>Character counts</summary>
 
@@ -1045,7 +1045,7 @@ Einladungsschreiben inklusive
 12. Privater Guide, Ihr Termin (26)  
 13. Kostenlose Stornierung (22)  
 14. Algerien-Reise jetzt planen (27)  
-15. Einladungsschreiben inklusive (29)
+15. Visum bei Ankunft (Sahara) (26)
 </details>
 
 **Descriptions**
@@ -1205,7 +1205,7 @@ dubai
   **Description 2:** `Küste, Römerstädte, Sahara` (26)  
   **URL:** `https://algeriacompass.com/de/reisen/`
 - **Text:** `Hilfe beim Visum` (16)  
-  **Description 1:** `Einladungsschreiben gratis` (26)  
+  **Description 1:** `Einladung: 25 USD` (17)  
   **Description 2:** `Visum bei Ankunft (Sahara)` (26)  
   **URL:** `https://algeriacompass.com/de/visum-hilfe-algerien/`
 

@@ -64,7 +64,7 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
   },
   "can-i-get-an-algeria-visa-on-arrival": {
     "q": "Bekommt man ein Algerien-Visum bei der Einreise?",
-    "a": "In der Regel nein. Fast alle Besucher müssen das algerische Visum vor der Reise bei einem Konsulat beantragen. Die einzige anerkannte Ausnahme ist eine organisierte Sahara-Reise mit Einreise über den äußersten Süden (Djanet oder Tamanrasset), bei der ein lizenzierter algerischer Veranstalter die Einreise der Gruppe regeln kann. Klären Sie die aktuellen Regeln mit Ihrem Konsulat, bevor Sie Flüge buchen.",
+    "a": "In der Regel nein. Fast alle Besucher müssen das algerische Visum vor der Reise bei einem Konsulat beantragen. Die einzige anerkannte Ausnahme ist eine organisierte Reise mit Sahara-Aufenthalt: Ein lizenzierter algerischer Veranstalter hinterlegt die Unterlagen vorab, und das Visum wird bei der Ankunft am Flughafen Algier erteilt. Klären Sie die aktuellen Regeln mit Ihrem Konsulat, bevor Sie Flüge buchen.",
     "kf": [
       [
         "Grundregel",
@@ -72,7 +72,7 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
       ],
       [
         "Ausnahme",
-        "Organisierte Reisen im äußersten Süden"
+        "Organisierte Reisen mit Sahara-Aufenthalt"
       ],
       [
         "Geregelt durch",
@@ -218,7 +218,7 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
   },
   "do-i-need-a-visa-for-algeria": {
     "q": "Brauche ich ein Visum für Algerien?",
-    "a": "Die meisten Nationalitäten brauchen für Algerien ein Visum, das im Voraus bei einem algerischen Konsulat beantragt wird, in der Regel mit einem Einladungsschreiben eines Reiseveranstalters. Einige Regelungen erlauben ein Visum bei der Einreise für organisierte Sahara-Reisen über den Süden. Klären Sie die aktuellen Regeln stets mit dem nächstgelegenen algerischen Konsulat.",
+    "a": "Die meisten Nationalitäten brauchen für Algerien ein Visum, das im Voraus bei einem algerischen Konsulat beantragt wird, in der Regel mit einem Einladungsschreiben eines Reiseveranstalters. Organisierte Reisen mit Sahara-Aufenthalt erlauben ein Visum bei der Ankunft am Flughafen Algier. Klären Sie die aktuellen Regeln stets mit dem nächstgelegenen algerischen Konsulat.",
     "kf": [
       [
         "Die meisten Reisenden",
@@ -229,8 +229,8 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
         "Einladung / Hotel- oder Reisebuchung"
       ],
       [
-        "Sahara-Reisen",
-        "Visum bei Einreise kann gelten"
+        "Reisen mit Sahara",
+        "Visum bei Ankunft am Flughafen Algier"
       ],
       [
         "Bestätigen beim",

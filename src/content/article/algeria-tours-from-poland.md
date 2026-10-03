@@ -4,17 +4,17 @@ category: "Trip Planning"
 image: "/assets/img/tassili-rock-pinnacles.jpg"
 imageAlt: "Eroded sandstone pinnacles on the Tassili n'Ajjer plateau in southern Algeria"
 excerpt: "Planning a trip to Algeria from Poland? Flights, the visa, time difference, money, the best season and the private tours that suit travellers from Poland, with real prices."
-quickAnswer: "Polish travellers need a visa for Algeria, arranged at an Algerian consulate with an invitation letter from a licensed operator (we prepare it free with every booking), or — for organised Sahara trips entering through the south — issued on arrival with our €40 authorisation. There is usually no direct flight from Poland, so plan on one connection into Algiers (ALG) through Paris, Frankfurt, Rome, Vienna or Istanbul. Our private tours suited to travellers from Poland run from €920 to €1,176 per person."
+quickAnswer: "Polish travellers need a visa for Algeria, arranged at an Algerian consulate with an invitation letter from a licensed operator ($25, with a programme of at least 3 days including airport transfers), or — for organised trips that include the Sahara — issued on arrival at Algiers airport with our $45 authorisation. There is usually no direct flight from Poland, so plan on one connection into Algiers (ALG) through Paris, Frankfurt, Rome, Vienna or Istanbul. Our private tours suited to travellers from Poland run from €920 to €1,176 per person."
 readMinutes: 6
 keyFacts:
-  - { label: "Visa", value: "Required — invitation letter free with booking" }
-  - { label: "Sahara visa on arrival", value: "Via our €40 authorisation" }
+  - { label: "Visa", value: "Required — invitation letter $25 (3+ day programme)" }
+  - { label: "Visa on arrival", value: "$45, for programmes with a Sahara trip" }
   - { label: "Time zone", value: "Algeria is UTC+1, no daylight saving" }
   - { label: "Plugs", value: "Type C / F, 230 V" }
   - { label: "Best season", value: "Sahara Oct–Apr; north spring & autumn" }
   - { label: "Our tours", value: "€920–€1,176 per person" }
 faqs:
-  - { q: "Do Polish travellers need a visa for Algeria?", a: "Yes. Visitors from Poland need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare free with every booking. For organised Sahara trips entering through the south, our Saharan visa-authorisation (€40) lets the visa be issued on arrival. Send us your nationality and we confirm which route applies." }
+  - { q: "Do Polish travellers need a visa for Algeria?", a: "Yes. Visitors from Poland need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare for $25 with any programme of at least 3 days that includes airport pickup and drop-off. For organised trips that include the Sahara, our Saharan visa-authorisation ($45) lets the visa be issued on arrival at Algiers airport. Send us your nationality and we confirm which route applies." }
   - { q: "How do I fly to Algeria from Poland?", a: "There is usually no direct flight from Poland, so plan on one connection into Algiers (ALG) through Paris, Frankfurt, Rome, Vienna or Istanbul. Total journey time from Warsaw or Kraków is typically 6 to 9 hours. Check current schedules when you book." }
   - { q: "What is the time difference between Poland and Algeria?", a: "Algeria runs on UTC+1 all year, with no daylight saving: the same time as Poland in winter, and one hour behind in summer." }
   - { q: "How much does a private tour of Algeria cost?", a: "Our private guided tours start at €30 for a day in Algiers. The tours we suggest for travellers from Poland run from €920 to €1,176 per person, and the all-inclusive 5-Star Collection starts at €1,615. Every price is published on the tour page." }
@@ -43,8 +43,8 @@ There is usually no direct flight from Poland, so plan on one connection into **
 ## The visa
 Visitors from Poland need a visa for Algeria. There are two routes:
 
-1. **A tourist visa from the Algerian embassy or consulate** that serves you, applied for before you travel. Consulates want an invitation letter and a confirmed programme from a licensed Algerian operator — we prepare both **free with every booking**.
-2. **The Saharan visa-authorisation**, for organised trips that enter Algeria through the south, such as Djanet or Timimoun. We issue the authorisation (**€40**) and the visa sticker is issued on arrival; a separate sticker tax depends on your nationality.
+1. **A tourist visa from the Algerian embassy or consulate** that serves you, applied for before you travel. Consulates want an invitation letter and a confirmed programme from a licensed Algerian operator — we prepare both with any programme of **at least 3 days that includes airport pickup and drop-off** (the invitation letter is **$25**).
+2. **The Saharan visa-authorisation**, for organised trips that include the Sahara, such as Djanet or Timimoun — whichever airport you fly into. We issue the authorisation (**$45**) and the visa sticker is issued on arrival at Algiers airport; the arrival stamp is a separate fee paid at the airport.
 
 Send us your nationality and travel dates and we will tell you which route applies. The details are on our [entry and e-Visa page](/evisa/) and in our [visa guide](/blog/algeria-visa-guide/).
 

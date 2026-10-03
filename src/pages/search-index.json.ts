@@ -52,7 +52,7 @@ const kind = (k: keyof typeof KIND | string, l: Lang) => KIND[k]?.[l] ?? String(
 const FR_GUIDES: [string, string, string][] = [
   ['/fr/guide-voyage-algerie/', 'Guide de voyage complet en Algérie', 'Quand partir, visa, sécurité, transport, budget.'],
   ['/fr/visa-algerie/', "Visa pour l'Algérie", "Documents requis, lettre d'invitation, délais."],
-  ['/fr/visa-arrivee-algerie/', "Faut-il un visa pour l'Algérie ?", "Les deux voies d'entrée, dont le visa à l'arrivée par le sud."],
+  ['/fr/visa-arrivee-algerie/', "Faut-il un visa pour l'Algérie ?", "Les deux voies d'entrée, dont le visa à l'arrivée à Alger pour les circuits avec Sahara."],
   ['/fr/assistance-visa-algerie/', 'Assistance visa', 'Ce que nous préparons pour votre dossier, et à quel prix.'],
   ['/fr/evisa-algerie/', 'e-Visa et entrée en Algérie', "Comment fonctionne réellement l'entrée en Algérie."],
   ['/fr/securite-algerie/', "L'Algérie est-elle sûre ?", 'Le nord, le Sahara encadré, précautions.'],
@@ -80,7 +80,7 @@ const EN_HUBS: [string, string, string][] = [
   ['/history/', 'History of Algeria', 'From Numidia and Rome to independence.'],
   ['/unesco/', 'UNESCO World Heritage Sites', "Algeria's seven UNESCO World Heritage sites."],
   ['/evisa/', 'e-Visa & Entry to Algeria', 'How entry works, including the Saharan e-Visa.'],
-  ['/visa-support/', 'Visa Support', 'Free visa documentation with every booking.'],
+  ['/visa-support/', 'Visa Support', 'Invitation letters and visa paperwork for your trip.'],
   ['/algeria-visa-requirements/', 'Do you need a visa for Algeria?', 'The two entry routes, compared.'],
   ['/travel-guides/', 'Travel Guides', 'Practical guides for planning a trip to Algeria.'],
   ['/regions/', 'Regions of Algeria', 'Algeria by travel region — eight distinct worlds.'],

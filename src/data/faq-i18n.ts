@@ -29,7 +29,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "Pouvez-vous m'aider pour le visa ?",
-      "Oui — en tant qu'opérateur algérien licencié, nous fournissons la lettre d'invitation / le voucher touristique et la confirmation de réservation que la plupart des consulats exigent pour un visa touristique."
+      "Oui — en tant qu'opérateur algérien licencié, nous fournissons la lettre d'invitation / le voucher touristique (25 USD) et la confirmation de réservation que la plupart des consulats exigent, avec tout programme d'au moins 3 jours incluant l'accueil et le transfert aéroport. Si votre programme comprend le Sahara, le visa peut être délivré à l'arrivée à l'aéroport d'Alger (autorisation 45 USD)."
     ],
     [
       "Existe-t-il un e-visa ou un visa à l'arrivée ?",
@@ -187,7 +187,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "Potete aiutarmi con il visto?",
-      "Sì — come operatore algerino autorizzato forniamo la lettera di invito / il voucher turistico e la conferma di prenotazione che la maggior parte dei consolati richiede per un visto turistico."
+      "Sì — come operatore algerino autorizzato forniamo la lettera di invito / il voucher turistico (25 USD) e la conferma di prenotazione che la maggior parte dei consolati richiede, con qualsiasi programma di almeno 3 giorni con accoglienza e trasferimento in aeroporto. Se il programma include il Sahara, il visto può essere rilasciato all'arrivo all'aeroporto di Algeri (autorizzazione 45 USD)."
     ],
     [
       "Esiste un e-visa o il visto all'arrivo?",
@@ -345,7 +345,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "¿Pueden ayudarme con el visado?",
-      "Sí — como operador argelino autorizado facilitamos la carta de invitación / voucher turístico y la confirmación de reserva que la mayoría de los consulados exige para un visado de turismo."
+      "Sí — como operador argelino autorizado facilitamos la carta de invitación / voucher turístico (25 USD) y la confirmación de reserva que la mayoría de los consulados exige, con cualquier programa de al menos 3 días con recogida y traslado al aeropuerto. Si su programa incluye el Sáhara, el visado puede emitirse a la llegada en el aeropuerto de Argel (autorización 45 USD)."
     ],
     [
       "¿Hay visado electrónico o a la llegada?",
@@ -503,7 +503,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "Können Sie mir beim Visum helfen?",
-      "Ja — als lizenzierter algerischer Veranstalter stellen wir das Einladungsschreiben / den Touristen-Voucher und die Buchungsbestätigung aus, die die meisten Konsulate für ein Touristenvisum verlangen."
+      "Ja — als lizenzierter algerischer Veranstalter stellen wir das Einladungsschreiben / den Touristen-Voucher (25 USD) und die Buchungsbestätigung aus, die die meisten Konsulate verlangen — mit jedem Programm ab 3 Tagen mit Flughafenabholung und -transfer. Enthält Ihr Programm die Sahara, kann das Visum bei der Ankunft am Flughafen Algier erteilt werden (Genehmigung 45 USD)."
     ],
     [
       "Gibt es ein E-Visum oder ein Visum bei Einreise?",

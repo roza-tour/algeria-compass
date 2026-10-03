@@ -1,0 +1,37 @@
+---
+// The airport visa-stamp fee table (STAMP_FEES in config.ts), in the page's
+// language. Used on every page that explains the visa on arrival.
+import { STAMP_FEES } from '../config';
+export interface Props { lang?: string }
+const lang = Astro.props.lang ?? 'en';
+const T: Record<string, any> = {
+  en: { cap: 'Visa stamp fee at Algiers airport (paid on arrival, by length of stay)', stay: 'Length of stay', days: 'days', note: 'Paid at the Banque d’Algérie desk at the airport, in dinars, euros or dollars. Separate from our $45 authorisation.', loc: 'en-GB' },
+  fr: { cap: 'Cachet de visa à l’aéroport d’Alger (payé à l’arrivée, selon la durée du séjour)', stay: 'Durée du séjour', days: 'jours', note: 'Payé au guichet de la Banque d’Algérie à l’aéroport, en dinars, euros ou dollars. En plus de notre autorisation à 45 USD.', loc: 'fr-FR' },
+  it: { cap: 'Timbro del visto all’aeroporto di Algeri (pagato all’arrivo, in base alla durata)', stay: 'Durata del soggiorno', days: 'giorni', note: 'Si paga allo sportello della Banque d’Algérie in aeroporto, in dinari, euro o dollari. In aggiunta alla nostra autorizzazione da 45 USD.', loc: 'it-IT' },
+  es: { cap: 'Sello del visado en el aeropuerto de Argel (se paga a la llegada, según la duración)', stay: 'Duración de la estancia', days: 'días', note: 'Se paga en la ventanilla del Banque d’Algérie del aeropuerto, en dinares, euros o dólares. Aparte de nuestra autorización de 45 USD.', loc: 'es-ES' },
+  de: { cap: 'Visumstempel am Flughafen Algier (bei Ankunft zu zahlen, nach Aufenthaltsdauer)', stay: 'Aufenthaltsdauer', days: 'Tage', note: 'Zahlbar am Schalter der Banque d’Algérie am Flughafen, in Dinar, Euro oder Dollar. Zusätzlich zu unserer Genehmigung (45 USD).', loc: 'de-DE' },
+};
+const c = T[lang] ?? T.en;
+const n = (v: number) => v.toLocaleString(c.loc);
+---
+<div class="stamp-fees">
+  <table>
+    <caption>{c.cap}</caption>
+    <thead><tr><th scope="col">{c.stay}</th><th scope="col">DZD</th><th scope="col">EUR</th><th scope="col">USD</th></tr></thead>
+    <tbody>
+      {STAMP_FEES.map(([a, b, dzd, eur, usd]) => (
+        <tr><th scope="row">{a}–{b} {c.days}</th><td>{n(dzd)} DA</td><td>€{n(eur)}</td><td>${n(usd)}</td></tr>
+      ))}
+    </tbody>
+  </table>
+  <p class="stamp-note">{c.note}</p>
+</div>
+<style>
+  .stamp-fees { margin: 1.4rem 0; overflow-x: auto }
+  .stamp-fees table { border-collapse: collapse; width: 100%; max-width: 640px; background: #fff; border-radius: 12px; overflow: hidden }
+  .stamp-fees caption { text-align: left; font-weight: 700; margin-bottom: .5rem }
+  .stamp-fees th, .stamp-fees td { padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); text-align: left }
+  .stamp-fees thead th { background: rgba(0,0,0,.04); font-size: .85rem; text-transform: uppercase; letter-spacing: .04em }
+  .stamp-fees td, .stamp-fees tbody th { white-space: nowrap }
+  .stamp-note { font-size: .88rem; color: var(--text-m); margin-top: .5rem }
+</style>

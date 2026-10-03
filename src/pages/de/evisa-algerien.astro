@@ -1,4 +1,5 @@
 ---
+import StampFeeTable from '../../components/StampFeeTable.astro';
 // Deutsche Ausgabe der e-Visum-Seite. Der Inhalt folgt der englischen Seite
 // /evisa/ : kein allgemeines Online-Touristen-e-Visum; zwei Wege — Konsulatsvisum
 // oder die Sahara-Visumgenehmigung für organisierte Programme.
@@ -26,14 +27,14 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:2,name:'e-Visum & Einreise',item:url}]};
 const faqs = [
   { q: 'Was ist das Sahara-e-Visum?', a: 'Es ist das Visum-Genehmigungsdokument, das wir für Reisende eines organisierten Sahara-Programms vorbereiten. Als lizenzierter algerischer Reiseveranstalter stellen wir eine Genehmigung mit QR-Code aus, der auf dem Portal des algerischen Innenministeriums überprüfbar ist. Das Visum selbst wird von den algerischen Behörden erteilt — Ihre Vignette bzw. Ihr Stempel wird bei der Ankunft ausgestellt; wir bereiten jede Unterlage im Voraus vor.' },
-  { q: 'Was kostet das Sahara-e-Visum?', a: 'Das Visum-Genehmigungsdokument kostet 40 €. Die Vorbereitung aller erforderlichen Unterlagen ist bei uns völlig kostenlos. Eine separate Vignetten-/Stempelgebühr ist bei der Ankunft an die Behörden zu zahlen — die Höhe hängt von Ihrer Staatsangehörigkeit ab, und wir nennen Ihnen den Betrag vor der Reise.' },
-  { q: 'Bekomme ich das Visum bei Ankunft für Djanet und das Tassili n\'Ajjer?', a: 'Ja — Djanet ist das Tor zum Nationalpark Tassili n\'Ajjer und zum Tadrart Rouge und gehört zu den südlichen Wilayas, für die diese Route gedacht ist. Voraussetzung ist eine organisierte Reise mit einem lizenzierten algerischen Veranstalter: Wir bereiten die Autorisierung vorab vor, die Vignette wird bei Ankunft ausgestellt. Nennen Sie uns Ihre Staatsangehörigkeit, dann bestätigen wir Ihre Berechtigung vor der Buchung.' },
-  { q: 'Welche Flughäfen im Süden werden angeflogen?', a: 'Djanet–Tiska (DJG) für das Tassili n\'Ajjer und das Tadrart Rouge, Tamanrasset (TMR) für den Hoggar, Ghardaïa Noumérat (GHA) für das M\'Zab-Tal und Timimoun (TMX) für den Gourara. Die meisten Routen führen über Algier; die Inlandsflüge buchen wir als Teil Ihres Programms.' },
-  { q: 'Kann ich auch den Norden besuchen oder nur die Wüste?', a: 'Beides. Mit unserer Unterstützung kann eine einzige Reise den Norden und den Süden verbinden, sofern ungefähr die Hälfte der Reise in einer Sahara-Provinz (Wilaya) verbracht wird. Wir gestalten die Route so, dass sie die Voraussetzungen erfüllt.' },
+  { q: 'Was kostet das Sahara-e-Visum?', a: 'Das Visum-Genehmigungsdokument kostet 45 USD. Die Vorbereitung aller erforderlichen Unterlagen ist bei uns völlig kostenlos. Eine separate Vignetten-/Stempelgebühr ist bei der Ankunft an die Behörden zu zahlen — die Höhe richtet sich nach der Aufenthaltsdauer, von 5.000 DA (35 €) für 1–2 Tage bis 20.000 DA (140 €) für 8–10 Tage; die vollständige Tabelle steht weiter unten.' },
+  { q: 'Bekomme ich das Visum bei Ankunft für Djanet und das Tassili n\'Ajjer?', a: 'Ja — Djanet ist das Tor zum Nationalpark Tassili n\'Ajjer und zum Tadrart Rouge und gehört zu den südlichen Wilayas, für die diese Route gedacht ist. Voraussetzung ist, dass Ihr organisiertes Programm mit einem lizenzierten algerischen Veranstalter einen Sahara-Aufenthalt enthält: Wir bereiten die Autorisierung vorab vor, die Vignette wird bei der Ankunft am Flughafen Algier ausgestellt. Nennen Sie uns Ihre Staatsangehörigkeit, dann bestätigen wir Ihre Berechtigung vor der Buchung.' },
+  { q: 'Wo wird das Visum erteilt — muss ich im Süden landen?', a: 'Nein. Sie fliegen ganz normal nach Algier, und das Visum wird bei der Ankunft am Flughafen Algier erteilt. Entscheidend ist der Sahara-Aufenthalt in Ihrem Programm, nicht der Ankunftsflughafen. In Algerien buchen wir dann die Inlandsflüge in die Wüste — Djanet–Tiska (DJG) für das Tassili n\'Ajjer und das Tadrart Rouge, Tamanrasset (TMR) für den Hoggar, Ghardaïa Noumérat (GHA) für das M\'Zab-Tal, Timimoun (TMX) für den Gourara.' },
+  { q: 'Kann ich auch den Norden besuchen oder nur die Wüste?', a: 'Beides. Eine einzige Reise kann Algier, die Küste und die römischen Städte mit der Sahara verbinden — entscheidend ist, dass ein Sahara-Aufenthalt zum Programm gehört. Wir gestalten die Route so, dass sie die Voraussetzungen erfüllt.' },
   { q: 'Ist das Genehmigungsdokument offiziell und überprüfbar?', a: 'Ja. Es trägt einen QR-Code, der auf dem Portal des algerischen Innenministeriums überprüft werden kann. Die Ausstellung folgt den offiziellen Wegen — wir sind Ihr Partner für die Unterlagen; das Visum erteilen die algerischen Behörden.' },
   { q: 'Muss ich eine komplette Tour buchen, um es zu erhalten?', a: 'Ja. Die Sahara-e-Visum-Genehmigung ist verfügbar, wenn Sie ein vollständiges Programm bei uns buchen — sie ist Teil der Organisation Ihrer Reise, keine eigenständige Dienstleistung.' },
-  { q: 'Hat Algerien ein e-Visum für Touristen?', a: 'Für gewöhnliche Reisen nach Algerien gibt es kein allgemeines Online-Touristen-e-Visum. Die zwei praktikablen Wege sind ein Touristenvisum beim für Sie zuständigen algerischen Konsulat oder — für organisierte Sahara-Touren mit Einreise über den Süden — die von uns vorbereitete Sahara-Visumgenehmigung, wobei die Vignette bei der Ankunft ausgestellt wird. Wir übernehmen in beiden Fällen die Unterlagen.' },
-  { q: 'Wie reise ich konkret nach Algerien ein?', a: 'Die meisten Besucher fliegen mit einem Touristenvisum vom Konsulat nach Algier (oder zu einem anderen Flughafen im Norden), gestützt auf unser Einladungsschreiben. Reisende eines organisierten Sahara-Programms können stattdessen unseren Genehmigungsweg nutzen; die Vignette wird bei der Ankunft an den südlichen Gateway-Flughäfen ausgestellt. Wir bestätigen Ihnen, welcher Weg für Sie gilt.' },
+  { q: 'Hat Algerien ein e-Visum für Touristen?', a: 'Für gewöhnliche Reisen nach Algerien gibt es kein allgemeines Online-Touristen-e-Visum. Die zwei praktikablen Wege sind ein Touristenvisum beim für Sie zuständigen algerischen Konsulat oder — für organisierte Reisen mit Sahara-Aufenthalt — die von uns vorbereitete Sahara-Visumgenehmigung, wobei die Vignette bei der Ankunft am Flughafen Algier ausgestellt wird. Wir übernehmen in beiden Fällen die Unterlagen.' },
+  { q: 'Wie reise ich konkret nach Algerien ein?', a: 'Die meisten Besucher fliegen mit einem Touristenvisum vom Konsulat nach Algier (oder zu einem anderen Flughafen im Norden), gestützt auf unser Einladungsschreiben. Reisende, deren organisiertes Programm die Sahara enthält, können stattdessen unseren Genehmigungsweg nutzen; die Vignette wird bei der Ankunft am Flughafen Algier ausgestellt. Wir bestätigen Ihnen, welcher Weg für Sie gilt.' },
 ];
 const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
   mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
@@ -53,22 +54,22 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
       <p>Viele Reisende suchen nach einem „Algerien e-Visum“. Hier ist das ehrliche Bild, damit Sie mit Fakten statt mit Hoffnung planen.</p>
 
       <h2>Gibt es ein e-Visum für Algerien?</h2>
-      <p>Für gewöhnlichen Tourismus gibt es <strong>kein allgemeines Online-e-Visum</strong>, das Sie einfach beantragen und ausdrucken können. Die touristische Einreise nach Algerien läuft stattdessen über zwei etablierte Wege — und wir unterstützen beide, kostenlos, bei jeder Buchung.</p>
+      <p>Für gewöhnlichen Tourismus gibt es <strong>kein allgemeines Online-e-Visum</strong>, das Sie einfach beantragen und ausdrucken können. Die touristische Einreise nach Algerien läuft stattdessen über zwei etablierte Wege — und wir übernehmen die Unterlagen für beide.</p>
 
       <h2>Weg 1 — Touristenvisum über das Konsulat (der Norden &amp; die meisten Reisen)</h2>
-      <p>Sie beantragen ein Touristenvisum beim <strong>algerischen Konsulat</strong>, das für Ihr Land zuständig ist, in der Regel persönlich. Konsulate verlangen ein <strong>Einladungsschreiben / einen Touristen-Voucher</strong> einer lizenzierten algerischen Agentur — den stellen wir Ihnen aus, zusammen mit Ihrer Hotel- und Tourbestätigung und einer Checkliste für Ihre Staatsangehörigkeit. Planen Sie etwa <strong>zwei bis vier Wochen</strong> ein.</p>
+      <p>Sie beantragen ein Touristenvisum beim <strong>algerischen Konsulat</strong>, das für Ihr Land zuständig ist, in der Regel persönlich. Konsulate verlangen ein <strong>Einladungsschreiben / einen Touristen-Voucher</strong> einer lizenzierten algerischen Agentur — den stellen wir Ihnen aus (25 USD) — für jedes Programm ab 3 Tagen mit Flughafenabholung und -transfer —, zusammen mit Ihrer Hotel- und Tourbestätigung und einer Checkliste für Ihre Staatsangehörigkeit. Planen Sie etwa <strong>zwei bis vier Wochen</strong> ein.</p>
 
       <h2>Weg 2 — Das Sahara-e-Visum (organisierte Wüstenprogramme)</h2>
-      <p>Das kommt einem „Online“-Weg am nächsten. Für ein <strong>organisiertes Sahara-Programm</strong> bereiten wir im Voraus ein <strong>Visum-Genehmigungsdokument</strong> vor — kein Konsulatsbesuch nötig — und Ihre Visumvignette wird bei der Ankunft an den südlichen Gateway-Flughäfen ausgestellt. Dieser Weg steht <strong>Reisenden aller Nationalitäten offen</strong>, jedoch nur bei organisierten Sahara-Reisen. <a href="#saharan-evisa">So funktioniert das Sahara-e-Visum im Detail ↓</a></p>
+      <p>Das kommt einem „Online“-Weg am nächsten. Für ein <strong>organisiertes Sahara-Programm</strong> bereiten wir im Voraus ein <strong>Visum-Genehmigungsdokument</strong> vor — kein Konsulatsbesuch nötig — und Ihre Visumvignette wird bei der Ankunft am <strong>Flughafen Algier</strong> ausgestellt. Dieser Weg steht <strong>Reisenden aller Nationalitäten offen</strong>, sofern Ihr organisiertes Programm einen Sahara-Aufenthalt enthält. <a href="#saharan-evisa">So funktioniert das Sahara-e-Visum im Detail ↓</a></p>
 
-      <h2>Welche Teile Algeriens als „der Süden" gelten</h2>
-      <p>Die Südroute ist auf Algeriens saharische Wilayas ausgelegt. Unsere Programme nutzen konkret <strong>Djanet</strong> — das Tor zum Nationalpark <strong>Tassili n'Ajjer</strong> und zum <strong>Tadrart Rouge</strong> —, <strong>Tamanrasset</strong> im Hoggar, <strong>Ghardaïa</strong> im M'Zab-Tal und <strong>Timimoun</strong> im Gourara. Erreicht werden sie über die zugehörigen Flughäfen im Süden: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> und <strong>Timimoun (TMX)</strong>, in der Regel mit Umstieg in Algier. Wenn Sie eine unserer <a href="/de/reisen/">Sahara-Reisen</a> buchen, ist die Route bereits entsprechend angelegt.</p>
+      <h2>Was als Sahara-Aufenthalt zählt</h2>
+      <p>Dieser Weg verlangt einen Sahara-Aufenthalt im Programm — egal, an welchem Flughafen Sie landen, das Visum wird in Algier erteilt. Unsere Programme nutzen konkret <strong>Djanet</strong> — das Tor zum Nationalpark <strong>Tassili n'Ajjer</strong> und zum <strong>Tadrart Rouge</strong> —, <strong>Tamanrasset</strong> im Hoggar, <strong>Ghardaïa</strong> im M'Zab-Tal und <strong>Timimoun</strong> im Gourara. In Algerien buchen wir die Inlandsflüge zu den zugehörigen Flughäfen: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> und <strong>Timimoun (TMX)</strong>. Wenn Sie eine unserer <a href="/de/reisen/">Sahara-Reisen</a> buchen, ist die Route bereits entsprechend angelegt.</p>
 
       <h2>Wie unsere Visum-Unterstützung dazu passt</h2>
-      <p>Welcher Weg auch gilt: Wir bereiten die Unterlagen vor, die Konsulate und Behörden erwarten — kostenlos bei Ihrer Buchung. Alle Details und erforderlichen Dokumente finden Sie unter <a href="/de/visum-hilfe-algerien/">Visum-Unterstützung</a>, und die <a href="/de/visum-bei-ankunft-algerien/">Visabestimmungen für Algerien</a> stellen die beiden Wege direkt gegenüber. Wir sind Ihr Partner für die Unterlagen; das Visum erteilt das Konsulat bzw. der Staat.</p>
+      <p>Welcher Weg auch gilt: Wir bereiten die Unterlagen vor, die Konsulate und Behörden erwarten . Alle Details und erforderlichen Dokumente finden Sie unter <a href="/de/visum-hilfe-algerien/">Visum-Unterstützung</a>, und die <a href="/de/visum-bei-ankunft-algerien/">Visabestimmungen für Algerien</a> stellen die beiden Wege direkt gegenüber. Wir sind Ihr Partner für die Unterlagen; das Visum erteilt das Konsulat bzw. der Staat.</p>
 
       <h2>Vor der Reise prüfen</h2>
-      <p>Die algerischen Einreisebestimmungen <strong>unterscheiden sich je nach Staatsangehörigkeit und ändern sich mit der Zeit</strong>. Bestätigen Sie die aktuellen Anforderungen immer bei Ihrem offiziellen algerischen Konsulat, und nennen Sie uns Ihre Staatsangehörigkeit, damit wir Ihnen genau sagen können, welcher Weg — Konsulatsvisum oder Visum bei Ankunft im Süden — zu Ihrer Reise passt.</p>
+      <p>Die algerischen Einreisebestimmungen <strong>unterscheiden sich je nach Staatsangehörigkeit und ändern sich mit der Zeit</strong>. Bestätigen Sie die aktuellen Anforderungen immer bei Ihrem offiziellen algerischen Konsulat, und nennen Sie uns Ihre Staatsangehörigkeit, damit wir Ihnen genau sagen können, welcher Weg — Konsulatsvisum oder Visum bei Ankunft — zu Ihrer Reise passt.</p>
 
       <p style="color:var(--text-l);font-size:.9rem">Nicht sicher, welcher Weg Ihrer ist? <a href="/de/kontakt/">Fragen Sie uns</a> oder schreiben Sie uns auf <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a> — wir bestätigen es und senden Ihnen Ihre Checkliste.</p>
       <!-- OWNER: if Algeria introduces an official tourist e-Visa portal, link it here and update Route framing. -->
@@ -80,14 +81,14 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
     <div class="sev-head">
       <span class="eyebrow">Für organisierte Sahara-Programme</span>
       <h2>Das Sahara-e-Visum — so funktioniert es</h2>
-      <p class="sev-lede">Als <strong>lizenzierter algerischer Reiseveranstalter</strong> können wir Ihr Visum-Genehmigungsdokument vorbereiten, damit Sie durch Algeriens Süden reisen können. Die Ausstellung folgt den offiziellen Wegen: Wir übernehmen jede Unterlage, und die algerischen Behörden erteilen das Visum. Hier steht genau, was das bedeutet — und was es kostet.</p>
+      <p class="sev-lede">Als <strong>lizenzierter algerischer Reiseveranstalter</strong> können wir Ihr Visum-Genehmigungsdokument vorbereiten, für eine Reise mit Sahara-Aufenthalt. Die Ausstellung folgt den offiziellen Wegen: Wir übernehmen jede Unterlage, und die algerischen Behörden erteilen das Visum. Hier steht genau, was das bedeutet — und was es kostet.</p>
     </div>
 
     <ol class="sev-steps">
       <li>
         <span class="sev-n">1</span>
         <div><strong>Ein vollständiges Programm buchen</strong>
-        <p>Die Sahara-e-Visum-Genehmigung ist verfügbar, wenn Sie eine vollständige Tour bei uns buchen. Wir gestalten Ihre Route so, dass <strong>ungefähr die Hälfte der Reise in einer Sahara-Provinz (Wilaya) verbracht wird</strong> — so können Sie <strong>Norden und Süden</strong> in einer Reise verbinden.</p></div>
+        <p>Die Sahara-e-Visum-Genehmigung ist verfügbar, wenn Sie eine vollständige Tour bei uns buchen. Entscheidend ist ein <strong>Sahara-Aufenthalt im Programm</strong> — so können Sie <strong>Norden und Süden</strong> in einer Reise verbinden und ganz normal in Algier landen.</p></div>
       </li>
       <li>
         <span class="sev-n">2</span>
@@ -96,25 +97,27 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
       </li>
       <li>
         <span class="sev-n">3</span>
-        <div><strong>Wir stellen Ihre Genehmigung aus — 40 €</strong>
-        <p>Sie erhalten ein <strong>Visum-Genehmigungsdokument mit QR-Code</strong>, der <strong>auf dem Portal des algerischen Innenministeriums überprüfbar</strong> ist. Das Dokument kostet <strong>40 €</strong>.</p></div>
+        <div><strong>Wir stellen Ihre Genehmigung aus — 45 USD</strong>
+        <p>Sie erhalten ein <strong>Visum-Genehmigungsdokument mit QR-Code</strong>, der <strong>auf dem Portal des algerischen Innenministeriums überprüfbar</strong> ist. Das Dokument kostet <strong>45 USD</strong>.</p></div>
       </li>
       <li>
         <span class="sev-n">4</span>
         <div><strong>Vignettengebühr bei der Ankunft zahlen</strong>
-        <p>Eine <strong>Vignetten-/Stempelgebühr ist bei der Ankunft</strong> an die algerischen Behörden zu zahlen, die das Visum erteilen. Die Höhe hängt von Ihrer Staatsangehörigkeit ab — wir bestätigen Ihnen den Betrag vor der Reise.</p></div>
+        <p>Eine <strong>Vignetten-/Stempelgebühr ist bei der Ankunft</strong> an die algerischen Behörden zu zahlen, die das Visum erteilen. Die Höhe richtet sich nach der Aufenthaltsdauer — siehe Tabelle unten.</p></div>
       </li>
     </ol>
 
+    <StampFeeTable lang="de" />
+
     <div class="sev-facts">
-      <div class="sev-fact"><span class="sev-fig">40 €</span><span class="sev-lab">Genehmigungsdokument</span></div>
+      <div class="sev-fact"><span class="sev-fig">45 USD</span><span class="sev-lab">Genehmigungsdokument</span></div>
       <div class="sev-fact"><span class="sev-fig">Kostenlos</span><span class="sev-lab">Wir bereiten jede Unterlage vor</span></div>
       <div class="sev-fact"><span class="sev-fig">QR-geprüft</span><span class="sev-lab">Auf dem Portal des Innenministeriums</span></div>
-      <div class="sev-fact"><span class="sev-fig">Norden + Süden</span><span class="sev-lab">≈ die halbe Reise in einer Sahara-Provinz</span></div>
+      <div class="sev-fact"><span class="sev-fig">Norden + Süden</span><span class="sev-lab">Jedes Programm mit Sahara-Aufenthalt</span></div>
     </div>
 
     <div class="sev-note">
-      <p><strong>Ein ehrliches Wort:</strong> Die Vignettengebühr bei der Ankunft ist eine staatliche Abgabe, getrennt von unserer Dokumentgebühr von 40 €, und die Einreisebestimmungen unterscheiden sich je nach Staatsangehörigkeit. Nennen Sie uns Ihre Staatsangehörigkeit, und wir bestätigen Ihnen sowohl Ihre Berechtigung als auch die genaue Gebühr bei der Ankunft, bevor Sie sich festlegen.</p>
+      <p><strong>Ein ehrliches Wort:</strong> Der Visumstempel am Flughafen Algier ist eine staatliche Abgabe, getrennt von unserer Dokumentgebühr von 45 USD, und richtet sich nach der Aufenthaltsdauer, nicht nach dem Pass. Nennen Sie uns Staatsangehörigkeit und Termine, und wir bestätigen Ihnen Ihre Berechtigung und den genauen Betrag, bevor Sie sich festlegen.</p>
     </div>
 
     <div class="sev-cta">

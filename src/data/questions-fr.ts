@@ -64,7 +64,7 @@ export const QUESTIONS_FR: Record<string, QuestionI18n> = {
   },
   "can-i-get-an-algeria-visa-on-arrival": {
     "q": "Peut-on obtenir un visa algérien à l'arrivée ?",
-    "a": "En général non. La quasi-totalité des visiteurs doit obtenir un visa algérien avant le départ, auprès d'un consulat. La seule exception reconnue est un circuit organisé au Sahara entrant par l'extrême sud (Djanet ou Tamanrasset), où un opérateur algérien licencié peut organiser l'entrée du groupe. Vérifiez les règles en vigueur auprès de votre consulat avant de réserver vos vols.",
+    "a": "En général non. La quasi-totalité des visiteurs doit obtenir un visa algérien avant le départ, auprès d'un consulat. La seule exception reconnue est un circuit organisé qui comprend le Sahara : un opérateur algérien licencié dépose votre dossier à l'avance et le visa est délivré à l'arrivée à l'aéroport d'Alger. Vérifiez les règles en vigueur auprès de votre consulat avant de réserver vos vols.",
     "kf": [
       [
         "Règle générale",
@@ -72,7 +72,7 @@ export const QUESTIONS_FR: Record<string, QuestionI18n> = {
       ],
       [
         "Exception",
-        "Circuits organisés dans l'extrême sud"
+        "Circuits organisés comprenant le Sahara"
       ],
       [
         "Organisé par",
@@ -218,7 +218,7 @@ export const QUESTIONS_FR: Record<string, QuestionI18n> = {
   },
   "do-i-need-a-visa-for-algeria": {
     "q": "Ai-je besoin d'un visa pour l'Algérie ?",
-    "a": "La plupart des nationalités ont besoin d'un visa pour se rendre en Algérie, demandé à l'avance auprès d'un consulat algérien, en général avec une lettre d'invitation d'un tour-opérateur. Certains dispositifs permettent un visa à l'arrivée pour les circuits organisés au Sahara par le sud. Vérifiez toujours les règles en vigueur auprès du consulat algérien le plus proche.",
+    "a": "La plupart des nationalités ont besoin d'un visa pour se rendre en Algérie, demandé à l'avance auprès d'un consulat algérien, en général avec une lettre d'invitation d'un tour-opérateur. Les circuits organisés qui comprennent le Sahara permettent un visa à l'arrivée à l'aéroport d'Alger. Vérifiez toujours les règles en vigueur auprès du consulat algérien le plus proche.",
     "kf": [
       [
         "La plupart des voyageurs",
@@ -230,7 +230,7 @@ export const QUESTIONS_FR: Record<string, QuestionI18n> = {
       ],
       [
         "Circuits au Sahara",
-        "Un visa à l'arrivée peut s'appliquer"
+        "Visa à l'arrivée à l'aéroport d'Alger"
       ],
       [
         "À confirmer auprès du",

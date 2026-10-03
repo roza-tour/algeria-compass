@@ -3192,7 +3192,7 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "q": "¿Necesito visado?",
-        "a": "Sí, y esta es precisamente la ruta a la que se aplica la entrada por el sur — un programa sahariano organizado que llega por Djanet, abierto a viajeros de cualquier nacionalidad. Preparamos la documentación junto con tu reserva; confirma los requisitos vigentes con tu consulado argelino."
+        "a": "Sí, y como este programa incluye el Sáhara, se aplica el visado a la llegada: depositamos el expediente con antelación y el visado se emite a la llegada en el aeropuerto de Argel (autorización 45 USD), para cualquier nacionalidad. Preparamos la documentación junto con tu reserva; confirma los requisitos vigentes con tu consulado argelino."
       },
       {
         "q": "¿Cómo es el grupo?",

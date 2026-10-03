@@ -29,7 +29,7 @@ export const GUIDES_IT: GuideIt[] = [
     sections: [
       { h: 'Il paese in breve', p: "Repubblica sul Mediterraneo meridionale, l'Algeria confina con Tunisia e Libia a est, Niger, Mali e Mauritania a sud, Sahara Occidentale e Marocco a ovest. La popolazione è concentrata nella fascia costiera e negli altipiani del nord, mentre il vasto sud è quasi disabitato. Arabo e tamazight sono lingue ufficiali; il francese resta molto diffuso in amministrazione, commercio e segnaletica. Il paese è diviso in 58 province." },
       { h: 'Quando andare', p: "Primavera (marzo–maggio) e autunno (settembre–novembre) sono i periodi migliori per il nord, la costa e le città romane. L'inverno (novembre–febbraio) è l'unica stagione in cui si può percorrere il Sahara profondo, ed è anche quando i siti romani sono più piacevoli. L'estate è calda sulla costa e proibitiva nel sud." },
-      { h: 'Visto e ingresso', p: "Quasi tutte le nazionalità hanno bisogno di un visto turistico ottenuto prima della partenza presso un consolato algerino, di norma con una lettera d'invito e prenotazioni confermate. Non esiste un e-visa generale. L'unica eccezione riconosciuta riguarda i viaggi organizzati nel grande sud, che entrano da Djanet o Tamanrasset con un operatore autorizzato." },
+      { h: 'Visto e ingresso', p: "Quasi tutte le nazionalità hanno bisogno di un visto turistico ottenuto prima della partenza presso un consolato algerino, di norma con una lettera d'invito e prenotazioni confermate. Non esiste un e-visa generale. L'unica eccezione riconosciuta riguarda i viaggi organizzati che includono il Sahara: con un operatore autorizzato, il visto viene rilasciato all'arrivo all'aeroporto di Algeri." },
       { h: 'Sicurezza', p: "Per il viaggio ordinario le città del nord, la costa, l'est romano e i circuiti sahariani organizzati sono generalmente tranquilli, con i piccoli furti come preoccupazione principale. Alcune zone di frontiera remote e parti del deserto lontane dalle rotte battute portano avvisi ufficiali. Il grande sud si percorre con operatore, guida e permessi." },
       { h: 'Muoversi', p: "Il paese è troppo grande per essere attraversato via terra in una vacanza normale. Nel nord funzionano bene treno e autostrada est-ovest; per il sud il volo interno è di fatto obbligatorio, seguito da 4×4 con autista. Air Algérie e Tassili Airlines collegano Algeri con Orano, Costantina, Ghardaïa, Timimoun, Tamanrasset e Djanet." },
       { h: 'Soldi', p: "La valuta è il dinaro algerino, non convertibile all'estero: si arriva con contanti in euro e si cambia in Algeria. Le carte di credito straniere sono di fatto inutilizzabili e i bancomat inaffidabili. Esiste un tasso ufficiale e un tasso parallelo largamente praticato, e la differenza incide molto sul budget." },
@@ -75,7 +75,7 @@ export const GUIDES_IT: GuideIt[] = [
       ]},
       { h: "La lettera d'invito", p: "È la parte che sorprende chi presenta domanda per la prima volta. I consolati algerini vogliono sapere chi vi riceve. Se non avete contatti privati in Algeria, la via standard è l'invito di un'agenzia autorizzata, emesso su carta intestata con le vostre date, l'itinerario e gli alloggi. La lettera da sola raramente basta: deve corrispondere alle prenotazioni allegate." },
       { h: 'Tempi', p: "Non esiste un tempo unico: ogni consolato gestisce il proprio carico. In pratica si va da circa due settimane a oltre un mese, con i periodi più lenti in estate e prima delle grandi festività. La regola che fa risparmiare denaro è semplice: non comprate voli non rimborsabili finché il visto non è fisicamente sul passaporto." },
-      { h: "L'eccezione del grande sud", p: "Per i viaggi organizzati nel deserto profondo che entrano da Djanet o Tamanrasset, un'agenzia algerina autorizzata può in alcuni casi far processare il gruppo all'arrivo, perché ha depositato in anticipo dati e permessi. Non è qualcosa che un viaggiatore indipendente possa organizzare in aeroporto." },
+      { h: "L'eccezione dei viaggi con il Sahara", p: "Per i viaggi organizzati che includono un soggiorno nel Sahara, un'agenzia algerina autorizzata deposita in anticipo dati e permessi e il visto viene rilasciato all'arrivo all'aeroporto di Algeri. Non è qualcosa che un viaggiatore indipendente possa organizzare in aeroporto." },
       { h: 'Perché le domande vengono respinte', list: [
         'Fascicolo incompleto — la causa di gran lunga più frequente',
         "Invito e prenotazioni che non coincidono tra loro",
@@ -86,11 +86,11 @@ export const GUIDES_IT: GuideIt[] = [
     ],
     faqs: [
       { q: "Esiste un e-visa per l'Algeria?", a: 'No, non esiste un visto turistico elettronico generale. Diffidate dei siti commerciali che ne promettono uno: al massimo sono servizi di compilazione moduli, e il consolato non è tenuto a riconoscerli.' },
-      { q: 'Si può ottenere il visto in aeroporto?', a: "In generale no. L'unica eccezione riguarda i viaggi organizzati nel grande sud, gestiti da un operatore algerino autorizzato che ha depositato i documenti in anticipo." },
-      { q: 'Fornite voi la lettera di invito?', a: 'Sì. Per ogni viaggiatore che prenota con noi prepariamo invito, programma confermato e dettagli degli alloggi nel formato che i consolati si aspettano.' },
+      { q: 'Si può ottenere il visto in aeroporto?', a: "In generale no. L'unica eccezione riguarda i viaggi organizzati che includono il Sahara: un operatore algerino autorizzato deposita i documenti in anticipo e il visto viene rilasciato all'arrivo all'aeroporto di Algeri (autorizzazione 45 USD, timbro pagato a parte in aeroporto)." },
+      { q: 'Fornite voi la lettera di invito?', a: 'Sì, per qualsiasi programma di almeno 3 giorni con accoglienza e trasferimento in aeroporto: la lettera d\'invito costa 25 USD e include programma confermato e dettagli degli alloggi nel formato che i consolati si aspettano.' },
       { q: 'Quanto costa il visto?', a: "Le tariffe consolari variano per nazionalità e tipo di visto e vengono aggiornate periodicamente. Chiedete l'importo attuale direttamente al consolato competente." },
     ],
-    cta: { h: 'Vi aiutiamo con il visto', p: "Invito, programma confermato e prenotazioni nel formato richiesto dai consolati — compresi nell'organizzazione del viaggio." },
+    cta: { h: 'Vi aiutiamo con il visto', p: "Invito (25 USD), programma confermato e prenotazioni nel formato richiesto dai consolati, per qualsiasi programma di almeno 3 giorni con trasferimenti aeroportuali." },
     seoTitle: "Visto per l'Algeria: documenti e tempi | Algeria Compass",
     seoDescription: "Come ottenere il visto turistico per l'Algeria: documenti richiesti, lettera d'invito dell'agenzia, tempi di rilascio e perché le domande vengono respinte.",
   },
@@ -208,19 +208,19 @@ export const GUIDES_IT: GuideIt[] = [
     "eyebrow": "Visto e ingresso",
     "h1": "Serve il visto per l'Algeria?",
     "published": "2026-07-27",
-    "lead": "Due strade per entrare in Algeria, e una delle due salta del tutto il consolato. La maggior parte dei viaggiatori ottiene un visto turistico prima della partenza; chi arriva con un viaggio organizzato attraverso il grande sud — Djanet o Tamanrasset — può invece essere sdoganato all'arrivo, e quella via è aperta a viaggiatori di qualsiasi nazionalità.",
+    "lead": "Due strade per entrare in Algeria, e una delle due salta del tutto il consolato. La maggior parte dei viaggiatori ottiene un visto turistico prima della partenza; chi ha un viaggio organizzato che include il Sahara può invece ottenere il visto all'arrivo all'aeroporto di Algeri, e quella via è aperta a viaggiatori di qualsiasi nazionalità.",
     "sections": [
       {
         "h": "Strada 1: visto consolare, prima di partire",
-        "p": "Vale per chiunque visiti il nord, la costa, le città romane o la valle del M'Zab, e per chiunque viaggi in autonomia. Voi ci dite date e itinerario, noi emettiamo la lettera d'invito e il programma confermato su carta intestata, voi presentate il fascicolo al consolato algerino competente per la vostra residenza, e il visto viene apposto sul passaporto prima della partenza. Mettete in conto da due settimane a oltre un mese, e non comprate voli non rimborsabili finché il visto non è fisicamente sul passaporto."
+        "p": "Vale per chi non va nel Sahara — il nord, la costa, le città romane — e per chiunque viaggi in autonomia. Voi ci dite date e itinerario, noi emettiamo la lettera d'invito (25 USD, per qualsiasi programma di almeno 3 giorni con accoglienza e trasferimento in aeroporto) e il programma confermato su carta intestata, voi presentate il fascicolo al consolato algerino competente per la vostra residenza, e il visto viene apposto sul passaporto prima della partenza. Mettete in conto da due settimane a oltre un mese, e non comprate voli non rimborsabili finché il visto non è fisicamente sul passaporto."
       },
       {
-        "h": "Strada 2: visto all'arrivo, dai varchi del sud",
-        "p": "Vale per chi viaggia con un itinerario sahariano organizzato e atterra a Djanet o Tamanrasset, ed è aperta a qualsiasi nazionalità. Voi prenotate un programma del sud con noi, noi depositiamo in anticipo i dati del passaporto e i permessi del deserto, voi volate da Algeri verso sud e l'ingresso viene processato all'arrivo. Non serve appuntamento in consolato. Confermiamo per iscritto che la vostra posizione rientra in questa via prima che prenotiate i voli."
+        "h": "Strada 2: visto all'arrivo all'aeroporto di Algeri",
+        "p": "Vale per chi viaggia con un programma organizzato che include un soggiorno nel Sahara, ed è aperta a qualsiasi nazionalità. Voi prenotate con noi un programma con il Sahara, noi depositiamo in anticipo i dati del passaporto e i permessi del deserto, voi arrivate ad Algeri come di consueto e il visto viene rilasciato all'arrivo all'aeroporto di Algeri. Autorizzazione sahariana 45 USD; il timbro d'ingresso si paga a parte in aeroporto. Non serve appuntamento in consolato. Confermiamo per iscritto che la vostra posizione rientra in questa via prima che prenotiate i voli."
       },
       {
         "h": "Quale delle due vi riguarda",
-        "p": "Dipende da dove andate, non dal vostro passaporto. Se il viaggio comprende Algeri, la costa mediterranea, le città romane dell'est o la valle del M'Zab, serve il visto consolare. Se il viaggio è una spedizione sahariana che entra dal sud — Tassili n'Ajjer, Tadrart, Hoggar — la via del visto all'arrivo è disponibile qualunque sia il vostro passaporto. Entrambe passano da noi come operatore autorizzato."
+        "p": "Dipende da dove andate, non dal vostro passaporto. Se il vostro viaggio organizzato include il Sahara — Tassili n'Ajjer, Tadrart, Timimoun, la valle del M'Zab — la via del visto all'arrivo è disponibile qualunque sia il vostro passaporto, anche se il resto del viaggio è Algeri, la costa e le città romane. Se il viaggio resta nel nord, o viaggiate in autonomia, serve il visto consolare. Entrambe passano da noi come operatore autorizzato."
       },
       {
         "h": "E l'esenzione dal visto?",
@@ -234,11 +234,11 @@ export const GUIDES_IT: GuideIt[] = [
       },
       {
         "q": "Si può entrare senza passare dal consolato?",
-        "a": "Sì, per una via sola: un viaggio organizzato che entra dai varchi meridionali di Djanet o Tamanrasset. Un operatore algerino autorizzato deposita in anticipo i dati e i permessi e l'ingresso avviene all'arrivo. Non è qualcosa che un viaggiatore indipendente possa organizzare in aeroporto."
+        "a": "Sì, per una via sola: un viaggio organizzato che include un soggiorno nel Sahara. Un operatore algerino autorizzato deposita in anticipo i dati e i permessi e il visto viene rilasciato all'arrivo all'aeroporto di Algeri. Non è qualcosa che un viaggiatore indipendente possa organizzare in aeroporto."
       },
       {
         "q": "Quali nazionalità possono usare il visto all'arrivo?",
-        "a": "È aperto a viaggiatori di qualsiasi nazionalità su un itinerario meridionale idoneo. Confermiamo il vostro caso specifico per iscritto prima che prenotiate i voli."
+        "a": "È aperto a viaggiatori di qualsiasi nazionalità con un programma organizzato che include il Sahara. Confermiamo il vostro caso specifico per iscritto prima che prenotiate i voli."
       },
       {
         "q": "L'Algeria ha un e-visa?",
@@ -254,7 +254,7 @@ export const GUIDES_IT: GuideIt[] = [
       "p": "Vi confermiamo per iscritto quale via vi riguarda, prima che prenotiate qualsiasi cosa."
     },
     "seoTitle": "Serve il visto per l'Algeria? Le due vie d'ingresso",
-    "seoDescription": "Due vie per entrare in Algeria: visto consolare prima della partenza, o visto all'arrivo nel sud con un viaggio organizzato — aperto a ogni nazionalità."
+    "seoDescription": "Due vie per l'Algeria: visto consolare prima della partenza, o visto all'arrivo ad Algeri con un viaggio organizzato che include il Sahara."
   },
   {
     "slug": "assistenza-visto-algeria",
@@ -262,13 +262,13 @@ export const GUIDES_IT: GuideIt[] = [
     "fr": "/fr/assistance-visa-algerie/",
     "eyebrow": "Prima di partire",
     "h1": "Assistenza per il visto algerino",
-    "lead": "Il visto è la parte della pianificazione che scoraggia più viaggiatori, e quasi sempre per un motivo banale: i consolati chiedono documenti che solo un operatore algerino autorizzato può emettere. Siamo quell'operatore. Non rilasciamo il visto — lo fa il consolato o l'autorità algerina — ma prepariamo l'intero fascicolo, gratis con ogni prenotazione, e vi diciamo esattamente cosa portare.",
+    "lead": "Il visto è la parte della pianificazione che scoraggia più viaggiatori, e quasi sempre per un motivo banale: i consolati chiedono documenti che solo un operatore algerino autorizzato può emettere. Siamo quell'operatore. Non rilasciamo il visto — lo fa il consolato o l'autorità algerina — ma prepariamo l'intero fascicolo con la vostra prenotazione e vi diciamo esattamente cosa portare.",
     "published": "2026-07-27",
     "sections": [
       {
-        "h": "Cosa prepariamo, gratis con ogni prenotazione",
+        "h": "Cosa prepariamo (programmi di almeno 3 giorni con trasferimenti aeroportuali)",
         "list": [
-          "La lettera d'invito ufficiale (voucher turistico) su carta intestata dell'agenzia",
+          "La lettera d'invito ufficiale (voucher turistico) su carta intestata dell'agenzia — 25 USD",
           "La conferma dell'itinerario e degli alberghi, coerente con la lettera",
           "L'elenco preciso dei documenti richiesti per la vostra nazionalità",
           "L'assistenza passo per passo fino al deposito della pratica"
@@ -276,11 +276,11 @@ export const GUIDES_IT: GuideIt[] = [
       },
       {
         "h": "Via 1 — il visto consolare",
-        "p": "È la via ordinaria per il nord, la costa, le città romane e la valle del M'Zab, e l'unica per chi viaggia in autonomia. Si deposita la domanda al consolato algerino competente per la propria residenza, di norma di persona. Quasi tutti i consolati chiedono la lettera d'invito di un'agenzia algerina autorizzata: è esattamente il documento che vi emettiamo noi. La coerenza fra lettera e prenotazioni è ciò che fa passare o respingere un fascicolo."
+        "p": "È la via ordinaria per i viaggi che restano nel nord — la costa, le città romane — e l'unica per chi viaggia in autonomia. Si deposita la domanda al consolato algerino competente per la propria residenza, di norma di persona. Quasi tutti i consolati chiedono la lettera d'invito di un'agenzia algerina autorizzata: è esattamente il documento che vi emettiamo noi. La coerenza fra lettera e prenotazioni è ciò che fa passare o respingere un fascicolo."
       },
       {
         "h": "Via 2 — l'autorizzazione sahariana",
-        "p": "Per i viaggi organizzati che entrano dal grande sud, Djanet o Tamanrasset, prepariamo in anticipo un documento di autorizzazione al visto con QR code verificabile sul portale del Ministero dell'Interno algerino. Il visto viene poi apposto all'arrivo, senza appuntamento consolare. Conta l'itinerario, non il passaporto: questa via è aperta ai viaggiatori di ogni nazionalità, purché il programma sia sahariano e organizzato. Il documento costa 40 €; la preparazione del fascicolo resta gratuita, e all'arrivo si paga alle autorità una tassa di bollo che varia secondo la nazionalità."
+        "p": "Per i viaggi organizzati che includono un soggiorno nel Sahara (Djanet, Tamanrasset, Timimoun, il M'Zab…), prepariamo in anticipo un documento di autorizzazione al visto con QR code verificabile sul portale del Ministero dell'Interno algerino. Il visto viene poi apposto all'arrivo all'aeroporto di Algeri, senza appuntamento consolare. Conta l'itinerario, non il passaporto: questa via è aperta ai viaggiatori di ogni nazionalità, purché il programma organizzato includa il Sahara. Il documento costa 45 USD; la preparazione del fascicolo resta gratuita, e il timbro d'ingresso si paga a parte all'aeroporto di Algeri, secondo la durata del soggiorno."
       },
       {
         "h": "Cosa serve di solito",
@@ -303,7 +303,7 @@ export const GUIDES_IT: GuideIt[] = [
     "faqs": [
       {
         "q": "Quanto costa la vostra assistenza per il visto?",
-        "a": "La preparazione dei documenti è gratuita con ogni prenotazione: lettera d'invito, conferme e checklist non hanno costo. L'unica voce a pagamento è il documento di autorizzazione sahariana, 40 €, più la tassa di bollo che si paga alle autorità all'arrivo."
+        "a": "La lettera d'invito costa 25 USD, con qualsiasi programma di almeno 3 giorni con accoglienza e trasferimento in aeroporto; conferme e checklist non hanno costo. Per la via sahariana l'autorizzazione costa 45 USD e il timbro d'ingresso si paga a parte in aeroporto, secondo la durata del soggiorno."
       },
       {
         "q": "Quanto tempo richiede il visto consolare?",
@@ -311,7 +311,7 @@ export const GUIDES_IT: GuideIt[] = [
       },
       {
         "q": "Posso unire il nord e il deserto?",
-        "a": "Sì. Con la via sahariana l'itinerario può combinare nord e sud, a condizione che circa metà del viaggio si svolga in una wilaya sahariana. Costruiamo il programma in modo che rientri nei requisiti."
+        "a": "Sì. Basta che il programma organizzato includa un soggiorno nel Sahara: il resto del viaggio può svolgersi ad Algeri, sulla costa e nelle città romane."
       },
       {
         "q": "Il documento di autorizzazione è ufficiale?",
@@ -319,7 +319,7 @@ export const GUIDES_IT: GuideIt[] = [
       },
       {
         "q": "Devo per forza prenotare un circuito completo?",
-        "a": "Per la via sahariana sì: l'autorizzazione fa parte dell'organizzazione del viaggio, non è un servizio a sé. Per la via consolare emettiamo la lettera d'invito per qualsiasi itinerario che operiamo, anche interamente nel nord."
+        "a": "Per la via sahariana sì: l'autorizzazione fa parte dell'organizzazione del viaggio, non è un servizio a sé. Per la via consolare emettiamo la lettera d'invito (25 USD) per qualsiasi programma di almeno 3 giorni con accoglienza e trasferimento in aeroporto, anche interamente nel nord."
       }
     ],
     "cta": {
@@ -327,7 +327,7 @@ export const GUIDES_IT: GuideIt[] = [
       "p": "Vi confermiamo per iscritto quale via vi riguarda e vi inviamo la checklist dei documenti."
     },
     "seoTitle": "Assistenza visto Algeria | Algeria Compass",
-    "seoDescription": "Lettera d'invito, conferme e checklist dei documenti gratis con ogni prenotazione, più l'autorizzazione sahariana per l'ingresso dal sud."
+    "seoDescription": "Lettera d'invito (25 USD) per programmi di almeno 3 giorni con trasferimenti aeroportuali, e visto all'arrivo ad Algeri per i viaggi con il Sahara (45 USD)."
   },
   {
     slug: 'budget-algeria',
