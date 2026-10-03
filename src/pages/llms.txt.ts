@@ -91,13 +91,13 @@ const HUBS: [string, string, string][] = [
 type Section = { lang: Lang; heading: string; tours: any; dests: any[]; guides: any[]; lux: any; extra: [string, string, string][] };
 const SECTIONS: Section[] = [
   { lang: 'fr', heading: 'Site en français',  tours: TOURS_FR, dests: DESTINATIONS_FR, guides: [],        lux: luxFr,
-    extra: [] },   // French standalone pages are listed in FRENCH_GUIDES below
+    extra: [['/fr/planifier-mon-voyage/', 'Planifier mon voyage — prix immédiat', 'Cinq questions, le circuit privé qui vous correspond et son prix.']] },   // French standalone pages are listed in FRENCH_GUIDES below
   { lang: 'it', heading: 'Sito in italiano',  tours: TOURS_IT, dests: DESTINATIONS_IT, guides: GUIDES_IT, lux: luxIt,
     extra: [['/it/evisa-algeria/', 'e-Visa e ingresso in Algeria', "Come funziona davvero l'ingresso: nessun e-Visa turistico generale."]] },
   { lang: 'es', heading: 'Sitio en español',  tours: TOURS_ES, dests: DESTINATIONS_ES, guides: GUIDES_ES, lux: luxEs,
-    extra: [['/es/evisa-argelia/', 'e-Visa y entrada a Argelia', 'Cómo funciona realmente la entrada: no hay e-Visa turístico general.']] },
+    extra: [['/es/planifica-tu-viaje/', 'Planifica tu viaje — precio al instante', 'Cinco preguntas, el circuito privado ideal y su precio.'], ['/es/evisa-argelia/', 'e-Visa y entrada a Argelia', 'Cómo funciona realmente la entrada: no hay e-Visa turístico general.']] },
   { lang: 'de', heading: 'Website auf Deutsch', tours: TOURS_DE, dests: DESTINATIONS_DE, guides: GUIDES_DE, lux: luxDe,
-    extra: [['/de/evisa-algerien/', 'e-Visum & Einreise nach Algerien', 'Wie die Einreise wirklich funktioniert — kein allgemeines Touristen-e-Visum.']] },
+    extra: [['/de/reise-planen/', 'Reise planen — Preis sofort', 'Fünf Fragen, die passende Privatreise und ihr Preis.'], ['/de/evisa-algerien/', 'e-Visum & Einreise nach Algerien', 'Wie die Einreise wirklich funktioniert — kein allgemeines Touristen-e-Visum.']] },
 ];
 
 export const GET: APIRoute = async () => {

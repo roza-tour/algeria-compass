@@ -261,3 +261,9 @@ export function alternatesFor(site: string, paths: Partial<Record<Lang, string>>
   if (paths.en) out.push({ hreflang: 'x-default', href: s + paths.en });
   return out;
 }
+
+// The conversion landing page (/plan-your-trip/) exists in four languages.
+// Italian falls back to English until it is translated.
+export const PLAN_PATHS: Partial<Record<Lang, string>> = {
+  en: '/plan-your-trip/', fr: '/fr/planifier-mon-voyage/', es: '/es/planifica-tu-viaje/', de: '/de/reise-planen/',
+};

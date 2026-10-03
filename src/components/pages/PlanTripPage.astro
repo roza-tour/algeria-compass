@@ -1,0 +1,449 @@
+---
+// The conversion landing page (/plan-your-trip/ and its FR/ES/DE editions),
+// built for paid ads and organic traffic alike.
+//
+// Everything a visitor needs to decide is on one page, in this order:
+//   1. a five-question planner that names the right tour and the price for
+//      THEIR group, with the early-booking discount applied when it applies;
+//   2. a no-risk next step — hold the dates free, or WhatsApp;
+//   3. the guarantees that remove the usual fears about Algeria;
+//   4. proof (rating, licence, real travellers) and an honest season note.
+// A visitor about to leave is offered the early-booking discount in exchange
+// for an email or WhatsApp number.
+//
+// Layout and logic live here; words live in COPY below. Prices come from
+// tours.json and luxury.mjs, tour names/descriptions from each language's
+// tours-xx.ts, every promise from BOOKING in config.ts — the same sources as
+// the tour pages and /booking-terms/. Nothing here invents a price, a
+// deadline or a scarcity claim.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CONTACT, REVIEWS, BOOKING, LANGUAGES } from '../../config';
+import { ROUTES, PLAN_PATHS, alternatesFor, asLang, type Lang } from '../../i18n';
+import toursData from '../../data/tours.json';
+import { LUX_PRICING } from '../../data/luxury.mjs';
+import { TOURS_FR } from '../../data/tours-fr';
+import { TOURS_ES } from '../../data/tours-es';
+import { TOURS_DE } from '../../data/tours-de';
+
+export interface Props { lang?: string }
+const lang = asLang(Astro.props.lang) as Lang;
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const H = BOOKING.holdHours, E = BOOKING.earlyPct, D = BOOKING.earlyDays, C5 = BOOKING.cancelDays;
+const rating = REVIEWS.ratingValue.toFixed(1);
+
+const COPY: Record<string, any> = {
+  en: {
+    title: 'Plan Your Private Algeria Trip — Instant Price | Algeria Compass',
+    desc: `Answer five questions and see the right private tour and your price instantly. Dates held free ${H}h, full refund if your visa is refused, price locked.`,
+    kw: ['Algeria tour price', 'plan a trip to Algeria', 'private tour Algeria', 'Algeria Sahara tour', 'book Algeria tour'],
+    eyebrow: 'Private tours · licensed Algerian operator', h1: 'Your Algeria trip, priced in 60 seconds',
+    sub: 'Sahara, Roman cities, the Casbah — tell us what you want and see the right private tour and your price, now.',
+    go: 'Plan my trip', chips: [`✓ Dates held free ${H}h`, '✓ Visa refused = full refund', '✓ Price locked', `★ ${rating} on Google`],
+    q1: 'What would you love to see?', o1: ['🏜️ The Sahara', '🏛️ Roman cities & history', '✨ A bit of both', '🕌 Algiers & the coast'],
+    q2: 'How many days do you have?', o2: ['1–3 days', '4–6 days', '7–9 days', '10 days or more'],
+    q3: 'How many travellers?', fewer: 'One fewer traveller', more: 'One more traveller', next: 'Next',
+    q4: 'When would you like to travel?', hint: 'The deep Sahara is travelled from October to April.',
+    q5: 'Which style suits you?', o5: ['Comfortable — guesthouses, camps, good hotels', 'Luxury — five-star, all-inclusive'],
+    resH: 'Your best matches',
+    holdH: `Hold these dates — free for ${H} hours`, holdP: 'No payment, no card. We confirm availability, permits and flights and send your final, locked price.',
+    name: 'Your name', email: 'Email', note: 'Anything we should know? (optional)', holdBtn: 'Hold my dates free', waBtn: '💬 Or book on WhatsApp',
+    fine: `Then a deposit by bank transfer, card or PayPal secures the trip; the balance is due before departure. Free cancellation up to ${C5} days before.`, terms: 'Full terms',
+    restart: '↺ Start again', noscript: 'The planner needs JavaScript.', noscriptLink: 'Tell us about your trip here',
+    guarEyebrow: 'Book without the worry', guarH: 'Our guarantees',
+    guar: [[`Dates held free ${H}h`, 'Request now, pay nothing until we have confirmed everything.'], ['Visa refused? Full refund', 'Everything you paid us comes back. The biggest worry about Algeria, removed.'], ['Your price is locked', 'The price we confirm never goes up — not for season, demand or exchange rate.'], ['Free date changes', 'Plans move. Change your dates at no cost, subject to availability.'], ['Free cancellation', `Up to ${C5} days before departure, with a full refund.`], [`−${E}% booking early`, `Book ${D}+ days before departure and ${E}% comes off the tour price.`]],
+    proof: [[`★ ${rating}`, 'on Google'], ['7+ years', 'guiding in Algeria'], ['Licensed', 'Algerian operator, based in Algiers'], [`${LANGUAGES.names.length} languages`, 'spoken by our guides']],
+    momentsH: 'Our travellers, not stock photos', momentsAlt: 'A moment from one of our private trips in Algeria', momentsLink: 'See more moments from our trips →',
+    timingH: 'A note on timing', timing: 'The deep Sahara is travelled from <strong>October to April</strong>, and the Christmas and New Year weeks are the first to book up — domestic flights to the south are limited. If you have dates in mind, holding them costs nothing.',
+    faqH: 'Questions', safety: '/blog/algeria-safety-guide/',
+    faqs: [['Is it safe to travel to Algeria?', "The north, the M'Zab Valley and the organised Sahara routes are calm and very welcoming. We travel the deep desert only with permits and licensed guides."], ['Do I need a visa?', 'Most nationalities do. We prepare the invitation letter free with every booking; for organised Sahara trips the visa can be issued on arrival through our €40 authorisation. And if your visa is refused, we refund everything you paid us.'], ['Do I have to pay to hold my dates?', `No. Your dates are held free for ${H} hours while we confirm availability, permits and flights. A deposit — by bank transfer, card or PayPal — secures the trip only once you are happy.`], ['Are the tours private?', `Yes, every tour is private, on your own dates, with a licensed local guide. Our guides work in ${LANGUAGES.names.join(', ')}.`], ['Can the price change after I book?', 'No. The price we confirm in writing is locked — it does not rise for season, demand or exchange rate.']],
+    exitEyebrow: 'Before you go', exitH: `${E}% off when you book early`, exitP: `Book at least ${D} days before departure and ${E}% comes off any tour. Leave your email and we'll send you the trip that fits, with the discount applied.`, wa: 'WhatsApp (optional)', exitBtn: 'Send me my offer', exitMsg: 'Please send me a trip suggestion with the early-booking discount.', close: 'Close',
+    js: { locale: 'en-GB', best: 'Best match', also: 'Also great', from: 'From', pp: 'per person', trav1: 'traveller', travN: 'travellers', onreq: 'Price on request for this group size', hold: 'Hold my dates', early: (m: string) => `Travelling in ${m} qualifies for the early-booking discount: ${E}% off, shown below.`, soon: 'Travelling soon? Holding your dates now is the best way to secure guides and flights.', luxT: 'The 5-Star Collection — 8 days all-inclusive', luxH: 'Internal flights, five-star hotels, all meals, a private 4WD fleet, guides and entry fees.', luxD: '8 days', wants: { sahara: 'Sahara', history: 'Roman & history', both: 'Sahara + history', city: 'Algiers & coast' }, styles: { comfort: 'comfort', luxury: 'luxury' }, holdMsg: 'I would like to hold dates for:', waMsg: 'Hello! I would like to book:', travS: 'traveller(s)' },
+  },
+  fr: {
+    title: "Voyage privé en Algérie — Prix immédiat | Algeria Compass",
+    desc: `Cinq questions, et vous voyez le circuit privé idéal et son prix. Dates bloquées ${H} h sans frais, visa refusé = remboursé, prix garanti.`,
+    kw: ['prix voyage Algérie', 'circuit privé Algérie', 'voyage Sahara Algérie', 'réserver circuit Algérie', 'organiser voyage Algérie'],
+    eyebrow: 'Circuits privés · voyagiste algérien agréé', h1: 'Votre voyage en Algérie, chiffré en 60 secondes',
+    sub: 'Sahara, cités romaines, Casbah — dites-nous ce qui vous fait envie et découvrez le circuit privé qui vous correspond, avec son prix, maintenant.',
+    go: 'Planifier mon voyage', chips: [`✓ Dates bloquées gratuitement ${H} h`, '✓ Visa refusé = remboursement intégral', '✓ Prix garanti', `★ ${rating.replace('.', ',')} sur Google`],
+    q1: "Qu'aimeriez-vous découvrir ?", o1: ['🏜️ Le Sahara', '🏛️ Cités romaines & histoire', '✨ Un peu des deux', '🕌 Alger & la côte'],
+    q2: 'De combien de jours disposez-vous ?', o2: ['1 à 3 jours', '4 à 6 jours', '7 à 9 jours', '10 jours ou plus'],
+    q3: 'Combien de voyageurs ?', fewer: 'Un voyageur de moins', more: 'Un voyageur de plus', next: 'Suivant',
+    q4: 'Quand souhaitez-vous partir ?', hint: "Le grand Sahara se visite d'octobre à avril.",
+    q5: 'Quel style vous correspond ?', o5: ['Confortable — maisons d\'hôtes, bivouacs, bons hôtels', 'Luxe — cinq étoiles, tout compris'],
+    resH: 'Vos meilleures options',
+    holdH: `Bloquez ces dates — gratuitement pendant ${H} heures`, holdP: 'Sans paiement, sans carte. Nous confirmons disponibilités, permis et vols, puis vous envoyons votre prix définitif et garanti.',
+    name: 'Votre nom', email: 'E-mail', note: 'Quelque chose à nous dire ? (facultatif)', holdBtn: 'Bloquer mes dates gratuitement', waBtn: '💬 Ou réserver sur WhatsApp',
+    fine: `Ensuite, un acompte par virement, carte ou PayPal confirme le voyage ; le solde est dû avant le départ. Annulation gratuite jusqu'à ${C5} jours avant.`, terms: 'Conditions complètes',
+    restart: '↺ Recommencer', noscript: 'Le planificateur nécessite JavaScript.', noscriptLink: 'Parlez-nous de votre voyage ici',
+    guarEyebrow: 'Réservez sereinement', guarH: 'Nos garanties',
+    guar: [[`Dates bloquées gratuitement ${H} h`, 'Demandez maintenant, ne payez rien avant que tout soit confirmé.'], ['Visa refusé ? Remboursement intégral', "Tout ce que vous nous avez versé vous est rendu. La plus grande inquiétude sur l'Algérie, levée."], ['Votre prix est garanti', "Le prix confirmé n'augmente jamais — ni pour la saison, ni pour la demande, ni pour le taux de change."], ['Changement de dates gratuit', 'Les projets évoluent. Changez vos dates sans frais, selon disponibilité.'], ['Annulation gratuite', `Jusqu'à ${C5} jours avant le départ, avec remboursement intégral.`], [`−${E} % en réservant tôt`, `Réservez ${D} jours ou plus avant le départ et ${E} % sont déduits du prix du circuit.`]],
+    proof: [[`★ ${rating.replace('.', ',')}`, 'sur Google'], ['7 ans et plus', "à guider en Algérie"], ['Agréé', 'voyagiste algérien basé à Alger'], [`${LANGUAGES.names.length} langues`, 'parlées par nos guides']],
+    momentsH: 'Nos voyageurs, pas des photos de banque d\'images', momentsAlt: "Un moment de l'un de nos voyages privés en Algérie", momentsLink: 'Voir plus de moments de nos voyages →',
+    timingH: 'Un mot sur les dates', timing: "Le grand Sahara se visite d'<strong>octobre à avril</strong>, et les semaines de Noël et du Nouvel An sont les premières à se remplir — les vols intérieurs vers le sud sont limités. Si vous avez des dates en tête, les bloquer ne coûte rien.",
+    faqH: 'Questions', safety: '/fr/securite-algerie/',
+    faqs: [["Est-ce sûr de voyager en Algérie ?", "Le nord, la vallée du M'Zab et les itinéraires organisés au Sahara sont calmes et très accueillants. Nous ne parcourons le grand désert qu'avec permis et guides agréés."], ['Faut-il un visa ?', "Pour la plupart des nationalités, oui. Nous préparons gratuitement la lettre d'invitation à chaque réservation ; pour les circuits organisés au Sahara, le visa peut être délivré à l'arrivée grâce à notre autorisation à 40 €. Et si votre visa est refusé, nous vous remboursons tout ce que vous nous avez versé."], ['Dois-je payer pour bloquer mes dates ?', `Non. Vos dates sont bloquées gratuitement pendant ${H} heures, le temps de confirmer disponibilités, permis et vols. Un acompte — par virement, carte ou PayPal — confirme le voyage seulement quand vous êtes satisfait.`], ['Les circuits sont-ils privés ?', `Oui, chaque circuit est privé, à vos dates, avec un guide local agréé. Nos guides parlent ${['anglais', 'français', 'espagnol', 'italien', 'arabe', 'allemand'].join(', ')}.`], ['Le prix peut-il changer après la réservation ?', "Non. Le prix confirmé par écrit est garanti — il n'augmente ni avec la saison, ni avec la demande, ni avec le taux de change."]],
+    exitEyebrow: 'Avant de partir', exitH: `−${E} % en réservant tôt`, exitP: `Réservez au moins ${D} jours avant le départ et ${E} % sont déduits de n'importe quel circuit. Laissez votre e-mail : nous vous envoyons le voyage qui vous correspond, remise incluse.`, wa: 'WhatsApp (facultatif)', exitBtn: 'Recevoir mon offre', exitMsg: "Merci de m'envoyer une proposition de voyage avec la remise réservation anticipée.", close: 'Fermer',
+    js: { locale: 'fr-FR', best: 'Meilleur choix', also: 'Très bien aussi', from: 'À partir de', pp: 'par personne', trav1: 'voyageur', travN: 'voyageurs', onreq: 'Prix sur demande pour ce nombre de voyageurs', hold: 'Bloquer mes dates', early: (m: string) => `Un départ en ${m} donne droit à la remise réservation anticipée : −${E} %, déjà appliquée ci-dessous.`, soon: 'Départ proche ? Bloquer vos dates maintenant est le meilleur moyen de garantir guides et vols.', luxT: 'La Collection 5 étoiles — 8 jours tout compris', luxH: 'Vols intérieurs, hôtels cinq étoiles, tous les repas, flotte 4x4 privée, guides et entrées.', luxD: '8 jours', wants: { sahara: 'Sahara', history: 'Romain & histoire', both: 'Sahara + histoire', city: 'Alger & côte' }, styles: { comfort: 'confort', luxury: 'luxe' }, holdMsg: 'Je souhaite bloquer des dates pour :', waMsg: 'Bonjour ! Je souhaite réserver :', travS: 'voyageur(s)' },
+  },
+  es: {
+    title: 'Viaje privado a Argelia — Precio al instante | Algeria Compass',
+    desc: `Cinco preguntas y verás el circuito privado ideal y su precio. Fechas reservadas ${H} h gratis, visado denegado = reembolso, precio garantizado.`,
+    kw: ['precio viaje Argelia', 'circuito privado Argelia', 'viaje Sáhara Argelia', 'reservar circuito Argelia', 'organizar viaje Argelia'],
+    eyebrow: 'Circuitos privados · operador argelino autorizado', h1: 'Tu viaje a Argelia, con precio en 60 segundos',
+    sub: 'Sáhara, ciudades romanas, la Casbah — cuéntanos qué te apetece y descubre el circuito privado ideal y su precio, ahora.',
+    go: 'Planificar mi viaje', chips: [`✓ Fechas reservadas gratis ${H} h`, '✓ Visado denegado = reembolso total', '✓ Precio garantizado', `★ ${rating.replace('.', ',')} en Google`],
+    q1: '¿Qué te gustaría ver?', o1: ['🏜️ El Sáhara', '🏛️ Ciudades romanas e historia', '✨ Un poco de las dos', '🕌 Argel y la costa'],
+    q2: '¿Cuántos días tienes?', o2: ['1 a 3 días', '4 a 6 días', '7 a 9 días', '10 días o más'],
+    q3: '¿Cuántos viajeros?', fewer: 'Un viajero menos', more: 'Un viajero más', next: 'Siguiente',
+    q4: '¿Cuándo te gustaría viajar?', hint: 'El Sáhara profundo se recorre de octubre a abril.',
+    q5: '¿Qué estilo prefieres?', o5: ['Cómodo — casas de huéspedes, campamentos, buenos hoteles', 'Lujo — cinco estrellas, todo incluido'],
+    resH: 'Tus mejores opciones',
+    holdH: `Reserva estas fechas — gratis durante ${H} horas`, holdP: 'Sin pago y sin tarjeta. Confirmamos disponibilidad, permisos y vuelos y te enviamos tu precio final y garantizado.',
+    name: 'Tu nombre', email: 'Email', note: '¿Algo que debamos saber? (opcional)', holdBtn: 'Reservar mis fechas gratis', waBtn: '💬 O reserva por WhatsApp',
+    fine: `Después, un depósito por transferencia, tarjeta o PayPal confirma el viaje; el resto se paga antes de la salida. Cancelación gratuita hasta ${C5} días antes.`, terms: 'Condiciones completas',
+    restart: '↺ Empezar de nuevo', noscript: 'El planificador necesita JavaScript.', noscriptLink: 'Cuéntanos tu viaje aquí',
+    guarEyebrow: 'Reserva sin preocupaciones', guarH: 'Nuestras garantías',
+    guar: [[`Fechas reservadas gratis ${H} h`, 'Pide ahora y no pagues nada hasta que todo esté confirmado.'], ['¿Visado denegado? Reembolso total', 'Te devolvemos todo lo que nos hayas pagado. La mayor preocupación sobre Argelia, resuelta.'], ['Tu precio está garantizado', 'El precio confirmado nunca sube — ni por temporada, ni por demanda, ni por el tipo de cambio.'], ['Cambio de fechas gratis', 'Los planes cambian. Cambia tus fechas sin coste, según disponibilidad.'], ['Cancelación gratuita', `Hasta ${C5} días antes de la salida, con reembolso total.`], [`−${E} % reservando pronto`, `Reserva con ${D} días o más de antelación y se descuenta un ${E} % del precio del circuito.`]],
+    proof: [[`★ ${rating.replace('.', ',')}`, 'en Google'], ['Más de 7 años', 'guiando en Argelia'], ['Autorizado', 'operador argelino con sede en Argel'], [`${LANGUAGES.names.length} idiomas`, 'que hablan nuestros guías']],
+    momentsH: 'Nuestros viajeros, no fotos de archivo', momentsAlt: 'Un momento de uno de nuestros viajes privados por Argelia', momentsLink: 'Ver más momentos de nuestros viajes →',
+    timingH: 'Una nota sobre las fechas', timing: 'El Sáhara profundo se recorre de <strong>octubre a abril</strong>, y las semanas de Navidad y Año Nuevo son las primeras en llenarse — los vuelos internos al sur son limitados. Si tienes fechas en mente, reservarlas no cuesta nada.',
+    faqH: 'Preguntas', safety: '/es/seguridad-argelia/',
+    faqs: [['¿Es seguro viajar a Argelia?', "El norte, el valle del M'Zab y las rutas organizadas por el Sáhara son tranquilos y muy acogedores. Solo recorremos el desierto profundo con permisos y guías autorizados."], ['¿Necesito visado?', 'La mayoría de nacionalidades sí. Preparamos gratis la carta de invitación con cada reserva; para los viajes organizados al Sáhara, el visado puede emitirse a la llegada con nuestra autorización de 40 €. Y si te deniegan el visado, te devolvemos todo lo que nos hayas pagado.'], ['¿Tengo que pagar para reservar las fechas?', `No. Tus fechas quedan reservadas gratis durante ${H} horas mientras confirmamos disponibilidad, permisos y vuelos. Un depósito — por transferencia, tarjeta o PayPal — confirma el viaje solo cuando estés conforme.`], ['¿Los circuitos son privados?', `Sí, cada circuito es privado, en tus fechas, con un guía local autorizado. Nuestros guías hablan ${['inglés', 'francés', 'español', 'italiano', 'árabe', 'alemán'].join(', ')}.`], ['¿Puede cambiar el precio después de reservar?', 'No. El precio confirmado por escrito está garantizado: no sube por temporada, demanda ni tipo de cambio.']],
+    exitEyebrow: 'Antes de irte', exitH: `−${E} % reservando pronto`, exitP: `Reserva con al menos ${D} días de antelación y se descuenta un ${E} % de cualquier circuito. Déjanos tu email y te enviamos el viaje que encaja contigo, con el descuento aplicado.`, wa: 'WhatsApp (opcional)', exitBtn: 'Enviarme mi oferta', exitMsg: 'Por favor, enviadme una propuesta de viaje con el descuento por reserva anticipada.', close: 'Cerrar',
+    js: { locale: 'es-ES', best: 'Mejor opción', also: 'También ideal', from: 'Desde', pp: 'por persona', trav1: 'viajero', travN: 'viajeros', onreq: 'Precio a consultar para este número de viajeros', hold: 'Reservar mis fechas', early: (m: string) => `Viajar en ${m} da derecho al descuento por reserva anticipada: −${E} %, ya aplicado abajo.`, soon: '¿Viajas pronto? Reservar tus fechas ahora es la mejor forma de asegurar guías y vuelos.', luxT: 'La Colección 5 estrellas — 8 días todo incluido', luxH: 'Vuelos internos, hoteles de cinco estrellas, todas las comidas, flota 4x4 privada, guías y entradas.', luxD: '8 días', wants: { sahara: 'Sáhara', history: 'Romano e historia', both: 'Sáhara + historia', city: 'Argel y costa' }, styles: { comfort: 'cómodo', luxury: 'lujo' }, holdMsg: 'Quiero reservar fechas para:', waMsg: '¡Hola! Quiero reservar:', travS: 'viajero(s)' },
+  },
+  de: {
+    title: 'Private Algerien-Reise planen — Preis sofort | Algeria Compass',
+    desc: `Fünf Fragen beantworten und sofort die passende Privatreise mit Preis sehen. Termin ${H} Std. kostenlos reserviert, volle Erstattung bei Visum-Ablehnung, Festpreis.`,
+    kw: ['Algerien Reise Preis', 'Algerien Privatreise', 'Algerien Sahara Reise', 'Algerien Rundreise buchen', 'Algerien Reise planen'],
+    eyebrow: 'Privatreisen · lizenzierter algerischer Veranstalter', h1: 'Ihre Algerien-Reise, mit Preis in 60 Sekunden',
+    sub: 'Sahara, römische Städte, die Kasbah — sagen Sie uns, was Sie reizt, und sehen Sie sofort die passende Privatreise mit Preis.',
+    go: 'Reise planen', chips: [`✓ Termin ${H} Std. kostenlos reserviert`, '✓ Visum abgelehnt = volle Erstattung', '✓ Festpreis', `★ ${rating.replace('.', ',')} bei Google`],
+    q1: 'Was möchten Sie gern erleben?', o1: ['🏜️ Die Sahara', '🏛️ Römische Städte & Geschichte', '✨ Ein bisschen von beidem', '🕌 Algier & die Küste'],
+    q2: 'Wie viele Tage haben Sie?', o2: ['1–3 Tage', '4–6 Tage', '7–9 Tage', '10 Tage oder mehr'],
+    q3: 'Wie viele Reisende?', fewer: 'Ein Reisender weniger', more: 'Ein Reisender mehr', next: 'Weiter',
+    q4: 'Wann möchten Sie reisen?', hint: 'Die tiefe Sahara bereist man von Oktober bis April.',
+    q5: 'Welcher Stil passt zu Ihnen?', o5: ['Komfortabel — Gästehäuser, Camps, gute Hotels', 'Luxus — fünf Sterne, all-inclusive'],
+    resH: 'Ihre besten Treffer',
+    holdH: `Termin reservieren — ${H} Stunden kostenlos`, holdP: 'Ohne Zahlung, ohne Karte. Wir bestätigen Verfügbarkeit, Genehmigungen und Flüge und senden Ihnen Ihren endgültigen Festpreis.',
+    name: 'Ihr Name', email: 'E-Mail', note: 'Möchten Sie uns etwas mitteilen? (optional)', holdBtn: 'Termin kostenlos reservieren', waBtn: '💬 Oder per WhatsApp buchen',
+    fine: `Danach sichert eine Anzahlung per Überweisung, Karte oder PayPal die Reise; der Rest ist vor Abreise fällig. Kostenlose Stornierung bis ${C5} Tage vorher.`, terms: 'Alle Bedingungen',
+    restart: '↺ Neu beginnen', noscript: 'Der Reiseplaner benötigt JavaScript.', noscriptLink: 'Erzählen Sie uns hier von Ihrer Reise',
+    guarEyebrow: 'Sorgenfrei buchen', guarH: 'Unsere Garantien',
+    guar: [[`Termin ${H} Std. kostenlos reserviert`, 'Jetzt anfragen, nichts zahlen, bis alles bestätigt ist.'], ['Visum abgelehnt? Volle Erstattung', 'Alles, was Sie uns gezahlt haben, bekommen Sie zurück. Die größte Sorge bei Algerien — ausgeräumt.'], ['Ihr Preis ist fest', 'Der bestätigte Preis steigt nie — weder durch Saison, Nachfrage noch Wechselkurs.'], ['Kostenlose Terminänderung', 'Pläne ändern sich. Termin kostenlos verschieben, je nach Verfügbarkeit.'], ['Kostenlose Stornierung', `Bis ${C5} Tage vor Abreise, mit voller Erstattung.`], [`−${E} % bei Frühbuchung`, `Buchen Sie ${D} Tage oder mehr vor Abreise, und ${E} % werden vom Reisepreis abgezogen.`]],
+    proof: [[`★ ${rating.replace('.', ',')}`, 'bei Google'], ['Über 7 Jahre', 'als Guides in Algerien'], ['Lizenziert', 'algerischer Veranstalter mit Sitz in Algier'], [`${LANGUAGES.names.length} Sprachen`, 'sprechen unsere Guides']],
+    momentsH: 'Unsere Reisenden, keine Stockfotos', momentsAlt: 'Ein Moment von einer unserer Privatreisen in Algerien', momentsLink: 'Mehr Momente unserer Reisen →',
+    timingH: 'Ein Hinweis zum Termin', timing: 'Die tiefe Sahara bereist man von <strong>Oktober bis April</strong>, und die Wochen um Weihnachten und Neujahr sind zuerst ausgebucht — Inlandsflüge in den Süden sind begrenzt. Wenn Sie schon Termine im Kopf haben: Reservieren kostet nichts.',
+    faqH: 'Fragen', safety: '/de/sicherheit-algerien/',
+    faqs: [['Ist eine Reise nach Algerien sicher?', "Der Norden, das M'Zab-Tal und die organisierten Sahara-Routen sind ruhig und sehr gastfreundlich. In die tiefe Wüste reisen wir nur mit Genehmigungen und lizenzierten Guides."], ['Brauche ich ein Visum?', 'Für die meisten Nationalitäten ja. Das Einladungsschreiben erstellen wir bei jeder Buchung kostenlos; bei organisierten Sahara-Reisen kann das Visum mit unserer Genehmigung (40 €) bei der Ankunft erteilt werden. Und wird Ihr Visum abgelehnt, erstatten wir alles, was Sie uns gezahlt haben.'], ['Muss ich zahlen, um den Termin zu reservieren?', `Nein. Ihr Termin ist ${H} Stunden kostenlos reserviert, während wir Verfügbarkeit, Genehmigungen und Flüge bestätigen. Eine Anzahlung — per Überweisung, Karte oder PayPal — sichert die Reise erst, wenn Sie zufrieden sind.`], ['Sind die Reisen privat?', `Ja, jede Reise ist privat, zu Ihren Terminen, mit einem lizenzierten örtlichen Guide. Unsere Guides sprechen ${['Englisch', 'Französisch', 'Spanisch', 'Italienisch', 'Arabisch', 'Deutsch'].join(', ')}.`], ['Kann sich der Preis nach der Buchung ändern?', 'Nein. Der schriftlich bestätigte Preis ist fest — er steigt weder durch Saison, Nachfrage noch Wechselkurs.']],
+    exitEyebrow: 'Bevor Sie gehen', exitH: `−${E} % bei Frühbuchung`, exitP: `Buchen Sie mindestens ${D} Tage vor Abreise, und ${E} % werden von jeder Reise abgezogen. Hinterlassen Sie Ihre E-Mail — wir senden Ihnen die passende Reise mit Rabatt.`, wa: 'WhatsApp (optional)', exitBtn: 'Mein Angebot senden', exitMsg: 'Bitte senden Sie mir einen Reisevorschlag mit Frühbucherrabatt.', close: 'Schließen',
+    js: { locale: 'de-DE', best: 'Beste Wahl', also: 'Auch ideal', from: 'Ab', pp: 'pro Person', trav1: 'Reisender', travN: 'Reisende', onreq: 'Preis auf Anfrage für diese Gruppengröße', hold: 'Termin reservieren', early: (m: string) => `Eine Reise im ${m} erhält den Frühbucherrabatt: −${E} %, unten bereits abgezogen.`, soon: 'Sie reisen bald? Jetzt reservieren ist der beste Weg, Guides und Flüge zu sichern.', luxT: 'Die 5-Sterne-Kollektion — 8 Tage all-inclusive', luxH: 'Inlandsflüge, Fünf-Sterne-Hotels, alle Mahlzeiten, private 4x4-Flotte, Guides und Eintritte.', luxD: '8 Tage', wants: { sahara: 'Sahara', history: 'Römisch & Geschichte', both: 'Sahara + Geschichte', city: 'Algier & Küste' }, styles: { comfort: 'komfortabel', luxury: 'Luxus' }, holdMsg: 'Ich möchte einen Termin reservieren für:', waMsg: 'Hallo! Ich möchte buchen:', travS: 'Reisende(r)' },
+  },
+};
+const C = COPY[lang] ?? COPY.en;
+// Functions cannot cross into the inline script, so the two message templates
+// are pre-split around a placeholder.
+const J = { ...C.js, early: C.js.early('%M%') };
+
+const DESERT = ['djanet', 'ghardaia', 'timimoun', 'bousaada'];
+const TR: Record<string, any> = { fr: TOURS_FR, es: TOURS_ES, de: TOURS_DE };
+const R = ROUTES[lang];
+const tours = (toursData as any).tours.map((t: any) => {
+  const tr = TR[lang]?.[t.id];
+  const ok = lang === 'en' || tr?.full;
+  return {
+    id: t.id, title: ok && tr ? tr.title : t.title, hook: ok && tr ? tr.hook : t.hook, price: t.price_eur, theme: t.theme,
+    days: parseInt(t.duration, 10) || 1, dur: (ok && tr ? tr.duration : t.duration).split(' · ')[0],
+    desert: t.theme === 'sahara' || t.theme === 'mzab' || (t.wilayas || []).some((w: string) => DESERT.includes(w)),
+    north: !(t.theme === 'sahara' || t.theme === 'mzab') || (t.wilayas || []).some((w: string) => !DESERT.includes(w) && w !== 'illizi'),
+    img: `/assets/img/thumbs/tours/${(t.image_slugs || ['algiers'])[0]}-1.jpg`,
+    url: (ok ? R.tours : '/tours/') + t.id + '/',
+  };
+});
+const lux = { tiers: [[2, 9, LUX_PRICING.highValue], [10, 15, 1870], [16, 22, 1700], [23, 999, LUX_PRICING.fromValue]], url: R.luxury };
+const cfg = { hold: H, earlyDays: D, earlyPct: E, wa: CONTACT.whatsapp };
+
+const moments = ['client-641', 'client-223', 'client-547', 'client-189', 'client-4', 'client-500'];
+const faqs = C.faqs.map(([q, a]: [string, string]) => ({ q, a }));
+const self = PLAN_PATHS[lang] ?? PLAN_PATHS.en!;
+const alternates = alternatesFor(site, PLAN_PATHS);
+const schema = [{
+  '@type': 'FAQPage', '@id': `${site}${self}#faq`, inLanguage: lang,
+  mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}];
+const hero = '/assets/img/tours/djanet-13.jpg';
+const heroAlt = lang === 'fr' ? "Une arche de grès naturelle au-dessus du sable orange près de Djanet"
+  : lang === 'es' ? 'Un arco natural de arenisca sobre la arena naranja cerca de Djanet'
+  : lang === 'de' ? 'Ein natürlicher Sandsteinbogen über orangefarbenem Sand bei Djanet'
+  : 'A natural sandstone arch rising above smooth orange sand in the desert around Djanet';
+---
+<BaseLayout title={C.title} description={C.desc} image={hero} imageAlt={heroAlt} keywords={C.kw} schema={schema} region="sahara" lang={lang} alternates={alternates}>
+
+  <section class="lp-hero" style={`background-image:linear-gradient(180deg,rgba(10,20,15,.35),rgba(10,20,15,.78)),url(${hero})`}>
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--gold-l)">{C.eyebrow}</p>
+      <h1>{C.h1}</h1>
+      <p class="lp-sub">{C.sub}</p>
+      <a class="btn btn-gold lp-go" href="#planner" data-evt="lp_start">{C.go}</a>
+      <ul class="lp-chips">{C.chips.map((c: string) => <li>{c}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section" id="planner"><div class="wrap" style="max-width:860px">
+    <div class="lp-card">
+      <div class="lp-prog" aria-hidden="true"><span id="lpBar"></span></div>
+      <form id="lpQuiz" novalidate>
+        <fieldset class="lp-step" data-step="0">
+          <legend>{C.q1}</legend>
+          <div class="lp-opts">
+            {['sahara', 'history', 'both', 'city'].map((v, i) => <button type="button" data-k="want" data-v={v}>{C.o1[i]}</button>)}
+          </div>
+        </fieldset>
+        <fieldset class="lp-step" data-step="1" hidden>
+          <legend>{C.q2}</legend>
+          <div class="lp-opts">
+            {['2', '5', '8', '12'].map((v, i) => <button type="button" data-k="days" data-v={v}>{C.o2[i]}</button>)}
+          </div>
+        </fieldset>
+        <fieldset class="lp-step" data-step="2" hidden>
+          <legend>{C.q3}</legend>
+          <div class="lp-num">
+            <button type="button" id="lpMinus" aria-label={C.fewer}>−</button>
+            <output id="lpPax" aria-live="polite">2</output>
+            <button type="button" id="lpPlus" aria-label={C.more}>+</button>
+          </div>
+          <button type="button" class="btn btn-gold lp-next" data-next>{C.next}</button>
+        </fieldset>
+        <fieldset class="lp-step" data-step="3" hidden>
+          <legend>{C.q4}</legend>
+          <div class="lp-opts lp-months" id="lpMonths"></div>
+          <p class="lp-hint">{C.hint}</p>
+        </fieldset>
+        <fieldset class="lp-step" data-step="4" hidden>
+          <legend>{C.q5}</legend>
+          <div class="lp-opts">
+            {['comfort', 'luxury'].map((v, i) => <button type="button" data-k="style" data-v={v}>{C.o5[i]}</button>)}
+          </div>
+        </fieldset>
+      </form>
+
+      <div id="lpResult" hidden>
+        <h2>{C.resH}</h2>
+        <p id="lpEarly" class="lp-early" hidden></p>
+        <div id="lpList" class="lp-list"></div>
+
+        <div class="lp-hold" id="hold">
+          <h3>{C.holdH}</h3>
+          <p>{C.holdP}</p>
+          <form method="POST" action="/contact.php" id="lpHoldForm">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+            <input type="hidden" name="context" id="lpCtx" value={`Plan-your-trip (${lang}): hold dates`} />
+            <input type="hidden" name="interests" id="lpInt" value="" />
+            <input type="hidden" name="people" id="lpPeople" value="" />
+            <input type="hidden" name="when" id="lpWhen" value="" />
+            <input type="hidden" name="days" id="lpDays" value="" />
+            <div class="lp-row">
+              <label>{C.name}<input name="name" required maxlength="80" autocomplete="name" /></label>
+              <label>{C.email}<input name="email" type="email" required maxlength="120" autocomplete="email" /></label>
+            </div>
+            <label>{C.note}<textarea name="message" id="lpMsg" rows="3" maxlength="4000"></textarea></label>
+            <div class="lp-actions">
+              <button type="submit" class="btn btn-gold" data-evt="lp_hold">{C.holdBtn}</button>
+              <a class="btn btn-wa-2" id="lpWa" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener" data-evt="lp_whatsapp">{C.waBtn}</a>
+            </div>
+            <p class="lp-fine">{C.fine} <a href="/booking-terms/#guarantees">{C.terms}</a></p>
+          </form>
+        </div>
+        <button type="button" class="lp-restart" id="lpRestart">{C.restart}</button>
+      </div>
+      <noscript><p>{C.noscript} <a href={R.contact}>{C.noscriptLink}</a> · WhatsApp {CONTACT.phoneDisplay}.</p></noscript>
+    </div>
+  </div></section>
+
+  <section class="section" style="background:var(--wash)"><div class="wrap">
+    <p class="eyebrow">{C.guarEyebrow}</p>
+    <h2>{C.guarH}</h2>
+    <div class="lp-guar">{C.guar.map(([b, s]: [string, string]) => <div><b>{b}</b><span>{s}</span></div>)}</div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="lp-proof">
+      {C.proof.map(([b, s]: [string, string], i: number) => <div><b>{b}</b><span>{i === 0 ? <a href={CONTACT.googleProfile} target="_blank" rel="noopener">{s}</a> : s}</span></div>)}
+    </div>
+    <h2 style="margin-top:2rem">{C.momentsH}</h2>
+    <div class="lp-moments">
+      {moments.map((m) => (<img src={`/assets/img/clients/${m}.jpg`} alt={C.momentsAlt} loading="lazy" width="300" height="300" />))}
+    </div>
+    <p><a href="/moments/">{C.momentsLink}</a></p>
+  </div></section>
+
+  <section class="section" style="background:var(--wash)"><div class="wrap" style="max-width:820px">
+    <h2>{C.timingH}</h2>
+    <p set:html={C.timing} />
+    <h2 style="margin-top:2rem">{C.faqH}</h2>
+    {faqs.map((f: any, i: number) => (<details class="lp-faq"><summary>{f.q}</summary><p>{f.a}{i === 0 && <> <a href={C.safety}>→</a></>}</p></details>))}
+  </div></section>
+
+  <div class="lp-exit" id="lpExit" role="dialog" aria-modal="true" aria-labelledby="lpExitH" hidden>
+    <div class="lp-exit-box">
+      <button type="button" class="lp-x" id="lpExitX" aria-label={C.close}>×</button>
+      <p class="eyebrow">{C.exitEyebrow}</p>
+      <h2 id="lpExitH">{C.exitH}</h2>
+      <p>{C.exitP}</p>
+      <form method="POST" action="/contact.php">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+        <input type="hidden" name="context" value={`Plan-your-trip (${lang}): early-booking offer (exit)`} />
+        <input type="hidden" name="interests" value={`Early booking -${E}%`} />
+        <label>{C.name}<input name="name" required maxlength="80" autocomplete="name" /></label>
+        <label>{C.email}<input name="email" type="email" required maxlength="120" autocomplete="email" /></label>
+        <label>{C.wa}<input name="whatsapp" maxlength="30" inputmode="tel" autocomplete="tel" placeholder="+…" /></label>
+        <input type="hidden" name="message" value={C.exitMsg} />
+        <button type="submit" class="btn btn-gold" data-evt="lp_exit_offer">{C.exitBtn}</button>
+      </form>
+    </div>
+  </div>
+</BaseLayout>
+
+<script is:inline define:vars={{ tours, lux, cfg, J }}>
+(function(){
+  var st={want:null,days:null,pax:2,month:null,monthDate:null,style:null}, step=0, steps=document.querySelectorAll('.lp-step');
+  var bar=document.getElementById('lpBar');
+  var ev=function(n){ try{ window.trackEvent && window.trackEvent(n) }catch(e){} };
+  var esc=function(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); };
+  function show(i){ step=i; steps.forEach(function(s,j){ s.hidden = j!==i; }); bar.style.width=(i/steps.length*100)+'%'; }
+  var mWrap=document.getElementById('lpMonths'), now=new Date();
+  for(var i=0;i<12;i++){ var d=new Date(now.getFullYear(), now.getMonth()+i, 1);
+    var b=document.createElement('button'); b.type='button'; b.dataset.k='month'; b.dataset.v=d.getTime();
+    b.textContent=d.toLocaleDateString(J.locale,{month:'short',year:'numeric'}); mWrap.appendChild(b); }
+  document.getElementById('lpQuiz').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-k]'); if(b){
+      var k=b.dataset.k, v=b.dataset.v;
+      if(k==='month'){ var md=new Date(+v); st.monthDate=md; st.month=md.toLocaleDateString(J.locale,{month:'long',year:'numeric'}); } else st[k]=v;
+      if(step===0) ev('lp_q1');
+      if(step<steps.length-1) show(step+1); else result();
+      return; }
+    if(e.target.closest('[data-next]')) show(step+1);
+  });
+  var paxEl=document.getElementById('lpPax');
+  document.getElementById('lpMinus').onclick=function(){ st.pax=Math.max(1,st.pax-1); paxEl.textContent=st.pax; };
+  document.getElementById('lpPlus').onclick=function(){ st.pax=Math.min(40,st.pax+1); paxEl.textContent=st.pax; };
+  function eur(n){ return '€'+Math.round(n).toLocaleString(J.locale); }
+  function score(t){
+    var s=0, want=st.want, d=+st.days;
+    if(want==='sahara') s+= t.desert ? (t.north?6:10) : -20;
+    if(want==='history') s+= t.north ? (t.desert?6:10) : -20;
+    if(want==='both') s+= (t.desert && t.north) ? 10 : 2;
+    if(want==='city') s+= (t.theme==='city'||t.theme==='coast'||t.theme==='roman') ? 10 : (t.north?2:-20);
+    return s - Math.abs(t.days-d)*1.6;
+  }
+  function luxPrice(n){ for(var i=0;i<lux.tiers.length;i++){ var r=lux.tiers[i]; if(n>=r[0]&&n<=r[1]) return r[2]; } return null; }
+  function result(){
+    ev('lp_result');
+    document.getElementById('lpQuiz').hidden=true; bar.style.width='100%';
+    var R=document.getElementById('lpResult'); R.hidden=false;
+    var early = Math.round((st.monthDate - new Date())/864e5) >= cfg.earlyDays;
+    var earlyEl=document.getElementById('lpEarly'); earlyEl.hidden=false;
+    earlyEl.textContent = early ? J.early.replace('%M%', st.month) : J.soon;
+    var list=document.getElementById('lpList'); list.innerHTML='';
+    var picks=[];
+    if(st.style==='luxury') picks.push({title:J.luxT,hook:J.luxH,dur:J.luxD,price:luxPrice(st.pax),url:lux.url,img:'/assets/img/tours/djemila-2.jpg'});
+    tours.slice().sort(function(a,b){return score(b)-score(a)}).slice(0, st.style==='luxury'?2:3).forEach(function(t){ picks.push(t); });
+    picks.forEach(function(p,i){
+      var per=p.price, tot=per? per*st.pax : null, disc= early&&tot ? tot*cfg.earlyPct/100 : 0;
+      var el=document.createElement('div'); el.className='lp-pick'+(i===0?' lp-top':'');
+      el.innerHTML='<img src="'+p.img+'" alt="" width="120" height="120" loading="lazy">'+
+        '<div><span class="lp-badge">'+esc(i===0?J.best:J.also)+' · '+esc(p.dur)+'</span>'+
+        '<h3><a href="'+p.url+'" target="_blank" rel="noopener">'+esc(p.title)+'</a></h3>'+
+        '<p>'+esc(p.hook)+'</p>'+
+        (per ? '<p class="lp-price">'+esc(J.from)+' <b>'+eur(per)+'</b> '+esc(J.pp)+' · '+st.pax+' '+esc(st.pax>1?J.travN:J.trav1)+': <b>'+eur(tot-disc)+'</b>'+(disc?' <s>'+eur(tot)+'</s> <em>−'+cfg.earlyPct+'%</em>':'')+'</p>'
+             : '<p class="lp-price">'+esc(J.onreq)+'</p>')+
+        '<button type="button" class="btn btn-gold lp-pickbtn" data-title="'+esc(p.title)+'">'+esc(J.hold)+'</button></div>';
+      list.appendChild(el);
+    });
+    fill(picks[0].title);
+    list.querySelectorAll('.lp-pickbtn').forEach(function(b){ b.onclick=function(){ fill(b.dataset.title); document.getElementById('hold').scrollIntoView({behavior:'smooth'}); }; });
+    R.scrollIntoView({behavior:'smooth'});
+  }
+  function fill(title){
+    var label=J.wants[st.want], style=J.styles[st.style];
+    document.getElementById('lpCtx').value=document.getElementById('lpCtx').value.split(': ')[0]+': hold dates — '+title;
+    document.getElementById('lpInt').value=label+' · '+style;
+    document.getElementById('lpPeople').value=st.pax;
+    document.getElementById('lpWhen').value=st.month;
+    document.getElementById('lpDays').value={2:'1–3',5:'4–6',8:'7–9',12:'10+'}[st.days];
+    var msg=document.getElementById('lpMsg'); if(!msg.dataset.touched) msg.value=J.holdMsg+' '+title+'.';
+    var wa=J.waMsg+' '+title+' — '+st.pax+' '+J.travS+', '+st.month+', '+label+' ('+style+').';
+    document.getElementById('lpWa').href='https://wa.me/'+cfg.wa+'?text='+encodeURIComponent(wa);
+  }
+  document.getElementById('lpMsg').addEventListener('input',function(){ this.dataset.touched='1'; });
+  document.getElementById('lpRestart').onclick=function(){ document.getElementById('lpResult').hidden=true; document.getElementById('lpQuiz').hidden=false; show(0); };
+  show(0);
+
+  // Exit offer: once per session; desktop on exit intent, mobile after 45 s.
+  var X=document.getElementById('lpExit'), shown=false;
+  function seen(){ try{ return sessionStorage.getItem('lpExit') }catch(e){ return null } }
+  function open(){ if(shown||seen()) return; if(!document.getElementById('lpResult').hidden) return; shown=true; try{sessionStorage.setItem('lpExit','1')}catch(e){} X.hidden=false; ev('lp_exit_shown'); X.querySelector('input[name=name]').focus(); }
+  function close(){ X.hidden=true; }
+  document.getElementById('lpExitX').onclick=close;
+  X.addEventListener('click',function(e){ if(e.target===X) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  if(matchMedia('(pointer:fine)').matches) document.addEventListener('mouseout',function(e){ if(!e.relatedTarget && e.clientY<10) open(); });
+  else setTimeout(open,45000);
+})();
+</script>
+
+<style is:global>
+  .lp-hero{background-size:cover;background-position:center;color:#fff;padding:5.5rem 0 4rem}
+  .lp-hero h1{color:#fff;font-size:clamp(2rem,5vw,3.2rem);max-width:16ch;margin:.3rem 0 .8rem}
+  .lp-sub{font-size:1.15rem;max-width:44ch;color:rgba(255,255,255,.92)}
+  .lp-go{margin-top:1.2rem;font-size:1.1rem;padding:.9rem 1.8rem}
+  .lp-chips{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:1.4rem 0 0}
+  .lp-chips li{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:.35rem .75rem;border-radius:999px;font-size:.9rem}
+  .lp-card{background:var(--card,#fff);border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.08);padding:1.6rem;position:relative;overflow:hidden}
+  .lp-prog{height:5px;background:rgba(0,0,0,.06);border-radius:5px;margin-bottom:1.2rem}
+  .lp-prog span{display:block;height:100%;width:0;background:var(--gold,#b8862e);border-radius:5px;transition:width .3s}
+  .lp-step{border:0;padding:0;margin:0}
+  .lp-step legend{font-size:1.45rem;font-weight:800;margin-bottom:1rem;font-family:inherit}
+  .lp-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.7rem}
+  .lp-opts button{font:inherit;font-size:1.02rem;text-align:left;padding:1rem 1.1rem;border-radius:12px;border:1.5px solid rgba(0,0,0,.14);background:#fff;cursor:pointer;min-height:56px}
+  .lp-opts button:hover,.lp-opts button:focus-visible{border-color:var(--gold,#b8862e);background:#fffaf0}
+  .lp-months{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+  .lp-months button{text-align:center}
+  .lp-hint{color:var(--text-m);font-size:.92rem;margin-top:.8rem}
+  .lp-num{display:flex;align-items:center;gap:1.2rem;margin:.4rem 0 1.2rem}
+  .lp-num button{width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(0,0,0,.2);background:#fff;font-size:1.6rem;cursor:pointer}
+  .lp-num output{font-size:2rem;font-weight:800;min-width:2ch;text-align:center}
+  .lp-early{background:#fff6e0;border-left:4px solid var(--gold,#b8862e);padding:.7rem .9rem;border-radius:8px}
+  .lp-list{display:grid;gap:.9rem;margin:1rem 0 1.6rem}
+  .lp-pick{display:grid;grid-template-columns:120px 1fr;gap:1rem;border:1px solid rgba(0,0,0,.1);border-radius:14px;padding:.9rem}
+  .lp-pick.lp-top{border:2px solid var(--gold,#b8862e)}
+  .lp-pick img{width:120px;height:120px;object-fit:cover;border-radius:10px}
+  .lp-pick h3{margin:.2rem 0 .3rem;font-size:1.1rem} .lp-pick p{margin:.2rem 0;color:var(--text-m)}
+  .lp-badge{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--gold-d,#8a6420);font-weight:800}
+  .lp-price{color:inherit!important} .lp-price s{color:var(--text-m)} .lp-price em{color:#1c7c3c;font-style:normal;font-weight:800}
+  .lp-pickbtn{margin-top:.5rem;padding:.55rem 1rem}
+  @media (max-width:560px){ .lp-pick{grid-template-columns:1fr} .lp-pick img{width:100%;height:160px} }
+  .lp-hold{background:#f7f3ea;border-radius:14px;padding:1.2rem 1.3rem}
+  .lp-hold h3{margin-top:0}
+  .lp-hold form,.lp-exit form{display:grid;gap:.8rem}
+  .lp-hold label,.lp-exit label{display:grid;gap:.25rem;font-weight:600}
+  .lp-hold input,.lp-hold textarea,.lp-exit input{font:inherit;padding:.7rem .8rem;border:1px solid rgba(0,0,0,.2);border-radius:10px;width:100%;box-sizing:border-box}
+  .lp-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem} @media (max-width:560px){ .lp-row{grid-template-columns:1fr} }
+  .lp-actions{display:flex;flex-wrap:wrap;gap:.6rem}
+  .lp-fine{font-size:.85rem;color:var(--text-m)}
+  .lp-restart{background:none;border:0;color:var(--text-m);cursor:pointer;margin-top:1rem;font:inherit}
+  .lp-guar{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+  .lp-guar div{background:#fff;border-radius:14px;padding:1.1rem 1.2rem;border:1px solid rgba(0,0,0,.08)}
+  .lp-guar b{display:block;font-size:1.08rem;margin-bottom:.3rem} .lp-guar span{color:var(--text-m)}
+  .lp-proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;text-align:center}
+  .lp-proof b{display:block;font-size:1.6rem} .lp-proof span{color:var(--text-m)}
+  .lp-moments{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.6rem;margin:1rem 0}
+  .lp-moments img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;height:auto}
+  .lp-faq{border-bottom:1px solid rgba(0,0,0,.1);padding:.8rem 0} .lp-faq summary{cursor:pointer;font-weight:700} .lp-faq p{margin:.5rem 0 0;color:var(--text-m)}
+  .lp-exit{position:fixed;inset:0;background:rgba(0,0,0,.55);display:grid;place-items:center;z-index:9999;padding:16px}
+  .lp-exit[hidden]{display:none}
+  .lp-exit-box{background:#fff;border-radius:16px;max-width:440px;width:100%;padding:1.5rem;position:relative;max-height:92vh;overflow:auto}
+  .lp-exit-box h2{margin:.2rem 0 .5rem}
+  .lp-x{position:absolute;top:.4rem;right:.6rem;background:none;border:0;font-size:1.8rem;cursor:pointer;line-height:1}
+</style>

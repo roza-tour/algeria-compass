@@ -32,12 +32,12 @@ export const GET: APIRoute = async () => {
     'fr/budget-algerie/', 'fr/sahara-algerie/', 'fr/cuisine-algerienne/',
     'fr/noel-nouvel-an-algerie/', 'fr/neige-sahara-algerie/', 'fr/circuits/', 'fr/destinations/',
     'fr/visa-arrivee-algerie/', 'fr/assistance-visa-algerie/',
-    'fr/contact/', 'fr/a-propos/', 'fr/unesco-algerie/', 'fr/luxe/', 'fr/evisa-algerie/',
+    'fr/contact/', 'fr/a-propos/', 'fr/unesco-algerie/', 'fr/luxe/', 'fr/evisa-algerie/', 'fr/planifier-mon-voyage/',
     // Italian (it) pages
     'it/', 'it/circuiti/', 'it/destinazioni/',
     'it/contatto/', 'it/chi-siamo/', 'it/unesco-algeria/', 'it/lusso/', 'it/evisa-algeria/',
     // Spanish (es) and German (de) pages
-    'es/', 'es/circuitos/', 'es/destinos/',
+    'es/', 'es/circuitos/', 'es/destinos/', 'es/planifica-tu-viaje/', 'de/reise-planen/',
     'es/contacto/', 'es/quienes-somos/', 'es/unesco-argelia/', 'es/lujo/', 'es/evisa-argelia/',
     'de/', 'de/reisen/', 'de/reiseziele/',
     'de/kontakt/', 'de/ueber-uns/', 'de/unesco-algerien/', 'de/luxus/', 'de/evisa-algerien/'];
