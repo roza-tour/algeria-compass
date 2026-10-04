@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import data from '../../data/tours.json';
 import { TOUR_VISUALS } from '../../data/tour-visuals';
+import { tourGallery } from '../../data/tour-photos';
 import { skinForTour } from '../../data/civSkins.mjs';
 import InquiryForm from '../../components/InquiryForm.astro';
 import { CONTACT, BOOKING } from '../../config';
@@ -49,16 +50,11 @@ const provinceSlugs = new Set((await getCollection('province')).map(p => p.slug)
 const coveredProvinces = (tour.wilayas || []).filter((w: string) => provinceSlugs.has(w));
 const relatedTours = tours.filter((t: any) => t.theme === tour.theme && t.id !== tour.id).slice(0, 3);
 
-// Build the gallery from real files on disk: assets/img/tours/<slug>-N.jpg
-let gallery: string[] = [];
+// Build the gallery from real files on disk: assets/img/tours/<slug>-N.jpg,
+// best photos first and alternating between the tour's places (see tour-photos.ts).
+let gallery: { file: string; alt?: string }[] = [];
 try {
-  const files = fs.readdirSync('public/assets/img/tours');
-  for (const s of tour.image_slugs) {
-    const matches = files
-      .filter((f: string) => /^.+-\d+\.jpg$/i.test(f) && f.toLowerCase().startsWith(s.toLowerCase() + '-'))
-      .sort((a: string, b: string) => (parseInt(a.match(/-(\d+)\./)![1]) - parseInt(b.match(/-(\d+)\./)![1])));
-    gallery.push(...matches.map((f: string) => f));
-  }
+  gallery = tourGallery(tour.image_slugs, fs.readdirSync('public/assets/img/tours'));
 } catch (e) { gallery = []; }
 
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
@@ -276,8 +272,8 @@ if (tour.faqs && tour.faqs.length) schema.push({
     <section class="section" style="background:var(--wash)"><div class="wrap photo-gallery">
       <h2>Gallery</h2>
       <div class="pgrid">
-        {gallery.slice(0, 18).map((f: string) => (
-          <figure><img src={`/assets/img/thumbs/tours/${f}`} alt={tour.title} width="400" height="400" loading="lazy" /></figure>
+        {gallery.map((g) => (
+          <figure><img src={`/assets/img/thumbs/tours/${g.file}`} alt={g.alt || tour.title} width="400" height="400" loading="lazy" /></figure>
         ))}
       </div>
     </div></section>}
