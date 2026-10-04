@@ -18,7 +18,7 @@
 // deadline or a scarcity claim.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { CONTACT, REVIEWS, BOOKING, LANGUAGES } from '../../config';
-import { ROUTES, PLAN_PATHS, alternatesFor, asLang, type Lang } from '../../i18n';
+import { ROUTES, PLAN_PATHS, MOMENTS_PATHS, alternatesFor, asLang, type Lang } from '../../i18n';
 import toursData from '../../data/tours.json';
 import { LUX_PRICING } from '../../data/luxury.mjs';
 import { TOURS_FR } from '../../data/tours-fr';
@@ -304,7 +304,7 @@ const heroAlt = lang === 'fr' ? "Une arche de grès naturelle au-dessus du sable
     <div class="lp-moments">
       {moments.map((m) => (<img src={`/assets/img/clients/${m}.jpg`} alt={C.momentsAlt} loading="lazy" width="300" height="300" />))}
     </div>
-    <p><a href="/moments/">{C.momentsLink}</a></p>
+    <p><a href={MOMENTS_PATHS[lang]}>{C.momentsLink}</a></p>
   </div></section>
 
   <section class="section" style="background:var(--wash)"><div class="wrap" style="max-width:820px">

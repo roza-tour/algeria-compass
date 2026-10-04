@@ -10,7 +10,11 @@ export interface GuideDe {
   eyebrow: string;
   h1: string;
   lead: string;
-  sections: { h: string; p?: string; list?: string[] }[];
+  // table: a comparison grid (rendered by ComparisonTable); links: in-site links
+  // listed under the section, e.g. the tours a guide is talking about.
+  sections: { h: string; p?: string; list?: string[];
+    table?: { caption: string; columns: string[]; rows: { label: string; cells: string[] }[] };
+    links?: { href: string; text: string }[] }[];
   faqs: { q: string; a: string }[];
   cta: { h: string; p: string };
   seoTitle: string;
@@ -939,6 +943,252 @@ export const GUIDES_DE: GuideDe[] = [
     },
     "seoTitle": "Fortbewegung in Algerien: Verkehrsratgeber 2026",
     "seoDescription": "Wie man sich in Algerien fortbewegt: Inlandsflüge in den Süden, Bahn und Bus im Norden, Sammeltaxis, Trams und 4×4 für die Sahara."
+  },
+  {
+    "slug": "djanet-oder-timimoun",
+    "en": "/blog/djanet-vs-timimoun/",
+    "fr": "/fr/djanet-ou-timimoun/",
+    "eyebrow": "Sahara im Vergleich",
+    "h1": "Djanet oder Timimoun? Welche algerische Sahara zu Ihnen passt",
+    "published": "2026-09-24",
+    "lead": "Wer seine erste Reise in die algerische Sahara plant, landet fast immer bei zwei Namen: Djanet oder Timimoun. Beide sind saharisch, beide rot, beide außergewöhnlich — und doch zwei völlig verschiedene Reisen. Djanet ist die tiefe Sahara: der rote Sandstein des Tadrart, die prähistorische Felskunst des Tassili n'Ajjer und Nächte im Camp mitten in der offenen Wüste, 2.000 km südlich von Algier. Timimoun ist der leichtere, wärmere Einstieg: rote Ksour aus Lehm, Palmgärten, die von uralten Foggara-Kanälen bewässert werden, und große Dünen — mit jeder Nacht in einem Gästehaus. Unsere Djanet-Reisen dauern 5 bis 7 Tage und kosten ab 828 €, unsere Timimoun-Reise 5 Tage ab 492 €. Wir führen Touren in beide Regionen, hier also der ehrliche Vergleich.",
+    "sections": [
+      {
+        "h": "Die Kurzantwort",
+        "list": [
+          "Fahren Sie nach Djanet für die tiefe Wüste: die Sandsteinbögen und Dünenmeere des Tadrart Rouge, die prähistorische Felskunst des Tassili n'Ajjer und Nächte im Camp unter einem Himmel ganz ohne künstliches Licht.",
+          "Fahren Sie nach Timimoun für die lebendige Oase: rote Ksour aus Lehm, Palmgärten, die von tausendjährigen Foggara-Kanälen gespeist werden, Märkte und Musik — und jede Nacht ein Bett im Gästehaus."
+        ],
+        "links": [
+          { "href": "/de/reisen/tadrart-rouge-7-days/", "text": "Tadrart Rouge — 7 Tage" },
+          { "href": "/de/reiseziele/tassili-nadjer/", "text": "Reiseziel Tassili n'Ajjer" }
+        ]
+      },
+      {
+        "h": "Die Landschaft",
+        "p": "Djanet ist die Sahara, die man sich vorstellt, bevor man sie je gesehen hat. Rund um die Stadt läuft rosafarbener Sand gegen schwarzen und roten Fels an: Türme, Schluchten, Naturbögen und die großen Dünenfelder des Tadrart, im Südosten Richtung libysche Grenze. Das ist Wildnis, und man durchquert sie im 4×4 und hält dort, wo die Landschaft es verlangt. Timimoun ist sanfter und menschlicher. Die Stadt und die Ksour des Gourara ringsum sind aus derselben roten Erde gebaut wie der Boden, auf dem sie stehen, oberhalb von Palmhainen am Rand des Großen Westlichen Erg. Dünen gibt es auch hier — auf unserer Reise gehört ein Nachmittag im 4×4 dazu —, doch das Herz der Reise ist die Oase."
+      },
+      {
+        "h": "Was Sie tatsächlich sehen",
+        "list": [
+          "Djanet: Felsgravuren und -malereien, bis zu 10.000 Jahre alt, die von einer grünen Sahara mit Giraffen, Elefanten und Rindern erzählen — die „Weinende Kuh“ von Tigharghart, die Giraffen von Tin Abadène und, für Wanderer, die bemalten Felswände von Sefar. Und auf dem Ihrir-Rundweg etwas, womit niemand rechnet: ganzjährig gefüllte Wasserbecken mitten in der Wüste.",
+          "Timimoun: die Ksour von Charouine und Tala, die unterirdischen Foggara-Kanäle, die bis heute Wasser in die Gärten leiten, der Markt und Abende mit traditioneller Musik."
+        ],
+        "links": [
+          { "href": "/de/reisen/sefar-tassili-trek/", "text": "Sefar-Trekking — 7 Tage" },
+          { "href": "/de/reisen/ihrir-oasis-7-days/", "text": "Ihrir und das Tassili — 7 Tage" },
+          { "href": "/de/reisen/timimoun-desert-escape/", "text": "Wüstenreise Timimoun — 5 Tage" }
+        ]
+      },
+      {
+        "h": "Komfort und Anstrengung",
+        "p": "Hier fällt die Entscheidung oft.",
+        "list": [
+          "Timimoun ist leicht bis mittel. Sie übernachten vier Nächte im Gästehaus, unternehmen Ausflüge und kehren abends zurück.",
+          "Djanet im 4×4 ist mittel: kurze Wanderungen und Dünenaufstiege, doch die meisten Nächte verbringen Sie im Wüstencamp, und Winternächte gehen gegen null. Sobald Sie die Stadt verlassen, gibt es kein Handynetz — und genau darum geht es.",
+          "Das Sefar-Trekking ist anspruchsvoll: vier bis sieben Stunden Gehzeit pro Tag auf dem Tassili-Plateau, Esel tragen das Lager. Es ist nur etwas für geübte Wanderer."
+        ]
+      },
+      {
+        "h": "Reisezeit",
+        "p": "Beide sind Winterziele: Oktober bis April, wobei November bis Februar die klarsten und kühlsten Tage bringen. Im Sommer wird der tiefe Süden nicht bereist. Mehr dazu in unserem Ratgeber Monat für Monat.",
+        "links": [
+          { "href": "/de/beste-reisezeit-algerien/", "text": "Beste Reisezeit für Algerien" }
+        ]
+      },
+      {
+        "h": "Kosten",
+        "p": "Unsere veröffentlichten Preise pro Person:",
+        "list": [
+          "Sahara-Safari ab Djanet, 5 Tage — ab 828 € (Beginn in Djanet)",
+          "Tadrart Rouge, 7 Tage — ab 920 €, Hin- und Rückflug Algier ⇄ Djanet inklusive",
+          "Ihrir und das Tassili, 7 Tage — ab 920 €, Hin- und Rückflug inklusive",
+          "Sefar-Trekking, 7 Tage — ab 1.120 €, Hin- und Rückflug inklusive",
+          "Wüstenreise Timimoun, 5 Tage — ab 492 € (Beginn in Timimoun)"
+        ],
+        "links": [
+          { "href": "/de/reisen/djanet-sahara-safari/", "text": "Sahara-Safari ab Djanet — 5 Tage" },
+          { "href": "/de/budget-algerien/", "text": "Was eine Algerien-Reise kostet" }
+        ]
+      },
+      {
+        "h": "Djanet und Timimoun auf einen Blick",
+        "table": {
+          "caption": "Djanet und Timimoun im Vergleich",
+          "columns": ["Djanet", "Timimoun"],
+          "rows": [
+            { "label": "Landschaft", "cells": ["Roter und schwarzer Sandstein, Bögen, Schluchten, Dünenmeere", "Ksour aus roter Erde, Palmhaine, Dünen des Großen Westlichen Erg"] },
+            { "label": "Das Markenzeichen", "cells": ["Prähistorische Felskunst des Tassili n'Ajjer", "Foggara-Bewässerungskanäle und die Ksour des Gourara"] },
+            { "label": "Übernachtung", "cells": ["Wüstencamps und Biwak in freier Natur", "Gästehaus, vier Nächte"] },
+            { "label": "Anstrengung", "cells": ["Mittel im 4×4; anspruchsvoll zu Fuß nach Sefar", "Leicht bis mittel"] },
+            { "label": "Kultur", "cells": ["Tuareg-Guides (Kel Ajjer) und ihre Gastfreundschaft", "Oasenkultur der Zenata, Märkte und Musik"] },
+            { "label": "Unsere Reisen", "cells": ["5–7 Tage, 828–1.120 €", "5 Tage, 492 €"] },
+            { "label": "Ideal für", "cells": ["Tiefe Wüste, Fotografen, Felskunst", "Die erste Sahara-Reise, Komfort, Architektur"] }
+          ]
+        }
+      },
+      {
+        "h": "Typische Fehler",
+        "list": [
+          "Beide als austauschbare „Wüsten-Zusatzprogramme“ behandeln. Es sind verschiedene Reisen: Djanet ist Wildnis und Camp, Timimoun sind Oasenstädte und Gästehaus.",
+          "Eine der beiden für Juli oder August planen. Reisen Sie zwischen Oktober und April — im Sommer wird der tiefe Süden nicht bereist.",
+          "Annehmen, man könne beide an einem Tag auf der Straße verbinden. Sie liegen in entgegengesetzten Ecken der algerischen Sahara. Verbinden Sie sie per Flug und planen Sie das in Ihre Daten ein.",
+          "Zu wenig Warmes für die Nächte einpacken. Winternächte gehen an beiden Orten gegen null. Nehmen Sie echte warme Schichten mit, besonders für die Camps rund um Djanet."
+        ]
+      },
+      {
+        "h": "Wofür also entscheiden?",
+        "p": "Wenn Sie die Sahara selbst suchen — Leere, Fels, Sand und die älteste Kunst Afrikas —, wählen Sie Djanet. Wenn Sie die Wüste mit Menschen darin möchten, ein warmes Bett und ein ruhigeres Tempo, wählen Sie Timimoun. Und wenn Sie zehn Tage haben, schreibt Ihnen niemand vor, sich entscheiden zu müssen: Nennen Sie uns Ihre Daten, und wir verbinden beides zu einer Reise. Zu den Formalitäten: Da beide Reisen die Sahara einschließen und mit einem lizenzierten Veranstalter organisiert werden, kann das Visum bei der Ankunft am Flughafen Algier erteilt werden — erklärt auf unserer Seite zu Einreise und E-Visum.",
+        "links": [
+          { "href": "/de/kontakt/", "text": "Ihre Reisedaten an uns" },
+          { "href": "/de/evisa-algerien/", "text": "Einreise und E-Visum" }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Ist Djanet oder Timimoun besser für eine erste Sahara-Reise?",
+        "a": "Timimoun ist der leichtere Einstieg: warme Nächte im Gästehaus, kurze Ausflüge und viel Kultur. Djanet ist das stärkere Wüstenerlebnis — die Landschaften und die Felskunst, an die die meisten bei der Sahara denken — und auf unseren 4×4-Routen für alle, die einigermaßen fit sind, gut zu bewältigen."
+      },
+      {
+        "q": "Was kostet eine Reise nach Djanet oder Timimoun?",
+        "a": "Bei Algeria Compass kostet die 5-tägige Sahara-Safari ab Djanet ab 828 € pro Person, die 7-tägigen Rundreisen Tadrart Rouge und Ihrir ab 920 € inklusive Hin- und Rückflug ab Algier und das 7-tägige Sefar-Trekking ab 1.120 €. Die 5-tägige Wüstenreise Timimoun kostet ab 492 € pro Person."
+      },
+      {
+        "q": "Wann ist die beste Reisezeit für Djanet und Timimoun?",
+        "a": "Für beide Oktober bis April. November bis Februar bringen die klarsten und kühlsten Tage in der Wüste; die Nächte sind kalt. Im Sommer wird der tiefe Süden nicht bereist."
+      },
+      {
+        "q": "Schläft man in Djanet im Zelt?",
+        "a": "Auf unseren Djanet-Reisen ja — die meisten Nächte verbringen Sie im Wüstencamp oder im Biwak, Zelte, Matratzen und Decken werden gestellt, und manche Reisende schlafen lieber unter freiem Himmel. In Timimoun übernachten Sie jede Nacht im Gästehaus."
+      },
+      {
+        "q": "Kann man Djanet und Timimoun auf einer Reise verbinden?",
+        "a": "Ja, ab zehn Tagen. Die beiden liegen in der Sahara weit auseinander, die Verbindung erfolgt daher per Flug und nicht über Land; wir planen Flüge und Daten passend zu Ihrer Reise."
+      }
+    ],
+    "cta": {
+      "h": "Djanet, Timimoun — oder beides?",
+      "p": "Sagen Sie uns, wie Sie reisen möchten, und wir empfehlen Ihnen ehrlich die passende Sahara — Flüge und Reisedaten planen wir für Sie."
+    },
+    "seoTitle": "Djanet oder Timimoun? Welche Sahara in Algerien (2026)",
+    "seoDescription": "Djanet oder Timimoun? Ehrlicher Vergleich der zwei großen Sahara-Ziele Algeriens: Landschaft, Felskunst, Komfort, Reisezeit und echte Reisepreise."
+  },
+  {
+    "slug": "tadrart-oder-tassili",
+    "en": "/blog/tadrart-vs-tassili/",
+    "fr": "/fr/tadrart-ou-tassili/",
+    "eyebrow": "Djanet im Vergleich",
+    "h1": "Tadrart Rouge, Ihrir oder Sefar? Die richtige Djanet-Reise",
+    "published": "2026-09-24",
+    "lead": "Djanet ist das Tor zum tiefsten und schönsten Teil der algerischen Sahara — und wer sich einmal dafür entschieden hat, steht vor der nächsten Frage: welches Djanet? Von dort aus gibt es drei sehr unterschiedliche Sahara-Reisen. Der Tadrart Rouge ist der Klassiker: rosafarbene Dünen, Steinbögen und Felsgravuren, im 4×4 mit sechs Nächten im Biwak. Ihrir ist das grünere Tassili: ganzjährig gefüllte Wasserbecken, Schluchten und Dünen, ebenfalls im 4×4. Sefar ist eine Wanderexpedition auf das Tassili-Plateau zur größten Galerie prähistorischer Malerei der Sahara, 4–7 Stunden täglich zu Fuß. Alle drei dauern 7 Tage ab Algier, der Flug ist inklusive: Tadrart und Ihrir ab 920 €, Sefar ab 1.120 € pro Person. So finden Sie die richtige. (Sie schwanken noch zwischen Djanet und dem Oasenland weiter westlich? Lesen Sie zuerst unseren Vergleich Djanet oder Timimoun.)",
+    "sections": [
+      {
+        "h": "Die Kurzantwort",
+        "list": [
+          "Tadrart Rouge — 7 Tage: der Klassiker. Rosafarbene Dünen, Steinbögen und berühmte Gravuren, im 4×4, mit sechs Nächten im Biwak. Ab 920 €.",
+          "Ihrir und das Tassili — 7 Tage: die Überraschung. Ganzjährig gefüllte Wasserbecken, eine Schlucht, in der man manchmal baden kann, Dünen und vom Wind geformter Fels, im 4×4. Ab 920 €.",
+          "Sefar-Trekking — 7 Tage: die Expedition. Zu Fuß auf das Tassili-Plateau, zur größten Freiluftgalerie prähistorischer Malerei in der Sahara. Ab 1.120 €."
+        ],
+        "links": [
+          { "href": "/de/reisen/tadrart-rouge-7-days/", "text": "Tadrart Rouge — 7 Tage" },
+          { "href": "/de/reisen/ihrir-oasis-7-days/", "text": "Ihrir und das Tassili — 7 Tage" },
+          { "href": "/de/reisen/sefar-tassili-trek/", "text": "Sefar-Trekking — 7 Tage" },
+          { "href": "/de/djanet-oder-timimoun/", "text": "Djanet oder Timimoun?" }
+        ]
+      },
+      {
+        "h": "Tadrart Rouge: die Sahara der Fotografien",
+        "p": "Der Tadrart liegt südöstlich von Djanet Richtung libysche Grenze und ist das, was sich die meisten unter der Sahara vorstellen: rosafarbener Sand vor schwarzem und rotem Fels. Eine Woche lang ziehen Sie jeden Abend mit dem Camp weiter — zu den Schluchten von El Berdj, den Dünen von Moul Naga, dem großen Sandmeer des Erg Tin Merzouga zum Sonnenuntergang, den Bögen rund um Ajelati und der Sandstein-„Kathedrale“ von Tamezguida. Und es ist nicht nur Landschaft: Die bei Tin Abadène eingravierten Giraffen und Elefanten und die „Weinende Kuh“ von Tigharghart gehören zur berühmtesten Felskunst Afrikas — und Sie stehen direkt davor."
+      },
+      {
+        "h": "Ihrir: eine Sahara mit Wasser",
+        "p": "Ihrir ist eine tief eingeschnittene Oase im Tassili, in der das Wasser nie versiegt: ganzjährige Gueltas, gesäumt von Schilf und Grün. Die Woche führt weiter durch die Dünen des Erg Admer, die Schlucht des Oued Essendilène (je nach Saison mit Bademöglichkeit), die windgeformten Türme von Tikoubaouine und nach Adaik, das man vor Ort wegen seiner Felskunst das „kleine Sefar“ nennt. Die erste Nacht verbringen Sie in einem Gästehaus in Djanet, die übrigen fünf im Biwak. Wählen Sie Ihrir, wenn Sie schon Dünen gesehen haben oder die größte Vielfalt an Landschaften in einer einzigen Woche erleben möchten."
+      },
+      {
+        "h": "Sefar: zu Fuß zu den bemalten Felswänden",
+        "p": "Kein Fahrzeug erreicht die Höhe des Tassili-Plateaus. Sie steigen von Tamrit aus hinauf — am ersten Tag rund 500 Höhenmeter —, Guides, Köche und Eseltreiber tragen das Lager, und dann wandern Sie täglich vier bis sieben Stunden zwischen Felsüberhängen, die vor fünf- bis achttausend Jahren bemalt wurden: die „Tänzer“ von Tin Tazarift, die Masken von Sefar Noir, die großen Figuren von Sefar Blanc und Djabarren, das größte Ensemble von Malereien im Tassili. Bei Tamrit stehen die uralten Tassili-Zypressen, Überlebende jener feuchteren Sahara, die die Malereien zeigen. Es ist die lohnendste der drei Reisen und die einzige, die Ihrem Körper etwas abverlangt. Sie ist für geübte Wanderer."
+      },
+      {
+        "h": "Wenig Zeit?",
+        "p": "Die Sahara-Safari ab Djanet ist ein 5-tägiger Vorgeschmack auf den Tadrart mit Wüstencamps und einem Tuareg-Guide, ab 828 €, mit Beginn und Ende in Djanet (der Flug ist nicht inbegriffen).",
+        "links": [
+          { "href": "/de/reisen/djanet-sahara-safari/", "text": "Sahara-Safari ab Djanet — 5 Tage" }
+        ]
+      },
+      {
+        "h": "Die drei Djanet-Reisen im Vergleich",
+        "table": {
+          "caption": "Die drei Djanet-Reisen im Vergleich",
+          "columns": ["Tadrart Rouge", "Ihrir und das Tassili", "Sefar-Trekking"],
+          "rows": [
+            { "label": "Worum es geht", "cells": ["Dünen, Bögen und Gravuren", "Oasenbecken, Schluchten und Ergs", "Bemalte Felsüberhänge auf dem Plateau"] },
+            { "label": "Fortbewegung", "cells": ["4×4, kurze Wanderungen", "4×4, kurze Wanderungen", "Zu Fuß, 4–7 Stunden täglich"] },
+            { "label": "Nächte", "cells": ["6 Nächte Biwak in freier Natur", "1 Gästehaus + 5 Biwak", "6 Nächte auf dem Plateau"] },
+            { "label": "Kondition", "cells": ["Bequem", "Bequem", "Anspruchsvoll — nur für geübte Wanderer"] },
+            { "label": "Der große Moment", "cells": ["Sonnenuntergang über dem Erg Tin Merzouga", "Die Gueltas von Ihrir", "Die Masken und „Götter“ von Sefar"] },
+            { "label": "Ab, pro Person", "cells": ["920 €", "920 €", "1.120 €"] }
+          ]
+        }
+      },
+      {
+        "h": "Praktische Hinweise für alle drei",
+        "list": [
+          "Reisezeit: Oktober bis April; November bis Februar ist am klarsten und kühlsten. Im Sommer wird der tiefe Süden nicht bereist.",
+          "Nächte: im Winter kalt — nahe dem Gefrierpunkt. Nehmen Sie echte warme Schichten mit.",
+          "Netz: keines, sobald Sie Djanet verlassen.",
+          "Genehmigungen: Die Genehmigungen für den Nationalpark Tassili n'Ajjer besorgen wir, sie sind inbegriffen.",
+          "Einreise: Die Visumswege für die Sahara, Djanet eingeschlossen, erklären wir auf unserer Seite zu Einreise und E-Visum."
+        ],
+        "links": [
+          { "href": "/de/evisa-algerien/", "text": "Einreise und E-Visum" },
+          { "href": "/de/reiseziele/djanet/", "text": "Reiseziel Djanet" }
+        ]
+      },
+      {
+        "h": "Typische Fehler",
+        "list": [
+          "Sefar buchen, weil es am eindrucksvollsten klingt. Das ist es — aber es ist ein Trekking mit einem steilen Aufstieg am ersten Tag. Wenn Sie nicht regelmäßig wandern, wählen Sie den Tadrart oder Ihrir; beide bieten ebenfalls Felskunst.",
+          "Glauben, der Tadrart habe keine Felskunst. Dort finden sich einige der berühmtesten Gravuren der Sahara — die Giraffen von Tin Abadène und die „Weinende Kuh“ von Tigharghart.",
+          "Mit Handynetz rechnen. Sobald Sie Djanet verlassen, gibt es keines. Sagen Sie Ihren Angehörigen vor der Abreise Bescheid."
+        ]
+      },
+      {
+        "h": "Noch unentschlossen?",
+        "p": "Erzählen Sie uns, wie Sie gern reisen, und wir sagen Ihnen ehrlich, welche Reise zu Ihnen passt — oder stellen eine Reise zusammen, die zwei davon verbindet.",
+        "links": [
+          { "href": "/de/kontakt/", "text": "Kontakt aufnehmen" }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Was ist der Unterschied zwischen dem Tadrart Rouge und dem Tassili n'Ajjer?",
+        "a": "Das Tassili n'Ajjer ist das große Sandsteinplateau und Schutzgebiet rund um Djanet, berühmt für seine prähistorische Felskunst. Der Tadrart Rouge liegt südöstlich davon Richtung libysche Grenze und ist bekannt für rosafarbene Dünen, roten Fels und Naturbögen. Auf unseren Reisen werden Tadrart und Ihrir im 4×4 befahren; das Hochplateau bei Sefar ist nur zu Fuß erreichbar."
+      },
+      {
+        "q": "Welche Djanet-Reise eignet sich am besten für den ersten Besuch?",
+        "a": "Der Tadrart Rouge. Er bietet die Landschaften, für die die meisten kommen, berühmte Gravuren und ein entspanntes Tempo im 4×4. Wählen Sie Ihrir, wenn Sie schon Dünen gesehen haben und etwas Unerwartetes suchen, und Sefar, wenn Sie begeisterter Wanderer sind und Ihnen die Felsmalereien am wichtigsten sind."
+      },
+      {
+        "q": "Wie fit muss man für das Sefar-Trekking sein?",
+        "a": "Einigermaßen fit und ans Gehen gewöhnt: 4 bis 7 Stunden täglich, mit rund 500 Höhenmetern Aufstieg am ersten Tag, um auf das Plateau zu gelangen. Guides, Köche und Eseltreiber tragen das Lager, Sie selbst tragen nur einen Tagesrucksack."
+      },
+      {
+        "q": "Sind die Flüge bei den Djanet-Reisen inbegriffen?",
+        "a": "Bei den drei 7-tägigen Reisen — Tadrart Rouge, Ihrir und Sefar — ja: Der Hin- und Rückflug mit Air Algérie von Algier nach Djanet und alle Flughafentransfers sind inbegriffen. Die 5-tägige Sahara-Safari ab Djanet beginnt und endet in Djanet, der Flug ist dort also nicht enthalten."
+      },
+      {
+        "q": "Kann man in Ihrir baden?",
+        "a": "Manchmal. In den Becken des Oued Essendilène kann man je nach Saison schwimmen — packen Sie Badesachen ein, Ihr Guide sagt Ihnen vor Ort Bescheid."
+      }
+    ],
+    "cta": {
+      "h": "Welche Djanet-Reise passt zu Ihnen?",
+      "p": "Erzählen Sie uns, wie Sie reisen möchten: Wir sagen Ihnen ehrlich, welche der drei Reisen passt — oder verbinden zwei davon zu einer Reise."
+    },
+    "seoTitle": "Tadrart Rouge, Ihrir oder Sefar? Welche Djanet-Reise (2026)",
+    "seoDescription": "Drei Wege in die Wüste um Djanet im Vergleich: Dünen und Bögen des Tadrart Rouge, die Oase Ihrir oder das Sefar-Felskunst-Trekking. Aufwand, Nächte, Preise."
   }
 ];
 

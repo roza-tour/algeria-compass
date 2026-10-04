@@ -1,0 +1,115 @@
+---
+// "Moments from our trips" in every language. The photographs and their English
+// descriptions live in src/data/moments.ts; each language translates the alts
+// in its own moments-xx.ts file, keyed by src (missing ones fall back to English).
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import PhotoGallery from '../PhotoGallery.astro';
+import CtaSection from '../CtaSection.astro';
+import { MOMENTS } from '../../data/moments';
+import { MOMENTS_FR } from '../../data/moments-fr';
+import { MOMENTS_IT } from '../../data/moments-it';
+import { MOMENTS_ES } from '../../data/moments-es';
+import { MOMENTS_DE } from '../../data/moments-de';
+import { asLang, alternatesFor, MOMENTS_PATHS, ROUTES } from '../../i18n';
+
+interface Props { lang?: string }
+const lang = asLang(Astro.props.lang);
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const T: Record<string, Record<string, string>> = { fr: MOMENTS_FR, it: MOMENTS_IT, es: MOMENTS_ES, de: MOMENTS_DE };
+const images = MOMENTS.map(m => ({ src: m.src, alt: T[lang]?.[m.src] || m.alt }));
+const hero = '/assets/img/clients/client-641.jpg';
+const home = lang === 'en' ? '/' : `/${lang}/`;
+
+const COPY = {
+  en: {
+    title: 'Moments From Our Trips | Algeria Compass',
+    desc: 'Photographs from real Algeria Compass journeys — our own travellers, in the oases, ksour, museums and deserts of Algeria.',
+    keywords: ['Algeria tour photos', 'Algeria travel photos', 'Algeria Compass reviews', 'real Algeria trips'],
+    h1: 'Moments from our trips', eyebrow: 'Our travellers',
+    lead: 'Not stock photography. These are our own guests, on our own journeys, published with their permission.',
+    heroAlt: 'Two travellers photographing each other in a rocky wadi below an ochre hillside town',
+    crumb: 'Moments from our trips', home: 'Home',
+    p1: 'Algeria is photographed far less than its neighbours, so most pictures you will find of it are of the monuments rather than of the trip. These are the trip: tea in a guesthouse, a lane in a ksar, lunch that went on too long, someone insisting on a photo in a wadi.',
+    p2a: 'Every person here agreed to appear. If you have travelled with us and would like a photograph added — or taken down — ', p2link: 'tell us', p2b: ' and we will do it the same day.',
+    gallery: 'From our journeys',
+    ctaH: 'Your own trip, on your own dates',
+    ctaP: 'Private journeys across Algeria, run by a licensed Algerian operator. Tell us when you want to travel and we will build it around you.',
+  },
+  fr: {
+    title: 'Moments de nos voyages en Algérie | Algeria Compass',
+    desc: "Photos de vrais voyages Algeria Compass : nos voyageurs dans les oasis, les ksour, les musées et les déserts d'Algérie.",
+    keywords: ['photos voyage Algérie', 'circuit Algérie avis', 'Algeria Compass', 'voyage privé Algérie'],
+    h1: 'Moments de nos voyages', eyebrow: 'Nos voyageurs',
+    lead: "Pas de photos de banque d'images : ce sont nos propres voyageurs, pendant nos propres circuits, publiés avec leur accord.",
+    heroAlt: "Deux voyageurs se photographiant dans un oued rocheux, sous une ville ocre accrochée à la colline",
+    crumb: 'Moments de nos voyages', home: 'Accueil',
+    p1: "L'Algérie est bien moins photographiée que ses voisins : la plupart des images que l'on trouve montrent les monuments, pas le voyage. Ici, c'est le voyage : un thé dans une maison d'hôtes, une ruelle de ksar, un déjeuner qui s'éternise, quelqu'un qui tient absolument à sa photo dans un oued.",
+    p2a: "Chaque personne a accepté d'apparaître ici. Si vous avez voyagé avec nous et souhaitez qu'une photo soit ajoutée — ou retirée — ", p2link: 'dites-le-nous', p2b: ', nous le faisons le jour même.',
+    gallery: 'Pendant nos voyages',
+    ctaH: 'Votre voyage, à vos dates',
+    ctaP: "Des voyages privés à travers l'Algérie, organisés par une agence algérienne agréée. Dites-nous quand vous voulez partir, nous construisons le voyage autour de vous.",
+  },
+  it: {
+    title: 'Momenti dei nostri viaggi in Algeria | Algeria Compass',
+    desc: "Foto di veri viaggi Algeria Compass: i nostri viaggiatori tra oasi, ksour, musei e deserti dell'Algeria.",
+    keywords: ['foto viaggio Algeria', 'viaggio Algeria recensioni', 'Algeria Compass', 'viaggio privato Algeria'],
+    h1: 'Momenti dei nostri viaggi', eyebrow: 'I nostri viaggiatori',
+    lead: 'Niente foto di repertorio: sono i nostri ospiti, nei nostri viaggi, pubblicati con il loro consenso.',
+    heroAlt: 'Due viaggiatori che si fotografano a vicenda in un uadi roccioso sotto una città color ocra sulla collina',
+    crumb: 'Momenti dei nostri viaggi', home: 'Home',
+    p1: "L'Algeria è fotografata molto meno dei suoi vicini, e quasi tutte le immagini che si trovano mostrano i monumenti, non il viaggio. Queste sono il viaggio: un tè in una guesthouse, un vicolo di uno ksar, un pranzo che si allunga, qualcuno che insiste per una foto nell'uadi.",
+    p2a: 'Ogni persona ritratta ha accettato di comparire. Se avete viaggiato con noi e volete aggiungere una foto — o toglierla — ', p2link: 'scriveteci', p2b: ' e lo facciamo in giornata.',
+    gallery: 'Dai nostri viaggi',
+    ctaH: 'Il vostro viaggio, nelle vostre date',
+    ctaP: "Viaggi privati in tutta l'Algeria, organizzati da un tour operator algerino autorizzato. Diteci quando volete partire e costruiamo il viaggio attorno a voi.",
+  },
+  es: {
+    title: 'Momentos de nuestros viajes por Argelia | Algeria Compass',
+    desc: 'Fotos de viajes reales de Algeria Compass: nuestros viajeros en los oasis, ksur, museos y desiertos de Argelia.',
+    keywords: ['fotos viaje Argelia', 'viaje Argelia opiniones', 'Algeria Compass', 'viaje privado Argelia'],
+    h1: 'Momentos de nuestros viajes', eyebrow: 'Nuestros viajeros',
+    lead: 'Nada de fotos de archivo: son nuestros propios viajeros, en nuestros propios viajes, publicados con su permiso.',
+    heroAlt: 'Dos viajeros fotografiándose en un uadi rocoso bajo un pueblo ocre en la ladera',
+    crumb: 'Momentos de nuestros viajes', home: 'Inicio',
+    p1: 'Argelia se fotografía mucho menos que sus vecinos, y casi todas las imágenes que se encuentran son de los monumentos, no del viaje. Estas son el viaje: un té en una casa de huéspedes, una callejuela de un ksar, una comida que se alarga, alguien que insiste en hacerse una foto en el uadi.',
+    p2a: 'Todas las personas que aparecen aceptaron salir. Si has viajado con nosotros y quieres que añadamos una foto — o que la quitemos — ', p2link: 'escríbenos', p2b: ' y lo hacemos ese mismo día.',
+    gallery: 'De nuestros viajes',
+    ctaH: 'Tu propio viaje, en tus fechas',
+    ctaP: 'Viajes privados por toda Argelia, organizados por una agencia argelina con licencia. Dinos cuándo quieres viajar y construimos el viaje a tu medida.',
+  },
+  de: {
+    title: 'Momente unserer Algerien-Reisen | Algeria Compass',
+    desc: 'Fotos echter Algeria-Compass-Reisen: unsere Gäste in den Oasen, Ksour, Museen und Wüsten Algeriens.',
+    keywords: ['Algerien Reise Fotos', 'Algerien Rundreise Erfahrungen', 'Algeria Compass', 'Privatreise Algerien'],
+    h1: 'Momente unserer Reisen', eyebrow: 'Unsere Reisenden',
+    lead: 'Keine Stockfotos: Das sind unsere eigenen Gäste auf unseren eigenen Reisen, veröffentlicht mit ihrer Erlaubnis.',
+    heroAlt: 'Zwei Reisende fotografieren sich gegenseitig in einem felsigen Wadi unterhalb einer ockerfarbenen Hügelstadt',
+    crumb: 'Momente unserer Reisen', home: 'Startseite',
+    p1: 'Algerien wird viel seltener fotografiert als seine Nachbarn, und die meisten Bilder zeigen die Monumente, nicht die Reise. Diese hier sind die Reise: Tee in einem Gästehaus, eine Gasse in einem Ksar, ein Mittagessen, das zu lange dauerte, jemand, der unbedingt ein Foto im Wadi wollte.',
+    p2a: 'Jede abgebildete Person hat zugestimmt. Wenn Sie mit uns gereist sind und ein Foto ergänzen — oder entfernen — lassen möchten, ', p2link: 'schreiben Sie uns', p2b: '; wir erledigen das noch am selben Tag.',
+    gallery: 'Von unseren Reisen',
+    ctaH: 'Ihre eigene Reise, zu Ihren Terminen',
+    ctaP: 'Privatreisen durch ganz Algerien, organisiert von einem lizenzierten algerischen Reiseveranstalter. Sagen Sie uns, wann Sie reisen möchten, und wir planen die Reise um Sie herum.',
+  },
+} as const;
+const C = COPY[lang];
+const alternates = alternatesFor(site, MOMENTS_PATHS);
+---
+<BaseLayout title={C.title} description={C.desc} image={hero} keywords={[...C.keywords]} region="sahara" lang={lang} alternates={alternates}>
+  <Hero title={C.h1} eyebrow={C.eyebrow} text={C.lead} image={hero} alt={C.heroAlt} />
+
+  <Breadcrumbs items={[{ name: C.home, href: home }, { name: C.crumb }]} />
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <div class="prose">
+      <p>{C.p1}</p>
+      <p>{C.p2a}<a href={ROUTES[lang].contact}>{C.p2link}</a>{C.p2b}</p>
+    </div>
+  </div></section>
+
+  <PhotoGallery images={images} heading={C.gallery} />
+
+  <CtaSection heading={C.ctaH} text={C.ctaP} lang={lang} />
+</BaseLayout>

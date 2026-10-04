@@ -263,6 +263,11 @@ export function alternatesFor(site: string, paths: Partial<Record<Lang, string>>
 }
 
 // The conversion landing page (/plan-your-trip/) exists in all five languages.
+// "Moments from our trips" (client photographs) exists in all five languages.
+export const MOMENTS_PATHS: Record<Lang, string> = {
+  en: '/moments/', fr: '/fr/moments-de-voyage/', it: '/it/momenti-di-viaggio/', es: '/es/momentos-de-viaje/', de: '/de/reisemomente/',
+};
+
 export const PLAN_PATHS: Partial<Record<Lang, string>> = {
   en: '/plan-your-trip/', fr: '/fr/planifier-mon-voyage/', it: '/it/pianifica-il-viaggio/', es: '/es/planifica-tu-viaje/', de: '/de/reise-planen/',
 };

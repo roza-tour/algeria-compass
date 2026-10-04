@@ -2,9 +2,11 @@
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // Spanish practical guides, rendered from src/data/guides-es.ts.
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { GUIDES_ES, type GuideEs } from '../../data/guides-es';
 import { alternatesFor } from '../../i18n';
+import { guideFrByEn } from '../../data/guides-fr';
 import { guideItByEn } from '../../data/guides-it';
 import { guideEsByEn } from '../../data/guides-es';
 import { guideDeByEn } from '../../data/guides-de';
@@ -19,7 +21,7 @@ const url = `${site}/es/${g.slug}/`;
 const enUrl = site + g.en;
 const alternates = alternatesFor(site, {
   en: g.en,
-  fr: g.fr,
+  fr: g.fr || (guideFrByEn(g.en) ? `/fr/${guideFrByEn(g.en)!.slug}/` : undefined),
   it: guideItByEn(g.en) ? `/it/${guideItByEn(g.en)!.slug}/` : undefined,
   es: `/es/${g.slug}/`,
   de: guideDeByEn(g.en) ? `/de/${guideDeByEn(g.en)!.slug}/` : undefined,
@@ -87,6 +89,8 @@ const breadcrumb = {
           <h2 style="margin-top:2rem">{s.h}</h2>
           {s.p && <p style="line-height:1.75;color:var(--text-m)">{s.p}</p>}
           {s.list && <ul class="prose">{s.list.map(i => <li>{i}</li>)}</ul>}
+          {s.table && <ComparisonTable caption={s.table.caption} columns={s.table.columns} rows={s.table.rows} />}
+          {s.links && <ul class="prose">{s.links.map(k => <li><a href={k.href}>{k.text}</a></li>)}</ul>}
         </>
       ))}
       {['visado-llegada-argelia', 'asistencia-visado-argelia'].includes(g.slug) && <StampFeeTable lang="es" />}

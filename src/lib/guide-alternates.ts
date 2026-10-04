@@ -12,6 +12,7 @@
 // `fr`), so the set is derived from it instead. A new translation now wires
 // its own hreflang in every direction on the next build.
 
+import { GUIDES_FR } from '../data/guides-fr';
 import { GUIDES_IT } from '../data/guides-it';
 import { GUIDES_ES } from '../data/guides-es';
 import { GUIDES_DE } from '../data/guides-de';
@@ -19,6 +20,7 @@ import { GUIDES_DE } from '../data/guides-de';
 type Alts = { en?: string; fr?: string; it?: string; es?: string; de?: string };
 
 const SETS: [keyof Alts, { slug: string; en?: string; fr?: string }[]][] = [
+  ['fr', GUIDES_FR as any],
   ['it', GUIDES_IT as any],
   ['es', GUIDES_ES as any],
   ['de', GUIDES_DE as any],

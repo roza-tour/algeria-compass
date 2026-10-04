@@ -2,7 +2,7 @@
 // Unified footer — rebrand dark styling, preserving every existing content link.
 // Language-aware: pass lang="fr" for the French labels (same links/design).
 import { CONTACT } from '../config';
-import { asLang, ROUTES, PLAN_PATHS } from '../i18n';
+import { asLang, ROUTES, PLAN_PATHS, MOMENTS_PATHS } from '../i18n';
 interface Props { lang?: string }
 const lang = asLang(Astro.props.lang);
 const year = new Date().getFullYear();
@@ -44,7 +44,7 @@ const columns = [
     links: [
       { href: '/travel-guides/', label: t('Travel Guides', 'Guides pratiques', 'Guide pratiche', 'Guías prácticas', 'Reiseratgeber') },
       { href: PLAN_PATHS[lang]!, label: t('Plan Your Trip — Instant Price', 'Planifier mon voyage', 'Pianifica il viaggio', 'Planifica tu viaje', 'Reise planen') },
-      { href: '/moments/', label: t('Moments From Our Trips', 'Moments de nos voyages', 'Momenti dei nostri viaggi', 'Momentos de nuestros viajes', 'Momente unserer Reisen') },
+      { href: MOMENTS_PATHS[lang], label: t('Moments From Our Trips', 'Moments de nos voyages', 'Momenti dei nostri viaggi', 'Momentos de nuestros viajes', 'Momente unserer Reisen') },
       { href: '/partners/', label: t('For Tour Operators', 'Pour les agences', 'Per agenzie e tour operator', 'Para agencias y turoperadores', 'Für Reiseveranstalter') },
       { href: t('/visa-support/', '/fr/assistance-visa-algerie/', '/it/assistenza-visto-algeria/', '/es/asistencia-visado-argelia/', '/de/visum-hilfe-algerien/'),
         label: t('Visa Support', 'Aide au visa', 'Assistenza visto', 'Ayuda con el visado', 'Visum-Unterstützung') },
