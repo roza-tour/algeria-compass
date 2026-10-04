@@ -244,6 +244,14 @@ export const LUX_COPY = {
     { v: 'All-in', l: 'Voli · hotel · pasti' },
     { v: '€1,615', l: 'Da / persona' },
   ],
+  // Luxury camp in Djanet — owner, 2026-10-04: a separate, special booking,
+  // not part of the programmes. Photos: tours/djanet-14..17.
+  campOverline: "Il campo nel deserto · Djanet",
+  campH2: "Un campo di lusso nel cuore del Sahara",
+  campText: "A Djanet possiamo organizzare notti in un campo tendato di lusso: grandi tende in tela con veri letti e tappeti tessuti, montate in una valle di sabbia tra pareti di arenaria e illuminate dalle lanterne al calar della sera.",
+  campNote: "Solo su prenotazione speciale. Il campo non fa parte dei programmi standard: si prenota a parte, su richiesta e secondo disponibilità. Chiedetecelo quando ci scrivete.",
+  campCta: "Chiedi del campo",
+  campAlts: ["Il campo di lusso vicino a Djanet al tramonto, tende illuminate in una valle di sabbia tra pareti di arenaria", "Letti e un tappeto tessuto dentro una tenda del campo di lusso vicino a Djanet", "Due letti dentro una tenda in tela del campo di lusso vicino a Djanet", "Il campo di lusso vicino a Djanet sotto la luna, con le tende illuminate"],
   pillarsOverline: 'Lo standard Algeria Compass',
   pillarsH2: 'Che cosa lo rende cinque stelle',
   pillars: [

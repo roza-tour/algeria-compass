@@ -141,6 +141,22 @@ const joiner = (i: number, len: number) => (i === 0 ? '' : i === len - 1 ? ` ${C
       {PROGRAMMES.map((p: any) => <LuxuryProgram prog={p} pricing={LUX_PRICING} c={C.prog} />)}
     </div>
 
+    <!-- ===================== LUXURY CAMP (special booking) ===================== -->
+    <section class="lux-sec lux-camp" id="camp">
+      <div class="lux-wrap">
+        <p class="lux-overline">{C.campOverline}</p>
+        <h2 class="lux-h2">{C.campH2}</h2>
+        <div class="lux-camp-grid">
+          {[14, 15, 16, 17].map((n, i) => (
+            <img src={`/assets/img/tours/djanet-${n}.jpg`} alt={C.campAlts[i]} loading="lazy" decoding="async" width="800" height="600" />
+          ))}
+        </div>
+        <p class="lux-camp-text">{C.campText}</p>
+        <p class="lux-camp-note">{C.campNote}</p>
+        <p style="text-align:center;margin-top:1.4rem"><a class="lux-camp-cta" href="#reserve">{C.campCta}</a></p>
+      </div>
+    </section>
+
     <!-- ===================== RESERVE ===================== -->
     <section class="lux-sec lux-reserve" id="reserve">
       <div class="lux-wrap">
@@ -291,6 +307,17 @@ const joiner = (i: number, len: number) => (i === 0 ? '' : i === len - 1 ? ` ${C
   .lux-hero-stat b{font-family:var(--lux-display);font-weight:600;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--lux-gold-bright);letter-spacing:.04em;text-shadow:0 2px 12px rgba(0,0,0,.4)}
   .lux-hero-stat i{font-family:var(--lux-label);font-style:normal;font-size:.57rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)}
   .lux-hero-sep{width:1px;height:30px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.5),transparent)}
+
+  /* ============================ LUXURY CAMP ============================ */
+  .lux-camp{background-color:var(--lux-ivory-2)}
+  .lux-camp-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:.6rem;margin-top:2rem}
+  .lux-camp-grid img{width:100%;height:100%;object-fit:cover;border-radius:6px;aspect-ratio:4/3}
+  .lux-camp-grid img:first-child{grid-row:span 2;aspect-ratio:auto}
+  .lux-camp-grid img:last-child{grid-column:span 2}
+  .lux-camp-text{max-width:720px;margin:1.6rem auto 0;text-align:center;font-family:var(--lux-serif);font-size:1.2rem;line-height:1.65;color:var(--lux-emerald)}
+  .lux-camp-note{max-width:720px;margin:.9rem auto 0;text-align:center;font-weight:600;color:var(--lux-emerald);border:1px solid var(--lux-gold-line);border-radius:6px;padding:.8rem 1rem}
+  .lux-camp-cta{display:inline-block;padding:.8rem 1.6rem;border:1px solid var(--lux-gold);color:var(--lux-emerald);text-decoration:none;font-weight:600;border-radius:4px}
+  @media (max-width:700px){.lux-camp-grid{grid-template-columns:1fr 1fr}.lux-camp-grid img:first-child{grid-row:auto;grid-column:span 2;aspect-ratio:4/3}.lux-camp-grid img:last-child{grid-column:span 2}}
 
   /* ============================ PILLARS ============================ */
   .lux-pillars{background-color:var(--lux-ivory-2)}

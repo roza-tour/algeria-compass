@@ -243,6 +243,14 @@ export const LUX_COPY = {
     { v: 'All-in', l: 'Flights · hotels · meals' },
     { v: '€1,615', l: 'From / person' },
   ],
+  // Luxury camp in Djanet — owner, 2026-10-04: a separate, special booking,
+  // not part of the programmes. Photos: tours/djanet-14..17.
+  campOverline: "The desert camp · Djanet",
+  campH2: "A luxury camp in the deep Sahara",
+  campText: "In Djanet we can arrange nights at a luxury desert camp: canvas bell tents with proper beds and woven rugs, pitched in a sandy valley between sandstone cliffs and lit by lanterns after dark.",
+  campNote: "By special booking only. The camp is not part of the standard programmes; it is reserved separately, on request and subject to availability. Ask for it when you enquire.",
+  campCta: "Ask about the camp",
+  campAlts: ["The luxury camp near Djanet at dusk, bell tents lit in a sandy valley between sandstone cliffs", "Beds and a woven rug inside a bell tent at the luxury camp near Djanet", "Twin beds inside a canvas bell tent at the luxury camp near Djanet", "The luxury camp near Djanet under the moon, its bell tents glowing"],
   pillarsOverline: 'The Algeria Compass Standard',
   pillarsH2: 'What makes it five-star',
   pillars: [

@@ -244,6 +244,14 @@ export const LUX_COPY = {
     { v: 'All-in', l: 'Flüge · Hotels · Mahlzeiten' },
     { v: '€1,615', l: 'Ab / Person' },
   ],
+  // Luxury camp in Djanet — owner, 2026-10-04: a separate, special booking,
+  // not part of the programmes. Photos: tours/djanet-14..17.
+  campOverline: "Das Wüstencamp · Djanet",
+  campH2: "Ein Luxuscamp in der tiefen Sahara",
+  campText: "In Djanet können wir Nächte in einem Luxus-Wüstencamp organisieren: große Glockenzelte aus Segeltuch mit richtigen Betten und gewebten Teppichen, aufgestellt in einem Sandtal zwischen Sandsteinfelsen und nach Einbruch der Dunkelheit von Laternen beleuchtet.",
+  campNote: "Nur auf besondere Buchung. Das Camp ist nicht Teil der Standardprogramme; es wird separat reserviert, auf Anfrage und je nach Verfügbarkeit. Fragen Sie bei Ihrer Anfrage danach.",
+  campCta: "Nach dem Camp fragen",
+  campAlts: ["Das Luxuscamp bei Djanet in der Dämmerung, beleuchtete Zelte in einem Sandtal zwischen Sandsteinfelsen", "Betten und ein gewebter Teppich in einem Zelt des Luxuscamps bei Djanet", "Zwei Betten in einem Segeltuchzelt des Luxuscamps bei Djanet", "Das Luxuscamp bei Djanet unter dem Mond, die Zelte leuchtend"],
   pillarsOverline: 'Der Algeria-Compass-Standard',
   pillarsH2: 'Was diese Reisen zu 5 Sternen macht',
   pillars: [
