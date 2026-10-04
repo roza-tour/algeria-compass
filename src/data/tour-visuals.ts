@@ -11,13 +11,15 @@ export interface TourVisual { hero: string; accent: string; needsImage?: boolean
 
 export const TOUR_VISUALS: Record<string, TourVisual> = {
   // ---- 2026 La Smala programmes ----
-  // Heroes are the owner's own desert-camp photography (djanet-14..17), which
-  // is what these three circuits actually sleep in — the camp at dusk, the
-  // tent interiors and the camp under a full moon. The photographs inside the
-  // supplied PDFs were of identifiable clients and are not published.
-  'tadrart-rouge-7-days':            { hero: 'djanet-14.jpg',       accent: '#C8680A' },
-  'ihrir-oasis-7-days':              { hero: 'djanet-17.jpg',       accent: '#B4560E' },
-  'sefar-tassili-trek':              { hero: 'djanet-15.jpg',       accent: '#9A4A12' },
+  // Heroes show what each circuit is about: Tadrart dunes and sandstone, the
+  // canyon pools of the Ihrir side, and the Sefar rock paintings. NOT the luxury
+  // camp (djanet-14..17): owner, 2026-10-04 — that camp is in Djanet but is a
+  // separate, special booking, so it must not stand for these circuits.
+  // The photographs inside the supplied PDFs were of identifiable clients and
+  // are not published.
+  'tadrart-rouge-7-days':            { hero: 'djanet-21.jpg',       accent: '#C8680A' },
+  'ihrir-oasis-7-days':              { hero: 'djanet-18.jpg',       accent: '#B4560E' },
+  'sefar-tassili-trek':              { hero: 'djanet-27.jpg',       accent: '#9A4A12' },
   'algeria-grand-discovery-14-days': { hero: 'algiers-1.jpg',       accent: '#0B3D2E' },
 
   // Sahara — burnt sand
