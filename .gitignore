@@ -44,3 +44,4 @@ new-logo.png
 # wipes the counts (git reset --hard leaves untracked files alone).
 /data/hits-*.jsonl
 shots/
+/data/.stats-login-*

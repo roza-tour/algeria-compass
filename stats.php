@@ -5,12 +5,55 @@
 // people in, how far they read, where they arrive from, when they browse, and
 // where they drop out of the booking funnel.
 //
-// NO PASSWORD (owner's choice): hidden + noindex only. To lock it later, the
-// same 3-line gate used by reviews-admin.php drops straight in.
+// PASSWORD-PROTECTED (owner's request, 2026-10-04): it shows visitors' own
+// words — searches and questions — so it is no longer left open. The bcrypt
+// hash lives in stats-auth.php; login is throttled per IP.
 
 date_default_timezone_set('Africa/Algiers');
 header('X-Robots-Tag: noindex, nofollow', true);
 header('Referrer-Policy: no-referrer');
+
+// ---- login gate ------------------------------------------------------------
+function stats_hash(): string {
+  $env = getenv('STATS_HASH'); if (is_string($env) && $env !== '') return $env;
+  $f = __DIR__ . '/../.stats_hash'; if (is_file($f)) { $h = trim((string) file_get_contents($f)); if ($h !== '') return $h; }
+  $h = @include __DIR__ . '/stats-auth.php'; return is_string($h) ? $h : '';
+}
+function stats_throttle_file(): string { return __DIR__ . '/data/.stats-login-' . md5(substr($_SERVER['REMOTE_ADDR'] ?? '0', 0, 45)) . '.json'; }
+function stats_fails(): array { $f = stats_throttle_file(); $now = time();
+  $h = is_file($f) ? (json_decode((string) @file_get_contents($f), true) ?: []) : [];
+  return array_values(array_filter($h, fn($t) => $t > $now - 900)); }
+session_name('acstats');
+session_set_cookie_params(['lifetime' => 0, 'path' => '/', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict']);
+session_start();
+if (empty($_SESSION['st_tok'])) $_SESSION['st_tok'] = bin2hex(random_bytes(16));
+if (isset($_GET['logout'])) { session_destroy(); header('Location: stats.php'); exit; }
+if (isset($_POST['st_pass'])) {
+  $fails = stats_fails();
+  $ok = count($fails) < 5 && hash_equals($_SESSION['st_tok'], (string) ($_POST['st_tok'] ?? ''))
+        && ($hash = stats_hash()) !== '' && password_verify((string) $_POST['st_pass'], $hash);
+  if ($ok) { session_regenerate_id(true); $_SESSION['st_ok'] = true; }
+  else {
+    $fails[] = time(); if (!is_dir(__DIR__ . '/data')) @mkdir(__DIR__ . '/data', 0755, true);
+    @file_put_contents(stats_throttle_file(), json_encode($fails), LOCK_EX);
+    $_SESSION['st_err'] = count($fails) >= 5 ? 'محاولات كثيرة — انتظر ربع ساعة.' : 'كلمة المرور غير صحيحة.';
+  }
+  header('Location: stats.php' . (isset($_GET['d']) ? '?d=' . (int) $_GET['d'] : '')); exit;
+}
+if (empty($_SESSION['st_ok'])) {
+  $err = $_SESSION['st_err'] ?? ''; unset($_SESSION['st_err']);
+  $tok = htmlspecialchars($_SESSION['st_tok'], ENT_QUOTES, 'UTF-8');
+  header('Content-Type: text/html; charset=utf-8');
+  echo '<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>الإحصائيات</title>'
+     . '<style>body{font-family:system-ui,sans-serif;background:#0f1e17;color:#f3ead7;display:grid;place-items:center;min-height:100vh;margin:0}'
+     . 'form{background:#17291f;padding:2rem;border-radius:14px;width:min(340px,90vw);display:grid;gap:.8rem}input{font:inherit;padding:.75rem;border-radius:9px;border:1px solid #3b5446;background:#0f1e17;color:#fff}'
+     . 'button{font:inherit;padding:.75rem;border:0;border-radius:9px;background:#c8a24a;color:#1a1a1a;font-weight:700;cursor:pointer}.e{color:#ff9b8a}</style></head><body>'
+     . '<form method="post"><h1 style="margin:0;font-size:1.3rem">لوحة الإحصائيات</h1>'
+     . ($err ? '<p class="e">' . htmlspecialchars($err, ENT_QUOTES, 'UTF-8') . '</p>' : '')
+     . '<input type="hidden" name="st_tok" value="' . $tok . '"><input type="password" name="st_pass" placeholder="كلمة المرور" autocomplete="current-password" required autofocus>'
+     . '<button type="submit">دخول</button></form></body></html>';
+  exit;
+}
 
 // ---- range selector (7 / 30 / 90 days) ----
 $RANGES = [7 => '7 أيام', 30 => '30 يومًا', 90 => '90 يومًا'];
@@ -251,7 +294,7 @@ $top = fn(array $a, int $k) => array_slice($a, 0, $k, true);
 
 <header class="top">
   <h1>📊 إحصائيات الموقع</h1>
-  <span class="sub">Algeria Compass · إحصاء ذاتي على خادمك · بتوقيت الجزائر</span>
+  <span class="sub">Algeria Compass · إحصاء ذاتي على خادمك · بتوقيت الجزائر · <a href="?logout=1" style="color:inherit">خروج</a></span>
 </header>
 
 <nav class="ranges">
