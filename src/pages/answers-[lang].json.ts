@@ -12,6 +12,11 @@ import { QUESTIONS_ES } from '../data/questions-es';
 import { QUESTIONS_DE } from '../data/questions-de';
 import { FAQ_I18N } from '../data/faq-i18n';
 import { LANGS, ROUTES, type Lang } from '../i18n';
+import { BOOKING, STAMP_FEES, LANGUAGES } from '../config';
+import { GUIDES_FR } from '../data/guides-fr';
+import { GUIDES_IT } from '../data/guides-it';
+import { GUIDES_ES } from '../data/guides-es';
+import { GUIDES_DE } from '../data/guides-de';
 
 // Answer index for the on-site assistant (src/components/AskWidget.astro).
 //
@@ -63,8 +68,27 @@ const KIND: Record<string, Record<Lang, string>> = {
 // rather than whichever page happens to score highest.
 // Update these here and nowhere else.
 // ---------------------------------------------------------------------------
+// Stamp fees and guide languages come from config.ts, so these answers cannot drift.
+const STAMP_EN = STAMP_FEES.map(([a, b, dzd, e]) => `${a}–${b} days ${dzd.toLocaleString('en-GB')} DA (€${e})`).join(', ');
+const STAMP_FR = STAMP_FEES.map(([a, b, dzd, e]) => `${a}–${b} : ${dzd.toLocaleString('fr-FR')} DA (${e} €)`).join(' ; ');
+const LN: Record<string, Record<string, string>> = {
+  fr: { English: 'anglais', French: 'français', Spanish: 'espagnol', Italian: 'italien', Arabic: 'arabe', German: 'allemand', Russian: 'russe' },
+  it: { English: 'inglese', French: 'francese', Spanish: 'spagnolo', Italian: 'italiano', Arabic: 'arabo', German: 'tedesco', Russian: 'russo' },
+  es: { English: 'inglés', French: 'francés', Spanish: 'español', Italian: 'italiano', Arabic: 'árabe', German: 'alemán', Russian: 'ruso' },
+  de: { English: 'Englisch', French: 'Französisch', Spanish: 'Spanisch', Italian: 'Italienisch', Arabic: 'Arabisch', German: 'Deutsch', Russian: 'Russisch' },
+};
+const langList = (l: string) => LANGUAGES.names.map(n => LN[l][n] ?? n).join(', ');
+const LANG_FR = langList('fr'), LANG_IT = langList('it'), LANG_ES = langList('es'), LANG_DE = langList('de');
+
 const RULES: Record<Lang, Rule[]> = {
   en: [
+    // Visa facts: owner-confirmed 2026-10-03 (fees in USD as quoted).
+    { id: 'visa', u: '/algeria-visa-requirements/',
+      p: ['visa', 'e-visa', 'evisa', 'invitation letter', 'entry requirements', 'passport'],
+      a: `Most nationalities need a visa. There are two routes. Consulate route: we issue the invitation letter ($${BOOKING.inviteFee}) for any programme of at least ${BOOKING.inviteMinDays} days that includes airport pickup and drop-off. Visa on arrival: if your organised programme includes the Sahara, our Saharan authorisation ($${BOOKING.saharanVisaFee}) lets the visa be issued on arrival at Algiers airport; the arrival stamp is a separate airport fee by length of stay: ${STAMP_EN}. If your visa is refused, we refund everything you paid us.` },
+    { id: 'languages', u: '/about/',
+      p: ['guide speak', 'guides speak', 'english speaking guide', 'english-speaking guide', 'russian speaking', 'russian-speaking', 'guide language', 'language of the guide', 'speak russian', 'which languages do your guides'],
+      a: `Our guides work in ${LANGUAGES.names.join(', ')}. Tell us your language when you enquire and we assign the guide.` },
     { id: 'price', u: '/tours/',
       p: ['price', 'prices', 'cost', 'costs', 'how much', 'expensive', 'cheap', 'euro', 'budget'],
       a: 'Every price you see on the site is the real, fixed price for that tour — it is on each tour page, per person. It covers a private trip or a small group. The only thing that changes it is a custom itinerary or more days than the published programme, which we quote individually; that is rare, and we tell you the figure before you commit.' },
@@ -76,6 +100,12 @@ const RULES: Record<Lang, Rule[]> = {
       a: 'We operate all year round, on the dates you choose. We have a large team, so we are not limited to fixed departure dates — tell us when you want to travel and we build the trip around it.' },
   ],
   fr: [
+    { id: 'visa', u: '/fr/visa-arrivee-algerie/',
+      p: ['visa', 'e-visa', 'evisa', "lettre d'invitation", 'passeport'],
+      a: `La plupart des nationalités ont besoin d'un visa. Deux voies : au consulat, nous fournissons la lettre d'invitation (${BOOKING.inviteFee} USD) pour tout programme d'au moins ${BOOKING.inviteMinDays} jours avec accueil et transfert aéroport ; ou, si votre programme organisé comprend le Sahara, notre autorisation saharienne (${BOOKING.saharanVisaFee} USD) permet d'obtenir le visa à l'arrivée à l'aéroport d'Alger — le timbre d'entrée est un frais séparé selon la durée du séjour : ${STAMP_FR}. Si votre visa est refusé, nous remboursons tout ce que vous nous avez payé.` },
+    { id: 'languages', u: '/fr/a-propos/',
+      p: ['guide parle', 'guides parlent', 'guide francophone', 'guide en français', 'guide russophone', 'parle russe', 'langue du guide'],
+      a: `Nos guides travaillent en ${LANG_FR}. Indiquez votre langue lors de votre demande et nous vous attribuons le guide.` },
     { id: 'price', u: '/fr/circuits/',
       p: ['prix', 'tarif', 'tarifs', 'coût', 'cout', 'combien ça coute', 'combien coute', 'cher', 'euro', 'budget'],
       a: "Chaque prix affiché sur le site est le prix réel et fixe du circuit — il figure sur la page de chaque circuit, par personne. Il correspond à un voyage privé ou en petit groupe. La seule chose qui le fait varier, c'est un itinéraire sur mesure ou plus de jours que le programme publié, que nous chiffrons au cas par cas ; c'est rare, et nous vous donnons le montant avant tout engagement." },
@@ -87,6 +117,12 @@ const RULES: Record<Lang, Rule[]> = {
       a: "Nous opérons toute l'année, aux dates de votre choix. Notre équipe est nombreuse : nous ne sommes pas limités à des départs fixes — dites-nous quand vous souhaitez partir et nous construisons le voyage autour de cette date." },
   ],
   de: [
+    { id: 'visa', u: '/de/visum-bei-ankunft-algerien/',
+      p: ['visum', 'visa', 'e-visum', 'einladung', 'reisepass'],
+      a: `Die meisten Nationalitäten brauchen ein Visum. Es gibt zwei Wege: über das Konsulat — wir stellen das Einladungsschreiben (${BOOKING.inviteFee} USD) für jedes Programm ab ${BOOKING.inviteMinDays} Tagen mit Flughafenabholung und -transfer aus; oder, wenn Ihr organisiertes Programm die Sahara einschließt, ermöglicht unsere Sahara-Genehmigung (${BOOKING.saharanVisaFee} USD) das Visum bei Ankunft am Flughafen Algier — der Einreisestempel ist eine separate Gebühr je nach Aufenthaltsdauer: ${STAMP_FR}. Wird Ihr Visum abgelehnt, erstatten wir alles, was Sie uns gezahlt haben.` },
+    { id: 'languages', u: '/de/ueber-uns/',
+      p: ['deutschsprachig', 'guide spricht', 'guides sprechen', 'reiseleiter spricht', 'russischsprachig', 'spricht russisch'],
+      a: `Unsere Guides arbeiten auf ${LANG_DE}. Nennen Sie uns Ihre Sprache bei der Anfrage, und wir teilen Ihnen den Guide zu.` },
     { id: 'price', u: '/de/reisen/',
       p: ['preis', 'preise', 'kosten', 'kostet', 'wie viel kostet', 'wieviel kostet', 'teuer', 'günstig', 'guenstig', 'euro', 'budget'],
       a: 'Jeder Preis auf der Website ist der tatsächliche Festpreis der Reise — er steht auf jeder Reiseseite, pro Person. Er gilt für eine private Reise oder eine kleine Gruppe. Er ändert sich nur bei einer individuellen Route oder mehr Tagen als im veröffentlichten Programm; das kalkulieren wir einzeln, es kommt selten vor, und Sie kennen den Betrag vor jeder Zusage.' },
@@ -98,6 +134,12 @@ const RULES: Record<Lang, Rule[]> = {
       a: 'Wir sind das ganze Jahr über unterwegs, zu den Terminen Ihrer Wahl. Unser Team ist groß, wir sind also nicht an feste Abreisetermine gebunden — sagen Sie uns, wann Sie reisen möchten, und wir bauen die Reise darum herum.' },
   ],
   es: [
+    { id: 'visa', u: '/es/visado-llegada-argelia/',
+      p: ['visado', 'visa', 'e-visa', 'carta de invitación', 'carta de invitacion', 'pasaporte'],
+      a: `La mayoría de nacionalidades necesita visado. Hay dos vías: en el consulado, emitimos la carta de invitación (${BOOKING.inviteFee} USD) para cualquier programa de al menos ${BOOKING.inviteMinDays} días con recogida y traslado al aeropuerto; o, si su programa organizado incluye el Sáhara, nuestra autorización sahariana (${BOOKING.saharanVisaFee} USD) permite obtener el visado a la llegada al aeropuerto de Argel — el sello de entrada es una tasa aparte según la duración: ${STAMP_FR}. Si le deniegan el visado, le devolvemos todo lo que nos haya pagado.` },
+    { id: 'languages', u: '/es/quienes-somos/',
+      p: ['guía habla', 'guia habla', 'guías hablan', 'guía en español', 'guia en español', 'habla ruso', 'idioma del guía'],
+      a: `Nuestros guías trabajan en ${LANG_ES}. Indíquenos su idioma al escribirnos y le asignamos el guía.` },
     { id: 'price', u: '/es/circuitos/',
       p: ['precio', 'precios', 'coste', 'cuesta', 'cuánto cuesta', 'cuanto cuesta', 'caro', 'barato', 'euro', 'presupuesto', 'tarifa'],
       a: 'Cada precio que ves en la web es el precio real y fijo del circuito — está en la página de cada circuito, por persona. Corresponde a un viaje privado o en grupo reducido. Lo único que lo cambia es un itinerario a medida o más días de los del programa publicado, que presupuestamos caso por caso; es poco frecuente, y te damos la cifra antes de que te comprometas.' },
@@ -109,6 +151,12 @@ const RULES: Record<Lang, Rule[]> = {
       a: 'Operamos todo el año, en las fechas que elijas. Tenemos un equipo amplio, así que no dependemos de salidas fijas — dinos cuándo quieres viajar y construimos el viaje en torno a esa fecha.' },
   ],
   it: [
+    { id: 'visa', u: '/it/visto-arrivo-algeria/',
+      p: ['visto', 'visa', 'e-visa', "lettera d'invito", 'passaporto'],
+      a: `Quasi tutte le nazionalità hanno bisogno di un visto. Due strade: al consolato, forniamo la lettera d'invito (${BOOKING.inviteFee} USD) per qualsiasi programma di almeno ${BOOKING.inviteMinDays} giorni con accoglienza e trasferimenti in aeroporto; oppure, se il vostro programma organizzato include il Sahara, la nostra autorizzazione sahariana (${BOOKING.saharanVisaFee} USD) permette di ottenere il visto all'arrivo all'aeroporto di Algeri — il timbro d'ingresso è una tassa separata in base alla durata: ${STAMP_FR}. Se il visto viene rifiutato, vi rimborsiamo tutto quanto ci avete pagato.` },
+    { id: 'languages', u: '/it/chi-siamo/',
+      p: ['guida parla', 'guide parlano', 'guida italiana', 'guida in italiano', 'parla russo', 'lingua della guida'],
+      a: `Le nostre guide lavorano in ${LANG_IT}. Indicateci la vostra lingua quando ci scrivete e vi assegniamo la guida.` },
     { id: 'price', u: '/it/circuiti/',
       p: ['prezzo', 'prezzi', 'costo', 'quanto costa', 'quanto costano', 'caro', 'economico', 'euro', 'budget', 'tariffa'],
       a: 'Ogni prezzo che vedete sul sito è il prezzo reale e fisso del circuito — è sulla pagina di ciascun circuito, a persona. Vale per un viaggio privato o in piccolo gruppo. L\'unica cosa che lo fa cambiare è un itinerario su misura o più giorni rispetto al programma pubblicato, che quotiamo caso per caso; capita di rado, e vi diamo la cifra prima di qualsiasi impegno.' },
@@ -280,6 +328,23 @@ export const GET: APIRoute = async ({ params }) => {
       for (const f of cat.items) {
         if (!f?.q || !f?.a) continue;
         items.push({ q: clean(f.q), a: clean(f.a), u: f.href || '/questions/', k: KIND.faq.en });
+      }
+    }
+  }
+
+  // 3. Guide and article FAQs — the comparison, visa, season and cost guides
+  //    answer exactly the questions people put to the widget.
+  if (lang === 'en') {
+    for (const a of (await getCollection('article')) as any[]) {
+      for (const f of a.data.faqs || []) {
+        if (f?.q && f?.a) items.push({ q: clean(f.q), a: clean(f.a), u: `/blog/${a.slug}/`, k: KIND.faq.en });
+      }
+    }
+  } else {
+    const guides: any[] = ({ fr: GUIDES_FR, it: GUIDES_IT, es: GUIDES_ES, de: GUIDES_DE } as any)[lang] || [];
+    for (const g of guides) {
+      for (const f of g.faqs || []) {
+        if (f?.q && f?.a) items.push({ q: clean(f.q), a: clean(f.a), u: `/${lang}/${g.slug}/`, k: KIND.faq[lang] });
       }
     }
   }

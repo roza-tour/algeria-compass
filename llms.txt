@@ -6,7 +6,7 @@
 > Algeria — safety, visas, transport, costs, seasons, food and its seven UNESCO World
 > Heritage sites. Guides are written by Oussama Ben Yahia (founder) and independently
 > reviewed against our published editorial standards.
-> Guiding languages: English, French, Spanish, Italian, German, Arabic (and Tamazight).
+> Guiding languages: English, French, Spanish, Italian, German, Russian, Arabic (and Tamazight).
 > This site is published in 5 languages: English, Français, Italiano, Español, Deutsch.
 > Contact: https://algeriacompass.com/contact/
 
@@ -23,6 +23,8 @@
 - Plan a trip and see the price instantly: https://algeriacompass.com/plan-your-trip/
 - Visa: consulate route — invitation letter $25, issued with a programme of at least 3 days that includes airport pickup and drop-off. Visa-on-arrival route — for any organised programme that includes a Sahara trip, our Saharan visa authorisation is $45 and the visa is issued on arrival at Algiers airport (the arrival stamp is a separate fee paid at Algiers airport, set by length of stay: 1–2 days 5,000 DA / €35; 3–7 days 10,000 DA / €70; 8–10 days 20,000 DA / €140; 11–15 days 25,000 DA / €170; 16–30 days 50,000 DA / €340) (https://algeriacompass.com/evisa/).
 - Photographs of real trips with our travellers: https://algeriacompass.com/moments/
+- Luxury desert camp in Djanet (bell tents with real beds): available only as a separate, special booking on request — it is not part of the standard Sahara programmes (https://algeriacompass.com/luxury/#camp).
+- Tour operators and agencies: B2B rates and ground handling (https://algeriacompass.com/partners/).
 
 ## Travel guides (independent, fact-checked)
 - [20 Best Things to Do in Algeria (2026)](https://algeriacompass.com/blog/things-to-do-in-algeria/): From the best-preserved Roman cities on earth to the sand seas of the Tassili, the Casbah of Algiers and the oasis towns of the M'Zab — the essential things to see and do across Algeria.
@@ -168,7 +170,11 @@
 - [UNESCO](https://algeriacompass.com/fr/unesco-algerie/)
 - [About](https://algeriacompass.com/fr/a-propos/)
 - [Contact](https://algeriacompass.com/fr/contact/)
+- [Djanet ou Timimoun ? Choisir votre Sahara algérien](https://algeriacompass.com/fr/djanet-ou-timimoun/): Djanet ou Timimoun ? Comparatif honnête des deux grandes destinations du Sahara algérien : paysages, art rupestre, confort, saison et vrais prix.
+- [Tadrart Rouge, Ihrir ou Sefar ? Choisir son voyage à Djanet](https://algeriacompass.com/fr/tadrart-ou-tassili/): Trois façons de découvrir le désert autour de Djanet : dunes et arches de la Tadrart, oasis d'Ihrir ou trek de Sefar. Effort, nuits et prix comparés.
+- [Voyager en Algérie depuis le Canada : vols, visa et préparatifs](https://algeriacompass.com/fr/voyage-algerie-depuis-le-canada/): L'Algérie depuis le Canada : vols, visa, décalage horaire, argent, meilleure saison et circuits privés à prix publiés. Agence algérienne agréée.
 - [Planifier mon voyage — prix immédiat](https://algeriacompass.com/fr/planifier-mon-voyage/): Cinq questions, le circuit privé qui vous correspond et son prix.
+- [Moments de nos voyages (photos de nos voyageurs)](https://algeriacompass.com/fr/moments-de-voyage/)
 - [Guide de voyage complet en Algérie](https://algeriacompass.com/fr/guide-voyage-algerie/): Quand partir, visa, sécurité, transport, budget.
 - [Visa pour l'Algérie](https://algeriacompass.com/fr/visa-algerie/): Documents requis, lettre d’invitation, délais.
 - [Faut-il un visa pour l'Algérie ?](https://algeriacompass.com/fr/visa-arrivee-algerie/): Les deux voies d’entrée, dont le visa à l’arrivée à Alger pour les circuits avec Sahara.
@@ -243,6 +249,7 @@
 - [Tadrart Rouge, Ihrir o Sefar? Come scegliere il viaggio a Djanet](https://algeriacompass.com/it/tadrart-o-tassili/): Tre modi di entrare nel deserto di Djanet: dune e archi del Tadrart Rouge, l'oasi di Ihrir o il trekking di Sefar. Fatica, notti e prezzi a confronto.
 - [Pianifica il viaggio — prezzo immediato](https://algeriacompass.com/it/pianifica-il-viaggio/): Cinque domande, il tour privato giusto e il suo prezzo.
 - [e-Visa e ingresso in Algeria](https://algeriacompass.com/it/evisa-algeria/): Come funziona davvero l'ingresso: nessun e-Visa turistico generale.
+- [Momenti dei nostri viaggi (foto dei nostri viaggiatori)](https://algeriacompass.com/it/momenti-di-viaggio/)
 - [Timgad](https://algeriacompass.com/it/destinazioni/timgad/): Timgad, l'antica Thamugadi, è una colonia romana fondata attorno al 100 d.C. dall'imperatore Traiano per i suoi veterani, nella provincia di Batna. Se…
 - [Djémila](https://algeriacompass.com/it/destinazioni/djemila/): Djémila, l'antica Cuicul, è una città romana della provincia di Sétif, su uno sperone tra due uadi a 900 metri di quota. Fondata nel I secolo, conserv…
 - [Tipaza](https://algeriacompass.com/it/destinazioni/tipaza/): Tipaza è un sito archeologico del litorale algerino, a circa 70 km a ovest di Algeri. Emporio punico divenuto colonia romana, conserva un teatro, basi…
@@ -303,6 +310,7 @@
 - [¿Tadrart Rouge, Ihrir o Sefar? Cómo elegir su viaje a Djanet](https://algeriacompass.com/es/tadrart-o-tassili/): Tres formas de recorrer el desierto de Djanet: las dunas y arcos del Tadrart Rouge, el oasis de Ihrir o el trekking de Sefar. Esfuerzo, noches y preci…
 - [Planifica tu viaje — precio al instante](https://algeriacompass.com/es/planifica-tu-viaje/): Cinco preguntas, el circuito privado ideal y su precio.
 - [e-Visa y entrada a Argelia](https://algeriacompass.com/es/evisa-argelia/): Cómo funciona realmente la entrada: no hay e-Visa turístico general.
+- [Momentos de nuestros viajes (fotos de nuestros viajeros)](https://algeriacompass.com/es/momentos-de-viaje/)
 - [Timgad](https://algeriacompass.com/es/destinos/timgad/): Timgad, la antigua Thamugadi, es una colonia romana fundada hacia el año 100 por el emperador Trajano para sus veteranos, en la provincia de Batna. Se…
 - [Djémila](https://algeriacompass.com/es/destinos/djemila/): Djémila, la antigua Cuicul, es una ciudad romana de la provincia de Sétif, sobre un espolón entre dos uadis a 900 metros de altitud. Fundada en el sig…
 - [Tipaza](https://algeriacompass.com/es/destinos/tipaza/): Tipaza es un yacimiento arqueológico del litoral argelino, a unos 70 km al oeste de Argel. Factoría púnica convertida en colonia romana, conserva un t…
@@ -363,6 +371,7 @@
 - [Tadrart Rouge, Ihrir oder Sefar? Die richtige Djanet-Reise](https://algeriacompass.com/de/tadrart-oder-tassili/): Drei Wege in die Wüste um Djanet im Vergleich: Dünen und Bögen des Tadrart Rouge, die Oase Ihrir oder das Sefar-Felskunst-Trekking. Aufwand, Nächte, P…
 - [Reise planen — Preis sofort](https://algeriacompass.com/de/reise-planen/): Fünf Fragen, die passende Privatreise und ihr Preis.
 - [e-Visum & Einreise nach Algerien](https://algeriacompass.com/de/evisa-algerien/): Wie die Einreise wirklich funktioniert — kein allgemeines Touristen-e-Visum.
+- [Momente unserer Reisen (Fotos unserer Gäste)](https://algeriacompass.com/de/reisemomente/)
 - [Timgad](https://algeriacompass.com/de/reiseziele/timgad/): Timgad, das antike Thamugadi, ist eine um 100 n. Chr. von Kaiser Trajan für seine Veteranen gegründete römische Kolonie in der Provinz Batna. Jahrhund…
 - [Djémila](https://algeriacompass.com/de/reiseziele/djemila/): Djémila, das antike Cuicul, ist eine römische Stadt in der Provinz Sétif, auf einem Sporn zwischen zwei Wadis in 900 Metern Höhe. Im 1. Jahrhundert ge…
 - [Tipaza](https://algeriacompass.com/de/reiseziele/tipaza/): Tipaza ist eine archäologische Stätte an der algerischen Küste, rund 70 km westlich von Algier. Aus einem punischen Handelsplatz wurde eine römische K…
@@ -399,6 +408,8 @@
 - [Algeria Grand Discovery — 14 Tage von der Küste in die Sahara](https://algeriacompass.com/de/reisen/algeria-grand-discovery-14-days/): €1,850 · Die meisten entscheiden sich zwischen dem römischen Algerien und der Sahara. Vierzehn Tage reichen, um diese Entscheidung nicht treffen zu müssen.
 
 ## Key sections
+- [Discover Algeria](https://algeriacompass.com/discover/): Where to start: regions, seasons and trip ideas.
+- [Travel guides](https://algeriacompass.com/blog/): All independent, fact-checked travel guides.
 - [Tours](https://algeriacompass.com/tours/): All private, guided tour itineraries.
 - [Luxury travel](https://algeriacompass.com/luxury/): The 5-Star Collection — private all-inclusive 8-day journeys.
 - [Destinations](https://algeriacompass.com/destinations/): In-depth guides to Algeria's flagship places.

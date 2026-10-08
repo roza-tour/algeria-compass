@@ -34,8 +34,8 @@ export const REVIEWS = { ratingValue: 5.0, reviewCount: 9, source: CONTACT.googl
 
 // Languages the business operates in (owner-confirmed 2026-06-20).
 export const LANGUAGES = {
-  codes: ['en', 'fr', 'es', 'it', 'ar', 'de'],
-  names: ['English', 'French', 'Spanish', 'Italian', 'Arabic', 'German'],
+  codes: ['en', 'fr', 'es', 'it', 'ar', 'de', 'ru'],
+  names: ['English', 'French', 'Spanish', 'Italian', 'Arabic', 'German', 'Russian'],   // Russian-speaking guide: owner-confirmed 2026-10-08
 };
 
 // Set ONE of these to turn analytics on. Leave blank to disable entirely (no tracking, no banner needed).

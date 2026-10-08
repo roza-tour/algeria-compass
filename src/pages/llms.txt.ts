@@ -9,10 +9,11 @@ import { DESTINATIONS_FR } from '../data/destinations-fr';
 import { DESTINATIONS_IT } from '../data/destinations-it';
 import { DESTINATIONS_ES } from '../data/destinations-es';
 import { DESTINATIONS_DE } from '../data/destinations-de';
+import { GUIDES_FR } from '../data/guides-fr';
 import { GUIDES_IT } from '../data/guides-it';
 import { GUIDES_ES } from '../data/guides-es';
 import { GUIDES_DE } from '../data/guides-de';
-import { LANGS, LANG_META, ROUTES, type Lang } from '../i18n';
+import { LANGS, LANG_META, ROUTES, MOMENTS_PATHS, type Lang } from '../i18n';
 import * as luxEn from '../data/luxury.mjs';
 import * as luxFr from '../data/luxury-fr.mjs';
 import * as luxIt from '../data/luxury-it.mjs';
@@ -60,6 +61,8 @@ const FRENCH_GUIDES: [string, string, string][] = [
 ];
 
 const HUBS: [string, string, string][] = [
+  ['/discover/', 'Discover Algeria', 'Where to start: regions, seasons and trip ideas.'],
+  ['/blog/', 'Travel guides', 'All independent, fact-checked travel guides.'],
   ['/tours/', 'Tours', 'All private, guided tour itineraries.'],
   ['/luxury/', 'Luxury travel', 'The 5-Star Collection — private all-inclusive 8-day journeys.'],
   ['/destinations/', 'Destinations', "In-depth guides to Algeria's flagship places."],
@@ -88,9 +91,10 @@ const HUBS: [string, string, string][] = [
 // Per-language wiring. Each entry knows how to enumerate that language's
 // tours, destinations and guides, so adding a translation adds a listing.
 // `extra` covers standalone .astro pages that have no data file to enumerate.
+const MOMENTS_T: Record<string, string> = { fr: 'Moments de nos voyages (photos de nos voyageurs)', it: 'Momenti dei nostri viaggi (foto dei nostri viaggiatori)', es: 'Momentos de nuestros viajes (fotos de nuestros viajeros)', de: 'Momente unserer Reisen (Fotos unserer Gäste)' };
 type Section = { lang: Lang; heading: string; tours: any; dests: any[]; guides: any[]; lux: any; extra: [string, string, string][] };
 const SECTIONS: Section[] = [
-  { lang: 'fr', heading: 'Site en français',  tours: TOURS_FR, dests: DESTINATIONS_FR, guides: [],        lux: luxFr,
+  { lang: 'fr', heading: 'Site en français',  tours: TOURS_FR, dests: DESTINATIONS_FR, guides: GUIDES_FR, lux: luxFr,
     extra: [['/fr/planifier-mon-voyage/', 'Planifier mon voyage — prix immédiat', 'Cinq questions, le circuit privé qui vous correspond et son prix.']] },   // French standalone pages are listed in FRENCH_GUIDES below
   { lang: 'it', heading: 'Sito in italiano',  tours: TOURS_IT, dests: DESTINATIONS_IT, guides: GUIDES_IT, lux: luxIt,
     extra: [['/it/pianifica-il-viaggio/', 'Pianifica il viaggio — prezzo immediato', 'Cinque domande, il tour privato giusto e il suo prezzo.'], ['/it/evisa-algeria/', 'e-Visa e ingresso in Algeria', "Come funziona davvero l'ingresso: nessun e-Visa turistico generale."]] },
@@ -129,6 +133,7 @@ export const GET: APIRoute = async () => {
 
     for (const g of s.guides) rows.push(line(`/${s.lang}/${g.slug}/`, g.h1, clip(g.seoDescription)));
     for (const [p, t, n] of s.extra) rows.push(line(p, t, n));
+    rows.push(line(MOMENTS_PATHS[s.lang], MOMENTS_T[s.lang], ''));
     if (s.lang === 'fr') for (const [p, t, n] of FRENCH_GUIDES) rows.push(line(p, t, n));
 
     for (const d of s.dests) rows.push(line(`${R.destinations}${d.slug}/`, d.name, clip(d.quick ?? d.intro)));
@@ -148,7 +153,7 @@ export const GET: APIRoute = async () => {
 > Algeria — safety, visas, transport, costs, seasons, food and its seven UNESCO World
 > Heritage sites. Guides are written by Oussama Ben Yahia (founder) and independently
 > reviewed against our published editorial standards.
-> Guiding languages: English, French, Spanish, Italian, German, Arabic (and Tamazight).
+> Guiding languages: English, French, Spanish, Italian, German, Russian, Arabic (and Tamazight).
 > This site is published in ${LANGS.length} languages: ${LANGS.map((l) => LANG_META[l].name).join(', ')}.
 > Contact: ${SITE}/contact/
 
@@ -165,6 +170,8 @@ export const GET: APIRoute = async () => {
 - Plan a trip and see the price instantly: ${SITE}/plan-your-trip/
 - Visa: consulate route — invitation letter $25, issued with a programme of at least 3 days that includes airport pickup and drop-off. Visa-on-arrival route — for any organised programme that includes a Sahara trip, our Saharan visa authorisation is $45 and the visa is issued on arrival at Algiers airport (the arrival stamp is a separate fee paid at Algiers airport, set by length of stay: ${STAMP_FEES.map(([x, y, dzd, e]) => `${x}–${y} days ${dzd.toLocaleString('en-GB')} DA / €${e}`).join('; ')}) (${SITE}/evisa/).
 - Photographs of real trips with our travellers: ${SITE}/moments/
+- Luxury desert camp in Djanet (bell tents with real beds): available only as a separate, special booking on request — it is not part of the standard Sahara programmes (${SITE}/luxury/#camp).
+- Tour operators and agencies: B2B rates and ground handling (${SITE}/partners/).
 
 ## Travel guides (independent, fact-checked)
 ${articles.map((a) => line(`/blog/${a.slug}/`, a.data.title, a.data.excerpt)).join('\n')}

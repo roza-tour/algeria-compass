@@ -9,10 +9,11 @@ import { DESTINATIONS_FR } from '../data/destinations-fr';
 import { DESTINATIONS_IT } from '../data/destinations-it';
 import { DESTINATIONS_ES } from '../data/destinations-es';
 import { DESTINATIONS_DE } from '../data/destinations-de';
+import { GUIDES_FR } from '../data/guides-fr';
 import { GUIDES_IT } from '../data/guides-it';
 import { GUIDES_ES } from '../data/guides-es';
 import { GUIDES_DE } from '../data/guides-de';
-import { ROUTES, type Lang } from '../i18n';
+import { ROUTES, MOMENTS_PATHS, PLAN_PATHS, type Lang } from '../i18n';
 import * as luxEn from '../data/luxury.mjs';
 import * as luxFr from '../data/luxury-fr.mjs';
 import * as luxIt from '../data/luxury-it.mjs';
@@ -79,7 +80,10 @@ const EN_HUBS: [string, string, string][] = [
   ['/sweets/', 'Algerian Sweets & Pastries', "Baklawa, qalb el louz, griwech and Algeria's honeyed pastries."],
   ['/history/', 'History of Algeria', 'From Numidia and Rome to independence.'],
   ['/unesco/', 'UNESCO World Heritage Sites', "Algeria's seven UNESCO World Heritage sites."],
-  ['/evisa/', 'e-Visa & Entry to Algeria', 'How entry works, including the Saharan e-Visa.'],
+  ['/evisa/', 'e-Visa & Entry to Algeria', 'How entry works, including the visa on arrival for trips with the Sahara.'],
+  ['/moments/', 'Moments from our trips', 'Photographs of our own travellers on real Algeria Compass journeys.'],
+  ['/plan-your-trip/', 'Plan your trip — instant price', 'Choose your days and places and see the price straight away.'],
+  ['/partners/', 'For tour operators', 'Algeria for agencies and tour operators: B2B rates and ground handling.'],
   ['/visa-support/', 'Visa Support', 'Invitation letters and visa paperwork for your trip.'],
   ['/algeria-visa-requirements/', 'Do you need a visa for Algeria?', 'The two entry routes, compared.'],
   ['/travel-guides/', 'Travel Guides', 'Practical guides for planning a trip to Algeria.'],
@@ -90,8 +94,11 @@ const EN_HUBS: [string, string, string][] = [
   ['/about/', 'About Algeria Compass', 'Who we are — a licensed local operator.'],
 ];
 
+const MOMENTS_T: Record<string, string> = { fr: 'Moments de nos voyages', it: 'Momenti dei nostri viaggi', es: 'Momentos de nuestros viajes', de: 'Momente unserer Reisen' };
+const PLAN_T: Record<string, string> = { fr: 'Planifier mon voyage — prix immédiat', it: 'Pianifica il viaggio — prezzo immediato', es: 'Planifica tu viaje — precio al instante', de: 'Reise planen — Preis sofort' };
+
 const TRANSLATED: { lang: Lang; tours: any; dests: any[]; guides: any[]; lux: any }[] = [
-  { lang: 'fr', tours: TOURS_FR, dests: DESTINATIONS_FR, guides: [], lux: luxFr },
+  { lang: 'fr', tours: TOURS_FR, dests: DESTINATIONS_FR, guides: GUIDES_FR, lux: luxFr },
   { lang: 'it', tours: TOURS_IT, dests: DESTINATIONS_IT, guides: GUIDES_IT, lux: luxIt },
   { lang: 'es', tours: TOURS_ES, dests: DESTINATIONS_ES, guides: GUIDES_ES, lux: luxEs },
   { lang: 'de', tours: TOURS_DE, dests: DESTINATIONS_DE, guides: GUIDES_DE, lux: luxDe },
@@ -147,6 +154,8 @@ export const GET: APIRoute = async () => {
     rows.push(
       { t: 'Contact', u: R.contact, k: kind('page', s.lang), d: '', l: s.lang },
       { t: 'UNESCO', u: R.unesco, k: kind('page', s.lang), d: '', l: s.lang },
+      { t: MOMENTS_T[s.lang], u: MOMENTS_PATHS[s.lang], k: kind('page', s.lang), d: '', l: s.lang },
+      { t: PLAN_T[s.lang], u: PLAN_PATHS[s.lang]!, k: kind('page', s.lang), d: '', l: s.lang },
     );
   }
   for (const [u, t, d] of FR_GUIDES) rows.push({ t, u, k: kind('guide', 'fr'), d: clip(d), l: 'fr' });
