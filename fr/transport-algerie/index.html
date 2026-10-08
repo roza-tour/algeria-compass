@@ -761,6 +761,11 @@ L'Algérie est le plus grand pays d'Afrique : la clé, c'est de <strong>prendre 
     .cc-accept:hover{filter:brightness(1.06)}
     @media(max-width:520px){ .cc-btns{flex:1 1 100%} .cc-btn{flex:1} }
   </style> <script>
+    // Spam filter support (spamguard.php): on submit, every form posting to
+    // contact.php / reviews.php carries _el = seconds since the page loaded.
+    // Capture phase, so it is set before the forms' own fetch() handlers run.
+    (function(){var t0=Date.now();document.addEventListener('submit',function(e){var f=e.target;if(!f||!/(contact|reviews)\.php$/.test(f.getAttribute('action')||''))return;var i=f.querySelector('input[name="_el"]');if(!i){i=document.createElement('input');i.type='hidden';i.name='_el';f.appendChild(i);}i.value=String(Math.round((Date.now()-t0)/1000));},true);})();
+  </script> <script>
     /* Shared scroll-reveal. Content is visible by default; the hidden state is
        only applied when motion is allowed AND the tab is visible, so print,
        no-JS, reduced-motion and background tabs always show everything. */

@@ -567,6 +567,36 @@ $top = fn(array $a, int $k) => array_slice($a, 0, $k, true);
     </section>
   <?php endif; ?>
 
+  <!-- ============ spam filter (spamguard.php) ============ -->
+  <?php
+    $spam = [];
+    $sf = __DIR__ . '/data/spam.jsonl';
+    if (is_file($sf)) foreach (file($sf, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $ln) { $e = json_decode($ln, true); if ($e) $spam[] = $e; }
+    $spamBlocked = count(array_filter($spam, fn($e) => ($e['verdict'] ?? '') === 'block'));
+    $spamSuspect = count($spam) - $spamBlocked;
+    $FORM_AR = ['contact' => 'تواصل', 'partner' => 'شركاء', 'review' => 'تقييم'];
+  ?>
+  <section>
+    <h2>فلتر السبام <small><?= n($spamBlocked) ?> رسالة اتمنعت · <?= n($spamSuspect) ?> وصلت بعلامة «Possible spam»</small></h2>
+    <?php if ($spam): ?>
+      <table><thead><tr><th>التاريخ</th><th>الفورم</th><th>القرار</th><th>الاسم / الإيميل</th><th>الرسالة</th><th>السبب</th></tr></thead><tbody>
+      <?php foreach (array_slice(array_reverse($spam), 0, 25) as $e): ?>
+        <tr>
+          <td class="num"><?= h(substr($e['t'] ?? '', 0, 10)) ?></td>
+          <td><?= h($FORM_AR[$e['form'] ?? ''] ?? ($e['form'] ?? '')) ?></td>
+          <td><?= ($e['verdict'] ?? '') === 'block' ? 'اتمنعت' : 'مشكوك فيها' ?> (<?= (int)($e['score'] ?? 0) ?>)</td>
+          <td><?= h($e['name'] ?? '') ?><br><span class="muted-sm"><?= h($e['email'] ?? '') ?></span></td>
+          <td class="path"><?= h(mb_substr($e['text'] ?? '', 0, 140)) ?></td>
+          <td class="muted-sm"><?= h(implode('، ', $e['why'] ?? [])) ?></td>
+        </tr>
+      <?php endforeach; ?>
+      </tbody></table>
+      <div class="note">لو لقيتي رسالة حقيقية اتمنعت هنا، تقدري تردي على الإيميل المكتوب، وابعتيلي عشان أظبط الفلتر.</div>
+    <?php else: ?>
+      <p class="muted-sm">لسه مافيش رسايل سبام اتمسكت. الفلتر شغال على فورم التواصل وفورم الشركاء وفورم التقييمات.</p>
+    <?php endif; ?>
+  </section>
+
   <div class="note">الأرقام محسوبة محليًا من زيارات موقعك مباشرة — بدون كوكيز، وبدون تسجيل أي عنوان IP أو بيانات شخصية، وبدون أي طرف ثالث. مُعرّف الجلسة مؤقّت ويُمحى فور إغلاق التبويب. تُستثنى الزواحف الآلية. الصفحة مخفية وغير مفهرسة.</div>
 <?php endif; ?>
 

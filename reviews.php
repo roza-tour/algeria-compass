@@ -81,6 +81,12 @@ $whatsapp = mb_substr($whatsapp, 0, 25);
 // validation passed — this attempt now counts against the per-IP daily cap
 rate_limit_record('review', 86400);
 
+// Spam score (spamguard.php): obvious spam is dropped silently; borderline
+// reviews are kept for moderation as usual, flagged in the queue and email.
+require __DIR__ . '/spamguard.php';
+$sg = sg_check('review', $name, $email, $comment);
+if ($sg['verdict'] === 'block') respond(true, null, $ajax);
+
 $entry = [
   'id'      => bin2hex(random_bytes(6)),
   'name'    => $name,
@@ -97,6 +103,7 @@ $entry = [
   'ip'      => substr($_SERVER['REMOTE_ADDR'] ?? '', 0, 45),
   'ua'      => substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 200),
   'received'=> gmdate('c'),
+  'spam'    => $sg['verdict'] === 'suspect' ? $sg['score'] : 0,
 ];
 
 if (!is_dir(dirname($PENDING))) @mkdir(dirname($PENDING), 0755, true);
@@ -114,7 +121,7 @@ if ($ok === false) {
 
 // notify the owner (best-effort; submission is already saved)
 $nohdr = fn($s) => str_replace(["\r", "\n"], ' ', $s);
-$subject = 'New PENDING review — ' . $nohdr($name) . ' (' . $rating . '★)';
+$subject = ($sg['verdict'] === 'suspect' ? '[Possible spam] ' : '') . 'New PENDING review — ' . $nohdr($name) . ' (' . $rating . '★)';
 $body  = "A new review is awaiting moderation.\n";
 $body .= "Approve/reject it at: https://algeriacompass.com/reviews-admin.php\n";
 $body .= "----------------------------------------\n";

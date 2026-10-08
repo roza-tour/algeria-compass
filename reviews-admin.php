@@ -145,6 +145,7 @@ $stars = fn($n)=>str_repeat('★',(int)$n).str_repeat('☆',5-(int)$n);
   <?php if(!$pending): ?><p class="empty">No pending reviews right now.</p><?php endif; ?>
   <?php foreach($pending as $r): ?>
     <div class="card">
+      <?php if (!empty($r['spam'])): ?><div class="row" style="color:#b42318;font-weight:700">⚠ Possible spam (score <?= (int)$r['spam'] ?>)</div><?php endif; ?>
       <div class="row"><strong><?=h($r['name'])?></strong><span class="stars"><?=$stars($r['rating'])?></span></div>
       <div class="muted"><?=h($r['country'])?> · <?=h($r['tour'])?> · <?=h($r['date'])?></div>
       <p><?=nl2br(h($r['comment']))?></p>

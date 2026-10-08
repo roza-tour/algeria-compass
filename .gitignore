@@ -45,3 +45,6 @@ new-logo.png
 /data/hits-*.jsonl
 shots/
 /data/.stats-login-*
+
+# spamguard.php: recent-message hashes (duplicate check) and the spam log
+/data/sg-recent.json

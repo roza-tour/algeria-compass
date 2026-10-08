@@ -88,9 +88,16 @@ $message   = mb_substr($message, 0, 4000);
 // The message validated — only now does this attempt count against the cap.
 rate_limit_record('contact', 3600);
 
+// Spam score (spamguard.php): obvious spam is dropped silently; borderline
+// messages are still delivered, marked in the subject, so nothing real is lost.
+require __DIR__ . '/spamguard.php';
+$sg = sg_check($company !== '' ? 'partner' : 'contact', $name, $email, $message . "\n" . $interests);
+if ($sg['verdict'] === 'block') respond(true, null, $ajax);
+$spamTag = $sg['verdict'] === 'suspect' ? '[Possible spam] ' : '';
+
 // Encoded, because a raw UTF-8 subject (an Arabic or accented name, and the
 // dash itself) arrives garbled in some mail clients.
-$subject = mb_encode_mimeheader(($company !== '' ? 'PARTNER enquiry — ' . nohdr($company) . ' / ' : 'Algeria trip inquiry — ') . nohdr($name), 'UTF-8', 'B', "\r\n");
+$subject = mb_encode_mimeheader($spamTag . ($company !== '' ? 'PARTNER enquiry — ' . nohdr($company) . ' / ' : 'Algeria trip inquiry — ') . nohdr($name), 'UTF-8', 'B', "\r\n");
 $body  = "New inquiry from algeriacompass.com\n";
 $body .= "----------------------------------------\n";
 if ($company !== '') $body .= "Company:    $company\n";
@@ -106,6 +113,7 @@ $body .= "Interests:  $interests\n";
 if ($context !== '') $body .= "Tour/Page:  $context\n";
 $body .= "----------------------------------------\n\n";
 $body .= "Message:\n$message\n";
+if ($spamTag !== '') $body .= "\n----------------------------------------\nSpam filter: score {$sg['score']} (" . implode(', ', $sg['why']) . ")\n";
 
 $headers  = 'From: Algeria Compass <' . $FROM . ">\r\n";
 // The display name is MIME-encoded too, which also neutralises quotes and
