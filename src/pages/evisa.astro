@@ -30,7 +30,7 @@ const faqs = [
 const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
   mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
 ---
-<BaseLayout
+<BaseLayout speakable={['h1', '.speak']}
   title="Algeria e-Visa & Entry: How It Really Works | Algeria Compass"
   description="Straight facts on entering Algeria: there is no general tourist e-Visa. The routes are a consulate visa or visa on arrival for organised Sahara tours."
   image="/assets/img/algiers-great-mosque.jpg"
@@ -45,13 +45,13 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
       <p>Travellers often search for an "Algeria e-Visa". Here's the honest picture, so you plan on facts rather than hope.</p>
 
       <h2>Is there an Algeria e-Visa?</h2>
-      <p>For ordinary tourism, <strong>there is no general online e-Visa</strong> you can simply apply for and print. Algeria's tourist entry works through two established routes instead — and we handle the paperwork for both.</p>
+      <p class="speak">For ordinary tourism, <strong>there is no general online e-Visa</strong> you can simply apply for and print. Algeria's tourist entry works through two established routes instead — and we handle the paperwork for both.</p>
 
       <h2>Route 1 — Consulate tourist visa (the north & most trips)</h2>
       <p>You apply for a tourist visa at the <strong>Algerian consulate</strong> covering your country, normally in person. Consulates require an <strong>invitation letter / tourist voucher</strong> from a licensed Algerian agency — which we issue you, along with your hotel and tour confirmation and a checklist for your nationality. Allow roughly <strong>two to four weeks</strong>.</p>
 
       <h2>Route 2 — The Saharan e-Visa (organised desert programs)</h2>
-      <p>This is the closest thing to an "online" route. For an <strong>organised Saharan program</strong>, we prepare a <strong>visa-authorisation document</strong> in advance — no consulate visit needed — and your visa sticker is issued on arrival at <strong>Algiers airport</strong>. It is <strong>open to travellers of any nationality</strong>, provided your organised program includes a Sahara trip. <a href="#saharan-evisa">See exactly how the Saharan e-Visa works ↓</a></p>
+      <p class="speak">This is the closest thing to an "online" route. For an <strong>organised Saharan program</strong>, we prepare a <strong>visa-authorisation document</strong> in advance — no consulate visit needed — and your visa sticker is issued on arrival at <strong>Algiers airport</strong>. It is <strong>open to travellers of any nationality</strong>, provided your organised program includes a Sahara trip. <a href="#saharan-evisa">See exactly how the Saharan e-Visa works ↓</a></p>
 
       <h2>What counts as a Sahara trip</h2>
       <p>The route needs a Sahara trip in your program — it does not matter which airport you fly into, and the visa is issued at Algiers. The Saharan regions our programs actually use are <strong>Djanet</strong> — the gateway to the <strong>Tassili n'Ajjer</strong> National Park and the <strong>Tadrart Rouge</strong> — <strong>Tamanrasset</strong> in the Hoggar, <strong>Ghardaïa</strong> in the M'Zab Valley and <strong>Timimoun</strong> in the Gourara. Once you are in Algeria, we book the domestic flights to the airports that serve them: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> and <strong>Timimoun (TMX)</strong>. If you are booking one of our <a href="/tours/">Saharan programs</a>, the itinerary is already built to qualify.</p>

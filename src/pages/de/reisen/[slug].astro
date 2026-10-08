@@ -113,7 +113,7 @@ const breadcrumb = {
 };
 const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
 ---
-<BaseLayout title={title} description={description} lang="de" alternates={alternates}
+<BaseLayout speakable={['h1', '.lead']} title={title} description={description} lang="de" alternates={alternates}
   image={hero} region={REGION[tour.theme] || undefined} schema={schema} sticky={true}
   keywords={["Reise " + tour.id.replace(/-/g, ' '), "Algerien Reise", "private Algerien Rundreise"]}>
 

@@ -82,7 +82,7 @@ const webpage = { "@type":"WebPage", "@id":`${site}/blog/${item.slug}/#webpage`,
   breadcrumb:{ "@id":`${site}/blog/${item.slug}/#breadcrumb` }, inLanguage:"en",
   // AEO/voice: point assistants at the QuickAnswer + key takeaways, which are
   // written as self-contained spoken answers.
-  speakable:{ "@type":"SpeakableSpecification", cssSelector:["h1",".qbox",".key-takeaways"] } };
+  speakable:{ "@type":"SpeakableSpecification", cssSelector:(d.keyTakeaways?.length ? ["h1",".qbox",".key-takeaways"] : ["h1",".qbox"]) } };
 // FAQPage is emitted once by <FaqSection> below (the shared component all page
 // types use). Do NOT also add a FAQPage node to the @graph here, or each blog
 // post renders two FAQPage blocks (duplicate schema emission).

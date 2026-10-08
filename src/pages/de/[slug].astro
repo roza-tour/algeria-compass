@@ -68,7 +68,7 @@ const breadcrumb = {
   ],
 };
 ---
-<BaseLayout title={g.seoTitle} description={g.seoDescription} lang="de" alternates={alternates}
+<BaseLayout speakable={['h1', '.guide-lead']} title={g.seoTitle} description={g.seoDescription} lang="de" alternates={alternates}
   type="article" schema={[articleSchema, authorSchema, faqSchema, breadcrumb]} sticky={true}
   keywords={[g.h1, 'Algerien', 'Algerien Reise', 'Algerien Reiseführer']}>
 
@@ -82,7 +82,7 @@ const breadcrumb = {
         Von Oussama Ben Yahia · Algeria Compass · <a href={enUrl} hreflang="en">Read in English</a>
       </p>
 
-      <p style="font-size:1.1rem;line-height:1.75;margin-top:1rem">{g.lead}</p>
+      <p class="guide-lead" style="font-size:1.1rem;line-height:1.75;margin-top:1rem">{g.lead}</p>
 
       {g.sections.map(s => (
         <>

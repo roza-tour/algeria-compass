@@ -41,7 +41,7 @@ const authorSchema = {
   "knowsLanguage": ["Arabic", "French", "English", "Tamazight"]
 };
 ---
-<BaseLayout title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[articleSchema, authorSchema, faqSchema]} sticky={true}>
+<BaseLayout speakable={['h1', '.guide-lead']} title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[articleSchema, authorSchema, faqSchema]} sticky={true}>
   <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Itinéraire'}]} />
   <article class="section">
     <div class="wrap" style="max-width:780px">
@@ -49,7 +49,7 @@ const authorSchema = {
       <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">Itinéraire en Algérie : 7, 10 et 14 jours</h1>
       <p style="color:var(--text-l);font-size:.9rem">Par Oussama Ben Yahia · Algeria Compass · <a href={enUrl}>Read in English</a></p>
 
-      <p style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
+      <p class="guide-lead" style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
         L'Algérie est le plus grand pays d'Afrique : l'erreur classique est de vouloir tout voir. Un bon itinéraire
         choisit <strong>une ou deux régions</strong> et les parcourt bien. Voici trois plans qui fonctionnent.
       </p>

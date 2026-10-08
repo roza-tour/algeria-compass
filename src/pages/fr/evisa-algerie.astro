@@ -39,7 +39,7 @@ const faqs = [
 const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'fr',
   mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
 ---
-<BaseLayout
+<BaseLayout speakable={['h1', '.speak']}
   title={title}
   description={description}
   lang="fr" alternates={alternates}
@@ -54,13 +54,13 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'fr',
       <p>Les voyageurs cherchent souvent un « e-Visa Algérie ». Voici le tableau honnête, pour planifier sur des faits plutôt que sur de l'espoir.</p>
 
       <h2>Existe-t-il un e-Visa pour l'Algérie ?</h2>
-      <p>Pour le tourisme ordinaire, <strong>il n'existe pas d'e-Visa général en ligne</strong> que l'on puisse simplement demander et imprimer. L'entrée touristique en Algérie passe par deux voies établies — et nous nous chargeons des formalités pour les deux.</p>
+      <p class="speak">Pour le tourisme ordinaire, <strong>il n'existe pas d'e-Visa général en ligne</strong> que l'on puisse simplement demander et imprimer. L'entrée touristique en Algérie passe par deux voies établies — et nous nous chargeons des formalités pour les deux.</p>
 
       <h2>Voie 1 — Visa touristique consulaire (le nord &amp; la plupart des voyages)</h2>
       <p>Vous demandez un visa touristique auprès du <strong>consulat algérien</strong> couvrant votre pays, normalement en personne. Les consulats exigent une <strong>lettre d'invitation / voucher touristique</strong> émise par une agence algérienne agréée — que nous vous délivrons (25 USD) pour tout programme d'au moins 3 jours incluant l'accueil et le transfert aéroport, avec vos confirmations d'hôtel et de circuit et une check-list adaptée à votre nationalité. Comptez environ <strong>deux à quatre semaines</strong>.</p>
 
       <h2>Voie 2 — L'e-Visa saharien (programmes organisés dans le désert)</h2>
-      <p>C'est ce qui se rapproche le plus d'une voie « en ligne ». Pour un <strong>programme saharien organisé</strong>, nous préparons à l'avance un <strong>document d'autorisation de visa</strong> — sans passage par le consulat — et votre vignette de visa est délivrée à l'arrivée à <strong>l'aéroport d'Alger</strong>. Cette voie est <strong>ouverte aux voyageurs de toutes nationalités</strong>, à condition que votre programme organisé comprenne un séjour au Sahara. <a href="#saharan-evisa">Voir en détail comment fonctionne l'e-Visa saharien ↓</a></p>
+      <p class="speak">C'est ce qui se rapproche le plus d'une voie « en ligne ». Pour un <strong>programme saharien organisé</strong>, nous préparons à l'avance un <strong>document d'autorisation de visa</strong> — sans passage par le consulat — et votre vignette de visa est délivrée à l'arrivée à <strong>l'aéroport d'Alger</strong>. Cette voie est <strong>ouverte aux voyageurs de toutes nationalités</strong>, à condition que votre programme organisé comprenne un séjour au Sahara. <a href="#saharan-evisa">Voir en détail comment fonctionne l'e-Visa saharien ↓</a></p>
 
       <h2>Ce qui compte comme séjour au Sahara</h2>
       <p>Cette voie exige un séjour au Sahara dans votre programme — peu importe l'aéroport d'arrivée, le visa est délivré à Alger. Les régions sahariennes que nos programmes utilisent réellement sont <strong>Djanet</strong> — la porte du parc national du <strong>Tassili n'Ajjer</strong> et de la <strong>Tadrart Rouge</strong> —, <strong>Tamanrasset</strong> dans le Hoggar, <strong>Ghardaïa</strong> dans la vallée du M'Zab et <strong>Timimoun</strong> dans le Gourara. Une fois en Algérie, nous réservons les vols intérieurs vers les aéroports qui les desservent : <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> et <strong>Timimoun (TMX)</strong>. Si vous réservez l'un de nos <a href="/fr/circuits/">circuits sahariens</a>, l'itinéraire est déjà conçu pour être éligible.</p>

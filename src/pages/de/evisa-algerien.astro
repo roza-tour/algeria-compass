@@ -39,7 +39,7 @@ const faqs = [
 const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
   mainEntity: faqs.map(f => ({ '@type':'Question', name:f.q, acceptedAnswer:{ '@type':'Answer', text:f.a } })) };
 ---
-<BaseLayout
+<BaseLayout speakable={['h1', '.speak']}
   title={title}
   description={description}
   lang="de" alternates={alternates}
@@ -54,13 +54,13 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
       <p>Viele Reisende suchen nach einem „Algerien e-Visum“. Hier ist das ehrliche Bild, damit Sie mit Fakten statt mit Hoffnung planen.</p>
 
       <h2>Gibt es ein e-Visum für Algerien?</h2>
-      <p>Für gewöhnlichen Tourismus gibt es <strong>kein allgemeines Online-e-Visum</strong>, das Sie einfach beantragen und ausdrucken können. Die touristische Einreise nach Algerien läuft stattdessen über zwei etablierte Wege — und wir übernehmen die Unterlagen für beide.</p>
+      <p class="speak">Für gewöhnlichen Tourismus gibt es <strong>kein allgemeines Online-e-Visum</strong>, das Sie einfach beantragen und ausdrucken können. Die touristische Einreise nach Algerien läuft stattdessen über zwei etablierte Wege — und wir übernehmen die Unterlagen für beide.</p>
 
       <h2>Weg 1 — Touristenvisum über das Konsulat (der Norden &amp; die meisten Reisen)</h2>
       <p>Sie beantragen ein Touristenvisum beim <strong>algerischen Konsulat</strong>, das für Ihr Land zuständig ist, in der Regel persönlich. Konsulate verlangen ein <strong>Einladungsschreiben / einen Touristen-Voucher</strong> einer lizenzierten algerischen Agentur — den stellen wir Ihnen aus (25 USD) — für jedes Programm ab 3 Tagen mit Flughafenabholung und -transfer —, zusammen mit Ihrer Hotel- und Tourbestätigung und einer Checkliste für Ihre Staatsangehörigkeit. Planen Sie etwa <strong>zwei bis vier Wochen</strong> ein.</p>
 
       <h2>Weg 2 — Das Sahara-e-Visum (organisierte Wüstenprogramme)</h2>
-      <p>Das kommt einem „Online“-Weg am nächsten. Für ein <strong>organisiertes Sahara-Programm</strong> bereiten wir im Voraus ein <strong>Visum-Genehmigungsdokument</strong> vor — kein Konsulatsbesuch nötig — und Ihre Visumvignette wird bei der Ankunft am <strong>Flughafen Algier</strong> ausgestellt. Dieser Weg steht <strong>Reisenden aller Nationalitäten offen</strong>, sofern Ihr organisiertes Programm einen Sahara-Aufenthalt enthält. <a href="#saharan-evisa">So funktioniert das Sahara-e-Visum im Detail ↓</a></p>
+      <p class="speak">Das kommt einem „Online“-Weg am nächsten. Für ein <strong>organisiertes Sahara-Programm</strong> bereiten wir im Voraus ein <strong>Visum-Genehmigungsdokument</strong> vor — kein Konsulatsbesuch nötig — und Ihre Visumvignette wird bei der Ankunft am <strong>Flughafen Algier</strong> ausgestellt. Dieser Weg steht <strong>Reisenden aller Nationalitäten offen</strong>, sofern Ihr organisiertes Programm einen Sahara-Aufenthalt enthält. <a href="#saharan-evisa">So funktioniert das Sahara-e-Visum im Detail ↓</a></p>
 
       <h2>Was als Sahara-Aufenthalt zählt</h2>
       <p>Dieser Weg verlangt einen Sahara-Aufenthalt im Programm — egal, an welchem Flughafen Sie landen, das Visum wird in Algier erteilt. Unsere Programme nutzen konkret <strong>Djanet</strong> — das Tor zum Nationalpark <strong>Tassili n'Ajjer</strong> und zum <strong>Tadrart Rouge</strong> —, <strong>Tamanrasset</strong> im Hoggar, <strong>Ghardaïa</strong> im M'Zab-Tal und <strong>Timimoun</strong> im Gourara. In Algerien buchen wir die Inlandsflüge zu den zugehörigen Flughäfen: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> und <strong>Timimoun (TMX)</strong>. Wenn Sie eine unserer <a href="/de/reisen/">Sahara-Reisen</a> buchen, ist die Route bereits entsprechend angelegt.</p>

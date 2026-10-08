@@ -161,7 +161,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
   mainEntity: tour.faqs.map((f: any) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
 });
 ---
-<BaseLayout
+<BaseLayout speakable={['h1', '.tour-hook', '.tour-lead']}
   title={tour.title}
   description={tour.summary}
   image={ogImage}
@@ -184,7 +184,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
     <div class="hero-in wrap">
       <div class="eyebrow">Private guided tour · {tour.duration}</div>
       <h1>{tour.title}</h1>
-      <p>{tour.hook ?? tour.summary}</p>
+      <p class="tour-hook">{tour.hook ?? tour.summary}</p>
       <p style="margin-top:1rem">
         <a class="btn btn-gold" href="#book" data-evt="book_intent">Request to book →</a>
         <a class="btn btn-ghost" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,.5)">💬 Book on WhatsApp</a>
