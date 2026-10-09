@@ -1,4 +1,5 @@
 ---
+import InlineTours from '../../components/InlineTours.astro';
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // German practical guides, rendered from src/data/guides-de.ts.
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -94,6 +95,8 @@ const breadcrumb = {
         </>
       ))}
       {['visum-bei-ankunft-algerien', 'visum-hilfe-algerien'].includes(g.slug) && <StampFeeTable lang="de" />}
+
+      <InlineTours lang="de" text={[g.h1, g.lead, ...g.sections.flatMap((x: any) => [x.h, x.p ?? '', ...(x.list ?? []), ...(x.links ?? []).map((k: any) => k.href + ' ' + k.text)])].join(' ')} />
 
       <h2 style="margin-top:2rem">Häufige Fragen</h2>
       {g.faqs.map(f => (

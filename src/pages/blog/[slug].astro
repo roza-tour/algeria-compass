@@ -1,4 +1,5 @@
 ---
+import InlineTours from '../../components/InlineTours.astro';
 import { getCollection } from 'astro:content';
 import { alternatesFor } from '../../i18n';
 import { altsForEnglish } from '../../lib/guide-alternates';
@@ -113,6 +114,7 @@ const schemaNodes = [post, authorEntity, reviewerEntity, breadcrumb, webpage].fi
     )}
     {d.keyTakeaways.length > 0 && <KeyTakeaways items={d.keyTakeaways} />}
     <div class="prose"><Content /></div>
+    <InlineTours text={`${d.title} ${d.quickAnswer} ${item.body}`} />
     {d.stats.length > 0 && <TravelStats stats={d.stats} />}
     {d.climate.length > 0 && <ClimateMatrix months={d.climate} place={d.climatePlace} />}
     {d.seasons.length > 0 && <SeasonRecommendation seasons={d.seasons} />}

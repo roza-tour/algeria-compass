@@ -1,0 +1,69 @@
+---
+// "Trips for this guide": the bookable tours a guide is about, shown inside
+// the guide so a reader can go from reading to booking in one click.
+import { relatedTours } from '../lib/related-tours';
+import { TOUR_VISUALS } from '../data/tour-visuals';
+import { TOURS_FR } from '../data/tours-fr';
+import { TOURS_IT } from '../data/tours-it';
+import { TOURS_ES } from '../data/tours-es';
+import { TOURS_DE } from '../data/tours-de';
+import { ROUTES, asLang } from '../i18n';
+
+interface Props { text: string; lang?: string; limit?: number }
+const { text, limit = 3 } = Astro.props;
+const lang = asLang(Astro.props.lang);
+const LOCAL: Record<string, any> = { fr: TOURS_FR, it: TOURS_IT, es: TOURS_ES, de: TOURS_DE };
+const C = {
+  en: { h: 'Trips for this guide', sub: 'Private, with a licensed local guide, on your dates.', from: 'from', per: 'per person', cta: 'See the trip →' },
+  fr: { h: 'Les circuits liés à ce guide', sub: 'Privés, avec un guide local agréé, à vos dates.', from: 'dès', per: 'par personne', cta: 'Voir le circuit →' },
+  it: { h: 'I viaggi di questa guida', sub: 'Privati, con una guida locale autorizzata, nelle vostre date.', from: 'da', per: 'a persona', cta: 'Vedi il viaggio →' },
+  es: { h: 'Los viajes de esta guía', sub: 'Privados, con un guía local autorizado, en sus fechas.', from: 'desde', per: 'por persona', cta: 'Ver el viaje →' },
+  de: { h: 'Reisen zu diesem Ratgeber', sub: 'Privat, mit lizenziertem lokalem Guide, zu Ihren Terminen.', from: 'ab', per: 'pro Person', cta: 'Zur Reise →' },
+}[lang];
+const cards = relatedTours(text, limit)
+  .map((t: any) => {
+    const loc = lang === 'en' ? null : LOCAL[lang]?.[t.id];
+    const translated = !!loc?.full;
+    const v = TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg` };
+    return {
+      href: translated ? `${ROUTES[lang].tours}${t.id}/` : `/tours/${t.id}/`,
+      title: translated ? loc.title : t.title,
+      duration: translated ? loc.duration : t.duration,
+      price: Number(t.price_eur).toLocaleString(lang === 'en' ? 'en-GB' : 'de-DE'),
+      img: `/assets/img/thumbs/tours/${v.hero}`,
+      id: t.id,
+    };
+  });
+---
+{cards.length > 0 && (
+  <aside class="itours" aria-label={C.h}>
+    <h2 class="itours-h">{C.h}</h2>
+    <p class="itours-sub">{C.sub}</p>
+    <div class="itours-list">
+      {cards.map(c => (
+        <a class="itour" href={c.href} data-evt="guide_tour_click" data-tour={c.id}>
+          <img src={c.img} alt="" width="160" height="120" loading="lazy" decoding="async" />
+          <span class="itour-body">
+            <span class="itour-t">{c.title}</span>
+            <span class="itour-m">{`${c.duration} · ${C.from} `}<b>€{c.price}</b>{` ${C.per}`}</span>
+            <span class="itour-cta">{C.cta}</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </aside>
+)}
+<style>
+  .itours{margin:2.2rem 0;padding:1.3rem 1.3rem 1.1rem;border:1px solid var(--border);border-radius:16px;background:var(--wash)}
+  .itours-h{margin:0;font-size:1.25rem}
+  .itours-sub{margin:.25rem 0 1rem;color:var(--text-l);font-size:.95rem}
+  .itours-list{display:grid;gap:.75rem}
+  .itour{display:grid;grid-template-columns:120px 1fr;gap:.9rem;align-items:center;padding:.6rem;border-radius:12px;background:var(--bg,#fff);border:1px solid var(--border);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+  .itour:hover{border-color:var(--gold,#C9A24A);transform:translateY(-1px)}
+  .itour img{width:120px;height:90px;object-fit:cover;border-radius:8px}
+  .itour-body{display:flex;flex-direction:column;gap:.2rem;min-width:0}
+  .itour-t{font-weight:700;line-height:1.3}
+  .itour-m{font-size:.92rem;color:var(--text-m)}
+  .itour-cta{font-size:.92rem;font-weight:700;color:var(--accent,#0B3D2E)}
+  @media (max-width:520px){.itour{grid-template-columns:92px 1fr}.itour img{width:92px;height:76px}}
+</style>

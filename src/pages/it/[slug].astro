@@ -1,4 +1,5 @@
 ---
+import InlineTours from '../../components/InlineTours.astro';
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // Italian practical guides, rendered from src/data/guides-it.ts.
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -94,6 +95,8 @@ const breadcrumb = {
         </>
       ))}
       {['visto-arrivo-algeria', 'assistenza-visto-algeria'].includes(g.slug) && <StampFeeTable lang="it" />}
+
+      <InlineTours lang="it" text={[g.h1, g.lead, ...g.sections.flatMap((x: any) => [x.h, x.p ?? '', ...(x.list ?? []), ...(x.links ?? []).map((k: any) => k.href + ' ' + k.text)])].join(' ')} />
 
       <h2 style="margin-top:2rem">Domande frequenti</h2>
       {g.faqs.map(f => (

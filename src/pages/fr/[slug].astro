@@ -1,6 +1,7 @@
 ---
 // French guides rendered from src/data/guides-fr.ts. Most French guides are
 // standalone pages (fr/*.astro); this template serves the newer data-driven ones.
+import InlineTours from '../../components/InlineTours.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -93,6 +94,8 @@ const breadcrumb = {
         </>
       ))}
       {['visto-arrivo-algeria', 'assistenza-visto-algeria'].includes(g.slug) && <StampFeeTable lang="fr" />}
+
+      <InlineTours lang="fr" text={[g.h1, g.lead, ...g.sections.flatMap((x: any) => [x.h, x.p ?? '', ...(x.list ?? []), ...(x.links ?? []).map((k: any) => k.href + ' ' + k.text)])].join(' ')} />
 
       <h2 style="margin-top:2rem">Questions fréquentes</h2>
       {g.faqs.map(f => (

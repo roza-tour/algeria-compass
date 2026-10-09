@@ -1,4 +1,5 @@
 ---
+import InlineTours from '../../components/InlineTours.astro';
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // Spanish practical guides, rendered from src/data/guides-es.ts.
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -94,6 +95,8 @@ const breadcrumb = {
         </>
       ))}
       {['visado-llegada-argelia', 'asistencia-visado-argelia'].includes(g.slug) && <StampFeeTable lang="es" />}
+
+      <InlineTours lang="es" text={[g.h1, g.lead, ...g.sections.flatMap((x: any) => [x.h, x.p ?? '', ...(x.list ?? []), ...(x.links ?? []).map((k: any) => k.href + ' ' + k.text)])].join(' ')} />
 
       <h2 style="margin-top:2rem">Preguntas frecuentes</h2>
       {g.faqs.map(f => (
