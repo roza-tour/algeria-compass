@@ -14,8 +14,9 @@ const L = Astro.props.loc || t;
 const site = 'https://algeriacompass.com';
 const pageUrl = lang === 'en' ? `${site}/tours/${t.id}/` : `${site}${ROUTES[lang].tours}${t.id}/`;
 const hero = `/assets/img/tours/${(TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg` }).hero}`;
+// Every other photo: neighbours in the ranking are often near-duplicates.
 let photos: { file: string; alt?: string }[] = [];
-try { photos = tourGallery(t.image_slugs, fs.readdirSync('public/assets/img/tours'), 8).filter((_, i) => i % 2 === 0).slice(0, 4);   // every other photo: neighbours in the ranking are often near-duplicates } catch {}
+try { photos = tourGallery(t.image_slugs, fs.readdirSync('public/assets/img/tours'), 8).filter((_, i) => i % 2 === 0).slice(0, 4); } catch {}
 const price = Number(t.price_eur).toLocaleString(lang === 'en' ? 'en-GB' : 'de-DE');
 const C = {
   en: { save: 'Save as PDF / Print', back: '← Back to the tour', eyebrow: 'Private tour itinerary', from: 'From', per: 'per person', days: 'Day by day', day: 'Day', inc: 'Included', exc: 'Not included', good: 'Good to know', book: 'How to book', b1: `Your dates are held free for ${BOOKING.holdHours} hours while we confirm.`, b2: `Free cancellation up to ${BOOKING.cancelDays} days before departure.`, b3: `${BOOKING.earlyPct}% off when you book ${BOOKING.earlyDays}+ days ahead.`, b4: 'Visa support included; full refund if your visa is refused.', note: 'Private trip on your own dates, with a licensed local guide.' },
