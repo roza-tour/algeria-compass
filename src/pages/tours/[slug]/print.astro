@@ -1,0 +1,9 @@
+---
+import ItineraryPrint from '../../../components/ItineraryPrint.astro';
+import data from '../../../data/tours.json';
+export function getStaticPaths() {
+  return (((data as any).tours || data) as any[]).map(t => ({ params: { slug: t.id }, props: { t } }));
+}
+const { t } = Astro.props as any;
+---
+<ItineraryPrint t={t} lang="en" />

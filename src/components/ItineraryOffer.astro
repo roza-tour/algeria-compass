@@ -1,0 +1,67 @@
+---
+// "Get this itinerary as a PDF": the visitor leaves an email, the owner gets a
+// lead (itinerary.php), and the visitor opens the printable itinerary.
+import { asLang } from '../i18n';
+interface Props { tourId: string; tourTitle: string; printHref: string; lang?: string }
+const { tourId, tourTitle, printHref } = Astro.props;
+const lang = asLang(Astro.props.lang);
+const C = {
+  en: { h: 'Take this itinerary with you', p: 'Get the full day-by-day programme as a PDF, to read later or share with your travel companions.', email: 'Your email', btn: 'Get the PDF', sending: 'One moment…', ok: 'Your itinerary is ready:', open: 'Open the PDF itinerary', err: 'Please enter a valid email address.', fail: 'Sorry, that did not work. You can still open the itinerary:', privacy: 'We only use your email to answer about this trip. No newsletter.' },
+  fr: { h: 'Emportez ce programme', p: 'Recevez le programme complet jour par jour en PDF, à lire plus tard ou à partager avec vos compagnons de voyage.', email: 'Votre e-mail', btn: 'Obtenir le PDF', sending: 'Un instant…', ok: 'Votre programme est prêt :', open: 'Ouvrir le programme PDF', err: 'Merci de saisir une adresse e-mail valide.', fail: "Désolé, cela n'a pas fonctionné. Vous pouvez quand même ouvrir le programme :", privacy: "Nous utilisons votre e-mail uniquement pour vous répondre sur ce voyage. Pas de newsletter." },
+  it: { h: 'Portate con voi questo programma', p: 'Ricevete il programma completo giorno per giorno in PDF, da leggere con calma o condividere con i compagni di viaggio.', email: 'La vostra email', btn: 'Ricevi il PDF', sending: 'Un momento…', ok: 'Il vostro programma è pronto:', open: 'Apri il programma PDF', err: 'Inserite un indirizzo email valido.', fail: 'Spiacenti, non ha funzionato. Potete comunque aprire il programma:', privacy: 'Usiamo la vostra email solo per rispondervi su questo viaggio. Niente newsletter.' },
+  es: { h: 'Llévese este programa', p: 'Reciba el programa completo día a día en PDF, para leerlo con calma o compartirlo con sus compañeros de viaje.', email: 'Su correo electrónico', btn: 'Obtener el PDF', sending: 'Un momento…', ok: 'Su programa está listo:', open: 'Abrir el programa en PDF', err: 'Introduzca un correo electrónico válido.', fail: 'Lo sentimos, no ha funcionado. Aun así puede abrir el programa:', privacy: 'Solo usamos su correo para responderle sobre este viaje. Sin boletines.' },
+  de: { h: 'Nehmen Sie dieses Programm mit', p: 'Erhalten Sie das komplette Tag-für-Tag-Programm als PDF, zum späteren Lesen oder zum Teilen mit Ihren Mitreisenden.', email: 'Ihre E-Mail', btn: 'PDF erhalten', sending: 'Einen Moment…', ok: 'Ihr Programm ist bereit:', open: 'PDF-Programm öffnen', err: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.', fail: 'Das hat leider nicht geklappt. Sie können das Programm trotzdem öffnen:', privacy: 'Wir nutzen Ihre E-Mail nur, um Ihnen zu dieser Reise zu antworten. Kein Newsletter.' },
+}[lang];
+---
+<aside class="itin-offer" data-print={printHref}>
+  <div class="io-icon" aria-hidden="true">📄</div>
+  <div class="io-main">
+    <h3>{C.h}</h3>
+    <p>{C.p}</p>
+    <form class="io-form" method="POST" action="/itinerary.php" data-err={C.err} data-sending={C.sending}>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+      <input type="hidden" name="tour" value={tourId} />
+      <input type="hidden" name="title" value={tourTitle} />
+      <input type="hidden" name="lang" value={lang} />
+      <label class="sr-only" for={`io-email-${tourId}`}>{C.email}</label>
+      <input id={`io-email-${tourId}`} type="email" name="email" required placeholder={C.email} autocomplete="email" />
+      <button type="submit" class="btn btn-gold" data-evt="itinerary_pdf">{C.btn}</button>
+    </form>
+    <p class="io-msg" role="status" hidden></p>
+    <p class="io-ok" hidden>{C.ok} <a href={printHref} target="_blank" rel="noopener">{C.open} →</a></p>
+    <p class="io-fail" hidden>{C.fail} <a href={printHref} target="_blank" rel="noopener">{C.open} →</a></p>
+    <p class="io-privacy">{C.privacy}</p>
+  </div>
+</aside>
+<style>
+  .itin-offer{display:flex;gap:1rem;align-items:flex-start;margin:1.8rem 0;padding:1.2rem 1.3rem;border:1px solid var(--border);border-left:4px solid var(--gold,#C9A24A);border-radius:14px;background:var(--wash)}
+  .io-icon{font-size:1.8rem;line-height:1}
+  .io-main{flex:1;min-width:0}
+  .io-main h3{margin:0 0 .25rem;font-size:1.15rem}
+  .io-main p{margin:.2rem 0;color:var(--text-m)}
+  .io-form{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .io-form input[type=email]{flex:1 1 220px;min-height:46px;padding:.6rem .8rem;border:1px solid var(--border);border-radius:10px;font:inherit}
+  .io-ok,.io-fail{font-weight:700}
+  .io-ok a,.io-fail a{font-size:1.05rem}
+  .io-privacy{font-size:.85rem;color:var(--text-l)!important;margin-top:.5rem!important}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+<script is:inline>
+(function(){
+  document.querySelectorAll('.itin-offer').forEach(function(box){
+    var f=box.querySelector('.io-form'); if(!f||f.dataset.bound) return; f.dataset.bound='1';
+    var msg=box.querySelector('.io-msg');
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var em=f.querySelector('input[type=email]').value.trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){msg.textContent=f.dataset.err;msg.hidden=false;return;}
+      var b=f.querySelector('button');b.disabled=true;var old=b.textContent;b.textContent=f.dataset.sending;msg.hidden=true;
+      fetch(f.action,{method:'POST',headers:{'X-Requested-With':'fetch'},body:new FormData(f)})
+        .then(function(r){return r.json();})
+        .then(function(d){f.hidden=true;box.querySelector(d&&d.ok?'.io-ok':'.io-fail').hidden=false;})
+        .catch(function(){f.hidden=true;box.querySelector('.io-fail').hidden=false;})
+        .finally(function(){b.disabled=false;b.textContent=old;});
+    });
+  });
+})();
+</script>
