@@ -354,6 +354,12 @@ const icons = {"winter":"<path d=\"M12 2v20M4 7l16 10M20 7L4 17\"/><path d=\"M9 
   // pre-fill interest from ?i=
   try{var q=new URLSearchParams(location.search).get('i');
     if(q){document.getElementById('f-context').value=q;chips.forEach(function(c){if(c.getAttribute('data-chip').toLowerCase()===q.toLowerCase())c.setAttribute('aria-pressed','true');});sync();}}catch(e){}
+  // Booking deep link (see /tours.json): ?tour=<id>&when=&people=&days=&name=&email=&country=&message=
+  // lets an AI assistant or a link hand the visitor a form that is already filled in.
+  try{var P=new URLSearchParams(location.search);
+    if(P.get('tour'))document.getElementById('f-context').value='Booking request: '+P.get('tour');
+    [['when','f-when'],['people','f-people'],['days','f-days'],['name','f-name'],['email','f-email'],['country','f-country'],['message','f-msg']].forEach(function(m){var v=P.get(m[0]);var el=document.getElementById(m[1]);if(v&&el&&!el.value)el.value=v.slice(0,400);});
+    if(P.get('tour')&&!document.getElementById('f-msg').value)document.getElementById('f-msg').value='I would like to book: '+P.get('tour');}catch(e){}
   function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
   function buildMessage(){
     var ctx=document.getElementById('f-context').value||'';

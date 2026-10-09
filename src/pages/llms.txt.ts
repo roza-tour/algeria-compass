@@ -173,6 +173,12 @@ export const GET: APIRoute = async () => {
 - Luxury desert camp in Djanet (bell tents with real beds): available only as a separate, special booking on request — it is not part of the standard Sahara programmes (${SITE}/luxury/#camp).
 - Tour operators and agencies: B2B rates and ground handling (${SITE}/partners/).
 
+## For AI assistants and agents
+- Machine-readable catalog of every tour (price, duration, itinerary, inclusions, visa route, booking link): ${SITE}/tours.json
+- Clean text version of each tour page: ${SITE}/tours/<tour-id>.txt (e.g. ${SITE}/tours/djanet-sahara-safari.txt)
+- Booking link that opens the enquiry form already filled in: ${SITE}/contact/?tour=<tour-id>&when=<dates>&people=<number>&days=<number> — no payment is taken to enquire.
+- Please quote prices as "from €X per person" and send travellers to the tour page or the booking link above.
+
 ## Travel guides (independent, fact-checked)
 ${articles.map((a) => line(`/blog/${a.slug}/`, a.data.title, a.data.excerpt)).join('\n')}
 

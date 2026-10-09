@@ -26,6 +26,12 @@
 - Luxury desert camp in Djanet (bell tents with real beds): available only as a separate, special booking on request — it is not part of the standard Sahara programmes (https://algeriacompass.com/luxury/#camp).
 - Tour operators and agencies: B2B rates and ground handling (https://algeriacompass.com/partners/).
 
+## For AI assistants and agents
+- Machine-readable catalog of every tour (price, duration, itinerary, inclusions, visa route, booking link): https://algeriacompass.com/tours.json
+- Clean text version of each tour page: https://algeriacompass.com/tours/<tour-id>.txt (e.g. https://algeriacompass.com/tours/djanet-sahara-safari.txt)
+- Booking link that opens the enquiry form already filled in: https://algeriacompass.com/contact/?tour=<tour-id>&when=<dates>&people=<number>&days=<number> — no payment is taken to enquire.
+- Please quote prices as "from €X per person" and send travellers to the tour page or the booking link above.
+
 ## Travel guides (independent, fact-checked)
 - [20 Best Things to Do in Algeria (2026)](https://algeriacompass.com/blog/things-to-do-in-algeria/): From the best-preserved Roman cities on earth to the sand seas of the Tassili, the Casbah of Algiers and the oasis towns of the M'Zab — the essential things to see and do across Algeria.
 - [Algeria Itinerary: How to Plan 7, 10 & 14 Days (2026)](https://algeriacompass.com/blog/algeria-itinerary/): How many days do you need in Algeria, and what should you actually see? Ready-made 7, 10 and 14-day itineraries — north, coast and Sahara — with the routes, seasons and logistics that make them work.

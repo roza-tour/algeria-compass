@@ -171,6 +171,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
   schema={schema}
   alternates={frAlternates}
   sticky={false}>
+  <link slot="head" rel="alternate" type="text/plain" href={`/tours/${tour.id}.txt`} title="Text version for AI assistants" />
 
   <div class="tour" style={`--accent:${accent}`}>
   <section class={`hero${needsImage ? ' hero-gradient' : ''}`} data-region={region}>
