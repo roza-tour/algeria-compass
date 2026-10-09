@@ -36,7 +36,7 @@ type Item = { q: string; a: string; u: string; k: string };
 type Rule = { id: string; p: string[]; a: string; u: string };
 // A bookable tour, for the suggestions shown under every answer.
 // t = title, u = url, d = duration, p = price in EUR, w = words to match on.
-type Tour = { t: string; u: string; d: string; p: number; w: string };
+type Tour = { t: string; u: string; d: string; p: number; w: string; th: string; n: number; r: number; sa: boolean };
 
 export function getStaticPaths() {
   return LANGS.map(lang => ({ params: { lang } }));
@@ -373,6 +373,10 @@ export const GET: APIRoute = async ({ params }) => {
       u: `${tourBase}${t.id}/`,
       d: clean(src.duration),
       p: Number(t.price_eur) || 0,
+      th: t.theme,                                          // trip planner: what the trip is about
+      n: parseInt(t.duration, 10) || 1,                     // …how many days
+      r: (t.wilayas || []).length,                          // …how many regions it covers
+      sa: (t.wilayas || []).some((w: string) => ['djanet', 'illizi', 'tamanrasset', 'ghardaia', 'timimoun'].includes(w)), // …whether it goes into the Sahara
       w: clean([
         src.title, src.hook, src.summary, src.overview,
         (src.highlights || []).join(' '),

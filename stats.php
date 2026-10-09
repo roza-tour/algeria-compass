@@ -218,8 +218,12 @@ $EVENT_LABELS = [
   'cta_plan'       => 'زر «خطّط رحلتك»',
   'book_intent'    => 'نية الحجز (فتح الحجز)',
   'plan_click'     => 'زر التخطيط العائم',
+  'itinerary_pdf'  => 'تحميل البرنامج PDF (مقابل إيميل)',
+  'guide_tour_click' => 'نقرة على رحلة من داخل مقال',
+  'planner_whatsapp' => 'مخطّط الرحلة ← واتساب',
+  'planner_request'  => 'مخطّط الرحلة ← طلب حجز',
 ];
-$CONV_LIST = ['whatsapp_click', 'inquiry_submit', 'book_intent', 'cta_plan', 'plan_click'];
+$CONV_LIST = ['whatsapp_click', 'inquiry_submit', 'book_intent', 'cta_plan', 'plan_click', 'itinerary_pdf', 'guide_tour_click', 'planner_whatsapp', 'planner_request'];
 $LANG_LABELS = ['en' => 'إنجليزي', 'fr' => 'فرنسي', 'it' => 'إيطالي', 'es' => 'إسباني', 'de' => 'ألماني'];
 // Browser languages — every market a visitor might come from, not just ours.
 $BL_LABELS = $LANG_LABELS + ['ar' => 'عربي', 'nl' => 'هولندي', 'pl' => 'بولندي', 'pt' => 'برتغالي', 'ru' => 'روسي',

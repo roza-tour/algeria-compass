@@ -67,7 +67,40 @@ const SUGGEST: Record<Lang, string[]> = {
   it: ['Quanto costano i vostri circuiti?', 'Qual è il periodo migliore?', 'Serve un visto?', 'I vostri circuiti sono privati?'],
 };
 
+
+// Trip planner — four taps instead of a blank box. Answers are matched against
+// the same tour catalogue (theme, days, regions), and the visitor leaves with
+// two real trips and a WhatsApp message that already says what they want.
+const PLAN: Record<Lang, any> = {
+  en: { start: '✨ Help me choose a trip', intro: 'Four quick questions and I will suggest two trips.',
+        q: ['What draws you most?', 'How many days do you have?', 'When would you travel?', 'How many travellers?'],
+        o: [['The Sahara & desert', 'Roman ruins & history', 'Cities & culture', 'A bit of everything'], ['Up to 5 days', '6 to 8 days', '9 days or more'], ['October – April', 'May – September', 'Not sure yet'], ['1 – 2', '3 – 6', '7 or more']],
+        res: 'Here are the two trips that fit best:', summer: 'The deep Sahara is a winter trip (October to April), so for summer I have suggested the north.',
+        wa: 'Send my answers on WhatsApp', req: 'Request these dates', again: 'Start again', none: 'Nothing on our list fits that exactly — our team will build it for you.' },
+  fr: { start: '✨ Aidez-moi à choisir', intro: 'Quatre questions rapides et je vous propose deux circuits.',
+        q: ['Qu’est-ce qui vous attire le plus ?', 'De combien de jours disposez-vous ?', 'Quand voyageriez-vous ?', 'Combien de voyageurs ?'],
+        o: [['Le Sahara et le désert', 'Ruines romaines et histoire', 'Villes et culture', 'Un peu de tout'], ['Jusqu’à 5 jours', '6 à 8 jours', '9 jours ou plus'], ['Octobre – avril', 'Mai – septembre', 'Je ne sais pas encore'], ['1 – 2', '3 – 6', '7 ou plus']],
+        res: 'Voici les deux circuits qui vous correspondent le mieux :', summer: 'Le grand Sahara se visite en hiver (octobre à avril) : pour l’été, je vous propose le nord.',
+        wa: 'Envoyer mes réponses sur WhatsApp', req: 'Demander ces dates', again: 'Recommencer', none: 'Rien dans notre liste ne correspond exactement — notre équipe vous le construit sur mesure.' },
+  it: { start: '✨ Aiutami a scegliere', intro: 'Quattro domande veloci e vi propongo due viaggi.',
+        q: ['Cosa vi attira di più?', 'Quanti giorni avete?', 'Quando partireste?', 'Quanti viaggiatori?'],
+        o: [['Il Sahara e il deserto', 'Rovine romane e storia', 'Città e cultura', 'Un po’ di tutto'], ['Fino a 5 giorni', 'Da 6 a 8 giorni', '9 giorni o più'], ['Ottobre – aprile', 'Maggio – settembre', 'Non so ancora'], ['1 – 2', '3 – 6', '7 o più']],
+        res: 'Ecco i due viaggi più adatti:', summer: 'Il Sahara profondo è un viaggio invernale (da ottobre ad aprile): per l’estate vi propongo il nord.',
+        wa: 'Invia le mie risposte su WhatsApp', req: 'Richiedi queste date', again: 'Ricomincia', none: 'Niente nella nostra lista corrisponde esattamente — il nostro team lo costruisce su misura.' },
+  es: { start: '✨ Ayúdame a elegir', intro: 'Cuatro preguntas rápidas y le propongo dos viajes.',
+        q: ['¿Qué le atrae más?', '¿Cuántos días tiene?', '¿Cuándo viajaría?', '¿Cuántos viajeros?'],
+        o: [['El Sáhara y el desierto', 'Ruinas romanas e historia', 'Ciudades y cultura', 'Un poco de todo'], ['Hasta 5 días', 'De 6 a 8 días', '9 días o más'], ['Octubre – abril', 'Mayo – septiembre', 'Aún no lo sé'], ['1 – 2', '3 – 6', '7 o más']],
+        res: 'Estos son los dos viajes que mejor encajan:', summer: 'El Sáhara profundo es un viaje de invierno (de octubre a abril): para el verano le propongo el norte.',
+        wa: 'Enviar mis respuestas por WhatsApp', req: 'Solicitar estas fechas', again: 'Empezar de nuevo', none: 'Nada de nuestra lista encaja exactamente — nuestro equipo se lo diseña a medida.' },
+  de: { start: '✨ Hilfe bei der Reisewahl', intro: 'Vier kurze Fragen, dann schlage ich Ihnen zwei Reisen vor.',
+        q: ['Was reizt Sie am meisten?', 'Wie viele Tage haben Sie?', 'Wann würden Sie reisen?', 'Wie viele Reisende?'],
+        o: [['Die Sahara & Wüste', 'Römische Ruinen & Geschichte', 'Städte & Kultur', 'Von allem etwas'], ['Bis zu 5 Tage', '6 bis 8 Tage', '9 Tage oder mehr'], ['Oktober – April', 'Mai – September', 'Noch offen'], ['1 – 2', '3 – 6', '7 oder mehr']],
+        res: 'Diese zwei Reisen passen am besten:', summer: 'Die tiefe Sahara ist eine Winterreise (Oktober bis April) — für den Sommer schlage ich den Norden vor.',
+        wa: 'Meine Antworten per WhatsApp senden', req: 'Diese Termine anfragen', again: 'Neu starten', none: 'Nichts auf unserer Liste passt genau — unser Team stellt es Ihnen individuell zusammen.' },
+};
+
 const t = T[lang];
+const plan = PLAN[lang];
 const waHref = `https://wa.me/${CONTACT.whatsapp}`;
 const contactHref = ROUTES[lang].contact;
 ---
@@ -84,7 +117,7 @@ const contactHref = ROUTES[lang].contact;
      data-wa={waHref} data-contact={contactHref}
      data-none={t.none} data-more={t.more} data-walabel={t.wa} data-msg={t.msg}
      data-from={t.from} data-also={t.also} data-thinking={t.thinking} data-near={t.near}
-     data-trips={t.trips} data-per={t.per}>
+     data-trips={t.trips} data-per={t.per} data-plan={JSON.stringify(plan)}>
   <div class="ask-head">
     <div>
       <h2 id="askTitle">{t.title}</h2>
@@ -95,6 +128,7 @@ const contactHref = ROUTES[lang].contact;
 
   <div class="ask-log" id="askLog" role="log" aria-live="polite">
     <ul class="ask-sugg" id="askSugg">
+      <li><button type="button" class="ask-plan-start" data-plan-start="1">{plan.start}</button></li>
       {SUGGEST[lang].map(s => <li><button type="button" data-q={s}>{s}</button></li>)}
     </ul>
   </div>
@@ -194,6 +228,14 @@ const contactHref = ROUTES[lang].contact;
   .ask-trips .tt{display:block;font-size:.9rem;font-weight:700;color:var(--green-d);line-height:1.35}
   .ask-trips .tm{display:block;margin-top:.15rem;font-size:.8rem;font-weight:600;color:var(--text-m)}
 
+  .ask-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+  .ask-chips button{font:inherit;font-size:.92rem;font-weight:600;min-height:40px;padding:.45rem .8rem;border-radius:999px;
+    border:1px solid var(--border);background:#fff;color:var(--text);cursor:pointer}
+  .ask-chips button:hover,.ask-chips button.on{border-color:var(--green);background:var(--green);color:#fff}
+  .ask-chips[data-done] button:not(.on){opacity:.45;cursor:default}
+  .ask-sugg .ask-plan-start,.ask-plan-start{background:var(--green);color:#fff;border-color:var(--green)}
+  .ask-plan-start{font:inherit;font-weight:700;min-height:40px;padding:.45rem .9rem;border-radius:10px;border:1px solid var(--green);cursor:pointer}
+  .ask-sugg .ask-plan-start:hover{background:#fff;color:var(--green)}
   .ask-hand{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.6rem}
   .ask-hand a{display:inline-flex;align-items:center;min-height:40px;padding:.45rem .8rem;
     border-radius:var(--radius-pill);font-size:.87rem;font-weight:800;text-decoration:none}
@@ -392,8 +434,14 @@ const contactHref = ROUTES[lang].contact;
   // ---- rendering -----------------------------------------------------
   function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
 
+  // Everything the visitor asked goes into the WhatsApp message, so the team
+  // starts the conversation already knowing what they want.
+  var asked = [];
   function handoff(q) {
-    var wa = D.wa + '?text=' + encodeURIComponent(q ? q : '');
+    var lines = ['Hello Algeria Compass! I asked your website assistant:'];
+    asked.slice(-4).forEach(function (x) { lines.push('- ' + x); });
+    lines.push('(page: ' + location.pathname + ')');
+    var wa = D.wa + '?text=' + encodeURIComponent(asked.length ? lines.join('\n') : (q || ''));
     return '<div class="ask-hand">' +
       '<a class="wa" href="' + esc(wa) + '" target="_blank" rel="noopener">' + esc(D.walabel) + '</a>' +
       '<a class="ct" href="' + esc(D.contact) + '">' + esc(D.msg) + '</a></div>';
@@ -472,6 +520,7 @@ const contactHref = ROUTES[lang].contact;
     var sugg = document.getElementById('askSugg');
     if (sugg) sugg.remove();
     addQ(q);
+    asked.push(q);
 
     var rule = ruleFor(q);
     if (rule) {
@@ -511,6 +560,66 @@ const contactHref = ROUTES[lang].contact;
     html += tripsHtml(q) + handoff(q);
     addA(html);
     report(q, hits.length);
+  }
+
+
+  // ---- trip planner ----------------------------------------------------
+  var P = JSON.parse(D.plan || '{}'), pick = [];
+  var THEMES = [['sahara', 'mzab'], ['roman', 'east'], ['city', 'culture', 'west', 'coast'], null];
+  function planStep() {
+    var i = pick.length;
+    if (i < P.q.length) {
+      addA('<p>' + (i === 0 ? esc(P.intro) + '<br>' : '') + '<b>' + esc(P.q[i]) + '</b></p>' +
+        '<div class="ask-chips">' + P.o[i].map(function (o, k) {
+          return '<button type="button" data-plan-opt="' + k + '">' + esc(o) + '</button>';
+        }).join('') + '</div>');
+      return;
+    }
+    planResult();
+  }
+  function planScore(t) {
+    var interest = pick[0], days = pick[1], summer = pick[2] === 1;
+    if (t.n <= 2) return -99;
+    var s = 0, th = THEMES[interest];
+    if (th) { if (th.indexOf(t.th) !== -1) s += 3; else if (interest === 1 && t.th === 'culture') s += 1; }
+    else { if (t.r >= 3) s += 3; if (t.n >= 8) s += 1; }
+    if (days === 0) s += t.n <= 5 ? 2 : (t.n <= 7 ? 0.5 : -1);
+    if (days === 1) s += (t.n >= 6 && t.n <= 8) ? 2 : ((t.n === 5 || t.n === 10) ? 1 : 0);
+    if (days === 2) s += t.n >= 9 ? 2 : (t.n >= 7 ? 1 : -1);
+    if (summer && (t.sa || t.th === 'sahara' || t.th === 'mzab')) s -= 6;   // the deep south is not travelled in summer
+    return s;
+  }
+  function planResult() {
+    var list = (data.tours || []).map(function (t) { return { t: t, s: planScore(t) }; })
+      .filter(function (x) { return x.s > 1; })
+      .sort(function (a, b) { return b.s - a.s || a.t.p - b.t.p; }).slice(0, 2);
+    var summerNote = pick[2] === 1 && pick[0] === 0 ? '<p class="near">' + esc(P.summer) + '</p>' : '';
+    var lines = ['Hello Algeria Compass! I used the trip planner on your website.',
+      'Interest: ' + ['Sahara & desert', 'Roman ruins & history', 'Cities & culture', 'A bit of everything'][pick[0]],
+      'Days: ' + ['up to 5', '6-8', '9+'][pick[1]],
+      'When: ' + ['October-April', 'May-September', 'not sure yet'][pick[2]],
+      'Travellers: ' + ['1-2', '3-6', '7+'][pick[3]]];
+    var cards = list.map(function (x) {
+      var t = x.t; lines.push('I like: ' + t.t + ' — ' + location.origin + t.u);
+      return '<a href="' + esc(t.u) + '"><span class="tt">' + esc(t.t) + '</span><span class="tm">' + esc(t.d) +
+        (t.p ? ' · €' + esc(String(t.p)) + ' ' + esc(D.per) : '') + '</span></a>';
+    }).join('');
+    var id = list.length ? list[0].t.u.replace(/\/$/, '').split('/').pop() : '';
+    var req = D.contact + '?' + (id ? 'tour=' + encodeURIComponent(id) + '&' : '') +
+      'people=' + ['2', '4', '8'][pick[3]] + '&message=' + encodeURIComponent(lines.slice(1).join('\n'));
+    var wa = D.wa + '?text=' + encodeURIComponent(lines.join('\n'));
+    addA(summerNote + (list.length ? '<p><b>' + esc(P.res) + '</b></p><div class="ask-trips">' + cards + '</div>' : '<p>' + esc(P.none) + '</p>') +
+      '<div class="ask-hand"><a class="wa" href="' + esc(wa) + '" target="_blank" rel="noopener" data-evt="planner_whatsapp">' + esc(P.wa) + '</a>' +
+      '<a class="ct" href="' + esc(req) + '" data-evt="planner_request">' + esc(P.req) + '</a></div>' +
+      '<p style="margin-top:.6rem"><button type="button" class="ask-plan-start" data-plan-start="1">' + esc(P.again) + '</button></p>');
+    report('[planner] ' + lines.slice(1, 5).join(' | '), list.length);
+  }
+  function planStart() {
+    var sugg = document.getElementById('askSugg');
+    if (sugg) sugg.remove();
+    pick = [];
+    addQ(P.start.replace(/^\S+\s/, ''));
+    planStep();
   }
 
   // ---- logging -------------------------------------------------------
@@ -572,6 +681,19 @@ const contactHref = ROUTES[lang].contact;
   });
 
   log.addEventListener('click', function (e) {
+    var ps = e.target.closest('button[data-plan-start]');
+    if (ps) { load().then(planStart); return; }
+    var po = e.target.closest('button[data-plan-opt]');
+    if (po) {
+      var box = po.parentNode;
+      if (box.dataset.done) return;
+      box.dataset.done = '1';
+      po.classList.add('on');
+      pick.push(+po.dataset.planOpt);
+      addQ(po.textContent);
+      load().then(planStep);
+      return;
+    }
     var b = e.target.closest('button[data-q]');
     if (!b) return;
     load().then(function () { answer(b.dataset.q); });
