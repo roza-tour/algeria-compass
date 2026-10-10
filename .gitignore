@@ -48,3 +48,7 @@ shots/
 
 # spamguard.php: recent-message hashes (duplicate check) and the spam log
 /data/sg-recent.json
+
+# indexnow.php: page fingerprints from the last submission, and its log
+/data/.indexnow-state.json
+/data/indexnow.log

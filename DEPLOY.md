@@ -11,10 +11,16 @@ npm run deploy && git add -A && git commit -m "update site" && git push
 **2. On the server (cPanel → Terminal)** — pull the changes live, one command:
 
 ```bash
-cd ~/algeriacompass && git fetch origin && git reset --hard origin/main
+cd ~/algeriacompass && git fetch origin main && git reset --hard origin/main && php indexnow.php
 ```
 
 (Identical to running `bash scripts/server-deploy.sh`.) Done — the site is updated.
+
+The last part, `php indexnow.php`, tells Bing, Yandex, Seznam, Naver and Yep
+which pages changed (IndexNow) and sets real last-changed dates in
+`sitemap.xml`. It submits only pages whose content changed; add `--dry` to see
+the list without sending, or `--all` to resubmit everything. Results are listed
+in stats.php. Google does not use IndexNow — it reads the sitemap.
 
 ---
 

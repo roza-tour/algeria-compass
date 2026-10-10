@@ -32,4 +32,10 @@ git reset --hard "origin/$BRANCH"
 find "$REPO" -type d -exec chmod 755 {} \;
 find "$REPO" -type f -exec chmod 644 {} \;
 
+# Tell Bing / Yandex / Seznam / Naver which pages changed (IndexNow) and put
+# real last-changed dates in sitemap.xml. Never fails the deploy.
+if command -v php >/dev/null 2>&1; then
+  php "$REPO/indexnow.php" >>"$LOG" 2>&1 || echo "$(date -u) indexnow: submission failed (see above)" >>"$LOG"
+fi
+
 echo "$(date -u) deployed ${LOCAL} -> ${REMOTE}" >>"$LOG"

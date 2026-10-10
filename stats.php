@@ -571,6 +571,23 @@ $top = fn(array $a, int $k) => array_slice($a, 0, $k, true);
     </section>
   <?php endif; ?>
 
+  <!-- ============ IndexNow (indexnow.php) ============ -->
+  <?php
+    $inl = is_file(__DIR__ . '/data/indexnow.log') ? array_slice(file(__DIR__ . '/data/indexnow.log', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES), -8) : [];
+  ?>
+  <section>
+    <h2>إبلاغ محركات البحث (IndexNow) <small>Bing و Yandex وغيرهم — بعد كل نشر</small></h2>
+    <?php if ($inl): ?>
+      <table><thead><tr><th>التاريخ</th><th>النتيجة</th></tr></thead><tbody>
+      <?php foreach (array_reverse($inl) as $ln): $p = explode(' ', $ln, 2); $okRun = strpos($p[1] ?? '', 'ok') === 0; ?>
+        <tr><td class="num"><?= h(substr($p[0], 0, 16)) ?></td><td><?= $okRun ? '✅' : '⚠️' ?> <?= h(preg_replace(['~^ok ~', '~^FAIL ~', '~ urls~', '~\(nothing changed\)~'], ['', 'فشل: ', ' صفحة', '(مفيش تغيير)'], $p[1] ?? '')) ?></td></tr>
+      <?php endforeach; ?>
+      </tbody></table>
+    <?php else: ?>
+      <p class="muted-sm">لسه ماشتغلش. بيشتغل بعد كل نشر لو أمر النشر فيه <code>php indexnow.php</code>.</p>
+    <?php endif; ?>
+  </section>
+
   <!-- ============ spam filter (spamguard.php) ============ -->
   <?php
     $spam = [];
