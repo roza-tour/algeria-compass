@@ -103,7 +103,15 @@ if (!$submit) { say('Nothing changed — nothing to submit.'); file_put_contents
 $ok = true;
 foreach (array_chunk($submit, 10000) as $batch) {
   $payload = json_encode(['host' => HOST, 'key' => KEY, 'keyLocation' => SITE . '/' . KEY . '.txt', 'urlList' => $batch], JSON_UNESCAPED_SLASHES);
-  $status = post_json(getenv('INDEXNOW_ENDPOINT') ?: 'https://api.indexnow.org/indexnow', $payload);   // env override is for testing only
+  $endpoint = getenv('INDEXNOW_ENDPOINT') ?: 'https://api.indexnow.org/indexnow';   // env override is for testing only
+  $status = post_json($endpoint, $payload);
+  // A key published a moment ago can be refused (403) until the engines have
+  // fetched the key file; a burst can be throttled (429). Wait and try once more.
+  if ($status === 403 || $status === 429) {
+    say("HTTP $status — waiting 60 seconds and trying once more…");
+    sleep(60);
+    $status = post_json($endpoint, $payload);
+  }
   // 200 = accepted, 202 = accepted (key check pending); anything else is a failure.
   $good = in_array($status, [200, 202], true);
   $ok = $ok && $good;
