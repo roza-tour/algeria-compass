@@ -166,7 +166,7 @@ export const GET: APIRoute = async () => {
 - Luxury 5-Star Collection: all-inclusive 8-day journeys, ${eur(luxHigh)} per person for 2–9 travellers down to ${eur(luxLow)} for groups of 22+ (${SITE}/luxury/).
 - Guarantees: dates held free for ${BOOKING.holdHours} hours with no payment; full refund if the visa is refused; the confirmed price is locked; free date changes; free cancellation up to ${BOOKING.cancelDays} days before departure (${SITE}/booking-terms/#guarantees).
 - Early-booking discount: ${BOOKING.earlyPct}% off when booked at least ${BOOKING.earlyDays} days before departure.
-- Payment: deposit to secure the dates, balance before departure; bank transfer, card or PayPal.
+- Payment: a ${BOOKING.depositPct}% deposit before arrival confirms the booking; the balance is paid on arrival in Algeria. Bank transfer, card or PayPal.
 - Plan a trip and see the price instantly: ${SITE}/plan-your-trip/
 - Visa: consulate route — invitation letter $25, issued with a programme of at least 3 days that includes airport pickup and drop-off. Visa-on-arrival route — for any organised programme that includes a Sahara trip, our Saharan visa authorisation is $45 and the visa is issued on arrival at Algiers airport (the arrival stamp is a separate fee paid at Algiers airport, set by length of stay: ${STAMP_FEES.map(([x, y, dzd, e]) => `${x}–${y} days ${dzd.toLocaleString('en-GB')} DA / €${e}`).join('; ')}) (${SITE}/evisa/).
 - Photographs of real trips with our travellers: ${SITE}/moments/

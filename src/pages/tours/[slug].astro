@@ -270,7 +270,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
         <li>Free cancellation up to {BOOKING.cancelDays} days before</li>
         <li>−{BOOKING.earlyPct}% when you book {BOOKING.earlyDays}+ days ahead</li>
       </ul>
-      <p class="bw-terms">No payment to request. Once we confirm, a deposit by bank transfer, card or PayPal secures your trip; the balance is due before departure. <a href="/booking-terms/#guarantees">Our guarantees</a></p>
+      <p class="bw-terms">No payment to request. Once we confirm, a {BOOKING.depositPct}% deposit by bank transfer, card or PayPal secures your trip; the balance is paid on arrival in Algeria. <a href="/booking-terms/#guarantees">Our guarantees</a></p>
     </aside>
   </div></section>
 
@@ -322,7 +322,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
         <ol class="book-steps">
           <li><strong>Request</strong> — send the form (or WhatsApp). Your dates are held free for {BOOKING.holdHours} hours; no payment at this stage.</li>
           <li><strong>We confirm</strong> — availability, permits, domestic flights and your final price, by email or WhatsApp.</li>
-          <li><strong>A deposit secures it</strong> — by bank transfer, card or PayPal (we send a secure link); the balance is due before departure. The price we confirm is locked.</li>
+          <li><strong>A {BOOKING.depositPct}% deposit secures it</strong> — by bank transfer, card or PayPal (we send a secure link); the balance is paid on arrival in Algeria. The price we confirm is locked.</li>
         </ol>
         <p class="book-note">If your visa is refused, we refund everything you paid us. Book {BOOKING.earlyDays}+ days ahead and {BOOKING.earlyPct}% comes off. Prefer to talk first? <a href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">Message us on WhatsApp</a> or email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.</p>
         <div class="book-recap">

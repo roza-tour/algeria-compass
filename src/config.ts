@@ -55,6 +55,9 @@ export const BOOKING = {
   earlyDays: 60,          // book at least this many days before departure…
   earlyPct: 5,            // …and this % comes off the tour price
   cancelDays: 5,          // free cancellation up to N days before departure
+  // Payment (owner-confirmed 2026-10-13): a deposit of this % before arrival
+  // confirms the booking; the balance is paid on arrival in Algeria.
+  depositPct: 20,
   // Invitation letter for the consulate visa (owner-confirmed 2026-10-03):
   // issued free with a programme of at least this many days that includes
   // airport pickup and drop-off. Day tours alone do not qualify.

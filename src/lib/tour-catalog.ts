@@ -60,7 +60,7 @@ export function catalogEntry(t: any) {
 }
 
 export const POLICIES = {
-  booking: `Request to book: dates are held free for ${BOOKING.holdHours} hours with no payment while availability, permits and flights are confirmed; a deposit then secures the trip and the balance is due before departure. Payment by bank transfer, card or PayPal.`,
+  booking: `Request to book: dates are held free for ${BOOKING.holdHours} hours with no payment while availability, permits and flights are confirmed; a ${BOOKING.depositPct}% deposit paid before arrival then secures the trip, and the balance is paid on arrival in Algeria. Payment by bank transfer, card or PayPal.`,
   early_booking: `${BOOKING.earlyPct}% off when booked at least ${BOOKING.earlyDays} days before departure.`,
   cancellation: `Free cancellation up to ${BOOKING.cancelDays} days before departure, full refund. Within ${BOOKING.cancelDays} days, committed costs may not be recoverable; the rest is refunded.`,
   visa_refused: 'If the visa is refused, everything paid to Algeria Compass is refunded.',

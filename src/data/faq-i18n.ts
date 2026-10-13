@@ -153,7 +153,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "Comment et quand paie-t-on ?",
-      "Le paiement s'organise à la réservation — en général un acompte pour confirmer le voyage et le solde avant ou au début. Contactez-nous pour les modalités et conditions en vigueur pour votre circuit."
+      "Un acompte de 20 %, réglé avant l'arrivée par virement, carte ou PayPal, confirme votre voyage ; le solde se règle à l'arrivée en Algérie. Vos dates sont bloquées gratuitement le temps de confirmer."
     ],
     [
       "Ma réservation est-elle confirmée immédiatement ?",
@@ -311,7 +311,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "Come e quando si paga?",
-      "Il pagamento si concorda alla prenotazione — di norma un acconto per confermare il viaggio e il saldo prima o all'inizio. Contattateci per le modalità e le condizioni in vigore per il vostro viaggio."
+      "Un acconto del 20%, pagato prima dell'arrivo con bonifico, carta o PayPal, conferma il viaggio; il saldo si paga all'arrivo in Algeria. Le date restano bloccate gratis mentre confermiamo."
     ],
     [
       "La mia prenotazione è confermata subito?",
@@ -469,7 +469,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "¿Cómo y cuándo se paga?",
-      "El pago se acuerda al reservar — normalmente una señal para confirmar el viaje y el resto antes o al comienzo. Contáctenos para conocer los métodos y las condiciones vigentes para su circuito."
+      "Un depósito del 20 %, pagado antes de la llegada por transferencia, tarjeta o PayPal, confirma el viaje; el resto se paga a la llegada a Argelia. Sus fechas quedan reservadas gratis mientras confirmamos."
     ],
     [
       "¿Se confirma mi reserva de inmediato?",
@@ -627,7 +627,7 @@ export const FAQ_I18N: Record<string, [string, string][]> = {
     ],
     [
       "Wie und wann wird bezahlt?",
-      "Die Zahlung wird bei der Buchung vereinbart — üblicherweise eine Anzahlung zur Bestätigung und der Rest davor oder zu Beginn. Fragen Sie uns nach den aktuellen Methoden und Bedingungen für Ihre Reise."
+      "Eine Anzahlung von 20 %, vor der Ankunft per Überweisung, Karte oder PayPal bezahlt, bestätigt Ihre Reise; der Rest wird bei Ankunft in Algerien bezahlt. Ihre Termine bleiben kostenlos reserviert, während wir bestätigen."
     ],
     [
       "Ist meine Buchung sofort bestätigt?",

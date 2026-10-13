@@ -72,7 +72,7 @@ export const FAQ: FaqCategory[] = [
   ]},
   { id: 'booking', title: 'Booking & payment', items: [
     { q: 'How do I book a tour?', a: 'Send us your dates, group size and interests through the contact form or on WhatsApp. We check availability and any permits and confirm the details with you by email.' },
-    { q: 'How and when do I pay?', a: 'Payment is arranged at booking — typically a deposit to confirm your trip and the balance before or at the start. Contact us for the current methods and terms for your tour.' },
+    { q: 'How and when do I pay?', a: 'A 20% deposit, paid before arrival by bank transfer, card or PayPal, confirms your trip; the balance is paid on arrival in Algeria. Your dates are held free while we confirm.' },
     { q: 'Is my booking confirmed immediately?', a: 'We confirm by email or WhatsApp once we have checked availability, transport and any required permits — not automatically, so that what we confirm is real.' },
   ]},
   { id: 'cancellation', title: 'Changes & cancellation', items: [

@@ -8,7 +8,7 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:1,name:'Home',item:`${site}/`},
   {'@type':'ListItem',position:2,name:'Booking & Cancellation Terms',item:`${site}/booking-terms/`}]};
 const faqs = [
-  { q: 'How do I pay, and is there a deposit?', a: `Booking is by request and your dates are held free for ${BOOKING.holdHours} hours while we confirm availability, permits and any flights. A deposit then secures your dates and the balance is due before departure. You can pay by bank transfer, card or PayPal — for card and PayPal we send you a secure payment link.` },
+  { q: 'How do I pay, and is there a deposit?', a: `Booking is by request and your dates are held free for ${BOOKING.holdHours} hours while we confirm availability, permits and any flights. A ${BOOKING.depositPct}% deposit, paid before arrival, then secures your dates, and the balance is paid on arrival in Algeria. You can pay by bank transfer, card or PayPal — for card and PayPal we send you a secure payment link.` },
   { q: 'What happens if my visa is refused?', a: 'We refund everything you have paid us, in full. Fees you paid directly to the Algerian authorities or a consulate are theirs, not ours, and are outside this guarantee.' },
   { q: 'Can the price go up after I book?', a: 'No. The price we confirm in writing is locked: it does not rise for season, demand or exchange rate. It changes only if you ask us to change the trip itself.' },
   { q: 'Is there an early-booking discount?', a: `Yes — book at least ${BOOKING.earlyDays} days before departure and ${BOOKING.earlyPct}% comes off the tour price.` },
@@ -42,7 +42,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/booking-terms/#faq`,
       </ul>
 
       <h2>How booking works</h2>
-      <p>Booking with us is by <strong>request</strong>, not instant checkout. You send your dates and group through any tour's booking form or on WhatsApp — your dates are then held free for {BOOKING.holdHours} hours — and we check availability, permits and flights; then we confirm the details and the final price. A <strong>deposit</strong> secures your dates, and the <strong>balance is due before departure</strong>.</p>
+      <p>Booking with us is by <strong>request</strong>, not instant checkout. You send your dates and group through any tour's booking form or on WhatsApp — your dates are then held free for {BOOKING.holdHours} hours — and we check availability, permits and flights; then we confirm the details and the final price. A <strong>{BOOKING.depositPct}% deposit</strong>, paid before arrival, secures your dates, and the <strong>balance is paid on arrival in Algeria</strong>.</p>
 
       <h2>Payment</h2>
       <p>You can pay by <strong>bank transfer</strong>, <strong>card</strong> or <strong>PayPal</strong>. For card and PayPal we send you a secure payment link once your dates are confirmed. We will never ask for card details by message or email.</p>
