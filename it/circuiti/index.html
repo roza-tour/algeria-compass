@@ -460,6 +460,10 @@ I viaggi senza pagina italiana dettagliata sono descritti in inglese, ma si pren
       for (var j = 0; j < r.p.length; j++) {
         var p = norm(r.p[j]);
         if (n.indexOf(' ' + p + ' ') !== -1 || n.indexOf(' ' + p) !== -1) return r;
+        // Multi-word patterns also match in any word order: "spricht der
+        // Reiseleiter Deutsch?" has every word of "spricht deutsch", just apart.
+        var ws = p.split(' ');
+        if (ws.length > 1 && ws.every(function (w) { return n.indexOf(' ' + w + ' ') !== -1; })) return r;
       }
     }
     return null;

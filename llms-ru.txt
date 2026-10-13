@@ -1,0 +1,45 @@
+# Algeria Compass — Тур по Алжиру с русскоязычным гидом
+
+> Algeria Compass — лицензированный алжирский туроператор, организующий индивидуальные туры по Алжиру. Путешествие проходит на русском языке с гидом из нашей собственной русскоязычной команды — это не переведённый тур и не переводчик в довесок.
+
+## Главное
+- Все туры индивидуальные, в выбранные путешественником даты, с русскоязычным гидом.
+- Фиксированные опубликованные цены с человека: от 30 € до 1850 €. Цена одинакова на любом языке.
+- Даты бронируются бесплатно на 72 часа; депозит для подтверждения; бесплатная отмена до 5 дней до начала; скидка 5% при бронировании за 60 дней; полный возврат при отказе в визе.
+- Виза: приглашение для консульства (25 USD) при программе от 3 дней с встречей и проводами в аэропорту; или виза по прибытии в аэропорту Алжира для организованной программы с Сахарой (разрешение 45 USD + штамп в аэропорту).
+- Связь на русском: WhatsApp +213 784 193 176 · hello@algeriacompass.com
+
+## Программы (цена с человека, индивидуальный тур; страницы на английском)
+- [Algeria Cultural Tour — 5 Days](https://algeriacompass.com/tours/algeria-cultural-tour/): 5 days · 4 nights, от €900
+- [Djanet Sahara Safari — 5-Day Tadrart Rouge](https://algeriacompass.com/tours/djanet-sahara-safari/): 5 days · 4 nights, от €828
+- [Ghardaïa — 3-Day M'Zab Valley Tour](https://algeriacompass.com/tours/ghardaia-guided-tour/): 3 days · 2 nights, от €330
+- [Western Algeria: Oran, Mostaganem & Tlemcen (5 Days)](https://algeriacompass.com/tours/oran-mostaganem-tlemcen/): 5 days · 4 nights, от €768
+- [Algiers Day Tour — Hamma Garden & Notre-Dame d'Afrique](https://algeriacompass.com/tours/algierstour-hammagarden-notredame-dafrique/): 1 day, от €74
+- [Algiers Full-Day — Casbah, Bardo & Martyrs' Memorial](https://algeriacompass.com/tours/algiers-city-tour-casbah-bardo-martyrsmemorial/): 1 day, от €83
+- [Djanet & Ghardaïa — 6-Day Desert & Heritage](https://algeriacompass.com/tours/djanet-ghardaia-desert-2-days/): 6 days · 5 nights, от €930
+- [Eastern Algeria & Sahara Discovery — 6 Days](https://algeriacompass.com/tours/algeria-eastern-sahara-discovery/): 6 days · 5 nights, от €912
+- [Complete Algeria — 10-Day Grand Tour](https://algeriacompass.com/tours/algeria-tour/): 10 days · 9 nights, от €1176
+- [Timimoun Desert Escape — 5 Days](https://algeriacompass.com/tours/timimoun-desert-escape/): 5 days · 4 nights, от €492
+- [Béjaïa — Historic City by the Sea (Day Trip)](https://algeriacompass.com/tours/tour-bejaia-historic/): 1 day, от €114
+- [Tipaza & Cherchell — Private Roman Day Tour](https://algeriacompass.com/tours/private-guided-tour/): 1 day, от €95
+- [Bou Saada — 2-Day Oasis Escape](https://algeriacompass.com/tours/bousaada-desert-tour/): 2 days · 1 night, от €288
+- [Algeria Intensive Discovery — 5 Days](https://algeriacompass.com/tours/algeria-intensive-discovery-tour/): 5 days · 4 nights, от €732
+- [Algiers Culture Walk — Casbah Day Tour](https://algeriacompass.com/tours/day-tour-algeria-culture/): 1 day, от €30
+- [Constantine & Timgad — 2-Day Tour](https://algeriacompass.com/tours/the-beauty-of-algeria/): 2 days · 1 night, от €216
+- [Roman Algeria — Tipaza, Djémila & Timgad (3 Days)](https://algeriacompass.com/tours/algeria-through-time-and-tradition/): 3 days · 2 nights, от €384
+- [The Soul of Algeria — 4 Days](https://algeriacompass.com/tours/the-soul-of-algeria/): 4 days · 3 nights, от €504
+- [Culture & Heritage of Algeria — 8 Days](https://algeriacompass.com/tours/the-culture-and-heritage-of-algeria/): 8 days · 7 nights, от €1044
+- [Algeria Beyond Expectations — 10 Days](https://algeriacompass.com/tours/algeria-beyond-expectations/): 10 days · 9 nights, от €1176
+- [Tadrart Rouge — 7 Days in the Red Sahara](https://algeriacompass.com/tours/tadrart-rouge-7-days/): 7 days · 6 nights, от €920
+- [Ihrir & the Tassili — 7 Days of Oases and Ergs](https://algeriacompass.com/tours/ihrir-oasis-7-days/): 7 days · 6 nights, от €920
+- [Sefar Trek — Into the Tassili Plateau on Foot](https://algeriacompass.com/tours/sefar-tassili-trek/): 7 days · 6 nights, от €1120
+- [Algeria Grand Discovery — 14 Days, Coast to Sahara](https://algeriacompass.com/tours/algeria-grand-discovery-14-days/): 14 days · 13 nights, от €1850
+
+## Полезные страницы
+- [Тур по Алжиру с русскоязычным гидом](https://algeriacompass.com/ru/tur-v-alzhir-s-russkoyazychnym-gidom/)
+- [Главная (EN)](https://algeriacompass.com/)
+- [Контакты](https://algeriacompass.com/contact/)
+- [Фото наших путешественников](https://algeriacompass.com/moments/)
+- [Виза (EN)](https://algeriacompass.com/algeria-visa-requirements/)
+- [Tours catalog (JSON, EN)](https://algeriacompass.com/tours.json)
+- [llms.txt (EN)](https://algeriacompass.com/llms.txt)

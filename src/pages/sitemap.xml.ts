@@ -9,6 +9,7 @@ import { DESTINATIONS_IT } from '../data/destinations-it';
 import { GUIDES_IT } from '../data/guides-it';
 import { GUIDES_FR } from '../data/guides-fr';
 import { MOMENTS_PATHS } from '../i18n';
+import { GUIDE_PAGES } from '../data/guide-language';
 import { TOURS_ES } from '../data/tours-es';
 import { DESTINATIONS_ES } from '../data/destinations-es';
 import { GUIDES_ES } from '../data/guides-es';
@@ -61,6 +62,7 @@ export const GET: APIRoute = async () => {
   for (const r of REGIONS) rows.push({ loc: `${SITE}/regions/${r.id}/`, pri: '0.7', mod: today });
   for (const d of DESTINATIONS_FR) rows.push({ loc: `${SITE}/fr/destinations/${d.slug}/`, pri: '0.8', mod: today });
   for (const d of DESTINATIONS_IT) rows.push({ loc: `${SITE}/it/destinazioni/${d.slug}/`, pri: '0.8', mod: today });
+  for (const path of Object.values(GUIDE_PAGES)) rows.push({ loc: `${SITE}${path}`, pri: '0.8', mod: today });
   for (const g of GUIDES_FR) rows.push({ loc: `${SITE}/fr/${g.slug}/`, pri: '0.8', mod: today });
   for (const [l, path] of Object.entries(MOMENTS_PATHS)) if (l !== 'en') rows.push({ loc: `${SITE}${path}`, pri: '0.7', mod: today });
   for (const g of GUIDES_IT) rows.push({ loc: `${SITE}/it/${g.slug}/`, pri: '0.8', mod: today });

@@ -1,0 +1,29 @@
+---
+// "Guided in your language" line for tour pages, plus a Service node so
+// answer engines can read that the trip is guided in this language.
+import { BADGE, GUIDE_PAGES, LANG_NAME, type GLang } from '../data/guide-language';
+interface Props { lang?: string; tourTitle: string; url: string; dark?: boolean }
+const { tourTitle, url, dark = false } = Astro.props;
+const lang = (['en', 'fr', 'it', 'es', 'de', 'ru'].includes(Astro.props.lang || '') ? Astro.props.lang : 'en') as GLang;
+const b = BADGE[lang];
+const service = {
+  '@context': 'https://schema.org', '@type': 'Service',
+  name: `${tourTitle} — private tour guided in ${LANG_NAME[lang].en}`,
+  serviceType: 'Private guided tour',
+  url,
+  areaServed: { '@type': 'Country', name: 'Algeria' },
+  availableLanguage: { '@type': 'Language', name: LANG_NAME[lang].en, alternateName: LANG_NAME[lang].code },
+  provider: { '@id': 'https://algeriacompass.com/#organization' },
+};
+---
+<p class={`gbadge${dark ? ' gbadge-dark' : ''}`}>
+  <span aria-hidden="true">🗣️</span> <strong>{b.t}</strong> · <a href={GUIDE_PAGES[lang]}>{b.more}</a>
+</p>
+<script type="application/ld+json" set:html={JSON.stringify(service)} />
+<style>
+  .gbadge{display:inline-block;margin:.6rem 0 0;padding:.45rem .8rem;border-radius:10px;font-size:.95rem;line-height:1.4;
+    background:rgba(255,255,255,.14);border:1px solid rgba(227,194,122,.6);color:#fff}
+  .gbadge a{color:#E3C27A;font-weight:700}
+  .gbadge-dark{background:var(--wash);border-color:var(--gold,#C9A24A);color:var(--text)}
+  .gbadge-dark a{color:var(--accent,#0B3D2E)}
+</style>

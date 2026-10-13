@@ -3,6 +3,7 @@
 // so no page is ever half-translated. Prices, images and wilayas come from the
 // English catalogue, which stays the single source of truth.
 import ItineraryOffer from '../../../components/ItineraryOffer.astro';
+import GuideBadge from '../../../components/GuideBadge.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import data from '../../../data/tours.json';
@@ -128,6 +129,7 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
         <span>Ab <strong>{tour.price_eur} €</strong> / Person</span>
         <a href={enUrl} hreflang="en">Read in English</a>
       </p>
+      <GuideBadge lang="de" tourTitle={fr.title} url={url} />
     </div>
   </section>
 

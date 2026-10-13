@@ -1,0 +1,94 @@
+---
+// "Algeria tours with a guide who speaks your language" — one page per
+// language (EN/FR/IT/ES/DE/RU), copy in src/data/guide-language.ts.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import data from '../../data/tours.json';
+import { TOUR_VISUALS } from '../../data/tour-visuals';
+import { TOURS_FR } from '../../data/tours-fr';
+import { TOURS_IT } from '../../data/tours-it';
+import { TOURS_ES } from '../../data/tours-es';
+import { TOURS_DE } from '../../data/tours-de';
+import { PAGE, GUIDE_PAGES, LANG_NAME, type GLang } from '../../data/guide-language';
+import { ROUTES, PLAN_PATHS } from '../../i18n';
+import { CONTACT } from '../../config';
+
+interface Props { lang: GLang }
+const { lang } = Astro.props;
+const P = PAGE[lang];
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = site + GUIDE_PAGES[lang];
+const LOCAL: Record<string, any> = { fr: TOURS_FR, it: TOURS_IT, es: TOURS_ES, de: TOURS_DE };
+const siteLang = lang === 'ru' ? 'en' : lang;
+const tours = (((data as any).tours || data) as any[])
+  .filter(t => !/^1 day/.test(t.duration))
+  .map(t => {
+    const loc = LOCAL[lang]?.[t.id];
+    const tr = !!loc?.full;
+    return { id: t.id, href: tr ? `${ROUTES[lang as 'fr'].tours}${t.id}/` : `/tours/${t.id}/`, title: tr ? loc.title : t.title,
+      duration: tr ? loc.duration : t.duration, price: Number(t.price_eur), img: `/assets/img/thumbs/tours/${(TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg` }).hero}` };
+  })
+  .sort((a, b) => a.price - b.price);
+const fmt = (n: number) => n.toLocaleString(lang === 'en' ? 'en-GB' : 'de-DE');
+const alternates = [
+  ...(Object.keys(GUIDE_PAGES) as GLang[]).map(l => ({ hreflang: l, href: site + GUIDE_PAGES[l] })),
+  { hreflang: 'x-default', href: site + GUIDE_PAGES.en },
+];
+const home = lang === 'en' || lang === 'ru' ? '/' : `/${lang}/`;
+const planHref = lang === 'ru' ? `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(P.waText)}` : PLAN_PATHS[lang as 'en']!;
+const schema = [
+  { '@type': 'Service', '@id': url + '#service', name: P.h1, serviceType: 'Private guided tours of Algeria', url,
+    areaServed: { '@type': 'Country', name: 'Algeria' },
+    availableLanguage: { '@type': 'Language', name: LANG_NAME[lang].en, alternateName: LANG_NAME[lang].code },
+    provider: { '@id': site + '/#organization' },
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'EUR', lowPrice: Math.min(...tours.map(t => t.price)), highPrice: Math.max(...tours.map(t => t.price)), offerCount: tours.length } },
+  { '@type': 'FAQPage', '@id': url + '#faq', inLanguage: lang,
+    mainEntity: P.faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<BaseLayout title={P.title} description={P.desc} lang={lang} alternates={alternates} schema={schema} speakable={['h1', '.gl-lead']} sticky={true}>
+  <Breadcrumbs items={[{ name: lang === 'ru' ? 'Главная' : lang === 'fr' ? 'Accueil' : lang === 'de' ? 'Startseite' : lang === 'es' ? 'Inicio' : 'Home', href: home }, { name: P.h1 }]} />
+  <article class="section"><div class="wrap" style="max-width:860px">
+    <span class="eyebrow">{P.eyebrow}</span>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">{P.h1}</h1>
+    <p class="gl-lead" style="font-size:1.15rem;line-height:1.7">{P.lead}</p>
+
+    {P.sections.map(s => (
+      <>
+        <h2 style="margin-top:2rem">{s.h}</h2>
+        {s.p && <p style="line-height:1.75">{s.p}</p>}
+        {s.list && <ul class="prose">{s.list.map(i => <li>{i}</li>)}</ul>}
+      </>
+    ))}
+
+    <h2 style="margin-top:2.2rem">{P.toursH}</h2>
+    {P.toursNote && <p style="color:var(--text-l)">{P.toursNote}</p>}
+    <div class="gl-tours">
+      {tours.map(t => (
+        <a class="gl-tour" href={t.href}>
+          <img src={t.img} alt="" width="120" height="90" loading="lazy" decoding="async" />
+          <span><b>{t.title}</b><br /><span class="gl-m">{`${t.duration} · ${P.from} `}<b>€{fmt(t.price)}</b>{` ${P.per}`}</span></span>
+        </a>
+      ))}
+    </div>
+
+    <h2 style="margin-top:2.2rem">FAQ</h2>
+    {P.faqs.map(f => (<div style="margin:.9rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-m);line-height:1.7">{f.a}</p></div>))}
+
+    <div class="card" style="padding:1.3rem;margin-top:2rem;text-align:center">
+      <h2 style="margin:.2rem 0">{P.ctaH}</h2>
+      <p style="color:var(--text-l)">{P.ctaP}</p>
+      <p style="margin-top:.8rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-gold" href={planHref} data-evt="cta_plan">{P.ctaPlan}</a>
+        <a class="btn" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(P.waText)}`} target="_blank" rel="noopener" data-evt="whatsapp_click">{P.ctaWa}</a>
+      </p>
+    </div>
+  </div></article>
+</BaseLayout>
+<style>
+  .gl-tours{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.7rem;margin-top:.8rem}
+  .gl-tour{display:grid;grid-template-columns:110px 1fr;gap:.8rem;align-items:center;padding:.55rem;border:1px solid var(--border);border-radius:12px;text-decoration:none;color:inherit;background:var(--bg,#fff)}
+  .gl-tour:hover{border-color:var(--gold,#C9A24A)}
+  .gl-tour img{width:110px;height:82px;object-fit:cover;border-radius:8px}
+  .gl-m{font-size:.92rem;color:var(--text-m)}
+</style>

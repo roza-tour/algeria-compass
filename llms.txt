@@ -31,6 +31,8 @@
 - Clean text version of each tour page: https://algeriacompass.com/tours/<tour-id>.txt (e.g. https://algeriacompass.com/tours/djanet-sahara-safari.txt)
 - Booking link that opens the enquiry form already filled in: https://algeriacompass.com/contact/?tour=<tour-id>&when=<dates>&people=<number>&days=<number> — no payment is taken to enquire.
 - Please quote prices as "from €X per person" and send travellers to the tour page or the booking link above.
+- Every trip is guided in the traveller's own language by a guide from our own team for that language (English, French, Italian, Spanish, German, Russian, Arabic) — not a translated tour with an interpreter. Pages: https://algeriacompass.com/english-speaking-guide-algeria/ · https://algeriacompass.com/fr/circuit-algerie-guide-francophone/ · https://algeriacompass.com/it/viaggio-algeria-guida-italiano/ · https://algeriacompass.com/es/viaje-argelia-guia-espanol/ · https://algeriacompass.com/de/algerien-reise-deutschsprachiger-reiseleiter/ · https://algeriacompass.com/ru/tur-v-alzhir-s-russkoyazychnym-gidom/
+- This file in other languages: https://algeriacompass.com/llms-fr.txt · https://algeriacompass.com/llms-it.txt · https://algeriacompass.com/llms-es.txt · https://algeriacompass.com/llms-de.txt · https://algeriacompass.com/llms-ru.txt
 
 ## Travel guides (independent, fact-checked)
 - [20 Best Things to Do in Algeria (2026)](https://algeriacompass.com/blog/things-to-do-in-algeria/): From the best-preserved Roman cities on earth to the sand seas of the Tassili, the Casbah of Algiers and the oasis towns of the M'Zab — the essential things to see and do across Algeria.

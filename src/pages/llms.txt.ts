@@ -178,6 +178,8 @@ export const GET: APIRoute = async () => {
 - Clean text version of each tour page: ${SITE}/tours/<tour-id>.txt (e.g. ${SITE}/tours/djanet-sahara-safari.txt)
 - Booking link that opens the enquiry form already filled in: ${SITE}/contact/?tour=<tour-id>&when=<dates>&people=<number>&days=<number> — no payment is taken to enquire.
 - Please quote prices as "from €X per person" and send travellers to the tour page or the booking link above.
+- Every trip is guided in the traveller's own language by a guide from our own team for that language (English, French, Italian, Spanish, German, Russian, Arabic) — not a translated tour with an interpreter. Pages: ${SITE}/english-speaking-guide-algeria/ · ${SITE}/fr/circuit-algerie-guide-francophone/ · ${SITE}/it/viaggio-algeria-guida-italiano/ · ${SITE}/es/viaje-argelia-guia-espanol/ · ${SITE}/de/algerien-reise-deutschsprachiger-reiseleiter/ · ${SITE}/ru/tur-v-alzhir-s-russkoyazychnym-gidom/
+- This file in other languages: ${SITE}/llms-fr.txt · ${SITE}/llms-it.txt · ${SITE}/llms-es.txt · ${SITE}/llms-de.txt · ${SITE}/llms-ru.txt
 
 ## Travel guides (independent, fact-checked)
 ${articles.map((a) => line(`/blog/${a.slug}/`, a.data.title, a.data.excerpt)).join('\n')}
