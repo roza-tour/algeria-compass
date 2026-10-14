@@ -2,6 +2,7 @@
 // French tours index. Cards are fully translated for every tour; a tour links to
 // its French detail page when one exists, otherwise to the English page, which
 // is honest rather than shipping a half-translated page.
+import AlgeriaMap from '../../../components/AlgeriaMap.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import data from '../../../data/tours.json';
@@ -64,6 +65,8 @@ const collection = {
       <p>Viaggi privati e guidati in tutta l'Algeria — dal Sahara profondo alle città romane del nord e alla costa mediterranea.</p>
     </div>
   </section>
+
+  <AlgeriaMap lang="it" />
 
   <Breadcrumbs items={[{name:'Home',href:'/it/'},{name:'Viaggi'}]} />
 

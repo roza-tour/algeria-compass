@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import data from '../../data/tours.json';
 import TourCard from '../../components/TourCard.astro';
+import AlgeriaMap from '../../components/AlgeriaMap.astro';
 import { alternatesFor } from '../../i18n';
 const tours = ((data as any).tours || (data as any)) as any[];
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
@@ -10,18 +11,20 @@ const alternates = alternatesFor(site, { en: '/tours/', fr: '/fr/circuits/', it:
 ---
 <BaseLayout
   title="Algeria Tours & Private Journeys | Algeria Compass"
-  description="Private, guided Algeria tours — Sahara safaris, the UNESCO Casbah, Roman cities, the M'Zab Valley and the Kabyle coast. 20 curated itineraries from €30."
+  description={`Private, guided Algeria tours — Sahara safaris, the UNESCO Casbah, Roman cities, the M'Zab Valley and the Kabyle coast. ${tours.length} curated itineraries from €30.`}
   image="/assets/img/tours/djanet-1.jpg"
   keywords={["Algeria tours","private Algeria tours","Sahara safari","Algeria itineraries","guided tours Algeria","Algeria travel"]}
   alternates={alternates}>
   <section class="hero" style="min-height:42vh">
     <img src="/assets/img/tours/djanet-1.jpg" alt="Algeria tours" width="1600" height="900" />
     <div class="hero-in wrap">
-      <div class="eyebrow">20 private itineraries</div>
+      <div class="eyebrow">{tours.length} private itineraries</div>
       <h1>Tours of Algeria</h1>
       <p>Private, locally-guided journeys across all of Algeria — from the deep Sahara to the Roman north and the Mediterranean coast.</p>
     </div>
   </section>
+
+  <AlgeriaMap lang="en" />
 
   <section class="section"><div class="wrap">
     <div class="grid">
