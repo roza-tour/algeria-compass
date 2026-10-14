@@ -28,29 +28,52 @@ address or phone number, even slightly.
 | Email | hello@algeriacompass.com |
 | Website | https://algeriacompass.com/ |
 | Hours | Open 24 hours, 7 days |
-| Languages | English, French, Spanish, Italian, German, Arabic |
+| Languages | English, French, Italian, Spanish, German, Russian, Arabic — each language has its own guides on the team (not an interpreter) |
 | Instagram | https://www.instagram.com/algeria_compass/ |
 | Facebook | https://www.facebook.com/profile.php?id=61590718167514 |
 | Prices | From €30 (day tours) to €1,850 (14 days); luxury 8-day journeys €1,615–€2,290 per person |
 | Cancellation | Free up to 5 days before departure, full refund |
+| Payment | 20% deposit before arrival (bank transfer, card or PayPal); balance on arrival in Algeria |
 
 ### Short description (up to 160 characters)
-Licensed Algerian tour operator: private guided tours of the Sahara, Roman cities and the Casbah, with visa support. From €30.
+Licensed Algerian operator: private tours of the Sahara, Roman cities and Algiers, guided in your own language. From €30.
 
 ### Long description (up to 750 characters)
 Algeria Compass is a licensed Algerian tour operator based in Algiers, running
-private, expert-guided journeys across the country: the Sahara around Djanet,
-the Tadrart Rouge and Timimoun, the Roman cities of Timgad, Djémila and Tipaza,
-the Casbah of Algiers, Constantine and the M'Zab Valley. Every tour is private,
-on your own dates, with licensed local and Tuareg guides. We prepare the visa
-invitation letter free with every booking. Tours run from €30 for a day in
-Algiers to 14-day journeys from the coast to the Sahara, plus an all-inclusive
-five-star collection. Free cancellation up to 5 days before departure.
+private journeys across the country: the Sahara around Djanet, the Tadrart
+Rouge and Timimoun, the Roman cities of Timgad, Djémila and Tipaza, the Casbah
+of Algiers, Constantine and the M'Zab Valley. Every tour is private, on your own
+dates, and guided in your own language by our own guides — English, French,
+Italian, Spanish, German, Russian or Arabic. We arrange the visa invitation
+letter, or the visa on arrival for trips that include the Sahara. Tours run from
+€30 for a day in Algiers to 14 days from the coast to the Sahara. Free
+cancellation up to 5 days before departure.
 
 ### Photos to upload (in this order)
 Use the site's own photographs so the images match everywhere:
 `public/assets/img/tours/djanet-13.jpg`, `djemila-2.jpg`, `timimoun-7.jpg`,
 `tipaza-10.jpg`, `constantine-14.jpg`, plus the logo `public/assets/img/logo-full.png`.
+
+---
+
+## Bing Webmaster Tools (also feeds ChatGPT search and Copilot)
+
+1. Go to https://www.bing.com/webmasters and sign in (Microsoft or Google account).
+2. **Add site** → `https://algeriacompass.com/`. Choose **Import from Google
+   Search Console** if it is offered (fastest); otherwise pick **XML file**
+   verification — the file `BingSiteAuth.xml` is already live on the site.
+3. **Sitemaps** → submit `https://algeriacompass.com/sitemap.xml` and
+   `https://algeriacompass.com/sitemap-images.xml`.
+4. **IndexNow** (left menu) → you should see the URLs our deploy already sent
+   (key `b00ed809a36308c30a813741d1f5bff4`). Nothing to set up.
+5. Two weeks later: **Search Performance** shows the queries people find us with
+   on Bing — send a screenshot so we can act on it.
+
+### بالعربي — Bing (10 دقايق)
+١. افتحي bing.com/webmasters وادخلي بحساب جوجل.
+٢. Add site ← اكتبي https://algeriacompass.com/ ← لو ظهر «Import from Google Search Console» اختاريه، غير كده اختاري XML file (الملف موجود على الموقع).
+٣. من Sitemaps ضيفي: https://algeriacompass.com/sitemap.xml
+٤. من قسم IndexNow هتلاقي الصفحات اللي اتبعتت — مفيش حاجة تتعمل.
 
 ---
 
@@ -63,6 +86,17 @@ Use the site's own photographs so the images match everywhere:
   (€30).
 - After the listing is live, send it to us: it gets added to the website's
   structured data (`sameAs`), which ties the two together for Google and AI.
+- In **Languages offered**, tick every language we guide in (English, French,
+  Italian, Spanish, German, Russian, Arabic).
+
+### بالعربي — TripAdvisor (20 دقيقة)
+١. افتحي tripadvisor.com/Owners ← «Add your business» ← اختاري **Attraction** ثم **Tours**.
+٢. انسخي الاسم والعنوان والتليفون والإيميل والموقع من جدول «The facts» فوق — حرفياً، نفس الكتابة.
+٣. الوصف: انسخي «Long description» فوق.
+٤. الصور: الصور المذكورة فوق بالترتيب، واللوجو.
+٥. ضيفي الرحلات الأربعة بنفس الاسم والسعر اللي على الموقع.
+٦. أول ما الصفحة تتنشر ابعتيلي اللينك، وأنا أربطه بالموقع.
+
 
 ## Wikidata
 
