@@ -160,3 +160,13 @@
   .rg-mcard__in{ transition:transform .22s cubic-bezier(.2,.7,.2,1), box-shadow .22s; }
   .rg-mcard:active .rg-mcard__in{ transform:scale(.975); box-shadow:0 14px 30px -18px rgba(0,0,0,.9); }
 }
+
+/* The hub cards' tilt and image lift are pointer-only, and the tilt script
+   returns early on `hover: none`, so on a phone the region hub did nothing at
+   all. Give touch its own feedback. The press scales .rg-tilt__in, the same
+   element the tilt writes, so the two never apply at once -- a device is one
+   or the other. */
+@media (hover:none){
+  .rg-tilt:active .rg-tilt__in{ transform:scale(.978); }
+  .rg-tilt:active .rg-card__img{ opacity:.78; }
+}

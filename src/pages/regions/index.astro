@@ -37,7 +37,7 @@ const vars = (r: any) => `--rc:${r.rc};--rc-d:${r.rcD};--rc-l:${r.rcL};--rc-pape
       <h1 class="rg-hub__title">One country,<br />eight worlds</h1>
       <p class="rg-hub__sub">Algeria is the largest country in Africa — and no two corners of it feel alike. Choose a region and step into its colour, its culture and its monuments.</p>
     </div>
-    <div class="rg-grid">
+    <div class="rg-grid" data-reveal-group>
       {REGIONS.map((r, i) => (
         <a class="rg-tilt" href={`/regions/${r.id}/`} style={vars(r)} aria-label={`Explore ${r.name}`}>
           <div class="rg-tilt__in">
@@ -62,7 +62,12 @@ const vars = (r: any) => `--rc:${r.rc};--rc-d:${r.rcD};--rc-l:${r.rcL};--rc-pape
 
   <script is:inline>
     /* Hub card 3D tilt — pointer only, motion-gated. Cards are plain links, so
-       they work fully without this. */
+       they work fully without this.
+
+       Touch is not left with nothing: the cards cascade in via
+       data-reveal-group on the grid above (which targets the outer .rg-tilt,
+       while this writes .rg-tilt__in -- one writer per element), and press
+       down on tap via a @media (hover:none) rule in regions.css. */
     (function(){
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       if (matchMedia('(hover: none)').matches) return;
