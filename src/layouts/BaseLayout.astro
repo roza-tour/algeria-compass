@@ -97,6 +97,32 @@ const speakableNode = speakable?.length ? {
     (function(){var t0=Date.now();document.addEventListener('submit',function(e){var f=e.target;if(!f||!/(contact|reviews|itinerary)\.php$/.test(f.getAttribute('action')||''))return;var i=f.querySelector('input[name="_el"]');if(!i){i=document.createElement('input');i.type='hidden';i.name='_el';f.appendChild(i);}i.value=String(Math.round((Date.now()-t0)/1000));},true);})();
   </script>
   <script is:inline>
+    /* Homepage hero parallax. .home-hero-bg is laid out with inset:-6% and an
+       img at height:108% -- overscan that exists for exactly this effect but
+       was never wired up, leaving a will-change hint paying for a compositor
+       layer that nothing animated.
+
+       The travel is clamped in pixels, not just scaled by a rate: a rate alone
+       would exceed the available slack on a tall viewport and expose a bare
+       edge under the photograph. Only the background moves -- the copy sits at
+       the bottom of an overflow:hidden hero, so shifting it down would clip
+       the h1, and it is a candidate LCP element besides. */
+    (function(){
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var bg = document.querySelector('.home-hero-bg');
+      if(!bg) return;
+      var raf = 0;
+      function paint(){
+        raf = 0;
+        var y = window.pageYOffset || 0;
+        if (y > 1200) return;                      /* hero is long gone */
+        var d = Math.min(y * 0.09, 56);            /* stays inside the overscan */
+        bg.style.transform = 'translate3d(0,' + d.toFixed(1) + 'px,0)';
+      }
+      window.addEventListener('scroll', function(){ if(!raf) raf = requestAnimationFrame(paint); }, { passive:true });
+    })();
+  </script>
+  <script is:inline>
     /* Shared scroll-reveal. Content is visible by default; the hidden state is
        only applied when motion is allowed AND the tab is visible, so print,
        no-JS, reduced-motion and background tabs always show everything. */
