@@ -72,6 +72,7 @@ const N = states.length;
   .ss-card>a::after{content:"";position:absolute;inset:0;border:2px solid transparent;border-radius:14px;
     transition:border-color .3s;pointer-events:none}
   .ss-card>a:hover::after,.ss-card>a:focus-visible::after{border-color:var(--accent,#0B3D2E)}
+  @media (hover:none){ .ss-card>a:active img{transform:scale(1.045)} .ss-card>a:active::after{border-color:var(--accent,#0B3D2E)} }
   @keyframes ss-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @media (prefers-reduced-motion: reduce){
     .ss-track{animation:none}

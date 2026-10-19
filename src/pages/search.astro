@@ -78,6 +78,7 @@ const breadcrumb = { '@type':'BreadcrumbList', '@id':`${site}/search/#breadcrumb
   .srch-item a{display:block;background:var(--wash);border:1px solid var(--border);border-left:4px solid var(--green);
     border-radius:10px;padding:.8rem 1rem;text-decoration:none;transition:transform .12s ease,box-shadow .12s ease}
   .srch-item a:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+  @media (hover:none){ .srch-item a:active{transform:scale(.985);box-shadow:0 6px 16px rgba(0,0,0,.1)} }
   .srch-kind{display:inline-block;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
     color:var(--green-d);background:rgba(11,61,46,.08);border-radius:999px;padding:.12rem .55rem;margin-bottom:.35rem}
   .srch-title{display:block;font-family:var(--serif);font-weight:700;color:var(--green-d);font-size:1.05rem}

@@ -217,6 +217,20 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:va
 .faq summary::after{content:"+";color:var(--gold-d);font-weight:700;font-size:1.25rem;line-height:1;flex:0 0 auto}
 .faq details[open] summary::after{content:"\2013"}
 .faq p{color:var(--text-m);margin:0;padding:0 1.1rem 1rem}
+/* A native <details> cannot animate its height: the browser toggles the answer
+   between display:none and rendered, so there is nothing for CSS to
+   interpolate. (::details-content with interpolate-size would allow it, but
+   support is not yet broad enough to rely on.) Animating the answer itself
+   costs nothing and takes the snap out of the open.
+
+   Closed content is not rendered, so this runs on each open rather than once
+   at load, and `both` holds the end state -- there is no frame in which an
+   answer can be left invisible. */
+@media (prefers-reduced-motion:no-preference){
+  .faq details[open] > *:not(summary){animation:faq-open .3s cubic-bezier(.2,.7,.2,1) both}
+}
+@keyframes faq-open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
 /* cta */
 .cta{background:linear-gradient(135deg,var(--green),var(--green-d));color:#fff;border-radius:18px;padding:2rem;text-align:center}
 .cta h2{color:#fff}

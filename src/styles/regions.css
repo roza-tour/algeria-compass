@@ -111,6 +111,7 @@
 .rg-gal figure{ margin:0; border-radius:12px; overflow:hidden; box-shadow:0 12px 26px -14px rgba(0,0,0,.4); }
 .rg-gal img{ width:100%; height:150px; object-fit:cover; display:block; transition:transform .5s; }
 .rg-gal figure:hover img{ transform:scale(1.08); }
+@media (hover:none){ .rg-gal figure:active img{ transform:scale(1.06); } }
 
 /* ---- explore real pages + CTA ---- */
 .rg-cta{ position:relative; overflow:hidden; background:linear-gradient(150deg,var(--rc),var(--rc-d)); color:#fff; border-radius:24px; padding:clamp(2rem,5vw,3.2rem); text-align:center; box-shadow:0 30px 60px -28px var(--rc); }
