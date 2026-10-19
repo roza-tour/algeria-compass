@@ -11,7 +11,7 @@ const items = await getCollection('article');
   <Hero title="The Algeria Journal" eyebrow="Stories & field notes" text="History, food, culture and first-hand field notes from across Algeria — the long reads behind the country." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'The Algeria Journal'}]} />
   <section class="section"><div class="wrap">
-    <div class="grid">
+    <div class="grid" data-reveal-group>
       {items.map(it => (
         <Card href={`/blog/${it.slug}/`}
           title={it.data.title}

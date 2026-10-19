@@ -103,12 +103,43 @@ const speakableNode = speakable?.length ? {
     (function(){
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       if (document.visibilityState === 'hidden') return;
-      var els = document.querySelectorAll('[data-reveal]');
+
+      /* Two ways to opt in:
+           [data-reveal]        this element reveals itself
+           [data-reveal-group]  each child reveals, cascading left to right
+         A group saves marking every card in a grid, and keeps the stagger in
+         one place instead of a copy in every page's own script. */
+      var els = [];
+      document.querySelectorAll('[data-reveal]').forEach(function(el){ els.push(el); });
+      document.querySelectorAll('[data-reveal-group]').forEach(function(g){
+        for(var i = 0; i < g.children.length; i++){
+          /* The CSS contract is `[data-reveal].reveal-init` -- the attribute is
+             half of it, so a child given only the class gets no hidden state
+             and never animates. Set the attribute here rather than loosening
+             the selector: the 428 pages already using it keep one
+             authoritative rule, and because this attribute is now also applied
+             only by JS, no-JS, print and reduced-motion still show everything.*/
+          g.children[i].setAttribute('data-reveal', '');
+          els.push(g.children[i]);
+        }
+      });
       if(!els.length) return;
       els.forEach(function(el){ el.classList.add('reveal-init'); });
+
       if('IntersectionObserver' in window){
         var io = new IntersectionObserver(function(entries){
-          entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('reveal-in'); io.unobserve(e.target); } });
+          /* Everything that crossed the line in the same frame arrives in one
+             callback, so the batch itself gives us the cascade order -- no
+             index bookkeeping, and a long grid cascades per screenful instead
+             of firing its last row while it is still far below the fold. */
+          var n = 0;
+          entries.forEach(function(e){
+            if(!e.isIntersecting) return;
+            if(n) e.target.style.transitionDelay = Math.min(n, 6) * 80 + 'ms';
+            n++;
+            e.target.classList.add('reveal-in');
+            io.unobserve(e.target);
+          });
         }, { rootMargin:'0px 0px -8% 0px', threshold:.06 });
         els.forEach(function(el){ io.observe(el); });
       } else {

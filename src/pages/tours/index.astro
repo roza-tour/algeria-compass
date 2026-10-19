@@ -27,7 +27,7 @@ const alternates = alternatesFor(site, { en: '/tours/', fr: '/fr/circuits/', it:
   <AlgeriaMap lang="en" />
 
   <section class="section"><div class="wrap">
-    <div class="grid">
+    <div class="grid" data-reveal-group>
       {tours.map((t) => <TourCard tour={t} />)}
     </div>
   </div></section>

@@ -214,7 +214,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
         </ul></>}
 
       <h2 style="margin-top:2rem">Day-by-day itinerary</h2>
-      <ol class="itinerary">
+      <ol class="itinerary" data-reveal-group>
         {tour.itinerary.map((d: any) => (
           <li>
             <span class="iday-num">Day {d.day}</span>
@@ -277,7 +277,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
   {!needsImage && gallery.length > 0 &&
     <section class="section" style="background:var(--wash)"><div class="wrap photo-gallery">
       <h2>Gallery</h2>
-      <div class="pgrid">
+      <div class="pgrid" data-reveal-group>
         {gallery.map((g) => (
           <figure><img src={`/assets/img/thumbs/tours/${g.file}`} alt={g.alt || tour.title} width="400" height="400" loading="lazy" /></figure>
         ))}

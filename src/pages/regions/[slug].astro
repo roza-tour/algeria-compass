@@ -81,9 +81,9 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
           <span class="rg-eyebrow">Archaeological &amp; cultural sites</span>
           <h2 class="rg-h2">What to see</h2>
         </div>
-        <div class="rg-monu__grid">
+        <div class="rg-monu__grid" data-reveal-group>
           {r.monuments.map(m => (
-            <div class="rg-mcard" data-reveal>
+            <div class="rg-mcard">
               <div class="rg-mcard__in">
                 <img class="rg-mcard__img" src={m.img} alt={m.t} width="600" height="400" loading="lazy" decoding="async" />
                 <div class="rg-mcard__shine" aria-hidden="true"></div>
@@ -226,12 +226,9 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
         });
       }
 
-      /* The cards' entrance is the site-wide data-reveal system in BaseLayout,
-         declared in the markup below — not a second mechanism here. That one is
-         already proven, already skips itself on a hidden tab and under
-         reduced-motion, and never leaves content stuck invisible. Staggering
-         them is the only thing it does not do on its own. */
-      cards.forEach(function(c, i){ c.style.transitionDelay = Math.min(i, 5) * 90 + 'ms'; });
+      /* The cards' entrance and its stagger are the site-wide reveal system in
+         BaseLayout, opted into with data-reveal-group on the grid in the markup
+         above -- not a second mechanism here. */
     })();
   </script>
     <section class="section"><div class="wrap">

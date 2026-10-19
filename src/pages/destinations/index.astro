@@ -25,7 +25,7 @@ const destAlternates = alternatesFor(destSite, { en: '/destinations/', fr: '/fr/
     <div class="eyebrow">The headline sites</div>
     <h2>Algeria's 7 UNESCO World Heritage Sites</h2>
     <p style="color:var(--text-m);max-width:760px;margin-top:.4rem">From the prehistoric rock art of the Sahara to the best-preserved Roman cities in the world and the living oasis towns of the M'Zab — these seven sites are the heart of any Algeria itinerary.</p>
-    <div class="grid" style="margin-top:1.3rem">
+    <div class="grid" style="margin-top:1.3rem" data-reveal-group>
       {unesco.map(it => (
         <Card href={`/destinations/${it.slug}/`}
           title={it.data.name}
@@ -41,7 +41,7 @@ const destAlternates = alternatesFor(destSite, { en: '/destinations/', fr: '/fr/
     <section class="section" style="background:var(--wash)"><div class="wrap">
       <div class="eyebrow">More to explore</div>
       <h2>Other iconic destinations</h2>
-      <div class="grid" style="margin-top:1.3rem">
+      <div class="grid" style="margin-top:1.3rem" data-reveal-group>
         {others.map(it => (
           <Card href={`/destinations/${it.slug}/`}
             title={it.data.name}

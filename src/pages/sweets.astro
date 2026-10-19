@@ -185,6 +185,7 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
     width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(122,74,18,.25);
     transition:transform .2s ease}
   .sx-card:hover .sx-emoji{transform:scale(1.15) rotate(8deg)}
+  @media (hover:none){ .sx-card:active{transform:scale(.985)} .sx-card:active .sx-img img{transform:scale(1.04)} }
   .sx-b{padding:1.2rem 1.15rem 1.15rem;display:flex;flex-direction:column;flex:1}
   .sx-b h3{font-family:var(--serif);color:#8a3f12;font-size:1.25rem;margin:0}
   .sx-origin{font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:#8A5A0C;font-weight:800;margin:.25rem 0 .5rem}

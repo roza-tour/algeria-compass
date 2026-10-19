@@ -32,7 +32,7 @@ const schema = [list, ...provinces.map(p => entityNode(site, p))];
   <section class="section"><div class="wrap" style="max-width:820px"><QuickAnswer text={quick} /></div></section>
   <section class="section"><div class="wrap">
     <h2>State travel guides</h2>
-    <div class="grid" style="margin-top:1.2rem">
+    <div class="grid" style="margin-top:1.2rem" data-reveal-group>
       {items.map(it => (
         <Card href={`/provinces/${it.slug}/`}
           title={it.data.name}

@@ -50,7 +50,7 @@ const hubs = [
   <section class="section" style="background:var(--wash)"><div class="wrap">
     <div class="eyebrow">States</div>
     <h2>Where to go</h2>
-    <div class="grid" style="margin-top:1.2rem">
+    <div class="grid" style="margin-top:1.2rem" data-reveal-group>
       {provinces.map(p => <Card href={`/provinces/${p.slug}/`} title={p.data.name} image={p.data.image} alt={p.data.imageAlt} tag={p.data.region} text={p.data.quickAnswer} />)}
     </div>
     <p style="margin-top:1.2rem"><a class="btn" href="/provinces/">State guides &rarr;</a></p>
@@ -60,7 +60,7 @@ const hubs = [
     <div class="eyebrow">Journeys</div>
     <h2>Ways to travel Algeria</h2>
     <p style="color:var(--text-m);max-width:680px">Curated multi-day itineraries that show how the country fits together &mdash; from Saharan expeditions to the Roman north-east.</p>
-    <div class="grid" style="margin-top:1.2rem">
+    <div class="grid" style="margin-top:1.2rem" data-reveal-group>
       {experiences.map(e => <Card href={`/experiences/${e.slug}/`} title={e.data.name} image={e.data.image} alt={e.data.imageAlt} tag={`${e.data.durationDays} days`} text={e.data.tagline} />)}
     </div>
     <p style="margin-top:1.2rem"><a class="btn" href="/experiences/">All journeys &rarr;</a></p>
@@ -69,7 +69,7 @@ const hubs = [
   <section class="section" style="background:var(--wash)"><div class="wrap">
     <div class="eyebrow">The Algeria Journal</div>
     <h2>Read &amp; understand</h2>
-    <div class="grid" style="margin-top:1.2rem">
+    <div class="grid" style="margin-top:1.2rem" data-reveal-group>
       {articles.map(a => <Card href={`/blog/${a.slug}/`} title={a.data.title} image={a.data.image} alt={a.data.imageAlt} tag={a.data.category} text={a.data.excerpt} />)}
     </div>
   </div></section>

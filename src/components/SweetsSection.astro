@@ -49,6 +49,7 @@ import { SWEETS, SWEETS_HERO, SWEETS_HERO_ALT } from '../data/sweets.mjs';
   .sw-img{aspect-ratio:7/5;overflow:hidden;background:#f0ddb8}
   .sw-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
   .sw-card:hover .sw-img img{transform:scale(1.06)}
+  @media (hover:none){ .sw-card:active{transform:scale(.985)} .sw-card:active .sw-img img{transform:scale(1.04)} }
   .sw-b{padding:.9rem 1.05rem 1.1rem;display:flex;flex-direction:column;flex:1}
   .sw-b h3{font-family:var(--serif);color:#8a3f12;font-size:1.12rem;margin:0}
   .sw-origin{font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:#8A5A0C;font-weight:700;margin:.2rem 0 .45rem}

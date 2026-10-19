@@ -146,7 +146,7 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
 
       {fr.itinerary && fr.itinerary.length > 0 && (
         <><h2>Programma giorno per giorno</h2>
-        <ol class="itin">
+        <ol class="itin" data-reveal-group>
           {fr.itinerary.map(d => (
             <li>
               <span class="itin-day">Giorno {d.day}</span>

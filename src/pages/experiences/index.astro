@@ -11,7 +11,7 @@ const items = await getCollection('experience');
   <Hero title="Algeria Experiences" eyebrow="Algeria" text="Immersive, private journeys across Algeria — from the Sahara to the Roman north." image="/assets/img/brand-algeria.jpg" alt="Algeria" />
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Algeria Experiences'}]} />
   <section class="section"><div class="wrap">
-    <div class="grid">
+    <div class="grid" data-reveal-group>
       {items.map(it => (
         <Card href={`/experiences/${it.slug}/`}
           title={it.data.name}

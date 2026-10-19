@@ -82,4 +82,11 @@ const benefit = t.hook || t.summary;
   .tcard-cta{flex:0 0 auto;background:var(--brand-green);color:#fff;font-weight:800;font-size:.8rem;
     padding:.55rem .9rem;border-radius:9px;white-space:nowrap;transition:background .15s}
   .tcard:hover .tcard-cta{background:var(--brand-gold);color:#07261C}
+  /* The lift, the image zoom and the gold CTA above are all hover states, so
+     on a touch screen the card was inert. Mirror them as a press: */
+  @media (hover:none){
+    .tcard:active{transform:scale(.982);box-shadow:0 10px 24px rgba(11,61,46,.2)}
+    .tcard:active .tcard-img img{transform:scale(1.045)}
+    .tcard:active .tcard-cta{background:var(--brand-gold);color:#07261C}
+  }
 </style>

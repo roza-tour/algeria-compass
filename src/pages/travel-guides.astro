@@ -32,7 +32,7 @@ const fromGuides = FROM.filter(([s]) => bySlug[s]);
   <section class="section"><div class="wrap">
     <div class="eyebrow">Start here</div>
     <h2>The essential guides</h2>
-    <div class="grid">
+    <div class="grid" data-reveal-group>
       {guides.map(g => (
         <Card href={`/blog/${g.slug}/`}
           title={g.data.title}

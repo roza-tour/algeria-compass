@@ -60,6 +60,7 @@ const cards = relatedTours(text, limit)
   .itours-list{display:grid;gap:.75rem}
   .itour{display:grid;grid-template-columns:120px 1fr;gap:.9rem;align-items:center;padding:.6rem;border-radius:12px;background:var(--bg,#fff);border:1px solid var(--border);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
   .itour:hover{border-color:var(--gold,#C9A24A);transform:translateY(-1px)}
+  @media (hover:none){ .itour:active{border-color:var(--gold,#C9A24A);transform:scale(.99)} }
   .itour img{width:120px;height:90px;object-fit:cover;border-radius:8px}
   .itour-body{display:flex;flex-direction:column;gap:.2rem;min-width:0}
   .itour-t{font-weight:700;line-height:1.3}

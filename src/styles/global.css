@@ -169,12 +169,23 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:va
 .prose img{max-width:100%;height:auto;display:block;border-radius:12px;margin:1.2rem 0}
 /* cards */
 .grid{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;
+  /* named rather than a bare `.2s`, which transitioned every animatable
+     property -- including ones no state here ever changes */
+  transition:transform .24s cubic-bezier(.2,.7,.2,1),box-shadow .24s ease,border-color .24s ease}
 .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.card:focus-within{box-shadow:var(--shadow-hover);border-color:var(--accent-ink)}
+/* The lift above is a hover state, so on a touch screen -- most of this site's
+   traffic -- a card had no feedback at all. Give touch its own: press down on
+   tap, which reads as a physical response rather than a dead tile. */
+@media (hover:none){
+  .card:active{transform:scale(.982)}
+  .card:active .ci img{transform:scale(1.04)}
+}
 .card .ci{aspect-ratio:16/10;overflow:hidden}
 .card .ci picture{display:block;width:100%;height:100%}
 .ci-gradient{width:100%;height:100%;background:linear-gradient(135deg,var(--accent,#0B3D2E),#07261C)}
-.card .ci img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.card .ci img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
 .card:hover .ci img{transform:scale(1.05)}
 .card .cb{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;flex:1}
 .card .tag{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
