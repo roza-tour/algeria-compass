@@ -78,12 +78,16 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
 
   <StatesStrip />
 
-  <section class="section feat-sec" id="featured" data-reveal><div class="wrap">
-    <div class="sec-head">
+  <!-- The reveal sits on the heading and the grid separately rather than on the
+       whole section: as one block the cards faded in together, which wastes the
+       most prominent grid on the site. Now the heading arrives, then the cards
+       cascade in behind it. -->
+  <section class="section feat-sec" id="featured"><div class="wrap">
+    <div class="sec-head" data-reveal>
       <div class="eyebrow">Private journeys</div>
       <h2>Featured tours</h2>
     </div>
-    <div class="grid" style="margin-top:1.4rem">
+    <div class="grid" style="margin-top:1.4rem" data-reveal-group>
       {featured.map((t: any, i: number) => <TourCard tour={t} priority={i < 2} />)}
     </div>
     <p style="margin-top:1.6rem"><a class="btn" href="/tours/">All 20 tours →</a></p>
