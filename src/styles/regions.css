@@ -149,3 +149,14 @@
   .rg-medallion img{ animation:none; }
   .rg-tilt__in,.rg-mcard__in,.rg-hero__img,.rg-hero__pat,.rg-hero__in,.rg-card__img{ transition:none !important; }
 }
+
+/* ===== Monument cards: touch feedback =====
+   The tilt and cursor-tracking shine above are pointer-only, which left these
+   cards completely inert on a phone — where most of this site is read. The
+   entrance itself is handled by the site-wide data-reveal system (BaseLayout),
+   not by a second mechanism; what touch needs on top of that is a press state,
+   the only "hover" a finger gets. */
+@media (hover:none){
+  .rg-mcard__in{ transition:transform .22s cubic-bezier(.2,.7,.2,1), box-shadow .22s; }
+  .rg-mcard:active .rg-mcard__in{ transform:scale(.975); box-shadow:0 14px 30px -18px rgba(0,0,0,.9); }
+}

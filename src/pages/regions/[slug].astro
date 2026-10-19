@@ -83,7 +83,7 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
         </div>
         <div class="rg-monu__grid">
           {r.monuments.map(m => (
-            <div class="rg-mcard">
+            <div class="rg-mcard" data-reveal>
               <div class="rg-mcard__in">
                 <img class="rg-mcard__img" src={m.img} alt={m.t} width="600" height="400" loading="lazy" decoding="async" />
                 <div class="rg-mcard__shine" aria-hidden="true"></div>
@@ -167,32 +167,47 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
       var img = document.querySelector('.rg-hero__img');
       var pat = document.querySelector('.rg-hero__pat');
       var inr = document.querySelector('.rg-hero__in');
+
       if(hero && img){
+        /* Mouse offset and scroll offset are composed into ONE transform per
+           element. They used to be written separately to the same style
+           property, so whichever fired last erased the other: moving the mouse
+           snapped the hero back to the top of its parallax, and scrolling threw
+           away the pointer offset. */
+        var mx = 0, my = 0, sy = 0, raf = 0;
+        function paint(){
+          raf = 0;
+          img.style.transform = 'translate(' + (mx*-22).toFixed(1) + 'px,' + (my*-22 + sy*0.18).toFixed(1) + 'px) scale(1.08)';
+          if(pat) pat.style.transform = 'translate(' + (mx*34).toFixed(1) + 'px,' + (my*34 + sy*0.08).toFixed(1) + 'px)';
+          if(inr) inr.style.transform = 'translate(' + (mx*16).toFixed(1) + 'px,' + (my*10 + sy*0.30).toFixed(1) + 'px)';
+        }
+        function schedule(){ if(!raf) raf = requestAnimationFrame(paint); }
+
         if(!noHover){
           hero.addEventListener('mousemove', function(e){
             var r = hero.getBoundingClientRect();
-            var px = (e.clientX - r.left) / r.width - 0.5;
-            var py = (e.clientY - r.top) / r.height - 0.5;
-            img.style.transform = 'translate(' + (px*-22).toFixed(1) + 'px,' + (py*-22).toFixed(1) + 'px) scale(1.08)';
-            if(pat) pat.style.transform = 'translate(' + (px*34).toFixed(1) + 'px,' + (py*34).toFixed(1) + 'px)';
-            if(inr) inr.style.transform = 'translate(' + (px*16).toFixed(1) + 'px,' + (py*10).toFixed(1) + 'px)';
+            mx = (e.clientX - r.left) / r.width - 0.5;
+            my = (e.clientY - r.top) / r.height - 0.5;
+            schedule();
           });
+          hero.addEventListener('mouseleave', function(){ mx = 0; my = 0; schedule(); });
         }
-        var ticking = false;
         window.addEventListener('scroll', function(){
-          if(ticking) return; ticking = true;
-          requestAnimationFrame(function(){
-            var y = window.pageYOffset || 0;
-            if(y < 900){
-              img.style.transform = 'translateY(' + (y*0.18).toFixed(1) + 'px) scale(1.08)';
-              if(inr) inr.style.transform = 'translateY(' + (y*0.30).toFixed(1) + 'px)';
-            }
-            ticking = false;
-          });
+          var y = window.pageYOffset || 0;
+          if(y < 900){ sy = y; schedule(); }
         }, { passive:true });
       }
+
+      /* Monument cards.
+         The tilt and the cursor-tracking shine were behind `!noHover`, so on a
+         phone — where most of this site is read — the cards did nothing at all.
+         Touch now gets its own treatment instead of the desktop one: the cards
+         rise into place as they scroll in, staggered, and press down when
+         tapped. Pointer devices keep the tilt. */
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.rg-mcard'));
+
       if(!noHover){
-        document.querySelectorAll('.rg-mcard').forEach(function(card){
+        cards.forEach(function(card){
           var inner = card.querySelector('.rg-mcard__in');
           if(!inner) return;
           card.addEventListener('mousemove', function(e){
@@ -210,6 +225,13 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
           });
         });
       }
+
+      /* The cards' entrance is the site-wide data-reveal system in BaseLayout,
+         declared in the markup below — not a second mechanism here. That one is
+         already proven, already skips itself on a hidden tab and under
+         reduced-motion, and never leaves content stuck invisible. Staggering
+         them is the only thing it does not do on its own. */
+      cards.forEach(function(c, i){ c.style.transitionDelay = Math.min(i, 5) * 90 + 'ms'; });
     })();
   </script>
     <section class="section"><div class="wrap">
