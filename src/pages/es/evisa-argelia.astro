@@ -1,4 +1,5 @@
 ---
+import Icon from '../../components/Icon.astro';
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // Versión española de la página « e-Visa & Entry » (/evisa/). Mismo contenido:
 // no existe un e-Visa turístico general; dos vías — visado consular o el
@@ -123,7 +124,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'es',
 
     <div class="sev-cta">
       <a class="btn btn-gold" href="/es/circuitos/">Ver circuitos saharianos →</a>
-      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hola Algeria Compass, tengo una pregunta sobre el e-Visa sahariano.')}`} target="_blank" rel="noopener">💬 Pregunte por el e-Visa sahariano</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hola Algeria Compass, tengo una pregunta sobre el e-Visa sahariano.')}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Pregunte por el e-Visa sahariano</a>
     </div>
 
     <div class="sev-faq">

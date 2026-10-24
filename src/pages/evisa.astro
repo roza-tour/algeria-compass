@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import StampFeeTable from '../components/StampFeeTable.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
@@ -113,7 +114,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
 
     <div class="sev-cta">
       <a class="btn btn-gold" href="/tours/">Browse Saharan tours →</a>
-      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hello Algeria Compass, I have a question about the Saharan e-Visa.')}`} target="_blank" rel="noopener">💬 Ask about the Saharan e-Visa</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hello Algeria Compass, I have a question about the Saharan e-Visa.')}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Ask about the Saharan e-Visa</a>
     </div>
 
     <div class="sev-faq">

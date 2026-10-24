@@ -1,4 +1,5 @@
 ---
+import Icon from '../../components/Icon.astro';
 import fs from 'node:fs';
 import sharp from 'sharp';
 import { getCollection } from 'astro:content';
@@ -191,7 +192,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
       <GuideBadge lang="en" tourTitle={tour.title} url={`${site}/tours/${tour.id}/`} />
       <p style="margin-top:1rem">
         <a class="btn btn-gold" href="#book" data-evt="book_intent">Request to book →</a>
-        <a class="btn btn-ghost" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,.5)">💬 Book on WhatsApp</a>
+        <a class="btn btn-ghost" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,.5)"><Icon name="whatsapp" /> Book on WhatsApp</a>
       </p>
     </div>
   </section>
@@ -244,7 +245,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
         </dl></>}
 
       <aside class="visa-note">
-        <strong>🛂 Visa &amp; entry</strong>
+        <strong><Icon name="passport" /> Visa &amp; entry</strong>
         {(tour.theme === 'sahara' || tour.theme === 'mzab')
           ? <p>This trip heads into the Sahara, so the <a href="/evisa/#saharan-evisa">Saharan e-Visa</a> applies: as your licensed operator we prepare every file free and issue your QR-verified authorisation document ($45); the visa sticker tax is paid on arrival. <a href="/evisa/#saharan-evisa">See how it works →</a></p>
           : <p>We prepare your invitation letter ($25) for any programme of 3+ days with airport transfers — and if your trip includes the desert you may qualify for the <a href="/evisa/#saharan-evisa">Saharan e-Visa</a>. <a href="/evisa/">How entry to Algeria works →</a></p>}
@@ -262,7 +263,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
           {tour.includes.length > 4 && <li class="bw-more">+ more — see what’s included below</li>}
         </ul>}
       <a class="btn btn-gold bw-cta" href="#book" data-evt="book_intent">Request to book</a>
-      <a class="btn btn-wa-2 bw-cta" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener">💬 Book on WhatsApp</a>
+      <a class="btn btn-wa-2 bw-cta" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Book on WhatsApp</a>
       <ul class="bw-guar">
         <li>Dates held free for {BOOKING.holdHours} hours — no payment</li>
         <li>Visa refused? Full refund</li>
@@ -342,7 +343,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
   <div class="tour-sticky">
     <span class="ts-price">{tour.price_from ? 'From ' : ''}€{tour.price_eur}<em>/person</em></span>
     <a class="btn btn-gold" href="#book" data-evt="book_intent">Book this trip</a>
-    <a class="ts-wa" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" aria-label="Book on WhatsApp">💬</a>
+    <a class="ts-wa" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" aria-label="Book on WhatsApp"><Icon name="whatsapp" size="1.3em" /></a>
   </div>
 
 </BaseLayout>

@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 // "Guided in your language" line for tour pages, plus a Service node so
 // answer engines can read that the trip is guided in this language.
 import { BADGE, GUIDE_PAGES, LANG_NAME, type GLang } from '../data/guide-language';
@@ -17,7 +18,7 @@ const service = {
 };
 ---
 <p class={`gbadge${dark ? ' gbadge-dark' : ''}`}>
-  <span aria-hidden="true">🗣️</span> <strong>{b.t}</strong> · <a href={GUIDE_PAGES[lang]}>{b.more}</a>
+  <Icon name="languages" /> <strong>{b.t}</strong> · <a href={GUIDE_PAGES[lang]}>{b.more}</a>
 </p>
 <script type="application/ld+json" set:html={JSON.stringify(service)} />
 <style>

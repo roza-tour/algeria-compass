@@ -1,4 +1,5 @@
 ---
+import Icon from '../../components/Icon.astro';
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // Version française de la page e-Visa. Le contenu suit la page anglaise
 // /evisa/ : pas d'e-Visa touristique général, deux voies d'entrée, dont
@@ -122,7 +123,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'fr',
 
     <div class="sev-cta">
       <a class="btn btn-gold" href="/fr/circuits/">Voir les circuits sahariens →</a>
-      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Bonjour Algeria Compass, j'ai une question sur l'e-Visa saharien.")}`} target="_blank" rel="noopener">💬 Poser une question sur l'e-Visa saharien</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Bonjour Algeria Compass, j'ai une question sur l'e-Visa saharien.")}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Poser une question sur l'e-Visa saharien</a>
     </div>
 
     <div class="sev-faq">

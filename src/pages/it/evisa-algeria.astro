@@ -1,4 +1,5 @@
 ---
+import Icon from '../../components/Icon.astro';
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // Versione italiana della pagina « e-Visa & ingresso ». Il contenuto segue la
 // pagina inglese /evisa/: non esiste un e-Visa turistico generale; le due vie
@@ -132,7 +133,7 @@ const breadcrumb = {
 
     <div class="sev-cta">
       <a class="btn btn-gold" href="/it/circuiti/">Sfogliate i tour sahariani →</a>
-      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Salve Algeria Compass, ho una domanda sull'e-Visa sahariano.")}`} target="_blank" rel="noopener">💬 Domande sull'e-Visa sahariano</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Salve Algeria Compass, ho una domanda sull'e-Visa sahariano.")}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Domande sull'e-Visa sahariano</a>
     </div>
 
     <div class="sev-faq">

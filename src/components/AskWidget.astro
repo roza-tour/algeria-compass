@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 // On-site assistant — RETRIEVAL ONLY, no language model, no API, no cost.
 //
 // Every answer it shows is a string the team already wrote and published,
@@ -72,27 +73,27 @@ const SUGGEST: Record<Lang, string[]> = {
 // the same tour catalogue (theme, days, regions), and the visitor leaves with
 // two real trips and a WhatsApp message that already says what they want.
 const PLAN: Record<Lang, any> = {
-  en: { start: '✨ Help me choose a trip', intro: 'Four quick questions and I will suggest two trips.',
+  en: { start: 'Help me choose a trip', intro: 'Four quick questions and I will suggest two trips.',
         q: ['What draws you most?', 'How many days do you have?', 'When would you travel?', 'How many travellers?'],
         o: [['The Sahara & desert', 'Roman ruins & history', 'Cities & culture', 'A bit of everything'], ['Up to 5 days', '6 to 8 days', '9 days or more'], ['October – April', 'May – September', 'Not sure yet'], ['1 – 2', '3 – 6', '7 or more']],
         res: 'Here are the two trips that fit best:', summer: 'The deep Sahara is a winter trip (October to April), so for summer I have suggested the north.',
         wa: 'Send my answers on WhatsApp', req: 'Request these dates', again: 'Start again', none: 'Nothing on our list fits that exactly — our team will build it for you.' },
-  fr: { start: '✨ Aidez-moi à choisir', intro: 'Quatre questions rapides et je vous propose deux circuits.',
+  fr: { start: 'Aidez-moi à choisir', intro: 'Quatre questions rapides et je vous propose deux circuits.',
         q: ['Qu’est-ce qui vous attire le plus ?', 'De combien de jours disposez-vous ?', 'Quand voyageriez-vous ?', 'Combien de voyageurs ?'],
         o: [['Le Sahara et le désert', 'Ruines romaines et histoire', 'Villes et culture', 'Un peu de tout'], ['Jusqu’à 5 jours', '6 à 8 jours', '9 jours ou plus'], ['Octobre – avril', 'Mai – septembre', 'Je ne sais pas encore'], ['1 – 2', '3 – 6', '7 ou plus']],
         res: 'Voici les deux circuits qui vous correspondent le mieux :', summer: 'Le grand Sahara se visite en hiver (octobre à avril) : pour l’été, je vous propose le nord.',
         wa: 'Envoyer mes réponses sur WhatsApp', req: 'Demander ces dates', again: 'Recommencer', none: 'Rien dans notre liste ne correspond exactement — notre équipe vous le construit sur mesure.' },
-  it: { start: '✨ Aiutami a scegliere', intro: 'Quattro domande veloci e vi propongo due viaggi.',
+  it: { start: 'Aiutami a scegliere', intro: 'Quattro domande veloci e vi propongo due viaggi.',
         q: ['Cosa vi attira di più?', 'Quanti giorni avete?', 'Quando partireste?', 'Quanti viaggiatori?'],
         o: [['Il Sahara e il deserto', 'Rovine romane e storia', 'Città e cultura', 'Un po’ di tutto'], ['Fino a 5 giorni', 'Da 6 a 8 giorni', '9 giorni o più'], ['Ottobre – aprile', 'Maggio – settembre', 'Non so ancora'], ['1 – 2', '3 – 6', '7 o più']],
         res: 'Ecco i due viaggi più adatti:', summer: 'Il Sahara profondo è un viaggio invernale (da ottobre ad aprile): per l’estate vi propongo il nord.',
         wa: 'Invia le mie risposte su WhatsApp', req: 'Richiedi queste date', again: 'Ricomincia', none: 'Niente nella nostra lista corrisponde esattamente — il nostro team lo costruisce su misura.' },
-  es: { start: '✨ Ayúdame a elegir', intro: 'Cuatro preguntas rápidas y le propongo dos viajes.',
+  es: { start: 'Ayúdame a elegir', intro: 'Cuatro preguntas rápidas y le propongo dos viajes.',
         q: ['¿Qué le atrae más?', '¿Cuántos días tiene?', '¿Cuándo viajaría?', '¿Cuántos viajeros?'],
         o: [['El Sáhara y el desierto', 'Ruinas romanas e historia', 'Ciudades y cultura', 'Un poco de todo'], ['Hasta 5 días', 'De 6 a 8 días', '9 días o más'], ['Octubre – abril', 'Mayo – septiembre', 'Aún no lo sé'], ['1 – 2', '3 – 6', '7 o más']],
         res: 'Estos son los dos viajes que mejor encajan:', summer: 'El Sáhara profundo es un viaje de invierno (de octubre a abril): para el verano le propongo el norte.',
         wa: 'Enviar mis respuestas por WhatsApp', req: 'Solicitar estas fechas', again: 'Empezar de nuevo', none: 'Nada de nuestra lista encaja exactamente — nuestro equipo se lo diseña a medida.' },
-  de: { start: '✨ Hilfe bei der Reisewahl', intro: 'Vier kurze Fragen, dann schlage ich Ihnen zwei Reisen vor.',
+  de: { start: 'Hilfe bei der Reisewahl', intro: 'Vier kurze Fragen, dann schlage ich Ihnen zwei Reisen vor.',
         q: ['Was reizt Sie am meisten?', 'Wie viele Tage haben Sie?', 'Wann würden Sie reisen?', 'Wie viele Reisende?'],
         o: [['Die Sahara & Wüste', 'Römische Ruinen & Geschichte', 'Städte & Kultur', 'Von allem etwas'], ['Bis zu 5 Tage', '6 bis 8 Tage', '9 Tage oder mehr'], ['Oktober – April', 'Mai – September', 'Noch offen'], ['1 – 2', '3 – 6', '7 oder mehr']],
         res: 'Diese zwei Reisen passen am besten:', summer: 'Die tiefe Sahara ist eine Winterreise (Oktober bis April) — für den Sommer schlage ich den Norden vor.',
@@ -128,7 +129,7 @@ const contactHref = ROUTES[lang].contact;
 
   <div class="ask-log" id="askLog" role="log" aria-live="polite">
     <ul class="ask-sugg" id="askSugg">
-      <li><button type="button" class="ask-plan-start" data-plan-start="1">{plan.start}</button></li>
+      <li><button type="button" class="ask-plan-start" data-plan-start="1"><Icon name="sparkles" /> {plan.start}</button></li>
       {SUGGEST[lang].map(s => <li><button type="button" data-q={s}>{s}</button></li>)}
     </ul>
   </div>

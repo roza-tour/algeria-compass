@@ -85,11 +85,11 @@ const pins = PLACES.map(p => {
 
 
 const C = {
-  en: { north: '🔍 North', h: 'Explore Algeria on the map', sub: 'Tap a place to see the trips that go there.', trips: 'trips', trip: 'trip', from: 'from', per: 'per person', sahara: 'Sahara', med: 'Mediterranean Sea', pick: 'Choose a place on the map' },
-  fr: { north: '🔍 Nord', h: "Explorez l'Algérie sur la carte", sub: 'Touchez un lieu pour voir les circuits qui y passent.', trips: 'circuits', trip: 'circuit', from: 'dès', per: 'par personne', sahara: 'Sahara', med: 'Mer Méditerranée', pick: 'Choisissez un lieu sur la carte' },
-  it: { north: '🔍 Nord', h: "Esplorate l'Algeria sulla mappa", sub: 'Toccate un luogo per vedere i viaggi che ci passano.', trips: 'viaggi', trip: 'viaggio', from: 'da', per: 'a persona', sahara: 'Sahara', med: 'Mar Mediterraneo', pick: 'Scegliete un luogo sulla mappa' },
-  es: { north: '🔍 Norte', h: 'Explore Argelia en el mapa', sub: 'Toque un lugar para ver los viajes que pasan por allí.', trips: 'viajes', trip: 'viaje', from: 'desde', per: 'por persona', sahara: 'Sáhara', med: 'Mar Mediterráneo', pick: 'Elija un lugar en el mapa' },
-  de: { north: '🔍 Norden', h: 'Algerien auf der Karte entdecken', sub: 'Tippen Sie auf einen Ort, um die Reisen dorthin zu sehen.', trips: 'Reisen', trip: 'Reise', from: 'ab', per: 'pro Person', sahara: 'Sahara', med: 'Mittelmeer', pick: 'Wählen Sie einen Ort auf der Karte' },
+  en: { north: 'North', h: 'Explore Algeria on the map', sub: 'Tap a place to see the trips that go there.', trips: 'trips', trip: 'trip', from: 'from', per: 'per person', sahara: 'Sahara', med: 'Mediterranean Sea', pick: 'Choose a place on the map' },
+  fr: { north: 'Nord', h: "Explorez l'Algérie sur la carte", sub: 'Touchez un lieu pour voir les circuits qui y passent.', trips: 'circuits', trip: 'circuit', from: 'dès', per: 'par personne', sahara: 'Sahara', med: 'Mer Méditerranée', pick: 'Choisissez un lieu sur la carte' },
+  it: { north: 'Nord', h: "Esplorate l'Algeria sulla mappa", sub: 'Toccate un luogo per vedere i viaggi che ci passano.', trips: 'viaggi', trip: 'viaggio', from: 'da', per: 'a persona', sahara: 'Sahara', med: 'Mar Mediterraneo', pick: 'Scegliete un luogo sulla mappa' },
+  es: { north: 'Norte', h: 'Explore Argelia en el mapa', sub: 'Toque un lugar para ver los viajes que pasan por allí.', trips: 'viajes', trip: 'viaje', from: 'desde', per: 'por persona', sahara: 'Sáhara', med: 'Mar Mediterráneo', pick: 'Elija un lugar en el mapa' },
+  de: { north: 'Norden', h: 'Algerien auf der Karte entdecken', sub: 'Tippen Sie auf einen Ort, um die Reisen dorthin zu sehen.', trips: 'Reisen', trip: 'Reise', from: 'ab', per: 'pro Person', sahara: 'Sahara', med: 'Mittelmeer', pick: 'Wählen Sie einen Ort auf der Karte' },
 }[lang];
 const fmtLocale = lang === 'en' ? 'en-GB' : 'de-DE';
 ---
@@ -115,7 +115,8 @@ const fmtLocale = lang === 'en' ? 'en-GB' : 'de-DE';
         <path d={d} class="amap-land" transform={`translate(${-px(Z.lon0) * ZS} ${ZY - py(Z.lat1) * ZS}) scale(${ZS})`} style={`stroke-width:${(1.2 / ZS).toFixed(2)}`} />
       </g>
       <rect x="0.5" y={ZY} width={W - 1} height={ZH} rx="10" class="amap-zframe" />
-      <text x="10" y={ZY + 15} class="amap-ztitle">{C.north}</text>
+      <g transform={`translate(9 ${ZY + 6.5}) scale(.42)`} class="amap-zico"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></g>
+      <text x="22" y={ZY + 15} class="amap-ztitle">{C.north}</text>
       {pins.map((p, i) => p.north && (
         <g class="amap-pin" data-i={i} tabindex="0" role="button" aria-label={`${p.name} — ${p.trips.length} ${p.trips.length === 1 ? C.trip : C.trips}`}>
           <circle cx={p.zx} cy={p.zy} r={p.r} class="amap-dot" />
@@ -141,6 +142,7 @@ const fmtLocale = lang === 'en' ? 'en-GB' : 'de-DE';
   .amap-mini{fill:#0B3D2E;opacity:.7}
   .amap-zbg{fill:#dcebf2}
   .amap-zframe{fill:none;stroke:#b8955a;stroke-width:1}
+  .amap-zico{fill:none;stroke:#5b7f91;stroke-width:2.4;stroke-linecap:round}
   .amap-ztitle{font:700 9px system-ui,sans-serif;fill:#5b7f91;letter-spacing:.08em;text-transform:uppercase}
   .amap-land{fill:#efe2c6;stroke:#b8955a;stroke-width:1.2}
   .amap-sea{font:600 9px system-ui,sans-serif;fill:#5b7f91;letter-spacing:.12em;text-transform:uppercase}

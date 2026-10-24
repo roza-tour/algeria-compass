@@ -1,4 +1,5 @@
 ---
+import Icon from '../Icon.astro';
 // The conversion landing page (/plan-your-trip/ and its FR/ES/DE editions),
 // built for paid ads and organic traffic alike.
 //
@@ -39,15 +40,15 @@ const COPY: Record<string, any> = {
     kw: ['Algeria tour price', 'plan a trip to Algeria', 'private tour Algeria', 'Algeria Sahara tour', 'book Algeria tour'],
     eyebrow: 'Private tours · licensed Algerian operator', h1: 'Your Algeria trip, priced in 60 seconds',
     sub: 'Sahara, Roman cities, the Casbah — tell us what you want and see the right private tour and your price, now.',
-    go: 'Plan my trip', chips: [`✓ Dates held free ${H}h`, '✓ Visa refused = full refund', '✓ Price locked', `★ ${rating} on Google`],
-    q1: 'What would you love to see?', o1: ['🏜️ The Sahara', '🏛️ Roman cities & history', '✨ A bit of both', '🕌 Algiers & the coast'],
+    go: 'Plan my trip', chips: [`✓ Dates held free ${H}h`, 'Visa refused = full refund', 'Price locked', `★ ${rating} on Google`],
+    q1: 'What would you love to see?', o1: ['The Sahara', 'Roman cities & history', 'A bit of both', 'Algiers & the coast'],
     q2: 'How many days do you have?', o2: ['1–3 days', '4–6 days', '7–9 days', '10 days or more'],
     q3: 'How many travellers?', fewer: 'One fewer traveller', more: 'One more traveller', next: 'Next',
     q4: 'When would you like to travel?', hint: 'The deep Sahara is travelled from October to April.',
     q5: 'Which style suits you?', o5: ['Comfortable — guesthouses, camps, good hotels', 'Luxury — five-star, all-inclusive'],
     resH: 'Your best matches',
     holdH: `Hold these dates — free for ${H} hours`, holdP: 'No payment, no card. We confirm availability, permits and flights and send your final, locked price.',
-    name: 'Your name', email: 'Email', note: 'Anything we should know? (optional)', holdBtn: 'Hold my dates free', waBtn: '💬 Or book on WhatsApp',
+    name: 'Your name', email: 'Email', note: 'Anything we should know? (optional)', holdBtn: 'Hold my dates free', waBtn: 'Or book on WhatsApp',
     fine: `Then a 20% deposit by bank transfer, card or PayPal secures the trip; the balance is paid on arrival in Algeria. Free cancellation up to ${C5} days before.`, terms: 'Full terms',
     restart: '↺ Start again', noscript: 'The planner needs JavaScript.', noscriptLink: 'Tell us about your trip here',
     guarEyebrow: 'Book without the worry', guarH: 'Our guarantees',
@@ -66,15 +67,15 @@ const COPY: Record<string, any> = {
     kw: ['prix voyage Algérie', 'circuit privé Algérie', 'voyage Sahara Algérie', 'réserver circuit Algérie', 'organiser voyage Algérie'],
     eyebrow: 'Circuits privés · voyagiste algérien agréé', h1: 'Votre voyage en Algérie, chiffré en 60 secondes',
     sub: 'Sahara, cités romaines, Casbah — dites-nous ce qui vous fait envie et découvrez le circuit privé qui vous correspond, avec son prix, maintenant.',
-    go: 'Planifier mon voyage', chips: [`✓ Dates bloquées gratuitement ${H} h`, '✓ Visa refusé = remboursement intégral', '✓ Prix garanti', `★ ${rating.replace('.', ',')} sur Google`],
-    q1: "Qu'aimeriez-vous découvrir ?", o1: ['🏜️ Le Sahara', '🏛️ Cités romaines & histoire', '✨ Un peu des deux', '🕌 Alger & la côte'],
+    go: 'Planifier mon voyage', chips: [`✓ Dates bloquées gratuitement ${H} h`, 'Visa refusé = remboursement intégral', 'Prix garanti', `★ ${rating.replace('.', ',')} sur Google`],
+    q1: "Qu'aimeriez-vous découvrir ?", o1: ['Le Sahara', 'Cités romaines & histoire', 'Un peu des deux', 'Alger & la côte'],
     q2: 'De combien de jours disposez-vous ?', o2: ['1 à 3 jours', '4 à 6 jours', '7 à 9 jours', '10 jours ou plus'],
     q3: 'Combien de voyageurs ?', fewer: 'Un voyageur de moins', more: 'Un voyageur de plus', next: 'Suivant',
     q4: 'Quand souhaitez-vous partir ?', hint: "Le grand Sahara se visite d'octobre à avril.",
     q5: 'Quel style vous correspond ?', o5: ['Confortable — maisons d\'hôtes, bivouacs, bons hôtels', 'Luxe — cinq étoiles, tout compris'],
     resH: 'Vos meilleures options',
     holdH: `Bloquez ces dates — gratuitement pendant ${H} heures`, holdP: 'Sans paiement, sans carte. Nous confirmons disponibilités, permis et vols, puis vous envoyons votre prix définitif et garanti.',
-    name: 'Votre nom', email: 'E-mail', note: 'Quelque chose à nous dire ? (facultatif)', holdBtn: 'Bloquer mes dates gratuitement', waBtn: '💬 Ou réserver sur WhatsApp',
+    name: 'Votre nom', email: 'E-mail', note: 'Quelque chose à nous dire ? (facultatif)', holdBtn: 'Bloquer mes dates gratuitement', waBtn: 'Ou réserver sur WhatsApp',
     fine: `Ensuite, un acompte de 20 % par virement, carte ou PayPal confirme le voyage ; le solde se règle à l'arrivée en Algérie. Annulation gratuite jusqu'à ${C5} jours avant.`, terms: 'Conditions complètes',
     restart: '↺ Recommencer', noscript: 'Le planificateur nécessite JavaScript.', noscriptLink: 'Parlez-nous de votre voyage ici',
     guarEyebrow: 'Réservez sereinement', guarH: 'Nos garanties',
@@ -93,15 +94,15 @@ const COPY: Record<string, any> = {
     kw: ['precio viaje Argelia', 'circuito privado Argelia', 'viaje Sáhara Argelia', 'reservar circuito Argelia', 'organizar viaje Argelia'],
     eyebrow: 'Circuitos privados · operador argelino autorizado', h1: 'Tu viaje a Argelia, con precio en 60 segundos',
     sub: 'Sáhara, ciudades romanas, la Casbah — cuéntanos qué te apetece y descubre el circuito privado ideal y su precio, ahora.',
-    go: 'Planificar mi viaje', chips: [`✓ Fechas reservadas gratis ${H} h`, '✓ Visado denegado = reembolso total', '✓ Precio garantizado', `★ ${rating.replace('.', ',')} en Google`],
-    q1: '¿Qué te gustaría ver?', o1: ['🏜️ El Sáhara', '🏛️ Ciudades romanas e historia', '✨ Un poco de las dos', '🕌 Argel y la costa'],
+    go: 'Planificar mi viaje', chips: [`✓ Fechas reservadas gratis ${H} h`, 'Visado denegado = reembolso total', 'Precio garantizado', `★ ${rating.replace('.', ',')} en Google`],
+    q1: '¿Qué te gustaría ver?', o1: ['El Sáhara', 'Ciudades romanas e historia', 'Un poco de las dos', 'Argel y la costa'],
     q2: '¿Cuántos días tienes?', o2: ['1 a 3 días', '4 a 6 días', '7 a 9 días', '10 días o más'],
     q3: '¿Cuántos viajeros?', fewer: 'Un viajero menos', more: 'Un viajero más', next: 'Siguiente',
     q4: '¿Cuándo te gustaría viajar?', hint: 'El Sáhara profundo se recorre de octubre a abril.',
     q5: '¿Qué estilo prefieres?', o5: ['Cómodo — casas de huéspedes, campamentos, buenos hoteles', 'Lujo — cinco estrellas, todo incluido'],
     resH: 'Tus mejores opciones',
     holdH: `Reserva estas fechas — gratis durante ${H} horas`, holdP: 'Sin pago y sin tarjeta. Confirmamos disponibilidad, permisos y vuelos y te enviamos tu precio final y garantizado.',
-    name: 'Tu nombre', email: 'Email', note: '¿Algo que debamos saber? (opcional)', holdBtn: 'Reservar mis fechas gratis', waBtn: '💬 O reserva por WhatsApp',
+    name: 'Tu nombre', email: 'Email', note: '¿Algo que debamos saber? (opcional)', holdBtn: 'Reservar mis fechas gratis', waBtn: 'O reserva por WhatsApp',
     fine: `Después, un depósito del 20 % por transferencia, tarjeta o PayPal confirma el viaje; el resto se paga a la llegada a Argelia. Cancelación gratuita hasta ${C5} días antes.`, terms: 'Condiciones completas',
     restart: '↺ Empezar de nuevo', noscript: 'El planificador necesita JavaScript.', noscriptLink: 'Cuéntanos tu viaje aquí',
     guarEyebrow: 'Reserva sin preocupaciones', guarH: 'Nuestras garantías',
@@ -120,15 +121,15 @@ const COPY: Record<string, any> = {
     kw: ['prezzo viaggio Algeria', 'tour privato Algeria', 'viaggio Sahara Algeria', 'prenotare tour Algeria', 'organizzare viaggio Algeria'],
     eyebrow: 'Tour privati · tour operator algerino autorizzato', h1: 'Il tuo viaggio in Algeria, con il prezzo in 60 secondi',
     sub: 'Sahara, città romane, la Casbah — dicci cosa ti piacerebbe vedere e scopri subito il tour privato giusto, con il suo prezzo.',
-    go: 'Pianifica il mio viaggio', chips: [`✓ Date bloccate gratis ${H} ore`, '✓ Visto rifiutato = rimborso totale', '✓ Prezzo garantito', `★ ${rating.replace('.', ',')} su Google`],
-    q1: 'Cosa ti piacerebbe vedere?', o1: ['🏜️ Il Sahara', '🏛️ Città romane e storia', '✨ Un po\' di tutto', '🕌 Algeri e la costa'],
+    go: 'Pianifica il mio viaggio', chips: [`✓ Date bloccate gratis ${H} ore`, 'Visto rifiutato = rimborso totale', 'Prezzo garantito', `★ ${rating.replace('.', ',')} su Google`],
+    q1: 'Cosa ti piacerebbe vedere?', o1: ['Il Sahara', 'Città romane e storia', 'Un po\' di tutto', 'Algeri e la costa'],
     q2: 'Quanti giorni hai a disposizione?', o2: ['1–3 giorni', '4–6 giorni', '7–9 giorni', '10 giorni o più'],
     q3: 'Quanti viaggiatori?', fewer: 'Un viaggiatore in meno', more: 'Un viaggiatore in più', next: 'Avanti',
     q4: 'Quando vorresti partire?', hint: 'Il Sahara profondo si visita da ottobre ad aprile.',
     q5: 'Quale stile fa per te?', o5: ['Confortevole — case per ospiti, campi tendati, buoni hotel', 'Lusso — cinque stelle, tutto incluso'],
     resH: 'Le tue scelte migliori',
     holdH: `Blocca queste date — gratis per ${H} ore`, holdP: 'Nessun pagamento, nessuna carta. Confermiamo disponibilità, permessi e voli e ti inviamo il prezzo finale, garantito.',
-    name: 'Il tuo nome', email: 'Email', note: 'Qualcosa da dirci? (facoltativo)', holdBtn: 'Blocca le mie date gratis', waBtn: '💬 Oppure prenota su WhatsApp',
+    name: 'Il tuo nome', email: 'Email', note: 'Qualcosa da dirci? (facoltativo)', holdBtn: 'Blocca le mie date gratis', waBtn: 'Oppure prenota su WhatsApp',
     fine: `Poi un acconto del 20% con bonifico, carta o PayPal conferma il viaggio; il saldo si paga all'arrivo in Algeria. Cancellazione gratuita fino a ${C5} giorni prima.`, terms: 'Condizioni complete',
     restart: '↺ Ricomincia', noscript: 'Il pianificatore richiede JavaScript.', noscriptLink: 'Raccontaci il tuo viaggio qui',
     guarEyebrow: 'Prenota senza pensieri', guarH: 'Le nostre garanzie',
@@ -147,15 +148,15 @@ const COPY: Record<string, any> = {
     kw: ['Algerien Reise Preis', 'Algerien Privatreise', 'Algerien Sahara Reise', 'Algerien Rundreise buchen', 'Algerien Reise planen'],
     eyebrow: 'Privatreisen · lizenzierter algerischer Veranstalter', h1: 'Ihre Algerien-Reise, mit Preis in 60 Sekunden',
     sub: 'Sahara, römische Städte, die Kasbah — sagen Sie uns, was Sie reizt, und sehen Sie sofort die passende Privatreise mit Preis.',
-    go: 'Reise planen', chips: [`✓ Termin ${H} Std. kostenlos reserviert`, '✓ Visum abgelehnt = volle Erstattung', '✓ Festpreis', `★ ${rating.replace('.', ',')} bei Google`],
-    q1: 'Was möchten Sie gern erleben?', o1: ['🏜️ Die Sahara', '🏛️ Römische Städte & Geschichte', '✨ Ein bisschen von beidem', '🕌 Algier & die Küste'],
+    go: 'Reise planen', chips: [`✓ Termin ${H} Std. kostenlos reserviert`, 'Visum abgelehnt = volle Erstattung', 'Festpreis', `★ ${rating.replace('.', ',')} bei Google`],
+    q1: 'Was möchten Sie gern erleben?', o1: ['Die Sahara', 'Römische Städte & Geschichte', 'Ein bisschen von beidem', 'Algier & die Küste'],
     q2: 'Wie viele Tage haben Sie?', o2: ['1–3 Tage', '4–6 Tage', '7–9 Tage', '10 Tage oder mehr'],
     q3: 'Wie viele Reisende?', fewer: 'Ein Reisender weniger', more: 'Ein Reisender mehr', next: 'Weiter',
     q4: 'Wann möchten Sie reisen?', hint: 'Die tiefe Sahara bereist man von Oktober bis April.',
     q5: 'Welcher Stil passt zu Ihnen?', o5: ['Komfortabel — Gästehäuser, Camps, gute Hotels', 'Luxus — fünf Sterne, all-inclusive'],
     resH: 'Ihre besten Treffer',
     holdH: `Termin reservieren — ${H} Stunden kostenlos`, holdP: 'Ohne Zahlung, ohne Karte. Wir bestätigen Verfügbarkeit, Genehmigungen und Flüge und senden Ihnen Ihren endgültigen Festpreis.',
-    name: 'Ihr Name', email: 'E-Mail', note: 'Möchten Sie uns etwas mitteilen? (optional)', holdBtn: 'Termin kostenlos reservieren', waBtn: '💬 Oder per WhatsApp buchen',
+    name: 'Ihr Name', email: 'E-Mail', note: 'Möchten Sie uns etwas mitteilen? (optional)', holdBtn: 'Termin kostenlos reservieren', waBtn: 'Oder per WhatsApp buchen',
     fine: `Danach sichert eine Anzahlung von 20 % per Überweisung, Karte oder PayPal die Reise; der Rest wird bei Ankunft in Algerien bezahlt. Kostenlose Stornierung bis ${C5} Tage vorher.`, terms: 'Alle Bedingungen',
     restart: '↺ Neu beginnen', noscript: 'Der Reiseplaner benötigt JavaScript.', noscriptLink: 'Erzählen Sie uns hier von Ihrer Reise',
     guarEyebrow: 'Sorgenfrei buchen', guarH: 'Unsere Garantien',
@@ -226,7 +227,7 @@ const heroAlt = lang === 'fr' ? "Une arche de grès naturelle au-dessus du sable
         <fieldset class="lp-step" data-step="0">
           <legend>{C.q1}</legend>
           <div class="lp-opts">
-            {['sahara', 'history', 'both', 'city'].map((v, i) => <button type="button" data-k="want" data-v={v}>{C.o1[i]}</button>)}
+            {['sahara', 'history', 'both', 'city'].map((v, i) => <button type="button" data-k="want" data-v={v}><Icon name={['dunes', 'landmark', 'sparkles', 'mosque'][i]} /> {C.o1[i]}</button>)}
           </div>
         </fieldset>
         <fieldset class="lp-step" data-step="1" hidden>
@@ -279,7 +280,7 @@ const heroAlt = lang === 'fr' ? "Une arche de grès naturelle au-dessus du sable
             <label>{C.note}<textarea name="message" id="lpMsg" rows="3" maxlength="4000"></textarea></label>
             <div class="lp-actions">
               <button type="submit" class="btn btn-gold" data-evt="lp_hold">{C.holdBtn}</button>
-              <a class="btn btn-wa-2" id="lpWa" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener" data-evt="lp_whatsapp">{C.waBtn}</a>
+              <a class="btn btn-wa-2" id="lpWa" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener" data-evt="lp_whatsapp"><Icon name="whatsapp" /> {C.waBtn}</a>
             </div>
             <p class="lp-fine">{C.fine} <a href="/booking-terms/#guarantees">{C.terms}</a></p>
           </form>

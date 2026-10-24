@@ -1,0 +1,12 @@
+---
+// One line icon from src/lib/icons.ts, sized to the surrounding text (1em) and
+// coloured by it. Decorative by default; pass `label` when the icon is the only
+// thing carrying the meaning.
+import { ICONS, WHATSAPP_PATH } from '../lib/icons';
+interface Props { name: string; label?: string; size?: string; class?: string; filled?: boolean }
+const { name, label, size = '1.1em', class: cls = '', filled = false } = Astro.props;
+const a11y = label ? { role: 'img', 'aria-label': label } : { 'aria-hidden': 'true' };
+---
+{name === 'whatsapp'
+  ? <svg class={`ico ${cls}`} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" {...a11y}><path d={WHATSAPP_PATH} /></svg>
+  : <svg class={`ico ${cls}`} width={size} height={size} viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" {...a11y} set:html={ICONS[name] ?? ''} />}

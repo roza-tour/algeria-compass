@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
@@ -7,28 +8,30 @@ import { SWEETS } from '../data/sweets.mjs';
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 
 // Playful personality layered on top of the factual SWEETS data (keyed by name).
-const FUN: Record<string, { emoji: string; quip: string; meter: number }> = {
-  'Baklawa': { emoji: '💎', quip: 'Counts its layers in the dozens. Half the Mediterranean claims it — Algeria just quietly perfects it.', meter: 5 },
-  'Makroud el louz': { emoji: '🍃', quip: 'Looks like a tiny leaf, melts like a little cloud of almond.', meter: 4 },
-  'Qalb el louz': { emoji: '🌙', quip: '“Heart of the almond” — the most romantic thing you’ll order all Ramadan.', meter: 5 },
-  'Samsa': { emoji: '🔺', quip: 'Crunchy triangles, scientifically engineered for maximum honey retention.', meter: 4 },
-  'Griwech': { emoji: '🌹', quip: 'Folded into roses, fried into glory. Reigning “you can’t eat just one” champion.', meter: 5 },
-  'Tcharek (kaab el ghzal)': { emoji: '🦌', quip: '“Gazelle horns” — elegant enough for a wedding, sneaky enough to vanish before the photos.', meter: 3 },
-  'Dziriette': { emoji: '👑', quip: 'The petit-four that dresses up for grand occasions and weddings.', meter: 4 },
-  'Ghribia (montecaos)': { emoji: '☁️', quip: 'Dissolves the instant it touches your tongue. Zero chewing required.', meter: 3 },
-  'Mhalbi': { emoji: '🥛', quip: 'The cool-down: rose-scented pudding for when the honey gets serious.', meter: 2 },
+// Each sweet carries an icon from the shared line set (src/lib/icons.ts) where
+// it used to carry an emoji -- the same playful idea, drawn in the site's hand.
+const FUN: Record<string, { icon: string; quip: string; meter: number }> = {
+  'Baklawa': { icon: 'gem', quip: 'Counts its layers in the dozens. Half the Mediterranean claims it — Algeria just quietly perfects it.', meter: 5 },
+  'Makroud el louz': { icon: 'leaf', quip: 'Looks like a tiny leaf, melts like a little cloud of almond.', meter: 4 },
+  'Qalb el louz': { icon: 'moon', quip: '“Heart of the almond” — the most romantic thing you’ll order all Ramadan.', meter: 5 },
+  'Samsa': { icon: 'triangle', quip: 'Crunchy triangles, scientifically engineered for maximum honey retention.', meter: 4 },
+  'Griwech': { icon: 'flower', quip: 'Folded into roses, fried into glory. Reigning “you can’t eat just one” champion.', meter: 5 },
+  'Tcharek (kaab el ghzal)': { icon: 'horns', quip: '“Gazelle horns” — elegant enough for a wedding, sneaky enough to vanish before the photos.', meter: 3 },
+  'Dziriette': { icon: 'crown', quip: 'The petit-four that dresses up for grand occasions and weddings.', meter: 4 },
+  'Ghribia (montecaos)': { icon: 'cloud', quip: 'Dissolves the instant it touches your tongue. Zero chewing required.', meter: 3 },
+  'Mhalbi': { icon: 'bowl', quip: 'The cool-down: rose-scented pudding for when the honey gets serious.', meter: 2 },
 };
 
-const sweets = SWEETS.map(s => ({ ...s, ...(FUN[s.name] || { emoji: '🍯', quip: '', meter: 3 }) }));
+const sweets = SWEETS.map(s => ({ ...s, ...(FUN[s.name] || { icon: 'drop', quip: '', meter: 3 }) }));
 
 // Spare photos (not used as a dish card) for the fun gallery ribbon.
 const gallery = [4, 5, 6, 7, 8, 12, 15, 17, 18, 19, 21].map(n => `/assets/img/sweets/algeria-sweets-${String(n).padStart(2, '0')}.jpg`);
 
 const occasions = [
-  { emoji: '🌙', t: 'Eid', d: 'Trays stacked higher than the kids, doors open, everyone “just trying one”.' },
-  { emoji: '💍', t: 'Weddings', d: 'Baklawa as the centrepiece, dziriette for elegance, and far too many to count.' },
-  { emoji: '🕌', t: 'Ramadan nights', d: 'Qalb el louz and griwech after iftar, with mint tea poured from a great height.' },
-  { emoji: '🍵', t: 'Tea o’clock', d: 'Honestly? Any excuse. A guest at the door is reason enough.' },
+  { icon: 'moon', t: 'Eid', d: 'Trays stacked higher than the kids, doors open, everyone “just trying one”.' },
+  { icon: 'ring', t: 'Weddings', d: 'Baklawa as the centrepiece, dziriette for elegance, and far too many to count.' },
+  { icon: 'mosque', t: 'Ramadan nights', d: 'Qalb el louz and griwech after iftar, with mint tea poured from a great height.' },
+  { icon: 'tea', t: 'Tea o’clock', d: 'Honestly? Any excuse. A guest at the door is reason enough.' },
 ];
 
 const faqs = [
@@ -57,10 +60,10 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
 
   <!-- ===== playful hero ===== -->
   <section class="sx-hero">
-    <div class="sx-hero-deco" aria-hidden="true">🍯🌙💎🌹🍵✨</div>
+    <div class="sx-hero-deco" aria-hidden="true">{['drop','moon','gem','flower','tea','sparkles','crown','leaf'].map((n, i) => <span class={`sx-d sx-d${i}`}><Icon name={n} size="100%" /></span>)}</div>
     <div class="wrap sx-hero-in">
       <div class="sx-badge">Warning: stretchy trousers recommended</div>
-      <h1>Algeria’s sweet side <span class="sx-wave">🍯</span></h1>
+      <h1>Algeria’s sweet side <span class="sx-wave"><Icon name="drop" size=".8em" filled /></span></h1>
       <p class="sx-lede">Honey, almonds, orange blossom and a heroic amount of syrup. These are the pastries Algerians pile onto trays for Eid, weddings and Ramadan nights — and quietly demolish with mint tea the rest of the year.</p>
       <p class="sx-cta">
         <a class="btn btn-gold" href="#meet">Meet the pastries ↓</a>
@@ -71,7 +74,7 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
 
   <!-- ===== the golden rule ===== -->
   <section class="section sx-rule"><div class="wrap">
-    <p>🍵 <strong>The golden rule:</strong> the sweets are sweet on purpose. They come in small pieces, with <em>unsweetened</em> tea or bitter coffee to keep you upright. Pace yourself. (You won’t.)</p>
+    <p><Icon name="tea" /> <strong>The golden rule:</strong> the sweets are sweet on purpose. They come in small pieces, with <em>unsweetened</em> tea or bitter coffee to keep you upright. Pace yourself. (You won’t.)</p>
   </div></section>
 
   <!-- ===== the pastries ===== -->
@@ -86,7 +89,7 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
         <article class="sx-card">
           <div class="sx-img">
             <img src={s.img} alt={`${s.name} — Algerian pastry`} width="420" height="320" loading="lazy" decoding="async" />
-            <span class="sx-emoji" aria-hidden="true">{s.emoji}</span>
+            <span class="sx-emoji" aria-hidden="true"><Icon name={s.icon} size="1.35em" /></span>
           </div>
           <div class="sx-b">
             <h3>{s.name}</h3>
@@ -95,7 +98,7 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
             {s.quip && <p class="sx-quip">{s.quip}</p>}
             <div class="sx-meter" title={`Stickiness: ${s.meter}/5`} aria-label={`Stickiness ${s.meter} out of 5`}>
               <span class="sx-meter-lab">Sticky-o-meter</span>
-              <span class="sx-drops" aria-hidden="true">{'🍯'.repeat(s.meter)}<span class="sx-faded">{'🍯'.repeat(5 - s.meter)}</span></span>
+              <span class="sx-drops" role="img" aria-label={`Sweetness ${s.meter} of 5`}>{[0,1,2,3,4].map(i => <Icon name="drop" size="1em" filled={i < s.meter} class={i < s.meter ? 'on' : 'off'} />)}</span>
             </div>
           </div>
         </article>
@@ -107,12 +110,12 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
   <section class="section sx-occ"><div class="wrap">
     <div class="sx-h sx-h-center">
       <span class="eyebrow">When the trays come out</span>
-      <h2>Sweet o’clock in Algeria 🕰️</h2>
+      <h2>Sweet o’clock in Algeria</h2>
     </div>
     <div class="sx-occ-grid">
       {occasions.map(o => (
         <div class="sx-occ-card">
-          <span class="sx-occ-emoji" aria-hidden="true">{o.emoji}</span>
+          <span class="sx-occ-emoji" aria-hidden="true"><Icon name={o.icon} size="1.5em" /></span>
           <h3>{o.t}</h3>
           <p>{o.d}</p>
         </div>
@@ -122,7 +125,7 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
 
   <!-- ===== fun gallery ribbon ===== -->
   <section class="section sx-gal"><div class="wrap">
-    <div class="sx-h"><span class="eyebrow">Eye candy</span><h2>Just look at them 😍</h2></div>
+    <div class="sx-h"><span class="eyebrow">Eye candy</span><h2>Just look at them</h2></div>
     <div class="sx-ribbon">
       {gallery.map((g, i) => (
         <figure class="sx-rib-item"><img src={g} alt={`Algerian pastries close-up ${i+1}`} width="300" height="300" loading="lazy" decoding="async" /></figure>
@@ -144,17 +147,31 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
 
 <style>
   /* ===== hero ===== */
+  /* Honey rather than candy: the old gradient ran brown -> orange -> pink, which
+     read as a sweet-shop poster. This one stays in caramel and amber, with a
+     glint of gold light in the corner. */
   .sx-hero{position:relative;overflow:hidden;color:#fff;
-    background:linear-gradient(135deg,#7a2f12 0%,#B8730F 38%,#E0992B 64%,#D86A8E 100%)}
-  .sx-hero-deco{position:absolute;inset:0;font-size:3.2rem;line-height:2.4;letter-spacing:1.5rem;
-    opacity:.12;transform:rotate(-12deg) scale(1.4);pointer-events:none;user-select:none;white-space:pre-wrap}
+    background:radial-gradient(70% 90% at 88% 10%,rgba(255,214,140,.35),transparent 60%),
+               linear-gradient(135deg,#3d1606 0%,#7a3510 42%,#B06A12 78%,#C98A22 100%)}
+  /* a few large line drawings drifting very slowly, in place of a wallpaper of emoji */
+  .sx-hero-deco{position:absolute;inset:0;pointer-events:none;color:#FFE2A8;opacity:.16}
+  .sx-d{position:absolute;width:var(--w);aspect-ratio:1;left:var(--x);top:var(--y);animation:sx-drift 18s ease-in-out infinite;animation-delay:var(--dl)}
+  .sx-d0{--w:110px;--x:62%;--y:8%;--dl:0s} .sx-d1{--w:70px;--x:84%;--y:56%;--dl:-3s}
+  .sx-d2{--w:84px;--x:72%;--y:70%;--dl:-6s} .sx-d3{--w:96px;--x:90%;--y:14%;--dl:-9s}
+  .sx-d4{--w:64px;--x:55%;--y:58%;--dl:-12s} .sx-d5{--w:46px;--x:78%;--y:34%;--dl:-4s}
+  .sx-d6{--w:58px;--x:94%;--y:82%;--dl:-8s} .sx-d7{--w:52px;--x:48%;--y:16%;--dl:-14s}
+  @keyframes sx-drift{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-10px,14px) rotate(6deg)}}
+  @media(max-width:700px){.sx-hero-deco{opacity:.1}.sx-d4,.sx-d7{display:none}}
+  @media(prefers-reduced-motion:reduce){.sx-d{animation:none}}
   /* padding-block: this element also carries .wrap, and the shorthand zeroed
      its phone gutter */
   .sx-hero-in{position:relative;padding-block:3.4rem 3rem;max-width:760px}
   .sx-badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
     border-radius:999px;padding:.3rem .9rem;font-size:.78rem;font-weight:800;letter-spacing:.02em;backdrop-filter:blur(2px)}
-  .sx-hero h1{font-size:clamp(2.1rem,6vw,3.4rem);margin:.7rem 0 .5rem;line-height:1.05;text-shadow:0 2px 14px rgba(0,0,0,.22)}
-  .sx-wave{display:inline-block;animation:sx-wave 2.4s ease-in-out infinite;transform-origin:70% 70%}
+  /* white: the global h1 rule sets --text-heading (deep green), which on this
+     caramel hero measured as unreadable */
+  .sx-hero h1{color:#fff;font-size:clamp(2.6rem,6.4vw,4rem);margin:.7rem 0 .5rem;line-height:1.02;text-shadow:0 2px 14px rgba(0,0,0,.28)}
+  .sx-wave{display:inline-block;color:#FFD27A;vertical-align:-.05em;animation:sx-wave 3.2s ease-in-out infinite;transform-origin:50% 0}
   @keyframes sx-wave{0%,60%,100%{transform:rotate(0)}15%{transform:rotate(16deg)}30%{transform:rotate(-8deg)}45%{transform:rotate(12deg)}}
   .sx-lede{font-size:1.1rem;line-height:1.65;color:rgba(255,255,255,.95);max-width:620px}
   .sx-cta{margin-top:1.3rem;display:flex;gap:.7rem;flex-wrap:wrap}
@@ -183,10 +200,12 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
   .sx-img{position:relative;aspect-ratio:7/5;overflow:hidden;background:#f0ddb8}
   .sx-img img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
   .sx-card:hover .sx-img img{transform:scale(1.08)}
-  .sx-emoji{position:absolute;bottom:-14px;right:14px;font-size:2rem;background:#fffaf1;border-radius:50%;
-    width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(122,74,18,.25);
-    transition:transform .2s ease}
-  .sx-card:hover .sx-emoji{transform:scale(1.15) rotate(8deg)}
+  /* a gold-rimmed medallion carrying the sweet's line icon */
+  .sx-emoji{position:absolute;bottom:-18px;right:14px;color:#8a3f12;background:#fffaf1;border-radius:50%;
+    width:50px;height:50px;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 1px #E4C27A,0 0 0 4px #fffaf1,0 0 0 5px rgba(201,162,75,.45),0 8px 18px rgba(122,74,18,.22);
+    transition:transform .3s cubic-bezier(.2,.7,.2,1),color .3s}
+  .sx-card:hover .sx-emoji{transform:translateY(-3px);color:#B06A12}
   @media (hover:none){ .sx-card:active{transform:scale(.985)} .sx-card:active .sx-img img{transform:scale(1.04)} }
   .sx-b{padding:1.2rem 1.15rem 1.15rem;display:flex;flex-direction:column;flex:1}
   .sx-b h3{font-family:var(--serif);color:#8a3f12;font-size:1.25rem;margin:0}
@@ -196,8 +215,8 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
     border-left:3px solid #E4AD40;padding-left:.7rem}
   .sx-meter{margin-top:auto;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
   .sx-meter-lab{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;font-weight:800;color:#8A5A0C}
-  .sx-drops{font-size:.85rem;letter-spacing:1px}
-  .sx-faded{opacity:.22}
+  .sx-drops{display:inline-flex;gap:2px;color:#C98A22}
+  .sx-drops .off{color:#D9C3A0;opacity:.7}
 
   /* ===== occasions ===== */
   .sx-occ{background:linear-gradient(180deg,#fff,#FBF1DC)}
@@ -206,7 +225,8 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
     transition:transform .18s ease}
   .sx-occ-card:hover{transform:translateY(-4px)}
   @media (hover:none){ .sx-occ-card:active{transform:scale(.985)} }
-  .sx-occ-emoji{font-size:2.4rem;display:block;margin-bottom:.4rem}
+  .sx-occ-emoji{display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;margin-bottom:.6rem;
+    border-radius:50%;color:#8a3f12;background:#fff;box-shadow:inset 0 0 0 1px #E4C27A,0 6px 16px rgba(122,74,18,.12)}
   .sx-occ-card h3{font-family:var(--serif);color:#8a3f12;font-size:1.2rem;margin:0 0 .3rem}
   .sx-occ-card p{font-size:.9rem;color:#534233;line-height:1.5;margin:0}
 

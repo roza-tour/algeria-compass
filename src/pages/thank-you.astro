@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 import { CONTACT } from '../config';
 ---
 <BaseLayout title="Thank you | Algeria Compass" description="Thanks — your inquiry has been sent. We'll reply within a few hours." noindex>
@@ -8,7 +9,7 @@ import { CONTACT } from '../config';
     <h1>Thank you — your request is on its way</h1>
     <p style="color:var(--text-m);margin:1rem 0 1.6rem">We've emailed your details to our team and will reply within a few hours. Prefer to chat now?</p>
     <p>
-      <a class="btn btn-gold" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">💬 Message us on WhatsApp</a>
+      <a class="btn btn-gold" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Message us on WhatsApp</a>
       <a class="btn" href="/tours/">Browse tours</a>
     </p>
     <p style="color:var(--text-l);font-size:.9rem;margin-top:1.4rem">{CONTACT.phoneDisplay} · <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>

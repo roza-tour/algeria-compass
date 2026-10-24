@@ -35,7 +35,12 @@ for (const s of SKINS) {
   const watermarkUri = dataUri(resolve(s.emblem, s, { accent: wmColor, accent2: rgba(s.accent2, 0.06) }));
 
   css += `\n/* ===== Skin ${s.id} — ${s.name} ===== */\n`;
-  css += `${sel}{--accent:${s.accent};--accent-2:${s.accent2};--accent-deep:${shade(s.accent,0.35)};`
+  // :root raises these tokens to (0,2,0). As a bare [data-civ] (0,1,0) they lost
+  // to the season's html[data-season=...] (0,1,1), so in autumn a dark skin got
+  // the season's cream --wash under its own light text -- the itinerary box on
+  // the Timimoun page measured 1.16:1. On a civilisation page the skin owns the
+  // surface tokens; the season still brings its sky, light and particles.
+  css += `:root${sel}{--accent:${s.accent};--accent-2:${s.accent2};--accent-deep:${shade(s.accent,0.35)};`
        + `--civ-surface:${s.surface};--civ-ink:${s.ink};--wash:${s.dark ? 'rgba(255,255,255,.06)' : rgba(s.accent,0.07)};}\n`;
   // page background: faint emblem watermark (fixed) + tiling pattern
   css += `${sel} body{background-color:${s.surface};`

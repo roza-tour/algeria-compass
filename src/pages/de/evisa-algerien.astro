@@ -1,4 +1,5 @@
 ---
+import Icon from '../../components/Icon.astro';
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // Deutsche Ausgabe der e-Visum-Seite. Der Inhalt folgt der englischen Seite
 // /evisa/ : kein allgemeines Online-Touristen-e-Visum; zwei Wege — Konsulatsvisum
@@ -122,7 +123,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
 
     <div class="sev-cta">
       <a class="btn btn-gold" href="/de/reisen/">Sahara-Touren entdecken →</a>
-      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hallo Algeria Compass, ich habe eine Frage zum Sahara-e-Visum.')}`} target="_blank" rel="noopener">💬 Fragen zum Sahara-e-Visum</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hallo Algeria Compass, ich habe eine Frage zum Sahara-e-Visum.')}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Fragen zum Sahara-e-Visum</a>
     </div>
 
     <div class="sev-faq">

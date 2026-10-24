@@ -556,3 +556,9 @@ main > section:nth-of-type(n+3){
   content-visibility: auto;
   contain-intrinsic-size: auto 700px;
 }
+
+/* Line icons (src/components/Icon.astro): sit on the text's baseline and take
+   its colour, so a WhatsApp glyph in a green button and a passport in a gold
+   heading both look like part of the same word. */
+.ico{display:inline-block;vertical-align:-.16em;flex:none}
+.btn .ico,.btn-wa .ico,.btn-book .ico{margin-right:.15em}
