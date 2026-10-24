@@ -205,7 +205,10 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
   /* no will-change here: nothing transforms the copy (shifting it down would
      clip the h1 against the hero's overflow:hidden bottom edge), so the hint
      was paying for a compositor layer that never animated */
-  .home-hero-in{position:relative;z-index:2;padding:3.4rem 0 3rem}
+  /* padding-block, not the shorthand: this element also carries .wrap, whose
+     `0 1.2rem` the shorthand was zeroing -- on a phone the hero copy and
+     buttons sat flush against the screen edge. */
+  .home-hero-in{position:relative;z-index:2;padding-block:3.4rem 3rem}
   .home-hero .eyebrow{color:var(--gold-l)}
   .home-hero h1{color:#fff;font-size:var(--fs-display);max-width:15ch;margin:.55rem 0 0;
     text-shadow:0 2px 28px rgba(0,0,0,.38)}

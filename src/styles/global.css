@@ -136,7 +136,12 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:va
 .hero::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.4;
   background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'90'%20height%3D'90'%20viewBox%3D'0%200%2090%2090'%3E%20%3Cg%20fill%3D'none'%20stroke%3D'%23C8920A'%20stroke-width%3D'1'%20opacity%3D'0.4'%3E%20%3Cpath%20d%3D'M45%206%20L84%2045%20L45%2084%20L6%2045%20Z'%2F%3E%3Cpath%20d%3D'M45%2026%20L64%2045%20L45%2064%20L26%2045%20Z'%2F%3E%20%3Ccircle%20cx%3D'45'%20cy%3D'45'%20r%3D'3'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
   background-repeat:repeat;background-size:90px 90px}
-.hero .hero-in{position:relative;z-index:3;padding:2.6rem 0 3rem}
+.hero .hero-in{position:relative;z-index:3;
+  /* padding-block, not the shorthand: this element also carries .wrap, and
+     `padding:2.6rem 0 3rem` zeroed .wrap's `0 1.2rem`, so on a phone the h1,
+     the lead and the buttons sat flush against the screen edge. Desktop hid it
+     because .wrap's max-width leaves margin anyway. */
+  padding-block:2.6rem 3rem}
 /* Hero arrival. The image settles out of a slight over-scale, which gives the
    page a cinematic opening instead of a flat photograph.
 
@@ -264,6 +269,14 @@ footer{position:relative;padding:4rem 2rem 1.5rem;margin-top:3rem;background-ima
 /* --gold-d (#7E5E1A) is set once in :root — AA on white (~5.6:1). */
 .eyebrow{color:var(--gold-d)}
 [data-region] .eyebrow{color:var(--accent-ink)}
+/* --accent-ink is deliberately darkened (65% accent + black) so it passes on
+   the cream wash. On a DARK hero that is exactly backwards, and
+   `html[data-season] .eyebrow` (0,2,1) outranks `.hero .eyebrow` (0,2,0), so it
+   won there and rendered rgb(105,55,17) on rgb(7,38,28) -- 1.66:1, against a
+   4.5:1 requirement, on 152 pages. Restated at a specificity that wins. */
+html[data-season] .hero .eyebrow,
+html[data-season] .home-hero .eyebrow,
+html[data-season] [data-region] .hero .eyebrow{color:var(--gold-l)}
 .hero .eyebrow{color:var(--gold-l)}
 a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
   outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
