@@ -184,11 +184,18 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
            snapped the hero back to the top of its parallax, and scrolling threw
            away the pointer offset. */
         var mx = 0, my = 0, sy = 0, raf = 0;
+        /* Split hero: only the photograph moves, inside its own clipped panel,
+           and its travel is clamped to the slack its 1.08 scale leaves (about 4%
+           of the panel each way) so no edge is ever exposed. The copy column no
+           longer drifts: in the full-bleed hero the hero clipped it, but the
+           split hero grows with its text and is not clipped, so a scroll-driven
+           shift carried the title down over the next section. */
+        var clamp = function(v, m){ return Math.max(-m, Math.min(m, v)); };
         function paint(){
           raf = 0;
-          img.style.transform = 'translate(' + (mx*-22).toFixed(1) + 'px,' + (my*-22 + sy*0.18).toFixed(1) + 'px) scale(1.08)';
-          if(pat) pat.style.transform = 'translate(' + (mx*34).toFixed(1) + 'px,' + (my*34 + sy*0.08).toFixed(1) + 'px)';
-          if(inr) inr.style.transform = 'translate(' + (mx*16).toFixed(1) + 'px,' + (my*10 + sy*0.30).toFixed(1) + 'px)';
+          var slack = (img.offsetHeight || 600) * 0.035;
+          img.style.transform = 'translate(' + clamp(mx*-14, slack).toFixed(1) + 'px,' + clamp(my*-14 + sy*0.06, slack).toFixed(1) + 'px) scale(1.08)';
+          if(pat) pat.style.transform = 'translate(' + (mx*20).toFixed(1) + 'px,' + (my*20).toFixed(1) + 'px)';
         }
         function schedule(){ if(!raf) raf = requestAnimationFrame(paint); }
 
