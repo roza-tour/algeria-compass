@@ -50,7 +50,7 @@ const benefit = t.hook || t.summary;
 
 <style>
   .tcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);
-    border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;
+    border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;
     box-shadow:0 4px 18px rgba(11,61,46,.07);transition:transform .18s ease,box-shadow .18s ease}
   .tcard:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(11,61,46,.16)}
   /* image */
@@ -67,7 +67,7 @@ const benefit = t.hook || t.summary;
     background:rgba(7,38,28,.72);backdrop-filter:blur(3px);padding:.3rem .65rem;border-radius:8px}
   /* body */
   .tcard-body{display:flex;flex-direction:column;flex:1;padding:.95rem 1.05rem 1.1rem}
-  .tcard-title{font-size:1.06rem;line-height:1.25;margin:0 0 .35rem}
+  .tcard-title{font-size:1.32rem;line-height:1.15;margin:0 0 .4rem;font-weight:600}
   .tcard-benefit{font-size:.86rem;color:var(--text-m);line-height:1.5;margin:0 0 .7rem;
     display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
   .tcard-trust{list-style:none;margin:0 0 .85rem;padding:0;display:flex;flex-direction:column;gap:.28rem;
@@ -77,10 +77,10 @@ const benefit = t.hook || t.summary;
   .tcard-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.6rem}
   .tcard-price{display:flex;align-items:baseline;gap:.25rem;color:var(--green-d)}
   .tcard-price em{font-style:normal;font-size:.7rem;color:var(--text-l);text-transform:uppercase;letter-spacing:.04em}
-  .tcard-price b{font-family:'Cinzel',serif;font-size:1.35rem;line-height:1}
+  .tcard-price b{font-family:var(--font-display);font-size:1.6rem;font-weight:700;line-height:1}
   .tcard-price small{font-size:.72rem;color:var(--text-l)}
   .tcard-cta{flex:0 0 auto;background:var(--brand-green);color:#fff;font-weight:800;font-size:.8rem;
-    padding:.55rem .9rem;border-radius:9px;white-space:nowrap;transition:background .15s}
+    padding:.55rem .95rem;border-radius:var(--radius-btn);white-space:nowrap;letter-spacing:.02em;transition:background .15s}
   .tcard:hover .tcard-cta{background:var(--brand-gold);color:#07261C}
   /* The lift, the image zoom and the gold CTA above are all hover states, so
      on a touch screen the card was inert. Mirror them as a press: */

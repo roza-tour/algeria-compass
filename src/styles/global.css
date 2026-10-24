@@ -33,22 +33,28 @@
   --accent:var(--brand-green); --accent-2:var(--brand-gold); --accent-deep:var(--brand-green-700);
 
   /* ---- Type: families ---- */
-  --serif:'Cinzel',Georgia,'Times New Roman',serif;
-  --sans:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  /* Modern-luxury pairing, see DESIGN.md. Cinzel (inscriptional caps) on every
+     heading and Nunito (rounded) for body were the two biggest reasons the
+     site read as dated; Cinzel now sets only the wordmark beside the logo. */
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Jost',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --wordmark:'Cinzel',Georgia,serif;
   --arabic:'Noto Naskh Arabic','Amiri','Segoe UI',serif;
   --font-display:var(--serif); --font-body:var(--sans); --font-arabic:var(--arabic);
 
   /* ---- Type: fluid scale ---- */
-  --fs-display:clamp(2.1rem,5vw,3.4rem); --fs-h1:clamp(1.8rem,3.4vw,2.5rem);
-  --fs-h2:1.6rem; --fs-h3:1.22rem; --fs-lead:1.15rem; --fs-body:1.09rem;
+  /* Cormorant runs small for its em, so headings sit a step larger than they would in a sans */
+  --fs-display:clamp(2.6rem,5.6vw,4.2rem); --fs-h1:clamp(2.2rem,4vw,3.1rem);
+  --fs-h2:2.05rem; --fs-h3:1.45rem; --fs-lead:1.18rem; --fs-body:1.08rem;
   --fs-sm:.95rem; --fs-xs:.86rem; --fs-eyebrow:.76rem;
 
   /* ---- Type: weights / line-height / tracking ---- */
-  --fw-body:500; --fw-medium:600; --fw-bold:700; --fw-display:800; --fw-display-heavy:800;
-  --lh-tight:1.2; --lh-body:1.7; --ls-eyebrow:.14em; --ls-wordmark:.04em;
+  --fw-body:400; --fw-medium:500; --fw-bold:600; --fw-display:600; --fw-display-heavy:700;
+  --lh-tight:1.12; --lh-body:1.65; --ls-eyebrow:.14em; --ls-wordmark:.04em;
 
   /* ---- Radius ---- */
-  --radius-s:6px; --radius-m:14px; --radius-l:24px; --r:16px; --radius-pill:999px;
+  --radius-s:4px; --radius-m:10px; --radius-l:16px; --r:12px; --radius-pill:999px;
+  --radius-btn:4px;
 
   /* ---- Spacing scale ---- */
   --space-1:.35rem; --space-2:.6rem; --space-3:.9rem; --space-4:1.2rem;
@@ -91,14 +97,22 @@ a:hover{text-decoration:underline}
 .prose a,.tour p a,.faq p a,.rvx-note a,.rvx-body a,.sources li a,.ed-v a,
 .byline a,.key-takeaways a,.entity-snapshot a{
   text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
-h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:var(--text-heading);font-weight:var(--fw-display)}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:var(--text-heading);font-weight:var(--fw-display);letter-spacing:-.005em}
+h4{font-size:1.2rem}
+/* balanced lines: no lone word on the last line, and no title breaking at the
+   hyphen inside "5-Day" with "Day" stranded below */
+h1,h2,h3{text-wrap:balance}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
 .section{padding:var(--section-y) 0}
 /* ===== Buttons (green / gold / ghost / ghostLight) ===== */
-.btn{display:inline-block;background:var(--green);color:#fff;font-weight:var(--fw-bold);padding:.8rem 1.4rem;border-radius:10px;border:0;cursor:pointer;transition:background .18s ease,transform .15s ease,box-shadow .18s ease}
-.btn:hover{background:var(--green-d);text-decoration:none}
-.btn-gold{background:var(--gold);color:#1a1a1a}
-.btn-gold:hover{background:var(--gold-l);color:#07261C;transform:translateY(-1px)}
+.btn{display:inline-block;background:var(--green);color:#fff;font-weight:600;letter-spacing:.02em;padding:.85rem 1.5rem;border-radius:var(--radius-btn);border:0;cursor:pointer;transition:background .2s ease,transform .2s ease,box-shadow .2s ease}
+/* A button is never underlined. `.tour p a` and the other prose-link rules
+   (0,1,2) underline every link inside a paragraph, which caught the hero's
+   "Request to book" button; :is() lifts this to (0,2,1) so it wins. */
+:is(.prose,.tour,.faq,.rvx-note,.rvx-body,.sources,.ed-v,.byline,.key-takeaways,.entity-snapshot) a.btn{text-decoration:none}
+.btn:hover{background:var(--green-d);text-decoration:none;transform:translateY(-1px);box-shadow:0 10px 22px -10px rgba(7,38,28,.55)}
+.btn-gold{background:linear-gradient(180deg,#CFA244,var(--gold));color:#141414}
+.btn-gold:hover{background:linear-gradient(180deg,#DDB257,#C99B3A);color:#07261C;transform:translateY(-1px);box-shadow:0 12px 26px -12px rgba(193,147,51,.8)}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--ink)}
 .btn-ghost:hover{background:transparent;border-color:var(--green);color:var(--green-d)}
 .btn-ghost-light{background:transparent;border:1px solid rgba(246,239,224,.5);color:#fff}
@@ -110,16 +124,16 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:va
 .nav-inner{max-width:1360px;margin:0 auto;display:flex;align-items:center;height:68px;padding:0;gap:0}
 .nav-logo-link{display:flex;align-items:center;gap:.7rem;padding:0 2rem;border-right:1px solid rgba(246,239,224,.12);height:100%;white-space:nowrap;flex-shrink:0}
 .brand-mark{display:block;width:auto;height:56px;flex-shrink:0}
-.brand-name{font-family:'Cinzel',serif;font-weight:800;font-size:1.32rem;letter-spacing:.04em;color:#F6EFE0;white-space:nowrap}
+.brand-name{font-family:var(--wordmark);font-weight:700;font-size:1.32rem;letter-spacing:.04em;color:#F6EFE0;white-space:nowrap}
 .brand-name b{color:var(--gold-l);font-weight:800}
 .nav-links{display:flex;flex:1;list-style:none;height:100%;gap:0;padding:0 .5rem;margin:0}
 .nav-links>li{position:relative;display:flex;align-items:center}
 .nav-links>li>a{display:flex;align-items:center;gap:.25rem;height:100%;padding:0 .85rem;font-size:.87rem;font-weight:700;color:rgba(246,239,224,.94);border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;cursor:pointer}
 .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--gold-l);border-bottom-color:var(--gold);text-decoration:none}
 .nav-cta{display:flex;align-items:center;gap:.5rem;padding:0 1.2rem;border-left:1px solid rgba(246,239,224,.12);height:100%;flex-shrink:0}
-.btn-wa{background:#25D366;color:#06351f;padding:.5rem .9rem;border-radius:8px;font-size:.84rem;font-weight:800;transition:background .2s;display:flex;align-items:center;gap:.3rem}
+.btn-wa{background:#25D366;color:#06351f;padding:.5rem .9rem;border-radius:var(--radius-btn);font-size:.84rem;font-weight:600;transition:background .2s;display:flex;align-items:center;gap:.3rem}
 .btn-wa:hover{background:#1EAA52;text-decoration:none}
-.btn-book{background:var(--gold);color:#07261C;padding:.55rem 1.1rem;border-radius:8px;font-size:.86rem;font-weight:800;transition:all .15s;cursor:pointer;border:none;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
+.btn-book{background:var(--gold);color:#07261C;padding:.55rem 1.15rem;border-radius:var(--radius-btn);font-size:.86rem;font-weight:600;letter-spacing:.02em;transition:all .15s;cursor:pointer;border:none;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
 .btn-wa{min-height:44px}
 .btn-book:hover{background:var(--gold-l);transform:translateY(-1px);text-decoration:none}
 .nav-toggle{display:none;background:transparent;border:none;color:var(--gold-l);font-size:1.5rem;padding:0 1rem;cursor:pointer;min-height:44px;min-width:44px}
@@ -211,7 +225,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:va
 .card:hover .ci img{transform:scale(1.05)}
 .card .cb{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;flex:1}
 .card .tag{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
-.card h3{font-size:1.14rem;margin:.3rem 0 .4rem}
+.card h3{font-size:1.38rem;line-height:1.15;margin:.3rem 0 .4rem}
 .card p{font-size:.95rem;color:var(--text-m);flex:1}
 .card .meta{font-size:.8rem;color:var(--text-l);margin-top:.7rem;border-top:1px solid var(--border);padding-top:.6rem}
 /* faq — card-panel accordion with gold open-state + +/- marker */

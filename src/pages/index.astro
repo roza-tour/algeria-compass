@@ -187,7 +187,7 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
   .lux-band-txt{position:relative;max-width:640px}
   .lux-band-eyebrow{display:inline-block;color:#E0BE73;font-weight:800;font-size:.8rem;letter-spacing:.08em;
     text-transform:uppercase;margin-bottom:.5rem}
-  .lux-band h2{font-family:'Cinzel',serif;color:#fff;font-size:clamp(1.5rem,3.4vw,2.3rem);margin:0 0 .5rem;line-height:1.1}
+  .lux-band h2{font-family:var(--font-display);color:#fff;font-size:clamp(1.9rem,3.8vw,2.8rem);margin:0 0 .5rem;line-height:1.05}
   .lux-band p{color:rgba(255,255,255,.9);line-height:1.6;margin:0 0 1rem;max-width:640px}
   .lux-band-cta{display:inline-block;background:#C9A24B;color:#07261C;font-weight:800;padding:.7rem 1.3rem;
     border-radius:10px;transition:transform .15s ease,filter .15s ease}
@@ -214,7 +214,7 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
   .plan-card :is(.plan-t,.plan-x,.plan-go,.plan-emoji){text-shadow:0 1px 3px rgba(0,0,0,.6)}
   .plan-emoji{position:relative;z-index:1;color:rgba(255,255,255,.95);line-height:0}
   .plan-emoji svg{width:1.8rem;height:1.8rem;display:block}
-  .plan-t{font-family:'Cinzel',serif;font-weight:700;font-size:1.2rem;position:relative;z-index:1}
+  .plan-t{font-family:var(--font-display);font-weight:700;font-size:1.45rem;position:relative;z-index:1}
   .plan-x{font-size:.88rem;color:#fff;line-height:1.45;position:relative;z-index:1}
   .plan-go{font-size:1.3rem;font-weight:800;position:relative;z-index:1;transition:transform .18s ease}
   .plan-card:hover .plan-go{transform:translateX(5px)}
@@ -253,7 +253,7 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
   /* padding-block, not the shorthand: this element also carries .wrap, whose
      `0 1.2rem` the shorthand was zeroing -- on a phone the hero copy and
      buttons sat flush against the screen edge. */
-  .home-hero-in{position:relative;z-index:2;padding-block:3.4rem 3rem}
+  .home-hero-in{position:relative;z-index:3;padding-block:3.4rem 3.6rem}
   /* small gold caps are the hero's most fragile text: its right end reaches
      past the scrim's dark side onto lit rooftops, so it carries a halo too */
   .home-hero .eyebrow{color:var(--gold-l);text-shadow:0 1px 3px rgba(4,22,16,.85)}
@@ -269,7 +269,7 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
        the weakest line in the hero */
     text-shadow:0 1px 3px rgba(4,22,16,.72)}
   .home-hero .hero-cta{margin-top:1.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
-  .home-hero-scroll{position:absolute;left:50%;bottom:1.1rem;transform:translateX(-50%);z-index:2;
+  .home-hero-scroll{position:absolute;left:50%;bottom:1.1rem;transform:translateX(-50%);z-index:3;
     display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.82);
     font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
   .home-hero-scroll:hover{color:#fff;text-decoration:none}

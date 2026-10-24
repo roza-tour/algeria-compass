@@ -318,3 +318,33 @@ html[data-season] .eyebrow { color: var(--accent-ink); }
   html[data-season] footer::before,
   html[data-season] .amb::after { display: none !important; }
 }
+
+/* ===== Modern direction (DESIGN.md, October 2026) ==========================
+   The owner judged the site "cartoonish and very old". Each season keeps its
+   colour, its sky, its light and its particles, but the
+   decorative edges go: the surf, snowdrift and scalloped arcade that cut every
+   hero and the top of the footer into a wavy shape. The falling particles
+   (autumn leaves, spring petals, snow) stay: the owner wants them, because
+   they are what makes the season felt. The hero keeps its two scrim gradients,
+   minus the edge artwork. Removed here rather than in each season's block so a
+   season added later cannot bring the edges back by accident. */
+/* In their place, a modern transition rather than none: the hero photograph
+   (feathering into the page's own colour, so a dark civilisation skin gets a
+   dark feather, not a pale band)
+   dissolves into the page over a short feather, and the footer opens on a fine
+   gold rule -- the one ornament DESIGN.md allows. */
+html[data-season] .home-hero::before {
+  display: block; height: 44px; bottom: -1px; z-index: 2;   /* over the scrim, under the copy (z 3) */
+  background: linear-gradient(180deg, transparent, var(--civ-surface, var(--bg, #FBF8F2)));
+}
+html[data-season] footer::before {
+  display: block; height: 1px; transform: none; left: 50%; right: auto;
+  width: min(1100px, 88%); translate: -50% 0;
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 75, .75), transparent);
+}
+html[data-season] .hero::after {
+  background:
+    linear-gradient(180deg, transparent calc(100% - 44px), var(--civ-surface, var(--bg, #FBF8F2))),
+    linear-gradient(100deg, rgba(7, 38, 28, .9), rgba(7, 38, 28, .5) 52%, rgba(7, 38, 28, .2) 82%),
+    linear-gradient(0deg, rgba(7, 38, 28, .7), transparent 42%);
+}
