@@ -111,6 +111,19 @@ for (const f of htmlFiles) {
 
   for (const m of html.matchAll(/<img [^>]*src="(\/[^"]+)"/g))
     if (!allFiles.has(m[1])) errors.push(`${url}: <img> src missing ${m[1]}`);
+
+  // <source> inside <picture> was NOT checked, and that is how three tour cards
+  // shipped blank: the hero jpg existed, its .webp derivative did not, and the
+  // <img> inside a <picture> is a fallback for UNSUPPORTED FORMATS, not for a
+  // failed load -- a webp-capable browser picks the <source>, 404s, and shows
+  // nothing. A missing derivative must fail the build, not blank a card.
+  for (const m of html.matchAll(/<source [^>]*srcset="([^"]+)"/g))
+    for (const cand of m[1].split(','))
+      {
+        const f = cand.trim().split(/\s+/)[0];
+        if (f.startsWith('/') && !allFiles.has(f))
+          errors.push(`${url}: <source> srcset missing ${f} (the <img> fallback does NOT cover a 404)`);
+      }
 }
 
 // ---- sitemap must match the indexable set ----
