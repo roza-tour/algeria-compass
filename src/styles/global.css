@@ -164,7 +164,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:var(--lh-tight);color:va
 .hero .eyebrow{color:var(--gold-l)}
 /* slim top hero strip (homepage) — keeps the tour catalog above the fold */
 .hero-slim{min-height:0;height:clamp(230px,32vh,340px)}
-.hero-slim .hero-in{padding:1.1rem 0 1.4rem}
+.hero-slim .hero-in{padding-block:1.1rem 1.4rem}  /* same reason as .hero .hero-in above */
 .hero-slim h1{font-size:clamp(1.55rem,3.2vw,2.2rem);max-width:680px}
 .hero-slim p{font-size:1.04rem;font-weight:500;margin-top:.5rem}
 @media(max-width:640px){.hero-slim{height:auto;min-height:200px}}

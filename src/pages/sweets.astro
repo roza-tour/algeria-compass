@@ -148,7 +148,9 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
     background:linear-gradient(135deg,#7a2f12 0%,#B8730F 38%,#E0992B 64%,#D86A8E 100%)}
   .sx-hero-deco{position:absolute;inset:0;font-size:3.2rem;line-height:2.4;letter-spacing:1.5rem;
     opacity:.12;transform:rotate(-12deg) scale(1.4);pointer-events:none;user-select:none;white-space:pre-wrap}
-  .sx-hero-in{position:relative;padding:3.4rem 0 3rem;max-width:760px}
+  /* padding-block: this element also carries .wrap, and the shorthand zeroed
+     its phone gutter */
+  .sx-hero-in{position:relative;padding-block:3.4rem 3rem;max-width:760px}
   .sx-badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
     border-radius:999px;padding:.3rem .9rem;font-size:.78rem;font-weight:800;letter-spacing:.02em;backdrop-filter:blur(2px)}
   .sx-hero h1{font-size:clamp(2.1rem,6vw,3.4rem);margin:.7rem 0 .5rem;line-height:1.05;text-shadow:0 2px 14px rgba(0,0,0,.22)}

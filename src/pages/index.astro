@@ -196,9 +196,19 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
   @media (prefers-reduced-motion:no-preference){
     .home-hero-bg img{animation:hero-settle 1.7s cubic-bezier(.2,.7,.2,1) both}
   }
+  /* The scrim used to be a sheet across the whole hero, opening at 92% opacity
+     on the 105deg axis. At desktop width that buried the photograph entirely --
+     the hero read as a flat green panel, and lifting the scrim in the browser
+     revealed a bright aerial view of Algiers underneath.
+
+     It is now a pool of shade under the copy instead of a cover over the
+     picture: strongest at the bottom-left where the eyebrow, h1, lead and
+     buttons sit, falling away to nothing across the rest of the frame. The
+     bottom linear keeps the wave edge reading, and the faint 105deg wash keeps
+     the whole hero on-brand without hiding it. */
   .home-hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(105deg,rgba(7,38,28,.92),rgba(7,38,28,.55) 48%,rgba(7,38,28,.22) 80%),
-               linear-gradient(0deg,rgba(7,38,28,.72),transparent 40%)}
+    background:linear-gradient(100deg,rgba(7,38,28,.93) 0%,rgba(7,38,28,.90) 30%,rgba(7,38,28,.62) 46%,rgba(7,38,28,.30) 60%,rgba(7,38,28,.12) 74%,rgba(7,38,28,.06) 100%),
+               linear-gradient(0deg,rgba(7,38,28,.70),transparent 38%)}
   .home-hero-pattern{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55;
     background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'90'%20height%3D'90'%20viewBox%3D'0%200%2090%2090'%3E%20%3Cg%20fill%3D'none'%20stroke%3D'%23C8920A'%20stroke-width%3D'1'%20opacity%3D'0.4'%3E%20%3Cpath%20d%3D'M45%206%20L84%2045%20L45%2084%20L6%2045%20Z'%2F%3E%3Cpath%20d%3D'M45%2026%20L64%2045%20L45%2064%20L26%2045%20Z'%2F%3E%20%3Ccircle%20cx%3D'45'%20cy%3D'45'%20r%3D'3'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
     background-repeat:repeat;background-size:90px 90px}
@@ -209,11 +219,20 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
      `0 1.2rem` the shorthand was zeroing -- on a phone the hero copy and
      buttons sat flush against the screen edge. */
   .home-hero-in{position:relative;z-index:2;padding-block:3.4rem 3rem}
-  .home-hero .eyebrow{color:var(--gold-l)}
+  /* small gold caps are the hero's most fragile text: its right end reaches
+     past the scrim's dark side onto lit rooftops, so it carries a halo too */
+  .home-hero .eyebrow{color:var(--gold-l);text-shadow:0 1px 3px rgba(4,22,16,.85)}
   .home-hero h1{color:#fff;font-size:var(--fs-display);max-width:15ch;margin:.55rem 0 0;
-    text-shadow:0 2px 28px rgba(0,0,0,.38)}
-  .home-hero .lead{color:rgba(255,255,255,.92);max-width:54ch;margin:.95rem 0 0;
-    font-size:var(--fs-lead);font-weight:500;line-height:1.6}
+    /* two shadows, not one: a tight dark halo that survives a bright building
+       directly behind a letter, plus the original soft glow for depth. The
+       scrim can now be light enough to show the photograph because the text
+       carries its own contrast. */
+    text-shadow:0 1px 3px rgba(4,22,16,.78),0 2px 28px rgba(0,0,0,.42)}
+  .home-hero .lead{color:#fff;max-width:54ch;margin:.95rem 0 0;
+    font-size:var(--fs-lead);font-weight:500;line-height:1.6;
+    /* opaque, with its own halo: at 92% alpha over a bright roof this text was
+       the weakest line in the hero */
+    text-shadow:0 1px 3px rgba(4,22,16,.72)}
   .home-hero .hero-cta{margin-top:1.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
   .home-hero-scroll{position:absolute;left:50%;bottom:1.1rem;transform:translateX(-50%);z-index:2;
     display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.82);
@@ -225,7 +244,7 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
   @keyframes hhs{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
   @media (max-width:640px){
     .home-hero{min-height:clamp(360px,58vh,520px)}
-    .home-hero-in{padding:2.1rem 0 2.3rem}
+    .home-hero-in{padding-block:2.1rem 2.3rem}   /* padding-block: the shorthand here re-zeroed .wrap's gutter on phones, which is where it actually shows */
     .home-hero h1{max-width:none}
     .home-hero-scroll{display:none}
   }
