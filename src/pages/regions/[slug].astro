@@ -46,19 +46,28 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
       <a href="/">Home</a> › <a href="/regions/">Regions</a> › {r.name}
     </nav>
 
-    <!-- Parallax hero -->
+    <!-- Split hero. The photograph used to be a full-bleed background stretched
+         to 112% of the viewport: every region hero source is about 700px wide
+         (the library has only 11 images at 1400px or more, and those are the
+         luxury-camp photographs that must not stand for the circuits), so at
+         desktop width each one was being blown up roughly 2.2x and arrived as a
+         soft wash. A panel narrower than the source downscales instead, which
+         is sharp at every viewport, and the region's colour now owns the text
+         column outright rather than being painted over the picture. -->
     <header class="rg-hero">
-      <img class="rg-hero__img" src={r.hero} alt={`${r.name} — Algeria`} width="1200" height="800" fetchpriority="high" decoding="async" />
-      <div class="rg-hero__pat" aria-hidden="true"></div>
-      <div class="rg-hero__scrim" aria-hidden="true"></div>
       <div class="rg-hero__in">
         <img class="rg-hero__em" src={r.emblem} alt="" width="74" height="74" />
         <span class="rg-hero__kick">{r.kicker}</span>
         <span class="rg-hero__ar" lang="ar">{r.ar}</span>
         <h1 class="rg-hero__title">{r.heading || r.name}</h1>
         <p class="rg-hero__sub">{r.sub}</p>
+        <div class="rg-hero__cue" aria-hidden="true">Scroll to explore</div>
       </div>
-      <div class="rg-hero__cue" aria-hidden="true">Scroll to explore</div>
+      <div class="rg-hero__media">
+        <img class="rg-hero__img" src={r.hero} alt={`${r.name} — Algeria`} width="736" height="920" fetchpriority="high" decoding="async" />
+        <div class="rg-hero__pat" aria-hidden="true"></div>
+        <div class="rg-hero__scrim" aria-hidden="true"></div>
+      </div>
     </header>
 
     <!-- Intro -->

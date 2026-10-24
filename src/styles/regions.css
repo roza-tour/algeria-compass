@@ -22,16 +22,35 @@
 .rg-tilt__in{ transform-style:preserve-3d; transition:transform .5s cubic-bezier(.2,.7,.2,1); }
 .rg-card{ position:relative; height:330px; border-radius:18px; overflow:hidden; cursor:pointer;
   background:var(--rc-d); box-shadow:0 18px 40px -18px rgba(0,0,0,.8); display:block; }
-.rg-card__img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.62;
+/* These cards used to read as flat colour tiles. Three layers were each
+   individually reasonable and together obliterated the photograph: the photo
+   sat at 62% opacity over a solid --rc-d card, a 50% pattern screened on top,
+   and then a 92% scrim filled from 30% down with that same solid colour. Eight
+   photographs of Algeria rendered as eight coloured rectangles.
+
+   The photograph is now the card. The region's colour still identifies it --
+   it carries the base beneath the image, the foot of the scrim behind the
+   text, and the border -- but it no longer paints over the picture. */
+.rg-card__img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:1;
   transition:opacity .5s, transform .8s cubic-bezier(.2,.7,.2,1); }
-.rg-card:hover .rg-card__img{ opacity:.78; transform:scale(1.06); }
-.rg-card__pat{ position:absolute; inset:0; background:var(--pat); background-size:120px 120px; opacity:.5; mix-blend-mode:screen;
+.rg-card:hover .rg-card__img{ transform:scale(1.06); }
+/* the pattern screens over the photo, so at .5 it was a haze across everything */
+.rg-card__pat{ position:absolute; inset:0; background:var(--pat); background-size:120px 120px; opacity:.14; mix-blend-mode:screen;
   background-position:center; transition:transform .6s; }
-.rg-card__scrim{ position:absolute; inset:0; background:linear-gradient(180deg, transparent 30%, var(--rc-d) 96%); opacity:.92; }
+/* starts lower and reaches full colour only at the very bottom, so the text
+   keeps an opaque bed while the top two thirds stay photograph */
+.rg-card__scrim{ position:absolute; inset:0; opacity:1;
+  background:linear-gradient(180deg, transparent 30%, color-mix(in srgb, var(--rc-d) 58%, transparent) 54%, color-mix(in srgb, var(--rc-d) 90%, transparent) 74%, var(--rc-d) 99%); }
+@supports not (color: color-mix(in srgb, red 50%, transparent)) {
+  .rg-card__scrim{ background:linear-gradient(180deg, transparent 34%, var(--rc-d) 92%); }
+}
 .rg-card__em{ position:absolute; top:18px; left:18px; width:46px; height:46px; transform:translateZ(60px);
   filter:drop-shadow(0 6px 10px rgba(0,0,0,.5)); }
 .rg-card__em img{ width:100%; height:100%; }
-.rg-card__body{ position:absolute; left:0; right:0; bottom:0; padding:1.3rem 1.4rem; color:#fff; transform:translateZ(40px); }
+/* the copy now sits over a photograph rather than a flat colour, so it carries
+   its own halo -- a bright roof behind a letter cannot wash it out */
+.rg-card__body{ position:absolute; left:0; right:0; bottom:0; padding:1.3rem 1.4rem; color:#fff; transform:translateZ(40px);
+  text-shadow:0 1px 3px rgba(0,0,0,.72); }
 .rg-card__idx{ font-family:var(--font-display); font-size:.8rem; color:rgba(255,255,255,.66); letter-spacing:.1em; }
 .rg-card__ar{ font-family:var(--font-arabic); font-size:1.05rem; color:var(--rc-l); margin-top:.1rem; }
 .rg-card__name{ font-family:var(--font-display); font-weight:700; font-size:1.5rem; line-height:1.05; margin:.15rem 0 .35rem; color:#fff; }
@@ -42,17 +61,41 @@
 
 /* ================= REGION PAGE ================= */
 .rg-page{ background:var(--rc-paper,#F4EEE2); }
-.rg-hero{ position:relative; height:min(100vh,820px); min-height:560px; overflow:hidden; perspective:1200px; }
-.rg-hero__img{ position:absolute; inset:-6%; width:112%; height:112%; object-fit:cover; will-change:transform; }
-.rg-hero__pat{ position:absolute; inset:0; background:var(--pat); background-size:150px 150px; opacity:.22; mix-blend-mode:screen; will-change:transform; }
-.rg-hero__scrim{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,9,12,.5) 0%, rgba(8,9,12,.12) 32%, var(--rc-d) 116%); }
-.rg-hero__in{ position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:0 5vw 7vh; color:#fff; will-change:transform; }
+/* Split hero: a text column in the region's colour beside a photograph panel.
+   The panel is deliberately NARROWER than the source files (~700px wide), so
+   every hero downscales and stays sharp -- the old full-bleed background
+   stretched the same files to 112% of the viewport, about a 2.2x upscale, and
+   that softness was most of why these pages looked dated. */
+.rg-hero{ position:relative; display:grid; grid-template-columns:1.04fr .96fr;
+  min-height:min(78vh,720px); background:var(--rc-d); perspective:1200px; }
+.rg-hero__media{ position:relative; overflow:hidden; }
+.rg-hero__img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; will-change:transform; }
+.rg-hero__pat{ position:absolute; inset:0; background:var(--pat); background-size:150px 150px; opacity:.14; mix-blend-mode:screen; will-change:transform; }
+/* only blends the panel into the text column at its left edge and foot --
+   it no longer sits over the whole picture */
+.rg-hero__scrim{ position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg, var(--rc-d) 0%, color-mix(in srgb, var(--rc-d) 45%, transparent) 14%, transparent 34%),
+             linear-gradient(0deg, color-mix(in srgb, var(--rc-d) 80%, transparent) 0%, transparent 26%); }
+@supports not (color: color-mix(in srgb, red 50%, transparent)) {
+  .rg-hero__scrim{ background:linear-gradient(90deg, var(--rc-d) 0%, transparent 34%); }
+}
+.rg-hero__in{ position:relative; z-index:2; display:flex; flex-direction:column; justify-content:flex-end;
+  padding:4rem 3rem 3.4rem 5vw; color:#fff; will-change:transform; }
+
+@media(max-width:900px){
+  /* stacked: the panel is now only as wide as the phone, so the same file
+     downscales even further and is sharper still */
+  .rg-hero{ grid-template-columns:1fr; min-height:0; }
+  .rg-hero__media{ order:-1; aspect-ratio:4/3; }
+  .rg-hero__scrim{ background:linear-gradient(0deg, var(--rc-d) 0%, transparent 42%); }
+  .rg-hero__in{ padding:1.6rem 5vw 2.8rem; }
+}
 .rg-hero__em{ width:74px; height:74px; margin-bottom:1.2rem; filter:drop-shadow(0 8px 16px rgba(0,0,0,.5)); }
 .rg-hero__kick{ font-size:.74rem; letter-spacing:.3em; text-transform:uppercase; color:var(--rc-l); font-weight:700; }
 .rg-hero__ar{ font-family:var(--font-arabic); font-size:clamp(1.4rem,3vw,2.2rem); color:#fff; opacity:.92; margin:.5rem 0 .1rem; }
-.rg-hero__title{ font-family:var(--font-display); font-weight:800; font-size:clamp(2.6rem,8vw,6rem); line-height:.96; margin:.1rem 0 0; color:#fff; text-shadow:0 4px 30px rgba(8,9,12,.5); }
-.rg-hero__sub{ max-width:560px; margin-top:1.1rem; font-weight:500; font-size:1.12rem; line-height:1.55; color:rgba(255,255,255,.94); text-shadow:0 1px 14px rgba(8,9,12,.5); }
-.rg-hero__cue{ position:absolute; left:5vw; bottom:2vh; font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:rgba(255,255,255,.75); }
+.rg-hero__title{ font-family:var(--font-display); font-weight:800; font-size:clamp(2rem,3.5vw,3.5rem); line-height:1.02; margin:.1rem 0 0; color:#fff; text-shadow:0 4px 30px rgba(8,9,12,.5); text-wrap:balance; }
+.rg-hero__sub{ max-width:52ch; margin-top:1.1rem; font-weight:500; font-size:1.12rem; line-height:1.55; color:rgba(255,255,255,.94); text-shadow:0 1px 14px rgba(8,9,12,.5); }
+.rg-hero__cue{ margin-top:2rem; font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:rgba(255,255,255,.62); }
 
 .rg-section{ padding:clamp(3.5rem,7vw,6rem) 0; }
 .rg-crumbs{ max-width:1200px; margin:0 auto; padding:1rem 5vw 0; font-size:.74rem; color:var(--rc-d); }
