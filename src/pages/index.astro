@@ -9,7 +9,10 @@ import Reviews from '../components/Reviews.astro';
 import HonestAnswers from '../components/HonestAnswers.astro';
 import TourCard from '../components/TourCard.astro';
 import data from '../data/tours.json';
+import { smWebp } from '../lib/imageSize';
 const tours = ((data as any).tours || (data as any)) as any[];
+// Counted, not typed: the copy said "20" long after the catalogue grew to 24.
+const tourCount = tours.length;
 
 // curated featured tours (fall back to first 6)
 const featuredIds = ['djanet-sahara-safari','algiers-city-tour-casbah-bardo-martyrsmemorial','algeria-through-time-and-tradition','tour-bejaia-historic','ghardaia-guided-tour','oran-mostaganem-tlemcen'];
@@ -25,14 +28,18 @@ const ICONS: Record<string, string> = {
   utensils: '<path d="M3 2v7c0 1.1.9 2 2 2a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>',
   sparkles: '<path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>',
 };
+// Each card is a photograph with its colour at the foot, the same treatment as
+// the region cards -- these were six flat, unrelated saturated tiles, which is
+// most of what made this section read as dated. Every photo was checked by eye
+// for identifiable people before it went in.
 const planCards = [
-  { href:'/tours/',        icon:'compass',  title:'Browse tours',     text:'20 private, guided itineraries — Sahara, coast and Roman north.', a:'#0B3D2E', b:'#11543D' },
-  { href:'/destinations/', icon:'landmark', title:'Destinations',     text:"Casbah of Algiers, Tassili n'Ajjer, Constantine, Djémila and more.", a:'#8A3F2E', b:'#b4543b' },
-  { href:'/provinces/',    icon:'map',      title:'States',           text:"Region-by-region guides across Algeria's States.", a:'#1E8C8C', b:'#27a9a9' },
-  { href:'/travel-guides/',icon:'book',     title:'Travel guides',    text:'Visa, safety, best time to visit, food and transport.', a:'#C19333', b:'#dba63c' },
-  { href:'/culture/',      icon:'utensils', title:'Culture & food',   text:'Cuisine, crafts, music and the civilisations that shaped Algeria.', a:'#7a3b16', b:'#9c5223' },
-  { href:'/discover/',     icon:'sparkles', title:'Discover Algeria', text:'Our in-depth, researched guide to the whole country.', a:'#4A2A6A', b:'#6b3f97' },
-];
+  { href:'/tours/',        icon:'compass',  title:'Browse tours',     text:`${tours.length} private, guided itineraries — Sahara, coast and Roman north.`, a:'#0B3D2E', img:'/assets/img/tours/djanet-13.jpg' },
+  { href:'/destinations/', icon:'landmark', title:'Destinations',     text:"Casbah of Algiers, Tassili n'Ajjer, Constantine, Djémila and more.", a:'#6E3324', img:'/assets/img/tours/constantine-1.jpg' },
+  { href:'/provinces/',    icon:'map',      title:'States',           text:"Region-by-region guides across Algeria's States.", a:'#155F5F', img:'/assets/img/mzab-ksar-rooftops.jpg' },
+  { href:'/travel-guides/',icon:'book',     title:'Travel guides',    text:'Visa, safety, best time to visit, food and transport.', a:'#6B4E12', img:'/assets/img/casbah-old-street.jpg' },
+  { href:'/culture/',      icon:'utensils', title:'Culture & food',   text:'Cuisine, crafts, music and the civilisations that shaped Algeria.', a:'#5E2C10', img:'/assets/img/sweets/algeria-sweets-01.jpg' },
+  { href:'/discover/',     icon:'sparkles', title:'Discover Algeria', text:'Our in-depth, researched guide to the whole country.', a:'#3B2155', img:'/assets/img/timgad-ruins-columns.jpg' },
+].map(c => ({ ...c, webp: smWebp(c.img) }));
 
 const waText = encodeURIComponent("Hello Algeria Compass, I'd like to plan an Algeria tour.");
 
@@ -90,11 +97,15 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
     <div class="grid" style="margin-top:1.4rem" data-reveal-group>
       {featured.map((t: any, i: number) => <TourCard tour={t} priority={i < 2} />)}
     </div>
-    <p style="margin-top:1.6rem"><a class="btn" href="/tours/">All 20 tours →</a></p>
+    <p style="margin-top:1.6rem"><a class="btn" href="/tours/">All {tourCount} tours →</a></p>
   </div></section>
 
   <!-- L1 — Luxury 5-Star Collection banner -->
   <section class="lux-band" aria-label="Luxury 5-Star Collection" data-reveal>
+    <picture class="lux-band-ph" aria-hidden="true">
+      <source srcset="/assets/img/sahara-plateau-sunset.sm.webp" type="image/webp" />
+      <img src="/assets/img/sahara-plateau-sunset.jpg" alt="" width="720" height="1265" loading="lazy" decoding="async" />
+    </picture>
     <a class="lux-band-in wrap" href="/luxury/">
       <div class="lux-band-txt">
         <span class="lux-band-eyebrow">★ The 5-Star Collection</span>
@@ -113,7 +124,11 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
     </div>
     <div class="plan-grid">
       {planCards.map(c => (
-        <a class="plan-card" href={c.href} style={`--a:${c.a};--b:${c.b}`}>
+        <a class="plan-card" href={c.href} style={`--a:${c.a}`}>
+          <picture class="plan-ph" aria-hidden="true">
+            {c.webp && <source srcset={c.webp} type="image/webp" />}
+            <img src={c.img} alt="" width="736" height="552" loading="lazy" decoding="async" />
+          </picture>
           <span class="plan-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[c.icon]} /></span>
           <span class="plan-t">{c.title}</span>
           <span class="plan-x">{c.text}</span>
@@ -157,7 +172,19 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
     radial-gradient(120% 100% at 90% -20%, rgba(201,162,75,.28), transparent 55%),
     radial-gradient(90% 90% at -10% 120%, rgba(30,111,92,.5), transparent 55%),
     linear-gradient(135deg,#0B3D2E,#07261C);pointer-events:none}
-  .lux-band-txt{position:relative;max-width:760px}
+  /* The band was flat green under the text. It now carries the /luxury/ page's
+     own hero photograph on its right half, fading into the green under the copy,
+     so the strongest offer on the page is no longer its plainest block. */
+  .lux-band-ph{position:absolute;top:0;right:0;bottom:0;width:50%;pointer-events:none;z-index:0}
+  .lux-band-in{z-index:1}
+  .lux-band-ph img{width:100%;height:100%;object-fit:cover;display:block}
+  /* a mask, not a colour overlay: the band behind is a gradient, so any flat
+     colour laid over the photo's left edge left a visible seam where it met it.
+     Fading the photograph itself to transparent lets the band show through. */
+  .lux-band-ph{-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 30%,#000 62%);
+    mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 30%,#000 62%)}
+  @media(max-width:760px){ .lux-band-ph{width:100%;opacity:.32;-webkit-mask-image:none;mask-image:none} }
+  .lux-band-txt{position:relative;max-width:640px}
   .lux-band-eyebrow{display:inline-block;color:#E0BE73;font-weight:800;font-size:.8rem;letter-spacing:.08em;
     text-transform:uppercase;margin-bottom:.5rem}
   .lux-band h2{font-family:'Cinzel',serif;color:#fff;font-size:clamp(1.5rem,3.4vw,2.3rem);margin:0 0 .5rem;line-height:1.1}
@@ -168,19 +195,27 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
   /* P4 — "Plan your Algeria trip": vibrant, joyful entry cards */
   .plan-sec{background:linear-gradient(180deg,#fbf8f2,#f3ede0)}
   .plan-lead{color:var(--text-m);margin:.4rem 0 0}
-  .plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.3rem}
-  .plan-card{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:.3rem;
-    min-height:160px;padding:1.2rem 1.2rem 1.3rem;border-radius:18px;text-decoration:none;color:#fff;
-    background:linear-gradient(140deg,var(--a),var(--b));box-shadow:0 8px 24px rgba(11,61,46,.14);
-    transition:transform .18s ease,box-shadow .18s ease}
-  .plan-card::after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;
-    background:rgba(255,255,255,.12);transition:transform .3s ease}
-  .plan-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(11,61,46,.22)}
-  .plan-card:hover::after{transform:scale(1.5)}
+  /* three across, so six cards make two full rows; auto-fit at 240px gave
+     4 + 2 at desktop, with an empty quarter of the row beside the last two */
+  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.3rem}
+  @media(max-width:900px){ .plan-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:560px){ .plan-grid{grid-template-columns:1fr} }
+  .plan-card{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:.3rem;
+    min-height:250px;padding:1.3rem 1.3rem 1.35rem;border-radius:18px;text-decoration:none;color:#fff;
+    background:var(--a);box-shadow:0 10px 28px rgba(11,61,46,.16);isolation:isolate;
+    transition:transform .22s ease,box-shadow .22s ease}
+  .plan-ph{position:absolute;inset:0;z-index:-2}
+  .plan-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  /* the card's colour gathers only under the copy */
+  .plan-card::after{content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,transparent 10%,color-mix(in srgb,var(--a) 72%,transparent) 42%,color-mix(in srgb,var(--a) 94%,transparent) 64%,var(--a) 100%)}
+  .plan-card:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(11,61,46,.26)}
+  .plan-card:hover .plan-ph img{transform:scale(1.06)}
+  .plan-card :is(.plan-t,.plan-x,.plan-go,.plan-emoji){text-shadow:0 1px 3px rgba(0,0,0,.6)}
   .plan-emoji{position:relative;z-index:1;color:rgba(255,255,255,.95);line-height:0}
   .plan-emoji svg{width:1.8rem;height:1.8rem;display:block}
   .plan-t{font-family:'Cinzel',serif;font-weight:700;font-size:1.2rem;position:relative;z-index:1}
-  .plan-x{font-size:.86rem;color:rgba(255,255,255,.92);line-height:1.45;flex:1;position:relative;z-index:1}
+  .plan-x{font-size:.88rem;color:#fff;line-height:1.45;position:relative;z-index:1}
   .plan-go{font-size:1.3rem;font-weight:800;position:relative;z-index:1;transition:transform .18s ease}
   .plan-card:hover .plan-go{transform:translateX(5px)}
   @media (hover:none){ .plan-card:active{transform:scale(.985)} }
