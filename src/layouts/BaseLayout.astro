@@ -97,6 +97,24 @@ const speakableNode = speakable?.length ? {
     (function(){var t0=Date.now();document.addEventListener('submit',function(e){var f=e.target;if(!f||!/(contact|reviews|itinerary)\.php$/.test(f.getAttribute('action')||''))return;var i=f.querySelector('input[name="_el"]');if(!i){i=document.createElement('input');i.type='hidden';i.name='_el';f.appendChild(i);}i.value=String(Math.round((Date.now()-t0)/1000));},true);})();
   </script>
   <script is:inline>
+    /* Floating actions appear once the hero has scrolled away (see global.css,
+       html.fab-wait). A page with no hero shows them at once. */
+    (function(){
+      var hero = document.querySelector('.home-hero, .rg-hero, .hero');
+      if (!hero) return;
+      var root = document.documentElement;
+      root.classList.add('fab-wait');
+      function check(){
+        /* past the point where the hero's own buttons leave the screen */
+        var on = hero.getBoundingClientRect().bottom < window.innerHeight * 0.35;
+        root.classList.toggle('fab-on', on);
+      }
+      check();
+      window.addEventListener('scroll', check, { passive:true });
+      window.addEventListener('resize', check, { passive:true });
+    })();
+  </script>
+  <script is:inline>
     /* Homepage hero parallax. .home-hero-bg is laid out with inset:-6% and an
        img at height:108% -- overscan that exists for exactly this effect but
        was never wired up, leaving a will-change hint paying for a compositor

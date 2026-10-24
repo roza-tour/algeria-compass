@@ -62,6 +62,15 @@ const t = {
     .cc-decline:hover{background:rgba(255,255,255,.12)}
     .cc-accept{background:#C9A24B;color:#07261C}
     .cc-accept:hover{filter:brightness(1.06)}
-    @media(max-width:520px){ .cc-btns{flex:1 1 100%} .cc-btn{flex:1} }
+    /* On a phone the banner took ~300px -- most of the space under the hero
+       buttons. Tighter, smaller, and pinned closer to the edge; the wording is
+       consent copy and stays complete. */
+    @media(max-width:520px){
+      .cc{left:.5rem;right:.5rem;bottom:.5rem;border-radius:12px}
+      .cc-in{gap:.55rem;padding:.7rem .85rem}
+      .cc-txt{flex-basis:100%;font-size:.8rem;line-height:1.42}
+      .cc-btns{flex:1 1 100%;gap:.5rem}
+      .cc-btn{flex:1;min-height:40px;padding:.4rem .8rem;font-size:.84rem}
+    }
   </style>
 )}

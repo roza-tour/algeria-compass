@@ -342,6 +342,19 @@ label{display:block;font-size:.88rem;font-weight:700;color:var(--text-m);margin-
 .sticky-contact .wa{background:#1ebe5d;color:#06351f}
 .sticky-contact .pl{background:var(--green-d);color:#fff}
 @media(max-width:520px){.sticky-contact .pl span{display:none}.sticky-contact .wa span{display:none}}
+/* Floating actions wait until the hero has scrolled away. At the fold the
+   hero already offers its own two actions and the header carries WhatsApp, so
+   on a phone the floating WhatsApp, Plan and Ask buttons were the fourth to
+   sixth calls to action on one screen, and the Ask bubble sat on top of the
+   hero's own buttons. The hidden state is only ever applied by script (it
+   needs html.fab-wait), so without JS they are always there; `visibility`
+   keeps them out of the tab order while hidden, and its delay lets the fade
+   finish before it switches. */
+html.fab-wait .sticky-contact,
+html.fab-wait .ask-launch{transition:opacity .3s ease,transform .3s ease,visibility 0s linear 0s}
+html.fab-wait:not(.fab-on) .sticky-contact,
+html.fab-wait:not(.fab-on) .ask-launch{opacity:0;transform:translateY(14px);visibility:hidden;pointer-events:none;
+  transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s}
 
 /* ===== Multi-step inquiry form ===== */
 .inq{max-width:600px}
