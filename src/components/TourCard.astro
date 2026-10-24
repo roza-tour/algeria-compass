@@ -11,6 +11,7 @@
 // `"bestseller": true` in src/data/tours.json. OWNER: set that flag on the
 // tours you actually sell most — until then no best-seller badges appear.
 import { TOUR_VISUALS } from '../data/tour-visuals';
+import { nobr } from '../lib/nobr';
 const { tour, priority = false } = Astro.props as { tour: any; priority?: boolean };
 const t = tour;
 const v = TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
@@ -31,7 +32,7 @@ const benefit = t.hook || t.summary;
     <span class="tcard-dur">{t.duration}</span>
   </div>
   <div class="tcard-body">
-    <h3 class="tcard-title">{t.title}</h3>
+    <h3 class="tcard-title">{nobr(t.title)}</h3>
     <p class="tcard-benefit">{benefit}</p>
     <ul class="tcard-trust" aria-label="Why book this tour">
       <li>Licensed Algerian operator</li>

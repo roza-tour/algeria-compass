@@ -4,6 +4,7 @@ import '../styles/civ-skins.css';
 import '../styles/occasions.css';
 import '../styles/season-themes.css';
 import '../styles/contrast-overrides.css';
+import '../styles/motion.css';
 import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -95,6 +96,30 @@ const speakableNode = speakable?.length ? {
     // contact.php / reviews.php / itinerary.php carries _el = seconds since the page loaded.
     // Capture phase, so it is set before the forms' own fetch() handlers run.
     (function(){var t0=Date.now();document.addEventListener('submit',function(e){var f=e.target;if(!f||!/(contact|reviews|itinerary)\.php$/.test(f.getAttribute('action')||''))return;var i=f.querySelector('input[name="_el"]');if(!i){i=document.createElement('input');i.type='hidden';i.name='_el';f.appendChild(i);}i.value=String(Math.round((Date.now()-t0)/1000));},true);})();
+  </script>
+  <script is:inline>
+    /* Header glass + reading progress (styles in motion.css). One passive
+       scroll listener, painted on the next frame. */
+    (function(){
+      var root = document.documentElement, bar = null, raf = 0;
+      var prose = document.querySelector('.prose');
+      if (prose && document.documentElement.scrollHeight > window.innerHeight * 2.5) {
+        bar = document.createElement('div');
+        bar.className = 'read-progress'; bar.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(bar);
+      }
+      function paint(){
+        raf = 0;
+        var y = window.pageYOffset || 0;
+        root.classList.toggle('is-scrolled', y > 12);
+        if (bar) {
+          var max = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0).toFixed(4) + ')';
+        }
+      }
+      window.addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(paint); }, { passive:true });
+      paint();
+    })();
   </script>
   <script is:inline>
     /* Floating actions appear once the hero has scrolled away (see global.css,

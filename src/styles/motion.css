@@ -1,0 +1,81 @@
+/* =====================================================================
+   Algeria Compass — the motion layer ("give the site a soul")
+   Everything here is progressive enhancement: without support, without
+   JavaScript, or under prefers-reduced-motion, every page renders exactly
+   as before and nothing is ever left hidden.
+   ===================================================================== */
+
+/* ---- 1. Page-to-page: the site turns pages instead of blinking ----------
+   Cross-document view transitions are pure CSS: links stay ordinary page
+   loads, so none of the site's inline scripts (analytics, reveal, parallax,
+   the Ask widget) need rewriting -- unlike a client-side router. The header
+   is named, so it stays put while the content beneath it changes. Browsers
+   without support simply navigate as before. */
+@view-transition { navigation: auto; }
+.nav { view-transition-name: site-nav; }
+::view-transition-old(root) { animation: vt-out .26s cubic-bezier(.4, 0, .2, 1) both; }
+::view-transition-new(root) { animation: vt-in .46s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(12px); } }
+
+/* ---- 2. Arrival: the hero copy comes in line by line --------------------
+   CSS only, so it cannot strand anything. The h1 moves but is never faded:
+   it is a candidate LCP element, and text painted at opacity 0 does not count
+   as painted. Delays are short; the whole sequence is done inside a second. */
+@keyframes hero-rise   { from { opacity: 0; transform: translateY(18px); } }
+@keyframes hero-rise-t { from { transform: translateY(18px); } }
+@media (prefers-reduced-motion: no-preference) {
+  :is(.home-hero-in, .hero .hero-in, .rg-hero__in) > * {
+    animation: hero-rise .9s cubic-bezier(.2, .7, .2, 1) both;
+  }
+  :is(.home-hero-in, .hero .hero-in, .rg-hero__in) > :is(h1, .rg-hero__title) { animation-name: hero-rise-t; }
+  :is(.home-hero-in, .hero .hero-in, .rg-hero__in) > :nth-child(1) { animation-delay: .05s; }
+  :is(.home-hero-in, .hero .hero-in, .rg-hero__in) > :nth-child(2) { animation-delay: .14s; }
+  :is(.home-hero-in, .hero .hero-in, .rg-hero__in) > :nth-child(3) { animation-delay: .24s; }
+  :is(.home-hero-in, .hero .hero-in, .rg-hero__in) > :nth-child(4) { animation-delay: .34s; }
+  :is(.home-hero-in, .hero .hero-in, .rg-hero__in) > :nth-child(5) { animation-delay: .44s; }
+  :is(.home-hero-in, .hero .hero-in, .rg-hero__in) > :nth-child(n+6) { animation-delay: .52s; }
+}
+
+/* ---- 3. Section heads: the gold rule draws itself ----------------------
+   Only hidden while its section is waiting to be revealed (.reveal-init
+   without .reveal-in), which the reveal script applies only when motion is
+   allowed -- so with no script the rule is simply there. */
+.sec-head .eyebrow::after {
+  transform-origin: left center;
+  transition: transform 1s cubic-bezier(.2, .7, .2, 1) .25s, width .3s ease;
+}
+:is([data-reveal].reveal-init:not(.reveal-in) .sec-head, .sec-head[data-reveal].reveal-init:not(.reveal-in)) .eyebrow::after {
+  transform: scaleX(0);
+}
+.sec-head:hover .eyebrow::after { width: 54px; }
+
+/* ---- 4. The header turns to glass once the page moves ------------------
+   Shadow, translucency and blur only: changing its height would shift the
+   page under a sticky header, which is layout shift. */
+.nav { transition: background-color .35s ease, box-shadow .35s ease, backdrop-filter .35s ease; }
+@supports (backdrop-filter: blur(8px)) {
+  html.is-scrolled .nav {
+    background-color: rgba(11, 61, 46, .86);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    backdrop-filter: saturate(140%) blur(12px);
+    box-shadow: 0 10px 30px -14px rgba(4, 22, 16, .55);
+  }
+}
+
+/* ---- 5. Reading progress on long articles ------------------------------ */
+.read-progress {
+  position: fixed; left: 0; top: 0; z-index: 400; height: 2px; width: 100%;
+  transform-origin: 0 50%; transform: scaleX(0); pointer-events: none;
+  background: linear-gradient(90deg, #8B6A22, #E4AD40 60%, #F6E2A8);
+  box-shadow: 0 0 8px rgba(228, 173, 64, .55);
+}
+
+/* ---- 6. Small things that make it feel made by hand ------------------- */
+::selection { background: rgba(193, 147, 51, .28); color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  .sec-head .eyebrow::after { transition: none; }
+}

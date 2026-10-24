@@ -82,8 +82,13 @@
 [data-region="highlands"] { --accent:#5a6b2f; --wash:#f2f4ea; }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{overflow-x:hidden}
+/* overflow-x: clip, not hidden. `hidden` on body makes it a scroll container,
+   and position:sticky then pins to that container rather than the viewport --
+   so the header, declared sticky below, scrolled away with the page. `clip`
+   cuts the same overflow without creating a scroll container. `hidden` stays
+   first as the fallback for browsers that predate `clip`. */
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
+body{overflow-x:hidden;overflow-x:clip}
 /* No -webkit-font-smoothing:antialiased here on purpose: on macOS/iOS it thins
    every stroke, which is what made Nunito read washed-out on this palette.
    Default (subpixel) rendering keeps the letterforms solid. */

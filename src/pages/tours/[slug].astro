@@ -1,5 +1,6 @@
 ---
 import Icon from '../../components/Icon.astro';
+import { nobr } from '../../lib/nobr';
 import fs from 'node:fs';
 import sharp from 'sharp';
 import { getCollection } from 'astro:content';
@@ -187,7 +188,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
     )}
     <div class="hero-in wrap">
       <div class="eyebrow">Private guided tour · {tour.duration}</div>
-      <h1>{tour.title}</h1>
+      <h1>{nobr(tour.title)}</h1>
       <p class="tour-hook">{tour.hook ?? tour.summary}</p>
       <GuideBadge lang="en" tourTitle={tour.title} url={`${site}/tours/${tour.id}/`} />
       <p style="margin-top:1rem">
