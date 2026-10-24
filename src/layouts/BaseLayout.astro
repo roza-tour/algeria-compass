@@ -98,6 +98,42 @@ const speakableNode = speakable?.length ? {
     (function(){var t0=Date.now();document.addEventListener('submit',function(e){var f=e.target;if(!f||!/(contact|reviews|itinerary)\.php$/.test(f.getAttribute('action')||''))return;var i=f.querySelector('input[name="_el"]');if(!i){i=document.createElement('input');i.type='hidden';i.name='_el';f.appendChild(i);}i.value=String(Math.round((Date.now()-t0)/1000));},true);})();
   </script>
   <script is:inline>
+    /* Numbers count up the first time they come into view: [data-count].
+       The final figure is in the HTML -- for search engines, no-JS and
+       reduced motion -- and the script only replays the climb to it. It keeps
+       whatever surrounds the number ("€1,615", "24") and skips text with no
+       number in it ("All-in"). */
+    (function(){
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (document.visibilityState === 'hidden' || !('IntersectionObserver' in window)) return;
+      var els = document.querySelectorAll('[data-count]');
+      if (!els.length) return;
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (!e.isIntersecting) return;
+          io.unobserve(e.target);
+          var el = e.target, text = el.textContent, m = text.match(/\d[\d,]*/);
+          if (!m) return;
+          var target = parseInt(m[0].replace(/,/g, ''), 10), comma = m[0].indexOf(',') > -1;
+          var pre = text.slice(0, m.index), post = text.slice(m.index + m[0].length);
+          var t0 = performance.now(), dur = Math.min(1600, 700 + target * 2);
+          /* starts on the first real frame (never writes a 0 up front), and a
+             timer restores the final text even if frames stop, e.g. a tab sent
+             to the background mid-count -- so a figure can never sit at 0 */
+          function step(now){
+            var k = Math.min(1, (now - t0) / dur), eased = 1 - Math.pow(1 - k, 3);
+            var n = Math.round(target * eased);
+            el.textContent = pre + (comma ? n.toLocaleString('en-US') : n) + post;
+            if (k < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(function(now){ t0 = now; step(now); });
+          setTimeout(function(){ el.textContent = text; }, dur + 900);
+        });
+      }, { threshold: .6 });
+      els.forEach(function(el){ io.observe(el); });
+    })();
+  </script>
+  <script is:inline>
     /* Header glass + reading progress (styles in motion.css). One passive
        scroll listener, painted on the next frame. */
     (function(){
