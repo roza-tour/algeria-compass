@@ -22,6 +22,14 @@ for (const s of SKINS) {
   const sel = `[data-civ="${s.id}"]`;
   const patternUri = dataUri(resolve(s.pattern, s, { accent: s.accent, accent2: s.accent2 }));
   const markUri    = dataUri(resolve(s.emblem,  s, { accent: s.accent, accent2: s.accent2 }));
+  // The tiling pattern behind the page body sits under every paragraph, and at
+  // the strength the section dividers use (.18-.32) its lines ran straight
+  // through the copy -- most of what made these pages look busy and dated. The
+  // body gets the same pattern at 35% of its strength, a texture rather than a
+  // lattice; dividers, which sit between sections and not under text, keep it
+  // at full strength. Wrapping in a group keeps nested opacities proportional.
+  const patternSvg = resolve(s.pattern, s, { accent: s.accent, accent2: s.accent2 });
+  const bgPatternUri = dataUri(patternSvg.replace(/^(<svg[^>]*>)/, "$1<g opacity='.35'>").replace(/<\/svg>$/, '</g></svg>'));
   // watermark: emblem in faint accent
   const wmColor = rgba(s.accent, s.dark ? 0.07 : 0.06);
   const watermarkUri = dataUri(resolve(s.emblem, s, { accent: wmColor, accent2: rgba(s.accent2, 0.06) }));
@@ -31,7 +39,7 @@ for (const s of SKINS) {
        + `--civ-surface:${s.surface};--civ-ink:${s.ink};--wash:${s.dark ? 'rgba(255,255,255,.06)' : rgba(s.accent,0.07)};}\n`;
   // page background: faint emblem watermark (fixed) + tiling pattern
   css += `${sel} body{background-color:${s.surface};`
-       + `background-image:url("${watermarkUri}"),url("${patternUri}");`
+       + `background-image:url("${watermarkUri}"),url("${bgPatternUri}");`
        + `background-repeat:no-repeat,repeat;`
        + `background-position:right -28px bottom -28px,top left;`
        + `background-size:340px 340px,${s.pw}px ${s.ph}px;`
