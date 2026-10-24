@@ -5,6 +5,9 @@
 import ItineraryOffer from '../../../components/ItineraryOffer.astro';
 import GuideBadge from '../../../components/GuideBadge.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PhotoGallery from '../../../components/PhotoGallery.astro';
+import { tourGallery } from '../../../data/tour-photos';
+import fs from 'node:fs';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import data from '../../../data/tours.json';
 import { TOUR_VISUALS } from '../../../data/tour-visuals';
@@ -25,6 +28,18 @@ export async function getStaticPaths() {
 const { tour, fr } = Astro.props as { tour: any; fr: TourEs };
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const url = `${site}/es/circuitos/${tour.id}/`;
+
+/* The gallery existed only on the English page, so a reader in this language
+   saw a hero and two images where the English page shows twenty-one. Same
+   photographs, same order (tour-photos.ts), translated heading. Served from
+   /assets/img/tours/ because PhotoGallery resolves a .sm.webp sibling and the
+   real intrinsic dimensions from there, which the thumbs folder has no
+   equivalent for. */
+let gallery: { file: string; alt?: string }[] = [];
+try {
+  gallery = tourGallery(tour.image_slugs, fs.readdirSync('public/assets/img/tours'));
+} catch (e) { gallery = []; }
+const galleryImages = gallery.map(g => ({ src: `/assets/img/tours/${g.file}`, alt: g.alt || tour.title }));
 const enUrl = `${site}/tours/${tour.id}/`;
 const v = TOUR_VISUALS[tour.id] || { hero: `${tour.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
 const hero = `/assets/img/tours/${v.hero}`;
@@ -217,6 +232,7 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
       )}
     </aside>
   </div></section>
+  <PhotoGallery images={galleryImages} heading="Galería de fotos" />
 </BaseLayout>
 
 <style>
