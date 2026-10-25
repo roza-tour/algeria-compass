@@ -395,6 +395,7 @@ html.fab-wait:not(.fab-on) .ask-launch{opacity:0;transform:translateY(14px);visi
 .form-note{font-size:.88rem;color:var(--text-l);margin-top:.8rem}
 .inq .req{color:var(--red)}
 .inq .nav-row{align-items:center;gap:.6rem}
+.inq .nav-row > .btn{flex:1 1 220px;text-align:center;padding-block:.95rem}
 .btn-wa-2{background:#25D366;color:#06351f}
 .btn-wa-2:hover{background:#1EAA52;text-decoration:none}
 .inq-error{background:#fdecec;border:1px solid #f3b9b9;color:#9b1c1c;border-radius:10px;padding:.7rem .9rem;font-size:.93rem;margin-top:1rem}

@@ -1,0 +1,97 @@
+---
+// The column beside the enquiry form on the contact page, in all five
+// languages. The form used to sit alone in a 640px column on an empty page --
+// the site's most important conversion page was also its plainest. This puts a
+// photograph and the reasons to book right beside the form, where the visitor
+// is deciding. Every point is a fact the site already states elsewhere (and
+// the deposit and cancellation figures come from src/config.ts, not the copy).
+import Icon from './Icon.astro';
+import { CONTACT, BOOKING } from '../config';
+interface Props { lang?: 'en' | 'fr' | 'it' | 'es' | 'de' }
+const { lang = 'en' } = Astro.props;
+const dep = BOOKING.depositPct, days = BOOKING.cancelDays;
+
+const T = {
+  en: { h: 'Why travel with us', reply: 'We reply within a few hours',
+        pts: [['shield', 'Licensed Algerian tour operator', 'On the ground in Algeria — every permit, road and door handled in-country.'],
+              ['users', 'Private and guided', 'Your own group only, with your own guide. Never a coach of strangers.'],
+              ['calendar', `Free cancellation up to ${days} days before`, 'Plans change. Ours bend with them.'],
+              ['wallet', `${dep}% deposit, the rest on arrival`, 'The balance is paid in Algeria, once you are here.']],
+        talk: 'Rather talk?' },
+  fr: { h: 'Pourquoi voyager avec nous', reply: 'Réponse en quelques heures',
+        pts: [['shield', 'Voyagiste algérien agréé', 'Sur place en Algérie — permis, routes et accès gérés dans le pays.'],
+              ['users', 'Privé et guidé', 'Votre groupe seulement, avec votre propre guide. Jamais un car d’inconnus.'],
+              ['calendar', `Annulation gratuite jusqu’à ${days} jours avant`, 'Les projets changent. Les nôtres s’adaptent.'],
+              ['wallet', `Acompte de ${dep} %, le solde à l’arrivée`, 'Le solde se règle en Algérie, une fois sur place.']],
+        talk: 'Vous préférez parler ?' },
+  it: { h: 'Perché viaggiare con noi', reply: 'Rispondiamo in poche ore',
+        pts: [['shield', 'Tour operator algerino autorizzato', 'Sul posto in Algeria — permessi, strade e accessi gestiti nel Paese.'],
+              ['users', 'Privato e guidato', 'Solo il vostro gruppo, con la vostra guida. Mai un pullman di sconosciuti.'],
+              ['calendar', `Cancellazione gratuita fino a ${days} giorni prima`, 'I piani cambiano. I nostri si adattano.'],
+              ['wallet', `Acconto del ${dep}%, il saldo all’arrivo`, 'Il saldo si paga in Algeria, una volta arrivati.']],
+        talk: 'Preferite parlarne?' },
+  es: { h: 'Por qué viajar con nosotros', reply: 'Respondemos en pocas horas',
+        pts: [['shield', 'Operador turístico argelino autorizado', 'Sobre el terreno en Argelia: permisos, rutas y accesos gestionados en el país.'],
+              ['users', 'Privado y guiado', 'Solo su grupo, con su propio guía. Nunca un autocar de desconocidos.'],
+              ['calendar', `Cancelación gratuita hasta ${days} días antes`, 'Los planes cambian. Los nuestros se adaptan.'],
+              ['wallet', `Depósito del ${dep} %, el resto al llegar`, 'El saldo se paga en Argelia, una vez allí.']],
+        talk: '¿Prefiere hablar?' },
+  de: { h: 'Warum mit uns reisen', reply: 'Antwort innerhalb weniger Stunden',
+        pts: [['shield', 'Lizenzierter algerischer Reiseveranstalter', 'Vor Ort in Algerien – Genehmigungen, Strecken und Zugänge im Land organisiert.'],
+              ['users', 'Privat und geführt', 'Nur Ihre Gruppe, mit Ihrem eigenen Guide. Nie ein Bus voller Fremder.'],
+              ['calendar', `Kostenlose Stornierung bis ${days} Tage vorher`, 'Pläne ändern sich. Unsere passen sich an.'],
+              ['wallet', `${dep} % Anzahlung, der Rest bei Ankunft`, 'Der Restbetrag wird in Algerien bezahlt, wenn Sie da sind.']],
+        talk: 'Lieber sprechen?' },
+}[lang];
+---
+<aside class="ca" aria-label={T.h}>
+  <picture class="ca-ph">
+    <source srcset="/assets/img/algiers-white-city-aerial.sm.webp" type="image/webp" />
+    <img src="/assets/img/algiers-white-city-aerial.jpg" alt="" width="736" height="920" loading="lazy" decoding="async" />
+    <span class="ca-badge"><span class="ca-dot" aria-hidden="true"></span>{T.reply}</span>
+  </picture>
+  <div class="ca-in">
+    <h2 class="ca-h">{T.h}</h2>
+    <ul class="ca-pts">
+      {T.pts.map(([icon, t, d]) => (
+        <li><span class="ca-ico"><Icon name={icon} size="1.2em" /></span><div><b>{t}</b><span>{d}</span></div></li>
+      ))}
+    </ul>
+    <p class="ca-talk">{T.talk}</p>
+    <ul class="ca-ways">
+      <li><a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener" data-evt="whatsapp_click"><Icon name="whatsapp" /> WhatsApp</a></li>
+      <li><a href={`tel:${CONTACT.phoneE164}`}><Icon name="phone" /> {CONTACT.phoneDisplay}</a></li>
+      <li><a href={`mailto:${CONTACT.email}`}><Icon name="mail" /> {CONTACT.email}</a></li>
+    </ul>
+  </div>
+</aside>
+
+<style>
+  .ca{position:sticky;top:96px;border-radius:var(--radius-l);overflow:hidden;background:var(--green-d);color:#fff;
+    box-shadow:0 24px 50px -24px rgba(7,38,28,.6)}
+  .ca-ph{position:relative;display:block;height:220px}
+  .ca-ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .ca-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,var(--green-d))}
+  .ca-badge{position:absolute;left:1rem;bottom:1rem;z-index:1;display:inline-flex;align-items:center;gap:.5rem;
+    padding:.4rem .75rem;border-radius:var(--radius-pill);background:rgba(7,38,28,.72);backdrop-filter:blur(6px);
+    font-size:.82rem;font-weight:600;letter-spacing:.01em}
+  /* a live dot: we answer, and soon */
+  .ca-dot{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:ca-pulse 2.2s ease-out infinite}
+  @keyframes ca-pulse{70%{box-shadow:0 0 0 9px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+  @media (prefers-reduced-motion:reduce){.ca-dot{animation:none}}
+  .ca-in{padding:1.3rem 1.4rem 1.5rem}
+  .ca-h{color:#fff;font-size:1.6rem;margin:0 0 1rem}
+  .ca-pts{list-style:none;margin:0;padding:0;display:grid;gap:.95rem}
+  .ca-pts li{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start}
+  .ca-ico{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;
+    color:var(--gold-l);box-shadow:inset 0 0 0 1px rgba(228,173,64,.45)}
+  .ca-pts b{display:block;font-weight:600;line-height:1.3}
+  .ca-pts span{display:block;font-size:.88rem;line-height:1.45;color:rgba(255,255,255,.8);margin-top:.1rem}
+  .ca-talk{margin:1.3rem 0 .5rem;padding-top:1rem;border-top:1px solid rgba(228,173,64,.25);font-size:.8rem;
+    letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-l)}
+  .ca-ways{list-style:none;margin:0;padding:0;display:grid;gap:.35rem}
+  .ca-ways a{display:inline-flex;align-items:center;gap:.55rem;color:#fff;font-weight:500;text-decoration:none;padding:.2rem 0}
+  .ca-ways a:hover{color:var(--gold-l)}
+  .ca-ways .ico{color:var(--gold-l)}
+  @media(max-width:900px){ .ca{position:static} }
+</style>

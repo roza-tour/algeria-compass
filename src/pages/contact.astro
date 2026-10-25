@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+import ContactAside from '../components/ContactAside.astro';
+import Icon from '../components/Icon.astro';
 import { CONTACT } from '../config';
 import { alternatesFor, routeAlternates } from '../i18n';
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
@@ -9,12 +11,14 @@ const alternates = alternatesFor(site, routeAlternates('contact'));
 ---
 <BaseLayout title="Plan a Journey to Algeria | Algeria Compass" description="Planning a trip to Algeria? Tell us your dates, interests and party size and we will craft your private, guided tour of Algeria." image="/assets/img/algiers-white-city-aerial.jpg" keywords={["contact Algeria Compass","plan Algeria trip","Algeria tour inquiry","book Algeria tour"]} alternates={alternates}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Plan a journey'}]} />
-  <section class="section"><div class="wrap" style="max-width:640px">
-    <div class="eyebrow">Travel planning</div>
-    <h1>Plan a journey to Algeria</h1>
-    <p style="color:var(--text-m);margin:.6rem 0 1.4rem">Algeria Compass is a licensed Algerian tour operator. Tell us your dates, interests and party size and we will craft your private, guided tour of Algeria.</p>
-    <InquiryForm />
-    <p style="margin-top:1.4rem">Prefer to talk now? <a href={`https://wa.me/${CONTACT.whatsapp}`} data-evt="whatsapp_click">WhatsApp us</a> · <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> · <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a></p>
+  <section class="section"><div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">Travel planning</div>
+      <h1>Plan a journey to Algeria</h1>
+      <p style="color:var(--text-m);margin:.6rem 0 1.4rem">Algeria Compass is a licensed Algerian tour operator. Tell us your dates, interests and party size and we will craft your private, guided tour of Algeria.</p>
+      <InquiryForm />
+    </div>
+    <ContactAside lang="en" />
   </div></section>
 
   <section class="section" style="background:var(--wash)"><div class="wrap">
@@ -24,9 +28,9 @@ const alternates = alternatesFor(site, routeAlternates('contact'));
       <address class="contact-nap">
         <strong>Algeria Compass</strong><br/>
         {CONTACT.address.full}<br/>
-        <span class="nap-line">&#128222; <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a></span><br/>
-        <span class="nap-line">&#9993; <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></span><br/>
-        <span class="nap-line">&#128172; <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp {CONTACT.phoneDisplay}</a></span>
+        <span class="nap-line"><Icon name="phone" /> <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a></span><br/>
+        <span class="nap-line"><Icon name="mail" /> <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></span><br/>
+        <span class="nap-line"><Icon name="whatsapp" /> <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp {CONTACT.phoneDisplay}</a></span>
         <p class="nap-hours">Licensed Algerian tour operator · we reply within a few hours.</p>
         <a class="btn" href={CONTACT.mapShort} target="_blank" rel="noopener" style="margin-top:.6rem">Open in Google Maps &rarr;</a>
       </address>
@@ -36,6 +40,11 @@ const alternates = alternatesFor(site, routeAlternates('contact'));
 </BaseLayout>
 
 <style>
+  /* form beside the reasons to book, instead of a lone 640px column */
+  .contact-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:clamp(1.6rem,4vw,3.4rem);align-items:start}
+  .contact-grid h1{font-size:var(--fs-display);margin:.3rem 0 0}
+  @media(max-width:900px){ .contact-grid{grid-template-columns:1fr} }
+  .nap-line .ico{color:var(--gold-d)}
   .contact-find{display:grid;grid-template-columns:320px 1fr;gap:1.6rem;align-items:start;margin-top:1.2rem}
   .contact-nap{font-style:normal;line-height:1.7;color:var(--text-m)}
   .contact-nap strong{color:var(--green-d);font-size:1.05rem;font-family:var(--serif)}
