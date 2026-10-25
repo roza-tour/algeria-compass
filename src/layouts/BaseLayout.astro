@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ANALYTICS } from '../config';
 import '../styles/civ-skins.css';
 import '../styles/occasions.css';
 import '../styles/season-themes.css';
@@ -62,6 +63,17 @@ const speakableNode = speakable?.length ? {
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/favicon-512.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon-180.png" />
+  {ANALYTICS.adsense && (
+    <>
+      {/* Google AdSense, in every page's <head> as Google asks. Ad requests are
+          paused until the visitor accepts cookies in the notice -- the notice
+          promises nothing is set before then, and AdSense sets first-party
+          cookies (__gads) once it requests an ad. CookieConsent.astro unpauses
+          on Accept; a stored acceptance unpauses here on later visits. */}
+      <script is:inline>{`(function(){var ok=false;try{ok=localStorage.getItem('ac-consent')==='granted'}catch(e){}(window.adsbygoogle=window.adsbygoogle||[]).pauseAdRequests=ok?0:1;})();`}</script>
+      <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ANALYTICS.adsense}`} crossorigin="anonymous"></script>
+    </>
+  )}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   {/* Load font CSS asynchronously so it never blocks first render (Lighthouse) */}

@@ -41,7 +41,10 @@ export const LANGUAGES = {
 // Set ONE of these to turn analytics on. Leave blank to disable entirely (no tracking, no banner needed).
 export const ANALYTICS = {
   plausibleDomain: '',            // e.g. 'algeriacompass.com'  (privacy-friendly, no cookie banner)
-  ga4: 'G-FH7BZFG1YM',            // Google Analytics 4 — loaded with Consent Mode v2 (denied by default)
+  ga4: 'G-FH7BZFG1YM',
+  // Google AdSense publisher id (owner, 2026-10-25). The loader is in every
+  // page's <head>; ad requests stay paused until the visitor accepts cookies.
+  adsense: 'ca-pub-8527478337193292',            // Google Analytics 4 — loaded with Consent Mode v2 (denied by default)
 };
 
 // Optional email-backed form fallback. Leave blank to use WhatsApp/email handoff only.

@@ -1,0 +1,43 @@
+---
+// Privacy & cookies. Required once the site shows Google AdSense: AdSense
+// program policies require a privacy policy that discloses third-party
+// advertising cookies and how to opt out of personalised ads. Every statement
+// below describes what the site's code actually does (Analytics.astro,
+// CookieConsent.astro, hit.php, contact.php, itinerary.php, reviews.php).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { CONTACT } from '../config';
+const updated = '2026-10-25';
+---
+<BaseLayout title="Privacy & Cookies | Algeria Compass" description="What Algeria Compass collects, the cookies it uses for analytics and advertising, and how to refuse or withdraw consent at any time.">
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Privacy & cookies' }]} />
+  <article class="section"><div class="wrap prose" style="max-width:760px">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy &amp; cookies</h1>
+    <p><em>Last updated {updated}.</em> Algeria Compass is a licensed Algerian tour operator ({CONTACT.address.full}). This page explains what this website collects and why.</p>
+
+    <h2>Your choice comes first</h2>
+    <p>On your first visit a notice asks whether you accept cookies. Until you choose <strong>Accept</strong>, no analytics or advertising cookies are set, and no ads are requested. Your choice is stored in your own browser (local storage, under <code>ac-consent</code>). To change it, clear this site's data in your browser and the notice will ask again.</p>
+
+    <h2>Analytics (Google Analytics)</h2>
+    <p>If you accept, Google Analytics measures how pages are used — which pages are read, for how long, on which kind of device. It runs in Google's Consent Mode, so before you accept it stores nothing.</p>
+
+    <h2>Advertising (Google AdSense)</h2>
+    <p>This site may show ads served by Google AdSense. If you accept cookies:</p>
+    <ul>
+      <li>Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites.</li>
+      <li>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visits to this site and/or other sites on the Internet.</li>
+      <li>You may opt out of personalised advertising in Google's <a href="https://adssettings.google.com/" rel="noopener" target="_blank">Ads Settings</a>, and opt out of some third-party vendors' use of cookies for personalised advertising at <a href="https://www.aboutads.info/choices/" rel="noopener" target="_blank">aboutads.info</a>.</li>
+    </ul>
+    <p>How Google uses information from sites that use its services: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">policies.google.com/technologies/partner-sites</a>.</p>
+
+    <h2>Our own visit counter</h2>
+    <p>Separately, the site counts visits with its own counter, which uses no cookies, records no IP address and keeps no identifier beyond a random session code that lives only in your open browser tab and disappears when you close it.</p>
+
+    <h2>When you write to us</h2>
+    <p>The enquiry, itinerary and review forms send what you type (your name, email and message) to us by email so we can answer. To stop spam, the server briefly keeps a scrambled (hashed) form of your IP address to limit how many messages one connection can send in an hour. We use your details only to reply about your trip; we do not sell them or add you to a mailing list.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about your data, or a request to see or delete it: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.</p>
+  </div></article>
+</BaseLayout>

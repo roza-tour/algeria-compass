@@ -17,7 +17,7 @@ const t = {
   <div id="cookie-consent" class="cc" role="dialog" aria-live="polite" aria-label={t.label} hidden>
     <div class="cc-in">
       <p class="cc-txt">
-        {t.body}<a href="/editorial/">{t.link}</a>.
+        {t.body}<a href="/privacy/">{t.link}</a>.
       </p>
       <div class="cc-btns">
         <button type="button" class="cc-btn cc-decline" data-cc="denied">{t.decline}</button>
@@ -41,6 +41,9 @@ const t = {
             analytics_storage: v === 'granted' ? 'granted' : 'denied'
           });
         }
+        /* AdSense waits for this choice (see BaseLayout): Accept lets ads be
+           requested; Decline leaves requests paused, so no ad cookie is set. */
+        if (v === 'granted') { (window.adsbygoogle = window.adsbygoogle || []).pauseAdRequests = 0; }
         el.hidden = true;
       }
       el.querySelectorAll('[data-cc]').forEach(function (b) {
