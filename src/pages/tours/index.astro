@@ -8,13 +8,47 @@ const tours = ((data as any).tours || (data as any)) as any[];
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 // Bidirectional hreflang with the French catalogue at /fr/circuits/.
 const alternates = alternatesFor(site, { en: '/tours/', fr: '/fr/circuits/', it: '/it/circuiti/', es: '/es/circuitos/', de: '/de/reisen/' });
+// The catalogue page carried only the site-wide organisation graph, so an
+// answer engine asked "what tours does Algeria Compass run?" had to infer the
+// list from links. This states it: every tour, its price and length, each item
+// carrying the same @id as the trip on its own page so the two records join.
+const catalog = {
+  '@type': 'ItemList',
+  '@id': `${site}/tours/#catalog`,
+  name: 'Algeria Compass — private guided tours of Algeria',
+  numberOfItems: tours.length,
+  itemListElement: tours.map((t, i) => {
+    const days = (t.itinerary || []).length;
+    return {
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'TouristTrip',
+        '@id': `${site}/tours/${t.id}/#trip`,
+        name: t.title,
+        url: `${site}/tours/${t.id}/`,
+        ...(days ? { duration: `P${days}D` } : {}),
+        provider: { '@id': `${site}/#organization` },
+        offers: { '@type': 'Offer', price: t.price_eur, priceCurrency: 'EUR', url: `${site}/tours/${t.id}/` },
+      },
+    };
+  }),
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+    { '@type': 'ListItem', position: 2, name: 'Tours', item: `${site}/tours/` },
+  ],
+};
 ---
 <BaseLayout
   title="Algeria Tours & Private Journeys | Algeria Compass"
   description={`Private, guided Algeria tours — Sahara safaris, the UNESCO Casbah, Roman cities, the M'Zab Valley and the Kabyle coast. ${tours.length} curated itineraries from €30.`}
   image="/assets/img/tours/djanet-1.jpg"
   keywords={["Algeria tours","private Algeria tours","Sahara safari","Algeria itineraries","guided tours Algeria","Algeria travel"]}
-  alternates={alternates}>
+  alternates={alternates}
+  schema={[catalog, breadcrumb]}>
   <section class="hero" style="min-height:42vh">
     <img src="/assets/img/tours/djanet-1.jpg" alt="Algeria tours" width="1600" height="900" />
     <div class="hero-in wrap">

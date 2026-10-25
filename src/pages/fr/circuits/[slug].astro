@@ -82,6 +82,8 @@ const productSchema = {
   url,
   image: site + hero,
   touristType: 'Voyageurs individuels et petits groupes privés',
+  // the English record states the length; the translations did not
+  ...((tour.itinerary || []).length ? { duration: `P${tour.itinerary.length}D` } : {}),
   provider: { '@id': `${site}/#organization` },
   offers: {
     '@type': 'Offer',
