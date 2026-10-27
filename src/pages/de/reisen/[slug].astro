@@ -5,6 +5,8 @@
 import ItineraryOffer from '../../../components/ItineraryOffer.astro';
 import GuideBadge from '../../../components/GuideBadge.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { regionForTour } from '../../../data/tourRegions.mjs';
+import '../../../styles/tour-regions.css';
 import PhotoGallery from '../../../components/PhotoGallery.astro';
 import { tourGallery } from '../../../data/tour-photos';
 import fs from 'node:fs';
@@ -133,7 +135,7 @@ const breadcrumb = {
 const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
 ---
 <BaseLayout speakable={['h1', '.lead']} title={title} description={description} lang="de" alternates={alternates}
-  image={hero} region={REGION[tour.theme] || undefined} schema={schema} sticky={true}
+  image={hero} region={REGION[tour.theme] || undefined} rgn={regionForTour(tour)} schema={schema} sticky={true}
   keywords={["Reise " + tour.id.replace(/-/g, ' '), "Algerien Reise", "private Algerien Rundreise"]}>
 
   <section class="hero">

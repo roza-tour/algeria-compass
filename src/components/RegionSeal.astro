@@ -1,0 +1,41 @@
+---
+// A tour's region, as a seal in its hero: the region's emblem, drawn in line
+// by line, and its name, linking to the region page. The rest of the page
+// wears the same identity (src/styles/tour-regions.css via data-rgn).
+import { readFileSync } from 'node:fs';
+import { REGIONS } from '../data/regions';
+export interface Props { region?: string; }
+const r = REGIONS.find(x => x.id === Astro.props.region);
+const svg = r && readFileSync(`public${r.emblem}`, 'utf8')
+  .replace(/stroke="#[0-9A-Fa-f]{6}"/, 'stroke="currentColor"')
+  .replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
+---
+{r && (
+  <a class="rgn-seal" href={`/regions/${r.id}/`}>
+    <span class="rgn-seal__em draw-in" set:html={svg} />
+    <span class="rgn-seal__txt"><span class="rgn-seal__k">Region</span>{r.heading || r.name}</span>
+  </a>
+)}
+<style>
+  .rgn-seal{display:inline-flex;align-items:center;gap:.75rem;margin-bottom:1rem;color:#fff;text-decoration:none}
+  .rgn-seal__em{display:block;width:50px;height:50px;flex:none;padding:5px;border-radius:50%;color:#F3D9A8;
+    border:1px solid rgba(243,217,168,.5);background:rgba(0,0,0,.2);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  .rgn-seal__em :global(svg){width:100%;height:100%;display:block}
+  .rgn-seal__txt{display:flex;flex-direction:column;font-size:.95rem;font-weight:500;line-height:1.25}
+  .rgn-seal__k{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:#F3D9A8;font-weight:600}
+  .rgn-seal:hover .rgn-seal__em{transform:rotate(-8deg) scale(1.06)}
+  .rgn-seal:hover .rgn-seal__txt{text-decoration:underline;text-underline-offset:3px}
+</style>
+<script is:inline>
+  (function(){
+    if (window.__drawIn || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    window.__drawIn = 1;
+    document.documentElement.classList.add('draw-anim');
+    var els = document.querySelectorAll('.draw-in');
+    if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('is-drawn'); }); return; }
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('is-drawn'); io.unobserve(e.target); } });
+    });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
