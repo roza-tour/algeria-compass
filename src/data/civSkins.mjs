@@ -8,6 +8,8 @@
 // A skin is applied to a page by setting `data-civ="0X"` on <html> (BaseLayout),
 // exactly like the geographic `data-region` accent system already in use.
 
+import { CIV_ART } from './civArt.mjs';
+
 export const SKINS = [
   {
     id: '01', name: 'Amazigh', dark: false,
@@ -66,6 +68,10 @@ export const SKINS = [
     emblem: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><path d='M3 42L18 16L28 30L37 11L45 42Z' fill='CCC'/><path d='M36 5l1.3 2.7 3 .3-2.2 2 .6 2.9-2.7-1.5-2.7 1.5.6-2.9-2.2-2 3-.3Z' fill='DDD'/></svg>",
   },
 ];
+
+// The art was redrawn in October 2026 (src/data/civArt.mjs); the palettes
+// above are unchanged. The originals stay above as a record of the brief.
+for (const s of SKINS) Object.assign(s, CIV_ART[s.id]);
 
 export const SKIN_BY_ID = Object.fromEntries(SKINS.map(s => [s.id, s]));
 

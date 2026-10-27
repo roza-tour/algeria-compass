@@ -1,0 +1,39 @@
+---
+// The civilisation's seal in a hero: its emblem, drawn in line by line, and
+// its name. Says at a glance which world a tour belongs to -- Tuareg & Sahara,
+// Ottoman Algiers... -- the identity the page's colours and patterns carry.
+import { SKIN_BY_ID } from '../data/civSkins.mjs';
+export interface Props { civ?: string; }
+const s = Astro.props.civ ? SKIN_BY_ID[Astro.props.civ] : undefined;
+const svg = s?.emblem
+  .replaceAll('DDD', 'currentColor').replaceAll('CCC', 'currentColor')
+  .replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
+---
+{s && (
+  <div class="civ-seal">
+    <span class="civ-seal__em draw-in" set:html={svg} />
+    <span class="civ-seal__name">{s.name} heritage</span>
+  </div>
+)}
+<style>
+  .civ-seal{display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1rem;color:#F3D9A8}
+  .civ-seal__em{display:block;width:46px;height:46px;flex:none;padding:6px;border-radius:50%;
+    border:1px solid rgba(243,217,168,.45);background:rgba(0,0,0,.18)}
+  .civ-seal__em :global(svg){width:100%;height:100%;display:block}
+  .civ-seal__name{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+</style>
+<script is:inline>
+  /* Draw the emblem in once it is on screen. Hidden only after this runs and
+     only with motion allowed, so without JS it is simply there. */
+  (function(){
+    if (window.__drawIn || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    window.__drawIn = 1;
+    document.documentElement.classList.add('draw-anim');
+    var els = document.querySelectorAll('.draw-in');
+    if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('is-drawn'); }); return; }
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('is-drawn'); io.unobserve(e.target); } });
+    });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>

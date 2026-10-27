@@ -60,7 +60,9 @@
 .rg-card:hover .rg-card__go{ gap:.9rem; }
 
 /* ================= REGION PAGE ================= */
-.rg-page{ background:var(--rc-paper,#F4EEE2); }
+/* the region's paper, lifted most of the way to white: the full tints read
+   as beige on the warm regions, which the owner found dated */
+.rg-page{ background:var(--rc-paper,#fff); background:color-mix(in srgb, var(--rc-paper,#fff) 35%, #fff); }
 /* Split hero: a text column in the region's colour beside a photograph panel.
    The panel is deliberately NARROWER than the source files (~700px wide), so
    every hero downscales and stays sharp -- the old full-bleed background

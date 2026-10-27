@@ -15,11 +15,14 @@
   --gold-d:#7E5E1A;             /* deep gold — small text on white (WCAG AA ~5.6:1) */
 
   /* ---- Neutrals & surfaces ---- */
-  --ink:#141414; --paper:#FBF8F2; --cream:#F6EFE0; --card:#FFFFFF;
+  /* Paper is white, October 2026: the owner found the beige (#FBF8F2 paper,
+     #F6EFE0 cream) dated -- "it looks old, antique". Neutral cool greys for
+     the alternate panels; colour comes from photographs, heroes and accents. */
+  --ink:#141414; --paper:#FFFFFF; --cream:#F4F5F3; --card:#FFFFFF;
   /* Muted greys darkened for legibility: every one clears 7:1 on --paper,
      so secondary text stays readable in daylight and on cheap phone screens. */
-  --muted:#55554E; --text-m:#3A3A38; --text-l:#4A4A44; --border:#E6DDC8;
-  --wash:#EEF5EF;
+  --muted:#55554E; --text-m:#3A3A38; --text-l:#4A4A44; --border:#E3E5E0;
+  --wash:#F2F6F3;
 
   /* ---- Status ---- */
   --red:#C92B34; --success:#2F8F57; --white:#FFFFFF;

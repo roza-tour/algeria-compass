@@ -79,3 +79,13 @@
   @view-transition { navigation: none; }
   .sec-head .eyebrow::after { transition: none; }
 }
+
+/* ---- Line-art that draws itself in (.draw-in; see CivSeal.astro).
+   Every shape in the SVG carries pathLength="1". Hidden only once the page's
+   script has added .draw-anim, so without JS the drawing is simply there. ---- */
+@media (prefers-reduced-motion: no-preference){
+  .draw-anim .draw-in svg :is(path,circle,rect){ stroke-dasharray:1 1; stroke-dashoffset:1;
+    transition:stroke-dashoffset 2s cubic-bezier(.65,.05,.25,1) .3s; }
+  .draw-anim .draw-in svg :is(path,circle,rect):nth-child(2n){ transition-delay:.55s; }
+  .draw-anim .draw-in.is-drawn svg :is(path,circle,rect){ stroke-dashoffset:0; }
+}

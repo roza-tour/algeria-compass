@@ -284,12 +284,27 @@ const num = (f: string) => parseInt(f.match(/-(\d+)\.jpg$/i)![1]);
 
 /** Gallery for a tour: each place's photos ranked by PHOTO_ORDER, then taken in
  *  turn across the tour's places so every stop is represented within the cap. */
+// The same photograph saved twice under two numbers (byte-identical, or the
+// same shot re-encoded), found by a perceptual hash of the thumbnails in
+// October 2026. Shown twice in a row, they made the gallery look padded --
+// the Djanet safari opened on the same rock-art wall twice. The files stay on
+// disk (other pages may use them); only the gallery skips the second copy.
+const DUPLICATE_PHOTOS = new Set([
+  'djanet-25.jpg',        // = djanet-4
+  'djanet-20.jpg',        // = djanet-6
+  'batna-timgad-8.jpg',   // = batna-timgad-1
+  'batna-timgad-9.jpg',   // = batna-timgad-2
+  'setif-11.jpg',         // = setif-4
+  'tipaza-12.jpg',        // = tipaza-9
+  'bousaada-14.jpg',      // = bousaada-12
+]);
+
 export function tourGallery(slugs: string[], files: string[], cap = 18): { file: string; alt?: string }[] {
   const lists = slugs.map(s => {
     const re = new RegExp('^' + s + '-\\d+\\.jpg$', 'i');
     const rank = PHOTO_ORDER[s] || [];
     const pos = (f: string) => { const i = rank.indexOf(num(f)); return i < 0 ? rank.length + num(f) : i; };
-    return files.filter(f => re.test(f)).sort((a, b) => pos(a) - pos(b));
+    return files.filter(f => re.test(f) && !DUPLICATE_PHOTOS.has(f)).sort((a, b) => pos(a) - pos(b));
   });
   const out: string[] = [];
   for (let i = 0; out.length < cap && lists.some(l => i < l.length); i++)

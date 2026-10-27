@@ -3,89 +3,105 @@
    pages; identity carried by the hero tint, hairlines and accents. */
 
 /* ===== Skin 01 — Amazigh ===== */
-:root[data-civ="01"]{--accent:#B23A2A;--accent-2:#E8B53C;--accent-deep:#74261b;--civ-surface:#f8efe9;--civ-ink:#141414;--civ-hero:#35110d;--wash:rgba(178,58,42,0.06);}
-[data-civ="01"] body{background-color:#f8efe9;}
-:root[data-civ="01"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#f8efe9),linear-gradient(100deg,rgba(53,17,13,0.9) 0%,rgba(53,17,13,0.55) 48%,rgba(53,17,13,0.18) 82%),linear-gradient(0deg,rgba(53,17,13,0.75),transparent 42%);}
-[data-civ="01"] .section + .section{position:relative;}
-[data-civ="01"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(88%,1000px);height:12px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'12'%20height%3D'12'%3E%3Cpath%20d%3D'M6%200.8L11.2%206L6%2011.2L0.8%206Z'%20fill%3D'rgba(178%2C58%2C42%2C0.75)'%2F%3E%3C%2Fsvg%3E") center/12px 12px no-repeat,linear-gradient(90deg,transparent,rgba(178,58,42,0.4) 30%,rgba(178,58,42,0.4) 70%,transparent) center/100% 1px no-repeat;}
-[data-civ="01"] :is(.prose,.tour) h2::before{content:"";display:block;width:34px;height:2px;margin-bottom:.7rem;background:#B23A2A;border-radius:2px;}
+:root[data-civ="01"]{--accent:#B23A2A;--accent-2:#E8B53C;--accent-deep:#74261b;--civ-surface:#FFFFFF;--civ-ink:#141414;--civ-hero:#35110d;--wash:rgba(178,58,42,0.06);}
+[data-civ="01"] body{background-color:#FFFFFF;}
+:root[data-civ="01"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#FFFFFF),linear-gradient(100deg,rgba(53,17,13,0.9) 0%,rgba(53,17,13,0.55) 48%,rgba(53,17,13,0.18) 82%),linear-gradient(0deg,rgba(53,17,13,0.75),transparent 42%);}
+:root[data-civ="01"] .hero > picture::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url('/assets/civ/01-pattern-light.svg') 0 0/67.19999999999999px 67.19999999999999px repeat;-webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);}[data-civ="01"] .section + .section{position:relative;}
+[data-civ="01"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(90%,1040px);height:26px;pointer-events:none;background:url('/assets/civ/01-pattern.svg') center/auto 26px repeat-x;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);}
+[data-civ="01"] .section + .section::after{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;pointer-events:none;background:#FFFFFF url('/assets/civ/01-emblem.svg') center/30px 30px no-repeat;box-shadow:0 0 0 1px rgba(178,58,42,0.35),0 0 0 5px #FFFFFF,0 0 0 6px rgba(178,58,42,0.18);}
+[data-civ="01"] :is(.prose,.tour) h2::before{content:"";display:block;width:74px;height:26px;margin-bottom:.6rem;background:url('/assets/civ/01-emblem.svg') left center/26px 26px no-repeat,linear-gradient(#B23A2A,#B23A2A) 34px center/40px 2px no-repeat;}
+[data-civ="01"] body::after{content:"";position:fixed;right:-40px;bottom:-40px;width:300px;height:300px;z-index:-1;pointer-events:none;background:url('/assets/civ/01-watermark.svg') center/contain no-repeat;}
 [data-civ="01"] .card{border-top:2px solid #B23A2A;}
 [data-civ="01"] .pgrid figure{border-color:rgba(178,58,42,0.3);}
 [data-civ="01"] .qbox{background:rgba(178,58,42,0.06);}
 
 /* ===== Skin 02 — Tuareg & Sahara ===== */
-:root[data-civ="02"]{--accent:#866536;--accent-2:#B5462E;--accent-deep:#926d3b;--civ-surface:#faf4eb;--civ-ink:#141414;--civ-hero:#1B2A4A;--wash:rgba(224,168,90,0.06);}
-[data-civ="02"] body{background-color:#faf4eb;}
-:root[data-civ="02"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#faf4eb),linear-gradient(100deg,rgba(27,42,74,0.9) 0%,rgba(27,42,74,0.55) 48%,rgba(27,42,74,0.18) 82%),linear-gradient(0deg,rgba(27,42,74,0.75),transparent 42%);}
-[data-civ="02"] .section + .section{position:relative;}
-[data-civ="02"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(88%,1000px);height:12px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'12'%20height%3D'12'%3E%3Cpath%20d%3D'M6%200.8L11.2%206L6%2011.2L0.8%206Z'%20fill%3D'rgba(224%2C168%2C90%2C0.75)'%2F%3E%3C%2Fsvg%3E") center/12px 12px no-repeat,linear-gradient(90deg,transparent,rgba(224,168,90,0.4) 30%,rgba(224,168,90,0.4) 70%,transparent) center/100% 1px no-repeat;}
-[data-civ="02"] :is(.prose,.tour) h2::before{content:"";display:block;width:34px;height:2px;margin-bottom:.7rem;background:#E0A85A;border-radius:2px;}
+:root[data-civ="02"]{--accent:#8f6c3a;--accent-2:#B5462E;--accent-deep:#926d3b;--civ-surface:#FFFFFF;--civ-ink:#141414;--civ-hero:#1B2A4A;--wash:rgba(224,168,90,0.06);}
+[data-civ="02"] body{background-color:#FFFFFF;}
+:root[data-civ="02"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#FFFFFF),linear-gradient(100deg,rgba(27,42,74,0.9) 0%,rgba(27,42,74,0.55) 48%,rgba(27,42,74,0.18) 82%),linear-gradient(0deg,rgba(27,42,74,0.75),transparent 42%);}
+:root[data-civ="02"] .hero > picture::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url('/assets/civ/02-pattern-light.svg') 0 0/56px 56px repeat;-webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);}[data-civ="02"] .section + .section{position:relative;}
+[data-civ="02"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(90%,1040px);height:26px;pointer-events:none;background:url('/assets/civ/02-pattern.svg') center/auto 26px repeat-x;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);}
+[data-civ="02"] .section + .section::after{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;pointer-events:none;background:#FFFFFF url('/assets/civ/02-emblem.svg') center/30px 30px no-repeat;box-shadow:0 0 0 1px rgba(224,168,90,0.35),0 0 0 5px #FFFFFF,0 0 0 6px rgba(224,168,90,0.18);}
+[data-civ="02"] :is(.prose,.tour) h2::before{content:"";display:block;width:74px;height:26px;margin-bottom:.6rem;background:url('/assets/civ/02-emblem.svg') left center/26px 26px no-repeat,linear-gradient(#E0A85A,#E0A85A) 34px center/40px 2px no-repeat;}
+[data-civ="02"] body::after{content:"";position:fixed;right:-40px;bottom:-40px;width:300px;height:300px;z-index:-1;pointer-events:none;background:url('/assets/civ/02-watermark.svg') center/contain no-repeat;}
 [data-civ="02"] .card{border-top:2px solid #E0A85A;}
 [data-civ="02"] .pgrid figure{border-color:rgba(224,168,90,0.3);}
 [data-civ="02"] .qbox{background:rgba(224,168,90,0.06);}
 
 /* ===== Skin 03 — Mozabite M'Zab ===== */
-:root[data-civ="03"]{--accent:#a55932;--accent-2:#7A3B22;--accent-deep:#804527;--civ-surface:#f9f2ea;--civ-ink:#141414;--civ-hero:#3b2012;--wash:rgba(197,106,60,0.06);}
-[data-civ="03"] body{background-color:#f9f2ea;}
-:root[data-civ="03"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#f9f2ea),linear-gradient(100deg,rgba(59,32,18,0.9) 0%,rgba(59,32,18,0.55) 48%,rgba(59,32,18,0.18) 82%),linear-gradient(0deg,rgba(59,32,18,0.75),transparent 42%);}
-[data-civ="03"] .section + .section{position:relative;}
-[data-civ="03"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(88%,1000px);height:12px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'12'%20height%3D'12'%3E%3Cpath%20d%3D'M6%200.8L11.2%206L6%2011.2L0.8%206Z'%20fill%3D'rgba(197%2C106%2C60%2C0.75)'%2F%3E%3C%2Fsvg%3E") center/12px 12px no-repeat,linear-gradient(90deg,transparent,rgba(197,106,60,0.4) 30%,rgba(197,106,60,0.4) 70%,transparent) center/100% 1px no-repeat;}
-[data-civ="03"] :is(.prose,.tour) h2::before{content:"";display:block;width:34px;height:2px;margin-bottom:.7rem;background:#C56A3C;border-radius:2px;}
+:root[data-civ="03"]{--accent:#ad5d35;--accent-2:#7A3B22;--accent-deep:#804527;--civ-surface:#FFFFFF;--civ-ink:#141414;--civ-hero:#3b2012;--wash:rgba(197,106,60,0.06);}
+[data-civ="03"] body{background-color:#FFFFFF;}
+:root[data-civ="03"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#FFFFFF),linear-gradient(100deg,rgba(59,32,18,0.9) 0%,rgba(59,32,18,0.55) 48%,rgba(59,32,18,0.18) 82%),linear-gradient(0deg,rgba(59,32,18,0.75),transparent 42%);}
+:root[data-civ="03"] .hero > picture::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url('/assets/civ/03-pattern-light.svg') 0 0/67.19999999999999px 47.599999999999994px repeat;-webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);}[data-civ="03"] .section + .section{position:relative;}
+[data-civ="03"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(90%,1040px);height:26px;pointer-events:none;background:url('/assets/civ/03-pattern.svg') center/auto 26px repeat-x;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);}
+[data-civ="03"] .section + .section::after{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;pointer-events:none;background:#FFFFFF url('/assets/civ/03-emblem.svg') center/30px 30px no-repeat;box-shadow:0 0 0 1px rgba(197,106,60,0.35),0 0 0 5px #FFFFFF,0 0 0 6px rgba(197,106,60,0.18);}
+[data-civ="03"] :is(.prose,.tour) h2::before{content:"";display:block;width:74px;height:26px;margin-bottom:.6rem;background:url('/assets/civ/03-emblem.svg') left center/26px 26px no-repeat,linear-gradient(#C56A3C,#C56A3C) 34px center/40px 2px no-repeat;}
+[data-civ="03"] body::after{content:"";position:fixed;right:-40px;bottom:-40px;width:300px;height:300px;z-index:-1;pointer-events:none;background:url('/assets/civ/03-watermark.svg') center/contain no-repeat;}
 [data-civ="03"] .card{border-top:2px solid #C56A3C;}
 [data-civ="03"] .pgrid figure{border-color:rgba(197,106,60,0.3);}
 [data-civ="03"] .qbox{background:rgba(197,106,60,0.06);}
 
 /* ===== Skin 04 — Numidian & Roman ===== */
-:root[data-civ="04"]{--accent:#8A3F2E;--accent-2:#6E7B4F;--accent-deep:#5a291e;--civ-surface:#f6f0e9;--civ-ink:#141414;--civ-hero:#29130e;--wash:rgba(138,63,46,0.06);}
-[data-civ="04"] body{background-color:#f6f0e9;}
-:root[data-civ="04"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#f6f0e9),linear-gradient(100deg,rgba(41,19,14,0.9) 0%,rgba(41,19,14,0.55) 48%,rgba(41,19,14,0.18) 82%),linear-gradient(0deg,rgba(41,19,14,0.75),transparent 42%);}
-[data-civ="04"] .section + .section{position:relative;}
-[data-civ="04"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(88%,1000px);height:12px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'12'%20height%3D'12'%3E%3Cpath%20d%3D'M6%200.8L11.2%206L6%2011.2L0.8%206Z'%20fill%3D'rgba(138%2C63%2C46%2C0.75)'%2F%3E%3C%2Fsvg%3E") center/12px 12px no-repeat,linear-gradient(90deg,transparent,rgba(138,63,46,0.4) 30%,rgba(138,63,46,0.4) 70%,transparent) center/100% 1px no-repeat;}
-[data-civ="04"] :is(.prose,.tour) h2::before{content:"";display:block;width:34px;height:2px;margin-bottom:.7rem;background:#8A3F2E;border-radius:2px;}
+:root[data-civ="04"]{--accent:#8A3F2E;--accent-2:#6E7B4F;--accent-deep:#5a291e;--civ-surface:#FFFFFF;--civ-ink:#141414;--civ-hero:#29130e;--wash:rgba(138,63,46,0.06);}
+[data-civ="04"] body{background-color:#FFFFFF;}
+:root[data-civ="04"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#FFFFFF),linear-gradient(100deg,rgba(41,19,14,0.9) 0%,rgba(41,19,14,0.55) 48%,rgba(41,19,14,0.18) 82%),linear-gradient(0deg,rgba(41,19,14,0.75),transparent 42%);}
+:root[data-civ="04"] .hero > picture::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url('/assets/civ/04-pattern-light.svg') 0 0/56px 28px repeat;-webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);}[data-civ="04"] .section + .section{position:relative;}
+[data-civ="04"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(90%,1040px);height:26px;pointer-events:none;background:url('/assets/civ/04-pattern.svg') center/auto 26px repeat-x;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);}
+[data-civ="04"] .section + .section::after{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;pointer-events:none;background:#FFFFFF url('/assets/civ/04-emblem.svg') center/30px 30px no-repeat;box-shadow:0 0 0 1px rgba(138,63,46,0.35),0 0 0 5px #FFFFFF,0 0 0 6px rgba(138,63,46,0.18);}
+[data-civ="04"] :is(.prose,.tour) h2::before{content:"";display:block;width:74px;height:26px;margin-bottom:.6rem;background:url('/assets/civ/04-emblem.svg') left center/26px 26px no-repeat,linear-gradient(#8A3F2E,#8A3F2E) 34px center/40px 2px no-repeat;}
+[data-civ="04"] body::after{content:"";position:fixed;right:-40px;bottom:-40px;width:300px;height:300px;z-index:-1;pointer-events:none;background:url('/assets/civ/04-watermark.svg') center/contain no-repeat;}
 [data-civ="04"] .card{border-top:2px solid #8A3F2E;}
 [data-civ="04"] .pgrid figure{border-color:rgba(138,63,46,0.3);}
 [data-civ="04"] .qbox{background:rgba(138,63,46,0.06);}
 
 /* ===== Skin 05 — Islamic-Berber Dynasties ===== */
-:root[data-civ="05"]{--accent:#9C5A33;--accent-2:#5A3A22;--accent-deep:#653b21;--civ-surface:#f7f1e9;--civ-ink:#141414;--civ-hero:#2f1b0f;--wash:rgba(156,90,51,0.06);}
-[data-civ="05"] body{background-color:#f7f1e9;}
-:root[data-civ="05"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#f7f1e9),linear-gradient(100deg,rgba(47,27,15,0.9) 0%,rgba(47,27,15,0.55) 48%,rgba(47,27,15,0.18) 82%),linear-gradient(0deg,rgba(47,27,15,0.75),transparent 42%);}
-[data-civ="05"] .section + .section{position:relative;}
-[data-civ="05"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(88%,1000px);height:12px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'12'%20height%3D'12'%3E%3Cpath%20d%3D'M6%200.8L11.2%206L6%2011.2L0.8%206Z'%20fill%3D'rgba(156%2C90%2C51%2C0.75)'%2F%3E%3C%2Fsvg%3E") center/12px 12px no-repeat,linear-gradient(90deg,transparent,rgba(156,90,51,0.4) 30%,rgba(156,90,51,0.4) 70%,transparent) center/100% 1px no-repeat;}
-[data-civ="05"] :is(.prose,.tour) h2::before{content:"";display:block;width:34px;height:2px;margin-bottom:.7rem;background:#9C5A33;border-radius:2px;}
+:root[data-civ="05"]{--accent:#9C5A33;--accent-2:#5A3A22;--accent-deep:#653b21;--civ-surface:#FFFFFF;--civ-ink:#141414;--civ-hero:#2f1b0f;--wash:rgba(156,90,51,0.06);}
+[data-civ="05"] body{background-color:#FFFFFF;}
+:root[data-civ="05"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#FFFFFF),linear-gradient(100deg,rgba(47,27,15,0.9) 0%,rgba(47,27,15,0.55) 48%,rgba(47,27,15,0.18) 82%),linear-gradient(0deg,rgba(47,27,15,0.75),transparent 42%);}
+:root[data-civ="05"] .hero > picture::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url('/assets/civ/05-pattern-light.svg') 0 0/56px 56px repeat;-webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);}[data-civ="05"] .section + .section{position:relative;}
+[data-civ="05"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(90%,1040px);height:26px;pointer-events:none;background:url('/assets/civ/05-pattern.svg') center/auto 26px repeat-x;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);}
+[data-civ="05"] .section + .section::after{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;pointer-events:none;background:#FFFFFF url('/assets/civ/05-emblem.svg') center/30px 30px no-repeat;box-shadow:0 0 0 1px rgba(156,90,51,0.35),0 0 0 5px #FFFFFF,0 0 0 6px rgba(156,90,51,0.18);}
+[data-civ="05"] :is(.prose,.tour) h2::before{content:"";display:block;width:74px;height:26px;margin-bottom:.6rem;background:url('/assets/civ/05-emblem.svg') left center/26px 26px no-repeat,linear-gradient(#9C5A33,#9C5A33) 34px center/40px 2px no-repeat;}
+[data-civ="05"] body::after{content:"";position:fixed;right:-40px;bottom:-40px;width:300px;height:300px;z-index:-1;pointer-events:none;background:url('/assets/civ/05-watermark.svg') center/contain no-repeat;}
 [data-civ="05"] .card{border-top:2px solid #9C5A33;}
 [data-civ="05"] .pgrid figure{border-color:rgba(156,90,51,0.3);}
 [data-civ="05"] .qbox{background:rgba(156,90,51,0.06);}
 
 /* ===== Skin 06 — Andalusian ===== */
-:root[data-civ="06"]{--accent:#2c7857;--accent-2:#B98A2E;--accent-deep:#1e513b;--civ-surface:#f2f2eb;--civ-ink:#141414;--civ-hero:#0e261b;--wash:rgba(46,125,91,0.06);}
-[data-civ="06"] body{background-color:#f2f2eb;}
-:root[data-civ="06"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#f2f2eb),linear-gradient(100deg,rgba(14,38,27,0.9) 0%,rgba(14,38,27,0.55) 48%,rgba(14,38,27,0.18) 82%),linear-gradient(0deg,rgba(14,38,27,0.75),transparent 42%);}
-[data-civ="06"] .section + .section{position:relative;}
-[data-civ="06"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(88%,1000px);height:12px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'12'%20height%3D'12'%3E%3Cpath%20d%3D'M6%200.8L11.2%206L6%2011.2L0.8%206Z'%20fill%3D'rgba(46%2C125%2C91%2C0.75)'%2F%3E%3C%2Fsvg%3E") center/12px 12px no-repeat,linear-gradient(90deg,transparent,rgba(46,125,91,0.4) 30%,rgba(46,125,91,0.4) 70%,transparent) center/100% 1px no-repeat;}
-[data-civ="06"] :is(.prose,.tour) h2::before{content:"";display:block;width:34px;height:2px;margin-bottom:.7rem;background:#2E7D5B;border-radius:2px;}
+:root[data-civ="06"]{--accent:#2E7D5B;--accent-2:#B98A2E;--accent-deep:#1e513b;--civ-surface:#FFFFFF;--civ-ink:#141414;--civ-hero:#0e261b;--wash:rgba(46,125,91,0.06);}
+[data-civ="06"] body{background-color:#FFFFFF;}
+:root[data-civ="06"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#FFFFFF),linear-gradient(100deg,rgba(14,38,27,0.9) 0%,rgba(14,38,27,0.55) 48%,rgba(14,38,27,0.18) 82%),linear-gradient(0deg,rgba(14,38,27,0.75),transparent 42%);}
+:root[data-civ="06"] .hero > picture::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url('/assets/civ/06-pattern-light.svg') 0 0/56px 42px repeat;-webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);}[data-civ="06"] .section + .section{position:relative;}
+[data-civ="06"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(90%,1040px);height:26px;pointer-events:none;background:url('/assets/civ/06-pattern.svg') center/auto 26px repeat-x;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);}
+[data-civ="06"] .section + .section::after{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;pointer-events:none;background:#FFFFFF url('/assets/civ/06-emblem.svg') center/30px 30px no-repeat;box-shadow:0 0 0 1px rgba(46,125,91,0.35),0 0 0 5px #FFFFFF,0 0 0 6px rgba(46,125,91,0.18);}
+[data-civ="06"] :is(.prose,.tour) h2::before{content:"";display:block;width:74px;height:26px;margin-bottom:.6rem;background:url('/assets/civ/06-emblem.svg') left center/26px 26px no-repeat,linear-gradient(#2E7D5B,#2E7D5B) 34px center/40px 2px no-repeat;}
+[data-civ="06"] body::after{content:"";position:fixed;right:-40px;bottom:-40px;width:300px;height:300px;z-index:-1;pointer-events:none;background:url('/assets/civ/06-watermark.svg') center/contain no-repeat;}
 [data-civ="06"] .card{border-top:2px solid #2E7D5B;}
 [data-civ="06"] .pgrid figure{border-color:rgba(46,125,91,0.3);}
 [data-civ="06"] .qbox{background:rgba(46,125,91,0.06);}
 
 /* ===== Skin 07 — Ottoman Algiers ===== */
-:root[data-civ="07"]{--accent:#1a7b7b;--accent-2:#C9A24B;--accent-deep:#145b5b;--civ-surface:#f1f3ed;--civ-ink:#141414;--civ-hero:#092a2a;--wash:rgba(30,140,140,0.06);}
-[data-civ="07"] body{background-color:#f1f3ed;}
-:root[data-civ="07"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#f1f3ed),linear-gradient(100deg,rgba(9,42,42,0.9) 0%,rgba(9,42,42,0.55) 48%,rgba(9,42,42,0.18) 82%),linear-gradient(0deg,rgba(9,42,42,0.75),transparent 42%);}
-[data-civ="07"] .section + .section{position:relative;}
-[data-civ="07"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(88%,1000px);height:12px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'12'%20height%3D'12'%3E%3Cpath%20d%3D'M6%200.8L11.2%206L6%2011.2L0.8%206Z'%20fill%3D'rgba(30%2C140%2C140%2C0.75)'%2F%3E%3C%2Fsvg%3E") center/12px 12px no-repeat,linear-gradient(90deg,transparent,rgba(30,140,140,0.4) 30%,rgba(30,140,140,0.4) 70%,transparent) center/100% 1px no-repeat;}
-[data-civ="07"] :is(.prose,.tour) h2::before{content:"";display:block;width:34px;height:2px;margin-bottom:.7rem;background:#1E8C8C;border-radius:2px;}
+:root[data-civ="07"]{--accent:#1c8181;--accent-2:#C9A24B;--accent-deep:#145b5b;--civ-surface:#FFFFFF;--civ-ink:#141414;--civ-hero:#092a2a;--wash:rgba(30,140,140,0.06);}
+[data-civ="07"] body{background-color:#FFFFFF;}
+:root[data-civ="07"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#FFFFFF),linear-gradient(100deg,rgba(9,42,42,0.9) 0%,rgba(9,42,42,0.55) 48%,rgba(9,42,42,0.18) 82%),linear-gradient(0deg,rgba(9,42,42,0.75),transparent 42%);}
+:root[data-civ="07"] .hero > picture::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url('/assets/civ/07-pattern-light.svg') 0 0/61.599999999999994px 61.599999999999994px repeat;-webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);}[data-civ="07"] .section + .section{position:relative;}
+[data-civ="07"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(90%,1040px);height:26px;pointer-events:none;background:url('/assets/civ/07-pattern.svg') center/auto 26px repeat-x;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);}
+[data-civ="07"] .section + .section::after{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;pointer-events:none;background:#FFFFFF url('/assets/civ/07-emblem.svg') center/30px 30px no-repeat;box-shadow:0 0 0 1px rgba(30,140,140,0.35),0 0 0 5px #FFFFFF,0 0 0 6px rgba(30,140,140,0.18);}
+[data-civ="07"] :is(.prose,.tour) h2::before{content:"";display:block;width:74px;height:26px;margin-bottom:.6rem;background:url('/assets/civ/07-emblem.svg') left center/26px 26px no-repeat,linear-gradient(#1E8C8C,#1E8C8C) 34px center/40px 2px no-repeat;}
+[data-civ="07"] body::after{content:"";position:fixed;right:-40px;bottom:-40px;width:300px;height:300px;z-index:-1;pointer-events:none;background:url('/assets/civ/07-watermark.svg') center/contain no-repeat;}
 [data-civ="07"] .card{border-top:2px solid #1E8C8C;}
 [data-civ="07"] .pgrid figure{border-color:rgba(30,140,140,0.3);}
 [data-civ="07"] .qbox{background:rgba(30,140,140,0.06);}
 
 /* ===== Skin 08 — Modern Algeria ===== */
-:root[data-civ="08"]{--accent:#B23A2A;--accent-2:#0B3D2E;--accent-deep:#74261b;--civ-surface:#f8efe9;--civ-ink:#141414;--civ-hero:#35110d;--wash:rgba(178,58,42,0.06);}
-[data-civ="08"] body{background-color:#f8efe9;}
-:root[data-civ="08"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#f8efe9),linear-gradient(100deg,rgba(53,17,13,0.9) 0%,rgba(53,17,13,0.55) 48%,rgba(53,17,13,0.18) 82%),linear-gradient(0deg,rgba(53,17,13,0.75),transparent 42%);}
-[data-civ="08"] .section + .section{position:relative;}
-[data-civ="08"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(88%,1000px);height:12px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'12'%20height%3D'12'%3E%3Cpath%20d%3D'M6%200.8L11.2%206L6%2011.2L0.8%206Z'%20fill%3D'rgba(178%2C58%2C42%2C0.75)'%2F%3E%3C%2Fsvg%3E") center/12px 12px no-repeat,linear-gradient(90deg,transparent,rgba(178,58,42,0.4) 30%,rgba(178,58,42,0.4) 70%,transparent) center/100% 1px no-repeat;}
-[data-civ="08"] :is(.prose,.tour) h2::before{content:"";display:block;width:34px;height:2px;margin-bottom:.7rem;background:#B23A2A;border-radius:2px;}
+:root[data-civ="08"]{--accent:#B23A2A;--accent-2:#0B3D2E;--accent-deep:#74261b;--civ-surface:#FFFFFF;--civ-ink:#141414;--civ-hero:#35110d;--wash:rgba(178,58,42,0.06);}
+[data-civ="08"] body{background-color:#FFFFFF;}
+:root[data-civ="08"] .hero::after{background:linear-gradient(180deg,transparent calc(100% - 44px),#FFFFFF),linear-gradient(100deg,rgba(53,17,13,0.9) 0%,rgba(53,17,13,0.55) 48%,rgba(53,17,13,0.18) 82%),linear-gradient(0deg,rgba(53,17,13,0.75),transparent 42%);}
+:root[data-civ="08"] .hero > picture::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:url('/assets/civ/08-pattern-light.svg') 0 0/56px 56px repeat;-webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);}[data-civ="08"] .section + .section{position:relative;}
+[data-civ="08"] .section + .section::before{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:min(90%,1040px);height:26px;pointer-events:none;background:url('/assets/civ/08-pattern.svg') center/auto 26px repeat-x;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);mask-image:linear-gradient(90deg,transparent,#000 22%,transparent 44%,transparent 56%,#000 78%,transparent);}
+[data-civ="08"] .section + .section::after{content:"";position:absolute;left:50%;top:0;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;pointer-events:none;background:#FFFFFF url('/assets/civ/08-emblem.svg') center/30px 30px no-repeat;box-shadow:0 0 0 1px rgba(178,58,42,0.35),0 0 0 5px #FFFFFF,0 0 0 6px rgba(178,58,42,0.18);}
+[data-civ="08"] :is(.prose,.tour) h2::before{content:"";display:block;width:74px;height:26px;margin-bottom:.6rem;background:url('/assets/civ/08-emblem.svg') left center/26px 26px no-repeat,linear-gradient(#B23A2A,#B23A2A) 34px center/40px 2px no-repeat;}
+[data-civ="08"] body::after{content:"";position:fixed;right:-40px;bottom:-40px;width:300px;height:300px;z-index:-1;pointer-events:none;background:url('/assets/civ/08-watermark.svg') center/contain no-repeat;}
 [data-civ="08"] .card{border-top:2px solid #B23A2A;}
 [data-civ="08"] .pgrid figure{border-color:rgba(178,58,42,0.3);}
 [data-civ="08"] .qbox{background:rgba(178,58,42,0.06);}
