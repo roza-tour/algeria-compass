@@ -31,6 +31,7 @@ export const PHOTO_ALT: Record<string, string> = {
   "algiers-24": "The apse of Notre-Dame d'Afrique, its mural inscribed with a prayer for Christians and Muslims",
   "algiers-25": "The nave and domed apse of Notre-Dame d'Afrique in Algiers",
   "algiers-26": "The twin minarets and carved façade of the Ketchaoua Mosque at the foot of the Casbah",
+  "algiers-27": "Old blue, green and yellow tiles framing a whitewashed alcove in an Ottoman palace of the Casbah of Algiers, a traveller seated in it",
 
   // batna-timgad
   "batna-timgad-1": "Rows of columns and stone foundations across the Roman city of Timgad",
@@ -106,6 +107,10 @@ export const PHOTO_ALT: Record<string, string> = {
   "constantine-20": "Two travellers at a viewpoint above the Rhumel gorge, the Sidi M'Cid suspension bridge strung across it behind them",
   "constantine-21": "The walkway through the Rhumel gorge beneath Constantine's cliffs, a minaret and bridge arch on the rim above",
   "constantine-22": "A naive wall painting of a harbour city above zellige tiling inside the Ahmed Bey Palace, Constantine",
+  "constantine-23": "A stone-arched bridge over the Rhumel river at the foot of Constantine's limestone cliffs, a traveller photographing it",
+  "constantine-24": "A natural rock arch opening in the sheer walls of the Rhumel gorge in Constantine, two travellers at its foot",
+  "constantine-25": "The carved arches, marble columns and chandeliers of the prayer hall of the Emir Abdelkader Mosque in Constantine",
+  "constantine-26": "Travellers crossing a suspension footbridge over the Rhumel gorge towards a white tower in Constantine",
 
   // djanet
   "djanet-1": "The sun setting over a rocky plateau near Djanet, seen from beside a sandstone wall",
@@ -266,10 +271,10 @@ export const PHOTO_ALT: Record<string, string> = {
 
 // Best photos first, per place. Numbers not listed follow in numeric order.
 export const PHOTO_ORDER: Record<string, number[]> = {
-  "algiers": [18, 19, 20, 21, 14, 15, 16, 17, 22, 23, 24, 25, 26, 4, 1, 3, 7, 9, 8, 10, 13, 11, 6, 2, 5, 12],
+  "algiers": [18, 27, 19, 20, 21, 14, 15, 16, 17, 22, 23, 24, 25, 26, 4, 1, 3, 7, 9, 8, 10, 13, 11, 6, 2, 5, 12],
   "djanet": [25, 4, 26, 27, 28, 10, 13, 29, 8, 12, 19, 21, 1, 2, 3, 18, 5, 7, 9, 20, 22, 23, 24, 6, 11, 14, 15, 16, 17],
   "ghardaia": [6, 9, 11, 17, 8, 7, 16, 18, 4, 5, 19, 20, 15, 14, 1, 13, 12, 21, 10, 3, 2],
-  "constantine": [14, 11, 20, 1, 16, 17, 9, 19, 13, 21, 12, 4, 7, 22, 5, 6, 2, 3, 8, 10, 15, 18],
+  "constantine": [14, 23, 11, 25, 20, 24, 26, 1, 16, 17, 9, 19, 13, 21, 12, 4, 7, 22, 5, 6, 2, 3, 8, 10, 15, 18],
   "batna-timgad": [14, 11, 9, 3, 1, 12, 2, 8, 7, 5, 4, 6, 10, 13],
   "tlemcen": [6, 14, 11, 15, 4, 5, 13, 1, 7, 8, 12, 2, 3, 10, 9],
   "oran": [1, 7, 12, 2, 4, 3, 10, 6, 5, 8, 9, 11, 13],
