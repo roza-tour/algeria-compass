@@ -42,13 +42,19 @@ for (const s of SKINS) {
   // surface tokens; the season still brings its sky, light and particles.
   css += `:root${sel}{--accent:${s.accent};--accent-2:${s.accent2};--accent-deep:${shade(s.accent,0.35)};`
        + `--civ-surface:${s.surface};--civ-ink:${s.ink};--wash:${s.dark ? 'rgba(255,255,255,.06)' : rgba(s.accent,0.07)};}\n`;
-  // page background: faint emblem watermark (fixed) + tiling pattern
+  // page background: the tiling pattern scrolls with the page, and the faint
+  // emblem watermark stays put in the corner -- but on its own fixed layer, not
+  // via background-attachment:fixed. A fixed background cannot be composited:
+  // the browser repaints the whole page behind it on every scroll frame.
+  // Measured on a skinned tour page at 4x CPU over 4 s of scrolling: paint +
+  // raster + layerize ~1,076 ms with the fixed background, ~96 ms without it.
+  // A position:fixed layer looks identical and the GPU simply holds it still.
   css += `${sel} body{background-color:${s.surface};`
-       + `background-image:url("${watermarkUri}"),url("${bgPatternUri}");`
-       + `background-repeat:no-repeat,repeat;`
-       + `background-position:right -28px bottom -28px,top left;`
-       + `background-size:340px 340px,${s.pw}px ${s.ph}px;`
-       + `background-attachment:fixed,scroll;}\n`;
+       + `background-image:url("${bgPatternUri}");`
+       + `background-repeat:repeat;background-position:top left;`
+       + `background-size:${s.pw}px ${s.ph}px;}\n`;
+  css += `${sel} body::after{content:"";position:fixed;right:-28px;bottom:-28px;width:340px;height:340px;`
+       + `background:url("${watermarkUri}") no-repeat center/contain;pointer-events:none;z-index:-1}\n`;
   // themed hero overlay (keeps white hero text readable)
   const ov = s.dark ? shade(s.surface, 0.25) : shade(s.accent, 0.74);
   css += `${sel} .hero::after{background:linear-gradient(90deg,${cssRgba(ov,0.86)},${cssRgba(ov,0.26)} 72%);}\n`;

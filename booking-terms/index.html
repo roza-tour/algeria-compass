@@ -23,8 +23,19 @@
     }
     // Load only on the FIRST real user interaction — keeps gtag.js (~65 KiB)
     // out of the initial/critical path entirely (and out of an idle Lighthouse run).
+    // ...and then waits for an idle moment. The first interaction on a phone is
+    // usually the first scroll, so loading right then meant gtag.js was parsed
+    // and run in the middle of that scroll -- measured at ~1.1 s of main-thread
+    // time on a 4x-throttled phone, landing as a stutter on the visitor's very
+    // first swipe. requestIdleCallback defers it to the next quiet moment.
+    var __ga_queued = false;
+    function __queueGA(){
+      if (__ga_queued) return; __ga_queued = true;
+      if ('requestIdleCallback' in window) requestIdleCallback(__loadGA, { timeout: 4000 });
+      else setTimeout(__loadGA, 1200);
+    }
     ['scroll','click','keydown','pointerdown','touchstart'].forEach(function(ev){
-      window.addEventListener(ev, __loadGA, { once: true, passive: true });
+      window.addEventListener(ev, __queueGA, { once: true, passive: true });
     });
   })();</script><script>
     document.addEventListener('click',function(e){
@@ -78,12 +89,20 @@
     ping(window.__AC_NF ? 'notfound' : 'view', { en: entry ? 1 : 0, vw: vw, utm: utm });
 
     // --- scroll depth (kept in memory, reported once on exit) ---
+    // Read once per frame, not once per scroll event: scroll fires many times a
+    // frame on touch screens, and reading scrollHeight each time forced a fresh
+    // layout every time -- the costliest listener on the page while scrolling.
+    var __sd = 0;
     window.addEventListener('scroll', function(){
-      var doc = document.documentElement;
-      var h = (doc.scrollHeight || 0) - (window.innerHeight || 0);
-      if (h <= 0) return;
-      var pc = Math.round((window.scrollY || doc.scrollTop || 0) / h * 100);
-      if (pc > maxScroll) maxScroll = Math.min(100, pc);
+      if (__sd) return;
+      __sd = requestAnimationFrame(function(){
+        __sd = 0;
+        var doc = document.documentElement;
+        var h = (doc.scrollHeight || 0) - (window.innerHeight || 0);
+        if (h <= 0) return;
+        var pc = Math.round((window.scrollY || doc.scrollTop || 0) / h * 100);
+        if (pc > maxScroll) maxScroll = Math.min(100, pc);
+      });
     }, { passive: true });
 
     // --- engaged: still here after 15s and the tab is visible ---
@@ -111,7 +130,7 @@
       }
     });
   })();
-</script><link rel="stylesheet" href="/assets/ueber-uns.aNY-EhVs.css"></head> <body> <div class="amb" data-season="autumn" aria-hidden="true" data-astro-cid-lfw5ggjk>     <div class="amb-layer" data-astro-cid-lfw5ggjk> <span class="amb-leaf" style="left:4%;animation-duration:23s;animation-delay:0s;--sc:1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:11%;animation-duration:19s;animation-delay:3s;--sc:0.8" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:18%;animation-duration:26s;animation-delay:6s;--sc:1.1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:25%;animation-duration:21s;animation-delay:1s;--sc:0.7" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:32%;animation-duration:24s;animation-delay:4s;--sc:1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:39%;animation-duration:20s;animation-delay:8s;--sc:0.9" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:46%;animation-duration:27s;animation-delay:2s;--sc:1.2" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:53%;animation-duration:22s;animation-delay:5s;--sc:0.75" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:60%;animation-duration:19s;animation-delay:9s;--sc:1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:67%;animation-duration:25s;animation-delay:0s;--sc:0.85" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:74%;animation-duration:21s;animation-delay:6s;--sc:1.1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:81%;animation-duration:23s;animation-delay:3s;--sc:0.7" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:88%;animation-duration:20s;animation-delay:7s;--sc:1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:95%;animation-duration:24s;animation-delay:1s;--sc:0.9" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:8%;animation-duration:28s;animation-delay:5s;--sc:0.8" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:22%;animation-duration:22s;animation-delay:10s;--sc:1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:43%;animation-duration:26s;animation-delay:7s;--sc:0.75" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:58%;animation-duration:21s;animation-delay:12s;--sc:1.05" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:72%;animation-duration:24s;animation-delay:4s;--sc:0.9" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:86%;animation-duration:27s;animation-delay:9s;--sc:0.8" data-astro-cid-lfw5ggjk></span> </div>  </div> <script>(function(){const windows = [["2026-10-31","2026-11-03","national"],["2026-12-14","2027-01-06","christmas"],["2027-01-11","2027-01-15","yennayer"],["2027-02-07","2027-03-10","ramadan"],["2027-03-09","2027-03-13","eid"],["2027-05-16","2027-05-21","eid"],["2027-07-04","2027-07-07","national"],["2027-08-14","2027-08-17","mawlid"],["2027-10-31","2027-11-03","national"],["2027-12-14","2028-01-06","christmas"],["2028-01-11","2028-01-15","yennayer"],["2028-01-27","2028-02-27","ramadan"],["2028-02-26","2028-03-01","eid"]];
+</script><link rel="stylesheet" href="/assets/ueber-uns.DkLJoW83.css"></head> <body> <div class="amb" data-season="autumn" aria-hidden="true" data-astro-cid-lfw5ggjk>     <div class="amb-layer" data-astro-cid-lfw5ggjk> <span class="amb-leaf" style="left:4%;animation-duration:23s;animation-delay:0s;--sc:1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:11%;animation-duration:19s;animation-delay:3s;--sc:0.8" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:18%;animation-duration:26s;animation-delay:6s;--sc:1.1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:25%;animation-duration:21s;animation-delay:1s;--sc:0.7" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:32%;animation-duration:24s;animation-delay:4s;--sc:1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:39%;animation-duration:20s;animation-delay:8s;--sc:0.9" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:46%;animation-duration:27s;animation-delay:2s;--sc:1.2" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:53%;animation-duration:22s;animation-delay:5s;--sc:0.75" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:60%;animation-duration:19s;animation-delay:9s;--sc:1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:67%;animation-duration:25s;animation-delay:0s;--sc:0.85" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:74%;animation-duration:21s;animation-delay:6s;--sc:1.1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:81%;animation-duration:23s;animation-delay:3s;--sc:0.7" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:88%;animation-duration:20s;animation-delay:7s;--sc:1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:95%;animation-duration:24s;animation-delay:1s;--sc:0.9" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:8%;animation-duration:28s;animation-delay:5s;--sc:0.8" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:22%;animation-duration:22s;animation-delay:10s;--sc:1" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:43%;animation-duration:26s;animation-delay:7s;--sc:0.75" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:58%;animation-duration:21s;animation-delay:12s;--sc:1.05" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:72%;animation-duration:24s;animation-delay:4s;--sc:0.9" data-astro-cid-lfw5ggjk></span><span class="amb-leaf" style="left:86%;animation-duration:27s;animation-delay:9s;--sc:0.8" data-astro-cid-lfw5ggjk></span> </div>  </div> <script>(function(){const windows = [["2026-10-31","2026-11-03","national"],["2026-12-14","2027-01-06","christmas"],["2027-01-11","2027-01-15","yennayer"],["2027-02-07","2027-03-10","ramadan"],["2027-03-09","2027-03-13","eid"],["2027-05-16","2027-05-21","eid"],["2027-07-04","2027-07-07","national"],["2027-08-14","2027-08-17","mawlid"],["2027-10-31","2027-11-03","national"],["2027-12-14","2028-01-06","christmas"],["2028-01-11","2028-01-15","yennayer"],["2028-01-27","2028-02-27","ramadan"],["2028-02-26","2028-03-01","eid"]];
 
   /* A page can be cached for weeks. Re-resolve the season client-side and, if it
      no longer matches what was baked in, correct the attribute so the ambience
@@ -926,8 +945,10 @@ const icons = {"winter":"<path d=\"M12 2v20M4 7l16 10M20 7L4 17\"/><path d=\"M9 
         root.classList.toggle('fab-on', on);
       }
       check();
-      window.addEventListener('scroll', check, { passive:true });
-      window.addEventListener('resize', check, { passive:true });
+      var fr = 0;   /* once per frame: getBoundingClientRect per scroll event forced layout */
+      function onScroll(){ if (!fr) fr = requestAnimationFrame(function(){ fr = 0; check(); }); }
+      window.addEventListener('scroll', onScroll, { passive:true });
+      window.addEventListener('resize', onScroll, { passive:true });
     })();
   </script> <script>
     /* Homepage hero parallax. .home-hero-bg is laid out with inset:-6% and an

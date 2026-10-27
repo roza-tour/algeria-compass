@@ -253,19 +253,26 @@ const isNight = season === 'ramadan' || season === 'eid' || season === 'mawlid'
   .amb[data-season='mawlid'] .amb-glow   { background: radial-gradient(circle, rgba(190,214,178,.2) 0%, transparent 68%); }
   .amb[data-season='national'] .amb-glow { background: radial-gradient(circle, rgba(255,255,255,.16) 0%, transparent 68%); }
 
-  /* --sc carries the per-particle scale so it composes with the animation's
-     own transform instead of being overwritten by it. */
+  /* Per-particle size lives in the separate `scale` property, NOT inside the
+     keyframes. Keyframes that reference a custom property (scale(var(--sc)))
+     cannot run on the compositor, so every falling leaf forced a full style
+     recalculation on the main thread each frame: measured at ~57 recalcs and
+     ~260 ms of main-thread time per 5 idle seconds on a throttled phone, for as
+     long as the page was open. With constant keyframes the GPU animates them;
+     `scale` composes with the animated `transform`, so each particle keeps its
+     own size. */
+  .amb-leaf, .amb-petal, .amb-flake { scale: var(--sc, 1); will-change: transform, opacity; }
   @keyframes amb-fall {
-    from { transform: translateY(0) translateX(0) scale(var(--sc, 1)); opacity: 0; }
+    from { transform: translateY(0) translateX(0); opacity: 0; }
     10%  { opacity: .7; }
     90%  { opacity: .7; }
-    to   { transform: translateY(114vh) translateX(36px) scale(var(--sc, 1)); opacity: 0; }
+    to   { transform: translateY(114vh) translateX(36px); opacity: 0; }
   }
   @keyframes amb-drift-fall {
-    from { transform: translateY(0) translateX(0) rotate(0deg) scale(var(--sc, 1)); opacity: 0; }
+    from { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
     10%  { opacity: .78; }
     90%  { opacity: .78; }
-    to   { transform: translateY(114vh) translateX(90px) rotate(320deg) scale(var(--sc, 1)); opacity: 0; }
+    to   { transform: translateY(114vh) translateX(90px) rotate(320deg); opacity: 0; }
   }
   @keyframes amb-shaft {
     0%, 100% { opacity: .55; transform: rotate(14deg); }

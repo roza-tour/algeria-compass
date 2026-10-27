@@ -183,8 +183,10 @@ const speakableNode = speakable?.length ? {
         root.classList.toggle('fab-on', on);
       }
       check();
-      window.addEventListener('scroll', check, { passive:true });
-      window.addEventListener('resize', check, { passive:true });
+      var fr = 0;   /* once per frame: getBoundingClientRect per scroll event forced layout */
+      function onScroll(){ if (!fr) fr = requestAnimationFrame(function(){ fr = 0; check(); }); }
+      window.addEventListener('scroll', onScroll, { passive:true });
+      window.addEventListener('resize', onScroll, { passive:true });
     })();
   </script>
   <script is:inline>
