@@ -43,9 +43,8 @@ const vars = (r: any) => `--rc:${r.rc};--rc-d:${r.rcD};--rc-l:${r.rcL};--rc-pape
           <div class="rg-tilt__in">
             <div class="rg-card">
               <img class="rg-card__img" src={r.hero} alt={r.name} width="600" height="400" loading={i < 4 ? 'eager' : 'lazy'} decoding="async" />
-              <div class="rg-card__pat" aria-hidden="true"></div>
               <div class="rg-card__scrim" aria-hidden="true"></div>
-              <div class="rg-card__em" aria-hidden="true"><img src={r.emblem} alt="" width="46" height="46" loading="lazy" /></div>
+              <span class="rg-no rg-no--card" aria-hidden="true"><i>N°</i>{r.idx}</span>
               <div class="rg-card__body">
                 <div class="rg-card__idx">{r.idx} — Region</div>
                 <div class="rg-card__ar" lang="ar">{r.ar}</div>

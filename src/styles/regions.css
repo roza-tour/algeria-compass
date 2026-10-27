@@ -214,3 +214,84 @@
   .rg-tilt:active .rg-tilt__in{ transform:scale(.978); }
   .rg-tilt:active .rg-card__img{ opacity:.78; }
 }
+
+
+/* =====================================================================
+   Redesign, October 2026 — texture and photography instead of flat colour
+   and hand-drawn ornament. The owner judged the regions' doodled emblems,
+   pattern overlays and saturated backgrounds "primitive"; each is replaced by
+   something that carries the same identity more finely:
+     emblem drawings  -> the region's number, set like a plate number
+     pattern overlays -> a fine static film grain
+     flat --rc-d bands -> an ink tinted by the region, lit by a soft glow
+     clip-art sphere  -> a real photograph in an arched frame
+     gradient CTA     -> the region's own photograph under a scrim
+     tinted paper     -> the site's paper, the same for every region
+   ===================================================================== */
+
+/* region ink: the region's deep colour pulled most of the way to near-black,
+   so it reads as a rich, tinted dark rather than a poster colour */
+.rg-page, .rg-hub, .rg-tilt{
+  --rc-ink: color-mix(in srgb, var(--rc-d) 52%, #0d0c0a);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@supports not (color: color-mix(in srgb, red 50%, #000)){ .rg-page, .rg-hub, .rg-tilt{ --rc-ink: var(--rc-d); } }
+
+/* one paper for every region: the per-region pink, teal and sand tints read as
+   a different site on every page */
+.rg-page{ background:var(--bg, #FBF8F2); }
+
+/* ---- hero: tinted ink, a glow of the region's colour, film grain ---- */
+.rg-hero{ background:var(--rc-ink); isolation:isolate; }
+.rg-hero::before{ content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(70% 60% at 12% 18%, color-mix(in srgb, var(--rc) 34%, transparent), transparent 70%),
+             radial-gradient(60% 50% at 0% 100%, color-mix(in srgb, var(--rc-l) 14%, transparent), transparent 70%); }
+.rg-hero::after{ content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:var(--grain); opacity:.09; mix-blend-mode:overlay; }
+.rg-hero__media{ z-index:1; }
+.rg-hero__scrim{ background:linear-gradient(90deg, var(--rc-ink) 0%, color-mix(in srgb, var(--rc-ink) 40%, transparent) 16%, transparent 38%),
+                           linear-gradient(0deg, color-mix(in srgb, var(--rc-ink) 70%, transparent) 0%, transparent 24%); }
+@media(max-width:900px){ .rg-hero__scrim{ background:linear-gradient(0deg, var(--rc-ink) 0%, transparent 46%); } }
+.rg-hero__kick{ color:var(--rc-l); }
+
+/* the plate number: a thin gold ring, the N° in italics, the digits in the display face */
+.rg-no{ display:inline-flex; align-items:baseline; gap:.15em; margin-bottom:1.3rem; width:max-content;
+  padding:.5rem .95rem .45rem; border:1px solid rgba(228,173,64,.55); border-radius:999px;
+  font-family:var(--font-display); font-size:1.15rem; font-weight:600; letter-spacing:.04em; color:#F3D79A; }
+.rg-no i{ font-style:italic; font-weight:500; font-size:.8em; opacity:.85; }
+.rg-no--card{ position:absolute; top:16px; left:16px; z-index:2; margin:0; font-size:.95rem; padding:.32rem .7rem .28rem;
+  background:rgba(12,10,8,.35); backdrop-filter:blur(4px); }
+
+/* ---- intro: a photograph in an arch, with a gold hairline offset behind it ---- */
+.rg-arch{ position:relative; width:min(360px,86%); aspect-ratio:4/5; margin:0 auto; }
+.rg-arch img{ position:relative; z-index:1; width:100%; height:100%; object-fit:cover; display:block;
+  border-radius:999px 999px 14px 14px; box-shadow:0 30px 60px -30px rgba(20,14,8,.55); }
+.rg-arch::before{ content:""; position:absolute; inset:-12px -12px 12px 12px; z-index:0;
+  border:1px solid color-mix(in srgb, var(--rc) 55%, #C9A24B); border-radius:999px 999px 14px 14px; }
+@media (prefers-reduced-motion:no-preference){
+  .rg-arch img{ transition:transform 1.2s cubic-bezier(.2,.7,.2,1); }
+  .rg-arch:hover img{ transform:translate(-4px,4px); }
+}
+
+/* ---- monuments stage: the same tinted ink and grain, no pattern ---- */
+.rg-monu{ background:var(--rc-ink); isolation:isolate; }
+.rg-monu::before{ background:radial-gradient(60% 70% at 85% 0%, color-mix(in srgb, var(--rc) 26%, transparent), transparent 70%); opacity:1; z-index:-1; }
+.rg-monu::after{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:var(--grain); opacity:.08; mix-blend-mode:overlay; }
+
+/* ---- gallery: a mosaic, the first photograph leading ---- */
+.rg-gal{ grid-template-columns:repeat(3,1fr); grid-auto-rows:120px; gap:.6rem; }
+.rg-gal figure:first-child{ grid-column:span 2; grid-row:span 2; }
+.rg-gal img{ height:100%; }
+.rg-gal figure{ border-radius:10px; }
+
+/* ---- CTA: the region's photograph under a scrim of its ink ---- */
+.rg-cta{ background:linear-gradient(180deg, color-mix(in srgb, var(--rc-ink) 72%, transparent), color-mix(in srgb, var(--rc-ink) 88%, transparent)),
+                    var(--cta-img) center/cover no-repeat, var(--rc-ink);
+  box-shadow:0 30px 60px -30px rgba(10,8,6,.7); border-radius:var(--radius-l, 16px); padding:clamp(2.6rem,6vw,4.2rem) clamp(1.4rem,5vw,3.2rem); }
+.rg-cta::before{ background:var(--grain); opacity:.08; mix-blend-mode:overlay; background-size:auto; }
+.rg-cta__kick{ display:inline-block; margin-bottom:.9rem; font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; font-weight:600; color:#F3D79A; }
+.rg-btn{ border-radius:var(--radius-btn, 4px); }
+.rg-links a{ border-radius:var(--radius-btn, 4px); }
+
+/* ---- hub cards: no pattern layer; the plate number replaces the drawing ---- */
+.rg-card__scrim{ background:linear-gradient(180deg, transparent 30%, color-mix(in srgb, var(--rc-ink) 62%, transparent) 56%, color-mix(in srgb, var(--rc-ink) 92%, transparent) 76%, var(--rc-ink) 99%); }
+.rg-card{ background:var(--rc-ink); }

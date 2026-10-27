@@ -56,7 +56,7 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
          column outright rather than being painted over the picture. -->
     <header class="rg-hero">
       <div class="rg-hero__in">
-        <img class="rg-hero__em" src={r.emblem} alt="" width="74" height="74" />
+        <span class="rg-no" aria-hidden="true"><i>N°</i>{r.idx}</span>
         <span class="rg-hero__kick">{r.kicker}</span>
         <span class="rg-hero__ar" lang="ar">{r.ar}</span>
         <h1 class="rg-hero__title">{r.heading || r.name}</h1>
@@ -65,7 +65,6 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
       </div>
       <div class="rg-hero__media">
         <img class="rg-hero__img" src={r.hero} alt={`${r.name} — Algeria`} width="736" height="920" fetchpriority="high" decoding="async" />
-        <div class="rg-hero__pat" aria-hidden="true"></div>
         <div class="rg-hero__scrim" aria-hidden="true"></div>
       </div>
     </header>
@@ -79,7 +78,7 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
           <p class="rg-lead" style="margin-top:1.2rem">{r.intro[0]}</p>
           <p class="rg-p" style="margin-top:1rem">{r.intro[1]}</p>
         </div>
-        <div class="rg-medallion"><img src={r.emblem} alt="" width="160" height="160" loading="lazy" /></div>
+        <figure class="rg-arch"><img src={r.gallery[0] || r.hero} alt={`${r.name}, Algeria`} width="736" height="920" loading="lazy" decoding="async" /></figure>
       </div>
     </section>
 
@@ -148,9 +147,9 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
 
     <!-- Explore real pages + CTA -->
     <section class="rg-section rg-wrap" style="padding-top:0">
-      <div class="rg-cta">
+      <div class="rg-cta" style={`--cta-img:url(${r.hero})`}>
         <div class="rg-cta__in">
-          <img class="rg-cta__em" src={r.emblem} alt="" width="54" height="54" />
+          <span class="rg-cta__kick">{r.kicker}</span>
           <h2 class="rg-h2">Travel {r.name} with us</h2>
           <p>Algeria Compass is a licensed Algerian tour operator. When you’re ready, we’ll craft a private, guided journey through this region with local Algerian guides.</p>
           <div class="rg-links">
