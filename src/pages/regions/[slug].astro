@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { REGIONS } from '../../data/regions';
 import '../../styles/regions.css';
+import '../../styles/region-art.css';
+import { readFileSync } from 'node:fs';
 
 export function getStaticPaths() {
   return REGIONS.map(r => ({ params: { slug: r.id }, props: { r } }));
@@ -29,7 +31,17 @@ const schema = [
     ],
   },
 ];
-const vars = `--rc:${r.rc};--rc-d:${r.rcD};--rc-l:${r.rcL};--rc-paper:${r.paper};--pat:${r.pat}`;
+// The hero edge is inlined as a data URI (about 2 KB): as a separate file the
+// photograph stayed fully masked -- invisible -- until that file arrived.
+const edge = (o: string) => `url("data:image/svg+xml,${encodeURIComponent(readFileSync(`public/assets/regions/edge-${r.id}-${o}.svg`, 'utf8'))}")`;
+const vars = `--rc:${r.rc};--rc-d:${r.rcD};--rc-l:${r.rcL};--rc-paper:${r.paper};--pat:${r.pat};--edge-v:${edge('v')};--edge-h:${edge('h')}`;
+// The emblem is inlined (not an <img>) so it takes the page's colour and can
+// draw itself in: every shape in it carries pathLength="1".
+const emblemSvg = readFileSync(`public${r.emblem}`, 'utf8')
+  .replace(/stroke="#[0-9A-Fa-f]{6}"/, 'stroke="currentColor"')
+  .replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
+// the ring of text around the medallion: the name and kicker, repeated to fill it
+const ringText = (`${r.name} · ${r.kicker} · `).toUpperCase().repeat(2);
 const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a journey through ${r.name}.`);
 ---
 <BaseLayout
@@ -41,7 +53,7 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
   schema={schema}
   sticky={true}>
 
-  <div class="rg rg-page" style={vars}>
+  <div class="rg rg-page" data-region={r.id} style={vars}>
     <nav class="rg-crumbs" aria-label="Breadcrumb">
       <a href="/">Home</a> › <a href="/regions/">Regions</a> › {r.name}
     </nav>
@@ -56,7 +68,7 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
          column outright rather than being painted over the picture. -->
     <header class="rg-hero">
       <div class="rg-hero__in">
-        <span class="rg-no" aria-hidden="true"><i>N°</i>{r.idx}</span>
+        <span class="rg-hero__em rg-draw" set:html={emblemSvg} />
         <span class="rg-hero__kick">{r.kicker}</span>
         <span class="rg-hero__ar" lang="ar">{r.ar}</span>
         <h1 class="rg-hero__title">{r.heading || r.name}</h1>
@@ -65,6 +77,7 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
       </div>
       <div class="rg-hero__media">
         <img class="rg-hero__img" src={r.hero} alt={`${r.name} — Algeria`} width="736" height="920" fetchpriority="high" decoding="async" />
+        <div class="rg-hero__pat" aria-hidden="true"></div>
         <div class="rg-hero__scrim" aria-hidden="true"></div>
       </div>
     </header>
@@ -78,9 +91,17 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
           <p class="rg-lead" style="margin-top:1.2rem">{r.intro[0]}</p>
           <p class="rg-p" style="margin-top:1rem">{r.intro[1]}</p>
         </div>
-        <figure class="rg-arch"><img src={r.gallery[0] || r.hero} alt={`${r.name}, Algeria`} width="736" height="920" loading="lazy" decoding="async" /></figure>
+        <div class="rg-medallion">
+          <svg class="rg-ring" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <defs><path id="rg-ring-path" d="M100,100 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0" /></defs>
+            <text><textPath href="#rg-ring-path" textLength="527" lengthAdjust="spacing">{ringText}</textPath></text>
+          </svg>
+          <span class="rg-medallion__em rg-draw" set:html={emblemSvg} />
+        </div>
       </div>
     </section>
+
+    <div class="rg-band rg-wrap" aria-hidden="true"><span></span></div>
 
     <!-- 3D monuments -->
     <section class="rg-monu rg-section">
@@ -121,6 +142,8 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
       </div>
     </section>
 
+    <div class="rg-band rg-wrap" aria-hidden="true"><span></span></div>
+
     <!-- Ledger + gallery -->
     <section class="rg-section rg-wrap" style="padding-top:0">
       <div class="rg-two">
@@ -147,9 +170,9 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
 
     <!-- Explore real pages + CTA -->
     <section class="rg-section rg-wrap" style="padding-top:0">
-      <div class="rg-cta" style={`--cta-img:url(${r.hero})`}>
+      <div class="rg-cta">
         <div class="rg-cta__in">
-          <span class="rg-cta__kick">{r.kicker}</span>
+          <span class="rg-cta__em rg-draw" set:html={emblemSvg} />
           <h2 class="rg-h2">Travel {r.name} with us</h2>
           <p>Algeria Compass is a licensed Algerian tour operator. When you’re ready, we’ll craft a private, guided journey through this region with local Algerian guides.</p>
           <div class="rg-links">
@@ -170,6 +193,16 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
        motion-gated; all content is static HTML and fully readable without JS. */
     (function(){
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      /* Emblems draw themselves in, line by line. Hidden only once this runs,
+         so without JS (or with reduced motion) they are simply there. */
+      var draws = document.querySelectorAll('.rg-draw');
+      document.documentElement.classList.add('rg-anim');
+      if ('IntersectionObserver' in window){
+        var io = new IntersectionObserver(function(es){
+          es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-drawn'); io.unobserve(e.target); } });
+        }, { rootMargin: '0px 0px -12% 0px' });
+        draws.forEach(function(d){ io.observe(d); });
+      } else draws.forEach(function(d){ d.classList.add('is-drawn'); });
       var noHover = matchMedia('(hover: none)').matches;
       var hero = document.querySelector('.rg-hero');
       var img = document.querySelector('.rg-hero__img');
