@@ -62,6 +62,13 @@ export const PHOTO_ALT: Record<string, string> = {
   "bejaia-10": "The port and town of Béjaïa seen from above, mountains behind the harbour",
   "bejaia-11": "The stone walls and gateway of an old fortress in Béjaïa, lit by late sun",
   "bejaia-12": "A lighthouse on the summit of a red rocky headland above the sea near Béjaïa",
+  "bejaia-13": "Swimmers on the rocks in clear turquoise water below a sheer limestone headland on the coast of Béjaïa",
+  "bejaia-14": "Travellers paddling kayaks and boards over clear, shallow water between rocky shores near Béjaïa",
+  "bejaia-15": "A traveller in a sun hat paddling a blue kayak through a narrow channel of clear water on the Béjaïa coast",
+  "bejaia-16": "A forested headland in a turquoise bay near Béjaïa, mountains along the far shore",
+  "bejaia-17": "A traveller kneeling on a blue paddleboard beside tall sea cliffs near Béjaïa",
+  "bejaia-18": "The green, cliff-lined coast of Béjaïa dropping to a rocky point and a lone sea stack",
+  "bejaia-19": "A lone paddler on a sea glittering in the afternoon sun off Béjaïa",
 
   // bousaada
   "bousaada-1": "Domed earthen guest lodgings around a pool at dusk in Bou Saâda",
@@ -83,6 +90,11 @@ export const PHOTO_ALT: Record<string, string> = {
   "bousaada-17": "A row of openings cut into a sandstone cliff above a wadi",
   "bousaada-18": "Desert hills and winding tracks in the steppe around Bou Saâda",
   "bousaada-19": "Green slopes of the Ouled Naïl mountains near Bou Saâda",
+  "bousaada-20": "A traveller stepping out of an arched wooden door set in the earth-rendered wall of a house in Bou Saâda",
+  "bousaada-21": "A traveller walking a dusty track past old earthen walls in the oasis of Bou Saâda, a tall palm against the blue sky",
+  "bousaada-22": "Two travellers on the steps of an earth-rendered art gallery with palm-log beams in Bou Saâda",
+  "bousaada-23": "A traveller beside a black Ouled Naïl dress hung with gold coin jewellery in a crafts museum in Bou Saâda",
+  "bousaada-24": "Two travellers in a Bou Saâda museum room hung with copperware, a portrait of the Emir Abdelkader and a traditional bridal costume",
 
   // constantine
   "constantine-1": "A road climbing the Rhumel gorge in Constantine, the Sidi M'Cid bridge high above",
@@ -279,9 +291,10 @@ export const PHOTO_ORDER: Record<string, number[]> = {
   "tlemcen": [6, 14, 11, 15, 4, 5, 13, 1, 7, 8, 12, 2, 3, 10, 9],
   "oran": [1, 7, 12, 2, 4, 3, 10, 6, 5, 8, 9, 11, 13],
   "mostaganem": [1, 2, 3, 7, 6, 5, 4, 8, 9, 10, 11, 12],
-  "bousaada": [4, 9, 1, 12, 13, 10, 2, 7, 11, 6, 3, 5, 17, 18, 19, 8, 15, 16, 14],
+  "bousaada": [4, 20, 9, 21, 22, 23, 24, 1, 12, 13, 10, 2, 7, 11, 6, 3, 5, 17, 18, 19, 8, 15, 16, 14],
   "setif": [13, 2, 1, 12, 6, 4, 7, 8, 9, 10, 3, 5, 11],
   "timimoun": [2, 7, 1, 11, 4, 6, 3, 13, 12, 5, 9, 10, 8],
+  "bejaia": [13, 1, 14, 3, 15, 5, 16, 17, 2, 18, 7, 19, 4, 6, 8, 9, 10, 11, 12],
   "djemila": [3, 5, 2, 9, 1, 4, 8, 6, 7, 10],
 };
 
