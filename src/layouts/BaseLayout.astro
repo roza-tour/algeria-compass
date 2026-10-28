@@ -64,13 +64,28 @@ const speakableNode = speakable?.length ? {
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon-180.png" />
   {ANALYTICS.adsense && (
     <>
-      {/* Google AdSense, in every page's <head> as Google asks. Ad requests are
-          paused until the visitor accepts cookies in the notice -- the notice
-          promises nothing is set before then, and AdSense sets first-party
-          cookies (__gads) once it requests an ad. CookieConsent.astro unpauses
-          on Accept; a stored acceptance unpauses here on later visits. */}
-      <script is:inline>{`(function(){var ok=false;try{ok=localStorage.getItem('ac-consent')==='granted'}catch(e){}(window.adsbygoogle=window.adsbygoogle||[]).pauseAdRequests=ok?0:1;})();`}</script>
-      <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ANALYTICS.adsense}`} crossorigin="anonymous"></script>
+      {/* Google AdSense. The site is tied to the account by this meta tag
+          (Google's "meta tag" verification method) and by /ads.txt; the ad
+          script itself loads only once the visitor accepts cookies.
+          It used to load on every visit with pauseAdRequests=1, but that
+          did not hold: measured in October 2026, a fresh visitor with no
+          consent still triggered a full ad request (pagead/ads, the
+          doubleclick test_cookie, the sodar traffic-quality scripts) --
+          the notice promises nothing is set before a choice. Loading on
+          consent keeps that promise and spares everyone else ~250 KB of
+          script, the largest share of the tour pages' blocking time.
+          CookieConsent.astro calls __loadAds() on Accept; a stored
+          acceptance loads it here on later visits. */}
+      <meta name="google-adsense-account" content={ANALYTICS.adsense} />
+      <script is:inline define:vars={{ adClient: ANALYTICS.adsense }}>
+        window.__loadAds = function () {
+          if (window.__adsLoaded) return; window.__adsLoaded = 1;
+          var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous';
+          s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + adClient;
+          document.head.appendChild(s);
+        };
+        try { if (localStorage.getItem('ac-consent') === 'granted') window.__loadAds(); } catch (e) {}
+      </script>
     </>
   )}
   <link rel="preconnect" href="https://fonts.googleapis.com" />

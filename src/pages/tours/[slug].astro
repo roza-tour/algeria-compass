@@ -359,7 +359,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .itinerary{list-style:none;padding:0;margin:1rem 0;border-left:2px solid var(--border)}
 .itinerary li{position:relative;padding:0 0 1.4rem 1.3rem}
 .itinerary li::before{content:"";position:absolute;left:-7px;top:.3rem;width:12px;height:12px;border-radius:50%;background:var(--accent)}
-.iday-num{display:block;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.iday-num{display:block;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);color:color-mix(in srgb,var(--accent) 72%,#000)}
 .itinerary>li>strong{display:block;margin:.1rem 0 .2rem;color:var(--green-d)}
 .itinerary p{color:var(--text-m);margin:0}
 .iday-stops{list-style:none;margin:.6rem 0 0;padding:0;display:flex;flex-direction:column;gap:.45rem}
@@ -397,7 +397,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .book-steps strong{color:var(--green-d)}
 .book-note{font-size:.86rem;color:var(--text-m);background:var(--wash);border:1px solid var(--border);border-radius:10px;padding:.8rem 1rem}
 .book-recap{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}
-.book-recap h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:.4rem}
+.book-recap h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);color:color-mix(in srgb,var(--accent) 72%,#000);margin-bottom:.4rem}
 .book-recap ul{list-style:none;padding:0;margin:0}
 .book-recap li{position:relative;padding:.18rem 0 .18rem 1.2rem;font-size:.84rem;color:var(--text-m)}
 .book-recap li::before{content:"•";position:absolute;left:.2rem;color:var(--accent)}
@@ -406,7 +406,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .tour-sticky{display:none}
 /* ===== per-tour accent identity ===== */
 .tour h2{color:var(--accent)}
-.tour .crumbs a{color:var(--accent)}
+.tour .crumbs a{color:var(--accent);color:color-mix(in srgb,var(--accent) 72%,#000)}
 /* White on the raw per-tour accent fails AA on the light accents (#B58A2E
    3.16:1, #B87A0A 3.60:1, #C8680A 3.86:1). A flat 30% black overlay keeps each
    tour's hue but puts the worst case at 5.81:1, so every tour's primary CTA is
@@ -426,11 +426,13 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .why-grid strong{display:block;color:var(--green-d)}
 .why-grid span{color:var(--text-m);font-size:.93rem}
 .gtk{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1rem;margin:1rem 0}
-.gtk dt{font-weight:700;color:var(--accent);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+/* text in the tour's accent is darkened 28%: the raw accents (#C8680A...)
+   measured 3.9:1 on white for these small labels */
+.gtk dt{font-weight:700;color:var(--accent);color:color-mix(in srgb,var(--accent) 72%,#000);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
 .gtk dd{margin:0;color:var(--text-m)}
 .caps{text-transform:capitalize}
 .explore-row{color:var(--text-m);margin:.4rem 0}
-.explore-row a{color:var(--accent);font-weight:600}
+.explore-row a{color:var(--accent);color:color-mix(in srgb,var(--accent) 72%,#000);font-weight:600}
 .visa-note{margin-top:1.6rem;background:var(--wash);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1.1rem}
 .visa-note strong{display:block;color:var(--green-d);margin-bottom:.25rem}
 .visa-note p{margin:0;color:var(--text-m);font-size:.92rem;line-height:1.6}

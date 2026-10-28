@@ -41,7 +41,11 @@ const emblemSvg = readFileSync(`public${r.emblem}`, 'utf8')
   .replace(/stroke="#[0-9A-Fa-f]{6}"/, 'stroke="currentColor"')
   .replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
 // the ring of text around the medallion: the name and kicker, repeated to fill it
-const ringText = (`${r.name} · ${r.kicker} · `).toUpperCase().repeat(2);
+// The ring holds about 66 characters at its 10.5px size; repeat what fits,
+// and textLength spreads it evenly round the circle.
+const ringBase = (`${r.name} · ${r.kicker} · `).toUpperCase();
+const ringText = ringBase.length > 66 ? (`${r.name} · `).toUpperCase().repeat(Math.max(1, Math.floor(66 / (r.name.length + 3))))
+  : ringBase.repeat(Math.max(1, Math.floor(66 / ringBase.length)));
 const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a journey through ${r.name}.`);
 ---
 <BaseLayout
@@ -280,6 +284,6 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
     })();
   </script>
     <section class="section"><div class="wrap">
-      <p style="color:var(--text-l);max-width:62ch">Curious about the civilisations behind this region — Amazigh, Roman, Andalusian, Ottoman and Saharan? Read the full <a href="/culture/">Algerian culture guide</a>.</p>
+      <p style="color:var(--text-l);max-width:62ch">Curious about the civilisations behind this region — Amazigh, Roman, Andalusian, Ottoman and Saharan? Read the full <a href="/culture/" style="text-decoration:underline">Algerian culture guide</a>.</p>
     </div></section>
 </BaseLayout>

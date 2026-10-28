@@ -41,9 +41,9 @@ const t = {
             analytics_storage: v === 'granted' ? 'granted' : 'denied'
           });
         }
-        /* AdSense waits for this choice (see BaseLayout): Accept lets ads be
-           requested; Decline leaves requests paused, so no ad cookie is set. */
-        if (v === 'granted') { (window.adsbygoogle = window.adsbygoogle || []).pauseAdRequests = 0; }
+        /* AdSense waits for this choice (see BaseLayout): its script loads
+           only on Accept, so Decline means no ad request and no ad cookie. */
+        if (v === 'granted' && window.__loadAds) { window.__loadAds(); }
         el.hidden = true;
       }
       el.querySelectorAll('[data-cc]').forEach(function (b) {
