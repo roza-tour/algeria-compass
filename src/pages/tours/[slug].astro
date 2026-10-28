@@ -9,6 +9,9 @@ import data from '../../data/tours.json';
 import { TOUR_VISUALS } from '../../data/tour-visuals';
 import { tourGallery } from '../../data/tour-photos';
 import RegionSeal from '../../components/RegionSeal.astro';
+import TourCard from '../../components/TourCard.astro';
+import Departures from '../../components/Departures.astro';
+import { TOUR_VISUALS } from '../../data/tour-visuals';
 import { regionForTour } from '../../data/tourRegions.mjs';
 import '../../styles/tour-regions.css';
 import ItineraryOffer from '../../components/ItineraryOffer.astro';
@@ -54,7 +57,13 @@ const frAlternates = (TOURS_FR[tour.id]?.full || TOURS_IT[tour.id]?.full || TOUR
 // to ones that exist as pages; similar tours share the same theme.
 const provinceSlugs = new Set((await getCollection('province')).map(p => p.slug));
 const coveredProvinces = (tour.wilayas || []).filter((w: string) => provinceSlugs.has(w));
-const relatedTours = tours.filter((t: any) => t.theme === tour.theme && t.id !== tour.id).slice(0, 3);
+// Similar tours, shown as cards: the same region first (closest in feel and
+// geography), then the same theme, then nearest in price.
+const myRegion = regionForTour(tour);
+const relatedTours = tours.filter((t: any) => t.id !== tour.id)
+  .map((t: any) => ({ t, score: (regionForTour(t) === myRegion ? 2 : 0) + (t.theme === tour.theme ? 1 : 0) - Math.abs(t.price_eur - tour.price_eur) / 10000 }))
+  .sort((a: any, b: any) => b.score - a.score).slice(0, 3).map((x: any) => x.t);
+const favImg = (() => { const h = (TOUR_VISUALS as any)[tour.id]?.hero || `${tour.image_slugs[0]}-1.jpg`; return `/assets/img/thumbs/tours/${h}`; })();
 
 // Build the gallery from real files on disk: assets/img/tours/<slug>-N.jpg,
 // best photos first and alternating between the tour's places (see tour-photos.ts).
@@ -257,8 +266,13 @@ if (tour.faqs && tour.faqs.length) schema.push({
     </div>
 
     <aside class="book-widget">
-      <div class="bw-price">{tour.price_from ? 'From ' : ''}€{tour.price_eur}</div>
-      <div class="bw-per">per person · {tour.duration}</div>
+      <div class="bw-price">{tour.price_from ? 'From ' : ''}<span data-eur={tour.price_eur}>€{tour.price_eur}</span></div>
+      <div class="bw-per">per person · {tour.duration}
+        <select class="bw-cur" data-cur-select aria-label="Show prices in">
+          <option value="EUR">EUR</option><option value="USD">USD</option><option value="GBP">GBP</option>
+        </select>
+      </div>
+      <a class="bw-rating" href="https://share.google/rEAjf9e2qvCwefa2X" target="_blank" rel="noopener"><span aria-hidden="true">★★★★★</span> 5.0 on Google · 9 reviews</a>
       <div class="bw-meta">Starts: {tour.start}</div>
       <div class="bw-meta">🇩🇿 Licensed Algerian operator</div>
       {tour.includes && tour.includes.length > 0 &&
@@ -268,6 +282,10 @@ if (tour.faqs && tour.faqs.length) schema.push({
         </ul>}
       <a class="btn btn-gold bw-cta" href="#book" data-evt="book_intent">Request to book</a>
       <a class="btn btn-wa-2 bw-cta" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Book on WhatsApp</a>
+      <button type="button" class="bw-save" data-fav={tour.id} data-title={tour.title} data-price={tour.price_eur} data-img={favImg} aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 14.9 3 12.2 3 8.9 3 6.2 5.1 4.2 7.7 4.2c1.5 0 3 .7 3.9 1.9l.4.5.4-.5c.9-1.2 2.4-1.9 3.9-1.9 2.6 0 4.7 2 4.7 4.7 0 3.3-3 6-7.7 10.2z"/></svg>
+        <span class="bw-save-off">Save to my shortlist</span><span class="bw-save-on">Saved to your shortlist</span>
+      </button>
       <ul class="bw-guar">
         <li>Dates held free for {BOOKING.holdHours} hours — no payment</li>
         <li>Visa refused? Full refund</li>
@@ -289,6 +307,41 @@ if (tour.faqs && tour.faqs.length) schema.push({
       </div>
     </div></section>}
 
+  <!-- Reviews of THIS tour, from the same moderated file as the homepage
+       (reviews-approved.json). The section stays hidden when the tour has
+       none yet -- never filled with other tours' reviews. -->
+  <section class="section tr-rev" id="tour-reviews" hidden data-tour={tour.title}><div class="wrap">
+    <span class="eyebrow">In their words</span>
+    <h2>Travellers on this tour</h2>
+    <div class="tr-list" id="tr-list"></div>
+    <p class="tr-more"><a href="https://share.google/rEAjf9e2qvCwefa2X" target="_blank" rel="noopener">All our reviews on Google →</a> · <a href="/#reviews">Travelled with us? Leave a review</a></p>
+  </div></section>
+  <script is:inline>
+    (function () {
+      var sec = document.getElementById('tour-reviews'); if (!sec || !window.fetch) return;
+      var title = sec.getAttribute('data-tour');
+      var PRICE = /(your|ur) price|prezzo|prezioa|cijen|harga|precio|preis|\bprix\b|prijs|cenę|cenu|цен|fiyat|pre[tț]ul|preço|hinta|giá|價格|价格|السعر|سعر/i;
+      fetch('/reviews-approved.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+        var rs = ((d && d.reviews) || []).filter(function (x) {
+          var c = String(x.comment || '');
+          return x.tour === title && !(c.length < 120 && PRICE.test(c));
+        });
+        if (!rs.length) return;
+        var list = document.getElementById('tr-list');
+        rs.slice(-6).reverse().forEach(function (x) {
+          var f = document.createElement('figure'); f.className = 'tr-item';
+          var st = document.createElement('div'); st.className = 'tr-stars'; st.textContent = '★★★★★'.slice(0, Math.max(1, Math.min(5, +x.rating || 5)));
+          var q = document.createElement('blockquote'); q.textContent = x.comment;
+          var c = document.createElement('figcaption'); c.textContent = [x.name, x.country, x.date].filter(Boolean).join(' · ');
+          f.appendChild(st); f.appendChild(q); f.appendChild(c); list.appendChild(f);
+        });
+        sec.hidden = false;
+      }).catch(function () {});
+    })();
+  </script>
+
+  <Departures tour={tour.id} />
+
   <section class="section"><div class="wrap">
     <h2>Where you'll be</h2>
     <p class="map-route">Starts in <strong>{tour.start}</strong>. This itinerary covers <span class="caps">{wilayaNames.join(', ')}</span>.</p>
@@ -300,8 +353,12 @@ if (tour.faqs && tour.faqs.length) schema.push({
     <h2>Continue exploring</h2>
     {coveredProvinces.length > 0 &&
       <p class="explore-row">States on this route: {coveredProvinces.map((w: string, i: number) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a class="caps" href={`/provinces/${w}/`}>{w.replace(/-/g, ' ')}</a></>))}</p>}
-    {relatedTours.length > 0 &&
-      <p class="explore-row">Similar tours: {relatedTours.map((t: any, i: number) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={`/tours/${t.id}/`}>{t.title.split(' — ')[0]}</a></>))}</p>}
+    {relatedTours.length > 0 && <>
+      <h3 class="rel-h">You may also like</h3>
+      <div class="grid rel-grid" data-reveal-group>
+        {relatedTours.map((t: any, i: number) => <TourCard tour={t} index={i} />)}
+      </div>
+    </>}
     <p class="explore-row">Browse all <a href="/tours/">tours</a>, <a href="/destinations/">destinations</a>, <a href="/regions/">regions</a> and <a href="/experiences/">experiences</a>.</p>
   </div></section>
 
@@ -319,7 +376,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
     <div class="book-head">
       <span class="eyebrow">Request to book</span>
       <h2>Book this trip</h2>
-      <p class="book-lead"><strong>{tour.price_from ? 'From ' : ''}€{tour.price_eur} per person</strong> · {tour.duration} · {tour.title}. Send your dates and group below and we’ll confirm availability, permits and flights — usually within a few hours.</p>
+      <p class="book-lead"><strong>{tour.price_from ? 'From ' : ''}<span data-eur={tour.price_eur}>€{tour.price_eur}</span> per person</strong> · {tour.duration} · {tour.title}. Send your dates and group below and we’ll confirm availability, permits and flights — usually within a few hours.</p>
     </div>
     <div class="book-grid">
       <div class="book-terms">
@@ -345,7 +402,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
   </div>
 
   <div class="tour-sticky">
-    <span class="ts-price">{tour.price_from ? 'From ' : ''}€{tour.price_eur}<em>/person</em></span>
+    <span class="ts-price">{tour.price_from ? 'From ' : ''}<span data-eur={tour.price_eur}>€{tour.price_eur}</span><em>/person</em></span>
     <a class="btn btn-gold" href="#book" data-evt="book_intent">Book this trip</a>
     <a class="ts-wa" href={`https://wa.me/213784193176?text=${waText}`} target="_blank" rel="noopener" aria-label="Book on WhatsApp"><Icon name="whatsapp" size="1.3em" /></a>
   </div>
@@ -432,6 +489,26 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .gtk dd{margin:0;color:var(--text-m)}
 .caps{text-transform:capitalize}
 .explore-row{color:var(--text-m);margin:.4rem 0}
+.rel-h{margin:1.6rem 0 1rem;font-size:1.5rem}
+.rel-grid{margin-bottom:1.4rem}
+.bw-cur{margin-left:.4rem;font:inherit;font-size:.78rem;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:4px;padding:.1rem .25rem}
+.bw-cur option{color:#07261C}
+.bw-rating{display:block;margin:.55rem 0 .2rem;color:#F3D9A8;font-size:.86rem;text-decoration:none}
+.bw-rating span{letter-spacing:1px}
+.bw-rating:hover{text-decoration:underline}
+.bw-save{display:flex;align-items:center;justify-content:center;gap:.45rem;width:100%;margin-top:.55rem;padding:.6rem;border-radius:4px;cursor:pointer;
+  background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);font:inherit;font-size:.9rem;font-weight:600}
+.bw-save svg{fill:none;stroke:#fff;stroke-width:1.8}
+.bw-save[aria-pressed="true"] svg{fill:#ff6b74;stroke:#ff6b74}
+.bw-save .bw-save-on,.bw-save[aria-pressed="true"] .bw-save-off{display:none}
+.bw-save[aria-pressed="true"] .bw-save-on{display:inline}
+.tr-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+/* built by the page script, so outside the scoped styles */
+:global(.tr-item){margin:0;padding:1.1rem 1.2rem;border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:var(--radius-m);background:#fff}
+:global(.tr-stars){color:#B88A1E;letter-spacing:2px}
+:global(.tr-item blockquote){margin:.5rem 0;font-size:1rem;line-height:1.6;color:var(--text-m)}
+:global(.tr-item figcaption){font-size:.85rem;color:var(--text-l)}
+.tr-more{margin-top:1rem;font-size:.92rem}
 .explore-row a{color:var(--accent);color:color-mix(in srgb,var(--accent) 72%,#000);font-weight:600}
 .visa-note{margin-top:1.6rem;background:var(--wash);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1.1rem}
 .visa-note strong{display:block;color:var(--green-d);margin-bottom:.25rem}

@@ -4,7 +4,14 @@ import data from '../../data/tours.json';
 import TourCard from '../../components/TourCard.astro';
 import AlgeriaMap from '../../components/AlgeriaMap.astro';
 import { alternatesFor } from '../../i18n';
+import { REGIONS } from '../../data/regions';
+import { regionForTour } from '../../data/tourRegions.mjs';
+import { DEPARTURES } from '../../data/departures';
+import Departures from '../../components/Departures.astro';
 const tours = ((data as any).tours || (data as any)) as any[];
+// Filter chips: only regions that have at least one tour, in the regions' order.
+const used = new Set(tours.map(t => regionForTour(t)));
+const regionChips = REGIONS.filter(r => used.has(r.id)).map(r => ({ id: r.id, name: r.name, n: tours.filter(t => regionForTour(t) === r.id).length }));
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 // Bidirectional hreflang with the French catalogue at /fr/circuits/.
 const alternates = alternatesFor(site, { en: '/tours/', fr: '/fr/circuits/', it: '/it/circuiti/', es: '/es/circuitos/', de: '/de/reisen/' });
@@ -60,9 +67,116 @@ const breadcrumb = {
 
   <AlgeriaMap lang="en" />
 
-  <section class="section"><div class="wrap">
-    <div class="grid" data-reveal-group>
-      {tours.map((t) => <TourCard tour={t} />)}
+  {DEPARTURES.length > 0 && <Departures />}
+
+  <section class="section" id="all-tours"><div class="wrap">
+    <!-- Filters work on the cards' data-region / data-days / data-price.
+         Without JS every tour is simply listed. The state is mirrored in the
+         URL (?region=sahara&len=long&sort=price) so a filtered list can be
+         linked to -- the region pages do. -->
+    <form class="tf" id="tf" aria-label="Filter tours" onsubmit="return false">
+      <fieldset class="tf-group">
+        <legend>Region</legend>
+        <div class="tf-chips">
+          <label class="tf-chip"><input type="radio" name="region" value="" checked /><span>All <small>{tours.length}</small></span></label>
+          {regionChips.map(r => <label class="tf-chip"><input type="radio" name="region" value={r.id} /><span>{r.name} <small>{r.n}</small></span></label>)}
+        </div>
+      </fieldset>
+      <div class="tf-row">
+        <fieldset class="tf-group">
+          <legend>Length</legend>
+          <div class="tf-chips">
+            <label class="tf-chip"><input type="radio" name="len" value="" checked /><span>Any</span></label>
+            <label class="tf-chip"><input type="radio" name="len" value="day" /><span>Day trip</span></label>
+            <label class="tf-chip"><input type="radio" name="len" value="short" /><span>2–5 days</span></label>
+            <label class="tf-chip"><input type="radio" name="len" value="long" /><span>6 days +</span></label>
+          </div>
+        </fieldset>
+        <label class="tf-sel">Sort
+          <select name="sort">
+            <option value="">Recommended</option>
+            <option value="price">Price: low to high</option>
+            <option value="-price">Price: high to low</option>
+            <option value="days">Shortest first</option>
+          </select>
+        </label>
+        <label class="tf-sel">Currency
+          <select data-cur-select>
+            <option value="EUR">€ EUR</option><option value="USD">$ USD</option><option value="GBP">£ GBP</option>
+          </select>
+        </label>
+      </div>
+      <p class="tf-count" id="tf-count" aria-live="polite"></p>
+    </form>
+    <div class="grid" id="tf-grid" data-reveal-group>
+      {tours.map((t, i) => <TourCard tour={t} index={i} />)}
     </div>
+    <p class="tf-none" id="tf-none" hidden>No tour matches all of these. <button type="button" id="tf-reset">Show all tours</button> — or <a href="/contact/">ask us</a>: every itinerary can be tailored.</p>
   </div></section>
+
+  <style>
+    .tf{margin:0 0 1.6rem;padding:1.1rem 1.2rem;border:1px solid var(--border);border-radius:var(--radius-m);background:#fff;
+      box-shadow:0 6px 20px rgba(11,61,46,.06)}
+    .tf-group{border:0;margin:0;padding:0;min-width:0}
+    .tf-group legend{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-l);margin-bottom:.45rem}
+    .tf-chips{display:flex;flex-wrap:wrap;gap:.45rem}
+    .tf-chip{position:relative;cursor:pointer}
+    .tf-chip input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+    .tf-chip span{display:inline-flex;align-items:center;gap:.35rem;padding:.42rem .85rem;border:1px solid var(--border);border-radius:999px;
+      font-size:.88rem;font-weight:600;color:var(--green-d);background:#fff;transition:background .15s,border-color .15s,color .15s}
+    .tf-chip small{font-size:.75rem;color:var(--text-l);font-weight:500}
+    .tf-chip input:checked + span{background:var(--brand-green);border-color:var(--brand-green);color:#fff}
+    .tf-chip input:checked + span small{color:rgba(255,255,255,.85)}
+    .tf-chip input:focus-visible + span{outline:2px solid var(--brand-gold);outline-offset:2px}
+    .tf-row{display:flex;flex-wrap:wrap;align-items:flex-end;gap:1rem 1.6rem;margin-top:1rem}
+    .tf-sel{display:flex;flex-direction:column;gap:.35rem;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-l)}
+    .tf-sel select{font:inherit;font-size:.92rem;letter-spacing:0;text-transform:none;font-weight:500;color:var(--ink);padding:.45rem .6rem;border:1px solid var(--border);border-radius:4px;background:#fff}
+    .tf-count{margin:.9rem 0 0;font-size:.9rem;color:var(--text-m)}
+    .tf-none{margin-top:1rem;color:var(--text-m)}
+    .tf-none button{border:0;background:none;color:var(--green-d);text-decoration:underline;font:inherit;cursor:pointer;padding:0}
+  </style>
+  <script is:inline>
+    (function () {
+      var form = document.getElementById('tf'), grid = document.getElementById('tf-grid');
+      if (!form || !grid) return;
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.tcard-wrap'));
+      var total = cards.length;
+      function val(n) { var el = form.querySelector('[name="' + n + '"]:checked') || form.querySelector('select[name="' + n + '"]'); return el ? el.value : ''; }
+      function apply(push) {
+        var region = val('region'), len = val('len'), sort = val('sort'), shown = 0;
+        cards.forEach(function (c) {
+          var d = +c.dataset.days;
+          var ok = (!region || c.dataset.region === region) &&
+                   (!len || (len === 'day' && d <= 1) || (len === 'short' && d >= 2 && d <= 5) || (len === 'long' && d >= 6));
+          c.hidden = !ok; if (ok) shown++;
+        });
+        var keys = {
+          price: function (c) { return +c.dataset.price; },
+          '-price': function (c) { return -c.dataset.price; },
+          days: function (c) { return +c.dataset.days * 1e5 + +c.dataset.price; }
+        };
+        var key = keys[sort] || function (c) { return +c.dataset.idx; };
+        cards.slice().sort(function (a, b) { return key(a) - key(b); }).forEach(function (c) { grid.appendChild(c); });
+        document.getElementById('tf-count').textContent = shown === total ? 'All ' + total + ' tours' : 'Showing ' + shown + ' of ' + total + ' tours';
+        document.getElementById('tf-none').hidden = shown > 0;
+        if (push) {
+          var q = new URLSearchParams();
+          if (region) q.set('region', region);
+          if (len) q.set('len', len);
+          if (sort) q.set('sort', sort);
+          history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash);
+        }
+      }
+      var q = new URLSearchParams(location.search);
+      ['region', 'len'].forEach(function (n) {
+        var v = q.get(n);
+        if (v) { var r = form.querySelector('[name="' + n + '"][value="' + v + '"]'); if (r) r.checked = true; }
+      });
+      if (q.get('sort')) form.querySelector('select[name="sort"]').value = q.get('sort');
+      form.addEventListener('change', function (e) { if (e.target.hasAttribute('data-cur-select')) return; apply(true); });
+      document.getElementById('tf-reset').addEventListener('click', function () { form.reset(); apply(true); });
+      apply(false);
+      if (q.get('region') || q.get('len')) document.getElementById('all-tours').scrollIntoView();
+    })();
+  </script>
 </BaseLayout>

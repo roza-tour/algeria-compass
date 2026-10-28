@@ -4,6 +4,9 @@ import { REGIONS } from '../../data/regions';
 import '../../styles/regions.css';
 import '../../styles/region-art.css';
 import { readFileSync } from 'node:fs';
+import TourCard from '../../components/TourCard.astro';
+import toursData from '../../data/tours.json';
+import { regionForTour } from '../../data/tourRegions.mjs';
 
 export function getStaticPaths() {
   return REGIONS.map(r => ({ params: { slug: r.id }, props: { r } }));
@@ -46,6 +49,10 @@ const emblemSvg = readFileSync(`public${r.emblem}`, 'utf8')
 const ringBase = (`${r.name} · ${r.kicker} · `).toUpperCase();
 const ringText = ringBase.length > 66 ? (`${r.name} · `).toUpperCase().repeat(Math.max(1, Math.floor(66 / (r.name.length + 3))))
   : ringBase.repeat(Math.max(1, Math.floor(66 / ringBase.length)));
+// The tours that belong to this region (src/data/tourRegions.mjs): the page
+// used to inspire and then send the visitor away to state guides, with
+// nothing here they could book.
+const regionTours = (((toursData as any).tours || toursData) as any[]).filter((t: any) => regionForTour(t) === r.id);
 const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a journey through ${r.name}.`);
 ---
 <BaseLayout
@@ -171,6 +178,18 @@ const waText = encodeURIComponent(`Hello Algeria Compass, I'd like to plan a jou
         </div>
       </div>
     </section>
+
+    {regionTours.length > 0 && (
+      <section class="rg-section rg-wrap rg-tours" id="tours">
+        <span class="rg-eyebrow">Travel it with us</span>
+        <h2 class="rg-h2">{regionTours.length === 1 ? 'Our tour in' : 'Our tours in'} {r.name.replace(/^The /, 'the ')}</h2>
+        <p class="rg-p" style="margin:.8rem 0 1.6rem;max-width:62ch">Private and guided by local Algerian guides — each one can be shortened, lengthened or combined with another region.</p>
+        <div class="grid" data-reveal-group>
+          {regionTours.map((t: any, i: number) => <TourCard tour={t} index={i} />)}
+        </div>
+        <p style="margin-top:1.2rem"><a class="rg-back" href={`/tours/?region=${r.id}`}>All {r.name.replace(/^The /, '')} tours →</a></p>
+      </section>
+    )}
 
     <!-- Explore real pages + CTA -->
     <section class="rg-section rg-wrap" style="padding-top:0">

@@ -127,7 +127,12 @@ const tours = (((data as any).tours || data) as any[]).map(t => t.title).sort();
     fetch(list.getAttribute('data-src'), { cache:'no-store' })
       .then(function(r){ return r.ok ? r.json() : { reviews:[] }; })
       .then(function(d){
-      var rs = (d && d.reviews) || [];
+      /* A short message that is only a price question is a bot, not a review
+         (the "I wanted to know your price" campaign, in a dozen languages, got
+         four copies published in 2026). Same rule as spamguard.php; kept here
+         too so anything that slipped through never shows, approved or not. */
+      var PRICE = /(your|ur) price|prezzo|prezioa|cijen|harga|precio|preis|prix|prijs|cenę|cenu|цен|fiyat|pre[tț]ul|preço|hinta|giá|價格|价格|السعر|سعر/i;
+      var rs = ((d && d.reviews) || []).filter(function(x){ var c = String(x.comment || ''); return !(c.length < 120 && PRICE.test(c)); });
       if(!rs.length){ list.innerHTML = emptyState; return; }
       var avg = rs.reduce(function(a,x){ return a + (+x.rating||0); }, 0) / rs.length;
       var html = '<div class="rvx-agg"><b>'+avg.toFixed(1)+'</b><span class="rvx-stars-out" aria-hidden="true">'+starStr(avg)+'</span><span>from '+rs.length+' review'+(rs.length>1?'s':'')+'</span></div>';

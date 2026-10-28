@@ -89,7 +89,7 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
       <h2>Featured tours</h2>
     </div>
     <div class="grid" style="margin-top:1.4rem" data-reveal-group>
-      {featured.map((t: any, i: number) => <TourCard tour={t} priority={i < 2} />)}
+      {featured.map((t: any, i: number) => <TourCard tour={t} priority={i < 2} index={i} />)}
     </div>
     <p style="margin-top:1.6rem"><a class="btn" href="/tours/">All {tourCount} tours →</a></p>
   </div></section>

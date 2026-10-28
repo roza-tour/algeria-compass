@@ -1,0 +1,82 @@
+---
+// Compare tours side by side: /compare/?t=id1,id2,id3 (up to 3), reached from
+// the shortlist. A utility page -- noindex, and not in the sitemap. The tours'
+// facts are embedded at build time; the page script picks the ones asked for.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../data/tours.json';
+import { TOUR_VISUALS } from '../data/tour-visuals';
+import { REGIONS } from '../data/regions';
+import { regionForTour } from '../data/tourRegions.mjs';
+const tours = ((data as any).tours || data) as any[];
+const regionName = Object.fromEntries(REGIONS.map(r => [r.id, r.heading || r.name]));
+const gtk = (t: any, label: string) => ((t.goodToKnow || []).find((g: any) => g.label === label) || {}).value || '—';
+const facts = tours.map((t: any) => {
+  const v = (TOUR_VISUALS as any)[t.id] || { hero: `${t.image_slugs[0]}-1.jpg` };
+  return {
+    id: t.id, title: t.title, price: t.price_eur, from: !!t.price_from, duration: t.duration,
+    region: regionName[regionForTour(t)], start: t.start, img: `/assets/img/thumbs/tours/${v.hero}`,
+    season: gtk(t, 'Best season'), pace: gtk(t, 'Pace'), style: gtk(t, 'Style'),
+    highlights: (t.highlights || []).slice(0, 5), includes: (t.includes || []).slice(0, 6),
+  };
+});
+---
+<BaseLayout title="Compare tours | Algeria Compass" description="Compare Algeria Compass tours side by side: price, length, region, pace and what is included." noindex={true}>
+  <section class="section"><div class="wrap">
+    <span class="eyebrow">Your shortlist</span>
+    <h1>Compare tours</h1>
+    <p class="cmp-lead" id="cmp-lead">Save tours with the heart on any tour card, then compare up to three here.</p>
+    <div class="cmp-scroll"><table class="cmp" id="cmp" hidden></table></div>
+    <p style="margin-top:1.4rem"><a class="btn btn-gold" href="/tours/">Browse all tours</a></p>
+  </div></section>
+  <style is:global>
+    .cmp-lead{color:var(--text-m);max-width:62ch}
+    .cmp-scroll{overflow-x:auto;margin-top:1.4rem;-webkit-overflow-scrolling:touch}
+    .cmp{border-collapse:separate;border-spacing:0;width:100%;min-width:640px;table-layout:fixed;background:#fff}
+    .cmp th,.cmp td{padding:.85rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;text-align:left;font-size:.95rem;line-height:1.5}
+    .cmp th[scope=row]{width:150px;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-l);font-weight:700;background:var(--cream)}
+    .cmp thead td{border-bottom:2px solid var(--brand-green)}
+    .cmp img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:8px;display:block;margin-bottom:.6rem}
+    .cmp .cmp-t{font-family:var(--font-display);font-size:1.25rem;font-weight:600;color:var(--green-d);text-decoration:none;line-height:1.2}
+    .cmp .cmp-p{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--green-d)}
+    .cmp ul{margin:0;padding-left:1.1rem}
+    .cmp li{margin:.15rem 0}
+    .cmp .btn{margin-top:.2rem}
+  </style>
+  <script is:inline define:vars={{ facts }}>
+    (function () {
+      var ids = (new URLSearchParams(location.search).get('t') || '').split(',').filter(Boolean).slice(0, 3);
+      var pick = ids.map(function (id) { return facts.filter(function (f) { return f.id === id; })[0]; }).filter(Boolean);
+      var tbl = document.getElementById('cmp');
+      if (pick.length < 1) return;
+      document.getElementById('cmp-lead').textContent = pick.length === 1 ? 'Save one more tour to compare it with this one.' : 'Your tours side by side. Every one is private, guided and can be adjusted to your dates.';
+      function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+      function list(items) { var u = el('ul'); items.forEach(function (i) { u.appendChild(el('li', null, i)); }); return u; }
+      var head = el('thead'), hr = el('tr'); hr.appendChild(el('td'));
+      pick.forEach(function (f) {
+        var td = el('td'); var img = el('img'); img.src = f.img; img.alt = ''; img.loading = 'lazy'; td.appendChild(img);
+        var a = el('a', 'cmp-t', f.title); a.href = '/tours/' + f.id + '/'; td.appendChild(a); hr.appendChild(td);
+      });
+      head.appendChild(hr); tbl.appendChild(head);
+      var rows = [
+        ['Price', function (f) { var d = el('div'); d.appendChild(document.createTextNode(f.from ? 'from ' : '')); var b = el('span', 'cmp-p', '€' + f.price); b.setAttribute('data-eur', f.price); d.appendChild(b); d.appendChild(document.createTextNode(' / person')); return d; }],
+        ['Length', function (f) { return document.createTextNode(f.duration); }],
+        ['Region', function (f) { return document.createTextNode(f.region); }],
+        ['Starts in', function (f) { return document.createTextNode(f.start); }],
+        ['Best season', function (f) { return document.createTextNode(f.season); }],
+        ['Pace', function (f) { return document.createTextNode(f.pace); }],
+        ['Style', function (f) { return document.createTextNode(f.style); }],
+        ['Highlights', function (f) { return list(f.highlights); }],
+        ['Included', function (f) { return list(f.includes); }],
+        ['', function (f) { var a = el('a', 'btn btn-gold', 'View & book'); a.href = '/tours/' + f.id + '/#book'; return a; }]
+      ];
+      var body = el('tbody');
+      rows.forEach(function (r) {
+        var tr = el('tr'); var th = el('th', null, r[0]); th.scope = 'row'; tr.appendChild(th);
+        pick.forEach(function (f) { var td = el('td'); td.appendChild(r[1](f)); tr.appendChild(td); });
+        body.appendChild(tr);
+      });
+      tbl.appendChild(body); tbl.hidden = false;
+      if (window.__applyCur) window.__applyCur();
+    })();
+  </script>
+</BaseLayout>

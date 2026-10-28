@@ -34,6 +34,9 @@ if (thumbs.status !== 0) {
   process.exit(thumbs.status ?? 1);
 }
 
+// Exchange rates for the EUR/USD/GBP price display (keeps the last rates offline).
+spawnSync(process.execPath, [join(dirname(fileURLToPath(import.meta.url)), 'gen-fx.mjs')], { cwd: realCwd, stdio: 'inherit' });
+
 const astroBin = join(dirname(fileURLToPath(import.meta.url)), '..', 'node_modules', 'astro', 'astro.js');
 const result = spawnSync(process.execPath, [astroBin, 'build'], {
   cwd: realCwd,

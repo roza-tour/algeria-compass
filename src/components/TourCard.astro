@@ -12,11 +12,16 @@
 // tours you actually sell most — until then no best-seller badges appear.
 import { TOUR_VISUALS } from '../data/tour-visuals';
 import { nobr } from '../lib/nobr';
-const { tour, priority = false } = Astro.props as { tour: any; priority?: boolean };
+import { regionForTour } from '../data/tourRegions.mjs';
+const { tour, priority = false, index = 0 } = Astro.props as { tour: any; priority?: boolean; index?: number };
 const t = tour;
 const v = TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
 const benefit = t.hook || t.summary;
+// Facts the /tours/ filters and sort read, and the shortlist stores.
+const days = (t.itinerary || []).length || 1;
+const region = regionForTour(t);
 ---
+<div class="tcard-wrap" data-tour={t.id} data-region={region} data-days={days} data-price={t.price_eur} data-idx={index}>
 <a class="tcard" href={`/tours/${t.id}/`} style={`--accent:${v.accent}`}>
   <div class="tcard-img">
     {v.hero
@@ -41,15 +46,31 @@ const benefit = t.hook || t.summary;
     <div class="tcard-foot">
       <span class="tcard-price">
         {t.price_from && <em>from</em>}
-        <b>€{t.price_eur}</b>
+        <b data-eur={t.price_eur}>€{t.price_eur}</b>
         <small>/ {t.per}</small>
       </span>
       <span class="tcard-cta">View &amp; book <span aria-hidden="true">→</span></span>
     </div>
   </div>
 </a>
+<!-- outside the link: a button cannot sit inside an <a>. Shortlist.astro wires it. -->
+<button type="button" class="tcard-fav" data-fav={t.id} data-title={t.title} data-price={t.price_eur} data-img={v.hero ? `/assets/img/thumbs/tours/${v.hero}` : ''}
+  aria-pressed="false" aria-label={`Save ${t.title} to your shortlist`}>
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 14.9 3 12.2 3 8.9 3 6.2 5.1 4.2 7.7 4.2c1.5 0 3 .7 3.9 1.9l.4.5.4-.5c.9-1.2 2.4-1.9 3.9-1.9 2.6 0 4.7 2 4.7 4.7 0 3.3-3 6-7.7 10.2z"/></svg>
+</button>
+</div>
 
 <style>
+  .tcard-wrap{position:relative;display:flex}
+  .tcard-wrap > .tcard{flex:1;min-width:0}
+  .tcard-wrap[hidden]{display:none}
+  .tcard-fav{position:absolute;top:.55rem;right:.55rem;z-index:2;width:40px;height:40px;border-radius:50%;border:0;cursor:pointer;
+    display:grid;place-items:center;background:rgba(255,255,255,.92);box-shadow:0 4px 12px rgba(0,0,0,.18);transition:transform .2s}
+  .tcard-fav svg{fill:none;stroke:#07261C;stroke-width:1.8}
+  .tcard-fav:hover{transform:scale(1.1)}
+  .tcard-fav[aria-pressed="true"] svg{fill:#C92B34;stroke:#C92B34}
+  .tcard-fav.pop{animation:fav-pop .4s ease}
+  @keyframes fav-pop{40%{transform:scale(1.3)}}
   .tcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);
     border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;
     box-shadow:0 4px 18px rgba(11,61,46,.07);transition:transform .18s ease,box-shadow .18s ease}
