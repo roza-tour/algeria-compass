@@ -6,8 +6,6 @@ import AlgeriaMap from '../../components/AlgeriaMap.astro';
 import { alternatesFor } from '../../i18n';
 import { REGIONS } from '../../data/regions';
 import { regionForTour } from '../../data/tourRegions.mjs';
-import { DEPARTURES } from '../../data/departures';
-import Departures from '../../components/Departures.astro';
 const tours = ((data as any).tours || (data as any)) as any[];
 // Filter chips: only regions that have at least one tour, in the regions' order.
 const used = new Set(tours.map(t => regionForTour(t)));
@@ -66,8 +64,6 @@ const breadcrumb = {
   </section>
 
   <AlgeriaMap lang="en" />
-
-  {DEPARTURES.length > 0 && <Departures />}
 
   <section class="section" id="all-tours"><div class="wrap">
     <!-- Filters work on the cards' data-region / data-days / data-price.

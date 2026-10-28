@@ -63,4 +63,4 @@ Algerians are, as a rule, hospitable and protective of guests. The **north and t
 The deep south is a **guided experience for everyone**: licensed operator, guide and 4x4. Within that structure it's safe and well-organised — you don't travel the deep desert independently, male or female.
 
 ## Travelling with support
-Many women prefer a **local guide or a small-group/private arrangement**, which removes most friction and adds cultural depth. That's what we do — see our [safety guide](/blog/algeria-safety-guide/) for the wider picture, or [tell us your plans](/contact/) and we'll build a comfortable, well-supported trip.
+Many women prefer a **private trip with a local guide**, which removes most friction and adds cultural depth. That's what we do — see our [safety guide](/blog/algeria-safety-guide/) for the wider picture, or [tell us your plans](/contact/) and we'll build a comfortable, well-supported trip.
