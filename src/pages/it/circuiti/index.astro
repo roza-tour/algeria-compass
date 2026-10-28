@@ -4,6 +4,8 @@
 // is honest rather than shipping a half-translated page.
 import AlgeriaMap from '../../../components/AlgeriaMap.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TourFilters from '../../../components/TourFilters.astro';
+import RecentTours from '../../../components/RecentTours.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import data from '../../../data/tours.json';
 import { TOUR_VISUALS } from '../../../data/tour-visuals';
@@ -18,6 +20,7 @@ const rows = tours.map(t => {
   const fr = TOURS_IT[t.id];
   const v = TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
   return {
+    tour: t,
     id: t.id,
     href: fr?.full ? `/it/circuiti/${t.id}/` : `/tours/${t.id}/`,
     italianPage: !!fr?.full,
@@ -79,28 +82,8 @@ const collection = {
       Per scegliere il periodo, vedete <a href="/it/quando-andare-algeria/">quando andare in Algeria</a>.
     </p>
 
-    <div class="grid fr-grid" data-reveal-group>
-      {rows.map((r, i) => (
-        <a class="frcard" href={r.href} style={`--accent:${r.accent}`}>
-          <div class="frcard-img">
-            <picture>
-              <source srcset={`/assets/img/thumbs/tours/${r.hero.replace(/\.(jpe?g|png)$/i, '.webp')}`} type="image/webp" />
-              <img src={`/assets/img/thumbs/tours/${r.hero}`} alt={r.title} width="400" height="250" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />
-            </picture>
-            <span class="frcard-badge">Privato</span>
-          </div>
-          <div class="frcard-body">
-            <span class="frcard-dur">{r.duration}</span>
-            <h2>{r.title}</h2>
-            <p>{r.hook}</p>
-            <span class="frcard-foot">
-              <strong>da {r.price} €</strong>
-              <span class="frcard-go">{r.italianPage ? 'Vedi il viaggio →' : 'Dettagli (in inglese) →'}</span>
-            </span>
-          </div>
-        </a>
-      ))}
-    </div>
+    <RecentTours lang="it" inline />
+    <TourFilters lang="it" rows={rows.map((r) => ({ tour: r.tour, href: r.href, title: r.title, hook: r.hook, duration: r.duration, englishOnly: !r.italianPage }))} />
 
     <p class="fr-note">
       I viaggi senza pagina italiana dettagliata sono descritti in inglese, ma si prenotano e si
@@ -112,18 +95,6 @@ const collection = {
 
 <style>
   .fr-intro{max-width:780px;color:var(--text-m);margin-bottom:1.6rem}
+  .fr-intro a,.fr-note a{text-decoration:underline;text-underline-offset:2px}
   .fr-note{max-width:780px;color:var(--text-l);font-size:.88rem;margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border)}
-  .fr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
-  .frcard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;color:var(--text);box-shadow:0 2px 14px rgba(7,38,28,.06)}
-  .frcard:hover{transform:translateY(-3px);transition:.18s;border-color:var(--gold);text-decoration:none}
-  .frcard-img{position:relative;aspect-ratio:16/10;background:var(--wash)}
-  .frcard-img img{width:100%;height:100%;object-fit:cover;display:block}
-  .frcard-badge{position:absolute;top:.6rem;left:.6rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(7,38,28,.86);color:#fff;padding:.24rem .6rem;border-radius:999px}
-  .frcard-body{display:flex;flex-direction:column;gap:.4rem;padding:1rem 1.1rem 1.2rem;flex:1}
-  .frcard-dur{font-size:.82rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--accent-ink)}
-  .frcard-body h2{font-size:1.05rem;line-height:1.3;margin:0}
-  .frcard-body p{font-size:.88rem;line-height:1.55;color:var(--text-m);margin:0;flex:1}
-  .frcard-foot{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin-top:.5rem;flex-wrap:wrap}
-  .frcard-foot strong{font-size:1rem}
-  .frcard-go{font-size:.9rem;font-weight:800;color:var(--accent-ink)}
 </style>

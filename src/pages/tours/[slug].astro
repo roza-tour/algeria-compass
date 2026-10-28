@@ -10,6 +10,9 @@ import { TOUR_VISUALS } from '../../data/tour-visuals';
 import { tourGallery } from '../../data/tour-photos';
 import RegionSeal from '../../components/RegionSeal.astro';
 import TourCard from '../../components/TourCard.astro';
+import TourReviews from '../../components/TourReviews.astro';
+import RouteMap from '../../components/RouteMap.astro';
+import BestMonths from '../../components/BestMonths.astro';
 import { TOUR_VISUALS } from '../../data/tour-visuals';
 import { regionForTour } from '../../data/tourRegions.mjs';
 import '../../styles/tour-regions.css';
@@ -252,6 +255,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
 
       {tour.goodToKnow && tour.goodToKnow.length > 0 &&
         <><h2 style="margin-top:2rem">Good to know</h2>
+        <BestMonths season={((tour.goodToKnow || []).find((g: any) => g.label === 'Best season') || {}).value} />
         <dl class="gtk">
           {tour.goodToKnow.map((g: any) => <><dt>{g.label}</dt><dd>{g.value}</dd></>)}
         </dl></>}
@@ -299,51 +303,20 @@ if (tour.faqs && tour.faqs.length) schema.push({
   {!needsImage && gallery.length > 0 &&
     <section class="section" style="background:var(--wash)"><div class="wrap photo-gallery">
       <h2>Gallery</h2>
-      <div class="pgrid" data-reveal-group>
+      <div class="pgrid" data-reveal-group data-lightbox>
         {gallery.map((g) => (
           <figure><img src={`/assets/img/thumbs/tours/${g.file}`} alt={g.alt || tour.title} width="400" height="400" loading="lazy" /></figure>
         ))}
       </div>
     </div></section>}
 
-  <!-- Reviews of THIS tour, from the same moderated file as the homepage
-       (reviews-approved.json). The section stays hidden when the tour has
-       none yet -- never filled with other tours' reviews. -->
-  <section class="section tr-rev" id="tour-reviews" hidden data-tour={tour.title}><div class="wrap">
-    <span class="eyebrow">In their words</span>
-    <h2>Travellers on this tour</h2>
-    <div class="tr-list" id="tr-list"></div>
-    <p class="tr-more"><a href="https://share.google/rEAjf9e2qvCwefa2X" target="_blank" rel="noopener">All our reviews on Google →</a> · <a href="/#reviews">Travelled with us? Leave a review</a></p>
-  </div></section>
-  <script is:inline>
-    (function () {
-      var sec = document.getElementById('tour-reviews'); if (!sec || !window.fetch) return;
-      var title = sec.getAttribute('data-tour');
-      var PRICE = /(your|ur) price|prezzo|prezioa|cijen|harga|precio|preis|\bprix\b|prijs|cenę|cenu|цен|fiyat|pre[tț]ul|preço|hinta|giá|價格|价格|السعر|سعر/i;
-      fetch('/reviews-approved.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
-        var rs = ((d && d.reviews) || []).filter(function (x) {
-          var c = String(x.comment || '');
-          return x.tour === title && !(c.length < 120 && PRICE.test(c));
-        });
-        if (!rs.length) return;
-        var list = document.getElementById('tr-list');
-        rs.slice(-6).reverse().forEach(function (x) {
-          var f = document.createElement('figure'); f.className = 'tr-item';
-          var st = document.createElement('div'); st.className = 'tr-stars'; st.textContent = '★★★★★'.slice(0, Math.max(1, Math.min(5, +x.rating || 5)));
-          var q = document.createElement('blockquote'); q.textContent = x.comment;
-          var c = document.createElement('figcaption'); c.textContent = [x.name, x.country, x.date].filter(Boolean).join(' · ');
-          f.appendChild(st); f.appendChild(q); f.appendChild(c); list.appendChild(f);
-        });
-        sec.hidden = false;
-      }).catch(function () {});
-    })();
-  </script>
+  <TourReviews tourTitle={tour.title} />
 
   <section class="section"><div class="wrap">
     <h2>Where you'll be</h2>
     <p class="map-route">Starts in <strong>{tour.start}</strong>. This itinerary covers <span class="caps">{wilayaNames.join(', ')}</span>.</p>
-    <iframe class="tour-map" title={`Map of ${tour.title}`} src={mapSrc} loading="lazy" width="100%" height="320"></iframe>
-    <p style="margin-top:.5rem;font-size:.85rem"><a href={mapLink} target="_blank" rel="noopener">View larger map →</a></p>
+    <RouteMap wilayas={tour.wilayas || []} accent={accent} label={`Route of ${tour.title}`} />
+    <p style="margin-top:.5rem;font-size:.85rem"><a href={mapLink} target="_blank" rel="noopener">Open in Google Maps →</a></p>
   </div></section>
 
   <section class="section"><div class="wrap">
@@ -392,7 +365,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
       </div>
       <div class="book-form">
         <h3>Your booking request</h3>
-        <InquiryForm context={`Booking request: ${tour.title}`} />
+        <InquiryForm context={`Booking request: ${tour.title}`} customize={true} />
       </div>
     </div>
   </div></section>
@@ -499,13 +472,6 @@ if (tour.faqs && tour.faqs.length) schema.push({
 .bw-save[aria-pressed="true"] svg{fill:#ff6b74;stroke:#ff6b74}
 .bw-save .bw-save-on,.bw-save[aria-pressed="true"] .bw-save-off{display:none}
 .bw-save[aria-pressed="true"] .bw-save-on{display:inline}
-.tr-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1rem}
-/* built by the page script, so outside the scoped styles */
-:global(.tr-item){margin:0;padding:1.1rem 1.2rem;border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:var(--radius-m);background:#fff}
-:global(.tr-stars){color:#B88A1E;letter-spacing:2px}
-:global(.tr-item blockquote){margin:.5rem 0;font-size:1rem;line-height:1.6;color:var(--text-m)}
-:global(.tr-item figcaption){font-size:.85rem;color:var(--text-l)}
-.tr-more{margin-top:1rem;font-size:.92rem}
 .explore-row a{color:var(--accent);color:color-mix(in srgb,var(--accent) 72%,#000);font-weight:600}
 .visa-note{margin-top:1.6rem;background:var(--wash);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1.1rem}
 .visa-note strong{display:block;color:var(--green-d);margin-bottom:.25rem}

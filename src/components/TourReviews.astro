@@ -1,0 +1,53 @@
+---
+// Reviews of ONE tour, from the moderated file the homepage uses
+// (reviews-approved.json, matched on the tour's English title). Hidden when the
+// tour has none yet -- never filled with other tours' reviews. Messages that are
+// only a price question are bot spam and are skipped (same rule as spamguard.php).
+export interface Props { tourTitle: string; lang?: string; accent?: string; }
+const { tourTitle, lang = 'en' } = Astro.props;
+const L: Record<string, any> = {
+  en: { eye: 'In their words', h: 'Travellers on this tour', all: 'All our reviews on Google →', leave: 'Travelled with us? Leave a review', leaveHref: '/#reviews' },
+  fr: { eye: 'Ils en parlent', h: 'Les voyageurs de ce circuit', all: 'Tous nos avis sur Google →', leave: 'Vous avez voyagé avec nous ? Laissez un avis', leaveHref: '/#reviews' },
+  it: { eye: 'Le loro parole', h: 'I viaggiatori di questo tour', all: 'Tutte le recensioni su Google →', leave: 'Avete viaggiato con noi? Lasciate una recensione', leaveHref: '/#reviews' },
+  es: { eye: 'En sus palabras', h: 'Viajeros de este circuito', all: 'Todas nuestras opiniones en Google →', leave: '¿Viajó con nosotros? Deje su opinión', leaveHref: '/#reviews' },
+  de: { eye: 'In ihren Worten', h: 'Reisende dieser Tour', all: 'Alle Bewertungen auf Google →', leave: 'Mit uns gereist? Bewertung schreiben', leaveHref: '/#reviews' },
+};
+const l = L[lang] || L.en;
+---
+<section class="section tr-rev" id="tour-reviews" hidden data-tour={tourTitle}><div class="wrap">
+  <span class="eyebrow">{l.eye}</span>
+  <h2>{l.h}</h2>
+  <div class="tr-list" id="tr-list"></div>
+  <p class="tr-more"><a href="https://share.google/rEAjf9e2qvCwefa2X" target="_blank" rel="noopener">{l.all}</a> · <a href={l.leaveHref}>{l.leave}</a></p>
+</div></section>
+<style is:global>
+  .tr-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+  .tr-item{margin:0;padding:1.1rem 1.2rem;border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:var(--radius-m);background:#fff}
+  .tr-stars{color:#B88A1E;letter-spacing:2px}
+  .tr-item blockquote{margin:.5rem 0;font-size:1rem;line-height:1.6;color:var(--text-m)}
+  .tr-item figcaption{font-size:.85rem;color:var(--text-l)}
+  .tr-more{margin-top:1rem;font-size:.92rem}
+</style>
+<script is:inline>
+  (function () {
+    var sec = document.getElementById('tour-reviews'); if (!sec || !window.fetch) return;
+    var title = sec.getAttribute('data-tour');
+    var PRICE = /(your|ur) price|prezzo|prezioa|cijen|harga|precio|preis|\bprix\b|prijs|cenę|cenu|цен|fiyat|pre[tț]ul|preço|hinta|giá|價格|价格|السعر|سعر/i;
+    fetch('/reviews-approved.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      var rs = ((d && d.reviews) || []).filter(function (x) {
+        var c = String(x.comment || '');
+        return x.tour === title && !(c.length < 120 && PRICE.test(c));
+      });
+      if (!rs.length) return;
+      var list = document.getElementById('tr-list');
+      rs.slice(-6).reverse().forEach(function (x) {
+        var f = document.createElement('figure'); f.className = 'tr-item';
+        var st = document.createElement('div'); st.className = 'tr-stars'; st.textContent = '★★★★★'.slice(0, Math.max(1, Math.min(5, +x.rating || 5)));
+        var q = document.createElement('blockquote'); q.textContent = x.comment;
+        var c = document.createElement('figcaption'); c.textContent = [x.name, x.country, x.date].filter(Boolean).join(' · ');
+        f.appendChild(st); f.appendChild(q); f.appendChild(c); list.appendChild(f);
+      });
+      sec.hidden = false;
+    }).catch(function () {});
+  })();
+</script>

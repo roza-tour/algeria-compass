@@ -5,11 +5,25 @@
 // remain in one language whatever the visitor sees.
 import { CONTACT } from '../config';
 import { FORM, INTEREST_VALUES, asLang } from '../i18n';
-export interface Props { defaultInterest?: string; context?: string; compact?: boolean; lang?: string; }
-const { defaultInterest = '', context = '', lang: langProp } = Astro.props;
+export interface Props { defaultInterest?: string; context?: string; compact?: boolean; lang?: string; customize?: boolean; }
+const { defaultInterest = '', context = '', lang: langProp, customize = false } = Astro.props;
 const lang = asLang(langProp);
 const f = FORM[lang];
 const interests = INTEREST_VALUES.map((value, i) => ({ value, label: f.interestLabels[i] ?? value }));
+// "Make it yours" (tour pages): every trip is private and built around the
+// traveller, so the request can say how from the first message. The choices
+// are added to the email's context line in English (values), whatever
+// language the visitor reads (labels).
+const CUSTOM_VALUES = ['Add a day', 'Fewer days', 'Upgrade hotels (4-5 star)', 'Honeymoon or special occasion', 'Travelling with children', 'Add another region', 'Slower pace', 'Dietary needs'];
+const CUSTOM_LABELS: Record<string, string[]> = {
+  en: ['Add a day', 'Fewer days', 'Upgrade hotels (4–5★)', 'Honeymoon or special occasion', 'Travelling with children', 'Add another region', 'Slower pace', 'Dietary needs'],
+  fr: ['Ajouter un jour', 'Moins de jours', 'Hôtels supérieurs (4–5★)', 'Voyage de noces ou occasion', 'Avec des enfants', 'Ajouter une région', 'Rythme plus lent', 'Régime alimentaire'],
+  it: ['Aggiungere un giorno', 'Meno giorni', 'Hotel superiori (4–5★)', 'Viaggio di nozze o ricorrenza', 'Con bambini', 'Aggiungere una regione', 'Ritmo più lento', 'Esigenze alimentari'],
+  es: ['Añadir un día', 'Menos días', 'Hoteles superiores (4–5★)', 'Luna de miel u ocasión especial', 'Con niños', 'Añadir otra región', 'Ritmo más tranquilo', 'Necesidades alimentarias'],
+  de: ['Einen Tag mehr', 'Weniger Tage', 'Bessere Hotels (4–5★)', 'Flitterwochen oder Anlass', 'Mit Kindern', 'Weitere Region', 'Ruhigeres Tempo', 'Ernährungswünsche'],
+};
+const CUSTOM_TITLE: Record<string, string> = { en: 'Make it yours (optional)', fr: 'Sur mesure (facultatif)', it: 'Su misura (facoltativo)', es: 'A su medida (opcional)', de: 'Nach Maß (optional)' };
+const custom = CUSTOM_VALUES.map((value, i) => ({ value, label: (CUSTOM_LABELS[lang] || CUSTOM_LABELS.en)[i] }));
 ---
 <form class="inq" id="inqForm" method="POST" action="/contact.php"
       data-wa={CONTACT.whatsapp} data-email={CONTACT.email}
@@ -39,6 +53,14 @@ const interests = INTEREST_VALUES.map((value, i) => ({ value, label: f.interestL
     </div>
     <input type="hidden" name="interests" id="f-interests" value={defaultInterest} />
   </fieldset>
+  {customize && (
+    <fieldset style="margin-top:1rem">
+      <legend>{CUSTOM_TITLE[lang] || CUSTOM_TITLE.en}</legend>
+      <div class="chips" id="custom-chips">
+        {custom.map(c => <button type="button" class="chip" data-custom={c.value} aria-pressed="false">{c.label}</button>)}
+      </div>
+    </fieldset>
+  )}
 
   <div style="margin-top:1rem"><label for="f-msg">{f.message} <span class="req">*</span></label><textarea id="f-msg" name="message" rows="4" required placeholder={f.messagePh}></textarea></div>
 
@@ -59,7 +81,15 @@ const interests = INTEREST_VALUES.map((value, i) => ({ value, label: f.interestL
 <script is:inline>
 (function(){
   var f=document.getElementById('inqForm'); if(!f) return;
-  var chips=[].slice.call(f.querySelectorAll('.chip')), hidden=document.getElementById('f-interests');
+  var chips=[].slice.call(f.querySelectorAll('.chip[data-chip]')), hidden=document.getElementById('f-interests');
+  // "Make it yours" choices ride on the context line: "<tour> | Make it yours: Add a day, Slower pace"
+  var ctx=document.getElementById('f-context'), cchips=[].slice.call(f.querySelectorAll('.chip[data-custom]'));
+  function syncCustom(){
+    var base=(ctx.value||'').split(' | Make it yours:')[0];
+    var on=cchips.filter(function(c){return c.getAttribute('aria-pressed')==='true';}).map(function(c){return c.getAttribute('data-custom');});
+    ctx.value=on.length?base+' | Make it yours: '+on.join(', '):base;
+  }
+  cchips.forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');syncCustom();if(typeof updateWa==='function')updateWa();});});
   function sync(){hidden.value=chips.filter(function(c){return c.getAttribute('aria-pressed')==='true';}).map(function(c){return c.getAttribute('data-chip');}).join(', ');}
   chips.forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');sync();updateWa();});});
   sync();

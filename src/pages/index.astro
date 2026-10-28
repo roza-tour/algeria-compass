@@ -8,6 +8,7 @@ import TravellerSlider from '../components/TravellerSlider.astro';
 import Reviews from '../components/Reviews.astro';
 import HonestAnswers from '../components/HonestAnswers.astro';
 import TourCard from '../components/TourCard.astro';
+import RecentTours from '../components/RecentTours.astro';
 import data from '../data/tours.json';
 import { smWebp } from '../lib/imageSize';
 import { ICONS } from '../lib/icons';
@@ -83,6 +84,7 @@ const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/
        whole section: as one block the cards faded in together, which wastes the
        most prominent grid on the site. Now the heading arrives, then the cards
        cascade in behind it. -->
+  <RecentTours />
   <section class="section feat-sec" id="featured"><div class="wrap">
     <div class="sec-head" data-reveal>
       <div class="eyebrow">Private journeys</div>

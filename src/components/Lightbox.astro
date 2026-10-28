@@ -1,0 +1,89 @@
+---
+// Full-screen photo viewer for every gallery marked data-lightbox (tour
+// galleries, PhotoGallery -- which /moments/ uses -- and the region pages).
+// Click or tap a photo; arrows, swipe or the keyboard move through the set;
+// Esc, the × or a tap outside closes it. The full-size file is the gallery's
+// src with /thumbs/ removed (tour thumbnails live under /assets/img/thumbs/).
+export interface Props { lang?: string; }
+const lang = Astro.props.lang || 'en';
+const T: Record<string, string[]> = {
+  en: ['Close', 'Previous photo', 'Next photo', 'Photo viewer'],
+  fr: ['Fermer', 'Photo précédente', 'Photo suivante', 'Visionneuse'],
+  it: ['Chiudi', 'Foto precedente', 'Foto successiva', 'Visualizzatore'],
+  es: ['Cerrar', 'Foto anterior', 'Foto siguiente', 'Visor de fotos'],
+  de: ['Schließen', 'Vorheriges Foto', 'Nächstes Foto', 'Fotoansicht'],
+};
+const t = T[lang] || T.en;
+---
+<dialog class="lb" id="lb" aria-label={t[3]}>
+  <button type="button" class="lb-x" data-lb="close" aria-label={t[0]}>×</button>
+  <button type="button" class="lb-nav lb-prev" data-lb="prev" aria-label={t[1]}>‹</button>
+  <figure class="lb-fig">
+    <img class="lb-img" id="lb-img" alt="" />
+    <figcaption class="lb-cap"><span id="lb-alt"></span> <span class="lb-n" id="lb-n"></span></figcaption>
+  </figure>
+  <button type="button" class="lb-nav lb-next" data-lb="next" aria-label={t[2]}>›</button>
+</dialog>
+<style is:global>
+  [data-lightbox] img{cursor:zoom-in}
+  .lb{margin:0;padding:0;border:0;width:100vw;height:100vh;max-width:none;max-height:none;background:rgba(6,10,8,.94);color:#fff;
+    display:none;align-items:center;justify-content:center}
+  .lb[open]{display:flex}
+  .lb::backdrop{background:rgba(6,10,8,.94)}
+  .lb-fig{margin:0;display:flex;flex-direction:column;align-items:center;max-width:94vw;max-height:92vh;touch-action:pan-y}
+  .lb-img{max-width:94vw;max-height:82vh;object-fit:contain;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5);transition:opacity .2s}
+  .lb-img.is-loading{opacity:.35}
+  .lb-cap{margin-top:.8rem;max-width:min(760px,90vw);text-align:center;font-size:.92rem;line-height:1.5;color:rgba(255,255,255,.88)}
+  .lb-n{color:rgba(255,255,255,.55);margin-left:.4rem;white-space:nowrap}
+  .lb-x,.lb-nav{position:absolute;border:0;cursor:pointer;color:#fff;background:rgba(255,255,255,.12);border-radius:50%;
+    display:grid;place-items:center;font-family:var(--font-body);line-height:1;transition:background .2s}
+  .lb-x:hover,.lb-nav:hover{background:rgba(255,255,255,.25)}
+  .lb-x{top:16px;right:16px;width:46px;height:46px;font-size:1.9rem}
+  .lb-nav{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:2.3rem;padding-bottom:4px}
+  .lb-prev{left:16px} .lb-next{right:16px}
+  @media (max-width:640px){ .lb-nav{top:auto;bottom:18px;transform:none} }
+</style>
+<script is:inline>
+  (function () {
+    var lb = document.getElementById('lb'); if (!lb || !lb.showModal) return;
+    var img = document.getElementById('lb-img'), alt = document.getElementById('lb-alt'), num = document.getElementById('lb-n');
+    var set = [], i = 0, x0 = null;
+    function full(el) { return (el.getAttribute('src') || '').replace('/thumbs/', '/').replace(/\.sm\.webp$/, '.jpg'); }
+    function show(k) {
+      i = (k + set.length) % set.length;
+      var el = set[i];
+      img.classList.add('is-loading');
+      img.onload = function () { img.classList.remove('is-loading'); };
+      img.onerror = function () { if (img.src !== el.src) img.src = el.src; };
+      img.src = full(el); img.alt = el.alt || '';
+      alt.textContent = el.alt || '';
+      num.textContent = set.length > 1 ? (i + 1) + ' / ' + set.length : '';
+      // warm the neighbours so moving through the set is instant
+      [i + 1, i - 1].forEach(function (n) { var e = set[(n + set.length) % set.length]; if (e) { var p = new Image(); p.src = full(e); } });
+    }
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest && e.target.closest('[data-lightbox] img');
+      if (!el) return;
+      e.preventDefault();
+      set = Array.prototype.slice.call(el.closest('[data-lightbox]').querySelectorAll('img'));
+      show(set.indexOf(el));
+      lb.showModal();
+    });
+    lb.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-lb]');
+      if (a) { var v = a.getAttribute('data-lb'); if (v === 'close') lb.close(); else show(i + (v === 'next' ? 1 : -1)); return; }
+      if (e.target === lb) lb.close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.open) return;
+      if (e.key === 'ArrowRight') show(i + 1);
+      if (e.key === 'ArrowLeft') show(i - 1);
+    });
+    lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 45) show(i + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+  })();
+</script>

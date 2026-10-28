@@ -192,7 +192,7 @@ h1,h2,h3{text-wrap:balance}
 @media(max-width:640px){.hero-slim{height:auto;min-height:200px}}
 /* breadcrumbs */
 .crumbs{font-size:.84rem;color:var(--text-l);padding:.9rem 0}
-.crumbs a{color:var(--accent-ink)}
+.crumbs a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
 /* quick answer / facts */
 .qbox{background:var(--wash);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:1.1rem 1.3rem;margin:1.4rem 0}
 .qbox b{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.35rem}

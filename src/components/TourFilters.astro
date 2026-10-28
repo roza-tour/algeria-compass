@@ -1,0 +1,140 @@
+---
+// The tour catalogue with its filters (region, length), sort and currency --
+// shared by /tours/ and the French, Italian, Spanish and German catalogues.
+// Cards carry data-region / data-days / data-price (TourCard); without JS
+// every tour is simply listed. The state is mirrored in the URL
+// (?region=sahara&len=long&sort=price) so a filtered list can be linked to.
+import TourCard from './TourCard.astro';
+import { REGIONS } from '../data/regions';
+import { regionForTour } from '../data/tourRegions.mjs';
+export interface Row { tour: any; href?: string; title?: string; hook?: string; duration?: string; englishOnly?: boolean; }
+export interface Props { rows: Row[]; lang?: string; }
+const { rows, lang = 'en' } = Astro.props;
+
+const L: Record<string, any> = {
+  en: { aria: 'Filter tours', region: 'Region', all: 'All', len: 'Length', any: 'Any', day: 'Day trip', short: '2–5 days', long: '6 days +', sort: 'Sort', rec: 'Recommended', pa: 'Price: low to high', pd: 'Price: high to low', sh: 'Shortest first', cur: 'Currency',
+        allN: 'All {n} tours', showing: 'Showing {s} of {n} tours', none: 'No tour matches all of these.', reset: 'Show all tours', or: '— or', ask: 'ask us', tail: ': every itinerary can be tailored.', contact: '/contact/',
+        names: {} },
+  fr: { aria: 'Filtrer les circuits', region: 'Région', all: 'Tous', len: 'Durée', any: 'Toutes', day: 'Une journée', short: '2 à 5 jours', long: '6 jours et +', sort: 'Trier', rec: 'Recommandés', pa: 'Prix croissant', pd: 'Prix décroissant', sh: 'Les plus courts', cur: 'Devise',
+        allN: 'Les {n} circuits', showing: '{s} circuits sur {n}', none: 'Aucun circuit ne correspond à tous ces critères.', reset: 'Voir tous les circuits', or: '— ou', ask: 'écrivez-nous', tail: ' : chaque itinéraire se compose sur mesure.', contact: '/fr/contact/',
+        names: { algiers: 'Alger', 'roman': 'Algérie romaine', mzab: 'Le M’Zab', sahara: 'Le Sahara', bejaia: 'Béjaïa et la Kabylie' } },
+  it: { aria: 'Filtra i viaggi', region: 'Regione', all: 'Tutti', len: 'Durata', any: 'Tutte', day: 'In giornata', short: '2–5 giorni', long: '6 giorni e più', sort: 'Ordina', rec: 'Consigliati', pa: 'Prezzo crescente', pd: 'Prezzo decrescente', sh: 'I più brevi', cur: 'Valuta',
+        allN: 'Tutti i {n} viaggi', showing: '{s} viaggi su {n}', none: 'Nessun viaggio corrisponde a tutti i criteri.', reset: 'Mostra tutti i viaggi', or: '— oppure', ask: 'scriveteci', tail: ': ogni itinerario si costruisce su misura.', contact: '/it/contatto/',
+        names: { algiers: 'Algeri', 'roman': 'Algeria romana', mzab: 'Lo M’Zab', sahara: 'Il Sahara', bejaia: 'Béjaïa e la Cabilia' } },
+  es: { aria: 'Filtrar circuitos', region: 'Región', all: 'Todos', len: 'Duración', any: 'Cualquiera', day: 'Un día', short: '2–5 días', long: '6 días o más', sort: 'Ordenar', rec: 'Recomendados', pa: 'Precio: de menor a mayor', pd: 'Precio: de mayor a menor', sh: 'Los más cortos', cur: 'Moneda',
+        allN: 'Los {n} circuitos', showing: '{s} de {n} circuitos', none: 'Ningún circuito cumple todos estos criterios.', reset: 'Ver todos los circuitos', or: '— o', ask: 'escríbanos', tail: ': cada itinerario se adapta a medida.', contact: '/es/contacto/',
+        names: { algiers: 'Argel', 'roman': 'Argelia romana', mzab: 'El M’Zab', sahara: 'El Sáhara', bejaia: 'Béjaïa y la Cabilia' } },
+  de: { aria: 'Reisen filtern', region: 'Region', all: 'Alle', len: 'Dauer', any: 'Beliebig', day: 'Tagesausflug', short: '2–5 Tage', long: '6 Tage +', sort: 'Sortieren', rec: 'Empfohlen', pa: 'Preis aufsteigend', pd: 'Preis absteigend', sh: 'Kürzeste zuerst', cur: 'Währung',
+        allN: 'Alle {n} Reisen', showing: '{s} von {n} Reisen', none: 'Keine Reise erfüllt alle diese Kriterien.', reset: 'Alle Reisen zeigen', or: '— oder', ask: 'schreiben Sie uns', tail: ': jede Route wird nach Maß gestaltet.', contact: '/de/kontakt/',
+        names: { algiers: 'Algier', 'roman': 'Römisches Algerien', mzab: 'Der M’Zab', sahara: 'Die Sahara', bejaia: 'Béjaïa & Kabylei' } },
+};
+const l = L[lang] || L.en;
+const used = new Set(rows.map(r => regionForTour(r.tour)));
+const chips = REGIONS.filter(r => used.has(r.id)).map(r => ({ id: r.id, name: l.names[r.id] || r.name, n: rows.filter(x => regionForTour(x.tour) === r.id).length }));
+const msgs = { allN: l.allN, showing: l.showing };
+---
+<form class="tf" id="tf" aria-label={l.aria} onsubmit="return false">
+  <fieldset class="tf-group">
+    <legend>{l.region}</legend>
+    <div class="tf-chips">
+      <label class="tf-chip"><input type="radio" name="region" value="" checked /><span>{l.all} <small>{rows.length}</small></span></label>
+      {chips.map(r => <label class="tf-chip"><input type="radio" name="region" value={r.id} /><span>{r.name} <small>{r.n}</small></span></label>)}
+    </div>
+  </fieldset>
+  <div class="tf-row">
+    <fieldset class="tf-group">
+      <legend>{l.len}</legend>
+      <div class="tf-chips">
+        <label class="tf-chip"><input type="radio" name="len" value="" checked /><span>{l.any}</span></label>
+        <label class="tf-chip"><input type="radio" name="len" value="day" /><span>{l.day}</span></label>
+        <label class="tf-chip"><input type="radio" name="len" value="short" /><span>{l.short}</span></label>
+        <label class="tf-chip"><input type="radio" name="len" value="long" /><span>{l.long}</span></label>
+      </div>
+    </fieldset>
+    <label class="tf-sel">{l.sort}
+      <select name="sort">
+        <option value="">{l.rec}</option>
+        <option value="price">{l.pa}</option>
+        <option value="-price">{l.pd}</option>
+        <option value="days">{l.sh}</option>
+      </select>
+    </label>
+    <label class="tf-sel">{l.cur}
+      <select data-cur-select>
+        <option value="EUR">€ EUR</option><option value="USD">$ USD</option><option value="GBP">£ GBP</option>
+      </select>
+    </label>
+  </div>
+  <!-- filled at build so the line does not appear (and push the cards) after load -->
+  <p class="tf-count" id="tf-count" aria-live="polite">{l.allN.replace('{n}', String(rows.length))}</p>
+</form>
+<div class="grid" id="tf-grid" data-reveal-group>
+  {rows.map((r, i) => <TourCard tour={r.tour} index={i} priority={i < 3} lang={lang} href={r.href} title={r.title} hook={r.hook} duration={r.duration} englishOnly={r.englishOnly} />)}
+</div>
+<p class="tf-none" id="tf-none" hidden>{l.none} <button type="button" id="tf-reset">{l.reset}</button> {l.or} <a href={l.contact}>{l.ask}</a>{l.tail}</p>
+
+<style>
+  .tf{margin:0 0 1.6rem;padding:1.1rem 1.2rem;border:1px solid var(--border);border-radius:var(--radius-m);background:#fff;
+    box-shadow:0 6px 20px rgba(11,61,46,.06)}
+  .tf-group{border:0;margin:0;padding:0;min-width:0}
+  .tf-group legend{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-l);margin-bottom:.45rem}
+  .tf-chips{display:flex;flex-wrap:wrap;gap:.45rem}
+  .tf-chip{position:relative;cursor:pointer}
+  .tf-chip input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+  .tf-chip span{display:inline-flex;align-items:center;gap:.35rem;padding:.42rem .85rem;border:1px solid var(--border);border-radius:999px;
+    font-size:.88rem;font-weight:600;color:var(--green-d);background:#fff;transition:background .15s,border-color .15s,color .15s}
+  .tf-chip small{font-size:.75rem;color:var(--text-l);font-weight:500}
+  .tf-chip input:checked + span{background:var(--brand-green);border-color:var(--brand-green);color:#fff}
+  .tf-chip input:checked + span small{color:rgba(255,255,255,.85)}
+  .tf-chip input:focus-visible + span{outline:2px solid var(--brand-gold);outline-offset:2px}
+  .tf-row{display:flex;flex-wrap:wrap;align-items:flex-end;gap:1rem 1.6rem;margin-top:1rem}
+  .tf-sel{display:flex;flex-direction:column;gap:.35rem;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-l)}
+  .tf-sel select{font:inherit;font-size:.92rem;letter-spacing:0;text-transform:none;font-weight:500;color:var(--ink);padding:.45rem .6rem;border:1px solid var(--border);border-radius:4px;background:#fff}
+  .tf-count{margin:.9rem 0 0;font-size:.9rem;color:var(--text-m);min-height:1.4em}
+  .tf-none{margin-top:1rem;color:var(--text-m)}
+  .tf-none button{border:0;background:none;color:var(--green-d);text-decoration:underline;font:inherit;cursor:pointer;padding:0}
+</style>
+<script is:inline define:vars={{ msgs }}>
+  (function () {
+    var form = document.getElementById('tf'), grid = document.getElementById('tf-grid');
+    if (!form || !grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.tcard-wrap'));
+    var total = cards.length;
+    function val(n) { var el = form.querySelector('[name="' + n + '"]:checked') || form.querySelector('select[name="' + n + '"]'); return el ? el.value : ''; }
+    function apply(push) {
+      var region = val('region'), len = val('len'), sort = val('sort'), shown = 0;
+      cards.forEach(function (c) {
+        var d = +c.dataset.days;
+        var ok = (!region || c.dataset.region === region) &&
+                 (!len || (len === 'day' && d <= 1) || (len === 'short' && d >= 2 && d <= 5) || (len === 'long' && d >= 6));
+        c.hidden = !ok; if (ok) shown++;
+      });
+      var keys = {
+        price: function (c) { return +c.dataset.price; },
+        '-price': function (c) { return -c.dataset.price; },
+        days: function (c) { return +c.dataset.days * 1e5 + +c.dataset.price; }
+      };
+      var key = keys[sort] || function (c) { return +c.dataset.idx; };
+      cards.slice().sort(function (a, b) { return key(a) - key(b); }).forEach(function (c) { grid.appendChild(c); });
+      document.getElementById('tf-count').textContent = (shown === total ? msgs.allN : msgs.showing).replace('{s}', shown).replace('{n}', total);
+      document.getElementById('tf-none').hidden = shown > 0;
+      if (push) {
+        var q = new URLSearchParams();
+        if (region) q.set('region', region);
+        if (len) q.set('len', len);
+        if (sort) q.set('sort', sort);
+        history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash);
+      }
+    }
+    var q = new URLSearchParams(location.search);
+    ['region', 'len'].forEach(function (n) {
+      var v = q.get(n);
+      if (v) { var r = form.querySelector('[name="' + n + '"][value="' + v + '"]'); if (r) r.checked = true; }
+    });
+    if (q.get('sort')) form.querySelector('select[name="sort"]').value = q.get('sort');
+    form.addEventListener('change', function (e) { if (e.target.hasAttribute('data-cur-select')) return; apply(true); });
+    document.getElementById('tf-reset').addEventListener('click', function () { form.reset(); apply(true); });
+    apply(false);
+    if (q.get('region') || q.get('len')) form.scrollIntoView();
+  })();
+</script>

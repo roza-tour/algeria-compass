@@ -1,0 +1,69 @@
+---
+// Twelve months, the tour's best ones lit: read from its "Best season" line
+// (tours.json goodToKnow), so it can never disagree with the text.
+//   "October–April (...)"                     -> Oct..Apr best
+//   "Spring & autumn; October–April for ..."  -> Mar-May + Sep-Nov best, Oct-Apr good
+//   "Year-round; spring & autumn mildest"     -> every month good, spring/autumn best
+// The first clause is "best"; later clauses (after ';') are "good".
+export interface Props { season?: string; lang?: string; }
+const { season = '', lang = 'en' } = Astro.props;
+const EN = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+const SEASONS: Record<string, number[]> = { spring: [2, 3, 4], summer: [5, 6, 7], autumn: [8, 9, 10], fall: [8, 9, 10], winter: [11, 0, 1] };
+function months(clause: string): number[] {
+  const c = clause.toLowerCase();
+  if (/year-round|all year|most of the year/.test(c)) return [...Array(12).keys()];
+  const out = new Set<number>();
+  for (const m of c.matchAll(/(january|february|march|april|may|june|july|august|september|october|november|december)\s*[–-]\s*(january|february|march|april|may|june|july|august|september|october|november|december)/g)) {
+    let a = EN.indexOf(m[1]); const b = EN.indexOf(m[2]);
+    for (let k = 0; k < 12; k++) { out.add(a); if (a === b) break; a = (a + 1) % 12; }
+  }
+  for (const [name, ms] of Object.entries(SEASONS)) if (new RegExp(`\\b${name}\\b`).test(c)) ms.forEach(m => out.add(m));
+  return [...out];
+}
+const clauses = season.split(';').map(s => s.trim()).filter(Boolean);
+let best: number[] = [], good: number[] = [];
+if (clauses.length) {
+  const first = months(clauses[0]);
+  if (first.length === 12 && clauses[1]) { good = first; best = months(clauses[1]); }
+  else { best = first; good = clauses.slice(1).flatMap(months); }
+}
+const LBL: Record<string, { m: string[]; best: string; good: string; h: string }> = {
+  en: { m: ['J','F','M','A','M','J','J','A','S','O','N','D'], best: 'Best', good: 'Good', h: 'Best months to go' },
+  fr: { m: ['J','F','M','A','M','J','J','A','S','O','N','D'], best: 'Idéal', good: 'Bien', h: 'Meilleurs mois' },
+  it: { m: ['G','F','M','A','M','G','L','A','S','O','N','D'], best: 'Ideale', good: 'Buono', h: 'Mesi migliori' },
+  es: { m: ['E','F','M','A','M','J','J','A','S','O','N','D'], best: 'Ideal', good: 'Bueno', h: 'Mejores meses' },
+  de: { m: ['J','F','M','A','M','J','J','A','S','O','N','D'], best: 'Ideal', good: 'Gut', h: 'Beste Reisezeit' },
+};
+const FULL: Record<string, string[]> = {
+  en: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+  fr: ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],
+  it: ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'],
+  es: ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'],
+  de: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+};
+const l = LBL[lang] || LBL.en, full = FULL[lang] || FULL.en;
+const cells = l.m.map((m, i) => ({ m, name: full[i], cls: best.includes(i) ? 'is-best' : good.includes(i) ? 'is-good' : '' }));
+---
+{best.length > 0 && (
+  <div class="bm">
+    <div class="bm-h">{l.h}</div>
+    <ol class="bm-row">
+      {cells.map(c => <li class={c.cls} title={`${c.name}${c.cls === 'is-best' ? ' — ' + l.best : c.cls === 'is-good' ? ' — ' + l.good : ''}`}><span aria-hidden="true">{c.m}</span><span class="bm-sr">{c.name}{c.cls === 'is-best' ? `: ${l.best}` : c.cls === 'is-good' ? `: ${l.good}` : ''}</span></li>)}
+    </ol>
+    <div class="bm-key"><span class="k-best"></span>{l.best}{good.some(g => !best.includes(g)) && <><span class="k-good"></span>{l.good}</>}</div>
+  </div>
+)}
+<style>
+  .bm{margin:.4rem 0 1rem}
+  .bm-h{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-l);margin-bottom:.45rem}
+  .bm-row{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;list-style:none;margin:0;padding:0}
+  .bm-row li{height:30px;display:grid;place-items:center;border-radius:4px;background:#EEF0EC;color:var(--text-l);font-size:.74rem;font-weight:700}
+  .bm-row li.is-good{background:color-mix(in srgb,var(--accent,#0B3D2E) 22%,#fff);color:var(--green-d)}
+  .bm-row li.is-best{background:var(--accent,#0B3D2E);background:color-mix(in srgb,var(--accent,#0B3D2E) 82%,#000);color:#fff}
+  .bm-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .bm-key{display:flex;align-items:center;gap:.35rem;margin-top:.45rem;font-size:.8rem;color:var(--text-l)}
+  .bm-key span{display:inline-block;width:12px;height:12px;border-radius:3px;margin-left:.5rem}
+  .bm-key span:first-child{margin-left:0}
+  .k-best{background:color-mix(in srgb,var(--accent,#0B3D2E) 82%,#000)}
+  .k-good{background:color-mix(in srgb,var(--accent,#0B3D2E) 22%,#fff)}
+</style>

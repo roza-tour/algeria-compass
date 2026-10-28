@@ -122,7 +122,7 @@ const cfg = { rates: fx.rates, wa: CONTACT.whatsapp, t };
         var li = document.createElement('li');
         var img = document.createElement('img'); img.src = x.img || ''; img.alt = ''; img.loading = 'lazy'; img.width = 64; img.height = 48;
         var d = document.createElement('div');
-        var a = document.createElement('a'); a.href = '/tours/' + x.id + '/'; a.textContent = x.title;
+        var a = document.createElement('a'); a.href = x.href || ('/tours/' + x.id + '/'); a.textContent = x.title;
         var sm = document.createElement('small'); sm.textContent = fmt(x.price, cur);
         d.appendChild(a); d.appendChild(sm);
         var rm = document.createElement('button'); rm.type = 'button'; rm.className = 'sl-rm'; rm.textContent = t.remove;
@@ -131,7 +131,7 @@ const cfg = { rates: fx.rates, wa: CONTACT.whatsapp, t };
       });
       document.getElementById('sl-empty').hidden = l.length > 0;
       document.getElementById('sl-actions').hidden = l.length === 0;
-      var msg = t.msg + '\n' + l.map(function (x) { return '• ' + x.title + ' (€' + x.price + ') ' + location.origin + '/tours/' + x.id + '/'; }).join('\n');
+      var msg = t.msg + '\n' + l.map(function (x) { return '• ' + x.title + ' (€' + x.price + ') ' + location.origin + (x.href || ('/tours/' + x.id + '/')); }).join('\n');
       document.getElementById('sl-wa').href = 'https://wa.me/' + cfg.wa + '?text=' + encodeURIComponent(msg);
       var cmp = document.getElementById('sl-compare');
       cmp.href = '/compare/?t=' + l.map(function (x) { return x.id; }).join(',');
@@ -151,14 +151,23 @@ const cfg = { rates: fx.rates, wa: CONTACT.whatsapp, t };
       var b = e.target.closest && e.target.closest('[data-fav]');
       if (!b) return;
       e.preventDefault();
-      toggle({ id: b.getAttribute('data-fav'), title: b.getAttribute('data-title'), price: +b.getAttribute('data-price'), img: b.getAttribute('data-img') });
+      toggle({ id: b.getAttribute('data-fav'), title: b.getAttribute('data-title'), price: +b.getAttribute('data-price'), img: b.getAttribute('data-img'), href: b.getAttribute('data-href') || '' });
       b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
     });
     pill.addEventListener('click', function () { if (panel.showModal) panel.showModal(); else panel.setAttribute('open', ''); });
     document.getElementById('sl-close').addEventListener('click', function () { panel.close ? panel.close() : panel.removeAttribute('open'); });
     panel.addEventListener('click', function (e) { if (e.target === panel) panel.close(); });
 
-    function init() { applyCur(); render(); }
+    /* ---- recently viewed: a tour page carries its facts on its save button ---- */
+    function recordVisit() {
+      var me = document.querySelector('.bw-save,.bb-save'); if (!me) return;
+      var item = { id: me.getAttribute('data-fav'), title: me.getAttribute('data-title'), price: +me.getAttribute('data-price'),
+                   img: me.getAttribute('data-img'), href: me.getAttribute('data-href') || location.pathname };
+      var r = store.get('ac-recent', []).filter(function (x) { return x.id !== item.id; });
+      r.unshift(item); store.set('ac-recent', r.slice(0, 8));
+    }
+
+    function init() { applyCur(); render(); recordVisit(); }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
   })();
 </script>

@@ -1,0 +1,109 @@
+---
+// A tour's route, drawn: its stops in order (tours.json `wilayas`), numbered,
+// joined by a line that draws itself in, on Algeria's real border, zoomed to
+// the part of the country the tour covers. Pure SVG, nothing third-party --
+// it replaces an embedded Google map that showed a single pin.
+// Coordinates and projection match AlgeriaMap.astro.
+import outline from '../data/algeria-outline.json';
+export interface Props { wilayas: string[]; accent?: string; label?: string; }
+const { wilayas = [], accent = '#0B3D2E', label = 'Route map' } = Astro.props;
+
+const PLACES: Record<string, { name: string; lat: number; lon: number }> = {
+  algiers: { name: 'Algiers', lat: 36.75, lon: 3.06 },
+  tipaza: { name: 'Tipaza', lat: 36.59, lon: 2.3 },
+  bejaia: { name: 'Béjaïa', lat: 36.75, lon: 5.08 },
+  setif: { name: 'Sétif', lat: 36.19, lon: 5.41 },
+  djemila: { name: 'Djémila', lat: 36.32, lon: 5.74 },
+  constantine: { name: 'Constantine', lat: 36.36, lon: 6.61 },
+  annaba: { name: 'Annaba', lat: 36.9, lon: 7.77 },
+  'batna-timgad': { name: 'Timgad', lat: 35.49, lon: 6.47 },
+  batna: { name: 'Batna', lat: 35.56, lon: 6.17 },
+  bousaada: { name: 'Bou Saâda', lat: 35.21, lon: 4.18 },
+  oran: { name: 'Oran', lat: 35.7, lon: -0.63 },
+  mostaganem: { name: 'Mostaganem', lat: 35.93, lon: 0.09 },
+  tlemcen: { name: 'Tlemcen', lat: 34.88, lon: -1.32 },
+  ghardaia: { name: 'Ghardaïa', lat: 32.49, lon: 3.67 },
+  timimoun: { name: 'Timimoun', lat: 29.26, lon: 0.23 },
+  djanet: { name: 'Djanet', lat: 24.55, lon: 9.48 },
+};
+const K = 20, COS = Math.cos(28 * Math.PI / 180), MINLON = -9, MAXLAT = 37.6;
+const px = (lon: number) => +((lon - MINLON) * COS * K).toFixed(1);
+const py = (lat: number) => +((MAXLAT - lat) * K).toFixed(1);
+const ring = (outline as any).coordinates[0] as [number, number][];
+const border = 'M' + ring.map(([lo, la]) => `${px(lo)},${py(la)}`).join('L') + 'Z';
+const W = px(12.2), H = py(18.8);
+
+// stops, in route order, de-duplicated (batna and batna-timgad are one stop)
+const seen = new Set<string>();
+const stops = wilayas.map(w => PLACES[w] && { id: w, ...PLACES[w] }).filter(Boolean)
+  .filter((s: any) => { const k = s.name === 'Batna' ? 'Timgad' : s.name; if (seen.has(k)) return false; seen.add(k); return true; })
+  .map((s: any) => ({ ...s, x: px(s.lon), y: py(s.lat) }));
+
+// zoom to the stops (with room for labels); a single stop shows the whole country
+let vb = `0 0 ${W} ${H}`;
+if (stops.length > 1) {
+  const xs = stops.map(s => s.x), ys = stops.map(s => s.y);
+  const pad = 26;
+  let x0 = Math.min(...xs) - pad, x1 = Math.max(...xs) + pad, y0 = Math.min(...ys) - pad, y1 = Math.max(...ys) + pad;
+  const minW = 120, minH = 68;   // about 6.8° x 3.4°: northern circuits stay readable
+  if (x1 - x0 < minW) { const c = (x0 + x1) / 2; x0 = c - minW / 2; x1 = c + minW / 2; }
+  if (y1 - y0 < minH) { const c = (y0 + y1) / 2; y0 = c - minH / 2; y1 = c + minH / 2; }
+  vb = `${x0.toFixed(0)} ${y0.toFixed(0)} ${(x1 - x0).toFixed(0)} ${(y1 - y0).toFixed(0)}`;
+}
+// Pins and labels are sized in map units, so scale them to how big the map is
+// drawn: the box shows at about 600x338 px (16:9), whatever part of the country
+// it covers -- a 3-stop northern circuit and the 14-day coast-to-Sahara route
+// get the same 12-13 px labels.
+const [, , vbw, vbh] = vb.split(' ').map(Number);
+const scale = Math.max(vbw / 600, vbh / 338) * 1.15;
+// labels go right of the pin unless another stop sits there; then left, then above
+const lab = stops.map((s, i) => {
+  const near = (dx0: number, dx1: number) => stops.some((o, j) => j !== i && o.x - s.x > dx0 * scale && o.x - s.x < dx1 * scale && Math.abs(o.y - s.y) < 14 * scale);
+  if (!near(0, 70)) return { x: 13 * scale, y: 4 * scale, a: 'start' };
+  if (!near(-70, 0)) return { x: -13 * scale, y: 4 * scale, a: 'end' };
+  return { x: 0, y: -14 * scale, a: 'middle' };
+});
+const route = stops.length > 1 ? 'M' + stops.map(s => `${s.x},${s.y}`).join('L') : '';
+---
+{stops.length > 0 && (
+  <figure class="rmap" style={`--rc:${accent};--s:${scale}`}>
+    <svg viewBox={vb} role="img" aria-label={`${label}: ${stops.map(s => s.name).join(' → ')}`} preserveAspectRatio="xMidYMid meet">
+      <path class="rmap-land" d={border} />
+      {route && <path class="rmap-route" d={route} pathLength="1" />}
+      {stops.map((s, i) => (
+        <g class="rmap-stop" transform={`translate(${s.x} ${s.y})`}>
+          <circle r={9 * scale} />
+          <text class="rmap-n" y={3.4 * scale} style={`font-size:${9.5 * scale}px`}>{i + 1}</text>
+          <text class="rmap-l" x={lab[i].x} y={lab[i].y} text-anchor={lab[i].a} style={`font-size:${11 * scale}px`}>{s.name}</text>
+        </g>
+      ))}
+    </svg>
+    <figcaption>
+      <ol class="rmap-list">{stops.map(s => <li>{s.name}</li>)}</ol>
+    </figcaption>
+  </figure>
+)}
+<style>
+  .rmap{margin:1rem 0 0;padding:0;border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;background:#EEF4F7}
+  .rmap svg{display:block;width:100%;height:auto;max-height:420px;aspect-ratio:16/9}
+  .rmap-land{fill:#F7F3EA;stroke:#C9BFA8;stroke-width:calc(1.2px * var(--s))}
+  .rmap-route{fill:none;stroke:var(--rc);stroke-width:calc(2.6px * var(--s));stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:0}
+  .rmap-stop circle{fill:var(--rc);stroke:#fff;stroke-width:calc(2px * var(--s))}
+  .rmap-n{fill:#fff;font-family:var(--font-body);font-weight:700;text-anchor:middle}
+  .rmap-l{fill:#14231C;font-family:var(--font-body);font-weight:600;paint-order:stroke;stroke:#F7F3EA;stroke-width:calc(3px * var(--s))}
+  .rmap figcaption{padding:.7rem 1rem;background:#fff;border-top:1px solid var(--border)}
+  .rmap-list{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;margin:0;padding-left:1.1rem;font-size:.9rem;color:var(--text-m)}
+  @media (prefers-reduced-motion:no-preference){
+    .rmap-route{stroke-dashoffset:1;animation:rmap-draw 2.4s cubic-bezier(.6,.1,.2,1) .4s forwards;animation-play-state:paused}
+    .rmap.is-in .rmap-route{animation-play-state:running}
+    @keyframes rmap-draw{to{stroke-dashoffset:0}}
+  }
+</style>
+<script is:inline>
+  (function () {
+    var m = document.querySelectorAll('.rmap'); if (!m.length) return;
+    if (!('IntersectionObserver' in window)) { m.forEach(function (e) { e.classList.add('is-in'); }); return; }
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { threshold: .35 });
+    m.forEach(function (e) { io.observe(e); });
+  })();
+</script>

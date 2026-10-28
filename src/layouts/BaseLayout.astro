@@ -11,6 +11,7 @@ import Footer from '../components/Footer.astro';
 import SchemaGraph from '../components/SchemaGraph.astro';
 import Analytics from '../components/Analytics.astro';
 import TripTools from '../components/TripTools.astro';
+import Lightbox from '../components/Lightbox.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import { asLang, t as tr } from '../i18n';
 import SeasonAmbience from '../components/SeasonAmbience.astro';
@@ -118,6 +119,7 @@ const speakableNode = speakable?.length ? {
   {sticky && <StickyContact lang={lang} />}
   <AskWidget lang={asLang(lang)} />
   <TripTools lang={lang} />
+  <Lightbox lang={lang} />
   <CookieConsent lang={lang} />
   <script is:inline>
     // Spam filter support (spamguard.php): on submit, every form posting to

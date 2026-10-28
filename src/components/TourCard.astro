@@ -13,49 +13,64 @@
 import { TOUR_VISUALS } from '../data/tour-visuals';
 import { nobr } from '../lib/nobr';
 import { regionForTour } from '../data/tourRegions.mjs';
-const { tour, priority = false, index = 0 } = Astro.props as { tour: any; priority?: boolean; index?: number };
+// lang/href/title/hook/duration let the French, Italian, Spanish and German
+// catalogues use the same card with their own words and links; englishOnly
+// marks a tour whose detail page exists only in English.
+const { tour, priority = false, index = 0, lang = 'en', href, title, hook, duration, englishOnly = false } = Astro.props as {
+  tour: any; priority?: boolean; index?: number; lang?: string; href?: string; title?: string; hook?: string; duration?: string; englishOnly?: boolean;
+};
 const t = tour;
+const L: Record<string, Record<string, string>> = {
+  en: { priv: 'Private', best: '★ Best seller', why: 'Why book this tour', op: 'Licensed Algerian operator', cancel: 'Free cancellation up to 5 days before', from: 'from', per: 'person', go: 'View & book', goEn: 'View & book', save: 'Save to your shortlist' },
+  fr: { priv: 'Privé', best: '★ Le plus réservé', why: 'Pourquoi réserver ce circuit', op: 'Voyagiste algérien agréé', cancel: 'Annulation gratuite jusqu’à 5 jours avant', from: 'à partir de', per: 'pers.', go: 'Voir le circuit', goEn: 'Détails (en anglais)', save: 'Ajouter à vos favoris' },
+  it: { priv: 'Privato', best: '★ Il più richiesto', why: 'Perché prenotare questo viaggio', op: 'Tour operator algerino autorizzato', cancel: 'Cancellazione gratuita fino a 5 giorni prima', from: 'da', per: 'pers.', go: 'Vedi il viaggio', goEn: 'Dettagli (in inglese)', save: 'Aggiungi ai preferiti' },
+  es: { priv: 'Privado', best: '★ El más reservado', why: 'Por qué reservar este circuito', op: 'Agencia argelina con licencia', cancel: 'Cancelación gratuita hasta 5 días antes', from: 'desde', per: 'pers.', go: 'Ver el circuito', goEn: 'Detalles (en inglés)', save: 'Guardar en tu selección' },
+  de: { priv: 'Privat', best: '★ Meistgebucht', why: 'Warum diese Reise', op: 'Lizenzierter algerischer Reiseveranstalter', cancel: 'Kostenlose Stornierung bis 5 Tage vorher', from: 'ab', per: 'Pers.', go: 'Zur Reise', goEn: 'Details (auf Englisch)', save: 'Auf die Merkliste' },
+};
+const l = L[lang] || L.en;
+const cardHref = href || `/tours/${t.id}/`;
+const cardTitle = title || t.title;
 const v = TOUR_VISUALS[t.id] || { hero: `${t.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
-const benefit = t.hook || t.summary;
+const benefit = hook || t.hook || t.summary;
 // Facts the /tours/ filters and sort read, and the shortlist stores.
 const days = (t.itinerary || []).length || 1;
 const region = regionForTour(t);
 ---
 <div class="tcard-wrap" data-tour={t.id} data-region={region} data-days={days} data-price={t.price_eur} data-idx={index}>
-<a class="tcard" href={`/tours/${t.id}/`} style={`--accent:${v.accent}`}>
+<a class="tcard" href={cardHref} hreflang={englishOnly ? 'en' : undefined} style={`--accent:${v.accent}`}>
   <div class="tcard-img">
     {v.hero
       ? <picture>
           <source srcset={`/assets/img/thumbs/tours/${v.hero.replace(/\.(jpe?g|png)$/i, '.webp')}`} type="image/webp" />
-          <img src={`/assets/img/thumbs/tours/${v.hero}`} alt={t.title} width="400" height="250" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" />
+          <img src={`/assets/img/thumbs/tours/${v.hero}`} alt={cardTitle} width="400" height="250" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" />
         </picture>
       : <div class="tcard-grad"></div>}
     <div class="tcard-badges">
-      <span class="tcard-badge private">Private</span>
-      {t.bestseller && <span class="tcard-badge best">★ Best seller</span>}
+      <span class="tcard-badge private">{l.priv}</span>
+      {t.bestseller && <span class="tcard-badge best">{l.best}</span>}
     </div>
-    <span class="tcard-dur">{t.duration}</span>
+    <span class="tcard-dur">{duration || t.duration}</span>
   </div>
   <div class="tcard-body">
-    <h3 class="tcard-title">{nobr(t.title)}</h3>
+    <h3 class="tcard-title">{nobr(cardTitle)}</h3>
     <p class="tcard-benefit">{benefit}</p>
-    <ul class="tcard-trust" aria-label="Why book this tour">
-      <li>Licensed Algerian operator</li>
-      <li>Free cancellation up to 5 days before</li>
+    <ul class="tcard-trust" aria-label={l.why}>
+      <li>{l.op}</li>
+      <li>{l.cancel}</li>
     </ul>
     <div class="tcard-foot">
       <span class="tcard-price">
-        {t.price_from && <em>from</em>}
+        {t.price_from && <em>{l.from}</em>}
         <b data-eur={t.price_eur}>€{t.price_eur}</b>
-        <small>/ {t.per}</small>
+        <small>/ {lang === 'en' ? t.per : l.per}</small>
       </span>
-      <span class="tcard-cta">View &amp; book <span aria-hidden="true">→</span></span>
+      <span class="tcard-cta">{englishOnly ? l.goEn : l.go} <span aria-hidden="true">→</span></span>
     </div>
   </div>
 </a>
 <!-- outside the link: a button cannot sit inside an <a>. Shortlist.astro wires it. -->
-<button type="button" class="tcard-fav" data-fav={t.id} data-title={t.title} data-price={t.price_eur} data-img={v.hero ? `/assets/img/thumbs/tours/${v.hero}` : ''}
-  aria-pressed="false" aria-label={`Save ${t.title} to your shortlist`}>
+<button type="button" class="tcard-fav" data-fav={t.id} data-href={cardHref} data-title={cardTitle} data-price={t.price_eur} data-img={v.hero ? `/assets/img/thumbs/tours/${v.hero}` : ''}
+  aria-pressed="false" aria-label={`${l.save}: ${cardTitle}`}>
   <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 14.9 3 12.2 3 8.9 3 6.2 5.1 4.2 7.7 4.2c1.5 0 3 .7 3.9 1.9l.4.5.4-.5c.9-1.2 2.4-1.9 3.9-1.9 2.6 0 4.7 2 4.7 4.7 0 3.3-3 6-7.7 10.2z"/></svg>
 </button>
 </div>
