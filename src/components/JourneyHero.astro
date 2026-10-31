@@ -1,0 +1,63 @@
+---
+// The hero of a long tour that crosses several regions: the regions' emblems
+// in the order the journey reaches them, each drawing itself in and linking to
+// its region page, joined like stops on a line. A single-region tour keeps
+// RegionSeal instead.
+import { readFileSync } from 'node:fs';
+import { REGIONS } from '../data/regions';
+export interface Props { regions: string[]; lang?: string; }
+const { regions, lang = 'en' } = Astro.props;
+const list = regions.map(id => REGIONS.find(r => r.id === id)).filter(Boolean) as any[];
+const svg = (r: any) => readFileSync(`public${r.emblem}`, 'utf8')
+  .replace(/stroke="#[0-9A-Fa-f]{6}"/, 'stroke="currentColor"')
+  .replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
+const K: Record<string, (n: number) => string> = {
+  en: n => `A journey through ${n} regions`, fr: n => `Un voyage à travers ${n} régions`, it: n => `Un viaggio attraverso ${n} regioni`,
+  es: n => `Un viaje por ${n} regiones`, de: n => `Eine Reise durch ${n} Regionen`,
+};
+const kicker = (K[lang] || K.en)(list.length);
+---
+{list.length > 1 && (
+  <div class="jh">
+    <span class="jh-k">{kicker}</span>
+    <ol class="jh-chain">
+      {list.map(r => (
+        <li style={`--rc:${r.rc};--rcl:${r.rcL}`}>
+          <a href={`/regions/${r.id}/`} title={r.heading || r.name}>
+            <span class="jh-em draw-in" set:html={svg(r)} />
+            <span class="jh-n">{r.name}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+)}
+<style>
+  .jh{margin-bottom:1.1rem}
+  .jh-k{display:block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#F3D9A8;font-weight:600;margin-bottom:.6rem}
+  .jh-chain{display:flex;flex-wrap:wrap;align-items:flex-start;gap:.2rem;list-style:none;margin:0;padding:0}
+  .jh-chain li{position:relative;display:flex;align-items:center}
+  /* the dotted line between stops */
+  .jh-chain li + li::before{content:"";width:28px;height:0;border-top:2px dotted rgba(243,217,168,.6);margin:0 .35rem 1.15rem}
+  .jh-chain a{display:flex;flex-direction:column;align-items:center;gap:.3rem;text-decoration:none;color:#fff;width:74px;text-align:center}
+  .jh-em{display:block;width:48px;height:48px;padding:5px;border-radius:50%;color:var(--rcl);
+    border:1px solid color-mix(in srgb,var(--rcl) 60%,transparent);background:rgba(0,0,0,.25);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+  .jh-em :global(svg){width:100%;height:100%;display:block}
+  .jh-n{font-size:.72rem;font-weight:600;line-height:1.2}
+  .jh-chain a:hover .jh-em{transform:translateY(-3px) rotate(-6deg)}
+  .jh-chain a:hover .jh-n{text-decoration:underline}
+
+</style>
+<script is:inline>
+  (function(){
+    if (window.__drawIn || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    window.__drawIn = 1;
+    document.documentElement.classList.add('draw-anim');
+    var els = document.querySelectorAll('.draw-in');
+    if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('is-drawn'); }); return; }
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('is-drawn'); io.unobserve(e.target); } });
+    });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>

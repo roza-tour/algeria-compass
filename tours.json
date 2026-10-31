@@ -760,10 +760,14 @@
    },
    "starts_in": "Algiers — Airport",
    "regions": [
+    "algiers",
     "constantine",
     "setif",
+    "djemila",
+    "batna-timgad",
+    "biskra",
     "bousaada",
-    "djanet"
+    "bejaia"
    ],
    "theme": "east",
    "summary": "A six-day arc across eastern Algeria — the bridges of Constantine, Roman Djémila and Timgad, a Saharan gateway at Bou Saada and a day at Béjaïa.",
@@ -857,7 +861,7 @@
     "German",
     "Russian"
    ],
-   "visa_on_arrival_eligible": true,
+   "visa_on_arrival_eligible": false,
    "book": {
     "request_url": "https://algeriacompass.com/contact/?tour=algeria-eastern-sahara-discovery",
     "whatsapp": "https://wa.me/213784193176",
@@ -889,7 +893,11 @@
    "regions": [
     "algiers",
     "tipaza",
-    "djemila"
+    "setif",
+    "djemila",
+    "constantine",
+    "batna-timgad",
+    "ghardaia"
    ],
    "theme": "culture",
    "summary": "Ten days from coast to desert — the Roman sites of Tipaza, Djémila and Timgad, the Casbah of Algiers, Constantine's bridges, and the M'Zab Valley at Ghardaïa.",
@@ -1019,7 +1027,7 @@
     "German",
     "Russian"
    ],
-   "visa_on_arrival_eligible": false,
+   "visa_on_arrival_eligible": true,
    "book": {
     "request_url": "https://algeriacompass.com/contact/?tour=algeria-tour",
     "whatsapp": "https://wa.me/213784193176",
@@ -1409,7 +1417,11 @@
    "regions": [
     "algiers",
     "tipaza",
-    "constantine"
+    "constantine",
+    "batna-timgad",
+    "djemila",
+    "setif",
+    "bousaada"
    ],
    "theme": "culture",
    "summary": "Five days across Algeria's headline sights: the Casbah, Roman Tipaza, Constantine's bridges, Timgad and Djémila, and a desert taste at Bou Saada.",
@@ -1678,9 +1690,9 @@
    },
    "starts_in": "Algiers",
    "regions": [
+    "tipaza",
     "djemila",
-    "batna-timgad",
-    "tipaza"
+    "batna-timgad"
    ],
    "theme": "roman",
    "summary": "Three days through Algeria's finest Roman heritage — the seaside ruins of Tipaza and Cherchell, hillside Djémila and the grid-planned streets of Timgad.",
@@ -1765,7 +1777,7 @@
    "regions": [
     "algiers",
     "tipaza",
-    "constantine"
+    "bousaada"
    ],
    "theme": "culture",
    "summary": "Four days of capital culture, Roman coast and desert: the Casbah of Algiers, the ruins of Tipaza and Cherchell, and the oasis of Bou Saada.",
@@ -1864,7 +1876,9 @@
    "regions": [
     "algiers",
     "tipaza",
-    "constantine"
+    "constantine",
+    "djemila",
+    "bousaada"
    ],
    "theme": "culture",
    "summary": "Eight days across Algeria's culture and history — the capital and its Casbah, Roman Tipaza and Djémila, the bridges of Constantine and oasis Bou Saada.",
@@ -1999,7 +2013,11 @@
    "regions": [
     "algiers",
     "tipaza",
-    "setif"
+    "setif",
+    "djemila",
+    "constantine",
+    "batna-timgad",
+    "ghardaia"
    ],
    "theme": "culture",
    "summary": "Ten days from the Mediterranean to the M'Zab: Algiers and Tipaza, Djémila and Timgad, Constantine's bridges and the desert villages of Ghardaïa.",
@@ -2126,7 +2144,7 @@
     "German",
     "Russian"
    ],
-   "visa_on_arrival_eligible": false,
+   "visa_on_arrival_eligible": true,
    "book": {
     "request_url": "https://algeriacompass.com/contact/?tour=algeria-beyond-expectations",
     "whatsapp": "https://wa.me/213784193176",
@@ -2572,13 +2590,13 @@
    "starts_in": "Algiers",
    "regions": [
     "algiers",
-    "tipaza",
-    "ghardaia",
     "djanet",
     "constantine",
-    "batna",
-    "setif",
-    "annaba"
+    "batna-timgad",
+    "annaba",
+    "djemila",
+    "tipaza",
+    "ghardaia"
    ],
    "theme": "culture",
    "summary": "Two weeks, six UNESCO sites and a four-day Tadrart expedition — the Casbah, Tipaza, Djémila, Timgad and the M’Zab, on four direct domestic flights.",
@@ -2762,5 +2780,5 @@
    }
   }
  ],
- "updated": "2026-10-28"
+ "updated": "2026-10-31"
 }

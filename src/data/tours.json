@@ -1222,10 +1222,14 @@
       "title": "Eastern Algeria & Sahara Discovery — 6 Days",
       "theme": "east",
       "wilayas": [
+        "algiers",
         "constantine",
         "setif",
+        "djemila",
+        "batna-timgad",
+        "biskra",
         "bousaada",
-        "djanet"
+        "bejaia"
       ],
       "image_slugs": [
         "constantine",
@@ -1449,7 +1453,11 @@
       "wilayas": [
         "algiers",
         "tipaza",
-        "djemila"
+        "setif",
+        "djemila",
+        "constantine",
+        "batna-timgad",
+        "ghardaia"
       ],
       "image_slugs": [
         "algiers",
@@ -2330,7 +2338,11 @@
       "wilayas": [
         "algiers",
         "tipaza",
-        "constantine"
+        "constantine",
+        "batna-timgad",
+        "djemila",
+        "setif",
+        "bousaada"
       ],
       "image_slugs": [
         "algiers",
@@ -2780,9 +2792,9 @@
       "title": "Roman Algeria — Tipaza, Djémila & Timgad (3 Days)",
       "theme": "roman",
       "wilayas": [
+        "tipaza",
         "djemila",
-        "batna-timgad",
-        "tipaza"
+        "batna-timgad"
       ],
       "image_slugs": [
         "djemila",
@@ -2931,7 +2943,7 @@
       "wilayas": [
         "algiers",
         "tipaza",
-        "constantine"
+        "bousaada"
       ],
       "image_slugs": [
         "algiers",
@@ -3104,7 +3116,9 @@
       "wilayas": [
         "algiers",
         "tipaza",
-        "constantine"
+        "constantine",
+        "djemila",
+        "bousaada"
       ],
       "image_slugs": [
         "algiers",
@@ -3357,7 +3371,11 @@
       "wilayas": [
         "algiers",
         "tipaza",
-        "setif"
+        "setif",
+        "djemila",
+        "constantine",
+        "batna-timgad",
+        "ghardaia"
       ],
       "image_slugs": [
         "algiers",
@@ -4421,13 +4439,13 @@
       "theme": "culture",
       "wilayas": [
         "algiers",
-        "tipaza",
-        "ghardaia",
         "djanet",
         "constantine",
-        "batna",
-        "setif",
-        "annaba"
+        "batna-timgad",
+        "annaba",
+        "djemila",
+        "tipaza",
+        "ghardaia"
       ],
       "image_slugs": [
         "algiers",

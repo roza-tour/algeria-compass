@@ -1,0 +1,70 @@
+---
+// The hero of a long tour as a slow reel of its days: the hero photograph,
+// then one photograph per stop, crossfading with a gentle zoom, each captioned
+// with its day ("Day 3 · Bou Saada"). CSS only. The first frame is the page's
+// own hero <picture> (so the LCP image is unchanged); the reel's photographs
+// load lazily on top of it. With reduced motion only the hero shows.
+import { smWebp } from '../lib/imageSize';
+export interface Slide { src: string; caption: string; }
+export interface Props { slides: Slide[]; first?: string; }
+const { slides, first = '' } = Astro.props;
+const list = slides.slice(0, 4).map(s => ({ ...s, webp: smWebp(s.src) }));
+const n = list.length + 1;           // frames, the hero included
+const per = 6;                       // seconds per frame
+// The captions are a sibling of the reel, not inside it: inside its stacking
+// context they would sit under the hero tint.
+---
+{list.length > 0 && (
+  <div class={`reel reel-${n}`} style={`--T:${n * per}s`} aria-hidden="true">
+    {list.map((s, i) => (
+      <div class="reel-f" style={`--d:${(i + 1) * per}s`}>
+        <picture>
+          {s.webp && <source data-srcset={s.webp} type="image/webp" />}
+          <img data-src={s.src} alt="" decoding="async" width="1200" height="800" />
+        </picture>
+      </div>
+    ))}
+  </div>
+)}
+{list.length > 0 && (
+  <ol class={`reel-cap reel-${n}`} style={`--T:${n * per}s`} aria-hidden="true">
+    {first && <li style="--d:0s">{first}</li>}
+    {list.map((s, i) => <li style={`--d:${(i + 1) * per}s`}>{s.caption}</li>)}
+  </ol>
+)}
+<style>
+  .reel{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .reel-f{position:absolute;inset:0;opacity:0;will-change:opacity}
+  .reel-f img{width:100%;height:100%;object-fit:cover;will-change:transform}
+  .reel-cap{position:absolute;right:4vw;bottom:4.2rem;z-index:3;margin:0;padding:0;list-style:none}
+  .reel-cap li{position:absolute;right:0;bottom:0;white-space:nowrap;opacity:0;font-family:var(--font-display);font-size:1.15rem;color:#fff;
+    padding:.35rem .9rem;border-left:2px solid #F3D9A8;background:rgba(0,0,0,.28);backdrop-filter:blur(3px);text-shadow:0 1px 6px rgba(0,0,0,.5)}
+  @media (prefers-reduced-motion:no-preference){
+    .reel-f{animation:var(--k) var(--T) linear infinite;animation-delay:var(--d)}
+    .reel-f img{animation:reel-zoom var(--T) linear infinite;animation-delay:var(--d)}
+    .reel-cap li{animation:var(--k) var(--T) linear infinite;animation-delay:var(--d)}
+    .reel-2{--k:reel2} .reel-3{--k:reel3} .reel-4{--k:reel4} .reel-5{--k:reel5}
+    @keyframes reel-zoom{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+    /* each frame: fade in, hold for its share of the cycle, fade out */
+    @keyframes reel2{0%{opacity:0}5%{opacity:1}50%{opacity:1}55%{opacity:0}100%{opacity:0}}
+    @keyframes reel3{0%{opacity:0}4%{opacity:1}33%{opacity:1}37%{opacity:0}100%{opacity:0}}
+    @keyframes reel4{0%{opacity:0}3%{opacity:1}25%{opacity:1}28%{opacity:0}100%{opacity:0}}
+    @keyframes reel5{0%{opacity:0}2.5%{opacity:1}20%{opacity:1}22.5%{opacity:0}100%{opacity:0}}
+  }
+  @media (prefers-reduced-motion:reduce){ .reel{display:none} }
+  @media (max-width:700px){ .reel-cap{bottom:3.2rem;right:16px} .reel-cap li{font-size:.95rem} }
+</style>
+<script is:inline>
+  /* The reel's photographs are fetched only after the page has loaded and is
+     idle, so they never compete with the hero image (the LCP) or the first
+     interaction; until then the reel's frames are simply empty and the hero
+     photograph shows. */
+  (function () {
+    var go = function () {
+      document.querySelectorAll('.reel [data-srcset]').forEach(function (s) { s.srcset = s.getAttribute('data-srcset'); });
+      document.querySelectorAll('.reel img[data-src]').forEach(function (i) { i.src = i.getAttribute('data-src'); });
+    };
+    var idle = function () { ('requestIdleCallback' in window) ? requestIdleCallback(go, { timeout: 3000 }) : setTimeout(go, 1500); };
+    if (document.readyState === 'complete') idle(); else window.addEventListener('load', idle, { once: true });
+  })();
+</script>
