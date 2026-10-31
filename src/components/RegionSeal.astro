@@ -4,8 +4,11 @@
 // wears the same identity (src/styles/tour-regions.css via data-rgn).
 import { readFileSync } from 'node:fs';
 import { REGIONS } from '../data/regions';
-export interface Props { region?: string; }
+import { regionName } from '../data/regionNames.mjs';
+export interface Props { region?: string; lang?: string; }
+const lang = Astro.props.lang || 'en';
 const r = REGIONS.find(x => x.id === Astro.props.region);
+const KICK: Record<string, string> = { en: 'Region', fr: 'Région', it: 'Regione', es: 'Región', de: 'Region' };
 const svg = r && readFileSync(`public${r.emblem}`, 'utf8')
   .replace(/stroke="#[0-9A-Fa-f]{6}"/, 'stroke="currentColor"')
   .replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
@@ -13,7 +16,7 @@ const svg = r && readFileSync(`public${r.emblem}`, 'utf8')
 {r && (
   <a class="rgn-seal" href={`/regions/${r.id}/`}>
     <span class="rgn-seal__em draw-in" set:html={svg} />
-    <span class="rgn-seal__txt"><span class="rgn-seal__k">Region</span>{r.heading || r.name}</span>
+    <span class="rgn-seal__txt"><span class="rgn-seal__k">{KICK[lang] || KICK.en}</span>{regionName(r, lang).heading}</span>
   </a>
 )}
 <style>

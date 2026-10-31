@@ -5,6 +5,7 @@
 // RegionSeal instead.
 import { readFileSync } from 'node:fs';
 import { REGIONS } from '../data/regions';
+import { regionName } from '../data/regionNames.mjs';
 export interface Props { regions: string[]; lang?: string; }
 const { regions, lang = 'en' } = Astro.props;
 const list = regions.map(id => REGIONS.find(r => r.id === id)).filter(Boolean) as any[];
@@ -23,9 +24,9 @@ const kicker = (K[lang] || K.en)(list.length);
     <ol class="jh-chain">
       {list.map(r => (
         <li style={`--rc:${r.rc};--rcl:${r.rcL}`}>
-          <a href={`/regions/${r.id}/`} title={r.heading || r.name}>
+          <a href={`/regions/${r.id}/`} title={regionName(r, lang).heading}>
             <span class="jh-em draw-in" set:html={svg(r)} />
-            <span class="jh-n">{r.name}</span>
+            <span class="jh-n">{regionName(r, lang).name}</span>
           </a>
         </li>
       ))}

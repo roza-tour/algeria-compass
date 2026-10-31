@@ -7,6 +7,11 @@ import GuideBadge from '../../../components/GuideBadge.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import TourReviews from '../../../components/TourReviews.astro';
 import BestMonths from '../../../components/BestMonths.astro';
+import TourChapters from '../../../components/TourChapters.astro';
+import HeroReel from '../../../components/HeroReel.astro';
+import JourneyHero from '../../../components/JourneyHero.astro';
+import RegionSeal from '../../../components/RegionSeal.astro';
+import { tourStory } from '../../../lib/tourStory.mjs';
 import { regionForTour } from '../../../data/tourRegions.mjs';
 import '../../../styles/tour-regions.css';
 import PhotoGallery from '../../../components/PhotoGallery.astro';
@@ -46,6 +51,8 @@ try {
 const galleryImages = gallery.map(g => ({ src: `/assets/img/tours/${g.file}`, alt: g.alt || tour.title }));
 const enUrl = `${site}/tours/${tour.id}/`;
 const v = TOUR_VISUALS[tour.id] || { hero: `${tour.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
+// Long tours are told as a story (hero reel, journey, chapters) -- see lib/tourStory.mjs
+const st = tourStory(tour, fr.itinerary || [], 'it', v.hero);
 const hero = `/assets/img/tours/${v.hero}`;
 const currency = (data as any).currency || 'EUR';
 
@@ -142,7 +149,9 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
 
   <section class="hero">
     <img src={hero} alt={fr.title} width="1600" height="900" fetchpriority="high" />
+    {st.story && <HeroReel slides={st.reel} first={st.heroCaption} />}
     <div class="hero-in wrap">
+      {st.isJourney ? <JourneyHero regions={st.journey.regions} lang="it" /> : <RegionSeal region={regionForTour(tour)} lang="it" />}
       <div class="eyebrow">{fr.duration} · viaggio privato</div>
       <h1>{fr.title}</h1>
       <p>{fr.hook}</p>
@@ -167,6 +176,7 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
 
       {fr.itinerary && fr.itinerary.length > 0 && (
         <><h2>Programma giorno per giorno</h2>
+        {st.story ? <TourChapters view={st.view} lang="it" dayWord={st.dayWord} /> : (
         <ol class="itin" data-reveal-group>
           {fr.itinerary.map(d => (
             <li>
@@ -180,7 +190,8 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
               )}
             </li>
           ))}
-        </ol></>
+        </ol>
+        )}</>
       )}
 
       <ItineraryOffer lang="it" tourId={tour.id} tourTitle={fr.title} printHref={`/it/circuiti/${tour.id}/print/`} />

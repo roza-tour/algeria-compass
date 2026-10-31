@@ -1,0 +1,69 @@
+---
+// A long tour's itinerary as chapters (tourStory().view): each day its own
+// photograph, a large day number, its region's colour, alternating sides, and
+// a band in the region's pattern where the route enters a new region. The
+// English tour page has the same layout inline; this is the translated pages'.
+export interface Props { view: any[]; lang?: string; dayWord?: string; }
+const { view, lang = 'en', dayWord = 'Day' } = Astro.props;
+const ON: Record<string, string> = { en: 'On to', fr: 'Cap sur', it: 'Verso', es: 'Rumbo a', de: 'Weiter nach' };
+const onTo = ON[lang] || ON.en;
+---
+<ol class="chapters">
+  {view.map(({ d, r, rName, enters, entersHeading, names, photo }: any, i: number) => (<>
+    {enters && (
+      <li class="chap-enter" style={`--rc:${enters.rc};--pat:${enters.pat}`}>
+        <span class="chap-enter-em"><img src={enters.emblem} alt="" width="38" height="38" loading="lazy" /></span>
+        <span class="chap-enter-t"><small>{onTo}</small> {entersHeading}</span>
+      </li>
+    )}
+    <li class={`chap${photo ? '' : ' chap--text'}${i % 2 ? ' chap--flip' : ''}`} style={r ? `--accent:${r.rc}` : undefined} data-reveal>
+      {photo && (
+        <figure class="chap-fig">
+          <img src={`/assets/img/tours/${photo.file}`} alt={d.title} width="736" height="552" loading="lazy" decoding="async" />
+          <span class="chap-no" aria-hidden="true">{String(d.day).padStart(2, '0')}</span>
+        </figure>
+      )}
+      <div class="chap-body">
+        <span class="chap-day">{dayWord} {d.day}{r && names.length > 0 && <span class="chap-tag"> · {names.join(' → ')}</span>}</span>
+        <h3 class="chap-t">{d.title}</h3>
+        <p>{d.body}</p>
+        {d.stops && d.stops.length > 0 && (
+          <ul class="chap-stops">
+            {d.stops.map((s: any) => <li><strong>{s.place}</strong> — {s.text}</li>)}
+          </ul>
+        )}
+      </div>
+    </li>
+  </>))}
+</ol>
+<style>
+  .chapters{list-style:none;margin:1.4rem 0;padding:0;display:flex;flex-direction:column;gap:2.2rem}
+  .chap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:1.6rem;align-items:start}
+  .chap--flip .chap-fig{order:2}
+  .chap--text{grid-template-columns:1fr}
+  .chap-fig{position:relative;margin:0;border-radius:12px;overflow:hidden;box-shadow:0 22px 44px -26px rgba(7,38,28,.55)}
+  .chap-fig::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:var(--accent,var(--brand-green))}
+  .chap-fig img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .chap:hover .chap-fig img{transform:scale(1.04)}
+  .chap-no{position:absolute;left:.8rem;bottom:.55rem;font-family:var(--font-display);font-size:3.4rem;font-weight:600;line-height:1;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.55)}
+  .chap-day{display:block;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--accent,var(--brand-green));color:color-mix(in srgb,var(--accent,#0B3D2E) 72%,#000)}
+  .chap-tag{font-weight:600;letter-spacing:.02em;text-transform:none;color:var(--text-l)}
+  .chap-t{font-size:1.55rem;margin:.2rem 0 .5rem;color:var(--green-d)}
+  .chap-body p{color:var(--text-m);margin:0;line-height:1.65}
+  .chap-stops{list-style:none;margin:.6rem 0 0;padding:0;display:flex;flex-direction:column;gap:.45rem}
+  .chap-stops li{position:relative;padding:0 0 0 1.05rem;color:var(--text-m);line-height:1.6}
+  .chap-stops li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--accent,var(--brand-green));opacity:.65}
+  .chap-stops strong{color:var(--green-d)}
+  .chap-enter{position:relative;display:flex;align-items:center;gap:.9rem;padding:.9rem 1.1rem;border-left:3px solid var(--rc);border-radius:0 12px 12px 0;
+    background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 10%,#fff),#fff 80%);overflow:hidden}
+  .chap-enter::after{content:"";position:absolute;inset:0 0 0 auto;width:50%;background:var(--pat) center/auto 100%;opacity:.16;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000);pointer-events:none}
+  .chap-enter-em img{width:38px;height:38px;display:block}
+  .chap-enter-t{font-family:var(--font-display);font-size:1.25rem;line-height:1.2;color:var(--green-d)}
+  .chap-enter-t small{display:block;font-family:var(--font-body);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-l)}
+  @media (max-width:760px){
+    .chap{grid-template-columns:1fr;gap:.9rem}
+    .chap--flip .chap-fig{order:0}
+    .chap-no{font-size:2.6rem}
+  }
+</style>
