@@ -2,6 +2,7 @@
 // French tour detail pages. Only tours carrying a complete `fr` block are built,
 // so no page is ever half-translated. Prices, images and wilayas come from the
 // English catalogue, which stays the single source of truth.
+import FlightNote from '../../../components/FlightNote.astro';
 import ItineraryOffer from '../../../components/ItineraryOffer.astro';
 import GuideBadge from '../../../components/GuideBadge.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
@@ -176,6 +177,7 @@ const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
 
       {fr.itinerary && fr.itinerary.length > 0 && (
         <><h2>Programm Tag für Tag</h2>
+      <FlightNote tourId={tour.id} lang="de" />
         {st.story ? <TourChapters view={st.view} lang="de" dayWord={st.dayWord} /> : (
         <ol class="itin" data-reveal-group>
           {fr.itinerary.map(d => (

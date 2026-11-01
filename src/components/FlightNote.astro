@@ -1,0 +1,38 @@
+---
+// A short notice on tours that use domestic flights: internal flights run on a
+// few days a week, so the days of the programme can be reordered to match the
+// flight dates. The places and the states visited do not change.
+export interface Props { tourId: string; lang?: string; }
+const { tourId, lang = 'en' } = Astro.props;
+
+// Tours with a domestic flight inside the programme, or that begin with one
+// from Algiers (Djanet, Ghardaïa, Timimoun).
+const FLIGHT_TOURS = new Set([
+  'algeria-cultural-tour', 'algeria-grand-discovery-14-days',
+  'tadrart-rouge-7-days', 'ihrir-oasis-7-days', 'sefar-tassili-trek',
+  'djanet-sahara-safari', 'djanet-ghardaia-desert-2-days',
+  'ghardaia-guided-tour', 'timimoun-desert-escape',
+]);
+
+const TEXT: Record<string, [string, string]> = {
+  en: ['Domestic flights', 'This programme uses internal flights, so the days may be reordered to match the flight dates. The sites and the states you visit stay exactly the same — only the days move.'],
+  fr: ['Vols intérieurs', 'Ce programme comprend des vols intérieurs : l’ordre des jours peut donc être ajusté selon les dates des vols. Les sites et les wilayas visités restent exactement les mêmes — seuls les jours changent.'],
+  it: ['Voli interni', 'Questo programma prevede voli interni, quindi l’ordine dei giorni può cambiare in base alle date dei voli. I siti e le province visitati restano esattamente gli stessi — cambiano solo i giorni.'],
+  es: ['Vuelos nacionales', 'Este programa incluye vuelos nacionales, por lo que el orden de los días puede ajustarse a las fechas de los vuelos. Los lugares y las provincias que visita siguen siendo los mismos — solo se mueven los días.'],
+  de: ['Inlandsflüge', 'Dieses Programm enthält Inlandsflüge, daher kann sich die Reihenfolge der Tage nach den Flugdaten richten. Die Sehenswürdigkeiten und Provinzen bleiben genau dieselben — nur die Tage verschieben sich.'],
+};
+const show = FLIGHT_TOURS.has(tourId);
+const [h, p] = TEXT[lang] || TEXT.en;
+---
+{show && (
+  <aside class="flight-note" role="note">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+    <p><strong>{h}.</strong> {p}</p>
+  </aside>
+)}
+<style>
+  .flight-note{display:flex;gap:.7rem;align-items:flex-start;margin:.6rem 0 1.4rem;padding:.8rem 1rem;
+    border:1px solid var(--border);border-left:3px solid var(--gold,#C9A227);border-radius:10px;background:var(--wash);font-size:.9rem}
+  .flight-note svg{flex:none;margin-top:.15rem;color:var(--gold-d,var(--gold,#C9A227))}
+  .flight-note p{margin:0;color:var(--text-m);line-height:1.6}
+</style>
