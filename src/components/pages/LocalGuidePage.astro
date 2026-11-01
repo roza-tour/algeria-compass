@@ -16,6 +16,7 @@ import { TOURS_IT } from '../../data/tours-it';
 import { TOURS_ES } from '../../data/tours-es';
 import { TOURS_DE } from '../../data/tours-de';
 import toursData from '../../data/tours.json';
+import { photoAlt } from '../../data/photoAlts.mjs';
 
 export interface Props { kind: 'province' | 'experience'; slug: string; entry: any; lang: string; }
 const { kind, slug, entry, lang } = Astro.props;
@@ -30,7 +31,7 @@ const enHref = guideHref(kind, slug, 'en');
 const hub = GUIDE_ROUTES[kind][lang];
 const image = e.image || '/assets/img/brand-algeria.jpg';
 const civ = kind === 'province' ? (PROVINCE_SKIN as any)[slug] : undefined;
-const photos = (e.gallery || []).map((g: any, i: number) => ({ src: g.src, alt: `${t.name} — ${U.photo} ${i + 1}` }));
+const photos = (e.gallery || []).map((g: any, i: number) => ({ src: g.src, alt: photoAlt(g.src, lang, `${t.name} — ${U.photo} ${i + 1}`) }));
 
 // Tours that pass through this state. tours.json names a few places by the
 // site rather than the state (Djémila for Sétif, Timgad for Batna), so those
