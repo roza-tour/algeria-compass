@@ -18,6 +18,7 @@ import { TOURS_DE } from '../data/tours-de';
 import { DESTINATIONS_DE } from '../data/destinations-de';
 import { GUIDES_DE } from '../data/guides-de';
 import { GUIDE_TEXT, GUIDE_ROUTES } from '../data/localGuides.mjs';
+import { Q_TEXT, Q_ROUTES } from '../data/questionI18n.mjs';
 
 const SITE = (import.meta.env.SITE || 'https://algeriacompass.com').replace(/\/$/, '');
 const today = new Date().toISOString().slice(0, 10);
@@ -81,6 +82,11 @@ export const GET: APIRoute = async () => {
   for (const [l, kinds] of Object.entries(GUIDE_TEXT as Record<string, any>)) for (const [kind, map] of Object.entries(kinds as Record<string, any>)) {
     rows.push({ loc: `${SITE}${(GUIDE_ROUTES as any)[kind][l]}`, pri: '0.6', mod: today });
     for (const slug of Object.keys(map)) rows.push({ loc: `${SITE}${(GUIDE_ROUTES as any)[kind][l]}${slug}/`, pri: '0.7', mod: today });
+  }
+  // translated travel questions and their indexes
+  for (const [l, map] of Object.entries(Q_TEXT as Record<string, any>)) {
+    rows.push({ loc: `${SITE}${(Q_ROUTES as any)[l]}`, pri: '0.7', mod: today });
+    for (const slug of Object.keys(map)) rows.push({ loc: `${SITE}${(Q_ROUTES as any)[l]}${slug}/`, pri: '0.7', mod: today });
   }
   // utility pages (/search/, /sitemap/, /404/) are excluded from the sitemap.
   for (const [coll, base] of colls) {

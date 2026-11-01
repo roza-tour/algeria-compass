@@ -76,7 +76,7 @@ const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
 ---
 <BaseLayout speakable={['h1', '.qbox']} title={t.seoTitle} description={t.seoDescription} lang={lang}
   alternates={guideAlternates(site, kind, slug)} image={image} imageAlt={t.name} region={e.region} civ={civ}
-  schema={[place, breadcrumb, faqSchema]} sticky={true} keywords={[t.name, ...(U.kw || [])]}>
+  schema={[place, faqSchema]} sticky={true} keywords={[t.name, ...(U.kw || [])]}>
 
   <Hero civ={civ} lang={lang} title={t.name} eyebrow={t.eyebrow} text={t.intro} image={image} alt={t.name}>
     <a class="btn btn-gold" href={kind === 'experience' ? '#programme' : `${R.contact}?i=${encodeURIComponent(t.name)}`} data-evt="cta_plan">{U.planBtn}</a>

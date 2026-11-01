@@ -1,0 +1,63 @@
+---
+// The index of translated travel questions in one language, grouped by topic,
+// with a FAQPage node carrying every short answer.
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import { ROUTES } from '../../i18n';
+import { Q_TEXT, Q_UI, Q_ROUTES, qHref, qAlternates } from '../../data/questionI18n.mjs';
+
+export interface Props { lang: string; }
+const { lang } = Astro.props;
+const U = Q_UI[lang];
+const T = Q_TEXT[lang];
+const HOME: Record<string, string> = { fr: '/fr/', it: '/it/', es: '/es/', de: '/de/' };
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const ORDER = ['Safety', 'Visa', 'Planning', 'Cost', 'Transport', 'Culture', 'Heritage'];
+const entries = (await getCollection('question')).filter((e: any) => T[e.slug]);
+const groups = ORDER.map(c => ({
+  cat: c, name: U.cats[c] || c,
+  items: entries.filter((e: any) => e.data.category === c).sort((a: any, b: any) => T[a.slug].q.localeCompare(T[b.slug].q, lang)),
+})).filter(g => g.items.length);
+const faq = {
+  '@type': 'FAQPage', '@id': `${site}${Q_ROUTES[lang]}#faq`, inLanguage: lang,
+  mainEntity: entries.map((e: any) => ({ '@type': 'Question', name: T[e.slug].q, acceptedAnswer: { '@type': 'Answer', text: T[e.slug].a, url: site + qHref(e.slug, lang) } })),
+};
+const slugId = (c: string) => c.toLowerCase();
+---
+<BaseLayout title={U.hubTitle} description={U.hubDesc} lang={lang} alternates={qAlternates(site, '')} image="/assets/img/sahara-guide-traveler.jpg" schema={[faq]}>
+  <Hero title={U.hubH1} eyebrow={U.hubEyebrow} text={U.hubLead} image="/assets/img/brand-algeria.jpg" alt={U.hubH1} />
+  <Breadcrumbs items={[{ name: U.home, href: HOME[lang] }, { name: U.hub }]} />
+  <section class="section"><div class="wrap" style="max-width:900px">
+    <nav class="lqh-nav">{groups.map(g => <a href={`#${slugId(g.cat)}`}>{g.name}</a>)}</nav>
+    {groups.map(g => (
+      <section class="lqh-group" id={slugId(g.cat)}>
+        <h2>{g.name}</h2>
+        {g.items.map((e: any) => (
+          <details>
+            <summary>{T[e.slug].q}</summary>
+            <p>{T[e.slug].a}</p>
+            <p><a href={qHref(e.slug, lang)}>{U.readMore} →</a></p>
+          </details>
+        ))}
+      </section>
+    ))}
+    <div class="lqh-cta">
+      <h2>{U.ctaH}</h2>
+      <p>{U.ctaP}</p>
+      <p><a class="btn btn-gold" href={ROUTES[lang as keyof typeof ROUTES].contact}>{U.ctaBtn}</a></p>
+    </div>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .lqh-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+  .lqh-nav a{padding:.4rem .85rem;border:1px solid var(--border);border-radius:999px;font-size:.88rem;text-decoration:none}
+  .lqh-group{margin-top:2rem;scroll-margin-top:90px}
+  .lqh-group details{border-bottom:1px solid var(--border);padding:.75rem 0}
+  .lqh-group summary{cursor:pointer;font-weight:600}
+  .lqh-group details p{color:var(--text-m);line-height:1.7;margin:.6rem 0 0}
+  .lqh-cta{margin-top:2.6rem;padding:1.4rem 1.5rem;border-radius:16px;background:var(--wash);border:1px solid var(--border)}
+  .lqh-cta h2{margin:0 0 .4rem}
+</style>

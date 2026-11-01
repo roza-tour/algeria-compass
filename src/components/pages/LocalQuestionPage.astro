@@ -1,0 +1,96 @@
+---
+// One travel question in a language other than English. The answer comes from
+// questionI18n.mjs; the author, reviewer and date are the English entry's, so
+// both versions carry the same editorial record.
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import { ogFallback } from '../../lib/og-image';
+import { resolveAuthor, resolveReviewer, authorNode, reviewerNode } from '../../lib/authorship';
+import { ROUTES } from '../../i18n';
+import { Q_TEXT, Q_UI, Q_ROUTES, qHref, qAlternates } from '../../data/questionI18n.mjs';
+
+export interface Props { entry: any; lang: string; }
+const { entry, lang } = Astro.props;
+const slug = entry.slug;
+const d = entry.data;
+const t = Q_TEXT[lang][slug];
+const U = Q_UI[lang];
+const R = ROUTES[lang as keyof typeof ROUTES];
+const HOME: Record<string, string> = { fr: '/fr/', it: '/it/', es: '/es/', de: '/de/' };
+const cat = U.cats[d.category] || d.category;
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = site + qHref(slug, lang);
+const author = await resolveAuthor(d.author);
+const reviewer = await resolveReviewer(d.reviewedBy);
+const authorEntity = authorNode(site, author.entry);
+const reviewerEntity = reviewerNode(site, reviewer.entry);
+const authorRef = { '@id': (authorEntity as any)['@id'] };
+const stamp = d.updated.toISOString();
+
+// Same QAPage shape as the English page: one reviewed answer, so answerCount
+// is 1 and upvoteCount a truthful 0.
+const qa = {
+  '@type': 'QAPage', '@id': `${url}#qa`, inLanguage: lang,
+  author: authorRef, reviewedBy: { '@id': (reviewerEntity as any)['@id'] }, dateModified: stamp,
+  mainEntity: {
+    '@type': 'Question', name: t.q, text: t.q, answerCount: 1, author: authorRef, datePublished: stamp,
+    acceptedAnswer: { '@type': 'Answer', text: t.a, url: `${url}#answer`, author: authorRef, datePublished: stamp, upvoteCount: 0 },
+  },
+};
+const speak = { '@type': 'WebPage', '@id': `${url}#webpage`, url, inLanguage: lang, speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qbox', '.lq-body'] } };
+const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: U.home, item: site + HOME[lang] },
+  { '@type': 'ListItem', position: 2, name: U.hub, item: site + Q_ROUTES[lang] },
+  { '@type': 'ListItem', position: 3, name: t.q, item: url } ] };
+
+// Related: other questions in the same category first, then a rotating window
+// of the rest, so every question is linked from several others.
+const all = (await getCollection('question')).filter((e: any) => Q_TEXT[lang][e.slug] && e.slug !== slug);
+const same = all.filter((e: any) => e.data.category === d.category);
+const rest = all.filter((e: any) => e.data.category !== d.category);
+const start = rest.length ? (slug.length * 7) % rest.length : 0;
+const related = [...same, ...rest.slice(start), ...rest.slice(0, start)].slice(0, 6);
+---
+<BaseLayout title={t.title} description={t.desc} lang={lang} alternates={qAlternates(site, slug)}
+  image={ogFallback(Astro.url.pathname, t.q, cat)} schema={[qa, speak, authorEntity, reviewerEntity]}>
+  <Breadcrumbs items={[{ name: U.home, href: HOME[lang] }, { name: U.hub, href: Q_ROUTES[lang] }, { name: cat }]} />
+  <article class="section"><div class="wrap" style="max-width:760px">
+    <span class="eyebrow">{cat}</span>
+    <h1 style="margin:.4rem 0 1rem">{t.q}</h1>
+    <div class="qbox" id="answer"><b>{U.quick}</b><p>{t.a}</p></div>
+    <div class="lq-body">{t.body.map((p: string) => <p>{p}</p>)}</div>
+    <div class="lq-facts">
+      <h2>{U.facts}</h2>
+      <dl>{t.facts.map(([k, v]: [string, string]) => (<><dt>{k}</dt><dd>{v}</dd></>))}</dl>
+    </div>
+    <p class="lq-en"><a href={qHref(slug, 'en')} hreflang="en">{U.readEn} →</a></p>
+
+    <h2 class="lq-rel-h">{U.related}</h2>
+    <ul class="lq-rel">{related.map((e: any) => <li><a href={qHref(e.slug, lang)}>{Q_TEXT[lang][e.slug].q}</a></li>)}</ul>
+    <p><a href={Q_ROUTES[lang]}>{U.all} →</a></p>
+
+    <div class="lq-cta">
+      <h2>{U.ctaH}</h2>
+      <p>{U.ctaP}</p>
+      <p class="lq-btns"><a class="btn btn-gold" href={R.contact} data-evt="cta_plan">{U.ctaBtn}</a> <a class="btn" href={R.tours}>{U.toursBtn}</a></p>
+    </div>
+  </div></article>
+</BaseLayout>
+
+<style>
+  .lq-body p{line-height:1.78;color:var(--text-m);margin:1rem 0}
+  .lq-facts{margin:1.8rem 0;background:var(--wash);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.3rem}
+  .lq-facts h2{margin:0 0 .4rem;font-size:1rem}
+  .lq-facts dl{display:grid;grid-template-columns:minmax(120px,auto) 1fr;gap:.35rem 1rem;margin:0;font-size:.92rem}
+  .lq-facts dt{font-weight:700}
+  .lq-facts dd{margin:0;color:var(--text-m)}
+  .lq-en a{font-size:.9rem;text-decoration:underline}
+  .lq-rel-h{margin-top:2.2rem}
+  .lq-rel{list-style:none;margin:0;padding:0}
+  .lq-rel li{padding:.5rem 0;border-bottom:1px solid var(--border)}
+  .lq-cta{margin-top:2.4rem;padding:1.4rem 1.5rem;border-radius:16px;background:var(--wash);border:1px solid var(--border)}
+  .lq-cta h2{margin:0 0 .4rem}
+  .lq-btns{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+  @media(max-width:560px){.lq-facts dl{grid-template-columns:1fr}.lq-facts dd{margin-bottom:.4rem}}
+</style>

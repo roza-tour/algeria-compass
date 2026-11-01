@@ -9,6 +9,7 @@ import Byline from '../../components/Byline.astro';
 import SourceList from '../../components/SourceList.astro';
 import EditorialMeta from '../../components/EditorialMeta.astro';
 import { resolveAuthor, resolveReviewer, authorNode, reviewerNode, citationNodes } from '../../lib/authorship';
+import { qAlternates } from '../../data/questionI18n.mjs';
 export async function getStaticPaths() {
   const items = await getCollection('question');
   return items.map(item => ({ params: { slug: item.slug }, props: { item } }));
@@ -62,7 +63,7 @@ const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/questions/${item.s
   { "@type":"ListItem", position:2, name:"Questions", item:`${site}/questions/` },
   { "@type":"ListItem", position:3, name:d.question, item:`${site}/questions/${item.slug}/` } ] };
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} keywords={d.seo.keywords} image={ogFallback(Astro.url.pathname, d.question, d.category)} schema={[qa, speak, authorEntity, reviewerEntity, breadcrumb]}>
+<BaseLayout title={d.seo.title} description={d.seo.description} keywords={d.seo.keywords} image={ogFallback(Astro.url.pathname, d.question, d.category)} schema={[qa, speak, authorEntity, reviewerEntity, breadcrumb]} alternates={qAlternates(site, item.slug)}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Questions',href:'/questions/'},{name:d.category}]} />
   <article class="section"><div class="wrap" style="max-width:760px">
     <span class="eyebrow">{d.category}</span>
