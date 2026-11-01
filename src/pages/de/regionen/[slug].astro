@@ -1,0 +1,8 @@
+---
+import RegionPage from '../../../components/pages/RegionPage.astro';
+import { REGIONS } from '../../../data/regions';
+export function getStaticPaths() {
+  return REGIONS.map(r => ({ params: { slug: r.id }, props: { r } }));
+}
+---
+<RegionPage r={Astro.props.r} lang="de" />

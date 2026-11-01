@@ -7,10 +7,13 @@
 // field not yet translated shows in English rather than leaving a gap.
 import { REGION_NAMES } from './regionNames.mjs';
 import { REGION_TEXT_FR } from './regions-fr.mjs';
+import { REGION_TEXT_IT } from './regions-it.mjs';
+import { REGION_TEXT_ES } from './regions-es.mjs';
+import { REGION_TEXT_DE } from './regions-de.mjs';
 
 export const REGION_ROUTES = { en: '/regions/', fr: '/fr/regions/', it: '/it/regioni/', es: '/es/regiones/', de: '/de/regionen/' };
 
-const TEXT = { fr: REGION_TEXT_FR };
+const TEXT = { fr: REGION_TEXT_FR, it: REGION_TEXT_IT, es: REGION_TEXT_ES, de: REGION_TEXT_DE };
 
 export const REGION_UI = {
   en: {
@@ -44,6 +47,54 @@ export const REGION_UI = {
     hubKick: 'Algeria Compass · Les régions', hubH1a: 'Un pays,', hubH1b: 'huit mondes',
     hubSub: 'L’Algérie est le plus grand pays d’Afrique — et aucun de ses coins ne ressemble à un autre. Choisissez une région et entrez dans ses couleurs, sa culture et ses monuments.',
     hubListName: 'Les régions de l’Algérie', explore: 'Découvrir', regionWord: 'Région',
+  },
+  it: {
+    ready: true, home: 'Home', regions: 'Regioni', algeriaSuffix: ', Algeria', algeriaDash: ' — Algeria', scroll: 'Scorri per esplorare',
+    dossier: 'Il dossier', sites: 'Siti archeologici e culturali', see: 'Da vedere', character: 'Il carattere della regione',
+    defines: 'Che cosa la definisce', notes: 'Note di viaggio', glance: 'In breve', travelIt: 'Viaggiala con noi', ourTour: 'Il nostro viaggio —',
+    ourTours: 'I nostri viaggi —', toursLead: 'Privati e accompagnati da guide algerine locali — ognuno si può accorciare, allungare o combinare con un’altra regione.',
+    allTours: 'Tutti i viaggi in questa regione', travelWith: 'Scopri {r} con noi',
+    ctaText: 'Algeria Compass è un tour operator algerino autorizzato. Quando sarete pronti, costruiremo un viaggio privato e guidato in questa regione, con guide algerine locali.',
+    plan: 'Pianifica un viaggio', allRegions: 'Tutte le regioni', back: 'Torna a tutte le regioni',
+    hubTitle: 'Le regioni dell’Algeria: un paese, otto mondi',
+    hubDesc: 'Scopri le otto regioni dell’Algeria — Algeri, Costantina, l’Algeria romana, lo M’Zab, il Sahara, Tlemcen, Béjaïa e la Cabilia, Bou Saâda.',
+    hubImageAlt: 'Le dune rosse e le arenarie del Sahara algerino vicino a Djanet',
+    hubKeywords: ['regioni dell’Algeria', 'Algeria regioni', 'Sahara algerino', 'Algeria romana', 'M’Zab', 'Cabilia', 'Tlemcen'],
+    hubKick: 'Algeria Compass · Le regioni', hubH1a: 'Un paese,', hubH1b: 'otto mondi',
+    hubSub: 'L’Algeria è il paese più grande dell’Africa — e nessun angolo somiglia a un altro. Scegli una regione ed entra nei suoi colori, nella sua cultura e nei suoi monumenti.',
+    hubListName: 'Le regioni dell’Algeria', explore: 'Scopri', regionWord: 'Regione',
+  },
+  es: {
+    ready: true, home: 'Inicio', regions: 'Regiones', algeriaSuffix: ', Argelia', algeriaDash: ' — Argelia', scroll: 'Desplácese para explorar',
+    dossier: 'El dosier', sites: 'Sitios arqueológicos y culturales', see: 'Qué ver', character: 'El carácter de la región',
+    defines: 'Lo que la define', notes: 'Notas de viaje', glance: 'De un vistazo', travelIt: 'Viájela con nosotros', ourTour: 'Nuestro circuito —',
+    ourTours: 'Nuestros circuitos —', toursLead: 'Privados y guiados por guías argelinos locales — cada uno puede acortarse, alargarse o combinarse con otra región.',
+    allTours: 'Todos los circuitos de esta región', travelWith: 'Descubra {r} con nosotros',
+    ctaText: 'Algeria Compass es una agencia argelina con licencia. Cuando esté listo, diseñaremos un viaje privado y guiado por esta región, con guías argelinos locales.',
+    plan: 'Planificar un viaje', allRegions: 'Todas las regiones', back: 'Volver a todas las regiones',
+    hubTitle: 'Las regiones de Argelia: un país, ocho mundos',
+    hubDesc: 'Descubra las ocho regiones de Argelia — Argel, Constantina, la Argelia romana, el M’Zab, el Sáhara, Tlemcen, Béjaïa y la Cabilia, Bou Saâda.',
+    hubImageAlt: 'Las dunas rojas y las areniscas del Sáhara argelino cerca de Djanet',
+    hubKeywords: ['regiones de Argelia', 'Argelia regiones', 'Sáhara argelino', 'Argelia romana', 'M’Zab', 'Cabilia', 'Tlemcen'],
+    hubKick: 'Algeria Compass · Las regiones', hubH1a: 'Un país,', hubH1b: 'ocho mundos',
+    hubSub: 'Argelia es el país más grande de África — y ningún rincón se parece a otro. Elija una región y entre en sus colores, su cultura y sus monumentos.',
+    hubListName: 'Las regiones de Argelia', explore: 'Descubrir', regionWord: 'Región',
+  },
+  de: {
+    ready: true, home: 'Start', regions: 'Regionen', algeriaSuffix: ', Algerien', algeriaDash: ' — Algerien', scroll: 'Scrollen zum Entdecken',
+    dossier: 'Das Dossier', sites: 'Archäologische & kulturelle Stätten', see: 'Sehenswertes', character: 'Der Charakter der Region',
+    defines: 'Was sie ausmacht', notes: 'Reisenotizen', glance: 'Auf einen Blick', travelIt: 'Mit uns bereisen', ourTour: 'Unsere Reise —',
+    ourTours: 'Unsere Reisen —', toursLead: 'Privat und mit einheimischen algerischen Guides — jede Reise lässt sich kürzen, verlängern oder mit einer anderen Region verbinden.',
+    allTours: 'Alle Reisen in dieser Region', travelWith: '{r} mit uns entdecken',
+    ctaText: 'Algeria Compass ist ein lizenzierter algerischer Reiseveranstalter. Wenn Sie so weit sind, gestalten wir eine private, geführte Reise durch diese Region, mit einheimischen algerischen Guides.',
+    plan: 'Reise planen', allRegions: 'Alle Regionen', back: 'Zurück zu allen Regionen',
+    hubTitle: 'Die Regionen Algeriens: ein Land, acht Welten',
+    hubDesc: 'Entdecken Sie Algeriens acht Regionen — Algier, Constantine, das römische Algerien, den M’Zab, die Sahara, Tlemcen, Béjaïa & die Kabylei und Bou Saâda.',
+    hubImageAlt: 'Die roten Dünen und Sandsteine der algerischen Sahara bei Djanet',
+    hubKeywords: ['Regionen Algeriens', 'Algerien Regionen', 'algerische Sahara', 'römisches Algerien', 'M’Zab', 'Kabylei', 'Tlemcen'],
+    hubKick: 'Algeria Compass · Die Regionen', hubH1a: 'Ein Land,', hubH1b: 'acht Welten',
+    hubSub: 'Algerien ist das größte Land Afrikas — und keine Ecke gleicht der anderen. Wählen Sie eine Region und tauchen Sie ein in ihre Farben, ihre Kultur und ihre Denkmäler.',
+    hubListName: 'Die Regionen Algeriens', explore: 'Entdecken', regionWord: 'Region',
   },
 };
 
