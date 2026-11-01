@@ -18,6 +18,7 @@ import { resolveAuthor, resolveReviewer, authorNode, reviewerNode, citationNodes
 import { entityForContent } from '../../lib/graph';
 import { discoveryGroups } from '../../lib/entitySchema';
 import { PROVINCE_SKIN } from '../../data/civSkins.mjs';
+import { guideAlternates, GUIDE_ROUTES, guideLangs } from '../../data/localGuides.mjs';
 
 export async function getStaticPaths() {
   const items = await getCollection('province');
@@ -70,7 +71,7 @@ const webpage = {
 };
 const schemaNodes = [place, webpage, authorEntity, reviewerEntity];
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} region={d.region} civ={PROVINCE_SKIN[item.slug]} schema={schemaNodes} sticky={true}>
+<BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} region={d.region} civ={PROVINCE_SKIN[item.slug]} schema={schemaNodes} sticky={true} alternates={guideAlternates(site, 'province', item.slug)}>
   <Hero civ={PROVINCE_SKIN[item.slug]} title={d.heading || d.name} eyebrow={`State${d.wilayaNumber ? ' ' + d.wilayaNumber : ''} · Algeria`} text={d.quickAnswer} image={d.image} alt={d.imageAlt}>
     <a class="btn btn-gold" href={`/contact/?i=${encodeURIComponent(d.name)}`} data-evt="cta_plan">Plan a trip to {d.name} →</a>
   </Hero>

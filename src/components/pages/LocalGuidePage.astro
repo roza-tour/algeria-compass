@@ -1,0 +1,157 @@
+---
+// One state guide or experience in a language other than English. The text
+// comes from localGuides.mjs; the photographs, gallery, coordinates and the
+// region skin are read from the English collection entry, so the two versions
+// can never show different pictures of the same place.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import PhotoGallery from '../PhotoGallery.astro';
+import TourCard from '../TourCard.astro';
+import { ROUTES } from '../../i18n';
+import { GUIDE_TEXT, GUIDE_UI, GUIDE_ROUTES, guideHref, guideAlternates } from '../../data/localGuides.mjs';
+import { PROVINCE_SKIN } from '../../data/civSkins.mjs';
+import { TOURS_FR } from '../../data/tours-fr';
+import { TOURS_IT } from '../../data/tours-it';
+import { TOURS_ES } from '../../data/tours-es';
+import { TOURS_DE } from '../../data/tours-de';
+import toursData from '../../data/tours.json';
+
+export interface Props { kind: 'province' | 'experience'; slug: string; entry: any; lang: string; }
+const { kind, slug, entry, lang } = Astro.props;
+const t = GUIDE_TEXT[lang][kind][slug];
+const U = GUIDE_UI[lang];
+const R = ROUTES[lang as keyof typeof ROUTES];
+const HOME: Record<string, string> = { fr: '/fr/', it: '/it/', es: '/es/', de: '/de/' };
+const e = entry.data;
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = site + guideHref(kind, slug, lang);
+const enHref = guideHref(kind, slug, 'en');
+const hub = GUIDE_ROUTES[kind][lang];
+const image = e.image || '/assets/img/brand-algeria.jpg';
+const civ = kind === 'province' ? (PROVINCE_SKIN as any)[slug] : undefined;
+const photos = (e.gallery || []).map((g: any, i: number) => ({ src: g.src, alt: `${t.name} — ${U.photo} ${i + 1}` }));
+
+// Tours that pass through this state. tours.json names a few places by the
+// site rather than the state (Djémila for Sétif, Timgad for Batna), so those
+// are folded in here.
+const TOUR_KEYS: Record<string, string[]> = { setif: ['setif', 'djemila'], batna: ['batna-timgad'], msila: ['bousaada'], illizi: ['djanet'] };
+const TOURS_L: Record<string, any> = { fr: TOURS_FR, it: TOURS_IT, es: TOURS_ES, de: TOURS_DE };
+const keys = TOUR_KEYS[slug] || [slug];
+const tours = kind === 'province'
+  ? (((toursData as any).tours || toursData) as any[]).filter((x: any) => (x.wilayas || []).some((w: string) => keys.includes(w))).slice(0, 6)
+  : [];
+const cards = tours.map((x: any) => {
+  const loc = TOURS_L[lang]?.[x.id];
+  return loc?.full ? { tour: x, href: `${R.tours}${x.id}/`, title: loc.title, hook: loc.hook, duration: loc.duration }
+                   : { tour: x, href: `/tours/${x.id}/`, englishOnly: true };
+});
+
+// A rotating window of sibling guides, so internal links spread evenly.
+const all = Object.entries(GUIDE_TEXT[lang][kind]) as [string, any][];
+const self = all.findIndex(([s]) => s === slug);
+const others = [1, 2, 3, 4, 5].map(k => all[(self + k) % all.length]).filter(([s]) => s !== slug);
+
+const ctaParts = U.cta.split(/\{tours\}|\{contact\}/);
+const place: any = {
+  '@type': kind === 'province' ? 'TouristDestination' : 'TouristTrip',
+  '@id': `${url}#${kind === 'province' ? 'place' : 'trip'}`,
+  name: t.name, description: t.quick, inLanguage: lang, url, image: site + image,
+  isPartOf: { '@id': `${site}/#website` },
+};
+if (kind === 'province') {
+  place.containedInPlace = { '@id': `${site}/#algeria` };
+  if (e.coordinates) place.geo = { '@type': 'GeoCoordinates', latitude: e.coordinates.lat, longitude: e.coordinates.lng };
+} else {
+  place.provider = { '@id': `${site}/#organization` };
+  if (e.priceFrom) place.offers = { '@type': 'Offer', price: e.priceFrom, priceCurrency: e.currency || 'EUR', availability: 'https://schema.org/InStock', url };
+}
+const faqSchema = { '@type': 'FAQPage', '@id': `${url}#faq`, inLanguage: lang,
+  mainEntity: t.faqs.map((f: any) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: U.home, item: site + HOME[lang] },
+  { '@type': 'ListItem', position: 2, name: U[kind === 'province' ? 'provinces' : 'experiences'], item: site + hub },
+  { '@type': 'ListItem', position: 3, name: t.name, item: url } ] };
+---
+<BaseLayout speakable={['h1', '.qbox']} title={t.seoTitle} description={t.seoDescription} lang={lang}
+  alternates={guideAlternates(site, kind, slug)} image={image} imageAlt={t.name} region={e.region} civ={civ}
+  schema={[place, breadcrumb, faqSchema]} sticky={true} keywords={[t.name, ...(U.kw || [])]}>
+
+  <Hero civ={civ} lang={lang} title={t.name} eyebrow={t.eyebrow} text={t.intro} image={image} alt={t.name}>
+    <a class="btn btn-gold" href={kind === 'experience' ? '#programme' : `${R.contact}?i=${encodeURIComponent(t.name)}`} data-evt="cta_plan">{U.planBtn}</a>
+    <p class="lg-en"><a href={enHref} hreflang="en">{U.readEn}</a></p>
+  </Hero>
+
+  <Breadcrumbs items={[{ name: U.home, href: HOME[lang] }, { name: U[kind === 'province' ? 'provinces' : 'experiences'], href: hub }, { name: t.name }]} />
+
+  <section class="section"><div class="wrap lg-grid">
+    <div class="lg-main">
+      <div class="qbox"><strong>{U.quick}</strong> {t.quick}</div>
+      {t.sections.map((s: any) => (<><h2>{s.h}</h2><p>{s.p}</p></>))}
+
+      {t.highlights && (<>
+        <h2>{U.highlights}</h2>
+        <ul class="lg-hl">{t.highlights.map((h: string) => <li>{h}</li>)}</ul>
+      </>)}
+      {t.itinerary && (<>
+        <h2 id="programme">{U.itinerary}</h2>
+        <ol class="lg-days">{t.itinerary.map((d: any) => (
+          <li><span class="lg-day">{d.day}</span><strong>{d.title}</strong><p>{d.text}</p></li>
+        ))}</ol>
+      </>)}
+
+      <h2>{U.faq}</h2>
+      <div class="faq">{t.faqs.map((f: any) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+
+      <p class="lg-cta">{ctaParts[0]}<a href={R.tours}>{U.toursLink}</a>{ctaParts[1]}<a href={`${R.contact}?i=${encodeURIComponent(t.name)}`}>{U.contactLink}</a>{ctaParts[2]}</p>
+    </div>
+
+    <aside class="lg-aside">
+      <div class="gtk">
+        <h2>{U.facts}</h2>
+        <dl>{t.facts.map((f: any) => (<><dt>{f.label}</dt><dd>{f.value}</dd></>))}</dl>
+      </div>
+      <div class="gtk">
+        <h2>{U.others[kind]}</h2>
+        <ul class="others">{others.map(([s, o]) => <li><a href={guideHref(kind, s, lang)}>{o.name}</a></li>)}</ul>
+        <p style="margin-top:.7rem"><a href={hub}>{U.all[kind]} &rarr;</a></p>
+      </div>
+    </aside>
+  </div></section>
+
+  <PhotoGallery images={photos} heading={U.photos} />
+
+  {cards.length > 0 && (
+    <section class="section"><div class="wrap">
+      <h2>{U.toursHere}</h2>
+      <div class="grid" data-reveal-group>
+        {cards.map((c: any, i: number) => <TourCard tour={c.tour} index={i} lang={lang} href={c.href} title={c.title} hook={c.hook} duration={c.duration} englishOnly={c.englishOnly} />)}
+      </div>
+    </div></section>
+  )}
+</BaseLayout>
+
+<style>
+  .lg-en{margin-top:.9rem}
+  .lg-en a{color:var(--gold-l);text-decoration:underline}
+  .lg-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(260px,1fr);gap:2.4rem;align-items:start}
+  .lg-main h2{margin-top:2rem}
+  .lg-main p{line-height:1.75;color:var(--text-m)}
+  .lg-hl{padding-left:1.2rem;line-height:1.8;color:var(--text-m)}
+  .lg-days{list-style:none;margin:0;padding:0;border-left:2px solid var(--gold);margin-left:.4rem}
+  .lg-days li{position:relative;padding:0 0 1.1rem 1.2rem}
+  .lg-days li::before{content:"";position:absolute;left:-7px;top:.35rem;width:12px;height:12px;border-radius:50%;background:var(--gold)}
+  .lg-day{display:block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-d,var(--gold))}
+  .lg-days p{margin:.2rem 0 0}
+  .lg-cta{margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border)}
+  .lg-aside{position:sticky;top:96px;display:flex;flex-direction:column;gap:1.2rem}
+  .gtk{background:var(--wash);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem}
+  .gtk h2{margin:0 0 .5rem;font-size:1rem}
+  .gtk dl{margin:0;font-size:.86rem}
+  .gtk dt{font-weight:700;margin-top:.5rem}
+  .gtk dd{margin:0;color:var(--text-m)}
+  .others{list-style:none;margin:0;padding:0;font-size:.9rem}
+  .others li{padding:.35rem 0;border-bottom:1px solid var(--border)}
+  .others li:last-child{border-bottom:0}
+  @media(max-width:900px){.lg-grid{grid-template-columns:1fr}.lg-aside{position:static}}
+</style>

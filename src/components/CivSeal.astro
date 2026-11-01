@@ -3,8 +3,16 @@
 // its name. Says at a glance which world a tour belongs to -- Tuareg & Sahara,
 // Ottoman Algiers... -- the identity the page's colours and patterns carry.
 import { SKIN_BY_ID } from '../data/civSkins.mjs';
-export interface Props { civ?: string; }
+export interface Props { civ?: string; lang?: string; }
 const s = Astro.props.civ ? SKIN_BY_ID[Astro.props.civ] : undefined;
+// The seal's caption in the page's language (English: "<name> heritage").
+const SEAL: Record<string, Record<string, string>> = {
+  fr: { '01': 'Héritage amazigh', '02': 'Touareg & Sahara', '03': 'Le M’Zab mozabite', '04': 'Numides & Romains', '05': 'Dynasties islamo-berbères', '06': 'Héritage andalou', '07': 'Alger ottomane', '08': 'Algérie moderne' },
+  it: { '01': 'Eredità amazigh', '02': 'Tuareg & Sahara', '03': 'Lo M’Zab mozabita', '04': 'Numidi & Romani', '05': 'Dinastie islamo-berbere', '06': 'Eredità andalusa', '07': 'Algeri ottomana', '08': 'Algeria moderna' },
+  es: { '01': 'Herencia amazigh', '02': 'Tuareg y Sáhara', '03': 'El M’Zab mozabita', '04': 'Númidas y romanos', '05': 'Dinastías islamo-bereberes', '06': 'Herencia andalusí', '07': 'Argel otomana', '08': 'Argelia moderna' },
+  de: { '01': 'Amazigh-Erbe', '02': 'Tuareg & Sahara', '03': 'Der mozabitische M’Zab', '04': 'Numider & Römer', '05': 'Islamisch-berberische Dynastien', '06': 'Andalusisches Erbe', '07': 'Osmanisches Algier', '08': 'Modernes Algerien' },
+};
+const caption = s ? (SEAL[Astro.props.lang || '']?.[s.id] || `${s.name} heritage`) : '';
 const svg = s?.emblem
   .replaceAll('DDD', 'currentColor').replaceAll('CCC', 'currentColor')
   .replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
@@ -12,7 +20,7 @@ const svg = s?.emblem
 {s && (
   <div class="civ-seal">
     <span class="civ-seal__em draw-in" set:html={svg} />
-    <span class="civ-seal__name">{s.name} heritage</span>
+    <span class="civ-seal__name">{caption}</span>
   </div>
 )}
 <style>

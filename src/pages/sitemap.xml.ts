@@ -17,6 +17,7 @@ import { GUIDES_ES } from '../data/guides-es';
 import { TOURS_DE } from '../data/tours-de';
 import { DESTINATIONS_DE } from '../data/destinations-de';
 import { GUIDES_DE } from '../data/guides-de';
+import { GUIDE_TEXT, GUIDE_ROUTES } from '../data/localGuides.mjs';
 
 const SITE = (import.meta.env.SITE || 'https://algeriacompass.com').replace(/\/$/, '');
 const today = new Date().toISOString().slice(0, 10);
@@ -76,6 +77,11 @@ export const GET: APIRoute = async () => {
   for (const g of GUIDES_ES) rows.push({ loc: `${SITE}/es/${g.slug}/`, pri: '0.8', mod: today });
   for (const d2 of DESTINATIONS_DE) rows.push({ loc: `${SITE}/de/reiseziele/${d2.slug}/`, pri: '0.8', mod: today });
   for (const g of GUIDES_DE) rows.push({ loc: `${SITE}/de/${g.slug}/`, pri: '0.8', mod: today });
+  // translated state guides and experiences, with their hubs
+  for (const [l, kinds] of Object.entries(GUIDE_TEXT as Record<string, any>)) for (const [kind, map] of Object.entries(kinds as Record<string, any>)) {
+    rows.push({ loc: `${SITE}${(GUIDE_ROUTES as any)[kind][l]}`, pri: '0.6', mod: today });
+    for (const slug of Object.keys(map)) rows.push({ loc: `${SITE}${(GUIDE_ROUTES as any)[kind][l]}${slug}/`, pri: '0.7', mod: today });
+  }
   // utility pages (/search/, /sitemap/, /404/) are excluded from the sitemap.
   for (const [coll, base] of colls) {
     const items = await getCollection(coll as any);

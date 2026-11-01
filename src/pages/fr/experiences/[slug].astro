@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import LocalGuidePage from '../../../components/pages/LocalGuidePage.astro';
+import { GUIDE_TEXT } from '../../../data/localGuides.mjs';
+export async function getStaticPaths() {
+  const items = await getCollection('experience');
+  return items.filter(e => GUIDE_TEXT.fr?.experience?.[e.slug]).map(entry => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+---
+<LocalGuidePage kind="experience" slug={Astro.props.entry.slug} entry={Astro.props.entry} lang="fr" />

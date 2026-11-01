@@ -1,0 +1,41 @@
+---
+// The index of translated state guides or experiences in one language.
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Card from '../Card.astro';
+import { GUIDE_TEXT, GUIDE_UI, GUIDE_ROUTES, guideHref } from '../../data/localGuides.mjs';
+import { ROUTES } from '../../i18n';
+
+export interface Props { kind: 'province' | 'experience'; lang: string; }
+const { kind, lang } = Astro.props;
+const U = GUIDE_UI[lang];
+const H = U.hub[kind];
+const HOME: Record<string, string> = { fr: '/fr/', it: '/it/', es: '/es/', de: '/de/' };
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const entries = await getCollection(kind);
+const texts = GUIDE_TEXT[lang][kind];
+const items = entries.filter((e: any) => texts[e.slug])
+  .map((e: any) => ({ slug: e.slug, t: texts[e.slug], image: e.data.image || '/assets/img/brand-algeria.jpg' }))
+  .sort((a: any, b: any) => a.t.name.localeCompare(b.t.name, lang));
+const heroImage = kind === 'province' ? '/assets/img/constantine-sidi-mcid-bridge.jpg' : '/assets/img/tassili-dune-rocks.jpg';
+const alternates = ['en', lang].map(l => ({ hreflang: l, href: site + GUIDE_ROUTES[kind][l] }))
+  .concat([{ hreflang: 'x-default', href: site + GUIDE_ROUTES[kind].en }]);
+const list = {
+  '@type': 'ItemList', '@id': `${site}${GUIDE_ROUTES[kind][lang]}#list`, name: H.h1, inLanguage: lang,
+  itemListElement: items.map((it: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: it.t.name, url: site + guideHref(kind, it.slug, lang) })),
+};
+---
+<BaseLayout title={H.title} description={H.desc} lang={lang} alternates={alternates} image={heroImage} schema={[list]}>
+  <Hero title={H.h1} eyebrow={H.eyebrow} text={H.lead} image={heroImage} alt={H.h1} />
+  <Breadcrumbs items={[{ name: U.home, href: HOME[lang] }, { name: U[kind === 'province' ? 'provinces' : 'experiences'] }]} />
+  <section class="section"><div class="wrap">
+    <div class="grid" data-reveal-group>
+      {items.map((it: any) => (
+        <Card href={guideHref(kind, it.slug, lang)} title={it.t.name} image={it.image} alt={it.t.name} tag={it.t.eyebrow} text={it.t.intro} />
+      ))}
+    </div>
+    <p style="margin-top:2rem">{U.hubMore} <a href={ROUTES[lang as keyof typeof ROUTES].tours}>{U.toursLink}</a>.</p>
+  </div></section>
+</BaseLayout>
