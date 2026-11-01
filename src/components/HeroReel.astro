@@ -38,7 +38,7 @@ const per = 6;                       // seconds per frame
   .reel-f img{width:100%;height:100%;object-fit:cover;will-change:transform}
   .reel-cap{position:absolute;right:4vw;bottom:4.2rem;z-index:3;margin:0;padding:0;list-style:none}
   .reel-cap li{position:absolute;right:0;bottom:0;white-space:nowrap;opacity:0;font-family:var(--font-display);font-size:1.15rem;color:#fff;
-    padding:.35rem .9rem;border-left:2px solid #F3D9A8;background:rgba(0,0,0,.28);backdrop-filter:blur(3px);text-shadow:0 1px 6px rgba(0,0,0,.5)}
+    padding:.35rem .9rem;border-left:2px solid #F3D9A8;background:rgba(0,0,0,.42);text-shadow:0 1px 6px rgba(0,0,0,.5);will-change:opacity}
   @media (prefers-reduced-motion:no-preference){
     .reel-f{animation:var(--k) var(--T) linear infinite;animation-delay:var(--d)}
     .reel-f img{animation:reel-zoom var(--T) linear infinite;animation-delay:var(--d)}

@@ -110,7 +110,7 @@ const speakableNode = speakable?.length ? {
 <body class={bodyClass}>
   <SeasonAmbience />
   <a href="#main" class="skip-link">{tr(asLang(lang), 'skip')}</a>
-  <Header lang={lang} />
+  <Header lang={lang} alternates={alternates} />
   <SeasonBanner lang={lang} />
   <main id="main">
     <slot />

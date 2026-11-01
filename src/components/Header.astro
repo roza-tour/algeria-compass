@@ -7,7 +7,7 @@
 // Language-aware: pass lang="fr" / "it" for the translated navigation.
 import { asLang, LANGS, LANG_META, ROUTES, t as tr, type Lang } from '../i18n';
 import SiteSearch from './SiteSearch.astro';
-interface Props { lang?: string }
+interface Props { lang?: string; alternates?: { hreflang: string; href: string }[] }
 const lang = asLang(Astro.props.lang);
 
 type Item = { href: string; label: string };
@@ -132,7 +132,16 @@ const logoHref = LANG_META[lang].home;
 const ctaLabel = tr(lang, 'planTrip');
 const waMobileLabel = tr(lang, 'waMobile');
 // Every other language, so the switcher scales past two.
-const otherLangs = LANGS.filter(l => l !== lang).map(l => ({ ...LANG_META[l], code: l }));
+// A language link goes to THIS page in that language when the page has a
+// translation (its hreflang alternates), and to that language's home page only
+// when it has none. It used to always go home: a reader on a tour page who
+// switched to French landed on /fr/, not on the tour in French.
+const altPath = (code: string) => {
+  const a = (Astro.props.alternates || []).find((x: { hreflang: string; href: string }) => x.hreflang === code);
+  if (!a) return '';
+  try { return new URL(a.href).pathname; } catch { return ''; }
+};
+const otherLangs = LANGS.filter(l => l !== lang).map(l => ({ ...LANG_META[l], code: l, href: altPath(l) || LANG_META[l].home }));
 
 const path = Astro.url.pathname;
 const HOMES = new Set(Object.values(LANG_META).map(m => m.home));
@@ -178,7 +187,7 @@ const groupActive = (e: Entry) => !!e.items?.some(i => isActive(i.href));
         </button>
         <ul class="sub-menu">
           {otherLangs.map(l => (
-            <li><a href={l.home} class="nav-lang" hreflang={l.code}
+            <li><a href={l.href} class="nav-lang" hreflang={l.code}
                    aria-label={`${tr(lang, 'languageAria')} — ${l.name}`}>{l.label} · {l.name}</a></li>
           ))}
         </ul>
