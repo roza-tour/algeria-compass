@@ -9,7 +9,8 @@ const { title, description, imageAlt, type = 'website', keywords, noindex = fals
 // A page that passes no image gets a photograph matched to its subject rather
 // than the logo-on-green card a third of the site's links used to share.
 const image = Astro.props.image || ogFallback(Astro.url.pathname, title);
-const ogLocale = LANG_META[asLang(lang)].ogLocale;
+// The one Russian page is outside the five site languages; give it its own locale.
+const ogLocale = lang === 'ru' ? 'ru_RU' : LANG_META[asLang(lang)].ogLocale;
 const BRAND = 'Algeria Compass';
 // Google truncates SERP titles at roughly 60-65 characters. Only append the brand
 // suffix when the result still fits — otherwise the authored (keyword-first) title

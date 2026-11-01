@@ -2,6 +2,7 @@
 // French tour detail pages. Only tours carrying a complete `fr` block are built,
 // so no page is ever half-translated. Prices, images and wilayas come from the
 // English catalogue, which stays the single source of truth.
+import { photoAlt } from '../../../data/photoAlts.mjs';
 import FlightNote from '../../../components/FlightNote.astro';
 import ItineraryOffer from '../../../components/ItineraryOffer.astro';
 import GuideBadge from '../../../components/GuideBadge.astro';
@@ -49,7 +50,7 @@ let gallery: { file: string; alt?: string }[] = [];
 try {
   gallery = tourGallery(tour.image_slugs, fs.readdirSync('public/assets/img/tours'));
 } catch (e) { gallery = []; }
-const galleryImages = gallery.map(g => ({ src: `/assets/img/tours/${g.file}`, alt: g.alt || tour.title }));
+const galleryImages = gallery.map(g => ({ src: `/assets/img/tours/${g.file}`, alt: photoAlt(`/assets/img/tours/${g.file}`, 'de', g.alt || tour.title) }));
 const enUrl = `${site}/tours/${tour.id}/`;
 const v = TOUR_VISUALS[tour.id] || { hero: `${tour.image_slugs[0]}-1.jpg`, accent: '#0B3D2E' };
 // Long tours are told as a story (hero reel, journey, chapters) -- see lib/tourStory.mjs
@@ -142,7 +143,7 @@ const breadcrumb = {
     { '@type': 'ListItem', position: 3, name: fr.title, item: url },
   ],
 };
-const schema = [productSchema, breadcrumb, ...(faqSchema ? [faqSchema] : [])];
+const schema = [productSchema, ...(faqSchema ? [faqSchema] : [])];
 ---
 <BaseLayout speakable={['h1', '.lead']} title={title} description={description} lang="de" alternates={alternates}
   image={hero} region={REGION[tour.theme] || undefined} rgn={regionForTour(tour)} schema={schema} sticky={true}

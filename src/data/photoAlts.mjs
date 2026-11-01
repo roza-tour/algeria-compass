@@ -1,6 +1,7 @@
 // Photo descriptions (alt text) in the site's other languages, keyed by image
 // path, so one photograph reads the same wherever it appears. Each entry is
 // [fr, it, es, de], translated from the English alt in the content files.
+import { PHOTO_ALT_2 } from './photoAlts2.mjs';
 const L = { fr: 0, it: 1, es: 2, de: 3 };
 
 const A = {
@@ -143,8 +144,11 @@ const A = {
   '/assets/img/tours/djanet-18.jpg': ['Une vasque immobile reflétant les parois de grès dans un étroit canyon près de Djanet', 'Una pozza immobile che riflette le pareti di arenaria in uno stretto canyon vicino a Djanet', 'Una poza quieta que refleja las paredes de arenisca en un estrecho cañón cerca de Djanet', 'Ein stilles Becken, in dem sich Sandsteinwände spiegeln, in einem engen Canyon bei Djanet'],
 };
 
-/** The photo's description in a language, or the fallback (usually the English alt). */
+Object.assign(A, PHOTO_ALT_2);
+
+/** The photo's description in a language, or the fallback (usually the English alt).
+ *  A thumbnail (/assets/img/thumbs/tours/x.jpg) shares its photo's description. */
 export function photoAlt(src, lang, fallback = '') {
-  const row = A[src];
+  const row = A[src] || A[String(src).replace('/assets/img/thumbs/tours/', '/assets/img/tours/')];
   return (row && L[lang] !== undefined && row[L[lang]]) || fallback;
 }

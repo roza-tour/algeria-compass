@@ -1,6 +1,7 @@
 ---
 // Printable itinerary ("Save as PDF") for one tour, in the reader's language.
 // Opened after the visitor leaves their email in ItineraryOffer; not indexed.
+import { photoAlt } from '../data/photoAlts.mjs';
 import fs from 'node:fs';
 import { tourGallery } from '../data/tour-photos';
 import { TOUR_VISUALS } from '../data/tour-visuals';
@@ -75,7 +76,7 @@ const C = {
     <h1>{L.title}</h1>
     <p class="meta">{L.duration} · {C.from} <b>€{price}</b> {C.per}</p>
     <p class="hook">{L.hook || t.summary} {C.note}</p>
-    {photos.length > 0 && <div class="photos">{photos.map(p => <img src={`/assets/img/thumbs/tours/${p.file}`} alt={p.alt || L.title} />)}</div>}
+    {photos.length > 0 && <div class="photos">{photos.map(p => <img src={`/assets/img/thumbs/tours/${p.file}`} alt={photoAlt(`/assets/img/tours/${p.file}`, lang, p.alt || L.title)} />)}</div>}
 
     <h2>{C.days}</h2>
     {(L.itinerary || t.itinerary || []).map((d: any) => (

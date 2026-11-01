@@ -2,6 +2,7 @@
 // "Moments from our trips" in every language. The photographs and their English
 // descriptions live in src/data/moments.ts; each language translates the alts
 // in its own moments-xx.ts file, keyed by src (missing ones fall back to English).
+import { photoAlt } from '../../data/photoAlts.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../Hero.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
@@ -18,7 +19,7 @@ interface Props { lang?: string }
 const lang = asLang(Astro.props.lang);
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const T: Record<string, Record<string, string>> = { fr: MOMENTS_FR, it: MOMENTS_IT, es: MOMENTS_ES, de: MOMENTS_DE };
-const images = MOMENTS.map(m => ({ src: m.src, alt: T[lang]?.[m.src] || m.alt }));
+const images = MOMENTS.map(m => ({ src: m.src, alt: T[lang]?.[m.src] || photoAlt(m.src, lang, m.alt) }));
 const hero = '/assets/img/clients/client-641.jpg';
 const home = lang === 'en' ? '/' : `/${lang}/`;
 

@@ -63,7 +63,7 @@ const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/questions/${item.s
   { "@type":"ListItem", position:2, name:"Questions", item:`${site}/questions/` },
   { "@type":"ListItem", position:3, name:d.question, item:`${site}/questions/${item.slug}/` } ] };
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} keywords={d.seo.keywords} image={ogFallback(Astro.url.pathname, d.question, d.category)} schema={[qa, speak, authorEntity, reviewerEntity, breadcrumb]} alternates={qAlternates(site, item.slug)}>
+<BaseLayout title={d.seo.title} description={d.seo.description} keywords={d.seo.keywords} image={ogFallback(Astro.url.pathname, d.question, d.category)} schema={[qa, speak, authorEntity, reviewerEntity]} alternates={qAlternates(site, item.slug)}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Questions',href:'/questions/'},{name:d.category}]} />
   <article class="section"><div class="wrap" style="max-width:760px">
     <span class="eyebrow">{d.category}</span>

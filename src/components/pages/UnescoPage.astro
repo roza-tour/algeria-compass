@@ -56,7 +56,7 @@ const breadcrumb = {
 };
 ---
 <BaseLayout title={c.seoTitle} description={c.seoDescription} lang={lang} alternates={alternates}
-  image={HERO} schema={[page, itemList, breadcrumb]} region="sahara">
+  image={HERO} schema={[page, itemList]} region="sahara">
 
   <Hero title={c.h1} eyebrow={c.eyebrow} text={c.heroText} image={HERO} alt={c.heroAlt} />
   <Breadcrumbs items={[{ name: c.crumbHome, href: LANG_META[lang].home }, { name: c.crumbLabel }]} />

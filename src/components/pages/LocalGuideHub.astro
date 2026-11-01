@@ -5,7 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../Hero.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import Card from '../Card.astro';
-import { GUIDE_TEXT, GUIDE_UI, GUIDE_ROUTES, guideHref } from '../../data/localGuides.mjs';
+import { GUIDE_TEXT, GUIDE_UI, GUIDE_ROUTES, guideHref, guideLangs } from '../../data/localGuides.mjs';
 import { ROUTES } from '../../i18n';
 
 export interface Props { kind: 'province' | 'experience'; lang: string; }
@@ -20,7 +20,7 @@ const items = entries.filter((e: any) => texts[e.slug])
   .map((e: any) => ({ slug: e.slug, t: texts[e.slug], image: e.data.image || '/assets/img/brand-algeria.jpg' }))
   .sort((a: any, b: any) => a.t.name.localeCompare(b.t.name, lang));
 const heroImage = kind === 'province' ? '/assets/img/constantine-sidi-mcid-bridge.jpg' : '/assets/img/tassili-dune-rocks.jpg';
-const alternates = ['en', lang].map(l => ({ hreflang: l, href: site + GUIDE_ROUTES[kind][l] }))
+const alternates = ['en', ...guideLangs(kind)].map(l => ({ hreflang: l, href: site + GUIDE_ROUTES[kind][l] }))
   .concat([{ hreflang: 'x-default', href: site + GUIDE_ROUTES[kind].en }]);
 const list = {
   '@type': 'ItemList', '@id': `${site}${GUIDE_ROUTES[kind][lang]}#list`, name: H.h1, inLanguage: lang,

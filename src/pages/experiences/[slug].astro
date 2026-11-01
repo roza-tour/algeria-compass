@@ -51,7 +51,7 @@ const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/experiences/${item
   { "@type":"ListItem", position:1, name:"Home", item:`${site}/` },
   { "@type":"ListItem", position:2, name:"Experiences", item:`${site}/experiences/` },
   { "@type":"ListItem", position:3, name:d.name, item:`${site}/experiences/${item.slug}/` } ] };
-const schemaNodes = [trip, authorEntity, reviewerEntity, breadcrumb];
+const schemaNodes = [trip, authorEntity, reviewerEntity];
 ---
 <BaseLayout title={d.seo.title} description={d.seo.description} image={d.image} imageAlt={d.imageAlt} keywords={d.seo.keywords} region={d.region} schema={schemaNodes} sticky={true} alternates={guideAlternates(site, 'experience', item.slug)}>
   <Hero title={d.name} eyebrow={`${d.durationDays} days · ${d.region}`} text={d.tagline} image={d.image} alt={d.imageAlt}>
