@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { REGIONS } from '../../data/regions';
+import { REGION_ROUTES, regionHref, localRegion, REGION_UI } from '../../data/regionI18n.mjs';
+// The regions hub in any of the five languages (pages/regions/index.astro and
+// the translated hubs are thin wrappers).
+export interface Props { lang?: string; }
+const lang = Astro.props.lang || 'en';
+const U = REGION_UI[lang] || REGION_UI.en;
+const HOME: Record<string, string> = { en: '/', fr: '/fr/', it: '/it/', es: '/es/', de: '/de/' };
+const list = REGIONS.map(r => localRegion(r, lang));
+const SITE0 = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const alternates = Object.keys(REGION_ROUTES).filter(l => l === 'en' || REGION_UI[l]?.ready)
+  .map(l => ({ hreflang: l, href: SITE0 + REGION_ROUTES[l] }))
+  .concat([{ hreflang: 'x-default', href: SITE0 + REGION_ROUTES.en }]);
+import '../../styles/regions.css';
+import '../../styles/region-art.css';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const schema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: U.home, item: site + HOME[lang] },
+      { '@type': 'ListItem', position: 2, name: U.regions, item: site + REGION_ROUTES[lang] },
+    ],
+  },
+  {
+    '@type': 'ItemList',
+    name: U.hubListName,
+    itemListElement: list.map((r, i) => ({
+      '@type': 'ListItem', position: i + 1, name: r.name, url: `${site}${regionHref(r.id, lang)}`,
+    })),
+  },
+];
+const vars = (r: any) => `--rc:${r.rc};--rc-d:${r.rcD};--rc-l:${r.rcL};--rc-paper:${r.paper};--pat:${r.pat}`;
+---
+<BaseLayout
+  title={U.hubTitle}
+  description={U.hubDesc}
+  image="/assets/img/tours/djanet-1.jpg"
+  imageAlt={U.hubImageAlt}
+  keywords={U.hubKeywords}
+  lang={lang}
+  alternates={alternates}
+  schema={schema}
+  sticky={true}>
+
+  <div class="rg rg-hub">
+    <div class="rg-hub__head">
+      <div class="rg-hub__kick">{U.hubKick}</div>
+      <h1 class="rg-hub__title">{U.hubH1a}<br />{U.hubH1b}</h1>
+      <p class="rg-hub__sub">{U.hubSub}</p>
+    </div>
+    <div class="rg-grid" data-reveal-group>
+      {list.map((r, i) => (
+        <a class="rg-tilt" data-region={r.id} href={regionHref(r.id, lang)} style={vars(r)} aria-label={`${U.explore} — ${r.name}`}>
+          <div class="rg-tilt__in">
+            <div class="rg-card">
+              <img class="rg-card__img" src={r.hero} alt={r.name} width="600" height="400" loading={i < 4 ? 'eager' : 'lazy'} decoding="async" />
+              <div class="rg-card__pat" aria-hidden="true"></div>
+              <div class="rg-card__scrim" aria-hidden="true"></div>
+              <div class="rg-card__em" aria-hidden="true"><img src={r.emblem} alt="" width="46" height="46" loading="lazy" /></div>
+              <div class="rg-card__body">
+                <div class="rg-card__idx">{r.idx} — {U.regionWord}</div>
+                <div class="rg-card__ar" lang="ar">{r.ar}</div>
+                <div class="rg-card__name">{r.name}</div>
+                <div class="rg-card__tag">{r.tag}</div>
+                <div class="rg-card__go">{U.explore} <span aria-hidden="true">→</span></div>
+              </div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <script is:inline>
+    /* Hub card 3D tilt — pointer only, motion-gated. Cards are plain links, so
+       they work fully without this.
+
+       Touch is not left with nothing: the cards cascade in via
+       data-reveal-group on the grid above (which targets the outer .rg-tilt,
+       while this writes .rg-tilt__in -- one writer per element), and press
+       down on tap via a @media (hover:none) rule in regions.css. */
+    (function(){
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.rg-tilt').forEach(function(card){
+        var inner = card.querySelector('.rg-tilt__in');
+        if(!inner) return;
+        card.addEventListener('mousemove', function(e){
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width - 0.5;
+          var py = (e.clientY - r.top) / r.height - 0.5;
+          inner.style.transition = 'transform .08s linear';
+          inner.style.transform = 'rotateY(' + (px*14).toFixed(2) + 'deg) rotateX(' + (-py*14).toFixed(2) + 'deg) scale(1.04)';
+        });
+        card.addEventListener('mouseleave', function(){
+          inner.style.transition = 'transform .6s cubic-bezier(.2,.7,.2,1)';
+          inner.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+        });
+      });
+    })();
+  </script>
+</BaseLayout>

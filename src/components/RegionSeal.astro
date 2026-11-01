@@ -5,6 +5,7 @@
 import { readFileSync } from 'node:fs';
 import { REGIONS } from '../data/regions';
 import { regionName } from '../data/regionNames.mjs';
+import { regionHref } from '../data/regionI18n.mjs';
 export interface Props { region?: string; lang?: string; }
 const lang = Astro.props.lang || 'en';
 const r = REGIONS.find(x => x.id === Astro.props.region);
@@ -14,7 +15,7 @@ const svg = r && readFileSync(`public${r.emblem}`, 'utf8')
   .replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
 ---
 {r && (
-  <a class="rgn-seal" href={`/regions/${r.id}/`}>
+  <a class="rgn-seal" href={regionHref(r.id, lang)}>
     <span class="rgn-seal__em draw-in" set:html={svg} />
     <span class="rgn-seal__txt"><span class="rgn-seal__k">{KICK[lang] || KICK.en}</span>{regionName(r, lang).heading}</span>
   </a>

@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import toursData from '../data/tours.json';
 import { REGIONS } from '../data/regions';
+import { REGION_ROUTES, REGION_UI } from '../data/regionI18n.mjs';
 import { TOURS_FR } from '../data/tours-fr';
 import { DESTINATIONS_FR } from '../data/destinations-fr';
 import { TOURS_IT } from '../data/tours-it';
@@ -60,6 +61,11 @@ export const GET: APIRoute = async () => {
     if (TOURS_DE[t.id]?.full) rows.push({ loc: `${SITE}/de/reisen/${t.id}/`, pri: '0.8', mod: today });
   }
   for (const r of REGIONS) rows.push({ loc: `${SITE}/regions/${r.id}/`, pri: '0.7', mod: today });
+  // translated region pages and hubs (only languages switched on in regionI18n.mjs)
+  for (const l of Object.keys(REGION_ROUTES).filter(l => l !== 'en' && REGION_UI[l]?.ready)) {
+    rows.push({ loc: `${SITE}${REGION_ROUTES[l]}`, pri: '0.6', mod: today });
+    for (const r of REGIONS) rows.push({ loc: `${SITE}${REGION_ROUTES[l]}${r.id}/`, pri: '0.6', mod: today });
+  }
   for (const d of DESTINATIONS_FR) rows.push({ loc: `${SITE}/fr/destinations/${d.slug}/`, pri: '0.8', mod: today });
   for (const d of DESTINATIONS_IT) rows.push({ loc: `${SITE}/it/destinazioni/${d.slug}/`, pri: '0.8', mod: today });
   for (const path of Object.values(GUIDE_PAGES)) rows.push({ loc: `${SITE}${path}`, pri: '0.8', mod: today });

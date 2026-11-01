@@ -1,0 +1,331 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ROUTES } from '../../i18n';
+import { REGION_ROUTES, regionHref, localRegion, REGION_UI } from '../../data/regionI18n.mjs';
+import { TOURS_FR } from '../../data/tours-fr';
+import { TOURS_IT } from '../../data/tours-it';
+import { TOURS_ES } from '../../data/tours-es';
+import { TOURS_DE } from '../../data/tours-de';
+import { REGIONS } from '../../data/regions';
+import '../../styles/regions.css';
+import '../../styles/region-art.css';
+import { readFileSync } from 'node:fs';
+import TourCard from '../../components/TourCard.astro';
+import toursData from '../../data/tours.json';
+import { regionForTour } from '../../data/tourRegions.mjs';
+
+// One region page in any of the five languages. The English region (regions.ts)
+// is merged with its translation (regionI18n.mjs) field by field, so a missing
+// translated field shows in English rather than leaving a hole.
+export interface Props { r: any; lang?: string; }
+const lang = Astro.props.lang || 'en';
+const r = localRegion(Astro.props.r, lang);
+const U = REGION_UI[lang] || REGION_UI.en;
+const HOME: Record<string, string> = { en: '/', fr: '/fr/', it: '/it/', es: '/es/', de: '/de/' };
+const TOURS_L: Record<string, any> = { fr: TOURS_FR, it: TOURS_IT, es: TOURS_ES, de: TOURS_DE };
+const alternates = Object.keys(REGION_ROUTES).filter(l => l === 'en' || REGION_UI[l]?.ready)
+  .map(l => ({ hreflang: l, href: (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '') + regionHref(r.id, l) }))
+  .concat([{ hreflang: 'x-default', href: (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '') + regionHref(r.id, 'en') }]);
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}${regionHref(r.id, lang)}`;
+const schema = [
+  {
+    '@type': 'TouristDestination',
+    '@id': url + '#region',
+    name: r.name + U.algeriaSuffix,
+    description: r.sub,
+    url,
+    image: site + r.hero,
+    containedInPlace: { '@id': site + '/#algeria' },
+    isPartOf: { '@id': site + '/#website' },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: U.home, item: site + HOME[lang] },
+      { '@type': 'ListItem', position: 2, name: U.regions, item: site + REGION_ROUTES[lang] },
+      { '@type': 'ListItem', position: 3, name: r.name, item: url },
+    ],
+  },
+];
+// The hero edge is inlined as a data URI (about 2 KB): as a separate file the
+// photograph stayed fully masked -- invisible -- until that file arrived.
+const edge = (o: string) => `url("data:image/svg+xml,${encodeURIComponent(readFileSync(`public/assets/regions/edge-${r.id}-${o}.svg`, 'utf8'))}")`;
+const vars = `--rc:${r.rc};--rc-d:${r.rcD};--rc-l:${r.rcL};--rc-paper:${r.paper};--pat:${r.pat};--edge-v:${edge('v')};--edge-h:${edge('h')}`;
+// The emblem is inlined (not an <img>) so it takes the page's colour and can
+// draw itself in: every shape in it carries pathLength="1".
+const emblemSvg = readFileSync(`public${r.emblem}`, 'utf8')
+  .replace(/stroke="#[0-9A-Fa-f]{6}"/, 'stroke="currentColor"')
+  .replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
+// the ring of text around the medallion: the name and kicker, repeated to fill it
+// The ring holds about 66 characters at its 10.5px size; repeat what fits,
+// and textLength spreads it evenly round the circle.
+const ringBase = (`${r.name} · ${r.kicker} · `).toUpperCase();
+const ringText = ringBase.length > 66 ? (`${r.name} · `).toUpperCase().repeat(Math.max(1, Math.floor(66 / (r.name.length + 3))))
+  : ringBase.repeat(Math.max(1, Math.floor(66 / ringBase.length)));
+// The tours that belong to this region (src/data/tourRegions.mjs): the page
+// used to inspire and then send the visitor away to state guides, with
+// nothing here they could book.
+const regionTours = (((toursData as any).tours || toursData) as any[]).filter((t: any) => regionForTour(t) === r.id);
+// tour cards in the page's language, linking to the translated tour pages
+const cardRows = regionTours.map((t: any) => {
+  const loc = TOURS_L[lang]?.[t.id];
+  return loc?.full ? { tour: t, href: `${ROUTES[lang as keyof typeof ROUTES].tours}${t.id}/`, title: loc.title, hook: loc.hook, duration: loc.duration }
+                   : { tour: t, href: `/tours/${t.id}/`, englishOnly: lang !== 'en' };
+});
+---
+<BaseLayout
+  title={r.seoTitle}
+  description={r.seoDesc}
+  image={r.hero}
+  imageAlt={`${r.name}, Algeria`}
+  region={r.id === 'roman' ? 'roman' : undefined}
+  schema={schema}
+  sticky={true}
+  lang={lang}
+  alternates={alternates}>
+
+  <div class="rg rg-page" data-region={r.id} style={vars}>
+    <nav class="rg-crumbs" aria-label="Breadcrumb">
+      <a href={HOME[lang]}>{U.home}</a> › <a href={REGION_ROUTES[lang]}>{U.regions}</a> › {r.name}
+    </nav>
+
+    <!-- Split hero. The photograph used to be a full-bleed background stretched
+         to 112% of the viewport: every region hero source is about 700px wide
+         (the library has only 11 images at 1400px or more, and those are the
+         luxury-camp photographs that must not stand for the circuits), so at
+         desktop width each one was being blown up roughly 2.2x and arrived as a
+         soft wash. A panel narrower than the source downscales instead, which
+         is sharp at every viewport, and the region's colour now owns the text
+         column outright rather than being painted over the picture. -->
+    <header class="rg-hero">
+      <div class="rg-hero__in">
+        <span class="rg-hero__em rg-draw" set:html={emblemSvg} />
+        <span class="rg-hero__kick">{r.kicker}</span>
+        <span class="rg-hero__ar" lang="ar">{r.ar}</span>
+        <h1 class="rg-hero__title">{r.heading || r.name}</h1>
+        <p class="rg-hero__sub">{r.sub}</p>
+        <div class="rg-hero__cue" aria-hidden="true">{U.scroll}</div>
+      </div>
+      <div class="rg-hero__media">
+        <img class="rg-hero__img" src={r.hero} alt={`${r.name}${U.algeriaDash}`} width="736" height="920" fetchpriority="high" decoding="async" />
+        <div class="rg-hero__pat" aria-hidden="true"></div>
+        <div class="rg-hero__scrim" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <!-- Intro -->
+    <section class="rg-section rg-wrap">
+      <div class="rg-intro">
+        <div>
+          <span class="rg-eyebrow">{U.dossier}</span>
+          <h2 class="rg-h2">{r.name}</h2>
+          <p class="rg-lead" style="margin-top:1.2rem">{r.intro[0]}</p>
+          <p class="rg-p" style="margin-top:1rem">{r.intro[1]}</p>
+        </div>
+        <div class="rg-medallion">
+          <svg class="rg-ring" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <defs><path id="rg-ring-path" d="M100,100 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0" /></defs>
+            <text><textPath href="#rg-ring-path" textLength="527" lengthAdjust="spacing">{ringText}</textPath></text>
+          </svg>
+          <span class="rg-medallion__em rg-draw" set:html={emblemSvg} />
+        </div>
+      </div>
+    </section>
+
+    <div class="rg-band rg-wrap" aria-hidden="true"><span></span></div>
+
+    <!-- 3D monuments -->
+    <section class="rg-monu rg-section">
+      <div class="rg-wrap">
+        <div class="rg-monu__head">
+          <span class="rg-eyebrow">{U.sites}</span>
+          <h2 class="rg-h2">{U.see}</h2>
+        </div>
+        <div class="rg-monu__grid" data-reveal-group>
+          {r.monuments.map(m => (
+            <div class="rg-mcard">
+              <div class="rg-mcard__in">
+                <img class="rg-mcard__img" src={m.img} alt={m.t} width="600" height="400" loading="lazy" decoding="async" />
+                <div class="rg-mcard__shine" aria-hidden="true"></div>
+                <div class="rg-mcard__plate">
+                  <div class="rg-mcard__n">{m.n}</div>
+                  <div class="rg-mcard__t">{m.t}</div>
+                  <div class="rg-mcard__d">{m.d}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Facets -->
+    <section class="rg-section rg-wrap">
+      <span class="rg-eyebrow">{U.character}</span>
+      <h2 class="rg-h2" style="margin-bottom:2.2rem">{U.defines}</h2>
+      <div class="rg-facets">
+        {r.facets.map(f => (
+          <div class="rg-facet">
+            <div class="rg-facet__n">{f[0]}</div>
+            <div><h3>{f[1]}</h3><p>{f[2]}</p></div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="rg-band rg-wrap" aria-hidden="true"><span></span></div>
+
+    <!-- Ledger + gallery -->
+    <section class="rg-section rg-wrap" style="padding-top:0">
+      <div class="rg-two">
+        <div>
+          <span class="rg-eyebrow">{U.notes}</span>
+          <h2 class="rg-h2" style="margin-bottom:1rem">{U.glance}</h2>
+          <div class="rg-ledger">
+            {r.facts.map(f => (
+              <div class="rg-ledger__row">
+                <span class="rg-ledger__k">{f[0]}</span>
+                <span class="rg-ledger__dots" aria-hidden="true"></span>
+                <span class="rg-ledger__v">{f[1]}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="rg-gal" data-lightbox>
+          {r.gallery.map(g => (
+            <figure><img src={g} alt="" width="400" height="300" loading="lazy" decoding="async" /></figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {regionTours.length > 0 && (
+      <section class="rg-section rg-wrap rg-tours" id="tours">
+        <span class="rg-eyebrow">{U.travelIt}</span>
+        <h2 class="rg-h2">{regionTours.length === 1 ? U.ourTour : U.ourTours} {lang === 'en' ? r.name.replace(/^The /, 'the ') : r.name}</h2>
+        <p class="rg-p" style="margin:.8rem 0 1.6rem;max-width:62ch">{U.toursLead}</p>
+        <div class="grid" data-reveal-group>
+          {cardRows.map((c: any, i: number) => <TourCard tour={c.tour} index={i} lang={lang} href={c.href} title={c.title} hook={c.hook} duration={c.duration} englishOnly={c.englishOnly} />)}
+        </div>
+        <p style="margin-top:1.2rem"><a class="rg-back" href={`${ROUTES[lang as keyof typeof ROUTES].tours}?region=${r.id}`}>{U.allTours} →</a></p>
+      </section>
+    )}
+
+    <!-- Explore real pages + CTA -->
+    <section class="rg-section rg-wrap" style="padding-top:0">
+      <div class="rg-cta">
+        <div class="rg-cta__in">
+          <span class="rg-cta__em rg-draw" set:html={emblemSvg} />
+          <h2 class="rg-h2">{U.travelWith.replace('{r}', r.name)}</h2>
+          <p>{U.ctaText}</p>
+          <div class="rg-links">
+            {r.links.map(l => <a href={l.href}>{l.label} →</a>)}
+          </div>
+          <div class="rg-actions">
+            <a class="rg-btn" href={`${ROUTES[lang as keyof typeof ROUTES].contact}?i=${encodeURIComponent(r.name)}`}>{U.plan} →</a>
+            <a class="rg-btn rg-btn--ghost" href={REGION_ROUTES[lang]}>{U.allRegions}</a>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:1.6rem"><a class="rg-back" href={REGION_ROUTES[lang]}>← {U.back}</a></p>
+    </section>
+  </div>
+
+  <script is:inline>
+    /* Region page: parallax hero + 3D monument tilt. Pointer-only and
+       motion-gated; all content is static HTML and fully readable without JS. */
+    (function(){
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      /* Emblems draw themselves in, line by line. Hidden only once this runs,
+         so without JS (or with reduced motion) they are simply there. */
+      var draws = document.querySelectorAll('.rg-draw');
+      document.documentElement.classList.add('rg-anim');
+      if ('IntersectionObserver' in window){
+        var io = new IntersectionObserver(function(es){
+          es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-drawn'); io.unobserve(e.target); } });
+        }, { rootMargin: '0px 0px -12% 0px' });
+        draws.forEach(function(d){ io.observe(d); });
+      } else draws.forEach(function(d){ d.classList.add('is-drawn'); });
+      var noHover = matchMedia('(hover: none)').matches;
+      var hero = document.querySelector('.rg-hero');
+      var img = document.querySelector('.rg-hero__img');
+      var pat = document.querySelector('.rg-hero__pat');
+      var inr = document.querySelector('.rg-hero__in');
+
+      if(hero && img){
+        /* Mouse offset and scroll offset are composed into ONE transform per
+           element. They used to be written separately to the same style
+           property, so whichever fired last erased the other: moving the mouse
+           snapped the hero back to the top of its parallax, and scrolling threw
+           away the pointer offset. */
+        var mx = 0, my = 0, sy = 0, raf = 0;
+        /* Split hero: only the photograph moves, inside its own clipped panel,
+           and its travel is clamped to the slack its 1.08 scale leaves (about 4%
+           of the panel each way) so no edge is ever exposed. The copy column no
+           longer drifts: in the full-bleed hero the hero clipped it, but the
+           split hero grows with its text and is not clipped, so a scroll-driven
+           shift carried the title down over the next section. */
+        var clamp = function(v, m){ return Math.max(-m, Math.min(m, v)); };
+        function paint(){
+          raf = 0;
+          var slack = (img.offsetHeight || 600) * 0.035;
+          img.style.transform = 'translate(' + clamp(mx*-14, slack).toFixed(1) + 'px,' + clamp(my*-14 + sy*0.06, slack).toFixed(1) + 'px) scale(1.08)';
+          if(pat) pat.style.transform = 'translate(' + (mx*20).toFixed(1) + 'px,' + (my*20).toFixed(1) + 'px)';
+        }
+        function schedule(){ if(!raf) raf = requestAnimationFrame(paint); }
+
+        if(!noHover){
+          hero.addEventListener('mousemove', function(e){
+            var r = hero.getBoundingClientRect();
+            mx = (e.clientX - r.left) / r.width - 0.5;
+            my = (e.clientY - r.top) / r.height - 0.5;
+            schedule();
+          });
+          hero.addEventListener('mouseleave', function(){ mx = 0; my = 0; schedule(); });
+        }
+        window.addEventListener('scroll', function(){
+          var y = window.pageYOffset || 0;
+          if(y < 900){ sy = y; schedule(); }
+        }, { passive:true });
+      }
+
+      /* Monument cards.
+         The tilt and the cursor-tracking shine were behind `!noHover`, so on a
+         phone — where most of this site is read — the cards did nothing at all.
+         Touch now gets its own treatment instead of the desktop one: the cards
+         rise into place as they scroll in, staggered, and press down when
+         tapped. Pointer devices keep the tilt. */
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.rg-mcard'));
+
+      if(!noHover){
+        cards.forEach(function(card){
+          var inner = card.querySelector('.rg-mcard__in');
+          if(!inner) return;
+          card.addEventListener('mousemove', function(e){
+            var r = card.getBoundingClientRect();
+            var px = (e.clientX - r.left) / r.width - 0.5;
+            var py = (e.clientY - r.top) / r.height - 0.5;
+            inner.style.transition = 'transform .1s linear';
+            inner.style.transform = 'perspective(1000px) rotateY(' + (px*14).toFixed(2) + 'deg) rotateX(' + (-py*14).toFixed(2) + 'deg)';
+            inner.style.setProperty('--gx', ((px+0.5)*100).toFixed(1) + '%');
+            inner.style.setProperty('--gy', ((py+0.5)*100).toFixed(1) + '%');
+          });
+          card.addEventListener('mouseleave', function(){
+            inner.style.transition = 'transform .6s cubic-bezier(.2,.7,.2,1)';
+            inner.style.transform = 'perspective(1000px) rotateY(0) rotateX(0)';
+          });
+        });
+      }
+
+      /* The cards' entrance and its stagger are the site-wide reveal system in
+         BaseLayout, opted into with data-reveal-group on the grid in the markup
+         above -- not a second mechanism here. */
+    })();
+  </script>
+    {lang === 'en' && (
+    <section class="section"><div class="wrap">
+      <p style="color:var(--text-l);max-width:62ch">Curious about the civilisations behind this region — Amazigh, Roman, Andalusian, Ottoman and Saharan? Read the full <a href="/culture/" style="text-decoration:underline">Algerian culture guide</a>.</p>
+    </div></section>
+    )}
+</BaseLayout>
