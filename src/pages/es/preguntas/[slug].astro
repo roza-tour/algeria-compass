@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import LocalQuestionPage from '../../../components/pages/LocalQuestionPage.astro';
+import { Q_TEXT } from '../../../data/questionI18n.mjs';
+export async function getStaticPaths() {
+  const items = await getCollection('question');
+  return items.filter(e => Q_TEXT.es?.[e.slug]).map(entry => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+---
+<LocalQuestionPage entry={Astro.props.entry} lang="es" />
