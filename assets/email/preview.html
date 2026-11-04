@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Email Signature — Algeria Compass</title>
+<style>
+  :root{--green:#0B3D2E;--green-d:#07261C;--gold:#C19333;--gold-l:#E4AD40;--paper:#F4F1EA;--card:#FFFFFF;--ink:#1d1d1b;--muted:#6B6B63;--line:#E4DED2}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
+  .top{background:linear-gradient(160deg,var(--green),var(--green-d));color:#fff;padding:28px 16px 70px;text-align:center}
+  .top img{width:46px;height:auto}
+  .top h1{margin:10px 0 4px;font:400 26px/1.2 Georgia,serif;letter-spacing:.5px}
+  .top p{margin:0;color:#BFD0C7;font-size:14px}
+  .wrap{max-width:760px;margin:-48px auto 40px;padding:0 16px}
+  .mail{background:var(--card);border-radius:14px;box-shadow:0 18px 50px rgba(7,38,28,.14);overflow:hidden}
+  .bar{display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid var(--line);background:#FAF8F3}
+  .bar i{width:10px;height:10px;border-radius:50%;background:#d9d3c6}
+  .head{padding:16px 22px;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+  .head b{color:var(--ink);font-weight:600}
+  .body{padding:22px 22px 30px}
+  .body p{margin:0 0 14px}
+  .sig{margin-top:22px;padding-top:16px;border-top:1px dashed var(--line);overflow-x:auto}
+  .actions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 8px}
+  button{font:600 14px/1 system-ui,Arial,sans-serif;padding:13px 18px;border-radius:999px;border:1px solid var(--gold);cursor:pointer}
+  .primary{background:var(--green);color:#fff;border-color:var(--green)}
+  .ghost{background:#fff;color:var(--green)}
+  .ok{color:var(--green);font-size:14px;min-height:22px}
+  .steps{background:var(--card);border-radius:14px;padding:18px 22px;margin-top:14px;border:1px solid var(--line)}
+  .steps h2{margin:0 0 8px;font:400 19px Georgia,serif}
+  .steps ol{margin:0;padding-left:20px}
+  .steps li{margin:4px 0}
+  .dark{margin-top:14px;background:#1b1f1d;border-radius:14px;padding:18px 22px;color:#ddd;overflow-x:auto}
+  .dark small{display:block;margin-bottom:10px;color:#9aa49f}
+  @media (prefers-color-scheme:dark){:root{--paper:#121513;--card:#1b1f1d;--ink:#ecebe6;--muted:#a3a39b;--line:#2c322f}.bar{background:#202522}.sig{background:#fff;border-radius:10px;padding:16px}}
+</style>
+</head>
+<body>
+  <header class="top">
+    <img src="ac-emblem.png" alt="">
+    <h1>Algeria Compass — Email Signature</h1>
+    <p>Preview, then copy it into Roundcube (cPanel Webmail)</p>
+  </header>
+  <main class="wrap">
+    <div class="mail">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="head"><b>From:</b> Algeria Compass &lt;hello@algeriacompass.com&gt;<br><b>Subject:</b> Your private journey to the Algerian Sahara</div>
+      <div class="body">
+        <p>Dear Sarah,</p>
+        <p>Thank you for your message. I have attached the day-by-day programme for your eight days in the Tassili n’Ajjer and the Tadrart, with your guide, the camps and the flight from Algiers.</p>
+        <p>With warm regards,</p>
+        <div class="sig" id="sig">Loading…</div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="primary" id="copyRich">Copy signature</button>
+      <button class="ghost" id="copyCode">Copy HTML code</button>
+    </div>
+    <div class="ok" id="ok" aria-live="polite"></div>
+    <div class="steps">
+      <h2>Roundcube: where to paste</h2>
+      <ol>
+        <li>Webmail → <b>Settings</b> → <b>Identities</b> → choose your address.</li>
+        <li>In <b>Signature</b>, switch the editor to <b>HTML</b>.</li>
+        <li>Either paste with <b>Ctrl+V</b> after “Copy signature”, or open <b>Source code &lt;&gt;</b> and paste after “Copy HTML code”.</li>
+        <li>Click on “Your Name” and type your own name, then <b>Save</b>.</li>
+        <li>In <b>Settings → Preferences → Composing Messages</b>, set “Compose HTML messages” to <b>always</b>.</li>
+      </ol>
+    </div>
+    <div class="dark"><small>On a dark mail app</small><div id="sig2"></div></div>
+  </main>
+<script>
+(async () => {
+  const html = await fetch('signature-code.txt').then(r => r.text());
+  document.getElementById('sig').innerHTML = html;
+  document.getElementById('sig2').innerHTML = html;
+  const ok = document.getElementById('ok');
+  document.getElementById('copyRich').onclick = async () => {
+    try {
+      await navigator.clipboard.write([new ClipboardItem({ 'text/html': new Blob([html], { type: 'text/html' }), 'text/plain': new Blob([document.getElementById('sig').innerText], { type: 'text/plain' }) })]);
+    } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(document.getElementById('sig'));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges();
+    }
+    ok.textContent = 'Copied — paste it into the Roundcube signature box.';
+  };
+  document.getElementById('copyCode').onclick = async () => {
+    try { await navigator.clipboard.writeText(html); } catch (e) { prompt('Copy the code:', html); }
+    ok.textContent = 'HTML code copied — paste it into Source code <> in Roundcube.';
+  };
+})();
+</script>
+</body>
+</html>
