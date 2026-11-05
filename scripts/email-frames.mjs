@@ -85,6 +85,50 @@ async function footer() {
   await sharp(Buffer.from(svg)).png().toFile(OUT + 'frame-foot.png');
 }
 
+// The eight-pointed star (khatam): two squares, one turned 45 degrees.
+function star(cx, cy, r, stroke, w, fill = 'none') {
+  const sq = a => [0, 1, 2, 3].map(k => {
+    const t = a + k * Math.PI / 2;
+    return `${(cx + r * Math.cos(t)).toFixed(2)},${(cy + r * Math.sin(t)).toFixed(2)}`;
+  }).join(' ');
+  return `<polygon points='${sq(Math.PI / 4)}' fill='${fill}' stroke='${stroke}' stroke-width='${w}'/>`
+    + `<polygon points='${sq(0)}' fill='${fill}' stroke='${stroke}' stroke-width='${w}'/>`;
+}
+
+// Side rail, repeated down each side of the letter (1x, 24 x 48).
+async function rails() {
+  const w = 24, h = 48, c = 12;
+  const body = `<rect width='${w}' height='${h}' fill='${GREEN}'/>
+  <path d='M${c} 0V5M${c} 19V29M${c} 43V48' stroke='${GOLD}' stroke-opacity='.55' stroke-width='1'/>
+  ${star(c, 12, 6, GOLD, 1)}<circle cx='${c}' cy='12' r='1.6' fill='${GOLD}'/>
+  <path d='M${c} 31L${c + 4.5} 36L${c} 41L${c - 4.5} 36Z' fill='${GOLD}'/>`;
+  const edges = (outer, inner) => `<path d='M${outer} 0V${h}' stroke='${GOLD}' stroke-opacity='.5' stroke-width='1'/>`
+    + `<path d='M${inner} 0V${h}' stroke='${GOLD}' stroke-width='1.4'/>`;
+  for (const [name, o, i] of [['l', 2.5, 22.3], ['r', 21.5, 1.7]]) {
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${w * 4}' height='${h * 4}' viewBox='0 0 ${w} ${h}'>${body}${edges(o, i)}</svg>`;
+    await sharp(Buffer.from(svg)).resize(w, h, { kernel: 'lanczos3' }).png().toFile(`${OUT}frame-rail-${name}.png`);
+  }
+}
+
+// Gold corner piece for the writing area (2x of 44 x 44), one per corner.
+async function corners() {
+  const S = 88;
+  const g = `<g fill='none' stroke='${GOLD}' stroke-linecap='round'>
+    <path d='M30 7H84M7 30V84' stroke-width='2'/>
+    <path d='M30 14H64M14 30V64' stroke-width='1.2' stroke-opacity='.7'/>
+  </g>
+  ${star(15, 15, 11, GOLD, 2)}<circle cx='15' cy='15' r='3' fill='${GOLD}'/>
+  <path d='M84 3L88 7L84 11L80 7Z M3 84L7 88L11 84L7 80Z' fill='${GOLD}'/>
+  <circle cx='64' cy='14' r='2' fill='${GOLD}'/><circle cx='14' cy='64' r='2' fill='${GOLD}'/>`;
+  const flips = { tl: '', tr: `translate(${S} 0) scale(-1 1)`, bl: `translate(0 ${S}) scale(1 -1)`, br: `translate(${S} ${S}) scale(-1 -1)` };
+  for (const [k, t] of Object.entries(flips)) {
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${S}' height='${S}'><rect width='${S}' height='${S}' fill='#FFFFFF'/><g transform='${t}'>${g}</g></svg>`;
+    await sharp(Buffer.from(svg)).png().toFile(`${OUT}frame-corner-${k}.png`);
+  }
+}
+
 await header();
 await footer();
+await rails();
+await corners();
 console.log('frame done');
