@@ -966,9 +966,9 @@
     },
     {
      "day": 7,
-     "title": "Journey to Ghardaïa",
+     "title": "Flight to Ghardaïa",
      "places": [
-      "The road south over the Atlas",
+      "The flight south",
       "Ghardaïa",
       "A traditional guesthouse in the M’Zab"
      ]
@@ -984,7 +984,7 @@
     },
     {
      "day": 9,
-     "title": "Return to Algiers",
+     "title": "Flight back to Algiers",
      "places": [
       "The Hamma Botanical Garden",
       "The Bardo Museum",
@@ -1002,6 +1002,7 @@
     }
    ],
    "includes": [
+    "Domestic flights to and from Ghardaïa",
     "Airport pickup and drop-off",
     "Air-conditioned transfers",
     "Hotel and guesthouse accommodation",
@@ -1011,7 +1012,7 @@
     "Ghardaïa cultural visits"
    ],
    "excludes": [
-    "International and domestic flights",
+    "International flights",
     "Visa fees",
     "Most meals",
     "Personal expenses",
@@ -2086,9 +2087,9 @@
     },
     {
      "day": 7,
-     "title": "Journey to Ghardaïa",
+     "title": "Flight to Ghardaïa",
      "places": [
-      "The road south over the Atlas",
+      "The flight south",
       "Ghardaïa",
       "A traditional guesthouse in the M’Zab"
      ]
@@ -2104,7 +2105,7 @@
     },
     {
      "day": 9,
-     "title": "Return to Algiers",
+     "title": "Flight back to Algiers",
      "places": [
       "The Hamma Botanical Garden",
       "The Bardo Museum",
@@ -2122,6 +2123,7 @@
     }
    ],
    "includes": [
+    "Domestic flights to and from Ghardaïa",
     "Accommodation in 4-star hotels with breakfast",
     "Air-conditioned tourist transport",
     "Accompanying tour guide",

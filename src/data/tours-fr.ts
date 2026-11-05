@@ -784,12 +784,12 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 7,
-        "title": "Vers Ghardaïa",
-        "body": "Descente vers le sud jusqu'à la vallée du M'Zab et installation en maison d'hôtes.",
+        "title": "Vol vers Ghardaïa",
+        "body": "Vol intérieur vers le sud jusqu'à la vallée du M'Zab et installation en maison d'hôtes.",
         "stops": [
           {
-            "place": "La route vers le sud, par-delà l'Atlas",
-            "text": "En quittant le Tell, à travers les hauts plateaux puis vers le pré-Sahara — le trajet où l'Algérie change de climat."
+            "place": "Le vol vers le sud",
+            "text": "Au-dessus des hauts plateaux puis vers le pré-Sahara — le trajet où l'Algérie change de climat."
           },
           {
             "place": "Ghardaïa",
@@ -822,8 +822,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 9,
-        "title": "Retour vers Alger",
-        "body": "Retour vers la capitale, avec le jardin botanique du Hamma, le musée du Bardo et Notre-Dame d'Afrique.",
+        "title": "Vol retour vers Alger",
+        "body": "Vol retour vers la capitale, puis le jardin botanique du Hamma, le musée du Bardo et Notre-Dame d'Afrique.",
         "stops": [
           {
             "place": "Le Jardin botanique du Hamma",
@@ -860,6 +860,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       }
     ],
     "includes": [
+      "Vols intérieurs aller-retour vers Ghardaïa",
       "Tous les transferts",
       "Hébergement 9 nuits",
       "Guide privé licencié",
@@ -868,7 +869,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       "Petits déjeuners"
     ],
     "excludes": [
-      "Vols internationaux et intérieurs",
+      "Vols internationaux",
       "Frais de visa",
       "Assurance voyage",
       "Déjeuners et dîners",
@@ -2323,12 +2324,12 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 7,
-        "title": "Vers Ghardaïa",
-        "body": "Longue route vers le sud jusqu'à la vallée du M'Zab, installation dans une maison d'hôtes traditionnelle et soirée libre.",
+        "title": "Vol vers Ghardaïa",
+        "body": "Vol intérieur vers le sud jusqu'à la vallée du M'Zab, installation dans une maison d'hôtes traditionnelle et soirée libre.",
         "stops": [
           {
-            "place": "La route vers le sud, par-delà l'Atlas",
-            "text": "En quittant le Tell, à travers les hauts plateaux puis vers le pré-Sahara — le trajet où l'Algérie change de climat."
+            "place": "Le vol vers le sud",
+            "text": "Au-dessus des hauts plateaux puis vers le pré-Sahara — le trajet où l'Algérie change de climat."
           },
           {
             "place": "Ghardaïa",
@@ -2361,8 +2362,8 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "day": 9,
-        "title": "Retour vers Alger",
-        "body": "Retour vers la capitale, avec le Jardin d'Essai du Hamma, le musée du Bardo et Notre-Dame d'Afrique.",
+        "title": "Vol retour vers Alger",
+        "body": "Vol retour vers la capitale, puis le Jardin d'Essai du Hamma, le musée du Bardo et Notre-Dame d'Afrique.",
         "stops": [
           {
             "place": "Le Jardin botanique du Hamma",
@@ -2399,6 +2400,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       }
     ],
     "includes": [
+      "Vols intérieurs aller-retour vers Ghardaïa",
       "Hébergement en hôtels 4 étoiles avec petit déjeuner",
       "Transport touristique climatisé",
       "Guide accompagnateur",

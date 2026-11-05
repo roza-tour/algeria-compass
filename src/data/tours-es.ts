@@ -781,12 +781,12 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "day": 7,
-        "title": "Hacia Ghardaïa",
-        "body": "Descenso hacia el sur hasta el valle del M'Zab y alojamiento en una casa de huéspedes.",
+        "title": "Vuelo a Ghardaïa",
+        "body": "Vuelo interno hacia el sur hasta el valle del M'Zab y alojamiento en una casa de huéspedes.",
         "stops": [
           {
-            "place": "La carretera hacia el sur, sobre el Atlas",
-            "text": "Saliendo del Tell, cruzando la alta estepa y descendiendo hacia el presáhara — el trayecto en el que Argelia cambia de clima."
+            "place": "El vuelo hacia el sur",
+            "text": "Sobre la alta estepa y descendiendo hacia el presáhara — el trayecto en el que Argelia cambia de clima."
           },
           {
             "place": "Ghardaïa",
@@ -819,8 +819,8 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "day": 9,
-        "title": "Regreso a Argel",
-        "body": "Regreso a la capital, con el jardín botánico del Hamma, el museo del Bardo y Notre-Dame d'Afrique.",
+        "title": "Vuelo de regreso a Argel",
+        "body": "Vuelo de regreso a la capital y, después, el jardín botánico del Hamma, el museo del Bardo y Notre-Dame d'Afrique.",
         "stops": [
           {
             "place": "El Jardín Botánico de Hamma",
@@ -857,6 +857,7 @@ export const TOURS_ES: Record<string, TourEs> = {
       }
     ],
     "includes": [
+      "Vuelos internos de ida y vuelta a Ghardaïa",
       "Todos los traslados",
       "Alojamiento 9 noches",
       "Guía privado autorizado",
@@ -865,7 +866,7 @@ export const TOURS_ES: Record<string, TourEs> = {
       "Desayunos"
     ],
     "excludes": [
-      "Vuelos internacionales e internos",
+      "Vuelos internacionales",
       "Tasas de visado",
       "Seguro de viaje",
       "Almuerzos y cenas",
@@ -2320,12 +2321,12 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "day": 7,
-        "title": "Hacia Ghardaïa",
-        "body": "Larga ruta hacia el sur hasta el valle del M'Zab y alojamiento en una casa tradicional, con la tarde libre.",
+        "title": "Vuelo a Ghardaïa",
+        "body": "Vuelo interno hacia el sur hasta el valle del M'Zab y alojamiento en una casa tradicional, con la tarde libre.",
         "stops": [
           {
-            "place": "La carretera hacia el sur, sobre el Atlas",
-            "text": "Saliendo del Tell, cruzando la alta estepa y descendiendo hacia el presáhara — el trayecto en el que Argelia cambia de clima."
+            "place": "El vuelo hacia el sur",
+            "text": "Sobre la alta estepa y descendiendo hacia el presáhara — el trayecto en el que Argelia cambia de clima."
           },
           {
             "place": "Ghardaïa",
@@ -2358,8 +2359,8 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "day": 9,
-        "title": "Regreso a Argel",
-        "body": "Vuelta a Argel con el jardín botánico de Hamma, el museo del Bardo y Notre-Dame d'Afrique.",
+        "title": "Vuelo de regreso a Argel",
+        "body": "Vuelo de regreso a Argel y, después, el jardín botánico de Hamma, el museo del Bardo y Notre-Dame d'Afrique.",
         "stops": [
           {
             "place": "El Jardín Botánico de Hamma",
@@ -2396,6 +2397,7 @@ export const TOURS_ES: Record<string, TourEs> = {
       }
     ],
     "includes": [
+      "Vuelos internos de ida y vuelta a Ghardaïa",
       "Alojamiento en hoteles de 4 estrellas con desayuno",
       "Transporte turístico con aire acondicionado",
       "Guía acompañante",

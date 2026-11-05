@@ -1652,13 +1652,13 @@
         },
         {
           "day": 7,
-          "title": "Journey to Ghardaïa",
-          "body": "Travel south to the M'Zab Valley and check in at a guesthouse.",
-          "note": "A long drive south to the M’Zab Valley and check-in at a guesthouse.",
+          "title": "Flight to Ghardaïa",
+          "body": "Fly south to the M'Zab Valley and check in at a guesthouse.",
+          "note": "A domestic flight south to the M’Zab Valley and check-in at a guesthouse.",
           "stops": [
             {
-              "place": "The road south over the Atlas",
-              "text": "Out of the Tell, across the high steppe and down into the pre-Sahara — the drive on which Algeria changes climate."
+              "place": "The flight south",
+              "text": "Over the high steppe and down into the pre-Sahara — the journey on which Algeria changes climate."
             },
             {
               "place": "Ghardaïa",
@@ -1691,8 +1691,8 @@
         },
         {
           "day": 9,
-          "title": "Return to Algiers",
-          "body": "Travel back to the capital, with the Hamma botanical garden, the Bardo Museum and Notre-Dame d'Afrique.",
+          "title": "Flight back to Algiers",
+          "body": "Fly back to the capital, then the Hamma botanical garden, the Bardo Museum and Notre-Dame d'Afrique.",
           "stops": [
             {
               "place": "The Hamma Botanical Garden",
@@ -1707,7 +1707,7 @@
               "text": "A 19th-century basilica — 'Our Lady of Africa' — on the cliffs above the bay, inscribed for Muslims and Christians alike."
             }
           ],
-          "note": "Travelling back to the capital."
+          "note": "Flying back to the capital."
         },
         {
           "day": 10,
@@ -1731,6 +1731,7 @@
         }
       ],
       "includes": [
+        "Domestic flights to and from Ghardaïa",
         "Airport pickup and drop-off",
         "Air-conditioned transfers",
         "Hotel and guesthouse accommodation",
@@ -1740,7 +1741,7 @@
         "Ghardaïa cultural visits"
       ],
       "excludes": [
-        "International and domestic flights",
+        "International flights",
         "Visa fees",
         "Most meals",
         "Personal expenses",
@@ -3570,13 +3571,13 @@
         },
         {
           "day": 7,
-          "title": "Journey to Ghardaïa",
-          "body": "Travel south to the M'Zab Valley and check in at a traditional guesthouse, with a free evening.",
-          "note": "A long drive south to the M’Zab Valley and check-in, with a free evening.",
+          "title": "Flight to Ghardaïa",
+          "body": "Fly south to the M'Zab Valley and check in at a traditional guesthouse, with a free evening.",
+          "note": "A domestic flight south to the M’Zab Valley and check-in, with a free evening.",
           "stops": [
             {
-              "place": "The road south over the Atlas",
-              "text": "Out of the Tell, across the high steppe and down into the pre-Sahara — the drive on which Algeria changes climate."
+              "place": "The flight south",
+              "text": "Over the high steppe and down into the pre-Sahara — the journey on which Algeria changes climate."
             },
             {
               "place": "Ghardaïa",
@@ -3609,8 +3610,8 @@
         },
         {
           "day": 9,
-          "title": "Return to Algiers",
-          "body": "Travel back to Algiers, with the Hamma botanical garden, the Bardo Museum and Notre-Dame d'Afrique.",
+          "title": "Flight back to Algiers",
+          "body": "Fly back to Algiers, then the Hamma botanical garden, the Bardo Museum and Notre-Dame d'Afrique.",
           "stops": [
             {
               "place": "The Hamma Botanical Garden",
@@ -3625,7 +3626,7 @@
               "text": "A 19th-century basilica — 'Our Lady of Africa' — on the cliffs above the bay, inscribed for Muslims and Christians alike."
             }
           ],
-          "note": "Travelling back to Algiers."
+          "note": "Flying back to Algiers."
         },
         {
           "day": 10,
@@ -3649,6 +3650,7 @@
         }
       ],
       "includes": [
+        "Domestic flights to and from Ghardaïa",
         "Accommodation in 4-star hotels with breakfast",
         "Air-conditioned tourist transport",
         "Accompanying tour guide",
