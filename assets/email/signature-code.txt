@@ -1,34 +1,36 @@
-<table cellpadding="0" cellspacing="0" border="0" role="presentation" width="540" bgcolor="#FFFFFF" style="width:100%;max-width:540px;border-collapse:collapse;background-color:#FFFFFF;font-family:Georgia,'Times New Roman',serif;">
+<div dir="ltr" style="direction:ltr;text-align:left;">
+<table dir="ltr" cellpadding="0" cellspacing="0" border="0" role="presentation" width="540" style="width:100%;max-width:540px;border-collapse:collapse;direction:ltr;">
   <tr>
-    <td width="112" valign="middle" align="center" bgcolor="#0B3D2E" style="width:112px;background-color:#0B3D2E;background-image:linear-gradient(160deg,#0B3D2E 0%,#07261C 100%);padding:20px 8px;text-align:center;">
-      <a href="https://algeriacompass.com/" style="text-decoration:none;"><img src="https://algeriacompass.com/assets/email/ac-emblem.png" width="58" height="61" alt="Algeria Compass" style="display:block;margin:0 auto;border:0;width:58px;height:61px;"></a>
-      <div style="margin-top:11px;font-family:Georgia,'Times New Roman',serif;font-size:11px;line-height:16px;letter-spacing:2.6px;color:#E4AD40;">ALGERIA<br>COMPASS</div>
-      <div style="margin:8px auto 0;width:26px;height:1px;background-color:#C19333;line-height:1px;font-size:1px;">&nbsp;</div>
-    </td>
-    <td width="3" bgcolor="#C19333" style="width:3px;background-color:#C19333;font-size:1px;line-height:1px;">&nbsp;</td>
-    <td valign="middle" bgcolor="#FFFFFF" style="padding:14px 10px 14px 18px;background-color:#FFFFFF;">
-      <div style="font-family:Georgia,'Times New Roman',serif;font-size:21px;line-height:26px;color:#07261C;">Your Name</div>
-      <div style="margin:3px 0 11px;font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:15px;letter-spacing:2px;text-transform:uppercase;color:#8B6A22;">Private Travel Designer</div>
-      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12.5px;line-height:20px;color:#0B3D2E;">
-        <span style="font-size:9px;letter-spacing:1.6px;color:#C19333;">WHATSAPP</span>&nbsp;&nbsp;<a href="https://wa.me/213784193176" style="color:#0B3D2E;text-decoration:none;white-space:nowrap;">+213 784 193 176</a><br>
-        <span style="font-size:9px;letter-spacing:1.6px;color:#C19333;">EMAIL</span>&nbsp;&nbsp;<a href="mailto:hello@algeriacompass.com" style="color:#0B3D2E;text-decoration:none;">hello@algeriacompass.com</a><br>
-        <span style="font-size:9px;letter-spacing:1.6px;color:#C19333;">WEB</span>&nbsp;&nbsp;<a href="https://algeriacompass.com/" style="color:#0B3D2E;text-decoration:none;font-weight:bold;">algeriacompass.com</a>
-      </div>
-      <div style="margin-top:10px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:12px;line-height:17px;color:#4A4A44;">Licensed Algerian tour operator &middot; private, guided journeys</div>
+    <td style="padding:0;">
+      <table dir="ltr" cellpadding="0" cellspacing="0" border="0" role="presentation" width="100%" bgcolor="#07261C" style="width:100%;border:1px solid #C19333;border-collapse:separate;background-color:#07261C;direction:ltr;">
+        <tr>
+          <td width="126" align="center" valign="middle" style="width:126px;padding:12px 6px 12px 10px;text-align:center;">
+            <a href="https://algeriacompass.com/" style="text-decoration:none;"><img src="https://algeriacompass.com/assets/email/sig-mark.png" width="110" height="82" alt="ALGERIA COMPASS" style="display:block;margin:0 auto;border:0;width:110px;height:82px;font-family:Georgia,serif;font-size:12px;letter-spacing:2px;color:#E4AD40;"></a>
+          </td>
+          <td valign="middle" style="padding:12px 14px 12px 0;">
+            <div style="border-left:1px solid #8B6A22;padding-left:16px;">
+              <div style="font-family:Georgia,'Times New Roman',serif;font-size:19px;line-height:24px;color:#F6EEDF;">Your Name</div>
+              <div style="margin:2px 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:9px;line-height:13px;letter-spacing:3px;text-transform:uppercase;color:#E4AD40;">Private Travel Designer</div>
+              <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#F6EEDF;">
+                <span style="font-family:Georgia,serif;font-size:11px;color:#C19333;">T</span>&nbsp;&nbsp;<span style="white-space:nowrap;"><a href="https://wa.me/213784193176" style="color:#F6EEDF;text-decoration:none;">+213 784 193 176</a>&nbsp;<span style="font-size:10px;color:#BFB49A;">(WhatsApp)</span></span><br>
+                <span style="font-family:Georgia,serif;font-size:11px;color:#C19333;">E</span>&nbsp;&nbsp;<a href="mailto:hello@algeriacompass.com" style="color:#F6EEDF;text-decoration:none;">hello@algeriacompass.com</a><br>
+                <span style="font-family:Georgia,serif;font-size:11px;color:#C19333;">W</span>&nbsp;&nbsp;<a href="https://algeriacompass.com/" style="color:#E4AD40;text-decoration:none;">algeriacompass.com</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
     </td>
   </tr>
   <tr>
-    <td colspan="3" bgcolor="#FFFFFF" style="padding-top:11px;background-color:#FFFFFF;">
-      <a href="https://algeriacompass.com/tours/" style="text-decoration:none;"><img src="https://algeriacompass.com/assets/email/ac-banner.jpg" width="540" alt="Private journeys across Algeria — Sahara, Roman cities, Casbah, M'Zab" style="display:block;width:100%;max-width:540px;height:auto;border:0;"></a>
+    <td style="padding:6px 0 0;">
+      <a href="https://algeriacompass.com/tours/" style="text-decoration:none;"><img src="https://algeriacompass.com/assets/email/ac-banner.jpg" width="540" alt="Private journeys across Algeria" style="display:block;width:100%;max-width:540px;height:auto;border:0;"></a>
     </td>
   </tr>
   <tr>
-    <td colspan="3" bgcolor="#FFFFFF" style="padding:9px 0 4px;background-color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:10.5px;line-height:16px;color:#6B6B63;">
-      <a href="https://www.instagram.com/algeria_compass/" style="color:#8B6A22;text-decoration:none;letter-spacing:1px;">INSTAGRAM</a>
-      &nbsp;<span style="color:#C19333;">&middot;</span>&nbsp;
-      <a href="https://www.facebook.com/profile.php?id=61590718167514" style="color:#8B6A22;text-decoration:none;letter-spacing:1px;">FACEBOOK</a>
-      &nbsp;<span style="color:#C19333;">&middot;</span>&nbsp;
-      We reply in English, Français, Italiano, Español &amp; Deutsch
+    <td style="padding:7px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:15px;letter-spacing:0.5px;color:#7A7468;">
+      <a href="https://www.instagram.com/algeria_compass/" style="color:#8B6A22;text-decoration:none;letter-spacing:1.5px;">INSTAGRAM</a>&nbsp;<span style="color:#C19333;">&middot;</span>&nbsp;<a href="https://www.facebook.com/profile.php?id=61590718167514" style="color:#8B6A22;text-decoration:none;letter-spacing:1.5px;">FACEBOOK</a>&nbsp;&nbsp;<span style="color:#C19333;">|</span>&nbsp;&nbsp;<i style="font-family:Georgia,serif;">Licensed Algerian tour operator</i> &middot; EN &middot; FR &middot; IT &middot; ES &middot; DE
     </td>
   </tr>
 </table>
+</div>
