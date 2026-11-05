@@ -1,23 +1,17 @@
 <div dir="ltr" style="direction:ltr;text-align:left;">
 <table dir="ltr" cellpadding="0" cellspacing="0" border="0" role="presentation" width="540" bgcolor="#FFFFFF" style="width:100%;max-width:540px;border:1px solid #C19333;border-collapse:separate;background-color:#FFFFFF;direction:ltr;">
   <tr>
-    <td style="padding:5px;">
-      <table dir="ltr" cellpadding="0" cellspacing="0" border="0" role="presentation" width="100%" bgcolor="#FFFFFF" style="width:100%;border:1px solid #DCC285;border-collapse:separate;background-color:#FFFFFF;">
-        <tr>
-          <td align="center" style="padding:18px 0 0;text-align:center;font-family:Georgia,serif;font-size:11px;line-height:11px;color:#C19333;letter-spacing:2px;">&#8212;&#8212;&#8212;&nbsp;&nbsp;&#9670;&nbsp;&nbsp;&#8212;&#8212;&#8212;</td>
-        </tr>
-        <tr>
-          <td style="padding:22px 34px 24px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:23px;color:#1F2A26;">
-            <p style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:24px;color:#07261C;">Dear [Name],</p>
-            <p style="margin:0 0 16px;">Write your message here.</p>
-            <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;color:#07261C;">Warm regards,</p>
-          </td>
-        </tr>
-        <tr>
-          <td align="center" style="padding:0 0 18px;text-align:center;font-family:Georgia,serif;font-size:11px;line-height:11px;color:#C19333;letter-spacing:2px;">&#8212;&#8212;&#8212;&nbsp;&nbsp;&#9670;&nbsp;&nbsp;&#8212;&#8212;&#8212;</td>
-        </tr>
-      </table>
+    <td bgcolor="#07261C" style="padding:0;background-color:#07261C;"><img src="https://algeriacompass.com/assets/email/frame-head.png" width="540" alt="Algeria Compass · Eight civilisations, one journey" style="display:block;width:100%;max-width:540px;height:auto;border:0;font-family:Georgia,serif;font-size:13px;letter-spacing:2px;color:#E4AD40;"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF" style="padding:28px 34px 26px;background-color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:23px;color:#1F2A26;">
+      <p style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:24px;color:#07261C;">Dear [Name],</p>
+      <p style="margin:0 0 16px;">Write your message here.</p>
+      <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;color:#07261C;">Warm regards,</p>
     </td>
+  </tr>
+  <tr>
+    <td bgcolor="#07261C" style="padding:0;background-color:#07261C;"><img src="https://algeriacompass.com/assets/email/frame-foot.png" width="540" alt="" style="display:block;width:100%;max-width:540px;height:auto;border:0;"></td>
   </tr>
 </table>
 </div>
