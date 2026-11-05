@@ -64,12 +64,15 @@ function panels(H, opacity, withEmblems, scale) {
 }
 
 async function header() {
-  const FH = 148, RH = 52, H = FH + RH;
+  // Brand ribbon on top (logo and name are added by the caption step),
+  // then the frieze of the eight civilisations.
+  const RH = 104, FH = 148, H = RH + FH;
   const p = panels(FH, 0.5, true, 1.6);
   const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${W}' height='${H}'>
-  <defs>${p.defs}</defs>${p.body}
-  <rect x='0' y='${FH}' width='${W}' height='${RH}' fill='${GREEN}'/>
-  <path d='M0 ${FH}H${W}' stroke='${GOLD}' stroke-width='2.4'/>
+  <defs>${p.defs}</defs>
+  <rect x='0' y='0' width='${W}' height='${RH}' fill='${GREEN}'/>
+  <g transform='translate(0 ${RH})'>${p.body}</g>
+  <path d='M0 ${RH}H${W}' stroke='${GOLD}' stroke-width='2.4'/>
   <rect x='1' y='1' width='${W - 2}' height='${H - 2}' fill='none' stroke='${GOLD}' stroke-width='2'/>
 </svg>`;
   await sharp(Buffer.from(svg)).png().toFile(OUT + 'frame-head.png');
