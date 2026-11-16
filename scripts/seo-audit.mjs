@@ -109,6 +109,13 @@ for (const f of htmlFiles) {
     else errors.push(`${url}: broken internal link ${h}`);
   }
 
+  // Fonts are self-hosted (public/assets/fonts, scripts/fetch-fonts.mjs). A page
+  // that calls Google's font hosts again is a regression: it leaks the visitor's
+  // IP to a third party and the CSP no longer allows it, so the face would not load.
+  if (/fonts\.(?:googleapis|gstatic)\.com/.test(html)) errors.push(`${url}: loads fonts from Google (must be self-hosted in /assets/fonts/)`);
+  for (const m of html.matchAll(/<link [^>]*href="(\/assets\/fonts\/[^"]+)"/g))
+    if (!allFiles.has(m[1])) errors.push(`${url}: font file missing ${m[1]}`);
+
   for (const m of html.matchAll(/<img [^>]*src="(\/[^"]+)"/g))
     if (!allFiles.has(m[1])) errors.push(`${url}: <img> src missing ${m[1]}`);
 
