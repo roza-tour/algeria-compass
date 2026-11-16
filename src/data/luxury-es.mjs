@@ -249,6 +249,10 @@ export const LUX_COPY = {
   campOverline: "El campamento del desierto · Djanet",
   campH2: "Un campamento de lujo en pleno Sáhara",
   campText: "En Djanet podemos organizar noches en un campamento de lujo: grandes tiendas de lona con camas de verdad y alfombras tejidas, montadas en un valle de arena entre acantilados de arenisca e iluminadas con faroles al caer la noche.",
+  // How the camp works (owner, 2026-11-16): a fixed camp with daily 4x4
+  // excursions, set up month by month in its own location; no WiFi.
+  campHowH: "Cómo funciona el campamento",
+  campFacts: [["Un campamento fijo", "Se duerme cada noche en el mismo campamento. Cada día se sale en 4x4 a las excursiones y por la tarde se regresa al campamento."], ["Siete días", "La estancia es de siete días en el Sáhara, y su plaza en el campamento queda reservada durante todo el periodo."], ["Montado mes a mes", "El campamento se monta mes a mes, cada vez en su propio emplazamiento. Indíquenos sus fechas y le enviamos el programa exacto."], ["La mesa y el silencio", "Pensión completa, con agua, té, café y limonada. En el campamento no hay wifi: la luz de los faroles, el fuego y el cielo estrellado."]],
   campNote: "Solo con reserva especial. El campamento no forma parte de los programas estándar: se reserva aparte, bajo petición y según disponibilidad. Pídalo cuando nos escriba.",
   campCta: "Preguntar por el campamento",
   campAlts: ["El campamento de lujo cerca de Djanet al anochecer, tiendas iluminadas en un valle de arena entre acantilados de arenisca", "Camas y una alfombra tejida dentro de una tienda del campamento de lujo cerca de Djanet", "Dos camas dentro de una tienda de lona del campamento de lujo cerca de Djanet", "El campamento de lujo cerca de Djanet bajo la luna, con las tiendas iluminadas"],

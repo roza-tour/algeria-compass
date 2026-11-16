@@ -150,6 +150,20 @@ const joiner = (i: number, len: number) => (i === 0 ? '' : i === len - 1 ? ` ${C
           ))}
         </div>
         <p class="lux-camp-text">{C.campText}</p>
+        {C.campFacts?.length > 0 && (
+          <div class="lux-camp-how">
+            <h3 class="lux-camp-how-h">{C.campHowH}</h3>
+            <ol class="lux-camp-facts">
+              {C.campFacts.map(([label, text], i) => (
+                <li>
+                  <span class="lux-camp-num" aria-hidden="true">{['I', 'II', 'III', 'IV', 'V', 'VI'][i]}</span>
+                  <strong>{label}</strong>
+                  <p>{text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
         <p class="lux-camp-note">{C.campNote}</p>
         <p style="text-align:center;margin-top:1.4rem"><a class="lux-camp-cta" href="#reserve">{C.campCta}</a></p>
       </div>
@@ -318,6 +332,16 @@ const joiner = (i: number, len: number) => (i === 0 ? '' : i === len - 1 ? ` ${C
   .lux-camp-grid img:first-child{grid-row:span 2;aspect-ratio:auto}
   .lux-camp-grid img:last-child{grid-column:span 2}
   .lux-camp-text{max-width:720px;margin:1.6rem auto 0;text-align:center;font-family:var(--lux-serif);font-size:1.2rem;line-height:1.65;color:var(--lux-emerald)}
+  .lux-camp-how{max-width:1040px;margin:2.6rem auto 1.8rem}
+  .lux-camp-how-h{margin:0 0 1.4rem;text-align:center;font-family:var(--lux-label);font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--lux-gold-ink)}
+  .lux-camp-facts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--lux-gold-line);border-bottom:1px solid var(--lux-gold-line)}
+  .lux-camp-facts li{padding:1.5rem 1.3rem 1.6rem;text-align:center;border-inline-start:1px solid var(--lux-gold-line)}
+  .lux-camp-facts li:first-child{border-inline-start:0}
+  .lux-camp-num{display:block;font-family:var(--lux-display);font-size:1.05rem;letter-spacing:.2em;color:var(--lux-gold);margin-bottom:.5rem}
+  .lux-camp-facts strong{display:block;font-family:var(--lux-serif);font-size:1.3rem;font-weight:500;line-height:1.2;color:var(--lux-emerald)}
+  .lux-camp-facts p{margin:.6rem 0 0;font-family:var(--lux-sans);font-size:.93rem;line-height:1.6;color:var(--lux-emerald);opacity:.86}
+  @media (max-width:900px){.lux-camp-facts{grid-template-columns:1fr 1fr}.lux-camp-facts li:nth-child(odd){border-inline-start:0}.lux-camp-facts li:nth-child(n+3){border-top:1px solid var(--lux-gold-line)}}
+  @media (max-width:520px){.lux-camp-facts{grid-template-columns:1fr}.lux-camp-facts li{border-inline-start:0}.lux-camp-facts li:nth-child(n+2){border-top:1px solid var(--lux-gold-line)}}
   .lux-camp-note{max-width:720px;margin:.9rem auto 0;text-align:center;font-weight:600;color:var(--lux-emerald);border:1px solid var(--lux-gold-line);border-radius:6px;padding:.8rem 1rem}
   .lux-camp-cta{display:inline-block;padding:.8rem 1.6rem;border:1px solid var(--lux-gold);color:var(--lux-emerald);text-decoration:none;font-weight:600;border-radius:4px}
   @media (max-width:700px){.lux-camp-grid{grid-template-columns:1fr 1fr}.lux-camp-grid img:first-child{grid-row:auto;grid-column:span 2;aspect-ratio:4/3}.lux-camp-grid img:last-child{grid-column:span 2}}

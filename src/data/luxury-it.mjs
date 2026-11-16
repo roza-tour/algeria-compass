@@ -249,6 +249,10 @@ export const LUX_COPY = {
   campOverline: "Il campo nel deserto · Djanet",
   campH2: "Un campo di lusso nel cuore del Sahara",
   campText: "A Djanet possiamo organizzare notti in un campo tendato di lusso: grandi tende in tela con veri letti e tappeti tessuti, montate in una valle di sabbia tra pareti di arenaria e illuminate dalle lanterne al calar della sera.",
+  // How the camp works (owner, 2026-11-16): a fixed camp with daily 4x4
+  // excursions, set up month by month in its own location; no WiFi.
+  campHowH: "Come funziona il campo",
+  campFacts: [["Un campo fisso", "Si dorme ogni notte nello stesso campo. Ogni giorno si parte in 4x4 per le escursioni e la sera si rientra al campo."], ["Sette giorni", "Il soggiorno è di sette giorni nel Sahara, e il vostro posto al campo è riservato per tutto il periodo."], ["Allestito mese per mese", "Il campo viene montato mese per mese, ogni volta in una posizione propria. Indicateci le vostre date e vi inviamo il programma esatto."], ["La tavola e il silenzio", "Pensione completa, con acqua, tè, caffè e limonata. Al campo non c'è Wi-Fi: la luce delle lanterne, il fuoco e il cielo stellato."]],
   campNote: "Solo su prenotazione speciale. Il campo non fa parte dei programmi standard: si prenota a parte, su richiesta e secondo disponibilità. Chiedetecelo quando ci scrivete.",
   campCta: "Chiedi del campo",
   campAlts: ["Il campo di lusso vicino a Djanet al tramonto, tende illuminate in una valle di sabbia tra pareti di arenaria", "Letti e un tappeto tessuto dentro una tenda del campo di lusso vicino a Djanet", "Due letti dentro una tenda in tela del campo di lusso vicino a Djanet", "Il campo di lusso vicino a Djanet sotto la luna, con le tende illuminate"],

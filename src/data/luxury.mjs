@@ -248,6 +248,10 @@ export const LUX_COPY = {
   campOverline: "The desert camp · Djanet",
   campH2: "A luxury camp in the deep Sahara",
   campText: "In Djanet we can arrange nights at a luxury desert camp: canvas bell tents with proper beds and woven rugs, pitched in a sandy valley between sandstone cliffs and lit by lanterns after dark.",
+  // How the camp works (owner, 2026-11-16): a fixed camp with daily 4x4
+  // excursions, set up month by month in its own location; no WiFi.
+  campHowH: "How the camp works",
+  campFacts: [["A fixed camp", "You sleep in the same camp every night. Each day you leave by 4x4 for the excursions and come back to the camp in the evening."], ["Seven days", "The stay is a set seven days in the Sahara, and your place at the camp is reserved for the whole period."], ["Pitched month by month", "The camp is set up month by month, each time in its own location. Tell us your dates and we send you the exact programme."], ["The table and the quiet", "Full board, with water, tea, coffee and lemonade. There is no WiFi at the camp: lantern light, the fire and the night sky."]],
   campNote: "By special booking only. The camp is not part of the standard programmes; it is reserved separately, on request and subject to availability. Ask for it when you enquire.",
   campCta: "Ask about the camp",
   campAlts: ["The luxury camp near Djanet at dusk, bell tents lit in a sandy valley between sandstone cliffs", "Beds and a woven rug inside a bell tent at the luxury camp near Djanet", "Twin beds inside a canvas bell tent at the luxury camp near Djanet", "The luxury camp near Djanet under the moon, its bell tents glowing"],
