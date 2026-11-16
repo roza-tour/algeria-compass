@@ -82,6 +82,8 @@ secondaryClusters: ["algeria-safety"]
 relatedClusters: ["algeria-transportation"]
 intent: "practical"
 sources:
+  - { title: "Grand Sud tourist destination: new visa issuance measures (in French)", publisher: "Ministry of Foreign Affairs of Algeria, Embassy of Algeria in Budapest", url: "https://embbudapest.mfa.gov.dz/fr/news-and-press-releases/tourist-destination-in-the-algerian-south-new-visa-issuance-measures", type: "government" }
+  - { title: "Algérie: entrée / séjour (in French)", publisher: "France Diplomatie, French Ministry for Europe and Foreign Affairs", url: "https://www.diplomatie.gouv.fr/fr/information-par-pays/algerie/conseils-aux-voyageurs-entree-sejour", type: "government" }
   - { title: "Ministry of Foreign Affairs", publisher: "Republic of Algeria", url: "https://www.mfa.gov.dz", type: "government" }
   - { title: "Algeria Travel Advisory — Entry/Exit", publisher: "U.S. Department of State", url: "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/algeria-travel-advisory.html", type: "government" }
   - { title: "Foreign travel advice: Algeria — Entry requirements", publisher: "UK FCDO", url: "https://www.gov.uk/foreign-travel-advice/algeria/entry-requirements", type: "government" }

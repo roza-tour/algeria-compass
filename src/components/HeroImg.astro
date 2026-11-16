@@ -1,0 +1,12 @@
+---
+// The photograph behind a page hero: the largest image on the page (its LCP).
+// Served as a display-sized WebP when that file exists (scripts/gen-webp.mjs),
+// with the JPG as fallback, and always fetched at high priority. The hero
+// templates used to put the full JPG here; on a phone that is 60-110 KB more
+// than needed, on the one request the first paint waits for.
+import { smWebp } from '../lib/imageSize';
+export interface Props { src: string; alt: string; width?: number; height?: number; }
+const { src, alt, width = 1600, height = 900 } = Astro.props;
+const webp = smWebp(src);
+---
+<picture>{webp && <source srcset={webp} type="image/webp" />}<img src={src} alt={alt} width={width} height={height} fetchpriority="high" /></picture>

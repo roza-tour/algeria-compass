@@ -1,4 +1,5 @@
 ---
+import OfficialVisaSources from '../../components/OfficialVisaSources.astro';
 // Version française de /visa-support/. Cette page répond à « que faites-vous
 // pour moi et combien ça coûte », tandis que /fr/visa-arrivee-algerie/ répond à
 // « ai-je besoin d'un visa » — deux intentions distinctes, pas de cannibalisation.
@@ -104,4 +105,5 @@ const breadcrumb = {
       <p style="color:var(--text-l);font-size:.9rem">Prêt à commencer ? <a href="/fr/contact/">Dites-nous votre projet</a> ou écrivez-nous sur <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a> — nous vous envoyons votre liste de documents. Voir aussi nos <a href="/fr/circuits/">circuits privés</a>.</p>
     </div>
   </div></section>
+  <OfficialVisaSources lang="fr" />
 </BaseLayout>

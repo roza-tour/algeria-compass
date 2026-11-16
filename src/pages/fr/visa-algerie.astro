@@ -1,4 +1,5 @@
 ---
+import OfficialVisaSources from '../../components/OfficialVisaSources.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
@@ -94,4 +95,5 @@ const authorSchema = {
       </div>
     </div>
   </article>
+  <OfficialVisaSources lang="fr" />
 </BaseLayout>

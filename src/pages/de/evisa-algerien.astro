@@ -1,4 +1,5 @@
 ---
+import OfficialVisaSources from '../../components/OfficialVisaSources.astro';
 import Icon from '../../components/Icon.astro';
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // Deutsche Ausgabe der e-Visum-Seite. Der Inhalt folgt der englischen Seite
@@ -134,6 +135,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
     </div>
   </div></section>
 
+  <OfficialVisaSources lang="de" />
   <CtaSection lang="de" heading="Wir kümmern uns um das Visum — Sie genießen die Reise" />
 </BaseLayout>
 

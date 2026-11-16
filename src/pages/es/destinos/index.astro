@@ -1,4 +1,5 @@
 ---
+import HeroImg from '../../../components/HeroImg.astro';
 // Spanish destinations index — the seven UNESCO sites plus the cities that
 // anchor a trip. Photography is read from the English collection so both
 // language versions show the same place.
@@ -43,7 +44,7 @@ const collection = {
   keywords={["destinos Argelia","qué ver en Argelia","sitios UNESCO Argelia","Timgad","valle del M'Zab","Tassili n'Ajjer"]}>
 
   <section class="hero" style="min-height:42vh">
-    <img src="/assets/img/timgad-trajan-arch.jpg" alt="El arco de Trajano en Timgad, ciudad romana Patrimonio de la UNESCO en Argelia" width="1600" height="900" fetchpriority="high" />
+    <HeroImg src="/assets/img/timgad-trajan-arch.jpg" alt="El arco de Trajano en Timgad, ciudad romana Patrimonio de la UNESCO en Argelia" />
     <div class="hero-in wrap">
       <div class="eyebrow">7 sitios UNESCO · {rows.length} destinos</div>
       <h1>Qué ver en Argelia</h1>

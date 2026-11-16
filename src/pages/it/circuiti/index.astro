@@ -1,4 +1,5 @@
 ---
+import HeroImg from '../../../components/HeroImg.astro';
 // French tours index. Cards are fully translated for every tour; a tour links to
 // its French detail page when one exists, otherwise to the English page, which
 // is honest rather than shipping a half-translated page.
@@ -61,7 +62,7 @@ const collection = {
   image="/assets/img/tours/djanet-1.jpg" schema={[collection, itemList]}
   keywords={["viaggio Algeria","tour Algeria","viaggio Sahara Algeria","viaggio organizzato Algeria","tour operator Algeria"]}>
   <section class="hero" style="min-height:42vh">
-    <img src="/assets/img/tours/djanet-1.jpg" alt="Dune del Sahara algerino vicino a Djanet" width="1600" height="900" fetchpriority="high" />
+    <HeroImg src="/assets/img/tours/djanet-1.jpg" alt="Dune del Sahara algerino vicino a Djanet" />
     <div class="hero-in wrap">
       <div class="eyebrow">{rows.length} viaggi privati</div>
       <h1>Viaggi privati in Algeria</h1>

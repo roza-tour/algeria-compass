@@ -1,4 +1,5 @@
 ---
+import OfficialVisaSources from '../../components/OfficialVisaSources.astro';
 import Icon from '../../components/Icon.astro';
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // Version française de la page e-Visa. Le contenu suit la page anglaise
@@ -134,6 +135,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'fr',
     </div>
   </div></section>
 
+  <OfficialVisaSources lang="fr" />
   <CtaSection lang="fr" heading="Nous nous occupons du visa — vous profitez du voyage" />
 </BaseLayout>
 

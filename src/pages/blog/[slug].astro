@@ -1,4 +1,5 @@
 ---
+import { smWebp } from '../../lib/imageSize';
 import InlineTours from '../../components/InlineTours.astro';
 import { getCollection } from 'astro:content';
 import { alternatesFor } from '../../i18n';
@@ -102,7 +103,7 @@ const schemaNodes = [post, authorEntity, reviewerEntity, webpage].filter(Boolean
     <h1 style="font-size:clamp(1.7rem,4vw,2.5rem);margin:.4rem 0">{d.title}</h1>
     <p style="color:var(--text-l);font-size:.82rem">{d.published.toLocaleDateString('en-US',{year:'numeric',month:'long'})} · {d.readMinutes} min read</p>
     <Byline authorName={author.name} authorHref={author.href} reviewerName={reviewer.name} reviewerHref={reviewer.href} updated={d.updated} lastReviewed={d.lastReviewed} />
-    <img src={d.image} alt={d.imageAlt} style="border-radius:16px;margin:1.4rem 0;width:100%;aspect-ratio:16/9;object-fit:cover" width="780" height="440" loading="eager" />
+    <picture style="display:block">{smWebp(d.image) && <source srcset={smWebp(d.image)} type="image/webp" />}<img src={d.image} alt={d.imageAlt} style="border-radius:16px;margin:1.4rem 0;width:100%;aspect-ratio:16/9;object-fit:cover" width="780" height="440" loading="eager" fetchpriority="high" /></picture>
     <QuickAnswer text={d.quickAnswer} />
     {(d as any).occasion && (
       <OccasionScene

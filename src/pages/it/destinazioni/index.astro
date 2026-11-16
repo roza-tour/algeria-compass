@@ -1,4 +1,5 @@
 ---
+import HeroImg from '../../../components/HeroImg.astro';
 // Italian destinations index — the seven UNESCO sites plus the cities that
 // anchor a trip. Photography is read from the English collection so both
 // language versions show the same place.
@@ -43,7 +44,7 @@ const collection = {
   keywords={["destinazioni Algeria","cosa vedere in Algeria","siti UNESCO Algeria","Timgad","valle del M'Zab","Tassili n'Ajjer"]}>
 
   <section class="hero" style="min-height:42vh">
-    <img src="/assets/img/timgad-trajan-arch.jpg" alt="L'arco di Traiano a Timgad, città romana patrimonio UNESCO in Algeria" width="1600" height="900" fetchpriority="high" />
+    <HeroImg src="/assets/img/timgad-trajan-arch.jpg" alt="L'arco di Traiano a Timgad, città romana patrimonio UNESCO in Algeria" />
     <div class="hero-in wrap">
       <div class="eyebrow">7 siti UNESCO · {rows.length} destinazioni</div>
       <h1>Cosa vedere in Algeria</h1>

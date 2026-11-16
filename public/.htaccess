@@ -10,7 +10,22 @@ ErrorDocument 404 /404.html
   # 0) SECURITY — the git repo root IS the live docroot, so explicitly block
   #    anything that must never be web-served: VCS metadata, source, build
   #    scripts, and the Astro cache. Returns 403 before any redirect fires.
+  #    This same file also sits at /public/.htaccess on the server (public/ is
+  #    the Astro source folder and the repo root is the docroot). A nested
+  #    .htaccess with its own RewriteEngine replaces the parent's rules, so the
+  #    block further down never ran there and /public/... served a second copy
+  #    of every asset (measured live, Nov 2026). Refuse it from inside as well.
+  RewriteCond %{REQUEST_URI} ^/public/
+  RewriteRule ^ - [F,L]
   RewriteRule (^|/)\.git                                - [F,L]
+  #    Internal docs, build config and inventories. These were meant to be
+  #    denied by the <FilesMatch> blocks at the end of this file, but on this
+  #    LiteSpeed host those never applied: README.md, DEPLOY.md, the growth
+  #    plan and package.json all answered 200. Rewrite [F] is what is proven
+  #    to work here (src/ and scripts/ return 403 through it).
+  RewriteRule \.(?:md|mjs|sh|py|bak|lock|map)$ - [F,L,NC]
+  RewriteRule ^(?:package\.json|package-lock\.json|tsconfig\.json|IDENTITY\.txt|DEPLOY-README\.txt)$ - [F,L]
+  RewriteRule (^|/)(?:INVENTORY|CLIENTS-INVENTORY)\.txt$ - [F,L]
   RewriteRule ^(?:src|scripts|node_modules|\.astro)(?:/|$) - [F,L]
   #    Internal design-handoff reference material (HTML/JSX mock-ups) also sits
   #    in the repo and would otherwise be crawlable at the docroot.
@@ -177,12 +192,20 @@ ErrorDocument 404 /404.html
 #      (the repo root is the docroot; none of these should be fetchable).
 #      robots.txt / sitemap*.xml / search-index.json / llms.txt stay public.
 <FilesMatch "\.(?:md|mjs|sh|py|bak|lock|map)$">
-  <IfModule mod_authz_core.c>Require all denied</IfModule>
-  <IfModule !mod_authz_core.c>Order allow,deny
-Deny from all</IfModule>
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
 </FilesMatch>
 <FilesMatch "^(?:package\.json|package-lock\.json|tsconfig\.json|IDENTITY\.txt|DEPLOY-README\.txt|INVENTORY\.txt|CLIENTS-INVENTORY\.txt)$">
-  <IfModule mod_authz_core.c>Require all denied</IfModule>
-  <IfModule !mod_authz_core.c>Order allow,deny
-Deny from all</IfModule>
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
 </FilesMatch>

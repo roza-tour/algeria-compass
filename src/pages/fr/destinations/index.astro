@@ -1,4 +1,5 @@
 ---
+import HeroImg from '../../../components/HeroImg.astro';
 // French destinations index — the seven UNESCO sites plus the cities that
 // anchor a trip. Photography is read from the English collection so both
 // language versions show the same place.
@@ -43,7 +44,7 @@ const collection = {
   keywords={["destinations Algérie","que voir en Algérie","sites UNESCO Algérie","Timgad","vallée du M'Zab","Tassili n'Ajjer"]}>
 
   <section class="hero" style="min-height:42vh">
-    <img src="/assets/img/timgad-trajan-arch.jpg" alt="L'arc de Trajan à Timgad, cité romaine classée UNESCO en Algérie" width="1600" height="900" fetchpriority="high" />
+    <HeroImg src="/assets/img/timgad-trajan-arch.jpg" alt="L'arc de Trajan à Timgad, cité romaine classée UNESCO en Algérie" />
     <div class="hero-in wrap">
       <div class="eyebrow">7 sites UNESCO · {rows.length} destinations</div>
       <h1>Que voir en Algérie</h1>

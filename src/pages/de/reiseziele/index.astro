@@ -1,4 +1,5 @@
 ---
+import HeroImg from '../../../components/HeroImg.astro';
 // German destinations index — the seven UNESCO sites plus the cities that
 // anchor a trip. Photography is read from the English collection so both
 // language versions show the same place.
@@ -43,7 +44,7 @@ const collection = {
   keywords={["Reiseziele Algerien","Sehenswürdigkeiten Algerien","UNESCO Algerien","Timgad","M'Zab-Tal","Tassili n'Ajjer"]}>
 
   <section class="hero" style="min-height:42vh">
-    <img src="/assets/img/timgad-trajan-arch.jpg" alt="Der Trajansbogen in Timgad, römische UNESCO-Stadt in Algerien" width="1600" height="900" fetchpriority="high" />
+    <HeroImg src="/assets/img/timgad-trajan-arch.jpg" alt="Der Trajansbogen in Timgad, römische UNESCO-Stadt in Algerien" />
     <div class="hero-in wrap">
       <div class="eyebrow">7 UNESCO-Stätten · {rows.length} Reiseziele</div>
       <h1>Was man in Algerien sehen sollte</h1>
