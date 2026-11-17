@@ -33,6 +33,8 @@ export const TOUR_REGION = {
   'the-culture-and-heritage-of-algeria': 'algiers',
   'algeria-beyond-expectations': 'algiers',
   'algeria-grand-discovery-14-days': 'algiers',
+  'annaba-hippo-regius-coast': 'constantine',
+  'biskra-aures-oases': 'bousaada',
 };
 
 const BY_WILAYA = {

@@ -3999,5 +3999,253 @@ export const TOURS_DE: Record<string, TourDe> = {
         "a": "Von Oktober bis April. Die Sahara-Etappe braucht die kühle Jahreszeit, und es ist auch die Zeit, in der die römischen Stätten am angenehmsten zu Fuß zu erkunden sind."
       }
     ]
+  },
+  "annaba-hippo-regius-coast": {
+    "title": "Annaba — Hippo Regius und die Küste des Edough (3 Tage)",
+    "duration": "3 Tage · 2 Nächte",
+    "hook": "Die Stadt des heiligen Augustinus, eine Basilika über der Bucht, Bergwälder und türkisfarbene Buchten: die Nordostküste in drei ruhigen Tagen.",
+    "full": true,
+    "seoTitle": "Annaba-Rundreise 3 Tage — Hippo Regius, Augustinus und die Küste",
+    "seoDescription": "Private 3-Tage-Reise in Annaba: Hippo Regius, die Basilika des heiligen Augustinus, der Edough mit Seraïdi, das Cap de Garde und die Buchten.",
+    "overview": "Annaba hat den schönsten Mittelmeerabschnitt Algeriens und ist eine seiner ältesten Städte. Vor ihren Toren liegen die Ruinen von Hippo Regius, wo der heilige Augustinus fünfunddreißig Jahre lang Bischof war, überragt von der weißen Basilika, die zu seinen Ehren erbaut wurde. Hinter der Stadt steigt das Edough-Massiv durch Korkeichenwälder bis zum Bergdorf Seraïdi hoch über der Bucht an, und nach Westen bricht die Küste in felsige Buchten mit erstaunlich klarem Wasser auf. Drei Tage für Geschichte, Berge und Meer, in ruhigem Tempo.",
+    "highlights": [
+      "Hippo Regius, die römische Stadt des heiligen Augustinus",
+      "Die Basilika des heiligen Augustinus über der Bucht",
+      "Die Altstadt und der Cours de la Révolution",
+      "Die Korkeichenwälder des Edough und das Dorf Seraïdi",
+      "Die Klippen und der Leuchtturm des Cap de Garde",
+      "Die klaren Felsbuchten der Küste"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Hippo Regius und der heilige Augustinus",
+        "body": "Die Basilika des heiligen Augustinus auf ihrem Hügel, die Ruinen von Hippo Regius darunter, dann die Altstadt und der Abend auf dem Cours de la Révolution.",
+        "stops": [
+          {
+            "place": "Die Basilika des heiligen Augustinus",
+            "text": "Die weiße Basilika auf dem Hügel über den Ruinen, mit Blick über die Stadt und die Bucht."
+          },
+          {
+            "place": "Hippo Regius",
+            "text": "Forum, Thermen, Villen und christliche Basilika der römischen Stadt, deren Bischof Augustinus war, und ihr Mosaikmuseum."
+          },
+          {
+            "place": "Die Altstadt und der Cours de la Révolution",
+            "text": "Das alte Viertel um die Moschee Abu Marwan, am Abend dann die große Promenade der Stadt."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Der Edough und das Cap de Garde",
+        "body": "Hinauf durch die Korkeichen des Edough bis zum Bergdorf Seraïdi, dann hinunter zu den Klippen des Cap de Garde und zur Küstenstraße bei Sonnenuntergang.",
+        "stops": [
+          {
+            "place": "Das Edough-Massiv",
+            "text": "Eine kurvige Straße zwischen Korkeichen und Kiefern, mit einem leichten Waldspaziergang."
+          },
+          {
+            "place": "Seraïdi",
+            "text": "Das Bergdorf hoch über Annaba, mit Blick über die ganze Bucht."
+          },
+          {
+            "place": "Cap de Garde und die Küstenstraße",
+            "text": "Der Leuchtturm auf seinen Klippen, dann die Küstenstraße zurück in die Stadt bei Sonnenuntergang."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Die Buchten der Küste",
+        "body": "Nach Westen die Küste entlang zu den Felsbuchten, mit Zeit für einen Spaziergang am Wasser oder ein Bad in der Saison, dann Transfer zum Flughafen Annaba.",
+        "stops": [
+          {
+            "place": "Die Buchten im Westen",
+            "text": "Kleine Buchten aus Fels und Kiefern mit klarem, türkisfarbenem Wasser."
+          },
+          {
+            "place": "Ein Küstenspaziergang",
+            "text": "Ein leichter Weg am Ufer entlang, mit Fotostopps."
+          },
+          {
+            "place": "Abreise",
+            "text": "Transfer zum Flughafen Annaba."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Unterkunft in 4-Sterne-Hotels mit Frühstück (2 Nächte)",
+      "Privater Transport mit Fahrer",
+      "Zugelassener Reiseleiter",
+      "Eintritte",
+      "Abholung und Transfer zum Flughafen Annaba"
+    ],
+    "excludes": [
+      "Inlandsflug Algier – Annaba (optional)",
+      "Mittag- und Abendessen",
+      "Trinkgelder"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Beste Reisezeit",
+        "value": "April–Oktober (Baden von Juni bis September)"
+      },
+      {
+        "label": "Tempo",
+        "value": "Leicht"
+      },
+      {
+        "label": "Stil",
+        "value": "Privat, geführt, 2 Nächte in 4-Sterne-Hotels mit Frühstück"
+      },
+      {
+        "label": "Mitbringen",
+        "value": "Bequeme Schuhe, eine leichte Jacke für den Edough, Badesachen im Sommer"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Wie kommt man nach Annaba?",
+        "a": "Mit einem direkten Inlandsflug ab Algier (etwa 1 Stunde) oder auf der Straße ab Constantine (etwa 2,5 Stunden). Wir empfangen Sie am Flughafen Annaba."
+      },
+      {
+        "q": "Kann man die Ruinen von Hippo Regius besichtigen?",
+        "a": "Ja: Der archäologische Park mit Forum, Thermen, Villen und christlicher Basilika sowie sein Mosaikmuseum stehen am ersten Tag auf dem Programm."
+      },
+      {
+        "q": "Lässt sich Annaba mit Constantine und Timgad verbinden?",
+        "a": "Ja. Constantine liegt etwa 2,5 Autostunden entfernt: Diese Reise lässt sich gut mit unserer Reise Constantine und Timgad verbinden."
+      },
+      {
+        "q": "Kann man baden?",
+        "a": "Von Juni bis September ja: Die Buchten des dritten Tages eignen sich bestens zum Baden. In den übrigen Monaten steht der Tag im Zeichen von Spaziergängen an der Küste."
+      }
+    ]
+  },
+  "biskra-aures-oases": {
+    "title": "Biskra und die Oasen des Aurès — El Kantara und Ghoufi (3 Tage)",
+    "duration": "3 Tage · 2 Nächte",
+    "hook": "Wo sich die Berge des Aurès zur Sahara öffnen: Palmenhaine, eine Schlucht namens Mund der Wüste und die hängenden Dörfer von Ghoufi.",
+    "full": true,
+    "seoTitle": "Biskra 3 Tage — El Kantara, Balkone von Ghoufi, Sidi Okba",
+    "seoDescription": "Private 3-Tage-Reise in Biskra: die Palmenhaine der Zibans, die Schlucht von El Kantara, die Balkone von Ghoufi und Sidi Okba.",
+    "overview": "Biskra, die Königin der Zibans, liegt genau dort, wo die Berge des Aurès auf die Wüste treffen. Ihre Palmenhaine liefern einige der besten Datteln der Welt, und nach Norden führt die Straße nach El Kantara, in die Schlucht, die frühere Reisende den Mund der Sahara nannten. Weiter oben, bei Ghoufi, hängen verlassene Chaoui-Dörfer an den Wänden eines Canyons über einem Band aus Palmen: einer der eindrucksvollsten Ausblicke Algeriens. Im Südosten bewahrt Sidi Okba eine der ältesten Moscheen Nordafrikas. Drei Tage, leichte Wanderungen und eine Region, die nur wenige Reisende kennen.",
+    "highlights": [
+      "Die Palmenhaine von Biskra, der Königin der Zibans",
+      "Der Landon-Garten und das alte Biskra",
+      "Die Schlucht und das Dorf El Kantara",
+      "Die Felsendörfer der Balkone von Ghoufi",
+      "Die alte Moschee von Sidi Okba",
+      "Sonnenuntergang am Rand der Wüste"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Biskra, die Königin der Zibans",
+        "body": "Ankunft in Biskra, Spaziergang durch die Palmenhaine und den Landon-Garten, das alte Biskra und der Sonnenuntergang am Rand der Wüste.",
+        "stops": [
+          {
+            "place": "Die Palmenhaine",
+            "text": "Die Deglet-Nour-Dattelpalmen der Zibans, mit ihren Bewässerungskanälen und Gärten."
+          },
+          {
+            "place": "Der Landon-Garten",
+            "text": "Ein schattiger Garten seltener Bäume, im 19. Jahrhundert im Herzen der Oase angelegt."
+          },
+          {
+            "place": "Sonnenuntergang über der Wüste",
+            "text": "Das Abendlicht dort, wo die letzten Hügel auf die Sahara treffen."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "El Kantara und die Balkone von Ghoufi",
+        "body": "Nach Norden durch die Schlucht von El Kantara, dann in den Aurès zum Canyon von Ghoufi und seinen Dörfern hoch über den Palmen.",
+        "stops": [
+          {
+            "place": "Die Schlucht von El Kantara",
+            "text": "Der Mund der Sahara: ein enger Spalt im Gebirge, mit Palmenhain und altem Dorf."
+          },
+          {
+            "place": "Die Balkone von Ghoufi",
+            "text": "Chaoui-Dörfer aus Stein und Lehm an den Wänden des Canyons des Oued Abiod."
+          },
+          {
+            "place": "Hinab in den Canyon",
+            "text": "Ein leichter Abstieg zu den Gärten und Palmen am Fluss."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Sidi Okba und die Oasen",
+        "body": "Die Moschee von Sidi Okba, die Oase Chetma, dann Transfer zum Flughafen Biskra.",
+        "stops": [
+          {
+            "place": "Die Moschee von Sidi Okba",
+            "text": "Eine der ältesten Moscheen Nordafrikas, um das Grab von Uqba ibn Nafi."
+          },
+          {
+            "place": "Die Oase Chetma",
+            "text": "Lehmgassen und Gärten im Schatten der Palmen."
+          },
+          {
+            "place": "Abreise",
+            "text": "Transfer zum Flughafen Biskra."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Unterkunft in Hotels mit Frühstück (2 Nächte)",
+      "Privater Transport mit Fahrer",
+      "Zugelassener Reiseleiter",
+      "Eintritte",
+      "Abholung und Transfer zum Flughafen Biskra"
+    ],
+    "excludes": [
+      "Inlandsflug Algier – Biskra (optional)",
+      "Mittag- und Abendessen",
+      "Trinkgelder"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Beste Reisezeit",
+        "value": "Oktober–April (milde Tage, kühle Nächte)"
+      },
+      {
+        "label": "Tempo",
+        "value": "Leicht bis mittel (ein Abstieg in den Canyon von Ghoufi)"
+      },
+      {
+        "label": "Stil",
+        "value": "Privat, geführt, 2 Nächte in Hotels mit Frühstück"
+      },
+      {
+        "label": "Mitbringen",
+        "value": "Wanderschuhe, Sonnenschutz, eine warme Schicht für den Abend"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Wie kommt man nach Biskra?",
+        "a": "Mit einem direkten Inlandsflug ab Algier oder auf der Straße ab Constantine oder Batna. Wir empfangen Sie am Flughafen Biskra."
+      },
+      {
+        "q": "Bekommt man mit dieser Reise das Visum bei Ankunft?",
+        "a": "Nein: Diese Reise erfolgt mit einem Konsulatsvisum, für das wir Ihnen unser Einladungsschreiben schicken. Für das Visum bei Ankunft verbinden Sie sie mit einer unserer Sahara-Reisen (Djanet oder Ghardaïa)."
+      },
+      {
+        "q": "Ist die Wanderung in Ghoufi schwierig?",
+        "a": "Nein. Der Pfad in den Canyon ist kurz und leicht, in Ihrem eigenen Tempo; Sie können auch oben auf den Balkonen bleiben."
+      },
+      {
+        "q": "Lässt sich Biskra mit Timgad und Constantine verbinden?",
+        "a": "Ja. Timgad und Batna liegen auf dem Weg nach Norden: Diese Reise lässt sich gut mit unserer Reise Constantine und Timgad verbinden."
+      }
+    ]
   }
 };

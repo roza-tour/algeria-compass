@@ -4002,6 +4002,254 @@ export const TOURS_FR: Record<string, TourFr> = {
         "a": "D'octobre à avril. Le volet saharien exige la saison fraîche, qui est aussi la période la plus agréable pour parcourir à pied les sites romains."
       }
     ]
+  },
+  "annaba-hippo-regius-coast": {
+    "title": "Annaba — Hippone et la côte de l'Edough (3 jours)",
+    "duration": "3 jours · 2 nuits",
+    "hook": "La ville de saint Augustin, une basilique au-dessus de la baie, des forêts de montagne et des criques turquoise : la côte nord-est en trois jours sans hâte.",
+    "full": true,
+    "seoTitle": "Circuit Annaba 3 jours — Hippone, saint Augustin et la côte",
+    "seoDescription": "Circuit privé de 3 jours à Annaba : les ruines d'Hippone, la basilique Saint-Augustin, l'Edough et Seraïdi, le cap de Garde et les criques de la côte.",
+    "overview": "Annaba possède la plus belle portion de Méditerranée d'Algérie, et c'est l'une de ses plus anciennes villes. À ses portes s'étendent les ruines d'Hippone, où saint Augustin fut évêque pendant trente-cinq ans, dominées par la basilique blanche élevée en son honneur. Derrière la ville, le massif de l'Edough grimpe à travers les chênes-lièges jusqu'au village de Seraïdi, haut au-dessus de la baie, et vers l'ouest la côte se découpe en criques rocheuses d'une eau étonnamment claire. Trois jours pour l'histoire, la montagne et la mer, à un rythme tranquille.",
+    "highlights": [
+      "Hippone, la cité romaine de saint Augustin",
+      "La basilique Saint-Augustin au-dessus de la baie",
+      "La vieille ville et le Cours de la Révolution",
+      "Les forêts de chênes-lièges de l'Edough et le village de Seraïdi",
+      "Les falaises et le phare du cap de Garde",
+      "Les criques rocheuses et limpides de la côte"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Hippone et saint Augustin",
+        "body": "La basilique Saint-Augustin sur sa colline, les ruines d'Hippone à ses pieds, puis la vieille ville et la soirée sur le Cours de la Révolution.",
+        "stops": [
+          {
+            "place": "La basilique Saint-Augustin",
+            "text": "La basilique blanche bâtie sur la colline qui domine les ruines, avec la vue sur la ville et la baie."
+          },
+          {
+            "place": "Hippone",
+            "text": "Le forum, les thermes, les villas et la basilique chrétienne de la cité romaine dont Augustin fut l'évêque, et son musée de mosaïques."
+          },
+          {
+            "place": "La vieille ville et le Cours de la Révolution",
+            "text": "Le vieux quartier autour de la mosquée Abou Merouane, puis la grande promenade de la ville en soirée."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "L'Edough et le cap de Garde",
+        "body": "Montée à travers les chênes-lièges de l'Edough jusqu'au village de Seraïdi, puis descente vers les falaises du cap de Garde et la corniche au coucher du soleil.",
+        "stops": [
+          {
+            "place": "Le massif de l'Edough",
+            "text": "Une route sinueuse entre chênes-lièges et pins, avec une promenade facile en forêt."
+          },
+          {
+            "place": "Seraïdi",
+            "text": "Le village de montagne perché au-dessus d'Annaba, avec la vue sur toute la baie."
+          },
+          {
+            "place": "Le cap de Garde et la corniche",
+            "text": "Le phare sur ses falaises, puis la route côtière vers la ville au coucher du soleil."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Les criques de la côte",
+        "body": "Vers l'ouest le long de la côte, jusqu'aux criques et aux baies rocheuses, avec du temps pour marcher au bord de l'eau ou se baigner en saison, puis transfert à l'aéroport d'Annaba.",
+        "stops": [
+          {
+            "place": "Les criques de l'ouest",
+            "text": "De petites baies de rochers et de pins, à l'eau turquoise et limpide."
+          },
+          {
+            "place": "Une promenade sur la côte",
+            "text": "Un sentier facile le long du rivage, avec des arrêts photo."
+          },
+          {
+            "place": "Départ",
+            "text": "Transfert à l'aéroport d'Annaba."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Hébergement en hôtels 4 étoiles avec petit-déjeuner (2 nuits)",
+      "Transport privé avec chauffeur",
+      "Guide agréé",
+      "Entrées des sites",
+      "Accueil et transfert à l'aéroport d'Annaba"
+    ],
+    "excludes": [
+      "Vol intérieur Alger – Annaba (en option)",
+      "Déjeuners et dîners",
+      "Pourboires"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Meilleure saison",
+        "value": "Avril–octobre (baignade de juin à septembre)"
+      },
+      {
+        "label": "Rythme",
+        "value": "Facile"
+      },
+      {
+        "label": "Style",
+        "value": "Privé, guidé, 2 nuits en hôtels 4 étoiles avec petit-déjeuner"
+      },
+      {
+        "label": "À prévoir",
+        "value": "Chaussures confortables, une veste légère pour l'Edough, maillot de bain en été"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Comment se rendre à Annaba ?",
+        "a": "Par un vol intérieur direct depuis Alger (environ 1 heure), ou par la route depuis Constantine (environ 2 h 30). Nous vous accueillons à l'aéroport d'Annaba."
+      },
+      {
+        "q": "Peut-on visiter les ruines d'Hippone ?",
+        "a": "Oui : le parc archéologique, avec son forum, ses thermes, ses villas et sa basilique chrétienne, ainsi que son musée de mosaïques, sont au programme du premier jour."
+      },
+      {
+        "q": "Peut-on combiner Annaba avec Constantine et Timgad ?",
+        "a": "Oui. Constantine est à environ 2 h 30 de route : ce circuit se combine naturellement avec notre circuit Constantine et Timgad."
+      },
+      {
+        "q": "Peut-on se baigner ?",
+        "a": "De juin à septembre, oui : les criques du troisième jour sont idéales pour la baignade. Le reste de l'année, la journée est consacrée à la marche le long de la côte."
+      }
+    ]
+  },
+  "biskra-aures-oases": {
+    "title": "Biskra et les oasis des Aurès — El Kantara et Ghoufi (3 jours)",
+    "duration": "3 jours · 2 nuits",
+    "hook": "Là où les montagnes des Aurès s'ouvrent sur le Sahara : des palmeraies, une gorge appelée la Bouche du désert et les villages suspendus de Ghoufi.",
+    "full": true,
+    "seoTitle": "Circuit Biskra 3 jours — El Kantara, balcons de Ghoufi, Sidi Okba",
+    "seoDescription": "Circuit privé de 3 jours à Biskra : les palmeraies des Zibans, les gorges d'El Kantara, les balcons de Ghoufi et la mosquée de Sidi Okba.",
+    "overview": "Biskra, la Reine des Zibans, se trouve exactement là où les montagnes des Aurès rencontrent le désert. Ses palmeraies donnent parmi les meilleures dattes du monde, et vers le nord la route entre dans El Kantara, la gorge que les voyageurs d'autrefois appelaient la Bouche du Sahara. Plus haut, à Ghoufi, des villages chaouis abandonnés s'accrochent aux falaises d'un canyon au-dessus d'un ruban de palmiers : l'un des panoramas les plus saisissants d'Algérie. Au sud-est, Sidi Okba garde l'une des plus anciennes mosquées d'Afrique du Nord. Trois jours, des marches faciles, et une région que peu de voyageurs découvrent.",
+    "highlights": [
+      "Les palmeraies de Biskra, la Reine des Zibans",
+      "Le jardin Landon et le vieux Biskra",
+      "Les gorges et le village d'El Kantara",
+      "Les villages troglodytes des balcons de Ghoufi",
+      "L'ancienne mosquée de Sidi Okba",
+      "Le coucher du soleil aux portes du désert"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Biskra, la Reine des Zibans",
+        "body": "Arrivée à Biskra, promenade dans les palmeraies et le jardin Landon, le vieux Biskra, et le coucher du soleil aux portes du désert.",
+        "stops": [
+          {
+            "place": "Les palmeraies",
+            "text": "Les palmiers Deglet Nour des Zibans, avec leurs canaux d'irrigation et leurs jardins."
+          },
+          {
+            "place": "Le jardin Landon",
+            "text": "Un jardin ombragé d'arbres rares, aménagé au XIXe siècle au cœur de l'oasis."
+          },
+          {
+            "place": "Le coucher du soleil sur le désert",
+            "text": "La lumière du soir là où les dernières collines rencontrent le Sahara."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "El Kantara et les balcons de Ghoufi",
+        "body": "Vers le nord par les gorges d'El Kantara, puis dans les Aurès jusqu'au canyon de Ghoufi et ses villages suspendus au-dessus des palmiers.",
+        "stops": [
+          {
+            "place": "Les gorges d'El Kantara",
+            "text": "La Bouche du Sahara : une étroite brèche dans la montagne, sa palmeraie et son vieux village."
+          },
+          {
+            "place": "Les balcons de Ghoufi",
+            "text": "Des villages chaouis de pierre et de terre sur les falaises du canyon de l'oued Abiod."
+          },
+          {
+            "place": "Dans le canyon",
+            "text": "Une descente facile vers les jardins et les palmiers au bord de l'oued."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Sidi Okba et les oasis",
+        "body": "La mosquée de Sidi Okba, l'oasis de Chetma, puis transfert à l'aéroport de Biskra.",
+        "stops": [
+          {
+            "place": "La mosquée de Sidi Okba",
+            "text": "L'une des plus anciennes mosquées d'Afrique du Nord, autour du tombeau d'Oqba ibn Nafi."
+          },
+          {
+            "place": "L'oasis de Chetma",
+            "text": "Des ruelles de terre et des jardins à l'ombre des palmiers."
+          },
+          {
+            "place": "Départ",
+            "text": "Transfert à l'aéroport de Biskra."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Hébergement en hôtels avec petit-déjeuner (2 nuits)",
+      "Transport privé avec chauffeur",
+      "Guide agréé",
+      "Entrées des sites",
+      "Accueil et transfert à l'aéroport de Biskra"
+    ],
+    "excludes": [
+      "Vol intérieur Alger – Biskra (en option)",
+      "Déjeuners et dîners",
+      "Pourboires"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Meilleure saison",
+        "value": "Octobre–avril (journées douces, nuits fraîches)"
+      },
+      {
+        "label": "Rythme",
+        "value": "Facile à modéré (une descente dans le canyon de Ghoufi)"
+      },
+      {
+        "label": "Style",
+        "value": "Privé, guidé, 2 nuits en hôtels avec petit-déjeuner"
+      },
+      {
+        "label": "À prévoir",
+        "value": "Chaussures de marche, protection solaire, une couche chaude pour le soir"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Comment se rendre à Biskra ?",
+        "a": "Par un vol intérieur direct depuis Alger, ou par la route depuis Constantine ou Batna. Nous vous accueillons à l'aéroport de Biskra."
+      },
+      {
+        "q": "Peut-on obtenir le visa à l'arrivée avec ce circuit ?",
+        "a": "Non : ce circuit se fait avec un visa consulaire, pour lequel nous vous envoyons notre lettre d'invitation. Pour voyager avec le visa à l'arrivée, combinez-le avec l'un de nos circuits au Sahara (Djanet ou Ghardaïa)."
+      },
+      {
+        "q": "La marche à Ghoufi est-elle difficile ?",
+        "a": "Non. Le sentier qui descend dans le canyon est court et facile, à votre rythme ; vous pouvez aussi rester sur les balcons."
+      },
+      {
+        "q": "Peut-on combiner Biskra avec Timgad et Constantine ?",
+        "a": "Oui. Timgad et Batna sont sur la route du nord : ce circuit se combine naturellement avec notre circuit Constantine et Timgad."
+      }
+    ]
   }
 };
 

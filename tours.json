@@ -2780,7 +2780,196 @@
     "whatsapp": "https://wa.me/213784193176",
     "email": "hello@algeriacompass.com"
    }
+  },
+  {
+   "id": "annaba-hippo-regius-coast",
+   "title": "Annaba — Hippo Regius & the Edough Coast (3 Days)",
+   "url": "https://algeriacompass.com/tours/annaba-hippo-regius-coast/",
+   "urls": {
+    "en": "https://algeriacompass.com/tours/annaba-hippo-regius-coast/",
+    "fr": "https://algeriacompass.com/fr/circuits/annaba-hippo-regius-coast/",
+    "it": "https://algeriacompass.com/it/circuiti/annaba-hippo-regius-coast/",
+    "es": "https://algeriacompass.com/es/circuitos/annaba-hippo-regius-coast/",
+    "de": "https://algeriacompass.com/de/reisen/annaba-hippo-regius-coast/"
+   },
+   "text_version": "https://algeriacompass.com/tours/annaba-hippo-regius-coast.txt",
+   "duration_days": 3,
+   "nights": 2,
+   "price": {
+    "amount": 324,
+    "currency": "EUR",
+    "per": "person",
+    "from": true,
+    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+   },
+   "starts_in": "Annaba",
+   "regions": [
+    "annaba"
+   ],
+   "theme": "coast",
+   "summary": "Three days in Algeria's far north-east: Hippo Regius, Saint Augustine's city, the basilica above it, the Edough forests and the clear coves of the coast.",
+   "best_season": "April–October (swimming June–September)",
+   "highlights": [
+    "Hippo Regius, the Roman city of Saint Augustine",
+    "The Basilica of Saint Augustine above the bay",
+    "The old town and the Cours de la Révolution",
+    "The cork-oak forests of the Edough and the village of Seraïdi",
+    "The cliffs and lighthouse of Cap de Garde",
+    "The clear rocky coves of the coast"
+   ],
+   "itinerary": [
+    {
+     "day": 1,
+     "title": "Hippo Regius & Saint Augustine",
+     "places": [
+      "The Basilica of Saint Augustine",
+      "Hippo Regius",
+      "The old town & the Cours de la Révolution"
+     ]
+    },
+    {
+     "day": 2,
+     "title": "The Edough & Cap de Garde",
+     "places": [
+      "The Edough massif",
+      "Seraïdi",
+      "Cap de Garde & the corniche"
+     ]
+    },
+    {
+     "day": 3,
+     "title": "The coves of the coast",
+     "places": [
+      "The western coves",
+      "A coastal walk",
+      "Departure"
+     ]
+    }
+   ],
+   "includes": [
+    "Accommodation in 4-star hotels with breakfast (2 nights)",
+    "Private transport with driver",
+    "Licensed guide",
+    "Entrance fees",
+    "Airport pickup and drop-off in Annaba"
+   ],
+   "excludes": [
+    "Domestic flight Algiers – Annaba (optional)",
+    "Lunches and dinners",
+    "Tips"
+   ],
+   "private": true,
+   "guide_languages": [
+    "English",
+    "French",
+    "Spanish",
+    "Italian",
+    "Arabic",
+    "German",
+    "Russian"
+   ],
+   "visa_on_arrival_eligible": false,
+   "book": {
+    "request_url": "https://algeriacompass.com/contact/?tour=annaba-hippo-regius-coast",
+    "whatsapp": "https://wa.me/213784193176",
+    "email": "hello@algeriacompass.com"
+   }
+  },
+  {
+   "id": "biskra-aures-oases",
+   "title": "Biskra & the Aurès Oases — El Kantara and Ghoufi (3 Days)",
+   "url": "https://algeriacompass.com/tours/biskra-aures-oases/",
+   "urls": {
+    "en": "https://algeriacompass.com/tours/biskra-aures-oases/",
+    "fr": "https://algeriacompass.com/fr/circuits/biskra-aures-oases/",
+    "it": "https://algeriacompass.com/it/circuiti/biskra-aures-oases/",
+    "es": "https://algeriacompass.com/es/circuitos/biskra-aures-oases/",
+    "de": "https://algeriacompass.com/de/reisen/biskra-aures-oases/"
+   },
+   "text_version": "https://algeriacompass.com/tours/biskra-aures-oases.txt",
+   "duration_days": 3,
+   "nights": 2,
+   "price": {
+    "amount": 330,
+    "currency": "EUR",
+    "per": "person",
+    "from": true,
+    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+   },
+   "starts_in": "Biskra",
+   "regions": [
+    "biskra",
+    "batna-timgad"
+   ],
+   "theme": "sahara",
+   "summary": "Three days where the Aurès meets the Sahara: Biskra's palm groves, the El Kantara gorge, the Ghoufi canyon villages and the old mosque of Sidi Okba.",
+   "best_season": "October–April (mild days, cool nights)",
+   "highlights": [
+    "The palm groves of Biskra, Queen of the Zibans",
+    "The Landon Garden and old Biskra",
+    "The gorge and village of El Kantara",
+    "The canyon villages of the Ghoufi balconies",
+    "The ancient mosque of Sidi Okba",
+    "Sunset at the edge of the desert"
+   ],
+   "itinerary": [
+    {
+     "day": 1,
+     "title": "Biskra, Queen of the Zibans",
+     "places": [
+      "The palm groves",
+      "The Landon Garden",
+      "Sunset over the desert"
+     ]
+    },
+    {
+     "day": 2,
+     "title": "El Kantara & the Ghoufi balconies",
+     "places": [
+      "The gorge of El Kantara",
+      "The Ghoufi balconies",
+      "Into the canyon"
+     ]
+    },
+    {
+     "day": 3,
+     "title": "Sidi Okba & the oases",
+     "places": [
+      "The mosque of Sidi Okba",
+      "The oasis of Chetma",
+      "Departure"
+     ]
+    }
+   ],
+   "includes": [
+    "Accommodation in hotels with breakfast (2 nights)",
+    "Private transport with driver",
+    "Licensed guide",
+    "Entrance fees",
+    "Airport pickup and drop-off in Biskra"
+   ],
+   "excludes": [
+    "Domestic flight Algiers – Biskra (optional)",
+    "Lunches and dinners",
+    "Tips"
+   ],
+   "private": true,
+   "guide_languages": [
+    "English",
+    "French",
+    "Spanish",
+    "Italian",
+    "Arabic",
+    "German",
+    "Russian"
+   ],
+   "visa_on_arrival_eligible": false,
+   "book": {
+    "request_url": "https://algeriacompass.com/contact/?tour=biskra-aures-oases",
+    "whatsapp": "https://wa.me/213784193176",
+    "email": "hello@algeriacompass.com"
+   }
   }
  ],
- "updated": "2026-11-16"
+ "updated": "2026-11-17"
 }

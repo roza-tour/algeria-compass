@@ -1,0 +1,26 @@
+---
+// Credits for gallery photos that are not our own (free-licensed photographs,
+// e.g. from Wikimedia Commons). Licences such as CC BY and CC BY-SA require the
+// author, the licence and a link; this line gives all three. Shown only when
+// at least one photo in the gallery has a PHOTO_CREDIT entry.
+import { PHOTO_CREDIT } from '../data/tour-photos';
+export interface Props { files: string[]; lang?: string }
+const { files, lang = 'en' } = Astro.props;
+const LABEL: Record<string, string> = { en: 'Photo credits', fr: 'Crédits photo', it: 'Crediti fotografici', es: 'Créditos de las fotos', de: 'Bildnachweis' };
+const seen = new Set<string>();
+const credits = files
+  .map(f => PHOTO_CREDIT[f.replace(/^.*\//, '').replace(/\.jpg$/i, '')])
+  .filter(c => c && !seen.has(c.source) && seen.add(c.source));
+---
+{credits.length > 0 && (
+  <p class="photo-credits">
+    {LABEL[lang] || LABEL.en}:{' '}
+    {credits.map((c, i) => (
+      <>{i > 0 && ' · '}<a href={c.source} target="_blank" rel="noopener nofollow">{c.author}</a> (<a href={c.licenseUrl} target="_blank" rel="noopener nofollow license">{c.license}</a>)</>
+    ))}, via Wikimedia Commons.
+  </p>
+)}
+<style>
+  .photo-credits{max-width:var(--maxw,1180px);margin:.9rem auto 0;padding:0 var(--gutter,1rem);font-size:.78rem;line-height:1.5;color:var(--text-l,#6b6b63)}
+  .photo-credits a{color:inherit;text-decoration:underline}
+</style>

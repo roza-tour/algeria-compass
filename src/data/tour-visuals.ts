@@ -51,4 +51,6 @@ export const TOUR_VISUALS: Record<string, TourVisual> = {
   'the-soul-of-algeria':             { hero: 'tipaza-7.jpg',        accent: '#B58A2E' },
   'the-culture-and-heritage-of-algeria': { hero: 'constantine-4.jpg', accent: '#B58A2E' },
   'algeria-beyond-expectations':     { hero: 'setif-1.jpg',         accent: '#B58A2E' },
+  'annaba-hippo-regius-coast': { hero: 'annaba-1.jpg',        accent: '#1F6F8B' },
+  'biskra-aures-oases': { hero: 'biskra-1.jpg',        accent: '#B5652E' },
 };

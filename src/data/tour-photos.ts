@@ -279,6 +279,26 @@ export const PHOTO_ALT: Record<string, string> = {
   "tlemcen-13": "The decorated brick minaret of the Sidi Boumediene mosque in Tlemcen",
   "tlemcen-14": "The half-ruined minaret of the Mansourah mosque in Tlemcen",
   "tlemcen-15": "The minaret of Mansourah rising above the ruined walls of the mosque, Tlemcen",
+  // annaba
+  "annaba-1": "The white domes and twin towers of the Basilica of St Augustine above Annaba",
+  "annaba-2": "Standing columns at the Roman site of Hippo Regius, the basilica on the hill behind",
+  "annaba-3": "The ruined streets and houses of Hippo Regius, the Roman city of Saint Augustine",
+  "annaba-4": "Aerial view of a turquoise cove on the Annaba coast",
+  "annaba-5": "The green slopes of the Edough above the city and bay of Annaba",
+  "annaba-6": "Boats moored in the bay of Annaba at dusk, the city behind",
+  "annaba-7": "A small sandy cove between grey rocks on the Annaba coastline",
+  "annaba-8": "Green hillsides and rocky islets on the coast near Annaba",
+  "annaba-9": "A green headland and its rocky islet on the sea near Annaba",
+  "annaba-10": "A statue among palm trees on a garden terrace overlooking Annaba",
+  "annaba-11": "A hilltop pool terrace above the sea at sunset, on the heights near Annaba",
+  "annaba-12": "A white terrace looking out over a sea of clouds at sunrise, near Annaba",
+  "annaba-13": "Rocks and palms on the shore near Annaba",
+  // biskra (Wikimedia Commons, see PHOTO_CREDIT)
+  "biskra-1": "The abandoned stone villages and palm grove of the Ghoufi canyon in the Aur\u00e8s",
+  "biskra-2": "The palm grove of El Kantara and its riverbed seen from above, the Aur\u00e8s behind",
+  "biskra-3": "Date palms at the foot of the cliffs in the gorge of El Kantara, the Mouth of the Sahara",
+  "biskra-4": "The old stone bridge across the gorge of El Kantara, with tunnels cut into the cliffs",
+  "biskra-5": "An old mosque on a bend of the river at the bottom of the Ghoufi canyon",
 };
 
 // Best photos first, per place. Numbers not listed follow in numeric order.
@@ -329,3 +349,13 @@ export function tourGallery(slugs: string[], files: string[], cap = 18): { file:
     for (const l of lists) if (i < l.length && out.length < cap) out.push(l[i]);
   return out.map(file => ({ file, alt: PHOTO_ALT[file.replace(/\.jpg$/i, '')] }));
 }
+
+// Photos that are not our own: free-licensed photographs (Wikimedia Commons),
+// keyed like PHOTO_ALT. Shown under the gallery by PhotoCredits.astro.
+export const PHOTO_CREDIT: Record<string, { author: string; license: string; licenseUrl: string; source: string }> = {
+  "biskra-1": { author: "Bernard Gagnon", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", source: "https://commons.wikimedia.org/wiki/File:Canyon_de_Ghoufi_02.jpg" },
+  "biskra-2": { author: "Bernard Gagnon", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", source: "https://commons.wikimedia.org/wiki/File:Palmeraie_d%27El_Kantara_05.jpg" },
+  "biskra-3": { author: "Dan Sloan", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0", source: "https://commons.wikimedia.org/wiki/File:Mouth_of_the_Sahara_(15687085959).jpg" },
+  "biskra-4": { author: "Dali Ali Mahmoud", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Gorges_d%27El_Kantara_Biskra01.jpg" },
+  "biskra-5": { author: "Mabrouk12300", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Canyon_du_Ghoufi_2019.jpg" },
+};

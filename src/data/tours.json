@@ -4842,6 +4842,319 @@
         "lat": 36.7538,
         "lng": 3.0588
       }
+    },
+    {
+      "id": "annaba-hippo-regius-coast",
+      "title": "Annaba — Hippo Regius & the Edough Coast (3 Days)",
+      "theme": "coast",
+      "wilayas": [
+        "annaba"
+      ],
+      "image_slugs": [
+        "annaba"
+      ],
+      "duration": "3 days · 2 nights",
+      "price_eur": 324,
+      "price_from": true,
+      "per": "person",
+      "start": "Annaba",
+      "summary": "Three days in Algeria's far north-east: Hippo Regius, Saint Augustine's city, the basilica above it, the Edough forests and the clear coves of the coast.",
+      "hook": "Saint Augustine's city, a basilica above the bay, mountain forests and turquoise coves — the north-east coast in three unhurried days.",
+      "overview": "Annaba is Algeria's most beautiful stretch of the Mediterranean, and one of its oldest cities. Beside it lie the ruins of Hippo Regius, where Saint Augustine was bishop for 35 years, crowned by the white basilica built in his honour. Behind the city the Edough massif climbs through cork-oak forest to the mountain village of Seraïdi, high above the bay, and to the west the coast breaks into rocky coves of astonishingly clear water. Three days give you the history, the mountain and the sea, at an easy pace.",
+      "whyDifferent": [
+        {
+          "t": "The city of Saint Augustine",
+          "d": "Walk the forum and baths of Hippo Regius, where Augustine preached and wrote."
+        },
+        {
+          "t": "A basilica above the sea",
+          "d": "The Basilica of Saint Augustine looks over the ruins and the whole bay."
+        },
+        {
+          "t": "Mountain and sea in one day",
+          "d": "From the cork-oak forests of the Edough down to the cliffs of Cap de Garde."
+        },
+        {
+          "t": "Coves without crowds",
+          "d": "The rocky coast west of Annaba, with water as clear as anywhere in the Mediterranean."
+        }
+      ],
+      "goodToKnow": [
+        {
+          "label": "Best season",
+          "value": "April–October (swimming June–September)"
+        },
+        {
+          "label": "Pace",
+          "value": "Easy"
+        },
+        {
+          "label": "Style",
+          "value": "Private, guided, 2 nights in 4-star hotels with breakfast"
+        },
+        {
+          "label": "Bring",
+          "value": "Comfortable shoes, a light jacket for the Edough, swimwear in summer"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How do I get to Annaba?",
+          "a": "By a direct domestic flight from Algiers (about 1 hour), or by road from Constantine (about 2.5 hours). We meet you at Annaba airport."
+        },
+        {
+          "q": "Can we visit the ruins of Hippo Regius?",
+          "a": "Yes — the archaeological park, with its forum, baths, villas and Christian basilica, and its museum of mosaics, is part of the first day."
+        },
+        {
+          "q": "Can I combine Annaba with Constantine and Timgad?",
+          "a": "Yes. Constantine is about 2.5 hours away by road, so this tour joins naturally with our Constantine & Timgad tour."
+        },
+        {
+          "q": "Can we swim?",
+          "a": "From June to September, yes: the coves on the third day are ideal for swimming. In the cooler months the day is spent walking along the coast."
+        }
+      ],
+      "highlights": [
+        "Hippo Regius, the Roman city of Saint Augustine",
+        "The Basilica of Saint Augustine above the bay",
+        "The old town and the Cours de la Révolution",
+        "The cork-oak forests of the Edough and the village of Seraïdi",
+        "The cliffs and lighthouse of Cap de Garde",
+        "The clear rocky coves of the coast"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Hippo Regius & Saint Augustine",
+          "body": "The Basilica of Saint Augustine on its hill, the ruins of Hippo Regius below it, then the old town and the evening on the Cours de la Révolution.",
+          "stops": [
+            {
+              "place": "The Basilica of Saint Augustine",
+              "text": "The white basilica built on the hill above the ruins, with its view over the city and the bay."
+            },
+            {
+              "place": "Hippo Regius",
+              "text": "The forum, baths, villas and Christian basilica of the Roman city where Augustine was bishop, and its museum of mosaics."
+            },
+            {
+              "place": "The old town & the Cours de la Révolution",
+              "text": "The old quarter around the Mosque of Abu Marwan, then the city's great promenade in the evening."
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "The Edough & Cap de Garde",
+          "body": "Up through the cork-oak forests of the Edough to the mountain village of Seraïdi, then down to the cliffs of Cap de Garde and the corniche at sunset.",
+          "stops": [
+            {
+              "place": "The Edough massif",
+              "text": "A winding road through cork oaks and pines, with an easy forest walk."
+            },
+            {
+              "place": "Seraïdi",
+              "text": "The mountain village high above Annaba, with views over the whole bay."
+            },
+            {
+              "place": "Cap de Garde & the corniche",
+              "text": "The lighthouse on its cliffs, then the coast road back to the city as the sun goes down."
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "The coves of the coast",
+          "body": "West along the coast to the rocky coves and bays, with time to walk the shore or swim in season, then the transfer to Annaba airport.",
+          "stops": [
+            {
+              "place": "The western coves",
+              "text": "Small bays of rock and pine with clear turquoise water."
+            },
+            {
+              "place": "A coastal walk",
+              "text": "An easy path along the shore, with stops for photographs."
+            },
+            {
+              "place": "Departure",
+              "text": "Transfer to Annaba airport."
+            }
+          ]
+        }
+      ],
+      "includes": [
+        "Accommodation in 4-star hotels with breakfast (2 nights)",
+        "Private transport with driver",
+        "Licensed guide",
+        "Entrance fees",
+        "Airport pickup and drop-off in Annaba"
+      ],
+      "excludes": [
+        "Domestic flight Algiers – Annaba (optional)",
+        "Lunches and dinners",
+        "Tips"
+      ],
+      "map": {
+        "lat": 36.9,
+        "lng": 7.7667
+      }
+    },
+    {
+      "id": "biskra-aures-oases",
+      "title": "Biskra & the Aurès Oases — El Kantara and Ghoufi (3 Days)",
+      "theme": "sahara",
+      "wilayas": [
+        "biskra",
+        "batna-timgad"
+      ],
+      "image_slugs": [
+        "biskra"
+      ],
+      "duration": "3 days · 2 nights",
+      "price_eur": 330,
+      "price_from": true,
+      "per": "person",
+      "start": "Biskra",
+      "summary": "Three days where the Aurès meets the Sahara: Biskra's palm groves, the El Kantara gorge, the Ghoufi canyon villages and the old mosque of Sidi Okba.",
+      "hook": "Where the Aurès mountains open onto the Sahara — palm groves, a gorge called the Mouth of the Desert, and the hanging villages of Ghoufi.",
+      "overview": "Biskra, the Queen of the Zibans, sits exactly where the mountains of the Aurès meet the desert. Its palm groves grow some of the finest dates in the world, and to the north the road enters El Kantara, the gorge the old travellers called the Mouth of the Sahara. Higher up, at Ghoufi, abandoned Chaoui villages hang on the cliffs of a canyon above a ribbon of palms, one of the most striking views in Algeria. To the south-east, Sidi Okba keeps one of the oldest mosques in North Africa. Three days, easy walks, and a part of the country few travellers ever see.",
+      "whyDifferent": [
+        {
+          "t": "The Mouth of the Sahara",
+          "d": "The gorge of El Kantara, where the mountains split open onto the desert."
+        },
+        {
+          "t": "The Ghoufi balconies",
+          "d": "Canyon villages of stone and earth hanging above a river of palms."
+        },
+        {
+          "t": "One of the oldest mosques of the Maghreb",
+          "d": "Sidi Okba, resting place of the seventh-century conqueror Uqba ibn Nafi."
+        },
+        {
+          "t": "The finest dates in the world",
+          "d": "The Deglet Nour palm groves of the Zibans, walked with a local guide."
+        }
+      ],
+      "goodToKnow": [
+        {
+          "label": "Best season",
+          "value": "October–April (mild days, cool nights)"
+        },
+        {
+          "label": "Pace",
+          "value": "Easy to moderate (a walk down into the Ghoufi canyon)"
+        },
+        {
+          "label": "Style",
+          "value": "Private, guided, 2 nights in hotels with breakfast"
+        },
+        {
+          "label": "Bring",
+          "value": "Walking shoes, sun protection, a warm layer for the evenings"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How do I get to Biskra?",
+          "a": "By a direct domestic flight from Algiers, or by road from Constantine or Batna. We meet you at Biskra airport."
+        },
+        {
+          "q": "Can I get the visa on arrival with this tour?",
+          "a": "No — this tour is visited with a consulate visa, for which we send you our invitation letter. To travel with the visa on arrival, combine it with one of our Sahara tours (Djanet or Ghardaïa)."
+        },
+        {
+          "q": "Is the walk at Ghoufi difficult?",
+          "a": "No. The path down into the canyon is short and easy, at your own pace; you can also stay on the balconies above."
+        },
+        {
+          "q": "Can I combine Biskra with Timgad and Constantine?",
+          "a": "Yes. Timgad and Batna lie on the way north, so this tour joins naturally with our Constantine & Timgad tour."
+        }
+      ],
+      "highlights": [
+        "The palm groves of Biskra, Queen of the Zibans",
+        "The Landon Garden and old Biskra",
+        "The gorge and village of El Kantara",
+        "The canyon villages of the Ghoufi balconies",
+        "The ancient mosque of Sidi Okba",
+        "Sunset at the edge of the desert"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Biskra, Queen of the Zibans",
+          "body": "Arrival in Biskra, a walk in the palm groves and the Landon Garden, old Biskra, and the sunset at the edge of the desert.",
+          "stops": [
+            {
+              "place": "The palm groves",
+              "text": "The Deglet Nour date palms of the Zibans, with their irrigation channels and gardens."
+            },
+            {
+              "place": "The Landon Garden",
+              "text": "A shaded garden of rare trees laid out in the nineteenth century in the heart of the oasis."
+            },
+            {
+              "place": "Sunset over the desert",
+              "text": "The evening light where the last hills meet the Sahara."
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "El Kantara & the Ghoufi balconies",
+          "body": "North through the gorge of El Kantara, then into the Aurès to the canyon of Ghoufi and its villages hanging above the palms.",
+          "stops": [
+            {
+              "place": "The gorge of El Kantara",
+              "text": "The Mouth of the Sahara: a narrow cleft in the mountains, its palm grove and old village."
+            },
+            {
+              "place": "The Ghoufi balconies",
+              "text": "Chaoui villages of stone and earth on the cliffs of the Oued Abiod canyon."
+            },
+            {
+              "place": "Into the canyon",
+              "text": "An easy walk down to the gardens and palms along the river."
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Sidi Okba & the oases",
+          "body": "The mosque of Sidi Okba, the oasis of Chetma, then the transfer to Biskra airport.",
+          "stops": [
+            {
+              "place": "The mosque of Sidi Okba",
+              "text": "One of the oldest mosques in North Africa, around the tomb of Uqba ibn Nafi."
+            },
+            {
+              "place": "The oasis of Chetma",
+              "text": "Earthen lanes and gardens in the shade of the palms."
+            },
+            {
+              "place": "Departure",
+              "text": "Transfer to Biskra airport."
+            }
+          ]
+        }
+      ],
+      "includes": [
+        "Accommodation in hotels with breakfast (2 nights)",
+        "Private transport with driver",
+        "Licensed guide",
+        "Entrance fees",
+        "Airport pickup and drop-off in Biskra"
+      ],
+      "excludes": [
+        "Domestic flight Algiers – Biskra (optional)",
+        "Lunches and dinners",
+        "Tips"
+      ],
+      "map": {
+        "lat": 34.85,
+        "lng": 5.7333
+      }
     }
   ]
 }

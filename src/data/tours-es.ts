@@ -3999,5 +3999,253 @@ export const TOURS_ES: Record<string, TourEs> = {
         "a": "De octubre a abril. El tramo sahariano necesita la estación fresca, y también es la época en que resulta más agradable recorrer a pie los sitios romanos."
       }
     ]
+  },
+  "annaba-hippo-regius-coast": {
+    "title": "Annaba — Hipona y la costa del Edough (3 días)",
+    "duration": "3 días · 2 noches",
+    "hook": "La ciudad de san Agustín, una basílica sobre la bahía, bosques de montaña y calas turquesa: la costa nordeste en tres días sin prisas.",
+    "full": true,
+    "seoTitle": "Circuito Annaba 3 días — Hipona, san Agustín y la costa",
+    "seoDescription": "Circuito privado de 3 días en Annaba: las ruinas de Hipona, la basílica de San Agustín, el Edough y Seraïdi, el cabo de Garde y las calas.",
+    "overview": "Annaba tiene el tramo de Mediterráneo más bello de Argelia y es una de sus ciudades más antiguas. A sus puertas se extienden las ruinas de Hipona, donde san Agustín fue obispo durante treinta y cinco años, coronadas por la basílica blanca levantada en su honor. Detrás de la ciudad, el macizo del Edough sube entre alcornoques hasta el pueblo de Seraïdi, muy por encima de la bahía, y hacia el oeste la costa se abre en calas rocosas de agua asombrosamente clara. Tres días para la historia, la montaña y el mar, a un ritmo tranquilo.",
+    "highlights": [
+      "Hipona, la ciudad romana de san Agustín",
+      "La basílica de San Agustín sobre la bahía",
+      "El casco antiguo y el Cours de la Révolution",
+      "Los alcornocales del Edough y el pueblo de Seraïdi",
+      "Los acantilados y el faro del cabo de Garde",
+      "Las calas rocosas y cristalinas de la costa"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Hipona y san Agustín",
+        "body": "La basílica de San Agustín en su colina, las ruinas de Hipona a sus pies, luego el casco antiguo y la tarde en el Cours de la Révolution.",
+        "stops": [
+          {
+            "place": "La basílica de San Agustín",
+            "text": "La basílica blanca construida en la colina que domina las ruinas, con vistas a la ciudad y a la bahía."
+          },
+          {
+            "place": "Hipona",
+            "text": "El foro, las termas, las villas y la basílica cristiana de la ciudad romana de la que Agustín fue obispo, y su museo de mosaicos."
+          },
+          {
+            "place": "El casco antiguo y el Cours de la Révolution",
+            "text": "El barrio antiguo en torno a la mezquita de Abu Marwan y, al atardecer, el gran paseo de la ciudad."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "El Edough y el cabo de Garde",
+        "body": "Subida entre los alcornoques del Edough hasta el pueblo de Seraïdi, luego bajada hacia los acantilados del cabo de Garde y la cornisa al atardecer.",
+        "stops": [
+          {
+            "place": "El macizo del Edough",
+            "text": "Una carretera sinuosa entre alcornoques y pinos, con un paseo fácil por el bosque."
+          },
+          {
+            "place": "Seraïdi",
+            "text": "El pueblo de montaña encaramado sobre Annaba, con vistas a toda la bahía."
+          },
+          {
+            "place": "El cabo de Garde y la cornisa",
+            "text": "El faro sobre sus acantilados y la carretera de la costa hacia la ciudad al atardecer."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Las calas de la costa",
+        "body": "Hacia el oeste por la costa, hasta las calas y bahías rocosas, con tiempo para caminar junto al mar o bañarse en temporada, y traslado al aeropuerto de Annaba.",
+        "stops": [
+          {
+            "place": "Las calas del oeste",
+            "text": "Pequeñas bahías de rocas y pinos, de agua turquesa y cristalina."
+          },
+          {
+            "place": "Un paseo por la costa",
+            "text": "Un sendero fácil junto a la orilla, con paradas para fotos."
+          },
+          {
+            "place": "Salida",
+            "text": "Traslado al aeropuerto de Annaba."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Alojamiento en hoteles de 4 estrellas con desayuno (2 noches)",
+      "Transporte privado con conductor",
+      "Guía acreditado",
+      "Entradas a los sitios",
+      "Recogida y traslado al aeropuerto de Annaba"
+    ],
+    "excludes": [
+      "Vuelo interno Argel – Annaba (opcional)",
+      "Almuerzos y cenas",
+      "Propinas"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Mejor época",
+        "value": "Abril–octubre (baño de junio a septiembre)"
+      },
+      {
+        "label": "Ritmo",
+        "value": "Fácil"
+      },
+      {
+        "label": "Estilo",
+        "value": "Privado, guiado, 2 noches en hoteles de 4 estrellas con desayuno"
+      },
+      {
+        "label": "Qué llevar",
+        "value": "Calzado cómodo, una chaqueta ligera para el Edough, bañador en verano"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Cómo se llega a Annaba?",
+        "a": "En un vuelo interno directo desde Argel (cerca de 1 hora) o por carretera desde Constantina (unas 2 horas y media). Le recibimos en el aeropuerto de Annaba."
+      },
+      {
+        "q": "¿Se pueden visitar las ruinas de Hipona?",
+        "a": "Sí: el parque arqueológico, con su foro, sus termas, sus villas y su basílica cristiana, y su museo de mosaicos, forman parte del primer día."
+      },
+      {
+        "q": "¿Se puede combinar Annaba con Constantina y Timgad?",
+        "a": "Sí. Constantina está a unas 2 horas y media por carretera: este circuito se combina de forma natural con nuestro circuito Constantina y Timgad."
+      },
+      {
+        "q": "¿Se puede nadar?",
+        "a": "De junio a septiembre, sí: las calas del tercer día son ideales para bañarse. El resto del año, el día se dedica a caminar por la costa."
+      }
+    ]
+  },
+  "biskra-aures-oases": {
+    "title": "Biskra y los oasis del Aurès — El Kantara y Ghoufi (3 días)",
+    "duration": "3 días · 2 noches",
+    "hook": "Donde las montañas del Aurès se abren al Sáhara: palmerales, un desfiladero llamado la Boca del desierto y los pueblos colgados de Ghoufi.",
+    "full": true,
+    "seoTitle": "Biskra 3 días — El Kantara, balcones de Ghoufi y Sidi Okba",
+    "seoDescription": "Circuito privado de 3 días en Biskra: los palmerales de los Zibans, las gargantas de El Kantara, los balcones de Ghoufi y Sidi Okba.",
+    "overview": "Biskra, la Reina de los Zibans, está justo donde las montañas del Aurès se encuentran con el desierto. Sus palmerales dan algunos de los mejores dátiles del mundo, y hacia el norte la carretera entra en El Kantara, el desfiladero que los viajeros de antaño llamaban la Boca del Sáhara. Más arriba, en Ghoufi, pueblos chaouis abandonados cuelgan de las paredes de un cañón sobre una cinta de palmeras: una de las vistas más impresionantes de Argelia. Al sudeste, Sidi Okba guarda una de las mezquitas más antiguas del norte de África. Tres días, caminatas fáciles y una región que pocos viajeros conocen.",
+    "highlights": [
+      "Los palmerales de Biskra, la Reina de los Zibans",
+      "El jardín Landon y el viejo Biskra",
+      "Las gargantas y el pueblo de El Kantara",
+      "Los pueblos rupestres de los balcones de Ghoufi",
+      "La antigua mezquita de Sidi Okba",
+      "La puesta de sol a las puertas del desierto"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Biskra, la Reina de los Zibans",
+        "body": "Llegada a Biskra, paseo por los palmerales y el jardín Landon, el viejo Biskra y la puesta de sol a las puertas del desierto.",
+        "stops": [
+          {
+            "place": "Los palmerales",
+            "text": "Las palmeras Deglet Nour de los Zibans, con sus acequias y sus huertos."
+          },
+          {
+            "place": "El jardín Landon",
+            "text": "Un jardín sombreado de árboles raros, creado en el siglo XIX en el corazón del oasis."
+          },
+          {
+            "place": "Atardecer sobre el desierto",
+            "text": "La luz de la tarde donde las últimas colinas se encuentran con el Sáhara."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "El Kantara y los balcones de Ghoufi",
+        "body": "Hacia el norte por las gargantas de El Kantara y luego por el Aurès hasta el cañón de Ghoufi y sus pueblos colgados sobre las palmeras.",
+        "stops": [
+          {
+            "place": "Las gargantas de El Kantara",
+            "text": "La Boca del Sáhara: una estrecha brecha en la montaña, con su palmeral y su viejo pueblo."
+          },
+          {
+            "place": "Los balcones de Ghoufi",
+            "text": "Pueblos chaouis de piedra y tierra en las paredes del cañón del uadi Abiod."
+          },
+          {
+            "place": "Dentro del cañón",
+            "text": "Un descenso fácil hasta los huertos y las palmeras junto al río."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Sidi Okba y los oasis",
+        "body": "La mezquita de Sidi Okba, el oasis de Chetma y el traslado al aeropuerto de Biskra.",
+        "stops": [
+          {
+            "place": "La mezquita de Sidi Okba",
+            "text": "Una de las mezquitas más antiguas del norte de África, en torno a la tumba de Uqba ibn Nafi."
+          },
+          {
+            "place": "El oasis de Chetma",
+            "text": "Callejuelas de tierra y huertos a la sombra de las palmeras."
+          },
+          {
+            "place": "Salida",
+            "text": "Traslado al aeropuerto de Biskra."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Alojamiento en hoteles con desayuno (2 noches)",
+      "Transporte privado con conductor",
+      "Guía acreditado",
+      "Entradas a los sitios",
+      "Recogida y traslado al aeropuerto de Biskra"
+    ],
+    "excludes": [
+      "Vuelo interno Argel – Biskra (opcional)",
+      "Almuerzos y cenas",
+      "Propinas"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Mejor época",
+        "value": "Octubre–abril (días suaves, noches frescas)"
+      },
+      {
+        "label": "Ritmo",
+        "value": "Fácil a moderado (un descenso al cañón de Ghoufi)"
+      },
+      {
+        "label": "Estilo",
+        "value": "Privado, guiado, 2 noches en hoteles con desayuno"
+      },
+      {
+        "label": "Qué llevar",
+        "value": "Calzado para caminar, protección solar, una capa de abrigo para la noche"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Cómo se llega a Biskra?",
+        "a": "En un vuelo interno directo desde Argel o por carretera desde Constantina o Batna. Le recibimos en el aeropuerto de Biskra."
+      },
+      {
+        "q": "¿Se puede obtener el visado a la llegada con este circuito?",
+        "a": "No: este circuito se hace con visado consular, para el que le enviamos nuestra carta de invitación. Para viajar con el visado a la llegada, combínelo con uno de nuestros circuitos por el Sáhara (Djanet o Ghardaïa)."
+      },
+      {
+        "q": "¿Es difícil la caminata en Ghoufi?",
+        "a": "No. El sendero que baja al cañón es corto y fácil, a su ritmo; también puede quedarse en los balcones."
+      },
+      {
+        "q": "¿Se puede combinar Biskra con Timgad y Constantina?",
+        "a": "Sí. Timgad y Batna están en el camino hacia el norte: este circuito se combina de forma natural con nuestro circuito Constantina y Timgad."
+      }
+    ]
   }
 };
