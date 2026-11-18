@@ -14,6 +14,9 @@ gallery:
   - { src: "/assets/img/tours/bejaia-8.jpg", alt: "A cliffside road cut beneath an overhanging rock above the sea near Béjaïa" }
   - { src: "/assets/img/tours/bejaia-11.jpg", alt: "The stone walls and gateway of an old fortress in Béjaïa, lit by late sun" }
   - { src: "/assets/img/tours/bejaia-4.jpg", alt: "A dam spilling a curtain of water over its wall into a green gorge in Béjaïa province" }
+  - { src: "/assets/img/tours/bejaia-13.jpg", alt: "Swimmers on the rocks in clear turquoise water below a sheer limestone headland on the coast of Béjaïa" }
+  - { src: "/assets/img/tours/bejaia-15.jpg", alt: "A traveller in a sun hat paddling a blue kayak through a narrow channel of clear water on the Béjaïa coast" }
+  - { src: "/assets/img/tours/bejaia-16.jpg", alt: "A forested headland in a turquoise bay near Béjaïa, mountains along the far shore" }
 coordinates: { lat: 36.7509, lng: 5.0567 }
 quickAnswer: "Béjaïa is a coastal state in Kabylie where the Djurdjura mountains plunge straight into the Mediterranean. It's known for Gouraya National Park, the clifftop Cap Carbon lighthouse, the scenic Corniche beaches, deep Kabyle (Amazigh) culture, the dramatic Kherrata gorges, and a layered history — including its medieval role in transmitting Arabic numerals to Europe and the pivotal Soummam Congress of 1956."
 keyFacts:

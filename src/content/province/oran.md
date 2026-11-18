@@ -11,6 +11,12 @@ gallery:
   - { src: "/assets/img/oran-striped-tower.jpg", alt: "Distinctive striped neo-Moorish tower building in Oran" }
   - { src: "/assets/img/oran-cathedral.jpg", alt: "The former Sacre-Coeur cathedral, now a library, in Oran" }
   - { src: "/assets/img/oran-port-aerial.jpg", alt: "Aerial view of the port and city of Oran" }
+  - { src: "/assets/img/tours/oran-12.jpg", alt: "Oran and its harbour from the Santa Cruz chapel on the hill" }
+  - { src: "/assets/img/tours/oran-10.jpg", alt: "The arcades and tiled minaret of the Abdelhamid Ben Badis Mosque in Oran" }
+  - { src: "/assets/img/tours/oran-6.jpg", alt: "Domed slate rooftops of belle-époque buildings in Oran" }
+  - { src: "/assets/img/tours/oran-9.jpg", alt: "A crenellated clock tower against a deep blue sky in Oran" }
+  - { src: "/assets/img/tours/oran-11.jpg", alt: "An old arcaded building around a courtyard in Oran" }
+  - { src: "/assets/img/tours/oran-13.jpg", alt: "A rocky headland reaching into the sea on the coast near Oran" }
 coordinates: { lat: 35.6970, lng: -0.6331 }
 quickAnswer: "Oran is Algeria's vibrant second city — a Mediterranean port on the west coast with a strong Spanish and Andalusian imprint, the birthplace of raï music, the Spanish-built Santa Cruz fort above the bay, a lively seafront, and easy access to the Andalusian heritage of Tlemcen and the western beaches."
 keyFacts:

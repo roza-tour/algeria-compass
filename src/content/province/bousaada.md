@@ -10,6 +10,12 @@ gallery:
   - { src: "/assets/img/msila-bousaada/msila-bousaada-05.jpg", alt: "High-plateau steppe landscape around Bou Saada" }
   - { src: "/assets/img/msila-bousaada/msila-bousaada-06.jpg", alt: "Open steppe of the High Plateaus, M'Sila" }
   - { src: "/assets/img/bou-saada-palm-grove.jpg", alt: "Palm grove at the Bou Saada oasis" }
+  - { src: "/assets/img/tours/bousaada-4.jpg", alt: "A turquoise pool in the rocky gorge at Bou Saâda, ringed by date palms below bare hills" }
+  - { src: "/assets/img/tours/bousaada-20.jpg", alt: "A traveller stepping out of an arched wooden door set in the earth-rendered wall of a house in Bou Saâda" }
+  - { src: "/assets/img/tours/bousaada-9.jpg", alt: "Domed earthen guest lodgings and a small pool at Bou Saâda, palms and desert hills beyond" }
+  - { src: "/assets/img/tours/bousaada-21.jpg", alt: "A traveller walking a dusty track past old earthen walls in the oasis of Bou Saâda, a tall palm against the blue sky" }
+  - { src: "/assets/img/tours/bousaada-22.jpg", alt: "Two travellers on the steps of an earth-rendered art gallery with palm-log beams in Bou Saâda" }
+  - { src: "/assets/img/tours/bousaada-23.jpg", alt: "A traveller beside a black Ouled Naïl dress hung with gold coin jewellery in a crafts museum in Bou Saâda" }
 coordinates: { lat: 35.2131, lng: 4.1776 }
 quickAnswer: "Bou Saada is an oasis town on the edge of the Sahara in M'Sila state, long nicknamed the 'City of Happiness'. A historic gateway between the High Plateaus and the desert, it is known for its palm grove and oued, the historic Ferrero Mill, its craft markets, the legacy of the painter Nasreddine Dinet, and the nearby Sufi shrine of El Hamel."
 keyFacts:

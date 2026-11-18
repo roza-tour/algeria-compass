@@ -11,6 +11,12 @@ gallery:
   - { src: "/assets/img/sahara-camp-sunset.jpg", alt: "A desert camp at sunset in the Algerian Sahara" }
   - { src: "/assets/img/tours/djanet-23.jpg", alt: "Dark sandstone pinnacles scattered across orange sand in the Tassili n'Ajjer" }
   - { src: "/assets/img/tours/djanet-24.jpg", alt: "A maze of rock towers and dunes seen from above in the Tassili n'Ajjer" }
+  - { src: "/assets/img/tours/djanet-26.jpg", alt: "A woman in a green wrap beneath prehistoric paintings of a figure and an antelope in a Tassili rock shelter" }
+  - { src: "/assets/img/tours/djanet-27.jpg", alt: "Tall white figures painted on a rock-shelter wall in the Tassili n'Ajjer" }
+  - { src: "/assets/img/tours/djanet-28.jpg", alt: "A prehistoric painting of a horned figure in dotted patterns in the Tassili n'Ajjer" }
+  - { src: "/assets/img/tours/djanet-13.jpg", alt: "A natural sandstone arch above orange sand in the desert around Djanet" }
+  - { src: "/assets/img/tours/djanet-29.jpg", alt: "A Tuareg man in a white turban pouring tea from a height on the dunes" }
+  - { src: "/assets/img/tours/djanet-12.jpg", alt: "Sandstone towers standing in open sand under a deep blue sky near Djanet" }
 coordinates: { lat: 26.4833, lng: 8.4667 }
 quickAnswer: "Illizi is a vast desert state in the far south-east of Algeria, covering much of the Tassili n'Ajjer — a UNESCO-listed sandstone plateau holding one of the greatest concentrations of prehistoric rock art on earth, alongside eroded rock forests, canyons and dunes. It is visited between November and February, with a licensed operator, a guide and permits."
 keyFacts:

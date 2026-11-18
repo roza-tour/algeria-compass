@@ -13,7 +13,6 @@ gallery:
   - { src: "/assets/img/tours/tipaza-8.jpg", alt: "Engaged columns and a carved false door on the base of the Royal Mausoleum of Mauretania" }
   - { src: "/assets/img/tours/tipaza-9.jpg", alt: "A gallery of Roman marble statues in a museum in Tipaza province" }
   - { src: "/assets/img/tours/tipaza-5.jpg", alt: "Rock islets in a turquoise cove below wooded cliffs on the Tipaza coast" }
-  - { src: "/assets/img/tours/tipaza-1.jpg", alt: "Clear green water beneath a limestone cliff, seen from a kayak on the Tipaza coast" }
   - { src: "/assets/img/tours/tipaza-11.jpg", alt: "The temple-fronted façade of the archaeological museum at Cherchell" }
   - { src: "/assets/img/tours/tipaza-12.jpg", alt: "Roman marble statues lining a gallery of the Cherchell museum" }
 coordinates: { lat: 36.5942, lng: 2.4470 }

@@ -14,6 +14,9 @@ gallery:
   - { src: "/assets/img/tours/timimoun-11.jpg", alt: "A foggara water divider in the Gourara, its comb of openings splitting the flow between garden channels" }
   - { src: "/assets/img/tours/timimoun-12.jpg", alt: "A stone foggara divider sharing out water between the garden channels of an oasis near Timimoun" }
   - { src: "/assets/img/tours/timimoun-13.jpg", alt: "Water spilling through a foggara divider beside palm gardens in the Gourara" }
+  - { src: "/assets/img/tours/timimoun-7.jpg", alt: "A palm oasis spreading below the crumbling red walls of a ksar in the Gourara around Timimoun" }
+  - { src: "/assets/img/tours/timimoun-9.jpg", alt: "The red-and-white courtyard of a guesthouse in Timimoun, cushions and rugs laid out" }
+  - { src: "/assets/img/tours/timimoun-10.jpg", alt: "A tiled walkway through the courtyard of a red-walled guesthouse in Timimoun" }
 coordinates: { lat: 29.2633, lng: 0.2411 }
 quickAnswer: "Timimoun is a Saharan state in south-western Algeria, the 'Red Oasis' at the heart of the Gourara. It is famous for its red Sudanese-style architecture, vast palm groves watered by the ancient foggara channel system, fortified ksour, a great salt lake (sebkha), and the Ahellil — a polyphonic Gourara song recognised by UNESCO as intangible heritage."
 keyFacts:

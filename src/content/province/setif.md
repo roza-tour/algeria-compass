@@ -10,6 +10,11 @@ gallery:
   - { src: "/assets/img/setif-golden-flower.jpg", alt: "Golden flower sculpture and the Sétif city sign in a park" }
   - { src: "/assets/img/setif-lake-modern.jpg", alt: "Park lake and modern architecture in Sétif, Algeria" }
   - { src: "/assets/img/setif-winter-street.jpg", alt: "Snow-covered street in winter, Sétif, Algeria" }
+  - { src: "/assets/img/tours/setif-13.jpg", alt: "The Aïn El Fouara fountain lit at night in Sétif" }
+  - { src: "/assets/img/tours/setif-12.jpg", alt: "A limestone ridge above farmland in Sétif province" }
+  - { src: "/assets/img/tours/setif-9.jpg", alt: "A pond in a park in Sétif under a wide sky" }
+  - { src: "/assets/img/tours/setif-10.jpg", alt: "The tram on a rain-washed street in Sétif" }
+  - { src: "/assets/img/tours/setif-3.jpg", alt: "Bare winter trees along a street of Sétif" }
 coordinates: { lat: 36.1898, lng: 5.4108 }
 quickAnswer: "Sétif is a highland state in north-eastern Algeria, best known for Djémila — one of the world's best-preserved Roman cities and a UNESCO World Heritage Site since 1982. It sits at around 1,100 m on the High Plateaus, has a cool four-season climate, the cedar forests of Babor, the landmark Ain El Fouara fountain, and a defining place in Algeria's road to independence."
 keyFacts:

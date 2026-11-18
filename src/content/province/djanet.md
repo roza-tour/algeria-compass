@@ -13,7 +13,6 @@ gallery:
   - { src: "/assets/img/tours/djanet-10.jpg", alt: "A 4×4 framed by a natural rock arch on a red desert plain near Djanet" }
   - { src: "/assets/img/tours/djanet-6.jpg", alt: "Dark rock pinnacles rising out of pale sand near Djanet" }
   - { src: "/assets/img/tours/djanet-1.jpg", alt: "The sun setting over a rocky plateau near Djanet, seen from beside a sandstone wall" }
-  - { src: "/assets/img/tours/djanet-2.jpg", alt: "Tents pitched among dark rocks under a blazing sunset sky at a desert camp near Djanet" }
   - { src: "/assets/img/tours/djanet-27.jpg", alt: "Tall white figures painted on a rock-shelter wall in the Tassili n'Ajjer" }
   - { src: "/assets/img/tours/djanet-21.jpg", alt: "A curving dune crest running between eroded sandstone pillars near Djanet" }
   - { src: "/assets/img/tours/djanet-22.jpg", alt: "A sandstone boulder balanced on a narrow pedestal against a deep blue sky near Djanet" }

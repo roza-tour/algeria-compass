@@ -11,6 +11,11 @@ gallery:
   - { src: "/assets/img/mostaganem/mostaganem-11.jpg", alt: "The grand mosque of Mostaganem" }
   - { src: "/assets/img/mostaganem/mostaganem-12.jpg", alt: "Green-domed marabout with zellige tilework, Mostaganem" }
   - { src: "/assets/img/mostaganem/mostaganem-07.jpg", alt: "Lake and gardens of a city park in Mostaganem" }
+  - { src: "/assets/img/tours/mostaganem-8.jpg", alt: "An ornate colonial-era building with balconies in Mostaganem" }
+  - { src: "/assets/img/tours/mostaganem-9.jpg", alt: "A white clock tower among palms in central Mostaganem" }
+  - { src: "/assets/img/tours/mostaganem-10.jpg", alt: "A tall minaret beside palms in Mostaganem" }
+  - { src: "/assets/img/tours/mostaganem-11.jpg", alt: "A pool and palms beside the sea at a resort near Mostaganem" }
+  - { src: "/assets/img/tours/mostaganem-12.jpg", alt: "The tram crossing a modern boulevard in Mostaganem" }
 coordinates: { lat: 35.9315, lng: 0.0892 }
 quickAnswer: "Mostaganem is a coastal state on the western Mediterranean of Algeria, east of Oran. A historic port with an Ottoman past, it is known for its long sandy beaches, the old quarter of Tigditt, the Bordj Ettork fortress, a rich theatrical tradition, and the fertile farmland of the Dahra and the Chelif plain behind the coast."
 keyFacts:

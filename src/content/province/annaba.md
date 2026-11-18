@@ -11,6 +11,9 @@ gallery:
   - { src: "/assets/img/annaba/annaba-09.jpg", alt: "Roman ruins of Hippo Regius near Annaba" }
   - { src: "/assets/img/annaba/annaba-12.jpg", alt: "Standing columns at the Roman site of Hippo Regius" }
   - { src: "/assets/img/annaba/annaba-07.jpg", alt: "Coastal resort and beach at sunset near Annaba" }
+  - { src: "/assets/img/tours/annaba-10.jpg", alt: "A statue among palm trees on a garden terrace overlooking Annaba" }
+  - { src: "/assets/img/tours/annaba-12.jpg", alt: "A white terrace looking out over a sea of clouds at sunrise, near Annaba" }
+  - { src: "/assets/img/tours/annaba-13.jpg", alt: "Rocks and palms on the shore near Annaba" }
 coordinates: { lat: 36.9000, lng: 7.7667 }
 quickAnswer: "Annaba is a Mediterranean port city in the far north-east of Algeria, near the Tunisian border. Built beside the ancient Roman city of Hippo Regius — where Saint Augustine was bishop — it is known for the hilltop Basilica of St Augustine, the ruins of Hippo, a string of turquoise coves and beaches below the wooded Edough massif, and a lively seafront and old centre."
 keyFacts:
