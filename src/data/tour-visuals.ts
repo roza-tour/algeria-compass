@@ -54,4 +54,5 @@ export const TOUR_VISUALS: Record<string, TourVisual> = {
   'annaba-hippo-regius-coast': { hero: 'annaba-1.jpg',        accent: '#1F6F8B' },
   'biskra-aures-oases': { hero: 'biskra-1.jpg',        accent: '#B5652E' },
   'tamanrasset-assekrem-hoggar': { hero: 'hoggar-1.jpg', accent: '#9C4A1A' },
+  'taghit-saoura-dunes': { hero: 'taghit-1.jpg', accent: '#C27A2C' },
 };

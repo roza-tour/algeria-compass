@@ -5350,6 +5350,182 @@
         "lat": 22.785,
         "lng": 5.5228
       }
+    },
+    {
+      "id": "taghit-saoura-dunes",
+      "title": "Taghit & the Saoura — Dunes of the Grand Erg (4 Days)",
+      "theme": "sahara",
+      "wilayas": [
+        "bechar"
+      ],
+      "image_slugs": [
+        "taghit"
+      ],
+      "duration": "4 days · 3 nights",
+      "price_eur": 394,
+      "price_from": true,
+      "per": "person",
+      "start": "Béchar Airport",
+      "summary": "Four days in Taghit, where a palm grove and an old ksar sit at the foot of the great dunes of the Grand Erg Occidental, with 4x4 days in the sand.",
+      "hook": "An earthen ksar, a ribbon of palms and the highest dunes of the western Sahara rising straight behind them.",
+      "overview": "Taghit is the jewel of the Saoura valley, in Algeria's south-west. Its old ksar of earth and stone climbs a rocky spur above the Oued Zousfana, a long palm grove follows the river, and right behind them rise the dunes of the Grand Erg Occidental, among the highest of the western Sahara. Four days give you time to walk the lanes of the ksar and the gardens of the oasis, to climb the great dune for the sunset, and to head into the erg by 4x4 for a day among the sands, with tea and lunch in the shade and nights in a traditional guesthouse.",
+      "whyDifferent": [
+        {
+          "t": "A ksar at the foot of the dunes",
+          "d": "The old earthen village of Taghit stands where the palms meet the sand."
+        },
+        {
+          "t": "The great dunes of the Grand Erg",
+          "d": "Some of the highest dunes of the western Sahara, a short walk from the oasis."
+        },
+        {
+          "t": "A day in the erg by 4x4",
+          "d": "Deep into the sand sea, with tea and lunch prepared in the shade."
+        },
+        {
+          "t": "Easy and unhurried",
+          "d": "Short walks, long sunsets and the calm of a small oasis town."
+        }
+      ],
+      "goodToKnow": [
+        {
+          "label": "Best season",
+          "value": "October–April (mild days, cold desert nights)"
+        },
+        {
+          "label": "Pace",
+          "value": "Easy to moderate (climbing the dune is optional)"
+        },
+        {
+          "label": "Style",
+          "value": "Private, guided, 3 nights in a traditional guesthouse with breakfast and dinner"
+        },
+        {
+          "label": "Bring",
+          "value": "Sun protection, a scarf against the sand, warm layers for the evenings"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How do I get to Taghit?",
+          "a": "By a domestic flight from Algiers to Béchar; Taghit is about an hour and a half away by road, and we meet you at Béchar airport."
+        },
+        {
+          "q": "Can I get the visa on arrival with this tour?",
+          "a": "Yes. Taghit is in the Sahara, so we prepare the authorisation ($45) and the visa is issued on arrival at Algiers airport."
+        },
+        {
+          "q": "Do I have to climb the great dune?",
+          "a": "No. The climb is optional and at your own pace; the views from the foot of the dune and from the ksar are just as beautiful."
+        },
+        {
+          "q": "When are the busiest days in Taghit?",
+          "a": "Algerian school holidays and New Year bring many visitors from the north. Outside those dates the oasis is very quiet."
+        }
+      ],
+      "highlights": [
+        "The old ksar of Taghit above the Oued Zousfana",
+        "The palm grove and gardens of the oasis",
+        "Sunset from the great dune",
+        "A day by 4x4 in the Grand Erg Occidental",
+        "The rock engravings near Taghit",
+        "Nights in a traditional guesthouse"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Béchar to Taghit",
+          "body": "Arrival at Béchar airport and the road to Taghit through the stony hamada, the first view of the dunes, and the evening in the oasis.",
+          "stops": [
+            {
+              "place": "Béchar airport",
+              "text": "Welcome by our team and the drive south-west to Taghit."
+            },
+            {
+              "place": "The hamada",
+              "text": "The stony plateau of the Saoura, until the dunes appear on the horizon."
+            },
+            {
+              "place": "Taghit at dusk",
+              "text": "The first evening at the guesthouse, at the edge of the sand."
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "The ksar and the palm grove",
+          "body": "The old ksar of Taghit and its lanes, the palm grove and gardens along the Oued Zousfana, the rock engravings near the oasis, and sunset from the great dune.",
+          "stops": [
+            {
+              "place": "The ksar of Taghit",
+              "text": "Earthen lanes, covered passages and the view from the top of the old village."
+            },
+            {
+              "place": "The palm grove",
+              "text": "Date palms and gardens watered by the Oued Zousfana."
+            },
+            {
+              "place": "The great dune",
+              "text": "A climb at your own pace for the sunset over the erg and the oasis."
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "A day in the Grand Erg",
+          "body": "By 4x4 into the dunes of the Grand Erg Occidental, with walks in the sand, tea and lunch in the shade, and the last light over the dunes.",
+          "stops": [
+            {
+              "place": "Into the erg",
+              "text": "Tracks between the dunes, far from the oasis."
+            },
+            {
+              "place": "Tea in the sand",
+              "text": "Lunch and tea prepared by the team in the shade."
+            },
+            {
+              "place": "The last light",
+              "text": "Sunset over the sand sea before returning to Taghit."
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Back to Béchar",
+          "body": "A last walk in the oasis, then the road back to Béchar airport.",
+          "stops": [
+            {
+              "place": "A morning in the oasis",
+              "text": "A last stroll in the palm grove."
+            },
+            {
+              "place": "The road back",
+              "text": "Across the hamada to Béchar."
+            },
+            {
+              "place": "Departure",
+              "text": "Transfer to Béchar airport."
+            }
+          ]
+        }
+      ],
+      "includes": [
+        "Airport pickup and drop-off in Béchar",
+        "Private vehicle and 4x4 for the day in the erg",
+        "3 nights in a traditional guesthouse in Taghit",
+        "Breakfast and dinner every day, lunch on day 3",
+        "Local guide",
+        "Entrance fees and local taxes"
+      ],
+      "excludes": [
+        "Domestic flight Algiers – Béchar (optional)",
+        "Other lunches and drinks",
+        "Tips"
+      ],
+      "map": {
+        "lat": 30.9167,
+        "lng": -2.0333
+      }
     }
   ]
 }

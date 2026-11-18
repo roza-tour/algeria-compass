@@ -27,6 +27,7 @@ export const PLACES = {
   timimoun:     { region: 'sahara',      name: 'Timimoun',    lat: 29.26, lon: 0.23,  re: /timimoun|charouine|aghlad|ouled sa[ïi]d/i },
   djanet:       { region: 'sahara',      name: 'Djanet',      lat: 24.55, lon: 9.48,  re: /djanet|tadrart|tassili|tigharghart|ihrir|sefar|in djaren|ouanahar|essendil|moul naga|tin merzouga|djabarren|erg admer/i },
   tamanrasset:  { region: 'sahara',      name: 'Tamanrasset', lat: 22.79, lon: 5.52,  re: /tamanrasset|assekrem|ahaggar|hoggar|atakor|afilal/i },
+  bechar:       { region: 'sahara',      name: 'Taghit',      lat: 30.92, lon: -2.03, re: /taghit|b[ée]char|saoura|zousfana/i },
 };
 
 function placesIn(text) {

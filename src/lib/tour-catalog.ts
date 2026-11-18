@@ -14,7 +14,10 @@ export const SITE = 'https://algeriacompass.com';
 
 // Saharan regions that qualify a programme for the visa-on-arrival route
 // (owner-confirmed 2026-10-03: any organised programme that includes the Sahara).
-const SAHARA = new Set(['djanet', 'illizi', 'tamanrasset', 'ghardaia', 'timimoun']);
+// Wilayas whose tours qualify for the visa on arrival (an organised programme in
+// the Sahara). Béchar added 2026-11-18 for Taghit: it is one of the 24 southern
+// wilayas named in the official notice.
+const SAHARA = new Set(['djanet', 'illizi', 'tamanrasset', 'ghardaia', 'timimoun', 'bechar']);
 
 const LOCAL: Record<string, any> = { fr: TOURS_FR, it: TOURS_IT, es: TOURS_ES, de: TOURS_DE };
 

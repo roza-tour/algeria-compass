@@ -307,6 +307,16 @@ export const PHOTO_ALT: Record<string, string> = {
   "hoggar-5": "Golden light on the rocks and peaks of the Hoggar",
   "hoggar-6": "The stone hermitage of Charles de Foucauld on the Assekrem plateau",
   "hoggar-7": "The stone path up the Assekrem, with the mountains of the Hoggar beyond",
+  // taghit (Wikimedia Commons, see PHOTO_CREDIT)
+  "taghit-1": "The palm grove of Taghit at the foot of a great dune of the Grand Erg Occidental",
+  "taghit-2": "A lone date palm and young palms against a golden dune at Taghit",
+  "taghit-3": "Dunes and palm trees in the oasis of Taghit",
+  "taghit-4": "Rippled crests of the dunes of the Grand Erg near Taghit",
+  "taghit-5": "A palm-leaf shade and chairs among the golden dunes of Taghit",
+  "taghit-6": "Smooth dunes of the Grand Erg Occidental under a blue sky at Taghit",
+  "taghit-7": "The dense palm grove of Taghit along the Oued Zousfana",
+  "taghit-8": "A long dune ridge running across the sand sea at Taghit",
+  "taghit-9": "The sea of dunes of the Grand Erg Occidental around Taghit",
 };
 
 // Best photos first, per place. Numbers not listed follow in numeric order.
@@ -361,6 +371,15 @@ export function tourGallery(slugs: string[], files: string[], cap = 18): { file:
 // Photos that are not our own: free-licensed photographs (Wikimedia Commons),
 // keyed like PHOTO_ALT. Shown under the gallery by PhotoCredits.astro.
 export const PHOTO_CREDIT: Record<string, { author: string; license: string; licenseUrl: string; source: string }> = {
+  "taghit-1": { author: "LBM1948", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Taghit_04.jpg" },
+  "taghit-2": { author: "LBM1948", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Taghit_08.jpg" },
+  "taghit-3": { author: "Zinou2go", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", source: "https://commons.wikimedia.org/wiki/File:Des_dunes_et_des_palmiers_%C3%A0_Taghit.JPG" },
+  "taghit-4": { author: "LBM1948", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Taghit_13.jpg" },
+  "taghit-5": { author: "Khaled Si Fodil", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", source: "https://commons.wikimedia.org/wiki/File:Golden_Dunes_in_Taghit_(_Bechar_).jpg" },
+  "taghit-6": { author: "Zinou2go", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", source: "https://commons.wikimedia.org/wiki/File:Des_dunes_de_sable_en_plein_erg_occidental_%C3%A0_Taghit.JPG" },
+  "taghit-7": { author: "LBM1948", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Taghit_05.jpg" },
+  "taghit-8": { author: "LBM1948", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Taghit_14.jpg" },
+  "taghit-9": { author: "LBM1948", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Taghit_4.jpg" },
   "hoggar-1": { author: "Mohammed Amri", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:%D8%A7%D8%B3%D9%83%D8%B1%D8%A7%D9%85_2_-_%D8%AA%D9%85%D9%86%D8%B1%D8%A7%D8%B3%D8%AA.jpg" },
   "hoggar-2": { author: "Btsrbss", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:AssekremTamanrasset.jpg" },
   "hoggar-3": { author: "Bouslah Lotfi", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Le_soleil_se_l%C3%A8ve_%C3%A0_Assekrem.jpg" },

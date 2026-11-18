@@ -3082,6 +3082,110 @@
     "whatsapp": "https://wa.me/213784193176",
     "email": "hello@algeriacompass.com"
    }
+  },
+  {
+   "id": "taghit-saoura-dunes",
+   "title": "Taghit & the Saoura — Dunes of the Grand Erg (4 Days)",
+   "url": "https://algeriacompass.com/tours/taghit-saoura-dunes/",
+   "urls": {
+    "en": "https://algeriacompass.com/tours/taghit-saoura-dunes/",
+    "fr": "https://algeriacompass.com/fr/circuits/taghit-saoura-dunes/",
+    "it": "https://algeriacompass.com/it/circuiti/taghit-saoura-dunes/",
+    "es": "https://algeriacompass.com/es/circuitos/taghit-saoura-dunes/",
+    "de": "https://algeriacompass.com/de/reisen/taghit-saoura-dunes/"
+   },
+   "text_version": "https://algeriacompass.com/tours/taghit-saoura-dunes.txt",
+   "duration_days": 4,
+   "nights": 3,
+   "price": {
+    "amount": 394,
+    "currency": "EUR",
+    "per": "person",
+    "from": true,
+    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+   },
+   "starts_in": "Béchar Airport",
+   "regions": [
+    "bechar"
+   ],
+   "theme": "sahara",
+   "summary": "Four days in Taghit, where a palm grove and an old ksar sit at the foot of the great dunes of the Grand Erg Occidental, with 4x4 days in the sand.",
+   "best_season": "October–April (mild days, cold desert nights)",
+   "highlights": [
+    "The old ksar of Taghit above the Oued Zousfana",
+    "The palm grove and gardens of the oasis",
+    "Sunset from the great dune",
+    "A day by 4x4 in the Grand Erg Occidental",
+    "The rock engravings near Taghit",
+    "Nights in a traditional guesthouse"
+   ],
+   "itinerary": [
+    {
+     "day": 1,
+     "title": "Béchar to Taghit",
+     "places": [
+      "Béchar airport",
+      "The hamada",
+      "Taghit at dusk"
+     ]
+    },
+    {
+     "day": 2,
+     "title": "The ksar and the palm grove",
+     "places": [
+      "The ksar of Taghit",
+      "The palm grove",
+      "The great dune"
+     ]
+    },
+    {
+     "day": 3,
+     "title": "A day in the Grand Erg",
+     "places": [
+      "Into the erg",
+      "Tea in the sand",
+      "The last light"
+     ]
+    },
+    {
+     "day": 4,
+     "title": "Back to Béchar",
+     "places": [
+      "A morning in the oasis",
+      "The road back",
+      "Departure"
+     ]
+    }
+   ],
+   "includes": [
+    "Airport pickup and drop-off in Béchar",
+    "Private vehicle and 4x4 for the day in the erg",
+    "3 nights in a traditional guesthouse in Taghit",
+    "Breakfast and dinner every day, lunch on day 3",
+    "Local guide",
+    "Entrance fees and local taxes"
+   ],
+   "excludes": [
+    "Domestic flight Algiers – Béchar (optional)",
+    "Other lunches and drinks",
+    "Tips"
+   ],
+   "private": true,
+   "guide_languages": [
+    "English",
+    "French",
+    "Spanish",
+    "Italian",
+    "Arabic",
+    "German",
+    "Russian"
+   ],
+   "visa_on_arrival_eligible": true,
+   "book": {
+    "request_url": "https://algeriacompass.com/contact/?tour=taghit-saoura-dunes",
+    "whatsapp": "https://wa.me/213784193176",
+    "email": "hello@algeriacompass.com"
+   }
   }
  ],
  "updated": "2026-11-18"

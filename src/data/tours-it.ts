@@ -4411,6 +4411,150 @@ export const TOURS_IT: Record<string, TourIt> = {
         "a": "Sì, con i voli interni: l'Hoggar e il Tassili sono i due grandi Sahara di montagna dell'Algeria e insieme formano un magnifico viaggio di due settimane."
       }
     ]
+  },
+  "taghit-saoura-dunes": {
+    "title": "Taghit e la Saoura — le dune del Grande Erg (4 giorni)",
+    "duration": "4 giorni · 3 notti",
+    "hook": "Uno ksar di terra, un nastro di palme e, subito dietro, le dune più alte del Sahara occidentale.",
+    "full": true,
+    "seoTitle": "Tour di Taghit 4 giorni — ksar, palmeto e Grande Erg",
+    "seoDescription": "Tour privato di 4 giorni a Taghit: il vecchio ksar, il palmeto dell'oued Zousfana, il tramonto dalla grande duna e una giornata in 4x4 nel Grande Erg.",
+    "overview": "Taghit è il gioiello della valle della Saoura, nel sud-ovest dell'Algeria. Il suo vecchio ksar di terra e pietra sale su uno sperone roccioso sopra l'oued Zousfana, un lungo palmeto segue il fiume e subito dietro si alzano le dune del Grande Erg Occidentale, tra le più alte del Sahara occidentale. Quattro giorni per percorrere le viuzze dello ksar e gli orti dell'oasi, salire sulla grande duna per il tramonto e partire in 4x4 nell'erg per una giornata tra le sabbie, con il tè e il pranzo all'ombra e le notti in una guesthouse tradizionale.",
+    "highlights": [
+      "Il vecchio ksar di Taghit sopra l'oued Zousfana",
+      "Il palmeto e gli orti dell'oasi",
+      "Il tramonto dalla grande duna",
+      "Una giornata in 4x4 nel Grande Erg Occidentale",
+      "Le incisioni rupestri vicino a Taghit",
+      "Notti in una guesthouse tradizionale"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Da Béchar a Taghit",
+        "body": "Arrivo all'aeroporto di Béchar e strada per Taghit attraverso la hamada pietrosa, la prima vista delle dune e la sera nell'oasi.",
+        "stops": [
+          {
+            "place": "L'aeroporto di Béchar",
+            "text": "Accoglienza della nostra squadra e strada verso sud-ovest fino a Taghit."
+          },
+          {
+            "place": "La hamada",
+            "text": "L'altopiano pietroso della Saoura, finché le dune appaiono all'orizzonte."
+          },
+          {
+            "place": "Taghit al tramonto",
+            "text": "La prima sera alla guesthouse, ai margini della sabbia."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Lo ksar e il palmeto",
+        "body": "Il vecchio ksar di Taghit e le sue viuzze, il palmeto e gli orti lungo l'oued Zousfana, le incisioni rupestri vicino all'oasi e il tramonto dalla grande duna.",
+        "stops": [
+          {
+            "place": "Lo ksar di Taghit",
+            "text": "Viuzze di terra, passaggi coperti e la vista dalla cima del vecchio villaggio."
+          },
+          {
+            "place": "Il palmeto",
+            "text": "Palme da dattero e orti irrigati dall'oued Zousfana."
+          },
+          {
+            "place": "La grande duna",
+            "text": "Una salita al vostro ritmo per il tramonto sull'erg e sull'oasi."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Una giornata nel Grande Erg",
+        "body": "In 4x4 tra le dune del Grande Erg Occidentale, con camminate nella sabbia, il tè e il pranzo all'ombra e l'ultima luce sulle dune.",
+        "stops": [
+          {
+            "place": "Nell'erg",
+            "text": "Piste tra le dune, lontano dall'oasi."
+          },
+          {
+            "place": "Il tè nella sabbia",
+            "text": "Il pranzo e il tè preparati dalla squadra, all'ombra."
+          },
+          {
+            "place": "L'ultima luce",
+            "text": "Il tramonto sul mare di sabbia prima del ritorno a Taghit."
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Ritorno a Béchar",
+        "body": "Un'ultima passeggiata nell'oasi, poi la strada del ritorno verso l'aeroporto di Béchar.",
+        "stops": [
+          {
+            "place": "Una mattina nell'oasi",
+            "text": "Un'ultima passeggiata nel palmeto."
+          },
+          {
+            "place": "La strada del ritorno",
+            "text": "Attraverso la hamada fino a Béchar."
+          },
+          {
+            "place": "Partenza",
+            "text": "Trasferimento all'aeroporto di Béchar."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Accoglienza e trasferimento all'aeroporto di Béchar",
+      "Veicolo privato e 4x4 per la giornata nell'erg",
+      "3 notti in una guesthouse tradizionale a Taghit",
+      "Colazione e cena ogni giorno, pranzo il 3° giorno",
+      "Guida locale",
+      "Ingressi e tasse locali"
+    ],
+    "excludes": [
+      "Volo interno Algeri – Béchar (facoltativo)",
+      "Altri pranzi e bevande",
+      "Mance"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Stagione migliore",
+        "value": "Ottobre–aprile (giornate miti, notti fredde nel deserto)"
+      },
+      {
+        "label": "Ritmo",
+        "value": "Da facile a moderato (la salita sulla duna è facoltativa)"
+      },
+      {
+        "label": "Stile",
+        "value": "Privato, guidato, 3 notti in guesthouse tradizionale con colazione e cena"
+      },
+      {
+        "label": "Da portare",
+        "value": "Protezione solare, una sciarpa contro la sabbia, strati caldi per la sera"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Come si arriva a Taghit?",
+        "a": "Con un volo interno da Algeri a Béchar; Taghit è a circa un'ora e mezza di strada e vi accogliamo all'aeroporto di Béchar."
+      },
+      {
+        "q": "Con questo tour si può avere il visto all'arrivo?",
+        "a": "Sì. Taghit è nel Sahara: prepariamo l'autorizzazione (45 dollari) e il visto viene rilasciato all'arrivo all'aeroporto di Algeri."
+      },
+      {
+        "q": "Bisogna salire sulla grande duna?",
+        "a": "No. La salita è facoltativa e al vostro ritmo; la vista dai piedi della duna e dallo ksar è altrettanto bella."
+      },
+      {
+        "q": "Quali sono i periodi più affollati a Taghit?",
+        "a": "Le vacanze scolastiche algerine e il Capodanno portano molti visitatori dal nord. Fuori da quelle date l'oasi è molto tranquilla."
+      }
+    ]
   }
 };
 

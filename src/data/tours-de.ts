@@ -4410,5 +4410,149 @@ export const TOURS_DE: Record<string, TourDe> = {
         "a": "Ja, mit Inlandsflügen: Der Hoggar und der Tassili sind die beiden großen Bergsaharas Algeriens und ergeben zusammen eine großartige zweiwöchige Reise."
       }
     ]
+  },
+  "taghit-saoura-dunes": {
+    "title": "Taghit und die Saoura — die Dünen des Grand Erg (4 Tage)",
+    "duration": "4 Tage · 3 Nächte",
+    "hook": "Ein Ksar aus Lehm, ein Band aus Palmen und gleich dahinter die höchsten Dünen der westlichen Sahara.",
+    "full": true,
+    "seoTitle": "Taghit-Reise 4 Tage — Ksar, Palmenhain und Grand Erg",
+    "seoDescription": "Private 4-Tage-Reise nach Taghit: der alte Ksar, der Palmenhain am Oued Zousfana, Sonnenuntergang auf der großen Düne und ein Tag im Grand Erg.",
+    "overview": "Taghit ist das Juwel des Saoura-Tals im Südwesten Algeriens. Sein alter Ksar aus Lehm und Stein klettert einen Felssporn über dem Oued Zousfana hinauf, ein langer Palmenhain folgt dem Fluss, und gleich dahinter erheben sich die Dünen des Grand Erg Occidental, die zu den höchsten der westlichen Sahara gehören. Vier Tage, um durch die Gassen des Ksar und die Gärten der Oase zu gehen, die große Düne zum Sonnenuntergang zu besteigen und mit dem Geländewagen für einen Tag ins Erg zu fahren, mit Tee und Mittagessen im Schatten und Nächten in einem traditionellen Gästehaus.",
+    "highlights": [
+      "Der alte Ksar von Taghit über dem Oued Zousfana",
+      "Der Palmenhain und die Gärten der Oase",
+      "Sonnenuntergang von der großen Düne",
+      "Ein Tag im Geländewagen im Grand Erg Occidental",
+      "Die Felsgravuren bei Taghit",
+      "Nächte in einem traditionellen Gästehaus"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Von Béchar nach Taghit",
+        "body": "Ankunft am Flughafen Béchar und Fahrt nach Taghit durch die steinige Hamada, der erste Blick auf die Dünen und der Abend in der Oase.",
+        "stops": [
+          {
+            "place": "Flughafen Béchar",
+            "text": "Empfang durch unser Team und Fahrt nach Südwesten bis Taghit."
+          },
+          {
+            "place": "Die Hamada",
+            "text": "Die steinige Hochebene der Saoura, bis die Dünen am Horizont auftauchen."
+          },
+          {
+            "place": "Taghit in der Dämmerung",
+            "text": "Der erste Abend im Gästehaus, am Rand des Sandes."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Der Ksar und der Palmenhain",
+        "body": "Der alte Ksar von Taghit und seine Gassen, der Palmenhain und die Gärten am Oued Zousfana, die Felsgravuren bei der Oase und der Sonnenuntergang von der großen Düne.",
+        "stops": [
+          {
+            "place": "Der Ksar von Taghit",
+            "text": "Lehmgassen, überdachte Durchgänge und der Blick von der Spitze des alten Dorfes."
+          },
+          {
+            "place": "Der Palmenhain",
+            "text": "Dattelpalmen und Gärten, bewässert vom Oued Zousfana."
+          },
+          {
+            "place": "Die große Düne",
+            "text": "Ein Aufstieg in Ihrem Tempo zum Sonnenuntergang über Erg und Oase."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Ein Tag im Grand Erg",
+        "body": "Im Geländewagen in die Dünen des Grand Erg Occidental, mit Spaziergängen im Sand, Tee und Mittagessen im Schatten und dem letzten Licht über den Dünen.",
+        "stops": [
+          {
+            "place": "Ins Erg",
+            "text": "Pisten zwischen den Dünen, weit weg von der Oase."
+          },
+          {
+            "place": "Tee im Sand",
+            "text": "Mittagessen und Tee, vom Team im Schatten zubereitet."
+          },
+          {
+            "place": "Das letzte Licht",
+            "text": "Sonnenuntergang über dem Sandmeer vor der Rückkehr nach Taghit."
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Zurück nach Béchar",
+        "body": "Ein letzter Spaziergang in der Oase, dann die Rückfahrt zum Flughafen Béchar.",
+        "stops": [
+          {
+            "place": "Ein Morgen in der Oase",
+            "text": "Ein letzter Gang durch den Palmenhain."
+          },
+          {
+            "place": "Die Rückfahrt",
+            "text": "Über die Hamada nach Béchar."
+          },
+          {
+            "place": "Abreise",
+            "text": "Transfer zum Flughafen Béchar."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Abholung und Transfer zum Flughafen Béchar",
+      "Privates Fahrzeug und Geländewagen für den Tag im Erg",
+      "3 Nächte in einem traditionellen Gästehaus in Taghit",
+      "Frühstück und Abendessen jeden Tag, Mittagessen am 3. Tag",
+      "Örtlicher Reiseleiter",
+      "Eintritte und örtliche Abgaben"
+    ],
+    "excludes": [
+      "Inlandsflug Algier – Béchar (optional)",
+      "Weitere Mittagessen und Getränke",
+      "Trinkgelder"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Beste Reisezeit",
+        "value": "Oktober–April (milde Tage, kalte Wüstennächte)"
+      },
+      {
+        "label": "Tempo",
+        "value": "Leicht bis mittel (der Aufstieg auf die Düne ist freiwillig)"
+      },
+      {
+        "label": "Stil",
+        "value": "Privat, geführt, 3 Nächte im traditionellen Gästehaus mit Frühstück und Abendessen"
+      },
+      {
+        "label": "Mitbringen",
+        "value": "Sonnenschutz, ein Tuch gegen den Sand, warme Kleidung für den Abend"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Wie kommt man nach Taghit?",
+        "a": "Mit einem Inlandsflug von Algier nach Béchar; Taghit liegt etwa anderthalb Autostunden entfernt, und wir empfangen Sie am Flughafen Béchar."
+      },
+      {
+        "q": "Bekommt man mit dieser Reise das Visum bei Ankunft?",
+        "a": "Ja. Taghit liegt in der Sahara: Wir bereiten die Genehmigung vor (45 US-Dollar), und das Visum wird bei der Ankunft am Flughafen Algier ausgestellt."
+      },
+      {
+        "q": "Muss man die große Düne besteigen?",
+        "a": "Nein. Der Aufstieg ist freiwillig und in Ihrem Tempo; der Blick vom Fuß der Düne und vom Ksar ist genauso schön."
+      },
+      {
+        "q": "Wann ist in Taghit am meisten los?",
+        "a": "Die algerischen Schulferien und Neujahr bringen viele Besucher aus dem Norden. Außerhalb dieser Zeiten ist die Oase sehr ruhig."
+      }
+    ]
   }
 };

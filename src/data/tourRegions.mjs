@@ -36,6 +36,7 @@ export const TOUR_REGION = {
   'annaba-hippo-regius-coast': 'constantine',
   'biskra-aures-oases': 'bousaada',
   'tamanrasset-assekrem-hoggar': 'sahara',
+  'taghit-saoura-dunes': 'sahara',
 };
 
 const BY_WILAYA = {
