@@ -1,0 +1,28 @@
+---
+// The photograph shown under the quick answer of a travel-question page.
+import { QUESTION_PHOTO, EXTRA_ALT } from '../data/questionPhotos';
+import { PHOTO_ALT, PHOTO_CREDIT } from '../data/tour-photos';
+import { photoAlt } from '../data/photoAlts.mjs';
+import { smWebp } from '../lib/imageSize';
+export interface Props { slug: string; lang?: string }
+const { slug, lang = 'en' } = Astro.props;
+const src = QUESTION_PHOTO[slug];
+const key = src ? src.replace(/^.*\//, '').replace(/\.jpg$/i, '') : '';
+const en = src ? (EXTRA_ALT[src] || PHOTO_ALT[key] || '') : '';
+const alt = src ? (lang === 'en' ? en : photoAlt(src, lang, en)) : '';
+const webp = src ? smWebp(src) : null;
+const credit = src ? PHOTO_CREDIT[key] : undefined;
+const BY: Record<string, string> = { en: 'Photo', fr: 'Photo', it: 'Foto', es: 'Foto', de: 'Foto' };
+---
+{src && (
+  <figure class="q-photo">
+    <picture>{webp && <source srcset={webp} type="image/webp" />}<img src={src} alt={alt} width="1200" height="800" loading="eager" decoding="async" /></picture>
+    {credit && <figcaption>{BY[lang] || 'Photo'}: <a href={credit.source} target="_blank" rel="noopener nofollow">{credit.author}</a> (<a href={credit.licenseUrl} target="_blank" rel="noopener nofollow license">{credit.license}</a>), Wikimedia Commons</figcaption>}
+  </figure>
+)}
+<style>
+  .q-photo{margin:1.2rem 0 1.4rem}
+  .q-photo img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:14px}
+  .q-photo figcaption{margin-top:.4rem;font-size:.76rem;color:var(--text-l,#6b6b63)}
+  .q-photo figcaption a{color:inherit;text-decoration:underline}
+</style>

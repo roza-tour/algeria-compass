@@ -1,0 +1,56 @@
+// One photograph per travel question, chosen to match its subject. Every
+// question page used to be text only. Paths are our own photographs (or the
+// free-licensed tour photos credited in PHOTO_CREDIT); the English description
+// comes from PHOTO_ALT and the other languages from photoAlts*.mjs.
+const T = '/assets/img/tours/';
+export const QUESTION_PHOTO: Record<string, string> = {
+  'are-there-atms-in-algeria': T + 'algiers-5.jpg',
+  'are-there-domestic-flights-in-algeria': T + 'hoggar-2.jpg',
+  'can-i-get-an-algeria-visa-on-arrival': T + 'djanet-29.jpg',
+  'can-i-use-credit-cards-in-algeria': T + 'ghardaia-8.jpg',
+  'can-i-visit-algeria-without-a-tour-guide': T + 'algiers-17.jpg',
+  'can-tourists-drive-in-algeria': T + 'bejaia-8.jpg',
+  'can-vegetarians-eat-well-in-algeria': T + 'mostaganem-2.jpg',
+  'can-you-drink-the-tap-water-in-algeria': T + 'algiers-14.jpg',
+  'can-you-visit-algeria-during-ramadan': T + 'constantine-16.jpg',
+  'do-i-need-a-visa-for-algeria': T + 'algiers-9.jpg',
+  'do-i-need-an-invitation-letter-for-an-algeria-visa': T + 'algiers-22.jpg',
+  'do-i-need-vaccinations-for-algeria': T + 'algiers-4.jpg',
+  'do-people-speak-english-in-algeria': T + 'ghardaia-15.jpg',
+  'do-you-tip-in-algeria': T + 'ghardaia-14.jpg',
+  'does-algeria-have-an-evisa': T + 'taghit-1.jpg',
+  'does-algeria-have-good-internet-and-mobile-coverage': T + 'hoggar-4.jpg',
+  'how-do-you-get-around-in-algeria': T + 'constantine-3.jpg',
+  'how-do-you-get-from-algiers-airport-to-the-city': T + 'algiers-11.jpg',
+  'how-long-does-an-algeria-visa-take': T + 'algiers-26.jpg',
+  'how-many-days-do-you-need-in-algeria': T + 'djemila-3.jpg',
+  'how-much-cash-should-i-bring-to-algeria': T + 'ghardaia-7.jpg',
+  'how-much-does-a-trip-to-algeria-cost': T + 'tlemcen-6.jpg',
+  'is-alcohol-available-in-algeria': T + 'oran-4.jpg',
+  'is-algeria-a-good-winter-destination': T + 'kabylie-3.jpg',
+  'is-algeria-safe-for-solo-female-travellers': T + 'djanet-26.jpg',
+  'is-algeria-safe': T + 'constantine-20.jpg',
+  'is-algeria-worth-visiting': T + 'batna-timgad-14.jpg',
+  'is-algiers-safe-to-walk-around': T + 'algiers-16.jpg',
+  'is-photography-allowed-in-algeria': T + 'constantine-23.jpg',
+  'is-the-algerian-sahara-safe': T + 'djanet-3.jpg',
+  'is-the-food-in-algeria-halal': '/assets/img/sweets/algeria-sweets-20.jpg',
+  'is-there-a-train-network-in-algeria': T + 'constantine-2.jpg',
+  'what-are-algerias-unesco-world-heritage-sites': T + 'ghardaia-6.jpg',
+  'what-are-the-customs-and-etiquette-in-algeria': T + 'constantine-25.jpg',
+  'what-currency-does-algeria-use': T + 'ghardaia-10.jpg',
+  'what-is-algeria-famous-for': T + 'constantine-11.jpg',
+  'what-is-the-best-month-to-visit-the-algerian-sahara': T + 'taghit-3.jpg',
+  'what-is-the-most-beautiful-place-in-algeria': T + 'hoggar-1.jpg',
+  'what-is-the-national-dish-of-algeria': '/assets/img/sweets/algeria-sweets-01.jpg',
+  'what-languages-are-spoken-in-algeria': T + 'kabylie-2.jpg',
+  'what-power-plugs-are-used-in-algeria': T + 'annaba-11.jpg',
+  'what-should-women-wear-in-algeria': T + 'bousaada-23.jpg',
+  'when-is-the-best-time-to-visit-algeria': T + 'biskra-2.jpg',
+  'which-parts-of-algeria-should-tourists-avoid': T + 'kabylie-1.jpg',
+};
+// English descriptions for photos that are not tour photos.
+export const EXTRA_ALT: Record<string, string> = {
+  '/assets/img/sweets/algeria-sweets-20.jpg': 'Diamonds of baklawa, the honey-and-almond pastry served at Algerian celebrations',
+  '/assets/img/sweets/algeria-sweets-01.jpg': 'Seffa, couscous steamed and sweetened with butter, cinnamon and almonds',
+};

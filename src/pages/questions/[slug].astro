@@ -1,4 +1,5 @@
 ---
+import QuestionPhoto from '../../components/QuestionPhoto.astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { ogFallback } from '../../lib/og-image';
@@ -70,6 +71,7 @@ const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/questions/${item.s
     <h1 style="margin:.4rem 0">{d.question}</h1>
     <Byline authorName={author.name} authorHref={author.href} reviewerName={reviewer.name} reviewerHref={reviewer.href} updated={d.updated} lastReviewed={d.lastReviewed} />
     <div class="qbox" id="answer"><b>Quick answer</b><p>{d.shortAnswer}</p></div>
+    <QuestionPhoto slug={item.slug} />
     <div class="prose"><Content /></div>
     <KeyFacts facts={d.keyFacts} />
     <SourceList sources={d.sources} />

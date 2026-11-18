@@ -1,4 +1,5 @@
 ---
+import QuestionPhoto from '../QuestionPhoto.astro';
 // One travel question in a language other than English. The answer comes from
 // questionI18n.mjs; the author, reviewer and date are the English entry's, so
 // both versions carry the same editorial record.
@@ -59,6 +60,7 @@ const related = [...same, ...rest.slice(start), ...rest.slice(0, start)].slice(0
     <span class="eyebrow">{cat}</span>
     <h1 style="margin:.4rem 0 1rem">{t.q}</h1>
     <div class="qbox" id="answer"><b>{U.quick}</b><p>{t.a}</p></div>
+    <QuestionPhoto slug={entry.slug} lang={lang} />
     <div class="lq-body">{t.body.map((p: string) => <p>{p}</p>)}</div>
     <div class="lq-facts">
       <h2>{U.facts}</h2>
