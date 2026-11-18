@@ -299,6 +299,14 @@ export const PHOTO_ALT: Record<string, string> = {
   "biskra-3": "Date palms at the foot of the cliffs in the gorge of El Kantara, the Mouth of the Sahara",
   "biskra-4": "The old stone bridge across the gorge of El Kantara, with tunnels cut into the cliffs",
   "biskra-5": "An old mosque on a bend of the river at the bottom of the Ghoufi canyon",
+  // hoggar (Wikimedia Commons, see PHOTO_CREDIT)
+  "hoggar-1": "The golden peaks of the Atakor rising out of the haze, seen from the Assekrem",
+  "hoggar-2": "Volcanic needles and a dark peak above the plains of the Hoggar near the Assekrem",
+  "hoggar-3": "The sun rising between the peaks of the Atakor, seen from the Assekrem",
+  "hoggar-4": "Two great volcanic peaks of the Hoggar in the evening light",
+  "hoggar-5": "Golden light on the rocks and peaks of the Hoggar",
+  "hoggar-6": "The stone hermitage of Charles de Foucauld on the Assekrem plateau",
+  "hoggar-7": "The stone path up the Assekrem, with the mountains of the Hoggar beyond",
 };
 
 // Best photos first, per place. Numbers not listed follow in numeric order.
@@ -353,6 +361,13 @@ export function tourGallery(slugs: string[], files: string[], cap = 18): { file:
 // Photos that are not our own: free-licensed photographs (Wikimedia Commons),
 // keyed like PHOTO_ALT. Shown under the gallery by PhotoCredits.astro.
 export const PHOTO_CREDIT: Record<string, { author: string; license: string; licenseUrl: string; source: string }> = {
+  "hoggar-1": { author: "Mohammed Amri", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:%D8%A7%D8%B3%D9%83%D8%B1%D8%A7%D9%85_2_-_%D8%AA%D9%85%D9%86%D8%B1%D8%A7%D8%B3%D8%AA.jpg" },
+  "hoggar-2": { author: "Btsrbss", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:AssekremTamanrasset.jpg" },
+  "hoggar-3": { author: "Bouslah Lotfi", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Le_soleil_se_l%C3%A8ve_%C3%A0_Assekrem.jpg" },
+  "hoggar-4": { author: "Rachid Hamatou", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Assekrem_Peaks_at_Sunset_%E2%80%94_Hoggar_Mountains,_Tamanrasset.jpg" },
+  "hoggar-5": { author: "Joachim Himmeröder", license: "CC BY-SA 2.0 de", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en", source: "https://commons.wikimedia.org/wiki/File:Hoggar.jpg" },
+  "hoggar-6": { author: "Gruban / Patrick Gruban from Munich, Germany", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0", source: "https://commons.wikimedia.org/wiki/File:Ermitage_Foucauld_Algeria.jpg" },
+  "hoggar-7": { author: "Houcine.lk", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", source: "https://commons.wikimedia.org/wiki/File:Assekrem_(ahaggar_national_park).jpg" },
   "biskra-1": { author: "Bernard Gagnon", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", source: "https://commons.wikimedia.org/wiki/File:Canyon_de_Ghoufi_02.jpg" },
   "biskra-2": { author: "Bernard Gagnon", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", source: "https://commons.wikimedia.org/wiki/File:Palmeraie_d%27El_Kantara_05.jpg" },
   "biskra-3": { author: "Dan Sloan", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0", source: "https://commons.wikimedia.org/wiki/File:Mouth_of_the_Sahara_(15687085959).jpg" },

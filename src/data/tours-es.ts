@@ -4247,5 +4247,168 @@ export const TOURS_ES: Record<string, TourEs> = {
         "a": "Sí. Timgad y Batna están en el camino hacia el norte: este circuito se combina de forma natural con nuestro circuito Constantina y Timgad."
       }
     ]
+  },
+  "tamanrasset-assekrem-hoggar": {
+    "title": "Tamanrasset y el Assekrem — el Hoggar (5 días)",
+    "duration": "5 días · 4 noches",
+    "hook": "El corazón volcánico del Sáhara: las agujas del Atakor, la ermita del Assekrem y uno de los amaneceres más famosos del mundo.",
+    "full": true,
+    "seoTitle": "Circuito Hoggar 5 días — Tamanrasset y el Assekrem",
+    "seoDescription": "Circuito privado de 5 días por el Hoggar: Tamanrasset, los picos volcánicos del Atakor, el amanecer en el Assekrem y la ermita de Charles de Foucauld.",
+    "overview": "El Hoggar es el otro gran Sáhara de Argelia: no arena, sino un mar de picos volcánicos que se elevan hasta casi 3.000 metros. Desde Tamanrasset, la capital tuareg del extremo sur, nuestros 4x4 suben al macizo del Atakor, donde agujas y órganos de basalto dominan valles secos y pozas de agua. A 2.780 metros, en la meseta del Assekrem, Charles de Foucauld construyó su ermita en 1911, y la vista que eligió sigue siendo la razón del viaje: el alba sobre cientos de cumbres. Cinco días con un equipo tuareg, noches en el refugio del Assekrem y en campamentos del desierto, y visado a la llegada.",
+    "highlights": [
+      "Los picos y agujas volcánicas del Atakor",
+      "El amanecer en la meseta del Assekrem, a 2.780 m",
+      "La ermita de Charles de Foucauld",
+      "La guelta de Afilal y los valles del Hoggar",
+      "Tamanrasset, la capital tuareg del extremo sur",
+      "Noches de campamento bajo las estrellas"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Tamanrasset",
+        "body": "Llegada al aeropuerto de Tamanrasset, bienvenida de nuestro equipo tuareg, la ciudad al pie del Hoggar y su mercado, cena y noche en Tamanrasset.",
+        "stops": [
+          {
+            "place": "Tamanrasset",
+            "text": "La capital tuareg del extremo sur, al pie de las montañas del Hoggar."
+          },
+          {
+            "place": "El mercado",
+            "text": "Especias, joyas de plata y mercancías de todo el Sáhara."
+          },
+          {
+            "place": "La cena de bienvenida",
+            "text": "Una primera velada con el equipo que les guiará por la montaña."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Hacia el Atakor",
+        "body": "En 4x4 por el macizo volcánico del Atakor, pasando por la guelta de Afilal, hasta la meseta del Assekrem para el atardecer y la noche en el refugio.",
+        "stops": [
+          {
+            "place": "La guelta de Afilal",
+            "text": "Una poza de agua entre los granitos de un valle de montaña, algo raro en el desierto."
+          },
+          {
+            "place": "El Atakor",
+            "text": "Agujas y órganos de basalto sobre los valles secos del Hoggar."
+          },
+          {
+            "place": "El Assekrem al atardecer",
+            "text": "La última luz sobre cientos de cumbres, desde 2.780 metros."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Amanecer en el Assekrem",
+        "body": "El alba sobre el Atakor desde la meseta, la ermita de Charles de Foucauld y el descenso por los valles del Hoggar hasta un campamento en el desierto.",
+        "stops": [
+          {
+            "place": "El amanecer",
+            "text": "El célebre amanecer del Assekrem, con las cumbres surgiendo una a una de la oscuridad."
+          },
+          {
+            "place": "La ermita de Foucauld",
+            "text": "La ermita de piedra construida en 1911, con su pequeña capilla y la vista que él eligió."
+          },
+          {
+            "place": "Los valles del Hoggar",
+            "text": "Cauces secos con tarays y acacias entre las colinas volcánicas; noche de campamento bajo las estrellas."
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "El Hoggar en la luz",
+        "body": "Un día de 4x4 y caminatas fáciles por los paisajes volcánicos del Hoggar, con una larga parada a la sombra a mediodía y una última noche de campamento.",
+        "stops": [
+          {
+            "place": "Paisajes volcánicos",
+            "text": "Coladas de lava negra, cúpulas de granito y agujas bajo una luz cambiante."
+          },
+          {
+            "place": "La parada del mediodía",
+            "text": "El té y el almuerzo preparados por el equipo, a la sombra de las rocas."
+          },
+          {
+            "place": "El último vivac",
+            "text": "Una última noche de campamento, lejos de cualquier luz."
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Regreso a Tamanrasset",
+        "body": "El camino de vuelta a Tamanrasset y el traslado al aeropuerto para el vuelo a Argel.",
+        "stops": [
+          {
+            "place": "El camino de vuelta",
+            "text": "A través de las llanuras del Hoggar hasta Tamanrasset."
+          },
+          {
+            "place": "Salida",
+            "text": "Traslado al aeropuerto de Tamanrasset."
+          },
+          {
+            "place": "Vuelo a Argel",
+            "text": "Unas 2 horas y media de vuelo hasta la capital."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Recogida y traslado al aeropuerto de Tamanrasset",
+      "Vehículo 4x4 con conductor durante todo el circuito",
+      "Guía tuareg local",
+      "Pensión completa (desayuno, almuerzo y cena) y agua embotellada",
+      "1 noche en Tamanrasset, 1 noche en el refugio del Assekrem y 2 noches en campamentos del desierto con el equipo de acampada",
+      "Permisos del Parque Nacional del Ahaggar"
+    ],
+    "excludes": [
+      "Vuelo interno Argel – Tamanrasset (opcional)",
+      "Bebidas distintas del agua",
+      "Propinas"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Mejor época",
+        "value": "Octubre–abril (noches frías en el Assekrem en invierno)"
+      },
+      {
+        "label": "Ritmo",
+        "value": "Moderado (pistas en 4x4, caminatas cortas en altura)"
+      },
+      {
+        "label": "Estilo",
+        "value": "Privado, guiado, 1 noche en Tamanrasset, 1 en el refugio del Assekrem y 2 en campamentos, pensión completa"
+      },
+      {
+        "label": "Qué llevar",
+        "value": "Ropa de abrigo y un gorro para el amanecer, calzado para caminar, protección solar"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Cómo se llega a Tamanrasset?",
+        "a": "En un vuelo interno directo desde Argel (unas 2 horas y media). Le recibimos en el aeropuerto de Tamanrasset."
+      },
+      {
+        "q": "¿Se puede obtener el visado a la llegada con este circuito?",
+        "a": "Sí. Como el programa es en el Sáhara, preparamos la autorización (45 dólares) y el visado se expide a la llegada al aeropuerto de Argel."
+      },
+      {
+        "q": "¿Hace frío en el Assekrem?",
+        "a": "A 2.780 metros, las noches de invierno pueden bajar de cero: lleve ropa de abrigo para el amanecer. Los días son soleados y templados."
+      },
+      {
+        "q": "¿Se puede combinar el Hoggar con Djanet?",
+        "a": "Sí, con vuelos internos: el Hoggar y el Tassili son los dos grandes Sáharas de montaña de Argelia, y juntos forman un viaje magnífico de dos semanas."
+      }
+    ]
   }
 };

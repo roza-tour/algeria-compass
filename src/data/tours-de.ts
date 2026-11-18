@@ -4247,5 +4247,168 @@ export const TOURS_DE: Record<string, TourDe> = {
         "a": "Ja. Timgad und Batna liegen auf dem Weg nach Norden: Diese Reise lässt sich gut mit unserer Reise Constantine und Timgad verbinden."
       }
     ]
+  },
+  "tamanrasset-assekrem-hoggar": {
+    "title": "Tamanrasset und der Assekrem — der Hoggar (5 Tage)",
+    "duration": "5 Tage · 4 Nächte",
+    "hook": "Das vulkanische Herz der Sahara: die Felsnadeln des Atakor, die Einsiedelei auf dem Assekrem und einer der berühmtesten Sonnenaufgänge der Welt.",
+    "full": true,
+    "seoTitle": "Hoggar-Reise 5 Tage — Tamanrasset und der Assekrem",
+    "seoDescription": "Private 5-Tage-Reise im Hoggar: Tamanrasset, die Vulkangipfel des Atakor, der Sonnenaufgang auf dem Assekrem und die Einsiedelei von Charles de Foucauld.",
+    "overview": "Der Hoggar ist die andere große Sahara Algeriens: kein Sand, sondern ein Meer aus Vulkangipfeln, die fast 3.000 Meter hoch aufragen. Von Tamanrasset, der Tuareg-Hauptstadt des tiefen Südens, fahren unsere Geländewagen hinauf in das Atakor-Massiv, wo Basaltnadeln und Orgelpfeifen über trockenen Tälern und Felsbecken stehen. Auf 2.780 Metern, auf dem Plateau des Assekrem, baute Charles de Foucauld 1911 seine Einsiedelei, und der Blick, den er wählte, ist noch immer der Grund der Reise: der Morgen, der über Hunderten von Gipfeln anbricht. Fünf Tage mit einem Tuareg-Team, Nächte in der Assekrem-Hütte und in Wüstencamps, und das Visum bei Ankunft.",
+    "highlights": [
+      "Die Vulkangipfel und Felsnadeln des Atakor",
+      "Sonnenaufgang auf dem Assekrem-Plateau in 2.780 m Höhe",
+      "Die Einsiedelei von Charles de Foucauld",
+      "Die Guelta von Afilal und die Täler des Hoggar",
+      "Tamanrasset, die Tuareg-Hauptstadt des tiefen Südens",
+      "Nächte im Camp unter den Sternen"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Tamanrasset",
+        "body": "Ankunft am Flughafen Tamanrasset, Empfang durch unser Tuareg-Team, die Stadt am Fuß des Hoggar und ihr Markt, Abendessen und Nacht in Tamanrasset.",
+        "stops": [
+          {
+            "place": "Tamanrasset",
+            "text": "Die Tuareg-Hauptstadt des tiefen Südens, am Fuß der Hoggar-Berge."
+          },
+          {
+            "place": "Der Markt",
+            "text": "Gewürze, Silberschmuck und Waren aus der ganzen Sahara."
+          },
+          {
+            "place": "Das Begrüßungsessen",
+            "text": "Ein erster Abend mit dem Team, das Sie in die Berge führt."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ins Atakor",
+        "body": "Im Geländewagen in das Vulkanmassiv des Atakor, vorbei an der Guelta von Afilal, hinauf zum Assekrem-Plateau zum Sonnenuntergang und zur Nacht in der Hütte.",
+        "stops": [
+          {
+            "place": "Die Guelta von Afilal",
+            "text": "Ein Felsbecken mit Wasser zwischen den Graniten eines Bergtals, eine Seltenheit in der Wüste."
+          },
+          {
+            "place": "Das Atakor",
+            "text": "Basaltnadeln und Orgelpfeifen über den trockenen Tälern des Hoggar."
+          },
+          {
+            "place": "Der Assekrem bei Sonnenuntergang",
+            "text": "Das letzte Licht über Hunderten von Gipfeln, aus 2.780 Metern Höhe."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Sonnenaufgang auf dem Assekrem",
+        "body": "Der Morgen über dem Atakor vom Plateau aus, die Einsiedelei von Charles de Foucauld, dann hinab durch die Täler des Hoggar zu einem Wüstencamp.",
+        "stops": [
+          {
+            "place": "Der Sonnenaufgang",
+            "text": "Der berühmte Morgen auf dem Assekrem, die Gipfel tauchen einer nach dem anderen aus dem Dunkel auf."
+          },
+          {
+            "place": "Foucaulds Einsiedelei",
+            "text": "Die 1911 erbaute Einsiedelei aus Stein, mit ihrer kleinen Kapelle und dem Blick, den er wählte."
+          },
+          {
+            "place": "Die Täler des Hoggar",
+            "text": "Trockene Flussbetten mit Tamarisken und Akazien zwischen den Vulkanhügeln; Nacht im Camp unter den Sternen."
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Der Hoggar im Licht",
+        "body": "Ein Tag mit Geländewagen und leichten Wanderungen durch die Vulkanlandschaften des Hoggar, mit einer langen Mittagsrast im Schatten und einer letzten Nacht im Camp.",
+        "stops": [
+          {
+            "place": "Vulkanlandschaften",
+            "text": "Schwarze Lavafelder, Granitkuppeln und Felsnadeln in wechselndem Licht."
+          },
+          {
+            "place": "Die Mittagsrast",
+            "text": "Tee und Mittagessen, vom Team im Schatten der Felsen zubereitet."
+          },
+          {
+            "place": "Das letzte Biwak",
+            "text": "Eine letzte Nacht im Camp, fern von jedem Licht."
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Zurück nach Tamanrasset",
+        "body": "Die Rückfahrt nach Tamanrasset und der Transfer zum Flughafen für den Flug nach Algier.",
+        "stops": [
+          {
+            "place": "Die Rückfahrt",
+            "text": "Über die Ebenen des Hoggar nach Tamanrasset."
+          },
+          {
+            "place": "Abreise",
+            "text": "Transfer zum Flughafen Tamanrasset."
+          },
+          {
+            "place": "Flug nach Algier",
+            "text": "Etwa 2,5 Stunden Flug zurück in die Hauptstadt."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Abholung und Transfer zum Flughafen Tamanrasset",
+      "Geländewagen mit Fahrer während der ganzen Reise",
+      "Örtlicher Tuareg-Führer",
+      "Vollpension (Frühstück, Mittag- und Abendessen) und Wasser in Flaschen",
+      "1 Nacht in Tamanrasset, 1 Nacht in der Assekrem-Hütte, 2 Nächte im Wüstencamp mit Campingausrüstung",
+      "Genehmigungen des Ahaggar-Nationalparks"
+    ],
+    "excludes": [
+      "Inlandsflug Algier – Tamanrasset (optional)",
+      "Getränke außer Wasser",
+      "Trinkgelder"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Beste Reisezeit",
+        "value": "Oktober–April (kalte Nächte auf dem Assekrem im Winter)"
+      },
+      {
+        "label": "Tempo",
+        "value": "Mittel (Pisten im Geländewagen, kurze Wanderungen in der Höhe)"
+      },
+      {
+        "label": "Stil",
+        "value": "Privat, geführt, 1 Nacht in Tamanrasset, 1 in der Assekrem-Hütte, 2 im Wüstencamp, Vollpension"
+      },
+      {
+        "label": "Mitbringen",
+        "value": "Warme Kleidung und eine Mütze für den Morgen, Wanderschuhe, Sonnenschutz"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Wie kommt man nach Tamanrasset?",
+        "a": "Mit einem direkten Inlandsflug ab Algier (etwa 2,5 Stunden). Wir empfangen Sie am Flughafen Tamanrasset."
+      },
+      {
+        "q": "Bekommt man mit dieser Reise das Visum bei Ankunft?",
+        "a": "Ja. Da das Programm in der Sahara liegt, bereiten wir die Genehmigung vor (45 US-Dollar), und das Visum wird bei der Ankunft am Flughafen Algier ausgestellt."
+      },
+      {
+        "q": "Wie kalt ist es auf dem Assekrem?",
+        "a": "Auf 2.780 Metern können die Winternächte unter null fallen: Bringen Sie warme Kleidung für den Sonnenaufgang mit. Die Tage sind sonnig und mild."
+      },
+      {
+        "q": "Lässt sich der Hoggar mit Djanet verbinden?",
+        "a": "Ja, mit Inlandsflügen: Der Hoggar und der Tassili sind die beiden großen Bergsaharas Algeriens und ergeben zusammen eine großartige zweiwöchige Reise."
+      }
+    ]
   }
 };

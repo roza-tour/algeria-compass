@@ -35,6 +35,7 @@ export const TOUR_REGION = {
   'algeria-grand-discovery-14-days': 'algiers',
   'annaba-hippo-regius-coast': 'constantine',
   'biskra-aures-oases': 'bousaada',
+  'tamanrasset-assekrem-hoggar': 'sahara',
 };
 
 const BY_WILAYA = {

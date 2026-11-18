@@ -5155,6 +5155,201 @@
         "lat": 34.85,
         "lng": 5.7333
       }
+    },
+    {
+      "id": "tamanrasset-assekrem-hoggar",
+      "title": "Tamanrasset & the Assekrem — Hoggar Mountains (5 Days)",
+      "theme": "sahara",
+      "wilayas": [
+        "tamanrasset"
+      ],
+      "image_slugs": [
+        "hoggar"
+      ],
+      "duration": "5 days · 4 nights",
+      "price_eur": 828,
+      "price_from": true,
+      "per": "person",
+      "start": "Tamanrasset",
+      "summary": "Five days in the Hoggar: Tamanrasset, the volcanic peaks of the Atakor, sunrise on the Assekrem plateau and the hermitage of Charles de Foucauld.",
+      "hook": "The volcanic heart of the Sahara: the needles of the Atakor, the hermitage on the Assekrem and one of the most famous sunrises on earth.",
+      "overview": "The Hoggar is the other great Sahara of Algeria: not sand, but a sea of volcanic peaks rising to almost 3,000 metres. From Tamanrasset, the Tuareg capital of the far south, our 4x4s climb into the Atakor massif, where basalt needles and organ pipes stand above dry valleys and rock pools. At 2,780 metres, on the Assekrem plateau, Charles de Foucauld built his hermitage in 1911, and the view he chose is still the reason to come: dawn breaking over hundreds of peaks. Five days with a Tuareg team, nights at the Assekrem refuge and in desert camps, and a visa on arrival.",
+      "whyDifferent": [
+        {
+          "t": "A Sahara of mountains",
+          "d": "Volcanic needles and basalt organs instead of dunes, unlike anywhere else in the desert."
+        },
+        {
+          "t": "Sunrise on the Assekrem",
+          "d": "Dawn over the peaks of the Atakor from 2,780 metres, the most celebrated view of the Sahara."
+        },
+        {
+          "t": "Foucauld's hermitage",
+          "d": "The stone hermitage of Charles de Foucauld, still kept by the Little Brothers."
+        },
+        {
+          "t": "Visa on arrival",
+          "d": "As a Sahara programme, it qualifies for the visa issued at Algiers airport."
+        }
+      ],
+      "goodToKnow": [
+        {
+          "label": "Best season",
+          "value": "October–April (cold nights on the Assekrem in winter)"
+        },
+        {
+          "label": "Pace",
+          "value": "Moderate (4x4 tracks, short walks at altitude)"
+        },
+        {
+          "label": "Style",
+          "value": "Private, guided, 1 night in Tamanrasset, 1 at the Assekrem refuge, 2 in desert camps, full board"
+        },
+        {
+          "label": "Bring",
+          "value": "Warm layers and a hat for the dawn, walking shoes, sun protection"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How do I get to Tamanrasset?",
+          "a": "By a direct domestic flight from Algiers (about 2.5 hours). We meet you at Tamanrasset airport."
+        },
+        {
+          "q": "Can I get the visa on arrival with this tour?",
+          "a": "Yes. As the programme is in the Sahara, we prepare the authorisation ($45) and the visa is issued on arrival at Algiers airport."
+        },
+        {
+          "q": "How cold is it on the Assekrem?",
+          "a": "At 2,780 metres, winter nights can drop below freezing, so bring warm clothes for the sunrise; the days are sunny and mild."
+        },
+        {
+          "q": "Can I combine the Hoggar with Djanet?",
+          "a": "Yes, with domestic flights: the Hoggar and the Tassili are the two great mountain Saharas of Algeria, and together they make a superb two-week journey."
+        }
+      ],
+      "highlights": [
+        "The volcanic peaks and needles of the Atakor",
+        "Sunrise from the Assekrem plateau at 2,780 m",
+        "The hermitage of Charles de Foucauld",
+        "The guelta of Afilal and the valleys of the Hoggar",
+        "Tamanrasset, the Tuareg capital of the far south",
+        "Nights in desert camps under the stars"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Tamanrasset",
+          "body": "Arrival at Tamanrasset airport, welcome by our Tuareg team, the town at the foot of the Hoggar and its market, dinner and night in Tamanrasset.",
+          "stops": [
+            {
+              "place": "Tamanrasset",
+              "text": "The Tuareg capital of the far south, at the foot of the Hoggar mountains."
+            },
+            {
+              "place": "The market",
+              "text": "Spices, silver jewellery and goods from across the Sahara."
+            },
+            {
+              "place": "Welcome dinner",
+              "text": "A first evening with the team who will guide you into the mountains."
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Into the Atakor",
+          "body": "By 4x4 into the volcanic massif of the Atakor, past the guelta of Afilal, up to the Assekrem plateau for the sunset and the night at the refuge.",
+          "stops": [
+            {
+              "place": "The guelta of Afilal",
+              "text": "A rock pool among the granite of a mountain valley, a rare stretch of water in the desert."
+            },
+            {
+              "place": "The Atakor",
+              "text": "Basalt needles and organ pipes rising above the dry valleys of the Hoggar."
+            },
+            {
+              "place": "The Assekrem at sunset",
+              "text": "The last light over hundreds of peaks, from 2,780 metres."
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Sunrise on the Assekrem",
+          "body": "Dawn over the Atakor from the plateau, the hermitage of Charles de Foucauld, then down through the valleys of the Hoggar to a desert camp.",
+          "stops": [
+            {
+              "place": "Sunrise",
+              "text": "The famous dawn of the Assekrem, the peaks appearing one by one out of the dark."
+            },
+            {
+              "place": "Foucauld's hermitage",
+              "text": "The stone hermitage built in 1911, with its small chapel and the view he chose."
+            },
+            {
+              "place": "The valleys of the Hoggar",
+              "text": "Dry riverbeds of tamarisk and acacia between the volcanic hills; camp under the stars."
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "The Hoggar in the light",
+          "body": "A day of 4x4 and easy walks among the volcanic landscapes of the Hoggar, with a long midday halt in the shade and a last night in a desert camp.",
+          "stops": [
+            {
+              "place": "Volcanic landscapes",
+              "text": "Black lava fields, granite domes and needles in changing light."
+            },
+            {
+              "place": "The midday halt",
+              "text": "Tea and lunch prepared by the team, in the shade of the rocks."
+            },
+            {
+              "place": "Last bivouac",
+              "text": "A final night in camp, far from any light."
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Back to Tamanrasset",
+          "body": "The drive back to Tamanrasset and the transfer to the airport for the flight to Algiers.",
+          "stops": [
+            {
+              "place": "The road back",
+              "text": "Across the plains of the Hoggar to Tamanrasset."
+            },
+            {
+              "place": "Departure",
+              "text": "Transfer to Tamanrasset airport."
+            },
+            {
+              "place": "Flight to Algiers",
+              "text": "About 2.5 hours back to the capital."
+            }
+          ]
+        }
+      ],
+      "includes": [
+        "Airport pickup and drop-off in Tamanrasset",
+        "4x4 vehicle with driver throughout",
+        "Local Tuareg guide",
+        "Full board (breakfast, lunch, dinner) and bottled water",
+        "1 night in Tamanrasset, 1 night at the Assekrem refuge, 2 nights in desert camps with camping equipment",
+        "Ahaggar National Park permits"
+      ],
+      "excludes": [
+        "Domestic flight Algiers – Tamanrasset (optional)",
+        "Drinks other than water",
+        "Tips"
+      ],
+      "map": {
+        "lat": 22.785,
+        "lng": 5.5228
+      }
     }
   ]
 }

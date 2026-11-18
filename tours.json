@@ -2969,7 +2969,120 @@
     "whatsapp": "https://wa.me/213784193176",
     "email": "hello@algeriacompass.com"
    }
+  },
+  {
+   "id": "tamanrasset-assekrem-hoggar",
+   "title": "Tamanrasset & the Assekrem — Hoggar Mountains (5 Days)",
+   "url": "https://algeriacompass.com/tours/tamanrasset-assekrem-hoggar/",
+   "urls": {
+    "en": "https://algeriacompass.com/tours/tamanrasset-assekrem-hoggar/",
+    "fr": "https://algeriacompass.com/fr/circuits/tamanrasset-assekrem-hoggar/",
+    "it": "https://algeriacompass.com/it/circuiti/tamanrasset-assekrem-hoggar/",
+    "es": "https://algeriacompass.com/es/circuitos/tamanrasset-assekrem-hoggar/",
+    "de": "https://algeriacompass.com/de/reisen/tamanrasset-assekrem-hoggar/"
+   },
+   "text_version": "https://algeriacompass.com/tours/tamanrasset-assekrem-hoggar.txt",
+   "duration_days": 5,
+   "nights": 4,
+   "price": {
+    "amount": 828,
+    "currency": "EUR",
+    "per": "person",
+    "from": true,
+    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+   },
+   "starts_in": "Tamanrasset",
+   "regions": [
+    "tamanrasset"
+   ],
+   "theme": "sahara",
+   "summary": "Five days in the Hoggar: Tamanrasset, the volcanic peaks of the Atakor, sunrise on the Assekrem plateau and the hermitage of Charles de Foucauld.",
+   "best_season": "October–April (cold nights on the Assekrem in winter)",
+   "highlights": [
+    "The volcanic peaks and needles of the Atakor",
+    "Sunrise from the Assekrem plateau at 2,780 m",
+    "The hermitage of Charles de Foucauld",
+    "The guelta of Afilal and the valleys of the Hoggar",
+    "Tamanrasset, the Tuareg capital of the far south",
+    "Nights in desert camps under the stars"
+   ],
+   "itinerary": [
+    {
+     "day": 1,
+     "title": "Tamanrasset",
+     "places": [
+      "Tamanrasset",
+      "The market",
+      "Welcome dinner"
+     ]
+    },
+    {
+     "day": 2,
+     "title": "Into the Atakor",
+     "places": [
+      "The guelta of Afilal",
+      "The Atakor",
+      "The Assekrem at sunset"
+     ]
+    },
+    {
+     "day": 3,
+     "title": "Sunrise on the Assekrem",
+     "places": [
+      "Sunrise",
+      "Foucauld's hermitage",
+      "The valleys of the Hoggar"
+     ]
+    },
+    {
+     "day": 4,
+     "title": "The Hoggar in the light",
+     "places": [
+      "Volcanic landscapes",
+      "The midday halt",
+      "Last bivouac"
+     ]
+    },
+    {
+     "day": 5,
+     "title": "Back to Tamanrasset",
+     "places": [
+      "The road back",
+      "Departure",
+      "Flight to Algiers"
+     ]
+    }
+   ],
+   "includes": [
+    "Airport pickup and drop-off in Tamanrasset",
+    "4x4 vehicle with driver throughout",
+    "Local Tuareg guide",
+    "Full board (breakfast, lunch, dinner) and bottled water",
+    "1 night in Tamanrasset, 1 night at the Assekrem refuge, 2 nights in desert camps with camping equipment",
+    "Ahaggar National Park permits"
+   ],
+   "excludes": [
+    "Domestic flight Algiers – Tamanrasset (optional)",
+    "Drinks other than water",
+    "Tips"
+   ],
+   "private": true,
+   "guide_languages": [
+    "English",
+    "French",
+    "Spanish",
+    "Italian",
+    "Arabic",
+    "German",
+    "Russian"
+   ],
+   "visa_on_arrival_eligible": true,
+   "book": {
+    "request_url": "https://algeriacompass.com/contact/?tour=tamanrasset-assekrem-hoggar",
+    "whatsapp": "https://wa.me/213784193176",
+    "email": "hello@algeriacompass.com"
+   }
   }
  ],
- "updated": "2026-11-17"
+ "updated": "2026-11-18"
 }
