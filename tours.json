@@ -3186,6 +3186,101 @@
     "whatsapp": "https://wa.me/213784193176",
     "email": "hello@algeriacompass.com"
    }
+  },
+  {
+   "id": "kabylie-djurdjura-villages",
+   "title": "Kabylie & the Djurdjura — Villages, Cedars and Peaks (3 Days)",
+   "url": "https://algeriacompass.com/tours/kabylie-djurdjura-villages/",
+   "urls": {
+    "en": "https://algeriacompass.com/tours/kabylie-djurdjura-villages/",
+    "fr": "https://algeriacompass.com/fr/circuits/kabylie-djurdjura-villages/",
+    "it": "https://algeriacompass.com/it/circuiti/kabylie-djurdjura-villages/",
+    "es": "https://algeriacompass.com/es/circuitos/kabylie-djurdjura-villages/",
+    "de": "https://algeriacompass.com/de/reisen/kabylie-djurdjura-villages/"
+   },
+   "text_version": "https://algeriacompass.com/tours/kabylie-djurdjura-villages.txt",
+   "duration_days": 3,
+   "nights": 2,
+   "price": {
+    "amount": 378,
+    "currency": "EUR",
+    "per": "person",
+    "from": true,
+    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+   },
+   "starts_in": "Algiers",
+   "regions": [
+    "tizi-ouzou",
+    "bouira"
+   ],
+   "theme": "culture",
+   "summary": "Three days in the mountains of Kabylie: the silversmiths of Ath Yenni, the cedar forests of Tikjda, the peaks of the Djurdjura and hilltop villages.",
+   "best_season": "April–June and September–November for walking; snow on the peaks in winter",
+   "highlights": [
+    "The silversmiths' villages of Ath Yenni",
+    "The Atlas cedar forests of Tikjda",
+    "The peaks of the Djurdjura and Lalla Khedidja",
+    "The lake of Agoulmime",
+    "The traditional village of Aït El Kaïd",
+    "Mountain roads and hilltop views"
+   ],
+   "itinerary": [
+    {
+     "day": 1,
+     "title": "Algiers to Ath Yenni",
+     "places": [
+      "Tizi Ouzou",
+      "Ath Yenni",
+      "The Djurdjura on the horizon"
+     ]
+    },
+    {
+     "day": 2,
+     "title": "Tikjda and the cedars",
+     "places": [
+      "Tikjda",
+      "The cedar forest",
+      "The lake of Agoulmime"
+     ]
+    },
+    {
+     "day": 3,
+     "title": "Villages and the road back",
+     "places": [
+      "Aït El Kaïd",
+      "The mountain roads",
+      "Back to Algiers"
+     ]
+    }
+   ],
+   "includes": [
+    "Pickup and drop-off in Algiers (hotel or airport)",
+    "Private transport with driver",
+    "2 nights in hotels with breakfast",
+    "Licensed guide",
+    "Entrance fees"
+   ],
+   "excludes": [
+    "Lunches and dinners",
+    "Drinks",
+    "Tips"
+   ],
+   "private": true,
+   "guide_languages": [
+    "English",
+    "French",
+    "Spanish",
+    "Italian",
+    "Arabic",
+    "German",
+    "Russian"
+   ],
+   "visa_on_arrival_eligible": false,
+   "book": {
+    "request_url": "https://algeriacompass.com/contact/?tour=kabylie-djurdjura-villages",
+    "whatsapp": "https://wa.me/213784193176",
+    "email": "hello@algeriacompass.com"
+   }
   }
  ],
  "updated": "2026-11-18"

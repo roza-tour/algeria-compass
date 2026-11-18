@@ -37,6 +37,7 @@ export const TOUR_REGION = {
   'biskra-aures-oases': 'bousaada',
   'tamanrasset-assekrem-hoggar': 'sahara',
   'taghit-saoura-dunes': 'sahara',
+  'kabylie-djurdjura-villages': 'bejaia',
 };
 
 const BY_WILAYA = {

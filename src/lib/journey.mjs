@@ -12,7 +12,9 @@
 export const PLACES = {
   algiers:      { region: 'algiers',     name: 'Algiers',     lat: 36.75, lon: 3.06,  re: /\balgiers\b|\bcasbah\b|\bbardo\b|\bhamma\b|notre-dame d|martyrs'/i },
   tipaza:       { region: 'roman',       name: 'Tipaza',      lat: 36.59, lon: 2.3,   re: /tipaza|cherchell/i },
-  bejaia:       { region: 'bejaia',      name: 'Béjaïa',      lat: 36.75, lon: 5.08,  re: /b[ée]ja[ïi]a|kabyl/i },
+  bejaia:       { region: 'bejaia',      name: 'Béjaïa',      lat: 36.75, lon: 5.08,  re: /b[ée]ja[ïi]a|kabyle coast/i },
+  'tizi-ouzou': { region: 'bejaia',      name: 'Tizi Ouzou',  lat: 36.71, lon: 4.05,  re: /tizi ouzou|ath yenni|beni yenni|a[ïi]t el ka[ïi]d|kabylie/i },
+  bouira:       { region: 'bejaia',      name: 'Tikjda',      lat: 36.45, lon: 4.13,  re: /tikjda|djurdjura|agoulmime|lalla khedidja/i },
   setif:        { region: 'roman',       name: 'Sétif',       lat: 36.19, lon: 5.41,  re: /s[ée]tif/i },
   djemila:      { region: 'roman',       name: 'Djémila',     lat: 36.32, lon: 5.74,  re: /dj[ée]mila|cuicul/i },
   constantine:  { region: 'constantine', name: 'Constantine', lat: 36.36, lon: 6.61,  re: /constantine/i },

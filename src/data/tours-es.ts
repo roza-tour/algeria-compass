@@ -4554,5 +4554,129 @@ export const TOURS_ES: Record<string, TourEs> = {
         "a": "Las vacaciones escolares argelinas y el Año Nuevo atraen a muchos visitantes del norte. Fuera de esas fechas el oasis está muy tranquilo."
       }
     ]
+  },
+  "kabylie-djurdjura-villages": {
+    "title": "La Cabilia y el Djurdjura — pueblos, cedros y cumbres (3 días)",
+    "duration": "3 días · 2 noches",
+    "hook": "Pueblos encaramados, la plata de los Ath Yenni y los bosques de cedros del Djurdjura, a dos horas de Argel.",
+    "full": true,
+    "seoTitle": "Circuito Cabilia 3 días — Ath Yenni, Tikjda, Djurdjura",
+    "seoDescription": "Circuito privado de 3 días por la Cabilia: los plateros de Ath Yenni, los cedros de Tikjda, el lago de Agoulmime, las cumbres del Djurdjura y los pueblos.",
+    "overview": "La Cabilia es el corazón montañoso de Argelia y la tierra del pueblo amazigh cabilio. A dos horas al este de Argel, pueblos de tejados rojos coronan cada cresta, los plateros de Ath Yenni siguen haciendo las joyas de plata esmaltada que dieron fama a la región, y sobre ellos se alza la muralla caliza del Djurdjura, nevada en invierno. En Tikjda, en el corazón del parque nacional, los cedros del Atlas cubren las laderas al pie del pico de Lalla Khedidja. Tres días de carreteras de montaña, caminatas fáciles entre los cedros y la cálida acogida de los pueblos.",
+    "highlights": [
+      "Los pueblos plateros de Ath Yenni",
+      "Los bosques de cedros del Atlas en Tikjda",
+      "Las cumbres del Djurdjura y el Lalla Khedidja",
+      "El lago de Agoulmime",
+      "El pueblo tradicional de Aït El Kaïd",
+      "Carreteras de montaña y panorámicas"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "De Argel a Ath Yenni",
+        "body": "De Argel a las montañas de la Cabilia, por Tizi Ouzou, hasta los pueblos de Ath Yenni y sus talleres de platería, con el Djurdjura en el horizonte.",
+        "stops": [
+          {
+            "place": "Tizi Ouzou",
+            "text": "La capital de la Cabilia, al pie de las montañas."
+          },
+          {
+            "place": "Ath Yenni",
+            "text": "Pueblos encaramados famosos por sus joyas de plata esmaltada, hechas en talleres familiares."
+          },
+          {
+            "place": "El Djurdjura en el horizonte",
+            "text": "La muralla caliza del macizo vista desde las crestas de los pueblos."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Tikjda y los cedros",
+        "body": "Por el Parque Nacional del Djurdjura hasta Tikjda, una caminata fácil entre los cedros del Atlas, el lago de Agoulmime y las vistas del Lalla Khedidja.",
+        "stops": [
+          {
+            "place": "Tikjda",
+            "text": "La estación de alta montaña en el corazón del parque nacional."
+          },
+          {
+            "place": "El bosque de cedros",
+            "text": "Una caminata fácil entre viejos cedros del Atlas."
+          },
+          {
+            "place": "El lago de Agoulmime",
+            "text": "Un lago de montaña al pie de las cumbres, con vistas al Lalla Khedidja, la cima más alta del Djurdjura."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Los pueblos y el regreso",
+        "body": "El pueblo tradicional de Aït El Kaïd, las carreteras de montaña entre pueblos encaramados y el regreso a Argel.",
+        "stops": [
+          {
+            "place": "Aït El Kaïd",
+            "text": "Un pueblo cabilio tradicional de piedra y teja, conservado tal como era."
+          },
+          {
+            "place": "Las carreteras de montaña",
+            "text": "Pueblos encaramados y vistas sobre los valles de la Cabilia."
+          },
+          {
+            "place": "Regreso a Argel",
+            "text": "El camino de vuelta a su hotel o al aeropuerto."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Recogida y regreso en Argel (hotel o aeropuerto)",
+      "Transporte privado con conductor",
+      "2 noches en hoteles con desayuno",
+      "Guía acreditado",
+      "Entradas a los sitios"
+    ],
+    "excludes": [
+      "Almuerzos y cenas",
+      "Bebidas",
+      "Propinas"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Mejor época",
+        "value": "Abril–junio y septiembre–noviembre para caminar; nieve en las cumbres en invierno"
+      },
+      {
+        "label": "Ritmo",
+        "value": "Fácil a moderado (paseos por el bosque en altura)"
+      },
+      {
+        "label": "Estilo",
+        "value": "Privado, guiado, 2 noches en hoteles con desayuno"
+      },
+      {
+        "label": "Qué llevar",
+        "value": "Calzado para caminar, una capa de abrigo (hace fresco en la montaña), un chubasquero en primavera"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Dónde empieza el circuito?",
+        "a": "En Argel: le recogemos en su hotel o en el aeropuerto, y Tizi Ouzou está a unas dos horas por carretera."
+      },
+      {
+        "q": "¿Hay nieve?",
+        "a": "De diciembre a marzo las cumbres y Tikjda suelen estar nevadas, y es precioso; las carreteras de montaña pueden cerrarse entonces un día, y adaptamos la ruta."
+      },
+      {
+        "q": "¿Se pueden comprar joyas de plata en Ath Yenni?",
+        "a": "Sí. Los talleres de los pueblos venden directamente; su guía puede llevarle a los artesanos."
+      },
+      {
+        "q": "¿Se puede combinar la Cabilia con Béjaïa?",
+        "a": "Sí. Béjaïa y su costa están algo más al este: este circuito se combina de forma natural con nuestra excursión a Béjaïa."
+      }
+    ]
   }
 };

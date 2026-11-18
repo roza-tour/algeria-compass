@@ -4555,6 +4555,130 @@ export const TOURS_IT: Record<string, TourIt> = {
         "a": "Le vacanze scolastiche algerine e il Capodanno portano molti visitatori dal nord. Fuori da quelle date l'oasi è molto tranquilla."
       }
     ]
+  },
+  "kabylie-djurdjura-villages": {
+    "title": "La Cabilia e il Djurdjura — villaggi, cedri e vette (3 giorni)",
+    "duration": "3 giorni · 2 notti",
+    "hook": "Villaggi arroccati, l'argento degli Ath Yenni e le foreste di cedri del Djurdjura, a due ore da Algeri.",
+    "full": true,
+    "seoTitle": "Tour della Cabilia 3 giorni — Ath Yenni, Tikjda, Djurdjura",
+    "seoDescription": "Tour privato di 3 giorni in Cabilia: gli argentieri degli Ath Yenni, i cedri di Tikjda, il lago di Agoulmime, le vette del Djurdjura e i villaggi arroccati.",
+    "overview": "La Cabilia è il cuore montuoso dell'Algeria e la terra del popolo amazigh cabilo. A due ore a est di Algeri, villaggi dai tetti di tegole rosse coronano ogni cresta, gli argentieri degli Ath Yenni fanno ancora i gioielli d'argento smaltato che hanno reso famosa la regione, e sopra di loro si alza la muraglia calcarea del Djurdjura, innevata d'inverno. A Tikjda, nel cuore del parco nazionale, i cedri dell'Atlante coprono i pendii ai piedi del picco di Lalla Khedidja. Tre giorni di strade di montagna, camminate facili tra i cedri e la calda accoglienza dei villaggi.",
+    "highlights": [
+      "I villaggi degli argentieri degli Ath Yenni",
+      "Le foreste di cedri dell'Atlante a Tikjda",
+      "Le vette del Djurdjura e il Lalla Khedidja",
+      "Il lago di Agoulmime",
+      "Il villaggio tradizionale di Aït El Kaïd",
+      "Strade di montagna e panorami"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Da Algeri agli Ath Yenni",
+        "body": "Da Algeri verso le montagne della Cabilia, passando per Tizi Ouzou, fino ai villaggi degli Ath Yenni e ai loro laboratori d'argento, con il Djurdjura all'orizzonte.",
+        "stops": [
+          {
+            "place": "Tizi Ouzou",
+            "text": "Il capoluogo della Cabilia, ai piedi delle montagne."
+          },
+          {
+            "place": "Gli Ath Yenni",
+            "text": "Villaggi arroccati famosi per i gioielli d'argento smaltato, fatti in laboratori familiari."
+          },
+          {
+            "place": "Il Djurdjura all'orizzonte",
+            "text": "La muraglia calcarea del massiccio vista dalle creste dei villaggi."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Tikjda e i cedri",
+        "body": "Nel Parco nazionale del Djurdjura fino a Tikjda, una camminata facile tra i cedri dell'Atlante, il lago di Agoulmime e la vista sul Lalla Khedidja.",
+        "stops": [
+          {
+            "place": "Tikjda",
+            "text": "La località d'alta montagna nel cuore del parco nazionale."
+          },
+          {
+            "place": "La foresta di cedri",
+            "text": "Una camminata facile tra antichi cedri dell'Atlante."
+          },
+          {
+            "place": "Il lago di Agoulmime",
+            "text": "Un lago di montagna ai piedi delle vette, con la vista sul Lalla Khedidja, la cima più alta del Djurdjura."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "I villaggi e il ritorno",
+        "body": "Il villaggio tradizionale di Aït El Kaïd, le strade di montagna tra i villaggi arroccati, poi il ritorno ad Algeri.",
+        "stops": [
+          {
+            "place": "Aït El Kaïd",
+            "text": "Un villaggio cabilo tradizionale di pietra e tegole, conservato com'era."
+          },
+          {
+            "place": "Le strade di montagna",
+            "text": "Villaggi arroccati e viste sulle valli della Cabilia."
+          },
+          {
+            "place": "Ritorno ad Algeri",
+            "text": "La strada del ritorno verso il vostro hotel o l'aeroporto."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Partenza e ritorno ad Algeri (hotel o aeroporto)",
+      "Trasporto privato con autista",
+      "2 notti in hotel con colazione",
+      "Guida autorizzata",
+      "Ingressi ai siti"
+    ],
+    "excludes": [
+      "Pranzi e cene",
+      "Bevande",
+      "Mance"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Stagione migliore",
+        "value": "Aprile–giugno e settembre–novembre per camminare; neve sulle vette d'inverno"
+      },
+      {
+        "label": "Ritmo",
+        "value": "Da facile a moderato (camminate nel bosco in quota)"
+      },
+      {
+        "label": "Stile",
+        "value": "Privato, guidato, 2 notti in hotel con colazione"
+      },
+      {
+        "label": "Da portare",
+        "value": "Scarpe da camminata, uno strato caldo (in montagna fa fresco), una giacca impermeabile in primavera"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Dove inizia il tour?",
+        "a": "Ad Algeri: vi veniamo a prendere in hotel o all'aeroporto, e Tizi Ouzou è a circa due ore di strada."
+      },
+      {
+        "q": "C'è la neve?",
+        "a": "Da dicembre a marzo le vette e Tikjda sono spesso innevate, ed è bellissimo; le strade di montagna possono allora chiudere per un giorno, e adattiamo il percorso."
+      },
+      {
+        "q": "Si possono comprare gioielli d'argento agli Ath Yenni?",
+        "a": "Sì. I laboratori dei villaggi vendono direttamente; la vostra guida può portarvi dagli artigiani."
+      },
+      {
+        "q": "Si può combinare la Cabilia con Béjaïa?",
+        "a": "Sì. Béjaïa e la sua costa sono poco più a est: questo tour si combina naturalmente con la nostra escursione a Béjaïa."
+      }
+    ]
   }
 };
 

@@ -4554,5 +4554,129 @@ export const TOURS_DE: Record<string, TourDe> = {
         "a": "Die algerischen Schulferien und Neujahr bringen viele Besucher aus dem Norden. Außerhalb dieser Zeiten ist die Oase sehr ruhig."
       }
     ]
+  },
+  "kabylie-djurdjura-villages": {
+    "title": "Die Kabylei und der Djurdjura — Dörfer, Zedern und Gipfel (3 Tage)",
+    "duration": "3 Tage · 2 Nächte",
+    "hook": "Bergdörfer, das Silber der Ath Yenni und die Zedernwälder des Djurdjura, zwei Stunden von Algier.",
+    "full": true,
+    "seoTitle": "Kabylei-Reise 3 Tage — Ath Yenni, Tikjda, Djurdjura",
+    "seoDescription": "Private 3-Tage-Reise in die Kabylei: die Silberschmiede der Ath Yenni, die Zedern von Tikjda, der See Agoulmime, die Gipfel des Djurdjura und die Bergdörfer.",
+    "overview": "Die Kabylei ist das bergige Herz Algeriens und die Heimat der kabylischen Amazigh. Zwei Stunden östlich von Algier krönen Dörfer mit roten Ziegeldächern jeden Grat, die Silberschmiede der Ath Yenni fertigen noch immer den emaillierten Silberschmuck, für den die Region berühmt ist, und darüber erhebt sich die Kalksteinwand des Djurdjura, im Winter schneebedeckt. In Tikjda, im Herzen des Nationalparks, bedecken Atlaszedern die Hänge unter dem Gipfel des Lalla Khedidja. Drei Tage auf Bergstraßen, leichte Wanderungen zwischen den Zedern und die herzliche Gastfreundschaft der Dörfer.",
+    "highlights": [
+      "Die Silberschmiededörfer der Ath Yenni",
+      "Die Atlaszedernwälder von Tikjda",
+      "Die Gipfel des Djurdjura und der Lalla Khedidja",
+      "Der See Agoulmime",
+      "Das traditionelle Dorf Aït El Kaïd",
+      "Bergstraßen und Ausblicke"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Von Algier zu den Ath Yenni",
+        "body": "Von Algier in die Berge der Kabylei, über Tizi Ouzou zu den Dörfern der Ath Yenni und ihren Silberwerkstätten, mit dem Djurdjura am Horizont.",
+        "stops": [
+          {
+            "place": "Tizi Ouzou",
+            "text": "Die Hauptstadt der Kabylei, am Fuß der Berge."
+          },
+          {
+            "place": "Die Ath Yenni",
+            "text": "Bergdörfer, berühmt für ihren emaillierten Silberschmuck aus Familienwerkstätten."
+          },
+          {
+            "place": "Der Djurdjura am Horizont",
+            "text": "Die Kalksteinwand des Massivs, von den Graten der Dörfer aus gesehen."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Tikjda und die Zedern",
+        "body": "In den Djurdjura-Nationalpark nach Tikjda, eine leichte Wanderung zwischen Atlaszedern, der See Agoulmime und der Blick auf den Lalla Khedidja.",
+        "stops": [
+          {
+            "place": "Tikjda",
+            "text": "Der Hochgebirgsort im Herzen des Nationalparks."
+          },
+          {
+            "place": "Der Zedernwald",
+            "text": "Eine leichte Wanderung zwischen alten Atlaszedern."
+          },
+          {
+            "place": "Der See Agoulmime",
+            "text": "Ein Bergsee unter den Gipfeln, mit Blick auf den Lalla Khedidja, den höchsten Gipfel des Djurdjura."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Die Dörfer und der Rückweg",
+        "body": "Das traditionelle Dorf Aït El Kaïd, die Bergstraßen durch die Dörfer auf den Graten, dann die Rückfahrt nach Algier.",
+        "stops": [
+          {
+            "place": "Aït El Kaïd",
+            "text": "Ein traditionelles kabylisches Dorf aus Stein und Ziegeln, erhalten wie es war."
+          },
+          {
+            "place": "Die Bergstraßen",
+            "text": "Dörfer auf den Graten und Blicke über die Täler der Kabylei."
+          },
+          {
+            "place": "Zurück nach Algier",
+            "text": "Die Rückfahrt zu Ihrem Hotel oder zum Flughafen."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Abholung und Rückfahrt in Algier (Hotel oder Flughafen)",
+      "Privater Transport mit Fahrer",
+      "2 Nächte in Hotels mit Frühstück",
+      "Zugelassener Reiseleiter",
+      "Eintritte"
+    ],
+    "excludes": [
+      "Mittag- und Abendessen",
+      "Getränke",
+      "Trinkgelder"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Beste Reisezeit",
+        "value": "April–Juni und September–November zum Wandern; Schnee auf den Gipfeln im Winter"
+      },
+      {
+        "label": "Tempo",
+        "value": "Leicht bis mittel (Waldwanderungen in der Höhe)"
+      },
+      {
+        "label": "Stil",
+        "value": "Privat, geführt, 2 Nächte in Hotels mit Frühstück"
+      },
+      {
+        "label": "Mitbringen",
+        "value": "Wanderschuhe, eine warme Schicht (in den Bergen ist es kühl), eine Regenjacke im Frühling"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Wo beginnt die Reise?",
+        "a": "In Algier: Wir holen Sie im Hotel oder am Flughafen ab, Tizi Ouzou liegt etwa zwei Autostunden entfernt."
+      },
+      {
+        "q": "Liegt Schnee?",
+        "a": "Von Dezember bis März sind die Gipfel und Tikjda oft verschneit, was wunderschön ist; die Bergstraßen können dann für einen Tag gesperrt sein, und wir passen die Route an."
+      },
+      {
+        "q": "Kann man in Ath Yenni Silberschmuck kaufen?",
+        "a": "Ja. Die Werkstätten der Dörfer verkaufen direkt; Ihr Reiseleiter bringt Sie zu den Handwerkern."
+      },
+      {
+        "q": "Lässt sich die Kabylei mit Béjaïa verbinden?",
+        "a": "Ja. Béjaïa und seine Küste liegen etwas weiter östlich: Diese Reise lässt sich gut mit unserem Tagesausflug nach Béjaïa verbinden."
+      }
+    ]
   }
 };

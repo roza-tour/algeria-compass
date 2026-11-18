@@ -5526,6 +5526,163 @@
         "lat": 30.9167,
         "lng": -2.0333
       }
+    },
+    {
+      "id": "kabylie-djurdjura-villages",
+      "title": "Kabylie & the Djurdjura — Villages, Cedars and Peaks (3 Days)",
+      "theme": "culture",
+      "wilayas": [
+        "tizi-ouzou",
+        "bouira"
+      ],
+      "image_slugs": [
+        "kabylie"
+      ],
+      "duration": "3 days · 2 nights",
+      "price_eur": 378,
+      "price_from": true,
+      "per": "person",
+      "start": "Algiers",
+      "summary": "Three days in the mountains of Kabylie: the silversmiths of Ath Yenni, the cedar forests of Tikjda, the peaks of the Djurdjura and hilltop villages.",
+      "hook": "Hilltop villages, the silver of Ath Yenni and the cedar forests of the Djurdjura, two hours from Algiers.",
+      "overview": "Kabylie is Algeria's mountain heart and the homeland of the Kabyle Amazigh people. Two hours east of Algiers, villages of red-tiled houses crown every ridge, the silversmiths of Ath Yenni still make the enamelled jewellery the region is famous for, and above them rises the limestone wall of the Djurdjura, snow-capped in winter. At Tikjda, in the heart of the national park, Atlas cedars cover the slopes below the peak of Lalla Khedidja. Three days of mountain roads, easy walks among the cedars and the warm welcome of the villages.",
+      "whyDifferent": [
+        {
+          "t": "The silver of Ath Yenni",
+          "d": "The enamelled silver jewellery of Kabylie, in the villages where it is still made."
+        },
+        {
+          "t": "Cedars and peaks",
+          "d": "The Atlas cedar forests of Tikjda below the peaks of the Djurdjura."
+        },
+        {
+          "t": "Villages on every ridge",
+          "d": "Red-tiled hilltop villages and a traditional village kept as it was."
+        },
+        {
+          "t": "Close to Algiers",
+          "d": "Two hours from the capital, an easy addition to any trip."
+        }
+      ],
+      "goodToKnow": [
+        {
+          "label": "Best season",
+          "value": "April–June and September–November for walking; snow on the peaks in winter"
+        },
+        {
+          "label": "Pace",
+          "value": "Easy to moderate (forest walks at altitude)"
+        },
+        {
+          "label": "Style",
+          "value": "Private, guided, 2 nights in hotels with breakfast"
+        },
+        {
+          "label": "Bring",
+          "value": "Walking shoes, a warm layer (cold in the mountains), a rain jacket in spring"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Where does the tour start?",
+          "a": "In Algiers: we pick you up at your hotel or at the airport, and Tizi Ouzou is about two hours away by road."
+        },
+        {
+          "q": "Is there snow?",
+          "a": "From December to March the peaks and Tikjda are often snowy, which is beautiful; the mountain roads can then close for a day, and we adapt the route."
+        },
+        {
+          "q": "Can I buy silver jewellery in Ath Yenni?",
+          "a": "Yes. The village workshops sell directly; your guide can take you to the craftsmen."
+        },
+        {
+          "q": "Can I combine Kabylie with Béjaïa?",
+          "a": "Yes. Béjaïa and its coast are a short drive further east, so this tour joins naturally with our Béjaïa day trip."
+        }
+      ],
+      "highlights": [
+        "The silversmiths' villages of Ath Yenni",
+        "The Atlas cedar forests of Tikjda",
+        "The peaks of the Djurdjura and Lalla Khedidja",
+        "The lake of Agoulmime",
+        "The traditional village of Aït El Kaïd",
+        "Mountain roads and hilltop views"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Algiers to Ath Yenni",
+          "body": "From Algiers into the mountains of Kabylie, via Tizi Ouzou to the villages of Ath Yenni and their silver workshops, with the Djurdjura on the horizon.",
+          "stops": [
+            {
+              "place": "Tizi Ouzou",
+              "text": "The capital of Kabylie, at the foot of the mountains."
+            },
+            {
+              "place": "Ath Yenni",
+              "text": "Hilltop villages known for their enamelled silver jewellery, made in family workshops."
+            },
+            {
+              "place": "The Djurdjura on the horizon",
+              "text": "The limestone wall of the massif seen from the ridges of the villages."
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Tikjda and the cedars",
+          "body": "Into the Djurdjura National Park to Tikjda, an easy walk among the Atlas cedars, the lake of Agoulmime and the views of Lalla Khedidja.",
+          "stops": [
+            {
+              "place": "Tikjda",
+              "text": "The high mountain resort in the heart of the national park."
+            },
+            {
+              "place": "The cedar forest",
+              "text": "An easy walk among ancient Atlas cedars."
+            },
+            {
+              "place": "The lake of Agoulmime",
+              "text": "A mountain lake below the peaks, with views of Lalla Khedidja, the highest summit of the Djurdjura."
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Villages and the road back",
+          "body": "The traditional village of Aït El Kaïd, the mountain roads through hilltop villages, then the drive back to Algiers.",
+          "stops": [
+            {
+              "place": "Aït El Kaïd",
+              "text": "A traditional Kabyle village of stone and tile, kept as it was."
+            },
+            {
+              "place": "The mountain roads",
+              "text": "Hilltop villages and views over the valleys of Kabylie."
+            },
+            {
+              "place": "Back to Algiers",
+              "text": "The drive back to your hotel or to the airport."
+            }
+          ]
+        }
+      ],
+      "includes": [
+        "Pickup and drop-off in Algiers (hotel or airport)",
+        "Private transport with driver",
+        "2 nights in hotels with breakfast",
+        "Licensed guide",
+        "Entrance fees"
+      ],
+      "excludes": [
+        "Lunches and dinners",
+        "Drinks",
+        "Tips"
+      ],
+      "map": {
+        "lat": 36.4667,
+        "lng": 4.1333
+      }
     }
   ]
 }

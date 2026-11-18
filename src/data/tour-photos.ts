@@ -317,6 +317,17 @@ export const PHOTO_ALT: Record<string, string> = {
   "taghit-7": "The dense palm grove of Taghit along the Oued Zousfana",
   "taghit-8": "A long dune ridge running across the sand sea at Taghit",
   "taghit-9": "The sea of dunes of the Grand Erg Occidental around Taghit",
+  // kabylie (Wikimedia Commons, see PHOTO_CREDIT)
+  "kabylie-1": "The limestone peaks of the Akouker in the Djurdjura above green slopes and a village",
+  "kabylie-2": "A village perched on a green ridge below the Djurdjura",
+  "kabylie-3": "The snowy southern face of the Djurdjura above olive trees and fields",
+  "kabylie-4": "Snowy peaks of the Djurdjura reflected in the lake of Tilesdit",
+  "kabylie-5": "A limestone peak above a sea of clouds and a cedar on the heights of Tikjda",
+  "kabylie-6": "Atlas cedars and snow in the mountains of Tikjda",
+  "kabylie-7": "A clear mountain stream running over rocks in the Djurdjura National Park",
+  "kabylie-8": "Red geraniums in front of the snowy mountains of Kabylie near Aïn El Hammam",
+  "kabylie-9": "Old tiled roofs of a mountain village below the cliffs of the Djurdjura",
+  "kabylie-10": "Two peaks of the Djurdjura glowing orange at sunrise",
 };
 
 // Best photos first, per place. Numbers not listed follow in numeric order.
@@ -371,6 +382,16 @@ export function tourGallery(slugs: string[], files: string[], cap = 18): { file:
 // Photos that are not our own: free-licensed photographs (Wikimedia Commons),
 // keyed like PHOTO_ALT. Shown under the gallery by PhotoCredits.astro.
 export const PHOTO_CREDIT: Record<string, { author: string; license: string; licenseUrl: string; source: string }> = {
+  "kabylie-1": { author: "Farid Ait Chaalal", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Akouker_Djurdjura_April_2017.jpg" },
+  "kabylie-2": { author: "Rabah2204", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Village_perch%C3%A9_(Djurdjura).jpg" },
+  "kabylie-3": { author: "Bouizriphotography", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Le_versant_sud_du_Djurdjura_Bouira.jpg" },
+  "kabylie-4": { author: "Mira Bidouche", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Reflet_des_hauteurs_de_Djurdjura_sur_le_Barrage_de_Tilesdit_(Parc_National_du_Djurdjura).jpg" },
+  "kabylie-5": { author: "Benrais Lamine", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Heights_of_Tikjda,_road_back_from_Agulmin_lake.jpg" },
+  "kabylie-6": { author: "MohamedMtec", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Magnifique_montagnes_Tikjda_W._Bouira.jpg" },
+  "kabylie-7": { author: "Rabah2204", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Rivi%C3%A8re_enchant%C3%A9e_(Djurdjura_national_park).jpg" },
+  "kabylie-8": { author: "Rabah Boualia", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Akbil,_Ain_El_Hammam_(Michelet)_,_Tizi_Ouzou,_Grande_Kabylie,_Algeria.jpg" },
+  "kabylie-9": { author: "Rabah2204", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Roots_and_Roofs_(Djurdjura).jpg" },
+  "kabylie-10": { author: "Rabah2204", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Golden_twins_(Djurdjura).jpg" },
   "taghit-1": { author: "LBM1948", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Taghit_04.jpg" },
   "taghit-2": { author: "LBM1948", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Taghit_08.jpg" },
   "taghit-3": { author: "Zinou2go", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", source: "https://commons.wikimedia.org/wiki/File:Des_dunes_et_des_palmiers_%C3%A0_Taghit.JPG" },

@@ -4557,6 +4557,130 @@ export const TOURS_FR: Record<string, TourFr> = {
         "a": "Les vacances scolaires algériennes et le Nouvel An attirent beaucoup de visiteurs du nord. En dehors de ces dates, l'oasis est très calme."
       }
     ]
+  },
+  "kabylie-djurdjura-villages": {
+    "title": "La Kabylie et le Djurdjura — villages, cèdres et sommets (3 jours)",
+    "duration": "3 jours · 2 nuits",
+    "hook": "Des villages perchés, l'argent des Ath Yenni et les forêts de cèdres du Djurdjura, à deux heures d'Alger.",
+    "full": true,
+    "seoTitle": "Circuit Kabylie 3 jours — Ath Yenni, Tikjda, Djurdjura",
+    "seoDescription": "Circuit privé de 3 jours en Kabylie : les bijoutiers des Ath Yenni, les cèdres de Tikjda, le lac d'Agoulmime, les sommets du Djurdjura et les villages perchés.",
+    "overview": "La Kabylie est le cœur montagneux de l'Algérie et la terre du peuple amazigh kabyle. À deux heures à l'est d'Alger, des villages aux toits de tuiles rouges couronnent chaque crête, les bijoutiers des Ath Yenni façonnent encore les bijoux d'argent émaillé qui ont fait la réputation de la région, et au-dessus d'eux se dresse la muraille calcaire du Djurdjura, enneigée en hiver. À Tikjda, au cœur du parc national, les cèdres de l'Atlas couvrent les pentes au pied du pic de Lalla Khedidja. Trois jours de routes de montagne, de marches faciles entre les cèdres et de l'accueil chaleureux des villages.",
+    "highlights": [
+      "Les villages bijoutiers des Ath Yenni",
+      "Les forêts de cèdres de l'Atlas à Tikjda",
+      "Les sommets du Djurdjura et le Lalla Khedidja",
+      "Le lac d'Agoulmime",
+      "Le village traditionnel d'Aït El Kaïd",
+      "Les routes de montagne et les panoramas"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "D'Alger aux Ath Yenni",
+        "body": "D'Alger vers les montagnes de Kabylie, par Tizi Ouzou, jusqu'aux villages des Ath Yenni et leurs ateliers d'orfèvrerie, avec le Djurdjura à l'horizon.",
+        "stops": [
+          {
+            "place": "Tizi Ouzou",
+            "text": "La capitale de la Kabylie, au pied des montagnes."
+          },
+          {
+            "place": "Les Ath Yenni",
+            "text": "Des villages perchés réputés pour leurs bijoux d'argent émaillé, fabriqués dans des ateliers familiaux."
+          },
+          {
+            "place": "Le Djurdjura à l'horizon",
+            "text": "La muraille calcaire du massif vue depuis les crêtes des villages."
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Tikjda et les cèdres",
+        "body": "Dans le parc national du Djurdjura jusqu'à Tikjda, une marche facile entre les cèdres de l'Atlas, le lac d'Agoulmime et la vue sur le Lalla Khedidja.",
+        "stops": [
+          {
+            "place": "Tikjda",
+            "text": "La station de haute montagne au cœur du parc national."
+          },
+          {
+            "place": "La forêt de cèdres",
+            "text": "Une marche facile entre de vieux cèdres de l'Atlas."
+          },
+          {
+            "place": "Le lac d'Agoulmime",
+            "text": "Un lac de montagne au pied des sommets, avec la vue sur le Lalla Khedidja, le point culminant du Djurdjura."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Les villages et le retour",
+        "body": "Le village traditionnel d'Aït El Kaïd, les routes de montagne à travers les villages perchés, puis le retour à Alger.",
+        "stops": [
+          {
+            "place": "Aït El Kaïd",
+            "text": "Un village kabyle traditionnel de pierre et de tuiles, conservé tel qu'il était."
+          },
+          {
+            "place": "Les routes de montagne",
+            "text": "Des villages perchés et des vues sur les vallées de Kabylie."
+          },
+          {
+            "place": "Retour à Alger",
+            "text": "La route du retour vers votre hôtel ou l'aéroport."
+          }
+        ]
+      }
+    ],
+    "includes": [
+      "Prise en charge et retour à Alger (hôtel ou aéroport)",
+      "Transport privé avec chauffeur",
+      "2 nuits en hôtels avec petit-déjeuner",
+      "Guide agréé",
+      "Entrées des sites"
+    ],
+    "excludes": [
+      "Déjeuners et dîners",
+      "Boissons",
+      "Pourboires"
+    ],
+    "goodToKnow": [
+      {
+        "label": "Meilleure saison",
+        "value": "Avril–juin et septembre–novembre pour la marche ; neige sur les sommets en hiver"
+      },
+      {
+        "label": "Rythme",
+        "value": "Facile à modéré (marches en forêt en altitude)"
+      },
+      {
+        "label": "Style",
+        "value": "Privé, guidé, 2 nuits en hôtels avec petit-déjeuner"
+      },
+      {
+        "label": "À prévoir",
+        "value": "Chaussures de marche, une couche chaude (il fait frais en montagne), un imperméable au printemps"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Où commence le circuit ?",
+        "a": "À Alger : nous venons vous chercher à votre hôtel ou à l'aéroport, et Tizi Ouzou est à environ deux heures de route."
+      },
+      {
+        "q": "Y a-t-il de la neige ?",
+        "a": "De décembre à mars, les sommets et Tikjda sont souvent enneigés, ce qui est superbe ; les routes de montagne peuvent alors fermer une journée, et nous adaptons l'itinéraire."
+      },
+      {
+        "q": "Peut-on acheter des bijoux d'argent aux Ath Yenni ?",
+        "a": "Oui. Les ateliers des villages vendent directement ; votre guide peut vous conduire chez les artisans."
+      },
+      {
+        "q": "Peut-on combiner la Kabylie et Béjaïa ?",
+        "a": "Oui. Béjaïa et sa côte sont un peu plus à l'est : ce circuit se combine naturellement avec notre excursion à Béjaïa."
+      }
+    ]
   }
 };
 
