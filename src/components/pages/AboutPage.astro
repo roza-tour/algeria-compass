@@ -1,4 +1,5 @@
 ---
+import PagePhoto from '../PagePhoto.astro';
 // The About page for the four translated languages. English keeps its own
 // hand-written page (it links out to the editorial policies in detail); these
 // summarise the same standards and say plainly that the policies are English.
@@ -38,6 +39,7 @@ const breadcrumb = {
   <section class="section"><div class="wrap" style="max-width:760px">
     <div class="eyebrow">{c.eyebrow}</div>
     <h1>{c.h1}</h1>
+    <PagePhoto src="/assets/img/tours/algiers-19.jpg" lang={lang} />
     <div class="prose" style="margin-top:1rem">
       {c.lead.map(p => <p>{p}</p>)}
       {c.sections.map(s => (

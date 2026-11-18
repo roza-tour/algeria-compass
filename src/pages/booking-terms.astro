@@ -1,4 +1,5 @@
 ---
+import PagePhoto from '../components/PagePhoto.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
@@ -28,6 +29,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/booking-terms/#faq`,
   <section class="section"><div class="wrap" style="max-width:780px">
     <div class="eyebrow">Good to know</div>
     <h1>Booking &amp; cancellation terms</h1>
+    <PagePhoto src="/assets/img/tours/tlemcen-4.jpg" lang={'en'} />
     <div class="prose" style="margin-top:1rem">
       <p>We keep our terms short and fair. Here is exactly how booking, payment, refunds and changes work. Anything specific to your trip — particularly where domestic flights or desert permits are involved — is confirmed in writing before you pay.</p>
 

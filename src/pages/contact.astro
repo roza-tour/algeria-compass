@@ -1,4 +1,5 @@
 ---
+import PagePhoto from '../components/PagePhoto.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import InquiryForm from '../components/InquiryForm.astro';
@@ -15,6 +16,7 @@ const alternates = alternatesFor(site, routeAlternates('contact'));
     <div>
       <div class="eyebrow">Travel planning</div>
       <h1>Plan a journey to Algeria</h1>
+      <PagePhoto pos="50% 12%" src="/assets/img/tours/djanet-29.jpg" lang={'en'} />
       <p style="color:var(--text-m);margin:.6rem 0 1.4rem">Algeria Compass is a licensed Algerian tour operator. Tell us your dates, interests and party size and we will craft your private, guided tour of Algeria.</p>
       <InquiryForm />
     </div>

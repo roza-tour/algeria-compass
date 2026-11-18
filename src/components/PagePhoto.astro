@@ -1,0 +1,26 @@
+---
+// A single wide photograph for text pages (about, contact, visa, terms), with
+// its description in the page language and a credit line when it is a
+// free-licensed photo.
+import { PHOTO_ALT, PHOTO_CREDIT } from '../data/tour-photos';
+import { photoAlt } from '../data/photoAlts.mjs';
+import { smWebp } from '../lib/imageSize';
+export interface Props { src: string; lang?: string; pos?: string }
+// pos = CSS object-position: which part of the photo to keep when it is cropped
+const { src, lang = 'en', pos = '50% 40%' } = Astro.props;
+const key = src.replace(/^.*\//, '').replace(/\.jpg$/i, '');
+const en = PHOTO_ALT[key] || '';
+const alt = lang === 'en' ? en : photoAlt(src, lang, en);
+const webp = smWebp(src);
+const credit = PHOTO_CREDIT[key];
+---
+<figure class="page-photo">
+  <picture>{webp && <source srcset={webp} type="image/webp" />}<img src={src} alt={alt} width="1200" height="700" loading="eager" decoding="async" style={`object-position:${pos}`} /></picture>
+  {credit && <figcaption>Photo: <a href={credit.source} target="_blank" rel="noopener nofollow">{credit.author}</a> (<a href={credit.licenseUrl} target="_blank" rel="noopener nofollow license">{credit.license}</a>), Wikimedia Commons</figcaption>}
+</figure>
+<style>
+  .page-photo{margin:1.1rem 0 1.5rem}
+  .page-photo img{display:block;width:100%;height:auto;aspect-ratio:12/7;object-fit:cover;border-radius:14px}
+  .page-photo figcaption{margin-top:.4rem;font-size:.76rem;color:var(--text-l,#6b6b63)}
+  .page-photo figcaption a{color:inherit;text-decoration:underline}
+</style>
