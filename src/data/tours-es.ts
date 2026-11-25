@@ -3168,7 +3168,7 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "label": "Grupo",
-        "value": "Grupo reducido o salida privada"
+        "value": "Salida privada, solo para tu grupo"
       },
       {
         "label": "Noches frías",
@@ -3198,7 +3198,7 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "q": "¿Cómo es el grupo?",
-        "a": "Reducido. El circuito se organiza como grupo pequeño o como salida privada para tu propio grupo — indícanos cuál prefieres al consultarnos."
+        "a": "Privado. El circuito se organiza solo para tu grupo, con tu propio guía y tu equipo de 4x4."
       }
     ]
   },
@@ -3389,7 +3389,7 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "label": "Grupo",
-        "value": "Grupo reducido o salida privada"
+        "value": "Salida privada, solo para tu grupo"
       },
       {
         "label": "Baño",

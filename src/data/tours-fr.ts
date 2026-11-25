@@ -3171,7 +3171,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "label": "Groupe",
-        "value": "Petit groupe ou départ privé"
+        "value": "Départ privé, pour votre seul groupe"
       },
       {
         "label": "Nuits froides",
@@ -3201,7 +3201,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "q": "Comment est constitué le groupe ?",
-        "a": "Restreint. Le circuit fonctionne en petit groupe ou en départ privé pour votre propre groupe — précisez votre préférence lors de votre demande."
+        "a": "Privé. Le circuit est organisé uniquement pour votre groupe, avec votre guide et votre équipe 4x4."
       }
     ]
   },
@@ -3392,7 +3392,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "label": "Groupe",
-        "value": "Petit groupe ou départ privé"
+        "value": "Départ privé, pour votre seul groupe"
       },
       {
         "label": "Baignade",

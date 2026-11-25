@@ -3169,7 +3169,7 @@ export const TOURS_IT: Record<string, TourIt> = {
       },
       {
         "label": "Gruppo",
-        "value": "Piccolo gruppo o partenza privata"
+        "value": "Partenza privata, solo per il vostro gruppo"
       },
       {
         "label": "Le notti sono fredde",
@@ -3199,7 +3199,7 @@ export const TOURS_IT: Record<string, TourIt> = {
       },
       {
         "q": "Com'è composto il gruppo?",
-        "a": "Piccolo. Il circuito viene organizzato come piccolo gruppo oppure come partenza privata per il vostro gruppo — indicateci la vostra preferenza al momento della richiesta."
+        "a": "Privato. Il circuito è organizzato solo per il vostro gruppo, con la vostra guida e il vostro equipaggio 4x4."
       }
     ]
   },
@@ -3390,7 +3390,7 @@ export const TOURS_IT: Record<string, TourIt> = {
       },
       {
         "label": "Gruppo",
-        "value": "Piccolo gruppo o partenza privata"
+        "value": "Partenza privata, solo per il vostro gruppo"
       },
       {
         "label": "Bagno",

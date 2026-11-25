@@ -5,7 +5,7 @@ import Icon from '../../components/Icon.astro';
 import StampFeeTable from '../../components/StampFeeTable.astro';
 // Version française de la page e-Visa. Le contenu suit la page anglaise
 // /evisa/ : pas d'e-Visa touristique général, deux voies d'entrée, dont
-// l'e-Visa saharien pour les programmes organisés — toutes nationalités.
+// l'autorisation de visa saharienne pour les programmes organisés — toutes nationalités.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaSection from '../../components/CtaSection.astro';
@@ -29,13 +29,13 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:1,name:'Accueil',item:`${site}/fr/`},
   {'@type':'ListItem',position:2,name:'e-Visa & entrée',item:url}]};
 const faqs = [
-  { q: "Qu'est-ce que l'e-Visa saharien ?", a: "C'est le document d'autorisation de visa que nous préparons pour les voyageurs sur un programme saharien organisé. En tant qu'opérateur touristique algérien agréé, nous émettons une autorisation portant un code QR vérifiable sur le portail du ministère de l'Intérieur algérien. Le visa lui-même est accordé par les autorités algériennes — votre vignette/tampon est délivrée à l'arrivée ; nous préparons chaque dossier à l'avance." },
-  { q: "Combien coûte l'e-Visa saharien ?", a: "Le document d'autorisation de visa coûte 50 USD. La préparation de l'ensemble des dossiers requis est entièrement gratuite de notre côté. Le cachet d'entrée se paie à part, comme frais à l'aéroport d'Alger à l'arrivée — son montant dépend de la durée du séjour, de 5 000 DA (35 €) pour 1–2 jours à 20 000 DA (140 €) pour 8–10 jours ; le tableau complet figure plus bas." },
+  { q: "Qu'est-ce que l'autorisation de visa saharienne ?", a: "C'est le document d'autorisation de visa que nous préparons pour les voyageurs sur un programme saharien organisé. En tant qu'opérateur touristique algérien agréé, nous émettons une autorisation portant un code QR vérifiable sur le portail du ministère de l'Intérieur algérien. Le visa lui-même est accordé par les autorités algériennes — votre vignette/tampon est délivrée à l'arrivée ; nous préparons chaque dossier à l'avance." },
+  { q: "Combien coûte l'autorisation de visa saharienne ?", a: "Le document d'autorisation de visa coûte 50 USD. La préparation de l'ensemble des dossiers requis est entièrement gratuite de notre côté. Le cachet d'entrée se paie à part, comme frais à l'aéroport d'Alger à l'arrivée — son montant dépend de la durée du séjour, de 5 000 DA (35 €) pour 1–2 jours à 20 000 DA (140 €) pour 8–10 jours ; le tableau complet figure plus bas." },
   { q: "Puis-je obtenir le visa à l'arrivée pour Djanet et le Tassili n'Ajjer ?", a: "Oui — Djanet est la porte d'entrée du parc national du Tassili n'Ajjer et de la Tadrart Rouge, et fait partie des wilayas du sud concernées par cette voie. La condition est que votre programme organisé avec un opérateur algérien agréé comprenne un séjour au Sahara : nous préparons l'autorisation à l'avance et votre vignette est délivrée à l'arrivée à l'aéroport d'Alger. Indiquez-nous votre nationalité et nous confirmerons votre éligibilité avant la réservation." },
   { q: "Où le visa est-il délivré — faut-il atterrir dans le sud ?", a: "Non. Vous arrivez à Alger normalement et votre visa est délivré à l'arrivée à l'aéroport d'Alger. Ce qui vous rend éligible, c'est le séjour au Sahara inclus dans votre programme, pas l'aéroport d'arrivée. Une fois en Algérie, nous réservons les vols intérieurs vers le désert — Djanet–Tiska (DJG) pour le Tassili n'Ajjer et la Tadrart Rouge, Tamanrasset (TMR) pour le Hoggar, Ghardaïa Noumérat (GHA) pour la vallée du M'Zab, Timimoun (TMX) pour le Gourara." },
   { q: "Puis-je aussi visiter le nord, ou seulement le désert ?", a: "Les deux. Un même voyage peut combiner Alger, la côte et les cités romaines avec le Sahara — l'essentiel est qu'un séjour au Sahara fasse partie du programme. Nous concevons l'itinéraire pour qu'il soit éligible." },
   { q: "Le document d'autorisation est-il officiel et vérifiable ?", a: "Oui. Il porte un code QR qui peut être contrôlé sur le portail du ministère de l'Intérieur algérien. La délivrance suit les canaux officiels — nous sommes votre partenaire documentaire ; ce sont les autorités algériennes qui délivrent le visa." },
-  { q: "Dois-je réserver un circuit complet pour l'obtenir ?", a: "Oui. L'autorisation e-Visa saharienne est disponible lorsque vous réservez un programme complet avec nous — elle fait partie de l'organisation de votre voyage, ce n'est pas un service isolé." },
+  { q: "Dois-je réserver un circuit complet pour l'obtenir ?", a: "Oui. L'autorisation de visa saharienne est disponible lorsque vous réservez un programme complet avec nous — elle fait partie de l'organisation de votre voyage, ce n'est pas un service isolé." },
   { q: "L'Algérie propose-t-elle un e-Visa pour les touristes ?", a: "Il n'existe pas d'e-Visa touristique général en ligne pour un voyage ordinaire en Algérie. Les deux voies concrètes sont un visa touristique auprès de votre consulat algérien local, ou — pour les circuits organisés qui comprennent le Sahara — l'autorisation de visa saharienne que nous préparons, la vignette étant délivrée à l'arrivée à l'aéroport d'Alger. Dans les deux cas, nous nous chargeons des formalités." },
   { q: "Comment entre-t-on concrètement en Algérie ?", a: "La plupart des visiteurs atterrissent à Alger (ou dans un autre aéroport du nord) avec un visa touristique consulaire, appuyé par notre lettre d'invitation. Les voyageurs dont le programme organisé comprend le Sahara peuvent, à la place, utiliser notre voie de l'autorisation de visa, la vignette étant délivrée à l'arrivée à l'aéroport d'Alger. Nous vous confirmons laquelle s'applique à votre cas." },
 ];
@@ -63,8 +63,8 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'fr',
       <h2>Voie 1 — Visa touristique consulaire (le nord &amp; la plupart des voyages)</h2>
       <p>Vous demandez un visa touristique auprès du <strong>consulat algérien</strong> couvrant votre pays, normalement en personne. Les consulats exigent une <strong>lettre d'invitation / voucher touristique</strong> émise par une agence algérienne agréée — que nous vous délivrons (25 USD) pour tout programme d'au moins 3 jours incluant l'accueil et le transfert aéroport, avec vos confirmations d'hôtel et de circuit et une check-list adaptée à votre nationalité. Comptez environ <strong>deux à quatre semaines</strong>.</p>
 
-      <h2>Voie 2 — L'e-Visa saharien (programmes organisés dans le désert)</h2>
-      <p class="speak">C'est ce qui se rapproche le plus d'une voie « en ligne ». Pour un <strong>programme saharien organisé</strong>, nous préparons à l'avance un <strong>document d'autorisation de visa</strong> — sans passage par le consulat — et votre vignette de visa est délivrée à l'arrivée à <strong>l'aéroport d'Alger</strong>. Cette voie est <strong>ouverte aux voyageurs de toutes nationalités</strong>, à condition que votre programme organisé comprenne un séjour au Sahara. <a href="#saharan-evisa">Voir en détail comment fonctionne l'e-Visa saharien ↓</a></p>
+      <h2>Voie 2 — L'autorisation de visa saharienne (programmes organisés dans le désert)</h2>
+      <p class="speak">C'est ce qui se rapproche le plus d'une voie « en ligne ». Pour un <strong>programme saharien organisé</strong>, nous préparons à l'avance un <strong>document d'autorisation de visa</strong> — sans passage par le consulat — et votre vignette de visa est délivrée à l'arrivée à <strong>l'aéroport d'Alger</strong>. Cette voie est <strong>ouverte aux voyageurs de toutes nationalités</strong>, à condition que votre programme organisé comprenne un séjour au Sahara. <a href="#saharan-evisa">Voir en détail comment fonctionne l'autorisation de visa saharienne ↓</a></p>
 
       <h2>Ce qui compte comme séjour au Sahara</h2>
       <p>Cette voie exige un séjour au Sahara dans votre programme — peu importe l'aéroport d'arrivée, le visa est délivré à Alger. Les régions sahariennes que nos programmes utilisent réellement sont <strong>Djanet</strong> — la porte du parc national du <strong>Tassili n'Ajjer</strong> et de la <strong>Tadrart Rouge</strong> —, <strong>Tamanrasset</strong> dans le Hoggar, <strong>Ghardaïa</strong> dans la vallée du M'Zab et <strong>Timimoun</strong> dans le Gourara. Une fois en Algérie, nous réservons les vols intérieurs vers les aéroports qui les desservent : <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> et <strong>Timimoun (TMX)</strong>. Si vous réservez l'un de nos <a href="/fr/circuits/">circuits sahariens</a>, l'itinéraire est déjà conçu pour être éligible.</p>
@@ -80,11 +80,11 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'fr',
     </div>
   </div></section>
 
-  <!-- ===== Saharan e-Visa explainer (P7) ===== -->
+  <!-- ===== Saharan visa authorisation explainer (P7) ===== -->
   <section class="section sev" id="saharan-evisa" data-region="sahara"><div class="wrap">
     <div class="sev-head">
       <span class="eyebrow">Pour les programmes sahariens organisés</span>
-      <h2>L'e-Visa saharien — comment il fonctionne</h2>
+      <h2>L'autorisation de visa saharienne — comment elle fonctionne</h2>
       <p class="sev-lede">En tant qu'<strong>opérateur touristique algérien agréé</strong>, nous pouvons préparer votre document d'autorisation de visa pour un voyage qui comprend le Sahara. La délivrance suit les canaux officiels : nous préparons chaque dossier, et ce sont les autorités algériennes qui délivrent le visa. Voici exactement ce que cela signifie — et ce que cela coûte.</p>
     </div>
 
@@ -92,7 +92,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'fr',
       <li>
         <span class="sev-n">1</span>
         <div><strong>Réservez un programme complet</strong>
-        <p>L'autorisation e-Visa saharienne est disponible lorsque vous réservez un circuit complet avec nous. Ce qui rend éligible, c'est un <strong>séjour au Sahara dans votre programme</strong> — vous pouvez donc combiner le <strong>nord et le sud</strong> en un seul périple, en arrivant à Alger normalement.</p></div>
+        <p>L'autorisation de visa saharienne est disponible lorsque vous réservez un circuit complet avec nous. Ce qui rend éligible, c'est un <strong>séjour au Sahara dans votre programme</strong> — vous pouvez donc combiner le <strong>nord et le sud</strong> en un seul périple, en arrivant à Alger normalement.</p></div>
       </li>
       <li>
         <span class="sev-n">2</span>
@@ -126,11 +126,11 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'fr',
 
     <div class="sev-cta">
       <a class="btn btn-gold" href="/fr/circuits/">Voir les circuits sahariens →</a>
-      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Bonjour Algeria Compass, j'ai une question sur l'e-Visa saharien.")}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Poser une question sur l'e-Visa saharien</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Bonjour Algeria Compass, j'ai une question sur l'autorisation de visa saharienne.")}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Poser une question sur l'autorisation de visa saharienne</a>
     </div>
 
     <div class="sev-faq">
-      <h3>e-Visa saharien — réponses rapides</h3>
+      <h3>Autorisation de visa saharienne — réponses rapides</h3>
       <div class="faq">
         {faqs.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </div>
@@ -142,7 +142,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'fr',
 </BaseLayout>
 
 <style>
-  /* ===== Saharan e-Visa explainer (P7) ===== */
+  /* ===== Saharan visa authorisation explainer (P7) ===== */
   .sev{
     background-color:#F3E7CF;
     background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'48'%20height%3D'48'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23C2842B'%20stroke-width%3D'1'%20opacity%3D'.12'%3E%3Cpath%20d%3D'M24%203L45%2024L24%2045L3%2024Z'/%3E%3Ccircle%20cx%3D'24'%20cy%3D'24'%20r%3D'6'/%3E%3C/g%3E%3C/svg%3E"),

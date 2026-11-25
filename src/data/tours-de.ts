@@ -3168,7 +3168,7 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "label": "Gruppe",
-        "value": "Kleingruppe oder private Abreise"
+        "value": "Private Abreise, nur für Ihre eigene Gruppe"
       },
       {
         "label": "Kalte Nächte",
@@ -3198,7 +3198,7 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "q": "Wie ist die Gruppe zusammengesetzt?",
-        "a": "Klein. Die Rundreise läuft als Kleingruppe oder als private Abreise für Ihre eigene Reisegesellschaft — teilen Sie uns bei der Anfrage mit, was Sie bevorzugen."
+        "a": "Privat. Die Rundreise wird nur für Ihre eigene Reisegruppe organisiert, mit eigenem Guide und eigener 4x4-Crew."
       }
     ]
   },
@@ -3389,7 +3389,7 @@ export const TOURS_DE: Record<string, TourDe> = {
       },
       {
         "label": "Gruppe",
-        "value": "Kleingruppe oder private Abreise"
+        "value": "Private Abreise, nur für Ihre eigene Gruppe"
       },
       {
         "label": "Schwimmen",

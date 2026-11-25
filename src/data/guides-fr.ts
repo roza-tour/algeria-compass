@@ -84,7 +84,7 @@ export const GUIDES_FR: GuideFr[] = [
       ]},
       { h: 'Alors, lequel choisir ?', p: "Si vous voulez le Sahara lui-même — le vide, la roche, le sable et le plus vieil art d'Afrique —, choisissez Djanet. Si vous voulez un désert habité, un lit chaud et un rythme plus tranquille, choisissez Timimoun. Et si vous disposez de dix jours, rien ne vous oblige à choisir : donnez-nous vos dates et nous réunirons les deux en un seul voyage. Côté formalités, comme les deux voyages incluent le Sahara, le visa peut être délivré à l'arrivée à l'aéroport d'Alger.", links: [
         { href: '/fr/contact/', text: 'Nous donner vos dates' },
-        { href: '/fr/evisa-algerie/', text: 'Entrée en Algérie et e-Visa saharien' },
+        { href: '/fr/evisa-algerie/', text: 'Entrée en Algérie et autorisation de visa saharienne' },
       ]},
     ],
     faqs: [
@@ -140,7 +140,7 @@ export const GUIDES_FR: GuideFr[] = [
         "Permis : les permis du parc du Tassili n'Ajjer sont obtenus par nos soins et inclus.",
         "Entrée : les formalités de visa pour le Sahara, Djanet compris, sont expliquées sur notre page consacrée à l'entrée et à l'e-Visa.",
       ], links: [
-        { href: '/fr/evisa-algerie/', text: 'Entrée en Algérie et e-Visa saharien' },
+        { href: '/fr/evisa-algerie/', text: 'Entrée en Algérie et autorisation de visa saharienne' },
         { href: '/fr/destinations/djanet/', text: 'Djanet' },
       ]},
       { h: 'Les erreurs à éviter', list: [
@@ -177,7 +177,7 @@ export const GUIDES_FR: GuideFr[] = [
         "Un visa touristique délivré par l'ambassade ou le consulat d'Algérie dont vous relevez, à demander avant le départ. Les consulats exigent une lettre d'invitation et un programme confirmé émis par une agence algérienne agréée : nous préparons les deux pour tout programme d'au moins 3 jours incluant l'accueil et le transfert aéroport (la lettre d'invitation coûte 25 USD).",
         "L'autorisation de visa saharienne, pour les voyages organisés qui incluent le Sahara, comme Djanet ou Timimoun — quel que soit votre aéroport d'arrivée. Nous émettons l'autorisation (50 USD) et la vignette de visa est délivrée à l'arrivée à l'aéroport d'Alger ; le cachet d'entrée est un frais distinct, payé à l'aéroport.",
       ], links: [
-        { href: '/fr/evisa-algerie/', text: 'Entrée en Algérie et e-Visa saharien' },
+        { href: '/fr/evisa-algerie/', text: 'Entrée en Algérie et autorisation de visa saharienne' },
         { href: '/fr/visa-algerie/', text: 'Le visa pour l’Algérie' },
       ]},
       { h: 'Décalage horaire, électricité et argent', list: [

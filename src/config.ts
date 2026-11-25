@@ -67,6 +67,11 @@ export const FORMSPREE_ID = '';   // e.g. 'xrgkabcd'  -> https://formspree.io/f/
 // Booking promises (owner-confirmed 2026-10-02). Single source of truth: the
 // tour pages in every language, /booking-terms/, /plan-your-trip/ and
 // llms.txt all read these, so a change here changes the promise everywhere.
+// The date the visa routes and fees on the site were last checked against
+// the owner's current practice and the official sources (shown on every visa
+// page). Change it whenever the fees or the rules are checked again.
+export const VISA_CHECKED = '2026-11-25';
+
 export const BOOKING = {
   holdHours: 72,          // dates held free, no payment, while we confirm
   earlyDays: 60,          // book at least this many days before departure…

@@ -252,7 +252,7 @@
         },
         {
           "label": "Style",
-          "value": "Private and tailor-made; small group size"
+          "value": "Private and tailor-made, for your own party"
         },
         {
           "label": "Bring",
@@ -3719,7 +3719,7 @@
         },
         {
           "label": "Group",
-          "value": "Small group or private departure"
+          "value": "Private departure, for your own party only"
         },
         {
           "label": "Nights are cold",
@@ -3914,7 +3914,7 @@
         },
         {
           "q": "What is the group like?",
-          "a": "Small. The circuit runs as a small group or as a private departure for your own party — tell us which you would prefer when you enquire."
+          "a": "Private. The circuit runs only for your own party, with your own guide and 4x4 crew."
         }
       ],
       "map": {
@@ -3973,7 +3973,7 @@
         },
         {
           "label": "Group",
-          "value": "Small group or private departure"
+          "value": "Private departure, for your own party only"
         },
         {
           "label": "Swimming",

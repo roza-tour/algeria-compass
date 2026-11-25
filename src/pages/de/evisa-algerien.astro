@@ -29,13 +29,13 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:1,name:'Start',item:`${site}/de/`},
   {'@type':'ListItem',position:2,name:'e-Visum & Einreise',item:url}]};
 const faqs = [
-  { q: 'Was ist das Sahara-e-Visum?', a: 'Es ist das Visum-Genehmigungsdokument, das wir für Reisende eines organisierten Sahara-Programms vorbereiten. Als lizenzierter algerischer Reiseveranstalter stellen wir eine Genehmigung mit QR-Code aus, der auf dem Portal des algerischen Innenministeriums überprüfbar ist. Das Visum selbst wird von den algerischen Behörden erteilt — Ihre Vignette bzw. Ihr Stempel wird bei der Ankunft ausgestellt; wir bereiten jede Unterlage im Voraus vor.' },
-  { q: 'Was kostet das Sahara-e-Visum?', a: 'Das Visum-Genehmigungsdokument kostet 50 USD. Die Vorbereitung aller erforderlichen Unterlagen ist bei uns völlig kostenlos. Eine separate Vignetten-/Stempelgebühr ist bei der Ankunft an die Behörden zu zahlen — die Höhe richtet sich nach der Aufenthaltsdauer, von 5.000 DA (35 €) für 1–2 Tage bis 20.000 DA (140 €) für 8–10 Tage; die vollständige Tabelle steht weiter unten.' },
+  { q: 'Was ist die Sahara-Visumsgenehmigung?', a: 'Es ist das Visum-Genehmigungsdokument, das wir für Reisende eines organisierten Sahara-Programms vorbereiten. Als lizenzierter algerischer Reiseveranstalter stellen wir eine Genehmigung mit QR-Code aus, der auf dem Portal des algerischen Innenministeriums überprüfbar ist. Das Visum selbst wird von den algerischen Behörden erteilt — Ihre Vignette bzw. Ihr Stempel wird bei der Ankunft ausgestellt; wir bereiten jede Unterlage im Voraus vor.' },
+  { q: 'Was kostet die Sahara-Visumsgenehmigung?', a: 'Das Visum-Genehmigungsdokument kostet 50 USD. Die Vorbereitung aller erforderlichen Unterlagen ist bei uns völlig kostenlos. Eine separate Vignetten-/Stempelgebühr ist bei der Ankunft an die Behörden zu zahlen — die Höhe richtet sich nach der Aufenthaltsdauer, von 5.000 DA (35 €) für 1–2 Tage bis 20.000 DA (140 €) für 8–10 Tage; die vollständige Tabelle steht weiter unten.' },
   { q: 'Bekomme ich das Visum bei Ankunft für Djanet und das Tassili n\'Ajjer?', a: 'Ja — Djanet ist das Tor zum Nationalpark Tassili n\'Ajjer und zum Tadrart Rouge und gehört zu den südlichen Wilayas, für die diese Route gedacht ist. Voraussetzung ist, dass Ihr organisiertes Programm mit einem lizenzierten algerischen Veranstalter einen Sahara-Aufenthalt enthält: Wir bereiten die Autorisierung vorab vor, die Vignette wird bei der Ankunft am Flughafen Algier ausgestellt. Nennen Sie uns Ihre Staatsangehörigkeit, dann bestätigen wir Ihre Berechtigung vor der Buchung.' },
   { q: 'Wo wird das Visum erteilt — muss ich im Süden landen?', a: 'Nein. Sie fliegen ganz normal nach Algier, und das Visum wird bei der Ankunft am Flughafen Algier erteilt. Entscheidend ist der Sahara-Aufenthalt in Ihrem Programm, nicht der Ankunftsflughafen. In Algerien buchen wir dann die Inlandsflüge in die Wüste — Djanet–Tiska (DJG) für das Tassili n\'Ajjer und das Tadrart Rouge, Tamanrasset (TMR) für den Hoggar, Ghardaïa Noumérat (GHA) für das M\'Zab-Tal, Timimoun (TMX) für den Gourara.' },
   { q: 'Kann ich auch den Norden besuchen oder nur die Wüste?', a: 'Beides. Eine einzige Reise kann Algier, die Küste und die römischen Städte mit der Sahara verbinden — entscheidend ist, dass ein Sahara-Aufenthalt zum Programm gehört. Wir gestalten die Route so, dass sie die Voraussetzungen erfüllt.' },
   { q: 'Ist das Genehmigungsdokument offiziell und überprüfbar?', a: 'Ja. Es trägt einen QR-Code, der auf dem Portal des algerischen Innenministeriums überprüft werden kann. Die Ausstellung folgt den offiziellen Wegen — wir sind Ihr Partner für die Unterlagen; das Visum erteilen die algerischen Behörden.' },
-  { q: 'Muss ich eine komplette Tour buchen, um es zu erhalten?', a: 'Ja. Die Sahara-e-Visum-Genehmigung ist verfügbar, wenn Sie ein vollständiges Programm bei uns buchen — sie ist Teil der Organisation Ihrer Reise, keine eigenständige Dienstleistung.' },
+  { q: 'Muss ich eine komplette Tour buchen, um es zu erhalten?', a: 'Ja. Die Sahara-Visumsgenehmigung ist verfügbar, wenn Sie ein vollständiges Programm bei uns buchen — sie ist Teil der Organisation Ihrer Reise, keine eigenständige Dienstleistung.' },
   { q: 'Hat Algerien ein e-Visum für Touristen?', a: 'Für gewöhnliche Reisen nach Algerien gibt es kein allgemeines Online-Touristen-e-Visum. Die zwei praktikablen Wege sind ein Touristenvisum beim für Sie zuständigen algerischen Konsulat oder — für organisierte Reisen mit Sahara-Aufenthalt — die von uns vorbereitete Sahara-Visumgenehmigung, wobei die Vignette bei der Ankunft am Flughafen Algier ausgestellt wird. Wir übernehmen in beiden Fällen die Unterlagen.' },
   { q: 'Wie reise ich konkret nach Algerien ein?', a: 'Die meisten Besucher fliegen mit einem Touristenvisum vom Konsulat nach Algier (oder zu einem anderen Flughafen im Norden), gestützt auf unser Einladungsschreiben. Reisende, deren organisiertes Programm die Sahara enthält, können stattdessen unseren Genehmigungsweg nutzen; die Vignette wird bei der Ankunft am Flughafen Algier ausgestellt. Wir bestätigen Ihnen, welcher Weg für Sie gilt.' },
 ];
@@ -63,8 +63,8 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
       <h2>Weg 1 — Touristenvisum über das Konsulat (der Norden &amp; die meisten Reisen)</h2>
       <p>Sie beantragen ein Touristenvisum beim <strong>algerischen Konsulat</strong>, das für Ihr Land zuständig ist, in der Regel persönlich. Konsulate verlangen ein <strong>Einladungsschreiben / einen Touristen-Voucher</strong> einer lizenzierten algerischen Agentur — den stellen wir Ihnen aus (25 USD) — für jedes Programm ab 3 Tagen mit Flughafenabholung und -transfer —, zusammen mit Ihrer Hotel- und Tourbestätigung und einer Checkliste für Ihre Staatsangehörigkeit. Planen Sie etwa <strong>zwei bis vier Wochen</strong> ein.</p>
 
-      <h2>Weg 2 — Das Sahara-e-Visum (organisierte Wüstenprogramme)</h2>
-      <p class="speak">Das kommt einem „Online“-Weg am nächsten. Für ein <strong>organisiertes Sahara-Programm</strong> bereiten wir im Voraus ein <strong>Visum-Genehmigungsdokument</strong> vor — kein Konsulatsbesuch nötig — und Ihre Visumvignette wird bei der Ankunft am <strong>Flughafen Algier</strong> ausgestellt. Dieser Weg steht <strong>Reisenden aller Nationalitäten offen</strong>, sofern Ihr organisiertes Programm einen Sahara-Aufenthalt enthält. <a href="#saharan-evisa">So funktioniert das Sahara-e-Visum im Detail ↓</a></p>
+      <h2>Weg 2 — Die Sahara-Visumsgenehmigung (organisierte Wüstenprogramme)</h2>
+      <p class="speak">Das kommt einem „Online“-Weg am nächsten. Für ein <strong>organisiertes Sahara-Programm</strong> bereiten wir im Voraus ein <strong>Visum-Genehmigungsdokument</strong> vor — kein Konsulatsbesuch nötig — und Ihre Visumvignette wird bei der Ankunft am <strong>Flughafen Algier</strong> ausgestellt. Dieser Weg steht <strong>Reisenden aller Nationalitäten offen</strong>, sofern Ihr organisiertes Programm einen Sahara-Aufenthalt enthält. <a href="#saharan-evisa">So funktioniert die Sahara-Visumsgenehmigung im Detail ↓</a></p>
 
       <h2>Was als Sahara-Aufenthalt zählt</h2>
       <p>Dieser Weg verlangt einen Sahara-Aufenthalt im Programm — egal, an welchem Flughafen Sie landen, das Visum wird in Algier erteilt. Unsere Programme nutzen konkret <strong>Djanet</strong> — das Tor zum Nationalpark <strong>Tassili n'Ajjer</strong> und zum <strong>Tadrart Rouge</strong> —, <strong>Tamanrasset</strong> im Hoggar, <strong>Ghardaïa</strong> im M'Zab-Tal und <strong>Timimoun</strong> im Gourara. In Algerien buchen wir die Inlandsflüge zu den zugehörigen Flughäfen: <strong>Djanet–Tiska (DJG)</strong>, <strong>Tamanrasset (TMR)</strong>, <strong>Ghardaïa Noumérat (GHA)</strong> und <strong>Timimoun (TMX)</strong>. Wenn Sie eine unserer <a href="/de/reisen/">Sahara-Reisen</a> buchen, ist die Route bereits entsprechend angelegt.</p>
@@ -80,11 +80,11 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
     </div>
   </div></section>
 
-  <!-- ===== Saharan e-Visa explainer (P7) ===== -->
+  <!-- ===== Saharan visa authorisation explainer (P7) ===== -->
   <section class="section sev" id="saharan-evisa" data-region="sahara"><div class="wrap">
     <div class="sev-head">
       <span class="eyebrow">Für organisierte Sahara-Programme</span>
-      <h2>Das Sahara-e-Visum — so funktioniert es</h2>
+      <h2>Die Sahara-Visumsgenehmigung — so funktioniert es</h2>
       <p class="sev-lede">Als <strong>lizenzierter algerischer Reiseveranstalter</strong> können wir Ihr Visum-Genehmigungsdokument vorbereiten, für eine Reise mit Sahara-Aufenthalt. Die Ausstellung folgt den offiziellen Wegen: Wir übernehmen jede Unterlage, und die algerischen Behörden erteilen das Visum. Hier steht genau, was das bedeutet — und was es kostet.</p>
     </div>
 
@@ -92,7 +92,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
       <li>
         <span class="sev-n">1</span>
         <div><strong>Ein vollständiges Programm buchen</strong>
-        <p>Die Sahara-e-Visum-Genehmigung ist verfügbar, wenn Sie eine vollständige Tour bei uns buchen. Entscheidend ist ein <strong>Sahara-Aufenthalt im Programm</strong> — so können Sie <strong>Norden und Süden</strong> in einer Reise verbinden und ganz normal in Algier landen.</p></div>
+        <p>Die Sahara-Visumsgenehmigung ist verfügbar, wenn Sie eine vollständige Tour bei uns buchen. Entscheidend ist ein <strong>Sahara-Aufenthalt im Programm</strong> — so können Sie <strong>Norden und Süden</strong> in einer Reise verbinden und ganz normal in Algier landen.</p></div>
       </li>
       <li>
         <span class="sev-n">2</span>
@@ -126,11 +126,11 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
 
     <div class="sev-cta">
       <a class="btn btn-gold" href="/de/reisen/">Sahara-Touren entdecken →</a>
-      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hallo Algeria Compass, ich habe eine Frage zum Sahara-e-Visum.')}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Fragen zum Sahara-e-Visum</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hallo Algeria Compass, ich habe eine Frage zur Sahara-Visumsgenehmigung.')}`} target="_blank" rel="noopener"><Icon name="whatsapp" /> Fragen zur Sahara-Visumsgenehmigung</a>
     </div>
 
     <div class="sev-faq">
-      <h3>Sahara-e-Visum — kurze Antworten</h3>
+      <h3>Sahara-Visumsgenehmigung — kurze Antworten</h3>
       <div class="faq">
         {faqs.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </div>
@@ -142,7 +142,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'de',
 </BaseLayout>
 
 <style>
-  /* ===== Saharan e-Visa explainer (P7) ===== */
+  /* ===== Saharan visa authorisation explainer (P7) ===== */
   .sev{
     background-color:#F3E7CF;
     background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'48'%20height%3D'48'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23C2842B'%20stroke-width%3D'1'%20opacity%3D'.12'%3E%3Cpath%20d%3D'M24%203L45%2024L24%2045L3%2024Z'/%3E%3Ccircle%20cx%3D'24'%20cy%3D'24'%20r%3D'6'/%3E%3C/g%3E%3C/svg%3E"),

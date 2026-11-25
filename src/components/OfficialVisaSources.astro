@@ -7,8 +7,20 @@
 // licensed agencies, 24 southern wilayas, issued at international airports)
 // and the French Foreign Ministry's travel advice, which describes the same
 // procedure independently (boarding authorisation with a QR code, fee on arrival).
+import { VISA_CHECKED } from '../config';
 export interface Props { lang?: string }
 const { lang = 'en' } = Astro.props;
+// A dated line: visa pages carried fees and rules with no date, and answer
+// engines are wary of undated visa information.
+const CHECKED: Record<string, [string, string]> = {
+  en: ['Routes and fees on this page last checked on', 'en-GB'],
+  fr: ['Démarches et tarifs de cette page vérifiés le', 'fr-FR'],
+  it: ['Procedure e tariffe di questa pagina verificate il', 'it-IT'],
+  es: ['Trámites y tarifas de esta página comprobados el', 'es-ES'],
+  de: ['Wege und Gebühren auf dieser Seite zuletzt geprüft am', 'de-DE'],
+};
+const [checkedLabel, checkedLoc] = CHECKED[lang] || CHECKED.en;
+const checkedText = new Date(VISA_CHECKED + 'T12:00:00Z').toLocaleDateString(checkedLoc, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 type Txt = { h: string; note: string; mfa: string; mfaPub: string; fr: string; frPub: string; kind: string; adv: string; foot: string; inFr: string };
 const T: Record<string, Txt> = {
   en: {
@@ -71,5 +83,6 @@ const suffix = lang === 'fr' ? '' : `, ${t.inFr}`;
       <li><a href={FRD} target="_blank" rel="noopener" hreflang="fr">{t.fr}</a><span class="src-pub"> — {t.frPub}</span><span class="src-type"> · {t.adv}{suffix}</span></li>
     </ol>
     <p class="sources-note" style="margin:.7rem 0 0">{t.foot}</p>
+    <p class="sources-note" style="margin:.7rem 0 0"><strong>{checkedLabel} <time datetime={VISA_CHECKED}>{checkedText}</time>.</strong></p>
   </section>
 </div>

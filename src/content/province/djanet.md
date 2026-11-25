@@ -85,7 +85,7 @@ In **Djanet town** there are simple guesthouses and small hotels used either sid
 
 ## Practical tips
 - Book **flights early** — Djanet seats are limited and sell out in season.
-- If your trip enters the Sahara you may use the [Saharan e-Visa](/evisa/#saharan-evisa); we prepare the file with every booking.
+- If your trip enters the Sahara you may use the [Saharan visa authorisation](/evisa/#saharan-evisa); we prepare the file with every booking.
 - Carry some **cash** — card payment is not reliable this far south.
 
 > **Looking for the site itself?** This page covers the whole state. For Djanet as a destination — what to see and the monuments themselves — see our [Djanet destination guide](/destinations/djanet/).
