@@ -1,7 +1,7 @@
 ---
 // Linked JSON-LD graph. Country is a real @id entity; WebSite carries a sitelinks
 // SearchAction wired to the real /search/ endpoint (P8).
-import { CONTACT, LANGUAGES } from '../config';
+import { CONTACT, LANGUAGES, PARENT } from '../config';
 export interface Props { nodes?: any[]; }
 const { nodes = [] } = Astro.props;
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
@@ -16,9 +16,10 @@ const org: any = {
   "@type": "TravelAgency",
   "@id": site + "/#organization",
   "name": "Algeria Compass",
-  "description": "Algeria Compass is a licensed Algerian tour operator specialising in luxury private, guided tours across Algeria — Sahara safaris, the UNESCO Casbah of Algiers, Roman cities, the M'Zab Valley and the Kabyle coast.",
+  "description": "Algeria Compass is the branch of Roza Tour, a licensed Algerian tour operator, specialised in luxury private, guided tours across Algeria — Sahara safaris, the UNESCO Casbah of Algiers, Roman cities, the M'Zab Valley and the Kabyle coast.",
   "slogan": "Luxury private guided tours across Algeria.",
   "url": site + "/",
+  "parentOrganization": { "@type": "TravelAgency", "name": PARENT.name, "url": PARENT.url },
   "logo": site + "/assets/img/logo-full.png",
   "image": site + "/assets/img/og-image.png",
   "email": CONTACT.email,

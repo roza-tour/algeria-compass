@@ -147,7 +147,8 @@ export const GET: APIRoute = async () => {
 
   const body = `# Algeria Compass
 
-> Algeria Compass is a licensed Algerian tour operator running private, expert-guided
+> Algeria Compass is the branch of Roza Tour, a licensed Algerian tour operator,
+> specialised in private and luxury journeys. It runs private, expert-guided
 > cultural, Sahara and luxury journeys across Algeria, with visa support and local
 > Algerian guides. We also publish independent, fact-checked travel guides on visiting
 > Algeria — safety, visas, transport, costs, seasons, food and its seven UNESCO World
@@ -158,7 +159,7 @@ export const GET: APIRoute = async () => {
 > Contact: ${SITE}/contact/
 
 ## Key facts
-- Business: Algeria Compass, a licensed Algerian tour operator (travel agency) based in ${CONTACT.address.full}.
+- Business: Algeria Compass, the private and luxury travel branch of Roza Tour, a licensed Algerian tour operator (travel agency), based in ${CONTACT.address.full}.
 - Phone / WhatsApp: ${CONTACT.phoneDisplay} · Email: ${CONTACT.email} · Open 24 hours, 7 days.
 - Rating: ${REVIEWS.ratingValue.toFixed(1)} on Google from ${REVIEWS.reviewCount} reviews (${CONTACT.googleProfile}).
 - All tours are private (not shared group departures) with a licensed local guide; dates are chosen by the traveller.

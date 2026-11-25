@@ -29,17 +29,19 @@ const reviewerEntity = reviewerNode(site, reviewer.entry);
 const authorRef = { '@id': (authorEntity as any)['@id'] };
 const stamp = d.updated.toISOString();
 
-// Same QAPage shape as the English page: one reviewed answer, so answerCount
-// is 1 and upvoteCount a truthful 0.
+// Same shape as the English page: one WebPage whose main entity is the
+// question and its reviewed answer. It was a QAPage, which Google reserves for
+// pages where users submit the answers.
 const qa = {
-  '@type': 'QAPage', '@id': `${url}#qa`, inLanguage: lang,
-  author: authorRef, reviewedBy: { '@id': (reviewerEntity as any)['@id'] }, dateModified: stamp,
+  '@type': 'WebPage', '@id': `${url}#webpage`, url, name: t.q, inLanguage: lang,
+  isPartOf: { '@id': `${site}/#website` },
+  author: authorRef, reviewedBy: { '@id': (reviewerEntity as any)['@id'] }, datePublished: stamp, dateModified: stamp,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qbox', '.lq-body'] },
   mainEntity: {
-    '@type': 'Question', name: t.q, text: t.q, answerCount: 1, author: authorRef, datePublished: stamp,
-    acceptedAnswer: { '@type': 'Answer', text: t.a, url: `${url}#answer`, author: authorRef, datePublished: stamp, upvoteCount: 0 },
+    '@type': 'Question', '@id': `${url}#question`, name: t.q, text: t.q, author: authorRef, datePublished: stamp,
+    acceptedAnswer: { '@type': 'Answer', text: t.a, url: `${url}#answer`, author: authorRef, datePublished: stamp },
   },
 };
-const speak = { '@type': 'WebPage', '@id': `${url}#webpage`, url, inLanguage: lang, speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qbox', '.lq-body'] } };
 const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
   { '@type': 'ListItem', position: 1, name: U.home, item: site + HOME[lang] },
   { '@type': 'ListItem', position: 2, name: U.hub, item: site + Q_ROUTES[lang] },
@@ -54,7 +56,7 @@ const start = rest.length ? (slug.length * 7) % rest.length : 0;
 const related = [...same, ...rest.slice(start), ...rest.slice(0, start)].slice(0, 6);
 ---
 <BaseLayout title={t.title} description={t.desc} lang={lang} alternates={qAlternates(site, slug)}
-  image={ogFallback(Astro.url.pathname, t.q, cat)} schema={[qa, speak, authorEntity, reviewerEntity]}>
+  image={ogFallback(Astro.url.pathname, t.q, cat)} schema={[qa, authorEntity, reviewerEntity]}>
   <Breadcrumbs items={[{ name: U.home, href: HOME[lang] }, { name: U.hub, href: Q_ROUTES[lang] }, { name: cat }]} />
   <article class="section"><div class="wrap" style="max-width:760px">
     <span class="eyebrow">{cat}</span>

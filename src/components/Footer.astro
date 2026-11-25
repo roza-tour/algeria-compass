@@ -3,6 +3,9 @@
 // Language-aware: pass lang="fr" for the French labels (same links/design).
 import { CONTACT } from '../config';
 import { asLang, ROUTES, PLAN_PATHS, MOMENTS_PATHS } from '../i18n';
+import { GUIDE_ROUTES } from '../data/localGuides.mjs';
+import { REGION_ROUTES } from '../data/regionI18n.mjs';
+import { Q_ROUTES } from '../data/questionI18n.mjs';
 interface Props { lang?: string }
 const lang = asLang(Astro.props.lang);
 const year = new Date().getFullYear();
@@ -20,10 +23,10 @@ const columns = [
     links: [
       { href: R.tours, label: t('Tours', 'Circuits', 'Viaggi', 'Circuitos', 'Reisen') },
       { href: R.luxury, label: t('Luxury 5-Star Collection', 'Collection de luxe 5 étoiles', 'Collezione lusso 5 stelle', 'Colección de lujo 5 estrellas', '5-Sterne-Luxuskollektion') },
-      { href: R.destinations, label: 'Destinations' },
-      { href: '/provinces/', label: t('States', 'Wilayas', 'Province', 'Provincias', 'Provinzen') },
-      { href: '/regions/', label: t('Regions — 8 worlds', 'Régions', 'Regioni', 'Regiones', 'Regionen') },
-      { href: '/experiences/', label: t('Experiences', 'Expériences', 'Esperienze', 'Experiencias', 'Erlebnisse') },
+      { href: R.destinations, label: t('Destinations', 'Destinations', 'Destinazioni', 'Destinos', 'Reiseziele') },
+      { href: (GUIDE_ROUTES as any).province[lang], label: t('States', 'Wilayas', 'Province', 'Provincias', 'Provinzen') },
+      { href: (REGION_ROUTES as any)[lang], label: t('Regions — 8 worlds', 'Régions', 'Regioni', 'Regiones', 'Regionen') },
+      { href: (GUIDE_ROUTES as any).experience[lang], label: t('Experiences', 'Expériences', 'Esperienze', 'Experiencias', 'Erlebnisse') },
       { href: '/blog/', label: t('Blog', 'Guides', 'Blog', 'Blog', 'Blog') },
       { href: '/discover/', label: t('Discover Algeria', "Découvrir l'Algérie", "Scopri l'Algeria", 'Descubre Argelia', 'Algerien entdecken') },
     ],
@@ -31,8 +34,8 @@ const columns = [
   {
     h: t('Knowledge', 'À savoir', 'Da sapere', 'Para saber', 'Wissenswertes'),
     links: [
-      { href: '/questions/', label: t('Questions & Answers', 'Questions & réponses', 'Domande e risposte', 'Preguntas y respuestas', 'Fragen & Antworten') },
-      { href: '/culture/', label: 'Culture' },
+      { href: (Q_ROUTES as any)[lang], label: t('Questions & Answers', 'Questions & réponses', 'Domande e risposte', 'Preguntas y respuestas', 'Fragen & Antworten') },
+      { href: '/culture/', label: t('Culture', 'Culture', 'Cultura', 'Cultura', 'Kultur') },
       { href: '/history/', label: t('History', 'Histoire', 'Storia', 'Historia', 'Geschichte') },
       { href: '/food/', label: t('Food', 'Cuisine', 'Cucina', 'Gastronomía', 'Küche') },
       { href: '/sweets/', label: t('Sweets & Pastries', 'Pâtisseries', 'Dolci e pasticceria', 'Dulces y repostería', 'Süßes & Gebäck') },
@@ -54,7 +57,7 @@ const columns = [
       { href: R.about, label: t('About', 'À propos', 'Chi siamo', 'Quiénes somos', 'Über uns') },
       { href: R.contact, label: t('Contact & Inquiry', 'Contact', 'Contatti', 'Contacto', 'Kontakt') },
       { href: '/privacy/', label: t('Privacy & Cookies', 'Confidentialité & cookies', 'Privacy e cookie', 'Privacidad y cookies', 'Datenschutz & Cookies') },
-      { href: '/sitemap/', label: 'Sitemap' },
+      { href: '/sitemap/', label: t('Sitemap', 'Plan du site', 'Mappa del sito', 'Mapa del sitio', 'Sitemap') },
     ],
   },
   {
@@ -78,7 +81,7 @@ const columns = [
           <img class="f-logo" src="/assets/img/logo-full.png" width="220" height="167" alt="Algeria Compass" loading="lazy" decoding="async" />
         </picture>
         <p class="f-tagline">{t('Explore Algeria in Elite Luxury', "L'Algérie dans un luxe d'exception", "L'Algeria in un lusso d'eccezione", 'Argelia en un lujo excepcional', 'Algerien in exklusivem Luxus')}</p>
-        <p class="f-desc">{t('Licensed Algerian tour operator — luxury private, guided tours across Algeria.', 'Voyagiste algérien agréé — circuits privés et guidés de luxe à travers l’Algérie.', 'Tour operator algerino autorizzato — viaggi privati e guidati di lusso in tutta l’Algeria.', 'Operador turístico argelino autorizado — circuitos privados y guiados de lujo por toda Argelia.', 'Lizenzierter algerischer Reiseveranstalter — private, geführte Luxusreisen durch ganz Algerien.')}</p>
+        <p class="f-desc">{t('The branch of Roza Tour, a licensed Algerian tour operator, for private and luxury journeys across Algeria.', 'La branche de Roza Tour, voyagiste algérien agréé, consacrée aux voyages privés et de luxe à travers l’Algérie.', 'Il ramo di Roza Tour, tour operator algerino autorizzato, dedicato ai viaggi privati e di lusso in tutta l’Algeria.', 'La división de Roza Tour, operador turístico argelino autorizado, dedicada a los viajes privados y de lujo por toda Argelia.', 'Der Zweig von Roza Tour, einem lizenzierten algerischen Reiseveranstalter, für private Luxusreisen durch ganz Algerien.')}</p>
         <address class="f-nap">
           {CONTACT.address.full}<br/>
           <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a><br/>
@@ -104,11 +107,11 @@ const columns = [
       ))}
     </div>
     <div class="footer-bottom">
-      <p>&copy; {year} Algeria Compass. {t('All rights reserved.', 'Tous droits réservés.')} (Algeria)</p>
+      <p>&copy; {year} Algeria Compass. {t('All rights reserved.', 'Tous droits réservés.', 'Tutti i diritti riservati.', 'Todos los derechos reservados.', 'Alle Rechte vorbehalten.')} (Algeria)</p>
       <div class="fcerts">
-        <span class="fcert">{t('Private Guided Tours', 'Circuits privés guidés')}</span>
-        <span class="fcert">{t('Local Algerian Experts', 'Experts algériens locaux')}</span>
-        <span class="fcert">{t('SSL Secured', 'Sécurisé SSL')}</span>
+        <span class="fcert">{t('Private Guided Tours', 'Circuits privés guidés', 'Viaggi privati con guida', 'Circuitos privados con guía', 'Private geführte Reisen')}</span>
+        <span class="fcert">{t('Local Algerian Experts', 'Experts algériens locaux', 'Esperti algerini locali', 'Expertos argelinos locales', 'Algerische Experten vor Ort')}</span>
+        <span class="fcert">{t('SSL Secured', 'Sécurisé SSL', 'Protetto da SSL', 'Protegido con SSL', 'SSL-gesichert')}</span>
       </div>
     </div>
   </div>

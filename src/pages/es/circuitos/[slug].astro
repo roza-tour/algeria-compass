@@ -244,7 +244,7 @@ const schema = [productSchema, ...(faqSchema ? [faqSchema] : [])];
 
       {fr.goodToKnow && fr.goodToKnow.length > 0 && (
         <div class="gtk">
-          <h2>Buено saber</h2>
+          <h2>Información práctica</h2>
           <BestMonths lang="es" season={((tour.goodToKnow || []).find((g: any) => g.label === 'Best season') || {}).value} />
           <dl>{fr.goodToKnow.map(g => (<><dt>{g.label}</dt><dd>{g.value}</dd></>))}</dl>
         </div>

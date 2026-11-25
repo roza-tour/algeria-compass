@@ -211,7 +211,7 @@ export const ABOUT_PAGE: Record<Exclude<Lang, 'en'>, AboutContent> = {
     eyebrow: 'À propos',
     h1: 'Voyages privés de luxe à travers l’Algérie',
     lead: [
-      'Algeria Compass est un opérateur touristique algérien agréé qui ne travaille que sur un seul pays. Nous concevons et opérons des voyages privés et guidés à travers l’Algérie — le plus grand pays d’Afrique — avec des guides locaux agréés, et nous appuyons chaque itinéraire sur une connaissance de terrain, pas sur des brochures.',
+      'Algeria Compass est la branche de Roza Tour, opérateur touristique algérien agréé, spécialisée dans les voyages privés et de luxe, et ne travaille que sur un seul pays. Nous concevons et opérons des voyages privés et guidés à travers l’Algérie — le plus grand pays d’Afrique — avec des guides locaux agréés, et nous appuyons chaque itinéraire sur une connaissance de terrain, pas sur des brochures.',
       'Nous ne sommes ni un catalogue ni un annuaire. Nous cartographions l’Algérie comme un ensemble cohérent : les 58 wilayas, les sept sites du patrimoine mondial, les cités romaines du nord, les mondes oasiens du M’Zab et du Souf, les montagnes de Kabylie et la côte méditerranéenne — avec la cuisine, l’histoire, les langues et les traditions qui les relient.',
     ],
     sections: [
@@ -233,7 +233,7 @@ export const ABOUT_PAGE: Record<Exclude<Lang, 'en'>, AboutContent> = {
     eyebrow: 'Chi siamo',
     h1: 'Viaggi privati di lusso in tutta l’Algeria',
     lead: [
-      'Algeria Compass è un tour operator algerino autorizzato che lavora su un solo paese. Progettiamo e conduciamo viaggi privati e guidati in tutta l’Algeria — il paese più grande dell’Africa — con guide locali autorizzate, e ogni itinerario poggia su conoscenza diretta del terreno, non su cataloghi.',
+      'Algeria Compass è il ramo di Roza Tour, tour operator algerino autorizzato, specializzato nei viaggi privati e di lusso, e lavora su un solo paese. Progettiamo e conduciamo viaggi privati e guidati in tutta l’Algeria — il paese più grande dell’Africa — con guide locali autorizzate, e ogni itinerario poggia su conoscenza diretta del terreno, non su cataloghi.',
       'Non siamo né una brochure né un elenco. Raccontiamo l’Algeria come un insieme coerente: le 58 province, i sette siti del patrimonio mondiale, le città romane del nord, i mondi oasiani del M’Zab e del Souf, le montagne della Cabilia e la costa mediterranea — con la cucina, la storia, le lingue e le tradizioni che li legano.',
     ],
     sections: [
@@ -255,7 +255,7 @@ export const ABOUT_PAGE: Record<Exclude<Lang, 'en'>, AboutContent> = {
     eyebrow: 'Quiénes somos',
     h1: 'Viajes privados de lujo por toda Argelia',
     lead: [
-      'Algeria Compass es un operador turístico argelino autorizado dedicado a un solo país. Diseñamos y operamos viajes privados y guiados por toda Argelia — el país más grande de África — con guías locales autorizados, y cada itinerario se apoya en conocimiento de primera mano, no en catálogos.',
+      'Algeria Compass es la división de Roza Tour, operador turístico argelino autorizado, especializada en viajes privados y de lujo y dedicada a un solo país. Diseñamos y operamos viajes privados y guiados por toda Argelia — el país más grande de África — con guías locales autorizados, y cada itinerario se apoya en conocimiento de primera mano, no en catálogos.',
       'No somos un folleto ni un directorio. Trazamos Argelia como un conjunto coherente: las 58 provincias, los siete sitios del patrimonio mundial, las ciudades romanas del norte, los mundos oasianos del M’Zab y el Souf, las montañas de Cabilia y la costa mediterránea — con la cocina, la historia, las lenguas y las tradiciones que los unen.',
     ],
     sections: [
@@ -277,7 +277,7 @@ export const ABOUT_PAGE: Record<Exclude<Lang, 'en'>, AboutContent> = {
     eyebrow: 'Über uns',
     h1: 'Private Luxusreisen durch ganz Algerien',
     lead: [
-      'Algeria Compass ist ein lizenzierter algerischer Reiseveranstalter, der sich auf ein einziges Land konzentriert. Wir planen und führen private, geführte Reisen durch ganz Algerien — das größte Land Afrikas — mit lizenzierten einheimischen Guides, und jede Route stützt sich auf eigene Ortskenntnis, nicht auf Kataloge.',
+      'Algeria Compass ist der auf private Reisen und Luxusreisen spezialisierte Zweig von Roza Tour, einem lizenzierten algerischen Reiseveranstalter, und konzentriert sich auf ein einziges Land. Wir planen und führen private, geführte Reisen durch ganz Algerien — das größte Land Afrikas — mit lizenzierten einheimischen Guides, und jede Route stützt sich auf eigene Ortskenntnis, nicht auf Kataloge.',
       'Wir sind weder Prospekt noch Verzeichnis. Wir erschließen Algerien als zusammenhängendes Ganzes: alle 58 Provinzen, die sieben Welterbestätten, die römischen Städte des Nordens, die Oasenwelten des M’Zab und des Souf, die Berge der Kabylei und die Mittelmeerküste — samt Küche, Geschichte, Sprachen und Traditionen, die sie verbinden.',
     ],
     sections: [

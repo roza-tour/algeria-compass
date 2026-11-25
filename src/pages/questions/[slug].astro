@@ -20,28 +20,33 @@ const d = item.data;
 const { Content } = await item.render();
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
 const qUrl = `${site}/questions/${item.slug}/`;
-const speak = { "@type":"WebPage", "speakable": { "@type":"SpeakableSpecification", "cssSelector": [".qbox",".prose"] } };
 const author = await resolveAuthor(d.author);
 const reviewer = await resolveReviewer(d.reviewedBy);
 const authorEntity = authorNode(site, author.entry);
 const reviewerEntity = reviewerNode(site, reviewer.entry);
 const authorRef = { "@id": (authorEntity as any)["@id"] };
 const stamp = d.updated.toISOString();
-// Question/Answer nodes carry the fields Google requires and recommends for
-// QAPage. `answerCount` is REQUIRED — without it the whole item is invalid and
-// cannot produce a rich result. We publish exactly one editorially-written,
-// reviewed answer, so the count is 1 and `upvoteCount` is a truthful 0: this
-// site has no voting, and inventing engagement numbers would be a lie to
-// Google and to readers. `datePublished` uses the content's `updated` date —
-// the only date the collection tracks — which is also its dateModified.
+// One WebPage node whose main entity is the question and its reviewed answer.
+// This used to be a QAPage. Google reserves QAPage for pages where users
+// submit answers (forums, support boards): a single answer written by the
+// publisher is outside it, so 220 pages carried markup of the wrong type. The
+// question, the answer, the author, the reviewer, the dates and the sources
+// are all still here for search and answer engines to read; only the type and
+// the forum-only counters (answerCount, upvoteCount) are gone.
 const qa = {
-  "@type": "QAPage",
-  "@id": `${qUrl}#qa`,
+  "@type": "WebPage",
+  "@id": `${qUrl}#webpage`,
+  "url": qUrl,
+  "name": d.question,
+  "inLanguage": "en",
+  "isPartOf": { "@id": `${site}/#website` },
+  "datePublished": stamp,
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".qbox", ".prose"] },
   "mainEntity": {
     "@type": "Question",
+    "@id": `${qUrl}#question`,
     "name": d.question,
     "text": d.question,
-    "answerCount": 1,
     "author": authorRef,
     "datePublished": stamp,
     "acceptedAnswer": {
@@ -49,8 +54,7 @@ const qa = {
       "text": d.shortAnswer,
       "url": `${qUrl}#answer`,
       "author": authorRef,
-      "datePublished": stamp,
-      "upvoteCount": 0
+      "datePublished": stamp
     }
   }
 };
@@ -64,7 +68,7 @@ const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/questions/${item.s
   { "@type":"ListItem", position:2, name:"Questions", item:`${site}/questions/` },
   { "@type":"ListItem", position:3, name:d.question, item:`${site}/questions/${item.slug}/` } ] };
 ---
-<BaseLayout title={d.seo.title} description={d.seo.description} keywords={d.seo.keywords} image={ogFallback(Astro.url.pathname, d.question, d.category)} schema={[qa, speak, authorEntity, reviewerEntity]} alternates={qAlternates(site, item.slug)}>
+<BaseLayout title={d.seo.title} description={d.seo.description} keywords={d.seo.keywords} image={ogFallback(Astro.url.pathname, d.question, d.category)} schema={[qa, authorEntity, reviewerEntity]} alternates={qAlternates(site, item.slug)}>
   <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Questions',href:'/questions/'},{name:d.category}]} />
   <article class="section"><div class="wrap" style="max-width:760px">
     <span class="eyebrow">{d.category}</span>

@@ -7,6 +7,19 @@
 // Language-aware: pass lang="fr" / "it" for the translated navigation.
 import { asLang, LANGS, LANG_META, ROUTES, t as tr, type Lang } from '../i18n';
 import SiteSearch from './SiteSearch.astro';
+import { GUIDE_ROUTES } from '../data/localGuides.mjs';
+import { REGION_ROUTES } from '../data/regionI18n.mjs';
+import { Q_ROUTES } from '../data/questionI18n.mjs';
+// Section hubs that exist in every language. The translated menus used to
+// point at the English hubs for these, so a French reader who opened "Wilayas"
+// landed on an English page and the translated hubs had no menu link at all.
+const hub = (l: Lang) => ({
+  experiences: (GUIDE_ROUTES as any).experience[l] as string,
+  provinces: (GUIDE_ROUTES as any).province[l] as string,
+  regions: (REGION_ROUTES as any)[l] as string,
+  questions: (Q_ROUTES as any)[l] as string,
+});
+const H = { fr: hub('fr'), it: hub('it'), es: hub('es'), de: hub('de') };
 interface Props { lang?: string; alternates?: { hreflang: string; href: string }[] }
 const lang = asLang(Astro.props.lang);
 
@@ -42,12 +55,12 @@ const navFr: Entry[] = [
   { label: 'Circuits', items: [
     { href: '/fr/circuits/', label: 'Tous les circuits' },
     { href: '/fr/luxe/', label: 'Collection luxe' },
-    { href: '/experiences/', label: 'Expériences' },
+    { href: H.fr.experiences, label: 'Expériences' },
   ]},
   { label: 'Explorer', items: [
     { href: '/fr/destinations/', label: 'Destinations' },
-    { href: '/provinces/', label: 'Wilayas' },
-    { href: '/regions/', label: 'Régions' },
+    { href: H.fr.provinces, label: 'Wilayas' },
+    { href: H.fr.regions, label: 'Régions' },
     { href: '/fr/unesco-algerie/', label: 'Sites UNESCO' },
   ]},
   { label: 'Guides', items: [
@@ -55,6 +68,7 @@ const navFr: Entry[] = [
     { href: '/fr/visa-arrivee-algerie/', label: 'Visa & entrée' },
     { href: '/fr/sahara-algerie/', label: 'Sahara' },
     { href: '/fr/quand-partir-algerie/', label: 'Quand partir' },
+    { href: H.fr.questions, label: 'Questions fréquentes' },
   ]},
   { href: '/fr/contact/', label: 'Contact' },
 ];
@@ -64,12 +78,12 @@ const navIt: Entry[] = [
   { label: 'Viaggi', items: [
     { href: '/it/circuiti/', label: 'Tutti i viaggi' },
     { href: '/it/lusso/', label: 'Collezione lusso' },
-    { href: '/experiences/', label: 'Esperienze' },
+    { href: H.it.experiences, label: 'Esperienze' },
   ]},
   { label: 'Esplora', items: [
     { href: '/it/destinazioni/', label: 'Destinazioni' },
-    { href: '/provinces/', label: 'Province' },
-    { href: '/regions/', label: 'Regioni' },
+    { href: H.it.provinces, label: 'Province' },
+    { href: H.it.regions, label: 'Regioni' },
     { href: '/it/unesco-algeria/', label: 'Siti UNESCO' },
   ]},
   { label: 'Guide', items: [
@@ -77,6 +91,7 @@ const navIt: Entry[] = [
     { href: '/it/visto-arrivo-algeria/', label: 'Visto e ingresso' },
     { href: '/it/sahara-algeria/', label: 'Sahara' },
     { href: '/it/quando-andare-algeria/', label: 'Quando andare' },
+    { href: H.it.questions, label: 'Domande frequenti' },
   ]},
   { href: '/it/contatto/', label: 'Contatti' },
 ];
@@ -86,12 +101,12 @@ const navEs: Entry[] = [
   { label: 'Circuitos', items: [
     { href: '/es/circuitos/', label: 'Todos los circuitos' },
     { href: '/es/lujo/', label: 'Colección de lujo' },
-    { href: '/experiences/', label: 'Experiencias' },
+    { href: H.es.experiences, label: 'Experiencias' },
   ]},
   { label: 'Explorar', items: [
     { href: '/es/destinos/', label: 'Destinos' },
-    { href: '/provinces/', label: 'Provincias' },
-    { href: '/regions/', label: 'Regiones' },
+    { href: H.es.provinces, label: 'Provincias' },
+    { href: H.es.regions, label: 'Regiones' },
     { href: '/es/unesco-argelia/', label: 'Sitios UNESCO' },
   ]},
   { label: 'Guías', items: [
@@ -99,6 +114,7 @@ const navEs: Entry[] = [
     { href: '/es/visado-llegada-argelia/', label: 'Visado y entrada' },
     { href: '/es/sahara-argelia/', label: 'Sáhara' },
     { href: '/es/cuando-viajar-argelia/', label: 'Cuándo viajar' },
+    { href: H.es.questions, label: 'Preguntas frecuentes' },
   ]},
   { href: '/es/contacto/', label: 'Contacto' },
 ];
@@ -108,12 +124,12 @@ const navDe: Entry[] = [
   { label: 'Reisen', items: [
     { href: '/de/reisen/', label: 'Alle Reisen' },
     { href: '/de/luxus/', label: 'Luxuskollektion' },
-    { href: '/experiences/', label: 'Erlebnisse' },
+    { href: H.de.experiences, label: 'Erlebnisse' },
   ]},
   { label: 'Entdecken', items: [
     { href: '/de/reiseziele/', label: 'Reiseziele' },
-    { href: '/provinces/', label: 'Provinzen' },
-    { href: '/regions/', label: 'Regionen' },
+    { href: H.de.provinces, label: 'Provinzen' },
+    { href: H.de.regions, label: 'Regionen' },
     { href: '/de/unesco-algerien/', label: 'UNESCO-Stätten' },
   ]},
   { label: 'Ratgeber', items: [
@@ -121,6 +137,7 @@ const navDe: Entry[] = [
     { href: '/de/visum-bei-ankunft-algerien/', label: 'Visum & Einreise' },
     { href: '/de/sahara-algerien/', label: 'Sahara' },
     { href: '/de/beste-reisezeit-algerien/', label: 'Beste Reisezeit' },
+    { href: H.de.questions, label: 'Häufige Fragen' },
   ]},
   { href: '/de/kontakt/', label: 'Kontakt' },
 ];

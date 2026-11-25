@@ -25,6 +25,13 @@ export const CONTACT = {
   hours24: true,
 };
 
+// The company behind the brand (owner, 2026-11-25): Algeria Compass is the
+// branch of Roza Tour, the licensed Algerian travel agency, specialised in
+// private and luxury journeys. Named on the About page, in the footer, in
+// llms.txt and as `parentOrganization` in the structured data, so a reader or
+// an answer engine can tell who holds the licence.
+export const PARENT = { name: 'Roza Tour', url: 'https://rozatour-booking.com/' };
+
 // Real Google Business rating (owner-confirmed 2026-06-20). Keep in sync with
 // the Google profile.
 // NOT used in structured data: this rating was collected by Google, not shown
