@@ -98,6 +98,9 @@ const heroWebpLg = hero && /\.jpe?g$/i.test(hero) ? hero.replace(/\.jpe?g$/i, '.
 const hasHeroLg = !!heroWebpLg && fs.existsSync('public' + heroWebpLg);
 const accent = visual.accent;
 const ogImage = hero || '/assets/img/og-image.png';
+// Link preview: a landscape crop of the hero (scripts/gen-og-tours.mjs).
+// The hero itself is portrait, and chat apps crop a portrait preview to a strip.
+const ogCard = (() => { const f = `/assets/img/og/tours/${String(visual.hero).replace(/\.(png|webp|jpe?g)$/i, '.jpg')}`; return fs.existsSync('public' + f) ? f : ogImage; })();
 // Real dimensions of the primary image — honest ImageObject schema + correct
 // intrinsic ratio (these portrait hero photos are NOT the old hardcoded 1600×900).
 let imgW = 1200, imgH = 630;
@@ -214,7 +217,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
 <BaseLayout speakable={['h1', '.tour-hook', '.tour-lead']}
   title={tour.title}
   description={tour.summary}
-  image={ogImage}
+  image={ogCard}
   region={region}
   rgn={regionForTour(tour)}
   keywords={[tour.title.split(' — ')[0], 'Algeria tour', ...((tour.wilayas||[]).map((w: string)=>w.replace(/-/g,' ')+' tour')), 'Algeria travel']}

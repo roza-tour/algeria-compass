@@ -58,6 +58,9 @@ const v = TOUR_VISUALS[tour.id] || { hero: `${tour.image_slugs[0]}-1.jpg`, accen
 // Long tours are told as a story (hero reel, journey, chapters) -- see lib/tourStory.mjs
 const st = tourStory(tour, fr.itinerary || [], 'de', v.hero);
 const hero = `/assets/img/tours/${v.hero}`;
+// Link preview: a landscape crop of the hero (scripts/gen-og-tours.mjs).
+// The hero itself is portrait, and chat apps crop a portrait preview to a strip.
+const ogCard = (() => { const f = `/assets/img/og/tours/${String(v.hero).replace(/\.(png|webp|jpe?g)$/i, '.jpg')}`; return fs.existsSync('public' + f) ? f : hero; })();
 const currency = (data as any).currency || 'EUR';
 
 const REGION: Record<string, string> = {
@@ -150,7 +153,7 @@ const breadcrumb = {
 const schema = [productSchema, ...(faqSchema ? [faqSchema] : [])];
 ---
 <BaseLayout speakable={['h1', '.lead']} title={title} description={description} lang="de" alternates={alternates}
-  image={hero} region={REGION[tour.theme] || undefined} rgn={regionForTour(tour)} schema={schema} sticky={true}
+  image={ogCard} region={REGION[tour.theme] || undefined} rgn={regionForTour(tour)} schema={schema} sticky={true}
   keywords={["Reise " + tour.id.replace(/-/g, ' '), "Algerien Reise", "private Algerien Rundreise"]}>
 
   <section class="hero">

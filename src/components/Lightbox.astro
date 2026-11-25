@@ -43,9 +43,10 @@ const t = T[lang] || T.en;
   .lb-prev{left:16px} .lb-next{right:16px}
   @media (max-width:640px){ .lb-nav{top:auto;bottom:18px;transform:none} }
 </style>
-<script is:inline>
+<script>
+  // Bundled rather than inline: the same code was repeated in every page.
   (function () {
-    var lb = document.getElementById('lb'); if (!lb || !lb.showModal) return;
+    var lb = document.getElementById('lb') as any; if (!lb || !lb.showModal) return;
     var img = document.getElementById('lb-img'), alt = document.getElementById('lb-alt'), num = document.getElementById('lb-n');
     var set = [], i = 0, x0 = null;
     function full(el) { return (el.getAttribute('src') || '').replace('/thumbs/', '/').replace(/\.sm\.webp$/, '.jpg'); }

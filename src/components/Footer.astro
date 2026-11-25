@@ -100,7 +100,7 @@ const columns = [
       </div>
       {columns.map(col => (
         <div class="fcol">
-          <h2>{col.h}</h2>
+          <p class="fcol-h">{col.h}</p>
           <ul>
             {col.links.map(l => <li><a href={l.href}>{l.label}</a></li>)}
           </ul>
