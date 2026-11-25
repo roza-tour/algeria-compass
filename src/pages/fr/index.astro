@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LocalHomeSections from '../../components/pages/LocalHomeSections.astro';
 import { alternatesFor } from '../../i18n';
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
 const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/es/', de: '/de/' });
@@ -36,7 +37,7 @@ const description = "Algeria Compass, voyagiste algérien agréé : circuits pri
         <div class="card" style="padding:1.1rem">
           <h3 style="margin:.2rem 0">Expéditions dans le Sahara</h3>
           <p style="color:var(--text-l)">Djanet et le Tassili n'Ajjer, le Hoggar, Timimoun et les oasis — des expéditions guidées en 4x4, l'hiver.</p>
-          <a href="/experiences/">Voir les expériences →</a>
+          <a href="/fr/experiences/">Voir les expériences →</a>
         </div>
         <div class="card" style="padding:1.1rem">
           <h3 style="margin:.2rem 0">Voyages de luxe sur mesure</h3>
@@ -66,8 +67,11 @@ const description = "Algeria Compass, voyagiste algérien agréé : circuits pri
         <li><a href="/fr/cuisine-algerienne/">Cuisine algérienne</a></li>
         <li><a href="/fr/noel-nouvel-an-algerie/">Noël et Nouvel An en Algérie</a></li>
         <li><a href="/fr/neige-sahara-algerie/">De la neige au Sahara</a></li>
-        <li><a href="/unesco/">Les 7 sites du patrimoine mondial de l'UNESCO en Algérie</a></li>
-        <li><a href="/fr/destinations/">Destinations phares</a> · <a href="/regions/">Régions</a></li>
+        <li><a href="/fr/djanet-ou-timimoun/">Djanet ou Timimoun ? Choisir votre Sahara algérien</a></li>
+        <li><a href="/fr/tadrart-ou-tassili/">Tadrart Rouge, Ihrir ou Sefar ? Choisir son voyage à Djanet</a></li>
+        <li><a href="/fr/voyage-algerie-depuis-le-canada/">Voyager en Algérie depuis le Canada</a></li>
+        <li><a href="/fr/unesco-algerie/">Les 7 sites du patrimoine mondial de l'UNESCO en Algérie</a></li>
+        <li><a href="/fr/destinations/">Destinations phares</a> · <a href="/fr/regions/">Régions</a></li>
       </ul>
       {/* The link is underlined explicitly: inside a paragraph, colour alone
           is not a distinguishable cue (WCAG 1.4.1), and this <p> carries an
@@ -78,6 +82,8 @@ const description = "Algeria Compass, voyagiste algérien agréé : circuits pri
       </p>
     </div>
   </section>
+
+  <LocalHomeSections lang="fr" />
 
   <section class="section" style="background:var(--green);color:#fff">
     <div class="wrap" style="max-width:720px;text-align:center">

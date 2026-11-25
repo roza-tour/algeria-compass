@@ -108,9 +108,9 @@ export const PROVINCES_ES = {
     seoDescription: 'Visitar Blida: el parque nacional de Chréa y sus cedros, las gargantas de la Chiffa y sus macacos, los huertos de la Mitidja, a una hora de Argel.',
   },
   bousaada: {
-    name: 'Bou Saâda', eyebrow: 'Wilaya de M’Sila · Puerta del Sáhara',
+    name: 'Bou Saâda', eyebrow: 'Wilaya de Bou Saâda · Puerta del Sáhara',
     intro: 'La «Ciudad de la felicidad» — un oasis al borde del Sáhara, a pocas horas de Argel, querido por los pintores.',
-    quick: 'Bou Saâda es una ciudad-oasis al borde del Sáhara, en la wilaya de M’Sila, apodada la «Ciudad de la felicidad». Puerta histórica entre las Altas Mesetas y el desierto, es conocida por su palmeral y su uadi, el molino Ferrero, sus mercados artesanales, el legado del pintor Nasreddine Dinet y, muy cerca, la zawiya sufí de El Hamel.',
+    quick: 'Bou Saâda es una ciudad-oasis al borde del Sáhara, capital de su propia wilaya desde 2026 (antes parte de la de M’Sila), apodada la «Ciudad de la felicidad». Puerta histórica entre las Altas Mesetas y el desierto, es conocida por su palmeral y su uadi, el molino Ferrero, sus mercados artesanales, el legado del pintor Nasreddine Dinet y, muy cerca, la zawiya sufí de El Hamel.',
     sections: [
       { h: 'Por qué visitar Bou Saâda', p: 'Bou Saâda es la forma más sencilla de probar el Sur argelino: un verdadero oasis a pocas horas de la capital. Su palmeral, su uadi y sus colinas ocres atraen a viajeros y pintores desde hace generaciones, y sus mercados, su artesanía y su herencia sufí le dan un ambiente propio.' },
       { h: 'Un poco de historia', p: 'Etapa histórica en las rutas entre las Altas Mesetas y el Sáhara, Bou Saâda creció como oasis de huertas y agua. En la época colonial, su luz atrajo a los pintores orientalistas, sobre todo a Nasreddine (Étienne) Dinet, que se instaló allí, se convirtió al islam y está enterrado en la ciudad.' },
@@ -121,7 +121,7 @@ export const PROVINCES_ES = {
       { label: 'Desde Argel', value: '~250 km · alrededor de 4 h' }, { label: 'Mejor época', value: 'Octubre–abril' },
     ],
     faqs: [
-      { q: '¿Dónde está Bou Saâda?', a: 'En la estepa entre las Altas Mesetas y el Sáhara, en la wilaya de M’Sila, a unas cuatro horas por carretera al sur de Argel. Es desde siempre una puerta del desierto.' },
+      { q: '¿Dónde está Bou Saâda?', a: 'En la estepa entre las Altas Mesetas y el Sáhara, en la wilaya de Bou Saâda (creada en 2026, antes parte de la de M’Sila), a unas cuatro horas por carretera al sur de Argel. Es desde siempre una puerta del desierto.' },
       { q: '¿Por qué se llama «Ciudad de la felicidad»?', a: 'Bou Saâda significa literalmente «el lugar de la felicidad»: una etapa acogedora en las rutas del desierto, cuya luz también atrajo a los pintores orientalistas en los siglos XIX y XX.' },
       { q: '¿Quién fue Nasreddine Dinet?', a: 'Étienne (Nasreddine) Dinet, pintor orientalista francés, se instaló en Bou Saâda, abrazó el islam y está enterrado allí; su obra hizo famosa la ciudad y un museo le está dedicado.' },
     ],
@@ -374,7 +374,7 @@ export const EXPERIENCES_ES = {
       { day: 'Día 4', title: 'La costa oeste', text: 'Ciudades mediterráneas y cocina del Oeste.' },
       { day: 'Día 5', title: 'Salida', text: 'Última mañana y continuación del viaje.' },
     ],
-    facts: [{ label: 'Duración', value: '5 días' }, { label: 'Etapas', value: 'Orán · Tlemcen' }, { label: 'Desde', value: '620 €' }],
+    facts: [{ label: 'Duración', value: '5 días' }, { label: 'Etapas', value: 'Orán · Tlemcen' }, { label: 'Desde', value: '768 €' }],
     faqs: [{ q: '¿Por qué el Oeste argelino?', a: 'El Oeste, y sobre todo Tlemcen, conserva la herencia andalusí más rica de Argelia — la cultura llegada de la España musulmana.' }],
     seoTitle: 'El viaje del reino andalusí — Tlemcen y Orán | Algeria Compass',
     seoDescription: 'Un circuito privado de 5 días por el Oeste argelino: Tlemcen, Orán, la arquitectura hispano-morisca y la música andalusí.',
@@ -382,7 +382,7 @@ export const EXPERIENCES_ES = {
   'bou-saada-oasis-escape': {
     name: 'Escapada al oasis de Bou Saâda', eyebrow: '2 días · Puerta del Sáhara',
     intro: 'Dos días en la Ciudad de la felicidad — un palmeral al borde del Sáhara, gargantas ocres, un viejo ksar y la luz que atrajo a los pintores.',
-    quick: 'La escapada al oasis de Bou Saâda es un viaje privado de dos días a esta ciudad-oasis al borde del Sáhara, en la wilaya de M’Sila: su palmeral, su viejo ksar, la garganta del molino Ferrero y el legado del pintor Nasreddine Dinet.',
+    quick: 'La escapada al oasis de Bou Saâda es un viaje privado de dos días a esta ciudad-oasis al borde del Sáhara: su palmeral, su viejo ksar, la garganta del molino Ferrero y el legado del pintor Nasreddine Dinet.',
     sections: [{ h: 'Bou Saâda', p: 'Bou Saâda, la «Ciudad de la felicidad», es la puerta clásica del Sur argelino: un palmeral en la estepa, allí donde las Altas Mesetas dan paso al Sáhara. Desde hace más de un siglo atrae a viajeros y artistas, empezando por el pintor Nasreddine (Étienne) Dinet.' }],
     highlights: ['El palmeral y la garganta del molino Ferrero', 'El viejo ksar y las callejuelas ocres de la ciudad', 'El legado del pintor Nasreddine (Étienne) Dinet', 'La puesta de sol sobre la estepa de los Ouled Naïl'],
     itinerary: [

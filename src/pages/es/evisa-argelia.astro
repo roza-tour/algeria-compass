@@ -30,7 +30,7 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:2,name:'e-Visa y entrada',item:url}]};
 const faqs = [
   { q: '¿Qué es el e-Visa sahariano?', a: 'Es el documento de autorización de visado que preparamos para los viajeros de un programa sahariano organizado. Como turoperador argelino autorizado, emitimos una autorización con un código QR verificable en el portal del Ministerio del Interior argelino. El visado en sí lo conceden las autoridades argelinas — su etiqueta/sello se emite a la llegada; nosotros gestionamos cada expediente con antelación.' },
-  { q: '¿Cuánto cuesta el e-Visa sahariano?', a: 'El documento de autorización de visado cuesta 45 USD. La preparación de todos los expedientes requeridos es completamente gratuita por nuestra parte. A la llegada se paga a las autoridades una tasa aparte por la etiqueta/sello del visado — el importe depende de la duración de la estancia, de 5.000 DA (35 €) para 1–2 días a 20.000 DA (140 €) para 8–10 días; la tabla completa está más abajo.' },
+  { q: '¿Cuánto cuesta el e-Visa sahariano?', a: 'El documento de autorización de visado cuesta 50 USD. La preparación de todos los expedientes requeridos es completamente gratuita por nuestra parte. A la llegada se paga a las autoridades una tasa aparte por la etiqueta/sello del visado — el importe depende de la duración de la estancia, de 5.000 DA (35 €) para 1–2 días a 20.000 DA (140 €) para 8–10 días; la tabla completa está más abajo.' },
   { q: '¿Puedo obtener el visado a la llegada para Djanet y el Tassili n\'Ajjer?', a: 'Sí — Djanet es la puerta de entrada al Parque Nacional del Tassili n\'Ajjer y al Tadrart Rouge, y es una de las wilayas del sur previstas para esta vía. La condición es que tu programa organizado con un operador argelino autorizado incluya una estancia en el Sáhara: preparamos la autorización por adelantado y la viñeta se expide a la llegada en el aeropuerto de Argel. Indícanos tu nacionalidad y confirmaremos tu elegibilidad antes de reservar.' },
   { q: '¿Dónde se emite el visado? ¿Tengo que aterrizar en el sur?', a: 'No. Llegas a Argel como de costumbre y el visado se emite a la llegada en el aeropuerto de Argel. Lo que te hace elegible es la estancia en el Sáhara incluida en el programa, no el aeropuerto de llegada. Una vez en Argelia reservamos los vuelos internos al desierto — Djanet–Tiska (DJG) para el Tassili n\'Ajjer y el Tadrart Rouge, Tamanrasset (TMR) para el Hoggar, Ghardaïa Noumérat (GHA) para el valle del M\'Zab, Timimoun (TMX) para el Gourara.' },
   { q: '¿Puedo visitar también el norte, o solo el desierto?', a: 'Ambos. Un solo viaje puede combinar Argel, la costa y las ciudades romanas con el Sáhara: lo importante es que una estancia en el Sáhara forme parte del programa. Diseñamos el itinerario para que cumpla ese requisito.' },
@@ -102,8 +102,8 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'es',
       </li>
       <li>
         <span class="sev-n">3</span>
-        <div><strong>Emitimos su autorización — 45 USD</strong>
-        <p>Usted recibe un <strong>documento de autorización de visado con un código QR</strong> que es <strong>verificable en el portal del Ministerio del Interior argelino</strong>. El documento cuesta <strong>45 USD</strong>.</p></div>
+        <div><strong>Emitimos su autorización — 50 USD</strong>
+        <p>Usted recibe un <strong>documento de autorización de visado con un código QR</strong> que es <strong>verificable en el portal del Ministerio del Interior argelino</strong>. El documento cuesta <strong>50 USD</strong>.</p></div>
       </li>
       <li>
         <span class="sev-n">4</span>
@@ -115,14 +115,14 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'es',
     <StampFeeTable lang="es" />
 
     <div class="sev-facts">
-      <div class="sev-fact"><span class="sev-fig">45 USD</span><span class="sev-lab">Documento de autorización</span></div>
+      <div class="sev-fact"><span class="sev-fig">50 USD</span><span class="sev-lab">Documento de autorización</span></div>
       <div class="sev-fact"><span class="sev-fig">Gratis</span><span class="sev-lab">Preparamos cada expediente</span></div>
       <div class="sev-fact"><span class="sev-fig">Verificado por QR</span><span class="sev-lab">En el portal del Ministerio del Interior</span></div>
       <div class="sev-fact"><span class="sev-fig">Norte + Sur</span><span class="sev-lab">Cualquier programa con estancia en el Sáhara</span></div>
     </div>
 
     <div class="sev-note">
-      <p><strong>Una nota honesta:</strong> el sello del visado en el aeropuerto de Argel es un cargo gubernamental, independiente de nuestra tarifa de 45 USD por el documento, y depende de la duración de la estancia, no del pasaporte. Díganos su nacionalidad y fechas y le confirmaremos su elegibilidad y el importe exacto antes de que se comprometa.</p>
+      <p><strong>Una nota honesta:</strong> el sello del visado en el aeropuerto de Argel es un cargo gubernamental, independiente de nuestra tarifa de 50 USD por el documento, y depende de la duración de la estancia, no del pasaporte. Díganos su nacionalidad y fechas y le confirmaremos su elegibilidad y el importe exacto antes de que se comprometa.</p>
     </div>
 
     <div class="sev-cta">
@@ -133,7 +133,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${url}#faq`, inLanguage:'es',
     <div class="sev-faq">
       <h3>e-Visa sahariano — respuestas rápidas</h3>
       <div class="faq">
-        {faqs.slice(0,7).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+        {faqs.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </div>
     </div>
   </div></section>

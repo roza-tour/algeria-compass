@@ -263,7 +263,10 @@ const contactHref = ROUTES[lang].contact;
   @media(prefers-reduced-motion:reduce){.ask-launch{transition:none}}
 </style>
 
-<script is:inline>
+<script>
+// Not inline on purpose. This script is the same 20 KB on every page; inline,
+// it was a third of the inline script every page carried and no visit could
+// cache it. As a bundled file it is downloaded once and reused.
 (function () {
   var panel = document.getElementById('askPanel');
   var launch = document.getElementById('askLaunch');

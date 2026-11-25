@@ -3,6 +3,12 @@ import fs from 'node:fs';
 import { getCollection } from 'astro:content';
 import toursData from '../data/tours.json';
 import { TOUR_VISUALS } from '../data/tour-visuals';
+import { tourGallery as pageGallery } from '../data/tour-photos';
+import { ROUTES } from '../i18n';
+import { TOURS_FR } from '../data/tours-fr';
+import { TOURS_IT } from '../data/tours-it';
+import { TOURS_ES } from '../data/tours-es';
+import { TOURS_DE } from '../data/tours-de';
 
 // Image sitemap (P8). One <url> per page with its associated <image:image>
 // entries, so Google Images can crawl tour/state/destination photography.
@@ -13,19 +19,17 @@ const xmlEsc = (s: string) => s.replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt
 
 type Entry = { loc: string; images: { url: string; title?: string }[] };
 
+// The photographs a tour page actually shows. This used to list the first
+// twelve files of each place in number order, while the page shows a curated
+// selection (tour-photos.ts): 292 of 342 entries named a photograph that was
+// not on the page it was listed under. Same function as the page now, and the
+// translated tour pages, which show the same gallery, are listed too.
 function tourGallery(slugs: string[]): string[] {
-  const out: string[] = [];
   try {
-    const files = fs.readdirSync('public/assets/img/tours');
-    for (const s of slugs) {
-      const matches = files
-        .filter(f => /^.+-\d+\.jpg$/i.test(f) && f.toLowerCase().startsWith(s.toLowerCase() + '-'))
-        .sort((a, b) => parseInt(a.match(/-(\d+)\./)![1]) - parseInt(b.match(/-(\d+)\./)![1]));
-      out.push(...matches.map(f => `/assets/img/tours/${f}`));
-    }
-  } catch { /* no gallery on disk */ }
-  return out;
+    return pageGallery(slugs, fs.readdirSync('public/assets/img/tours')).map(g => `/assets/img/tours/${g.file}`);
+  } catch { return []; }
 }
+const LOCAL_TOURS: Record<string, any> = { fr: TOURS_FR, it: TOURS_IT, es: TOURS_ES, de: TOURS_DE };
 
 export const GET: APIRoute = async () => {
   const entries: Entry[] = [];
@@ -35,10 +39,14 @@ export const GET: APIRoute = async () => {
     const visual = TOUR_VISUALS[t.id];
     const imgs: { url: string; title?: string }[] = [];
     if (visual && visual.hero) imgs.push({ url: `/assets/img/tours/${visual.hero}`, title: t.title });
-    for (const g of tourGallery(t.image_slugs || []).slice(0, 12)) {
+    for (const g of tourGallery(t.image_slugs || [])) {
       if (!imgs.some(i => i.url === g)) imgs.push({ url: g, title: t.title });
     }
-    if (imgs.length) entries.push({ loc: `${SITE}/tours/${t.id}/`, images: imgs });
+    if (!imgs.length) continue;
+    entries.push({ loc: `${SITE}/tours/${t.id}/`, images: imgs });
+    for (const l of ['fr', 'it', 'es', 'de'] as const) {
+      if (LOCAL_TOURS[l][t.id]?.full) entries.push({ loc: `${SITE}${ROUTES[l].tours}${t.id}/`, images: imgs });
+    }
   }
 
   const colls: [string, string][] = [
@@ -62,7 +70,7 @@ export const GET: APIRoute = async () => {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${entries.map(e => `  <url>
     <loc>${e.loc}</loc>
-${e.images.map(im => `    <image:image><image:loc>${abs(im.url)}</image:loc>${im.title ? `<image:title>${xmlEsc(im.title)}</image:title>` : ''}</image:image>`).join('\n')}
+${e.images.map(im => `    <image:image><image:loc>${abs(im.url)}</image:loc></image:image>`).join('\n')}
   </url>`).join('\n')}
 </urlset>`;
 

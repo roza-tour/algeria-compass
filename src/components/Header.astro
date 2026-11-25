@@ -158,7 +158,11 @@ const altPath = (code: string) => {
   if (!a) return '';
   try { return new URL(a.href).pathname; } catch { return ''; }
 };
-const otherLangs = LANGS.filter(l => l !== lang).map(l => ({ ...LANG_META[l], code: l, href: altPath(l) || LANG_META[l].home }));
+const otherLangs: { label: string; name: string; code: string; href: string }[] = LANGS.filter(l => l !== lang).map(l => ({ ...LANG_META[l], code: l, href: altPath(l) || LANG_META[l].home }));
+// Russian has one page (the Russian-speaking guide), not a full version of the
+// site, so it is not in LANGS. It was linked from no page at all: reachable
+// only through the sitemap. It is listed last in the switcher.
+otherLangs.push({ label: 'RU', name: 'Русский', code: 'ru', href: '/ru/tur-v-alzhir-s-russkoyazychnym-gidom/' });
 
 const path = Astro.url.pathname;
 const HOMES = new Set(Object.values(LANG_META).map(m => m.home));

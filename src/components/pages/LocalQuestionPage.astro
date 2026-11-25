@@ -7,7 +7,10 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import { ogFallback } from '../../lib/og-image';
-import { resolveAuthor, resolveReviewer, authorNode, reviewerNode } from '../../lib/authorship';
+import Byline from '../Byline.astro';
+import SourceList from '../SourceList.astro';
+import EditorialMeta from '../EditorialMeta.astro';
+import { resolveAuthor, resolveReviewer, authorNode, reviewerNode, citationNodes } from '../../lib/authorship';
 import { ROUTES } from '../../i18n';
 import { Q_TEXT, Q_UI, Q_ROUTES, qHref, qAlternates } from '../../data/questionI18n.mjs';
 
@@ -42,6 +45,8 @@ const qa = {
     acceptedAnswer: { '@type': 'Answer', text: t.a, url: `${url}#answer`, author: authorRef, datePublished: stamp },
   },
 };
+const cites = citationNodes(d.sources);
+if (cites.length) (qa as any).citation = cites;
 const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
   { '@type': 'ListItem', position: 1, name: U.home, item: site + HOME[lang] },
   { '@type': 'ListItem', position: 2, name: U.hub, item: site + Q_ROUTES[lang] },
@@ -60,7 +65,8 @@ const related = [...same, ...rest.slice(start), ...rest.slice(0, start)].slice(0
   <Breadcrumbs items={[{ name: U.home, href: HOME[lang] }, { name: U.hub, href: Q_ROUTES[lang] }, { name: cat }]} />
   <article class="section"><div class="wrap" style="max-width:760px">
     <span class="eyebrow">{cat}</span>
-    <h1 style="margin:.4rem 0 1rem">{t.q}</h1>
+    <h1 style="margin:.4rem 0">{t.q}</h1>
+    <Byline lang={lang} authorName={author.name} authorHref={author.href} reviewerName={reviewer.name} reviewerHref={reviewer.href} updated={d.updated} lastReviewed={d.lastReviewed} />
     <div class="qbox" id="answer"><b>{U.quick}</b><p>{t.a}</p></div>
     <QuestionPhoto slug={entry.slug} lang={lang} />
     <div class="lq-body">{t.body.map((p: string) => <p>{p}</p>)}</div>
@@ -68,6 +74,8 @@ const related = [...same, ...rest.slice(start), ...rest.slice(0, start)].slice(0
       <h2>{U.facts}</h2>
       <dl>{t.facts.map(([k, v]: [string, string]) => (<><dt>{k}</dt><dd>{v}</dd></>))}</dl>
     </div>
+    <SourceList lang={lang} sources={d.sources} />
+    <EditorialMeta lang={lang} sourceCount={d.sources.length} reviewerName={reviewer.name} reviewerHref={reviewer.href} lastReviewed={d.lastReviewed} />
     <p class="lq-en"><a href={qHref(slug, 'en')} hreflang="en">{U.readEn} →</a></p>
 
     <h2 class="lq-rel-h">{U.related}</h2>

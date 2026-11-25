@@ -108,9 +108,9 @@ export const PROVINCES_DE = {
     seoDescription: 'Blida besuchen: der Chréa-Nationalpark mit seinen Zedern, die Chiffa-Schlucht und ihre Affen, die Obstgärten der Mitidja — eine Stunde von Algier.',
   },
   bousaada: {
-    name: 'Bou Saâda', eyebrow: 'Provinz M’Sila · Tor zur Sahara',
+    name: 'Bou Saâda', eyebrow: 'Provinz Bou Saâda · Tor zur Sahara',
     intro: 'Die »Stadt des Glücks« — eine Oase am Rand der Sahara, wenige Stunden von Algier, geliebt von Malern.',
-    quick: 'Bou Saâda ist eine Oasenstadt am Rand der Sahara in der Provinz M’Sila, »Stadt des Glücks« genannt. Als historisches Tor zwischen Hochplateaus und Wüste ist sie bekannt für Palmenhain und Wadi, die Ferrero-Mühle, Handwerksmärkte, das Erbe des Malers Nasreddine Dinet und, ganz in der Nähe, die Sufi-Zawiya von El Hamel.',
+    quick: 'Bou Saâda ist eine Oasenstadt am Rand der Sahara, seit 2026 Hauptstadt einer eigenen Provinz (zuvor Teil der Provinz M’Sila), »Stadt des Glücks« genannt. Als historisches Tor zwischen Hochplateaus und Wüste ist sie bekannt für Palmenhain und Wadi, die Ferrero-Mühle, Handwerksmärkte, das Erbe des Malers Nasreddine Dinet und, ganz in der Nähe, die Sufi-Zawiya von El Hamel.',
     sections: [
       { h: 'Warum Bou Saâda besuchen', p: 'Bou Saâda ist der einfachste Vorgeschmack auf den algerischen Süden: eine echte Oase, wenige Stunden von der Hauptstadt. Palmenhain, Wadi und ockerfarbene Hügel ziehen seit Generationen Reisende und Maler an, und Märkte, Handwerk und Sufi-Erbe geben ihr eine ganz eigene Stimmung.' },
       { h: 'Ein wenig Geschichte', p: 'Als historische Station an den Routen zwischen Hochplateaus und Sahara wuchs Bou Saâda als Oase der Gärten und des Wassers. In der Kolonialzeit zog ihr Licht die Orientmaler an, vor allem Nasreddine (Étienne) Dinet, der sich hier niederließ, zum Islam übertrat und hier begraben ist.' },
@@ -121,7 +121,7 @@ export const PROVINCES_DE = {
       { label: 'Ab Algier', value: '~250 km · etwa 4 Std.' }, { label: 'Beste Reisezeit', value: 'Oktober–April' },
     ],
     faqs: [
-      { q: 'Wo liegt Bou Saâda?', a: 'In der Steppe zwischen Hochplateaus und Sahara, in der Provinz M’Sila, etwa vier Autostunden südlich von Algier. Sie ist seit jeher ein Tor zur Wüste.' },
+      { q: 'Wo liegt Bou Saâda?', a: 'In der Steppe zwischen Hochplateaus und Sahara, in der Provinz Bou Saâda (2026 gegründet, zuvor Teil der Provinz M’Sila), etwa vier Autostunden südlich von Algier. Sie ist seit jeher ein Tor zur Wüste.' },
       { q: 'Warum heißt sie »Stadt des Glücks«?', a: 'Bou Saâda bedeutet wörtlich »Ort des Glücks«: eine gastliche Station an den Wüstenrouten, deren Licht im 19. und 20. Jahrhundert auch die Orientmaler anzog.' },
       { q: 'Wer war Nasreddine Dinet?', a: 'Étienne (Nasreddine) Dinet, französischer Orientmaler, ließ sich in Bou Saâda nieder, nahm den Islam an und ist hier begraben; sein Werk machte die Stadt berühmt, ein Museum ist ihm gewidmet.' },
     ],
@@ -374,7 +374,7 @@ export const EXPERIENCES_DE = {
       { day: 'Tag 4', title: 'Die Westküste', text: 'Mittelmeerstädte und die Küche des Westens.' },
       { day: 'Tag 5', title: 'Abreise', text: 'Letzter Morgen, dann Weiterreise.' },
     ],
-    facts: [{ label: 'Dauer', value: '5 Tage' }, { label: 'Stationen', value: 'Oran · Tlemcen' }, { label: 'Ab', value: '620 €' }],
+    facts: [{ label: 'Dauer', value: '5 Tage' }, { label: 'Stationen', value: 'Oran · Tlemcen' }, { label: 'Ab', value: '768 €' }],
     faqs: [{ q: 'Warum Westalgerien?', a: 'Der Westen, vor allem Tlemcen, bewahrt das reichste andalusische Erbe Algeriens — die Kultur, die aus dem muslimischen Spanien kam.' }],
     seoTitle: 'Andalusisches Königreich — Tlemcen und Oran | Algeria Compass',
     seoDescription: 'Eine private 5-Tage-Rundreise durch Westalgerien: Tlemcen, Oran, hispano-maurische Architektur und andalusische Musik.',
@@ -382,7 +382,7 @@ export const EXPERIENCES_DE = {
   'bou-saada-oasis-escape': {
     name: 'Auszeit in der Oase Bou Saâda', eyebrow: '2 Tage · Tor zur Sahara',
     intro: 'Zwei Tage in der Stadt des Glücks — ein Palmenhain am Rand der Sahara, ockerfarbene Schluchten, ein alter Ksar und das Licht, das die Maler anzog.',
-    quick: 'Die Auszeit in der Oase Bou Saâda ist eine private Zwei-Tage-Reise in diese Oasenstadt am Rand der Sahara, in der Provinz M’Sila: Palmenhain, alter Ksar, die Schlucht der Ferrero-Mühle und das Erbe des Malers Nasreddine Dinet.',
+    quick: 'Die Auszeit in der Oase Bou Saâda ist eine private Zwei-Tage-Reise in diese Oasenstadt am Rand der Sahara: Palmenhain, alter Ksar, die Schlucht der Ferrero-Mühle und das Erbe des Malers Nasreddine Dinet.',
     sections: [{ h: 'Bou Saâda', p: 'Bou Saâda, die »Stadt des Glücks«, ist das klassische Tor zum algerischen Süden: ein Palmenhain in der Steppe, wo die Hochplateaus der Sahara weichen. Seit über einem Jahrhundert zieht sie Reisende und Künstler an, allen voran den Maler Nasreddine (Étienne) Dinet.' }],
     highlights: ['Der Palmenhain und die Schlucht der Ferrero-Mühle', 'Der alte Ksar und die ockerfarbenen Gassen der Stadt', 'Das Erbe des Malers Nasreddine (Étienne) Dinet', 'Sonnenuntergang über der Steppe der Ouled Naïl'],
     itinerary: [

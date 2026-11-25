@@ -1,12 +1,20 @@
 ---
 // Compact trust box: verification status + source count + standards links.
-export interface Props { sourceCount?: number; reviewerName?: string; reviewerHref?: string; lastReviewed?: Date; }
-const { sourceCount = 0, reviewerName, reviewerHref, lastReviewed } = Astro.props;
-const fmt = (d?: Date) => d ? d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : null;
+export interface Props { sourceCount?: number; reviewerName?: string; reviewerHref?: string; lastReviewed?: Date; lang?: string; }
+const { sourceCount = 0, reviewerName, reviewerHref, lastReviewed, lang = 'en' } = Astro.props;
+const L: Record<string, any> = {
+  en: { aria: 'Editorial information', status: 'Status', checked: 'Reviewed & fact-checked', by: 'by', last: 'Last reviewed', sources: 'Sources', cited: (n: number) => `${n} cited source${n === 1 ? '' : 's'}`, method: 'Researched per our methodology', standards: 'Standards', policy: 'Editorial standards', report: 'Report an error', loc: 'en-US' },
+  fr: { aria: 'Informations éditoriales', status: 'Statut', checked: 'Relu et vérifié', by: 'par', last: 'Dernière relecture', sources: 'Sources', cited: (n: number) => `${n} source${n === 1 ? '' : 's'} citée${n === 1 ? '' : 's'}`, method: 'Recherches menées selon notre méthodologie', standards: 'Normes', policy: 'Charte éditoriale (en anglais)', report: 'Signaler une erreur', loc: 'fr-FR' },
+  it: { aria: 'Informazioni editoriali', status: 'Stato', checked: 'Revisionato e verificato', by: 'da', last: 'Ultima revisione', sources: 'Fonti', cited: (n: number) => `${n} ${n === 1 ? 'fonte citata' : 'fonti citate'}`, method: 'Ricerca condotta secondo la nostra metodologia', standards: 'Norme', policy: 'Linee editoriali (in inglese)', report: 'Segnala un errore', loc: 'it-IT' },
+  es: { aria: 'Información editorial', status: 'Estado', checked: 'Revisado y verificado', by: 'por', last: 'Última revisión', sources: 'Fuentes', cited: (n: number) => `${n} ${n === 1 ? 'fuente citada' : 'fuentes citadas'}`, method: 'Investigado según nuestra metodología', standards: 'Normas', policy: 'Normas editoriales (en inglés)', report: 'Informar de un error', loc: 'es-ES' },
+  de: { aria: 'Redaktionelle Angaben', status: 'Status', checked: 'Geprüft und faktengeprüft', by: 'von', last: 'Zuletzt geprüft', sources: 'Quellen', cited: (n: number) => `${n} ${n === 1 ? 'zitierte Quelle' : 'zitierte Quellen'}`, method: 'Recherchiert nach unserer Methodik', standards: 'Standards', policy: 'Redaktionsstandards (auf Englisch)', report: 'Fehler melden', loc: 'de-DE' },
+};
+const T = L[lang] || L.en;
+const fmt = (d?: Date) => d ? d.toLocaleDateString(T.loc,{year:'numeric',month:'long',day:'numeric'}) : null;
 ---
-<aside class="ed-meta" aria-label="Editorial information">
-  <div class="ed-row"><span class="ed-k">Status</span><span class="ed-v">Reviewed &amp; fact-checked{reviewerName && <> by <a href={reviewerHref}>{reviewerName}</a></>}</span></div>
-  {lastReviewed && <div class="ed-row"><span class="ed-k">Last reviewed</span><span class="ed-v">{fmt(lastReviewed)}</span></div>}
-  <div class="ed-row"><span class="ed-k">Sources</span><span class="ed-v">{sourceCount > 0 ? <a href="#sources">{sourceCount} cited source{sourceCount===1?'':'s'}</a> : 'Researched per our methodology'}</span></div>
-  <div class="ed-row"><span class="ed-k">Standards</span><span class="ed-v"><a href="/editorial/">Editorial standards</a> · <a href="/editorial/corrections-policy/">Report an error</a></span></div>
+<aside class="ed-meta" aria-label={T.aria}>
+  <div class="ed-row"><span class="ed-k">{T.status}</span><span class="ed-v">{T.checked}{reviewerName && <>{' ' + T.by + ' '}<a href={reviewerHref}>{reviewerName}</a></>}</span></div>
+  {lastReviewed && <div class="ed-row"><span class="ed-k">{T.last}</span><span class="ed-v">{fmt(lastReviewed)}</span></div>}
+  <div class="ed-row"><span class="ed-k">{T.sources}</span><span class="ed-v">{sourceCount > 0 ? <a href="#sources">{T.cited(sourceCount)}</a> : T.method}</span></div>
+  <div class="ed-row"><span class="ed-k">{T.standards}</span><span class="ed-v"><a href="/editorial/">{T.policy}</a> · <a href="/editorial/corrections-policy/">{T.report}</a></span></div>
 </aside>

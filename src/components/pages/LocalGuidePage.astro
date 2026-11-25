@@ -31,6 +31,16 @@ const enHref = guideHref(kind, slug, 'en');
 const hub = GUIDE_ROUTES[kind][lang];
 const image = e.image || '/assets/img/brand-algeria.jpg';
 const civ = kind === 'province' ? (PROVINCE_SKIN as any)[slug] : undefined;
+// A state guide and the city guide of the same place (Tlemcen, Djanet,
+// Constantine, Tipaza) both had the bare place name as their H1, so the two
+// pages competed for one query. The state guide now says it is the state.
+const STATE_H1: Record<string, (n: string) => string> = {
+  fr: n => `Wilaya ${/^[AEIOUYÉÈ]/i.test(n) ? 'd’' : 'de '}${n}`,
+  it: n => `Provincia di ${n}`,
+  es: n => `Provincia de ${n}`,
+  de: n => `Provinz ${n}`,
+};
+const h1 = kind === 'province' && STATE_H1[lang] ? STATE_H1[lang](t.name) : t.name;
 const photos = (e.gallery || []).map((g: any, i: number) => ({ src: g.src, alt: photoAlt(g.src, lang, `${t.name} — ${U.photo} ${i + 1}`) }));
 
 // Tours that pass through this state. tours.json names a few places by the
@@ -78,7 +88,7 @@ const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
   alternates={guideAlternates(site, kind, slug)} image={image} imageAlt={t.name} region={e.region} civ={civ}
   schema={[place, faqSchema]} sticky={true} keywords={[t.name, ...(U.kw || [])]}>
 
-  <Hero civ={civ} lang={lang} title={t.name} eyebrow={t.eyebrow} text={t.intro} image={image} alt={t.name}>
+  <Hero civ={civ} lang={lang} title={h1} eyebrow={t.eyebrow} text={t.intro} image={image} alt={t.name}>
     <a class="btn btn-gold" href={kind === 'experience' ? '#programme' : `${R.contact}?i=${encodeURIComponent(t.name)}`} data-evt="cta_plan">{U.planBtn}</a>
     <p class="lg-en"><a href={enHref} hreflang="en">{U.readEn}</a></p>
   </Hero>

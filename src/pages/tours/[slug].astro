@@ -27,7 +27,7 @@ import '../../styles/tour-regions.css';
 import ItineraryOffer from '../../components/ItineraryOffer.astro';
 import GuideBadge from '../../components/GuideBadge.astro';
 import InquiryForm from '../../components/InquiryForm.astro';
-import { CONTACT, BOOKING } from '../../config';
+import { CONTACT, BOOKING, REVIEWS } from '../../config';
 import { TOURS_FR } from '../../data/tours-fr';
 import { TOURS_IT } from '../../data/tours-it';
 import { TOURS_ES } from '../../data/tours-es';
@@ -146,7 +146,9 @@ const st = tourStory(tour, tour.itinerary || [], 'en', visual.hero);
 const reel = st.reel;
 const schema = [
   {
-    '@type': 'TouristTrip',
+    '@type': ['TouristTrip', 'Product'],
+    sku: tour.id,
+    brand: { '@type': 'Brand', name: 'Algeria Compass' },
     '@id': url + '#trip',
     name: tour.title,
     description: tour.summary,
@@ -333,7 +335,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
       <aside class="visa-note">
         <strong><Icon name="passport" /> Visa &amp; entry</strong>
         {(tour.theme === 'sahara' || tour.theme === 'mzab')
-          ? <p>This trip heads into the Sahara, so the <a href="/evisa/#saharan-evisa">Saharan e-Visa</a> applies: as your licensed operator we prepare every file free and issue your QR-verified authorisation document ($45); the visa sticker tax is paid on arrival. <a href="/evisa/#saharan-evisa">See how it works →</a></p>
+          ? <p>This trip heads into the Sahara, so the <a href="/evisa/#saharan-evisa">Saharan e-Visa</a> applies: as your licensed operator we prepare every file free and issue your QR-verified authorisation document ($50); the visa sticker tax is paid on arrival. <a href="/evisa/#saharan-evisa">See how it works →</a></p>
           : <p>We prepare your invitation letter ($25) for any programme of 3+ days with airport transfers — and if your trip includes the desert you may qualify for the <a href="/evisa/#saharan-evisa">Saharan e-Visa</a>. <a href="/evisa/">How entry to Algeria works →</a></p>}
       </aside>
     </div>
@@ -345,7 +347,7 @@ if (tour.faqs && tour.faqs.length) schema.push({
           <option value="EUR">EUR</option><option value="USD">USD</option><option value="GBP">GBP</option>
         </select>
       </div>
-      <a class="bw-rating" href="https://share.google/rEAjf9e2qvCwefa2X" target="_blank" rel="noopener"><span aria-hidden="true">★★★★★</span> 5.0 on Google · 9 reviews</a>
+      <a class="bw-rating" href={REVIEWS.source} target="_blank" rel="noopener"><span aria-hidden="true">★★★★★</span> {REVIEWS.ratingValue.toFixed(1)} on Google · {REVIEWS.reviewCount} reviews</a>
       <div class="bw-meta">Starts: {tour.start}</div>
       <div class="bw-meta">🇩🇿 Licensed Algerian operator</div>
       {tour.includes && tour.includes.length > 0 &&

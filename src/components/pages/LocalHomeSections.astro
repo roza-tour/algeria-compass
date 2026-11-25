@@ -1,0 +1,195 @@
+---
+// The body of the French, Italian, Spanish and German home pages.
+//
+// Those four pages were about 250 words each against 2,600 for the English
+// home, and they linked to almost none of the translated site: the 44 answers,
+// the state guides, the regions and the experiences in each language could not
+// be reached from their own home page. This block adds no new claims. It lists
+// what already exists in the reader's language, from the same data the pages
+// themselves are built from: tours, regions, destinations, states, experiences
+// and the most-asked questions with their short answers.
+import data from '../../data/tours.json';
+import { ROUTES, type Lang } from '../../i18n';
+import { BOOKING } from '../../config';
+import { TOUR_VISUALS } from '../../data/tour-visuals';
+import { TOURS_FR } from '../../data/tours-fr';
+import { TOURS_IT } from '../../data/tours-it';
+import { TOURS_ES } from '../../data/tours-es';
+import { TOURS_DE } from '../../data/tours-de';
+import { DESTINATIONS_FR } from '../../data/destinations-fr';
+import { DESTINATIONS_IT } from '../../data/destinations-it';
+import { DESTINATIONS_ES } from '../../data/destinations-es';
+import { DESTINATIONS_DE } from '../../data/destinations-de';
+import { REGIONS } from '../../data/regions';
+import { REGION_ROUTES, regionHref, localRegion } from '../../data/regionI18n.mjs';
+import { GUIDE_TEXT, GUIDE_ROUTES, guideHref } from '../../data/localGuides.mjs';
+import { Q_TEXT, Q_ROUTES, qHref } from '../../data/questionI18n.mjs';
+
+export interface Props { lang: 'fr' | 'it' | 'es' | 'de'; }
+const { lang } = Astro.props;
+const R = ROUTES[lang as Lang];
+
+const S = {
+  fr: {
+    toursEyebrow: 'Circuits privés', toursH: 'Nos circuits les plus demandés', allTours: 'Tous les circuits', from: 'à partir de', per: 'par personne',
+    regionsH: 'Les régions d’Algérie', regionsP: 'Huit mondes différents, de la côte méditerranéenne au Sahara profond.', allRegions: 'Toutes les régions',
+    destH: 'Destinations', destP: 'Les villes et les sites qui servent de base à un voyage.', allDest: 'Toutes les destinations',
+    statesH: 'Guides des wilayas', statesP: 'Comment y aller, quand partir et quoi voir, wilaya par wilaya.', allStates: 'Toutes les wilayas',
+    expH: 'Expériences', allExp: 'Toutes les expériences',
+    qEyebrow: 'Réponses claires', qH: 'Les questions que l’on nous pose le plus', allQ: 'Toutes les questions et réponses', more: 'Lire la réponse complète',
+    whoEyebrow: 'Qui sommes-nous', whoH: 'La branche voyages privés de Roza Tour',
+    who: 'Algeria Compass est la branche de Roza Tour, voyagiste algérien agréé, spécialisée dans les voyages privés et de luxe. Chaque voyage est privé : vos dates, votre rythme, votre guide et votre véhicule avec chauffeur. Nous sommes installés à Alger et nous répondons en français.',
+    promises: [`Dates bloquées gratuitement pendant ${BOOKING.holdHours} heures, sans paiement`, `Acompte de ${BOOKING.depositPct} % avant l’arrivée, solde à l’arrivée en Algérie`, `Annulation gratuite jusqu’à ${BOOKING.cancelDays} jours avant le départ`, 'Prix confirmé garanti, sans hausse'],
+    about: 'En savoir plus sur nous',
+  },
+  it: {
+    toursEyebrow: 'Viaggi privati', toursH: 'I nostri viaggi più richiesti', allTours: 'Tutti i viaggi', from: 'da', per: 'a persona',
+    regionsH: 'Le regioni dell’Algeria', regionsP: 'Otto mondi diversi, dalla costa mediterranea al Sahara profondo.', allRegions: 'Tutte le regioni',
+    destH: 'Destinazioni', destP: 'Le città e i siti che fanno da base a un viaggio.', allDest: 'Tutte le destinazioni',
+    statesH: 'Guide delle province', statesP: 'Come arrivare, quando partire e cosa vedere, provincia per provincia.', allStates: 'Tutte le province',
+    expH: 'Esperienze', allExp: 'Tutte le esperienze',
+    qEyebrow: 'Risposte chiare', qH: 'Le domande che ci fanno più spesso', allQ: 'Tutte le domande e risposte', more: 'Leggi la risposta completa',
+    whoEyebrow: 'Chi siamo', whoH: 'Il ramo viaggi privati di Roza Tour',
+    who: 'Algeria Compass è il ramo di Roza Tour, tour operator algerino autorizzato, specializzato nei viaggi privati e di lusso. Ogni viaggio è privato: le vostre date, il vostro ritmo, la vostra guida e il vostro veicolo con autista. Siamo ad Algeri e rispondiamo in italiano.',
+    promises: [`Date bloccate gratuitamente per ${BOOKING.holdHours} ore, senza pagamento`, `Acconto del ${BOOKING.depositPct} % prima dell’arrivo, saldo all’arrivo in Algeria`, `Cancellazione gratuita fino a ${BOOKING.cancelDays} giorni prima della partenza`, 'Prezzo confermato garantito, senza aumenti'],
+    about: 'Scopri chi siamo',
+  },
+  es: {
+    toursEyebrow: 'Circuitos privados', toursH: 'Nuestros circuitos más solicitados', allTours: 'Todos los circuitos', from: 'desde', per: 'por persona',
+    regionsH: 'Las regiones de Argelia', regionsP: 'Ocho mundos distintos, de la costa mediterránea al Sáhara profundo.', allRegions: 'Todas las regiones',
+    destH: 'Destinos', destP: 'Las ciudades y los sitios que sirven de base a un viaje.', allDest: 'Todos los destinos',
+    statesH: 'Guías de las provincias', statesP: 'Cómo llegar, cuándo ir y qué ver, provincia por provincia.', allStates: 'Todas las provincias',
+    expH: 'Experiencias', allExp: 'Todas las experiencias',
+    qEyebrow: 'Respuestas claras', qH: 'Las preguntas que más nos hacen', allQ: 'Todas las preguntas y respuestas', more: 'Leer la respuesta completa',
+    whoEyebrow: 'Quiénes somos', whoH: 'La división de viajes privados de Roza Tour',
+    who: 'Algeria Compass es la división de Roza Tour, operador turístico argelino autorizado, especializada en viajes privados y de lujo. Cada viaje es privado: tus fechas, tu ritmo, tu guía y tu vehículo con conductor. Estamos en Argel y respondemos en español.',
+    promises: [`Fechas reservadas gratis durante ${BOOKING.holdHours} horas, sin pago`, `Anticipo del ${BOOKING.depositPct} % antes de la llegada, el resto a la llegada a Argelia`, `Cancelación gratuita hasta ${BOOKING.cancelDays} días antes de la salida`, 'Precio confirmado garantizado, sin subidas'],
+    about: 'Saber más sobre nosotros',
+  },
+  de: {
+    toursEyebrow: 'Private Reisen', toursH: 'Unsere meistgefragten Reisen', allTours: 'Alle Reisen', from: 'ab', per: 'pro Person',
+    regionsH: 'Die Regionen Algeriens', regionsP: 'Acht verschiedene Welten, von der Mittelmeerküste bis in die tiefe Sahara.', allRegions: 'Alle Regionen',
+    destH: 'Reiseziele', destP: 'Die Städte und Stätten, die einer Reise als Basis dienen.', allDest: 'Alle Reiseziele',
+    statesH: 'Ratgeber zu den Provinzen', statesP: 'Anreise, beste Reisezeit und Sehenswertes, Provinz für Provinz.', allStates: 'Alle Provinzen',
+    expH: 'Erlebnisse', allExp: 'Alle Erlebnisse',
+    qEyebrow: 'Klare Antworten', qH: 'Die Fragen, die uns am häufigsten gestellt werden', allQ: 'Alle Fragen und Antworten', more: 'Die ganze Antwort lesen',
+    whoEyebrow: 'Über uns', whoH: 'Der Zweig für private Reisen von Roza Tour',
+    who: 'Algeria Compass ist der auf private Reisen und Luxusreisen spezialisierte Zweig von Roza Tour, einem lizenzierten algerischen Reiseveranstalter. Jede Reise ist privat: Ihre Termine, Ihr Tempo, Ihr eigener Reiseleiter und Ihr Wagen mit Fahrer. Wir sitzen in Algier und antworten auf Deutsch.',
+    promises: [`Termine ${BOOKING.holdHours} Stunden kostenlos reserviert, ohne Zahlung`, `Anzahlung von ${BOOKING.depositPct} % vor der Anreise, Rest bei Ankunft in Algerien`, `Kostenlose Stornierung bis ${BOOKING.cancelDays} Tage vor Abreise`, 'Bestätigter Preis garantiert, ohne Aufschlag'],
+    about: 'Mehr über uns',
+  },
+}[lang];
+
+// Tours: a spread of lengths and regions, only those translated in full.
+const LOCAL: Record<string, any> = { fr: TOURS_FR, it: TOURS_IT, es: TOURS_ES, de: TOURS_DE };
+const FEATURED = ['algeria-tour', 'tadrart-rouge-7-days', 'ghardaia-guided-tour', 'the-culture-and-heritage-of-algeria',
+  'algeria-grand-discovery-14-days', 'djanet-sahara-safari', 'oran-mostaganem-tlemcen', 'kabylie-djurdjura-villages', 'timimoun-desert-escape'];
+const allTours = ((data as any).tours || data) as any[];
+const tours = FEATURED.map(id => allTours.find(t => t.id === id)).filter(t => t && LOCAL[lang][t.id]?.full).slice(0, 6).map(t => {
+  const loc = LOCAL[lang][t.id];
+  const v = (TOUR_VISUALS as any)[t.id] || { hero: `${t.image_slugs[0]}-1.jpg` };
+  return { href: `${R.tours}${t.id}/`, title: loc.title || t.title, hook: loc.hook || '', duration: loc.duration || t.duration, price: t.price_eur, img: `/assets/img/thumbs/tours/${v.hero}` };
+});
+
+const regions = REGIONS.map((r: any) => ({ href: regionHref(r.id, lang), name: localRegion(r, lang).name }));
+const DEST: Record<string, any[]> = { fr: DESTINATIONS_FR, it: DESTINATIONS_IT, es: DESTINATIONS_ES, de: DESTINATIONS_DE };
+const destinations = DEST[lang].map(d => ({ href: `${R.destinations}${d.slug}/`, name: d.name }));
+const states = Object.entries((GUIDE_TEXT as any)[lang].province).map(([slug, t]: [string, any]) => ({ href: guideHref('province', slug, lang), name: t.name }));
+const experiences = Object.entries((GUIDE_TEXT as any)[lang].experience).map(([slug, t]: [string, any]) => ({ href: guideHref('experience', slug, lang), name: t.name }));
+
+const ASKED = ['is-algeria-safe', 'do-i-need-a-visa-for-algeria', 'can-i-get-an-algeria-visa-on-arrival',
+  'when-is-the-best-time-to-visit-algeria', 'how-much-does-a-trip-to-algeria-cost', 'what-languages-are-spoken-in-algeria'];
+const questions = ASKED.filter(s => (Q_TEXT as any)[lang][s]).map(s => ({ href: qHref(s, lang), q: (Q_TEXT as any)[lang][s].q, a: (Q_TEXT as any)[lang][s].a }));
+const eur = (n: number) => '€' + n.toLocaleString('en-GB');
+---
+{tours.length > 0 && (
+  <section class="section"><div class="wrap">
+    <span class="eyebrow">{S.toursEyebrow}</span>
+    <h2>{S.toursH}</h2>
+    <div class="lh-tours">
+      {tours.map(t => (
+        <a class="lh-tour" href={t.href}>
+          <img src={t.img} alt="" width="400" height="400" loading="lazy" decoding="async" />
+          <span class="lh-tour-body">
+            <strong>{t.title}</strong>
+            <span class="lh-meta">{`${t.duration} · ${S.from} ${eur(t.price)} ${S.per}`}</span>
+            {t.hook && <span class="lh-hook">{t.hook}</span>}
+          </span>
+        </a>
+      ))}
+    </div>
+    <p class="lh-more"><a href={R.tours}>{S.allTours} →</a></p>
+  </div></section>
+)}
+
+<section class="section" style="background:var(--wash)"><div class="wrap">
+  <div class="lh-cols">
+    <div>
+      <h2>{S.regionsH}</h2>
+      <p class="lh-p">{S.regionsP}</p>
+      <ul class="lh-list">{regions.map(r => <li><a href={r.href}>{r.name}</a></li>)}</ul>
+      <p class="lh-more"><a href={(REGION_ROUTES as any)[lang]}>{S.allRegions} →</a></p>
+    </div>
+    <div>
+      <h2>{S.destH}</h2>
+      <p class="lh-p">{S.destP}</p>
+      <ul class="lh-list">{destinations.map(d => <li><a href={d.href}>{d.name}</a></li>)}</ul>
+      <p class="lh-more"><a href={R.destinations}>{S.allDest} →</a></p>
+    </div>
+    <div>
+      <h2>{S.statesH}</h2>
+      <p class="lh-p">{S.statesP}</p>
+      <ul class="lh-list">{states.map(s => <li><a href={s.href}>{s.name}</a></li>)}</ul>
+      <p class="lh-more"><a href={(GUIDE_ROUTES as any).province[lang]}>{S.allStates} →</a></p>
+      <h2 class="lh-h2b">{S.expH}</h2>
+      <ul class="lh-list">{experiences.map(x => <li><a href={x.href}>{x.name}</a></li>)}</ul>
+      <p class="lh-more"><a href={(GUIDE_ROUTES as any).experience[lang]}>{S.allExp} →</a></p>
+    </div>
+  </div>
+</div></section>
+
+{questions.length > 0 && (
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <span class="eyebrow">{S.qEyebrow}</span>
+    <h2>{S.qH}</h2>
+    {questions.map(x => (
+      <div class="lh-q">
+        <h3>{x.q}</h3>
+        <p>{x.a}{' '}<a href={x.href}>{S.more} →</a></p>
+      </div>
+    ))}
+    <p class="lh-more"><a href={(Q_ROUTES as any)[lang]}>{S.allQ} →</a></p>
+  </div></section>
+)}
+
+<section class="section" style="background:var(--wash)"><div class="wrap" style="max-width:820px">
+  <span class="eyebrow">{S.whoEyebrow}</span>
+  <h2>{S.whoH}</h2>
+  <p class="lh-who">{S.who}</p>
+  <ul class="prose">{S.promises.map(p => <li>{p}</li>)}</ul>
+  <p class="lh-more"><a href={R.about}>{S.about} →</a></p>
+</div></section>
+
+<style>
+  .lh-tours{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem;margin-top:1rem}
+  .lh-tour{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s}
+  .lh-tour:hover{border-color:var(--gold);box-shadow:var(--shadow-card);text-decoration:none}
+  .lh-tour img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;display:block}
+  .lh-tour-body{display:flex;flex-direction:column;gap:.3rem;padding:.9rem 1rem 1rem}
+  .lh-tour strong{color:var(--green-d);font-size:1.02rem;line-height:1.35}
+  .lh-meta{font-size:.84rem;color:var(--text-l);font-weight:600}
+  .lh-hook{font-size:.9rem;color:var(--text-m);line-height:1.55}
+  .lh-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2rem}
+  .lh-cols h2{font-size:1.35rem;margin:0 0 .4rem}
+  .lh-h2b{margin-top:1.6rem !important}
+  .lh-p{color:var(--text-l);font-size:.93rem;margin:0 0 .6rem}
+  .lh-list{list-style:none;margin:0;padding:0;columns:2;column-gap:1.2rem}
+  .lh-list li{padding:.22rem 0;break-inside:avoid}
+  .lh-list a{font-weight:600}
+  .lh-more{margin-top:.9rem;font-weight:700}
+  .lh-q{margin-top:1.3rem}
+  .lh-q h3{margin:0 0 .3rem;font-size:1.08rem}
+  .lh-q p{margin:0;color:var(--text-m);line-height:1.7}
+  .lh-q p a{text-decoration:underline;text-underline-offset:2px}
+  .lh-who{color:var(--text-m);line-height:1.75}
+</style>

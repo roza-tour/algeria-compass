@@ -80,7 +80,7 @@ const breadcrumb = {
       <span class="eyebrow">{g.eyebrow}</span>
       <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">{g.h1}</h1>
       <p style="color:var(--text-l);font-size:.9rem">
-        Von Oussama Ben Yahia · Algeria Compass · <a href={enUrl} hreflang="en">Read in English</a>
+        Von <a href="/team/oussama-ben-yahia/" rel="author">Oussama Ben Yahia</a> · Algeria Compass · Aktualisiert am <time datetime={g.published}>{new Date(g.published).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time> · <a href={enUrl} hreflang="en">Read in English</a>
       </p>
 
       <p class="guide-lead" style="font-size:1.1rem;line-height:1.75;margin-top:1rem">{g.lead}</p>

@@ -3194,7 +3194,7 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "q": "¿Necesito visado?",
-        "a": "Sí, y como este programa incluye el Sáhara, se aplica el visado a la llegada: depositamos el expediente con antelación y el visado se emite a la llegada en el aeropuerto de Argel (autorización 45 USD), para cualquier nacionalidad. Preparamos la documentación junto con tu reserva; confirma los requisitos vigentes con tu consulado argelino."
+        "a": "Sí, y como este programa incluye el Sáhara, se aplica el visado a la llegada: depositamos el expediente con antelación y el visado se emite a la llegada en el aeropuerto de Argel (autorización 50 USD), para cualquier nacionalidad. Preparamos la documentación junto con tu reserva; confirma los requisitos vigentes con tu consulado argelino."
       },
       {
         "q": "¿Cómo es el grupo?",
@@ -4399,7 +4399,7 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "q": "¿Se puede obtener el visado a la llegada con este circuito?",
-        "a": "Sí. Como el programa es en el Sáhara, preparamos la autorización (45 dólares) y el visado se expide a la llegada al aeropuerto de Argel."
+        "a": "Sí. Como el programa es en el Sáhara, preparamos la autorización (50 dólares) y el visado se expide a la llegada al aeropuerto de Argel."
       },
       {
         "q": "¿Hace frío en el Assekrem?",
@@ -4543,7 +4543,7 @@ export const TOURS_ES: Record<string, TourEs> = {
       },
       {
         "q": "¿Se puede obtener el visado a la llegada con este circuito?",
-        "a": "Sí. Taghit está en el Sáhara: preparamos la autorización (45 dólares) y el visado se expide a la llegada al aeropuerto de Argel."
+        "a": "Sí. Taghit está en el Sáhara: preparamos la autorización (50 dólares) y el visado se expide a la llegada al aeropuerto de Argel."
       },
       {
         "q": "¿Hay que subir a la gran duna?",

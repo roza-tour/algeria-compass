@@ -21,7 +21,7 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
   {'@type':'ListItem',position:2,name:'e-Visa & Entry',item:`${site}/evisa/`}]};
 const faqs = [
   { q: 'What is the Saharan e-Visa?', a: 'It is the visa-authorisation document we prepare for travellers on an organised Saharan program. As a licensed Algerian tour operator we issue an authorisation carrying a QR code that is verifiable on the Algerian Ministry of Interior’s portal. The visa itself is granted by the Algerian authorities — your sticker/stamp is issued on arrival; we handle every file in advance.' },
-  { q: 'How much does the Saharan e-Visa cost?', a: 'The visa-authorisation document is $45. Preparing all of the required files is completely free on our side. A separate visa stamp fee is paid at Algiers airport on arrival, set by your length of stay — from 5,000 DA (€35) for 1–2 days to 20,000 DA (€140) for 8–10 days; the full table is below.' },
+  { q: 'How much does the Saharan e-Visa cost?', a: 'The visa-authorisation document is $50. Preparing all of the required files is completely free on our side. A separate visa stamp fee is paid at Algiers airport on arrival, set by your length of stay — from 5,000 DA (€35) for 1–2 days to 20,000 DA (€140) for 8–10 days; the full table is below.' },
   { q: 'Can I get the visa on arrival for Djanet and the Tassili n’Ajjer?', a: 'Yes — Djanet is the gateway to the Tassili n’Ajjer National Park and the Tadrart Rouge, and it is one of the southern wilayas this route is designed for. The condition is that your organised program with a licensed Algerian operator includes a Sahara trip: we prepare the authorisation in advance and your sticker is issued on arrival at Algiers airport. Send us your nationality and we will confirm your eligibility before you book.' },
   { q: 'Where is the visa issued — do I have to fly into the south?', a: 'No. You fly into Algiers as normal and your visa is issued on arrival at Algiers airport. What qualifies you is a Sahara trip in your program, not the airport you land at. Inside Algeria we book the domestic flights to the desert — Djanet–Tiska (DJG) for the Tassili n’Ajjer and the Tadrart Rouge, Tamanrasset (TMR) for the Hoggar, Ghardaïa Noumérat (GHA) for the M’Zab Valley, Timimoun (TMX) for the Gourara — as part of your program.' },
   { q: 'Can I visit the north too, or only the desert?', a: 'Both. A single trip can combine Algiers, the coast and the Roman cities with the Sahara — what matters is that a Sahara trip is part of the program. We design the itinerary so it qualifies.' },
@@ -92,8 +92,8 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
       </li>
       <li>
         <span class="sev-n">3</span>
-        <div><strong>We issue your authorisation — $45</strong>
-        <p>You receive a <strong>visa-authorisation document carrying a QR code</strong> that is <strong>verifiable on the Algerian Ministry of Interior’s portal</strong>. The document costs <strong>$45</strong>.</p></div>
+        <div><strong>We issue your authorisation — $50</strong>
+        <p>You receive a <strong>visa-authorisation document carrying a QR code</strong> that is <strong>verifiable on the Algerian Ministry of Interior’s portal</strong>. The document costs <strong>$50</strong>.</p></div>
       </li>
       <li>
         <span class="sev-n">4</span>
@@ -105,14 +105,14 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
     <StampFeeTable lang="en" />
 
     <div class="sev-facts">
-      <div class="sev-fact"><span class="sev-fig">$45</span><span class="sev-lab">Authorisation document</span></div>
+      <div class="sev-fact"><span class="sev-fig">$50</span><span class="sev-lab">Authorisation document</span></div>
       <div class="sev-fact"><span class="sev-fig">Free</span><span class="sev-lab">We prepare every file</span></div>
       <div class="sev-fact"><span class="sev-fig">QR-verified</span><span class="sev-lab">On the Ministry of Interior portal</span></div>
       <div class="sev-fact"><span class="sev-fig">North + South</span><span class="sev-lab">Any program with a Sahara trip</span></div>
     </div>
 
     <div class="sev-note">
-      <p><strong>One honest note:</strong> the visa stamp fee at Algiers airport is a government charge, separate from our $45 document fee, and it is set by length of stay, not by passport. Tell us your nationality and dates and we’ll confirm your eligibility and the exact fee before you commit.</p>
+      <p><strong>One honest note:</strong> the visa stamp fee at Algiers airport is a government charge, separate from our $50 document fee, and it is set by length of stay, not by passport. Tell us your nationality and dates and we’ll confirm your eligibility and the exact fee before you commit.</p>
     </div>
 
     <div class="sev-cta">
@@ -123,7 +123,7 @@ const faqSchema = { '@type':'FAQPage', '@id':`${site}/evisa/#faq`,
     <div class="sev-faq">
       <h3>Saharan e-Visa — quick answers</h3>
       <div class="faq">
-        {faqs.slice(0,7).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+        {faqs.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </div>
     </div>
   </div></section>

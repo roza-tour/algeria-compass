@@ -3195,7 +3195,7 @@ export const TOURS_IT: Record<string, TourIt> = {
       },
       {
         "q": "Serve un visto?",
-        "a": "Sì, ed poiché questo programma include il Sahara, vale il visto all'arrivo: depositiamo la pratica in anticipo e il visto viene rilasciato all'arrivo all'aeroporto di Algeri (autorizzazione 45 USD), per qualsiasi nazionalità. Prepariamo la documentazione al momento della prenotazione; verificate i requisiti aggiornati presso il vostro consolato algerino."
+        "a": "Sì, ed poiché questo programma include il Sahara, vale il visto all'arrivo: depositiamo la pratica in anticipo e il visto viene rilasciato all'arrivo all'aeroporto di Algeri (autorizzazione 50 USD), per qualsiasi nazionalità. Prepariamo la documentazione al momento della prenotazione; verificate i requisiti aggiornati presso il vostro consolato algerino."
       },
       {
         "q": "Com'è composto il gruppo?",
@@ -4400,7 +4400,7 @@ export const TOURS_IT: Record<string, TourIt> = {
       },
       {
         "q": "Con questo tour si può avere il visto all'arrivo?",
-        "a": "Sì. Poiché il programma è nel Sahara, prepariamo l'autorizzazione (45 dollari) e il visto viene rilasciato all'arrivo all'aeroporto di Algeri."
+        "a": "Sì. Poiché il programma è nel Sahara, prepariamo l'autorizzazione (50 dollari) e il visto viene rilasciato all'arrivo all'aeroporto di Algeri."
       },
       {
         "q": "Fa freddo sull'Assekrem?",
@@ -4544,7 +4544,7 @@ export const TOURS_IT: Record<string, TourIt> = {
       },
       {
         "q": "Con questo tour si può avere il visto all'arrivo?",
-        "a": "Sì. Taghit è nel Sahara: prepariamo l'autorizzazione (45 dollari) e il visto viene rilasciato all'arrivo all'aeroporto di Algeri."
+        "a": "Sì. Taghit è nel Sahara: prepariamo l'autorizzazione (50 dollari) e il visto viene rilasciato all'arrivo all'aeroporto di Algeri."
       },
       {
         "q": "Bisogna salire sulla grande duna?",

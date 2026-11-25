@@ -35,7 +35,7 @@ export const GUIDES_DE: GuideDe[] = [
     "sections": [
       {
         "h": "Das Land in Kürze",
-        "p": "Algerien ist eine Republik am südlichen Mittelmeer und grenzt im Osten an Tunesien und Libyen, im Süden an Niger, Mali und Mauretanien, im Westen an die Westsahara und Marokko. Die Bevölkerung konzentriert sich auf den Küstenstreifen und die Hochebenen des Nordens, während der weite Süden nahezu unbesiedelt ist. Arabisch und Tamazight sind Amtssprachen; Französisch ist in Verwaltung, Handel und Beschilderung weiterhin sehr präsent. Das Land ist in 58 Provinzen gegliedert."
+        "p": "Algerien ist eine Republik am südlichen Mittelmeer und grenzt im Osten an Tunesien und Libyen, im Süden an Niger, Mali und Mauretanien, im Westen an die Westsahara und Marokko. Die Bevölkerung konzentriert sich auf den Küstenstreifen und die Hochebenen des Nordens, während der weite Süden nahezu unbesiedelt ist. Arabisch und Tamazight sind Amtssprachen; Französisch ist in Verwaltung, Handel und Beschilderung weiterhin sehr präsent. Das Land ist in 69 Provinzen gegliedert."
       },
       {
         "h": "Beste Reisezeit",
@@ -155,7 +155,7 @@ export const GUIDES_DE: GuideDe[] = [
       },
       {
         "q": "Bekommt man das Visum am Flughafen?",
-        "a": "In der Regel nein. Die einzige Ausnahme sind organisierte Reisen mit Sahara-Aufenthalt: Ein lizenzierter algerischer Veranstalter hinterlegt die Unterlagen vorab, und das Visum wird bei der Ankunft am Flughafen Algier erteilt (Genehmigung 45 USD, Stempel separat am Flughafen bezahlt)."
+        "a": "In der Regel nein. Die einzige Ausnahme sind organisierte Reisen mit Sahara-Aufenthalt: Ein lizenzierter algerischer Veranstalter hinterlegt die Unterlagen vorab, und das Visum wird bei der Ankunft am Flughafen Algier erteilt (Genehmigung 50 USD, Stempel separat am Flughafen bezahlt)."
       },
       {
         "q": "Stellen Sie das Einladungsschreiben aus?",
@@ -397,7 +397,7 @@ export const GUIDES_DE: GuideDe[] = [
       },
       {
         "h": "Weg 2: Visum bei Ankunft am Flughafen Algier",
-        "p": "Gilt für Reisende mit einem organisierten Programm, das einen Sahara-Aufenthalt enthält, und steht jeder Nationalität offen. Sie buchen bei uns ein Programm mit Sahara, wir hinterlegen Passdaten und Wüstengenehmigungen im Voraus, Sie landen ganz normal in Algier, und das Visum wird bei der Ankunft am Flughafen Algier erteilt. Sahara-Genehmigung 45 USD; der Einreisestempel wird separat am Flughafen bezahlt. Kein Konsulatstermin nötig. Wir bestätigen Ihnen schriftlich, dass Ihr Fall unter diesen Weg fällt, bevor Sie Flüge buchen."
+        "p": "Gilt für Reisende mit einem organisierten Programm, das einen Sahara-Aufenthalt enthält, und steht jeder Nationalität offen. Sie buchen bei uns ein Programm mit Sahara, wir hinterlegen Passdaten und Wüstengenehmigungen im Voraus, Sie landen ganz normal in Algier, und das Visum wird bei der Ankunft am Flughafen Algier erteilt. Sahara-Genehmigung 50 USD; der Einreisestempel wird separat am Flughafen bezahlt. Kein Konsulatstermin nötig. Wir bestätigen Ihnen schriftlich, dass Ihr Fall unter diesen Weg fällt, bevor Sie Flüge buchen."
       },
       {
         "h": "Welcher Weg für Sie gilt",
@@ -461,7 +461,7 @@ export const GUIDES_DE: GuideDe[] = [
       },
       {
         "h": "Weg 2 — die Sahara-Genehmigung",
-        "p": "Für organisierte Reisen mit Sahara-Aufenthalt (Djanet, Tamanrasset, Timimoun, das M'Zab …) erstellen wir vorab ein Visum-Genehmigungsdokument mit QR-Code, der im Portal des algerischen Innenministeriums überprüfbar ist. Das Visum wird dann bei der Ankunft am Flughafen Algier erteilt, ohne Konsulatstermin. Entscheidend ist die Route, nicht der Pass: Dieser Weg steht Reisenden jeder Staatsangehörigkeit offen, sofern das organisierte Programm die Sahara enthält. Das Dokument kostet 45 USD; die Zusammenstellung der Akte bleibt kostenlos, und der Einreisestempel wird separat am Flughafen Algier bezahlt, je nach Aufenthaltsdauer."
+        "p": "Für organisierte Reisen mit Sahara-Aufenthalt (Djanet, Tamanrasset, Timimoun, das M'Zab …) erstellen wir vorab ein Visum-Genehmigungsdokument mit QR-Code, der im Portal des algerischen Innenministeriums überprüfbar ist. Das Visum wird dann bei der Ankunft am Flughafen Algier erteilt, ohne Konsulatstermin. Entscheidend ist die Route, nicht der Pass: Dieser Weg steht Reisenden jeder Staatsangehörigkeit offen, sofern das organisierte Programm die Sahara enthält. Das Dokument kostet 50 USD; die Zusammenstellung der Akte bleibt kostenlos, und der Einreisestempel wird separat am Flughafen Algier bezahlt, je nach Aufenthaltsdauer."
       },
       {
         "h": "Was in der Regel verlangt wird",
@@ -484,7 +484,7 @@ export const GUIDES_DE: GuideDe[] = [
     "faqs": [
       {
         "q": "Was kostet Ihre Visum-Hilfe?",
-        "a": "Das Einladungsschreiben kostet 25 USD, mit jedem Programm ab 3 Tagen mit Flughafenabholung und -transfer; Bestätigungen und Checkliste kosten nichts. Für den Sahara-Weg kostet die Genehmigung 45 USD, und der Einreisestempel wird separat am Flughafen bezahlt, je nach Aufenthaltsdauer."
+        "a": "Das Einladungsschreiben kostet 25 USD, mit jedem Programm ab 3 Tagen mit Flughafenabholung und -transfer; Bestätigungen und Checkliste kosten nichts. Für den Sahara-Weg kostet die Genehmigung 50 USD, und der Einreisestempel wird separat am Flughafen bezahlt, je nach Aufenthaltsdauer."
       },
       {
         "q": "Wie lange dauert das Konsulatsvisum?",
@@ -508,14 +508,14 @@ export const GUIDES_DE: GuideDe[] = [
       "p": "Wir bestätigen Ihnen schriftlich, welcher Weg für Sie gilt, und senden Ihnen die Dokumenten-Checkliste."
     },
     "seoTitle": "Visum-Hilfe für Algerien | Algeria Compass",
-    "seoDescription": "Einladungsschreiben (25 USD) für Programme ab 3 Tagen mit Flughafentransfers, und Visum bei Ankunft in Algier für Reisen mit Sahara (45 USD)."
+    "seoDescription": "Einladungsschreiben (25 USD) für Programme ab 3 Tagen mit Flughafentransfers, und Visum bei Ankunft in Algier für Reisen mit Sahara (50 USD)."
   },
   {
     "slug": "budget-algerien",
     "en": "/blog/algeria-travel-cost/",
     "fr": "/fr/budget-algerie/",
     "eyebrow": "Reise vorbereiten",
-    "h1": "Was kostet eine Reise nach Algerien?",
+    "h1": "Reisebudget für Algerien: die Preise im Einzelnen",
     "published": "2026-08-01",
     "lead": "Algerien gilt als schwer kalkulierbar, und das hat einen einzigen Grund: Es gibt einen offiziellen Wechselkurs und einen weit verbreiteten Parallelkurs, und der Abstand zwischen beiden ist groß. Wer das verstanden hat und mit Bargeld reist, findet ein erschwingliches Land vor — mit einer Ausnahme, der geführten Sahara.",
     "sections": [

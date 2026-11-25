@@ -1,5 +1,6 @@
 ---
 name: "Bou Saada"
+wilayaNumber: 68
 region: "sahara"
 image: "/assets/img/msila-bousaada/msila-bousaada-07.jpg"
 imageAlt: "The oued and palms threading the oasis canyon at Bou Saada"
@@ -17,9 +18,9 @@ gallery:
   - { src: "/assets/img/tours/bousaada-22.jpg", alt: "Two travellers on the steps of an earth-rendered art gallery with palm-log beams in Bou Saâda" }
   - { src: "/assets/img/tours/bousaada-23.jpg", alt: "A traveller beside a black Ouled Naïl dress hung with gold coin jewellery in a crafts museum in Bou Saâda" }
 coordinates: { lat: 35.2131, lng: 4.1776 }
-quickAnswer: "Bou Saada is an oasis town on the edge of the Sahara in M'Sila state, long nicknamed the 'City of Happiness'. A historic gateway between the High Plateaus and the desert, it is known for its palm grove and oued, the historic Ferrero Mill, its craft markets, the legacy of the painter Nasreddine Dinet, and the nearby Sufi shrine of El Hamel."
+quickAnswer: "Bou Saada is an oasis town on the edge of the Sahara and, since 2026, the capital of its own state (wilaya 68, formerly part of M'Sila state), long nicknamed the 'City of Happiness'. A historic gateway between the High Plateaus and the desert, it is known for its palm grove and oued, the historic Ferrero Mill, its craft markets, the legacy of the painter Nasreddine Dinet, and the nearby Sufi shrine of El Hamel."
 keyFacts:
-  - { label: "Located in", value: "M'Sila state (wilaya 28)" }
+  - { label: "State", value: "Bou Saâda (wilaya 68), created in 2026 out of M'Sila state" }
   - { label: "Nickname", value: "The City of Happiness" }
   - { label: "Region", value: "High Plateaus / northern Sahara edge" }
   - { label: "Known for", value: "Oasis, crafts, the painter Dinet, El Hamel zawiya" }
@@ -28,7 +29,7 @@ keyFacts:
 
 sameAs: ["https://en.wikipedia.org/wiki/Bou_Sa%C3%A2da"]
 faqs:
-  - { q: "Where is Bou Saada?", a: "On the steppe between the High Plateaus and the Sahara, in M'Sila state, around four hours by road south of Algiers. It has long been known as a gateway to the desert." }
+  - { q: "Where is Bou Saada?", a: "On the steppe between the High Plateaus and the Sahara, in Bou Saâda state (created in 2026, formerly part of M'Sila state), around four hours by road south of Algiers. It has long been known as a gateway to the desert." }
   - { q: "Why is it called the 'City of Happiness'?", a: "Bou Saada (literally 'place of happiness') earned the name as a welcoming oasis stop on the desert routes; its light and setting also drew Orientalist painters in the 19th and 20th centuries." }
   - { q: "Who was Nasreddine Dinet?", a: "Étienne Dinet (Nasreddine Dinet) was a French Orientalist painter who settled in Bou Saada, embraced Islam and is buried there; his work made the town famous, and a museum commemorates him." }
   - { q: "What is the El Hamel zawiya?", a: "A historic Sufi zawiya — a shrine and religious school — near Bou Saada, an important spiritual centre and a striking piece of desert architecture." }

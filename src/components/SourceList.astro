@@ -1,19 +1,30 @@
 ---
 import { typeLabel } from '../data/sources';
-export interface Props { sources?: { title:string; publisher?:string; url?:string; type?:string; note?:string }[]; }
-const { sources = [] } = Astro.props;
+export interface Props { sources?: { title:string; publisher?:string; url?:string; type?:string; note?:string }[]; lang?: string; }
+const { sources = [], lang = 'en' } = Astro.props;
+// Translated pages get the heading and the note in their language. The type
+// label and the free-text note of each source are English, so they are left
+// out there rather than shown untranslated.
+const L: Record<string, { h: string; note: string }> = {
+  fr: { h: 'Sources', note: 'Les faits essentiels de cette page sont vérifiés à partir des sources suivantes.' },
+  it: { h: 'Fonti', note: 'I fatti principali di questa pagina sono verificati sulle fonti seguenti.' },
+  es: { h: 'Fuentes', note: 'Los datos principales de esta página se han contrastado con las fuentes siguientes.' },
+  de: { h: 'Quellen', note: 'Die wichtigsten Angaben dieser Seite wurden anhand der folgenden Quellen geprüft.' },
+};
+const T = L[lang];
 ---
 {sources.length > 0 && (
   <section class="sources" id="sources" aria-labelledby="sources-h">
-    <h2 id="sources-h">Sources</h2>
-    <p class="sources-note">Key facts on this page are checked against the following sources. See our <a href="/editorial/sources-policy/">Sources Policy</a> and <a href="/editorial/fact-checking-policy/">Fact-Checking Policy</a>.</p>
+    <h2 id="sources-h">{T ? T.h : 'Sources'}</h2>
+    {T ? <p class="sources-note">{T.note}</p>
+       : <p class="sources-note">Key facts on this page are checked against the following sources. See our <a href="/editorial/sources-policy/">Sources Policy</a> and <a href="/editorial/fact-checking-policy/">Fact-Checking Policy</a>.</p>}
     <ol>
       {sources.map(s => (
         <li>
           {s.url ? <a href={s.url} target="_blank" rel="noopener nofollow">{s.title}</a> : <span>{s.title}</span>}
           {s.publisher && <span class="src-pub"> — {s.publisher}</span>}
-          {s.type && <span class="src-type"> · {typeLabel(s.type)}</span>}
-          {s.note && <span class="src-note"> ({s.note})</span>}
+          {s.type && !T && <span class="src-type"> · {typeLabel(s.type)}</span>}
+          {s.note && !T && <span class="src-note"> ({s.note})</span>}
         </li>
       ))}
     </ol>

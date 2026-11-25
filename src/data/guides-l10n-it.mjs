@@ -108,9 +108,9 @@ export const PROVINCES_IT = {
     seoDescription: 'Visitare Blida: il parco nazionale di Chréa e i suoi cedri, le gole della Chiffa e le bertucce, i frutteti della Mitidja, a un’ora da Algeri.',
   },
   bousaada: {
-    name: 'Bou Saâda', eyebrow: 'Wilaya di M’Sila · Porta del Sahara',
+    name: 'Bou Saâda', eyebrow: 'Wilaya di Bou Saâda · Porta del Sahara',
     intro: 'La «Città della felicità» — un’oasi ai margini del Sahara, a poche ore da Algeri, amata dai pittori.',
-    quick: 'Bou Saâda è una città-oasi ai margini del Sahara, nella wilaya di M’Sila, soprannominata la «Città della felicità». Porta storica tra gli Altipiani e il deserto, è nota per il palmeto e l’uadi, il mulino Ferrero, i mercati artigianali, l’eredità del pittore Nasreddine Dinet e, poco lontano, la zawiya sufi di El Hamel.',
+    quick: 'Bou Saâda è una città-oasi ai margini del Sahara, capoluogo di una propria wilaya dal 2026 (prima parte di quella di M’Sila), soprannominata la «Città della felicità». Porta storica tra gli Altipiani e il deserto, è nota per il palmeto e l’uadi, il mulino Ferrero, i mercati artigianali, l’eredità del pittore Nasreddine Dinet e, poco lontano, la zawiya sufi di El Hamel.',
     sections: [
       { h: 'Perché visitare Bou Saâda', p: 'Bou Saâda è l’assaggio più semplice del Sud algerino: una vera oasi a poche ore dalla capitale. Il palmeto, l’uadi e le colline ocra attirano viaggiatori e pittori da generazioni, e i mercati, l’artigianato e l’eredità sufi le danno un’atmosfera unica.' },
       { h: 'Un po’ di storia', p: 'Tappa storica sulle rotte tra gli Altipiani e il Sahara, Bou Saâda crebbe come oasi di giardini e d’acqua. In epoca coloniale la sua luce attirò i pittori orientalisti, soprattutto Nasreddine (Étienne) Dinet, che vi si stabilì, si convertì all’islam e vi è sepolto.' },
@@ -121,7 +121,7 @@ export const PROVINCES_IT = {
       { label: 'Da Algeri', value: '~250 km · circa 4 h' }, { label: 'Periodo migliore', value: 'Ottobre–aprile' },
     ],
     faqs: [
-      { q: 'Dove si trova Bou Saâda?', a: 'Sulla steppa tra gli Altipiani e il Sahara, nella wilaya di M’Sila, a circa quattro ore di strada a sud di Algeri. È da sempre una porta del deserto.' },
+      { q: 'Dove si trova Bou Saâda?', a: 'Sulla steppa tra gli Altipiani e il Sahara, nella wilaya di Bou Saâda (creata nel 2026, prima parte di quella di M’Sila), a circa quattro ore di strada a sud di Algeri. È da sempre una porta del deserto.' },
       { q: 'Perché si chiama «Città della felicità»?', a: 'Bou Saâda significa letteralmente «il luogo della felicità»: una tappa accogliente sulle rotte del deserto, la cui luce ha anche attirato i pittori orientalisti tra Otto e Novecento.' },
       { q: 'Chi era Nasreddine Dinet?', a: 'Étienne (Nasreddine) Dinet, pittore orientalista francese, si stabilì a Bou Saâda, abbracciò l’islam e vi è sepolto; la sua opera ha reso celebre la città e un museo gli è dedicato.' },
     ],
@@ -374,7 +374,7 @@ export const EXPERIENCES_IT = {
       { day: 'Giorno 4', title: 'La costa occidentale', text: 'Città mediterranee e cucina dell’Ovest.' },
       { day: 'Giorno 5', title: 'Partenza', text: 'Ultima mattinata, poi si prosegue.' },
     ],
-    facts: [{ label: 'Durata', value: '5 giorni' }, { label: 'Tappe', value: 'Orano · Tlemcen' }, { label: 'Da', value: '620 €' }],
+    facts: [{ label: 'Durata', value: '5 giorni' }, { label: 'Tappe', value: 'Orano · Tlemcen' }, { label: 'Da', value: '768 €' }],
     faqs: [{ q: 'Perché l’Ovest algerino?', a: 'L’Ovest, e soprattutto Tlemcen, conserva la più ricca eredità andalusa d’Algeria — la cultura portata dalla Spagna musulmana.' }],
     seoTitle: 'Il viaggio del regno andaluso — Tlemcen e Orano | Algeria Compass',
     seoDescription: 'Un circuito privato di 5 giorni nell’Ovest algerino: Tlemcen, Orano, l’architettura ispano-moresca e la musica andalusa.',
@@ -382,7 +382,7 @@ export const EXPERIENCES_IT = {
   'bou-saada-oasis-escape': {
     name: 'Fuga nell’oasi di Bou Saâda', eyebrow: '2 giorni · Porta del Sahara',
     intro: 'Due giorni nella Città della felicità — un palmeto ai margini del Sahara, gole ocra, un vecchio ksar e la luce che attirò i pittori.',
-    quick: 'La fuga nell’oasi di Bou Saâda è un viaggio privato di due giorni in questa città-oasi ai margini del Sahara, nella wilaya di M’Sila: il palmeto, il vecchio ksar, la gola del mulino Ferrero e l’eredità del pittore Nasreddine Dinet.',
+    quick: 'La fuga nell’oasi di Bou Saâda è un viaggio privato di due giorni in questa città-oasi ai margini del Sahara: il palmeto, il vecchio ksar, la gola del mulino Ferrero e l’eredità del pittore Nasreddine Dinet.',
     sections: [{ h: 'Bou Saâda', p: 'Bou Saâda, la «Città della felicità», è la porta classica del Sud algerino: un palmeto sulla steppa, là dove gli Altipiani lasciano il posto al Sahara. Da più di un secolo attira viaggiatori e artisti, a cominciare dal pittore Nasreddine (Étienne) Dinet.' }],
     highlights: ['Il palmeto e la gola del mulino Ferrero', 'Il vecchio ksar e i vicoli ocra della città', 'L’eredità del pittore Nasreddine (Étienne) Dinet', 'Il tramonto sulla steppa degli Ouled Naïl'],
     itinerary: [

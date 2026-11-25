@@ -19,7 +19,7 @@
   "early_booking": "5% off when booked at least 60 days before departure.",
   "cancellation": "Free cancellation up to 5 days before departure, full refund. Within 5 days, committed costs may not be recoverable; the rest is refunded.",
   "visa_refused": "If the visa is refused, everything paid to Algeria Compass is refunded.",
-  "visa": "Consulate route: invitation letter 25 USD for a programme of at least 3 days with airport pickup and drop-off. Visa on arrival at Algiers airport for organised programmes that include the Sahara: authorisation 45 USD, plus the arrival stamp paid at the airport (by length of stay).",
+  "visa": "Consulate route: invitation letter 25 USD for a programme of at least 3 days with airport pickup and drop-off. Visa on arrival at Algiers airport for organised programmes that include the Sahara: authorisation 50 USD, plus the arrival stamp paid at the airport (by length of stay).",
   "terms_url": "https://algeriacompass.com/booking-terms/",
   "visa_url": "https://algeriacompass.com/algeria-visa-requirements/"
  },
@@ -43,7 +43,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Houari Boumediene Airport",
    "regions": [
@@ -158,7 +158,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Djanet",
    "regions": [
@@ -274,7 +274,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Ghardaïa Airport",
    "regions": [
@@ -367,7 +367,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Oran",
    "regions": [
@@ -481,7 +481,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Airport / hotel pickup",
    "regions": [
@@ -556,7 +556,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Airport / hotel pickup",
    "regions": [
@@ -631,7 +631,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Airport",
    "regions": [
@@ -756,7 +756,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Airport",
    "regions": [
@@ -887,7 +887,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Airport",
    "regions": [
@@ -1054,7 +1054,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Airport",
    "regions": [
@@ -1172,7 +1172,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Airport / hotel pickup",
    "regions": [
@@ -1248,7 +1248,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — hotel pickup",
    "regions": [
@@ -1324,7 +1324,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers",
    "regions": [
@@ -1412,7 +1412,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Airport",
    "regions": [
@@ -1530,7 +1530,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — lower Casbah, by the sea",
    "regions": [
@@ -1604,7 +1604,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Constantine",
    "regions": [
@@ -1687,7 +1687,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers",
    "regions": [
@@ -1772,7 +1772,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers",
    "regions": [
@@ -1871,7 +1871,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Airport",
    "regions": [
@@ -2008,7 +2008,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers — Airport",
    "regions": [
@@ -2172,7 +2172,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers (flight to Djanet included)",
    "regions": [
@@ -2311,7 +2311,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers (flight to Djanet included)",
    "regions": [
@@ -2450,7 +2450,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers (flight to Djanet included)",
    "regions": [
@@ -2587,7 +2587,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers",
    "regions": [
@@ -2800,7 +2800,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Annaba",
    "regions": [
@@ -2894,7 +2894,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Biskra",
    "regions": [
@@ -2989,7 +2989,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Tamanrasset",
    "regions": [
@@ -3102,7 +3102,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Béchar Airport",
    "regions": [
@@ -3206,7 +3206,7 @@
     "currency": "EUR",
     "per": "person",
     "from": true,
-    "note": "Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit."
+    "note": "Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit."
    },
    "starts_in": "Algiers",
    "regions": [

@@ -35,7 +35,7 @@ export const GUIDES_ES: GuideEs[] = [
     "sections": [
       {
         "h": "El país en breve",
-        "p": "República del Mediterráneo meridional, Argelia limita con Túnez y Libia al este, Níger, Malí y Mauritania al sur, y el Sáhara Occidental y Marruecos al oeste. La población se concentra en la franja costera y las mesetas del norte, mientras que el vasto sur está casi despoblado. El árabe y el tamazight son lenguas oficiales; el francés sigue muy presente en la administración, el comercio y la señalización. El país está dividido en 58 provincias."
+        "p": "República del Mediterráneo meridional, Argelia limita con Túnez y Libia al este, Níger, Malí y Mauritania al sur, y el Sáhara Occidental y Marruecos al oeste. La población se concentra en la franja costera y las mesetas del norte, mientras que el vasto sur está casi despoblado. El árabe y el tamazight son lenguas oficiales; el francés sigue muy presente en la administración, el comercio y la señalización. El país está dividido en 69 provincias."
       },
       {
         "h": "Cuándo ir",
@@ -155,7 +155,7 @@ export const GUIDES_ES: GuideEs[] = [
       },
       {
         "q": "¿Se puede obtener el visado en el aeropuerto?",
-        "a": "En general no. La única excepción son los viajes organizados que incluyen el Sáhara: un operador argelino autorizado deposita la documentación con antelación y el visado se emite a la llegada en el aeropuerto de Argel (autorización 45 USD, sello pagado aparte en el aeropuerto)."
+        "a": "En general no. La única excepción son los viajes organizados que incluyen el Sáhara: un operador argelino autorizado deposita la documentación con antelación y el visado se emite a la llegada en el aeropuerto de Argel (autorización 50 USD, sello pagado aparte en el aeropuerto)."
       },
       {
         "q": "¿Facilitan ustedes la carta de invitación?",
@@ -397,7 +397,7 @@ export const GUIDES_ES: GuideEs[] = [
       },
       {
         "h": "Vía 2: visado a la llegada en el aeropuerto de Argel",
-        "p": "Sirve para quien viaja con un programa organizado que incluye una estancia en el Sáhara, y está abierta a cualquier nacionalidad. Usted reserva con nosotros un programa con Sáhara, nosotros depositamos por adelantado los datos del pasaporte y los permisos del desierto, usted llega a Argel como de costumbre y el visado se emite a la llegada en el aeropuerto de Argel. Autorización sahariana 45 USD; el sello de entrada se paga aparte en el aeropuerto. Sin cita consular. Le confirmamos por escrito que su caso entra en esta vía antes de que reserve vuelos."
+        "p": "Sirve para quien viaja con un programa organizado que incluye una estancia en el Sáhara, y está abierta a cualquier nacionalidad. Usted reserva con nosotros un programa con Sáhara, nosotros depositamos por adelantado los datos del pasaporte y los permisos del desierto, usted llega a Argel como de costumbre y el visado se emite a la llegada en el aeropuerto de Argel. Autorización sahariana 50 USD; el sello de entrada se paga aparte en el aeropuerto. Sin cita consular. Le confirmamos por escrito que su caso entra en esta vía antes de que reserve vuelos."
       },
       {
         "h": "Cuál le corresponde",
@@ -461,7 +461,7 @@ export const GUIDES_ES: GuideEs[] = [
       },
       {
         "h": "Vía 2 — la autorización sahariana",
-        "p": "Para los viajes organizados que incluyen una estancia en el Sáhara (Djanet, Tamanrasset, Timimún, el M'Zab…), preparamos por adelantado un documento de autorización de visado con código QR verificable en el portal del Ministerio del Interior argelino. El visado se estampa a la llegada en el aeropuerto de Argel, sin cita consular. Lo que cuenta es el itinerario, no el pasaporte: esta vía está abierta a viajeros de cualquier nacionalidad, siempre que el programa organizado incluya el Sáhara. El documento cuesta 45 USD; la preparación del expediente sigue siendo gratuita, y el sello de entrada se paga aparte en el aeropuerto de Argel, según la duración de la estancia."
+        "p": "Para los viajes organizados que incluyen una estancia en el Sáhara (Djanet, Tamanrasset, Timimún, el M'Zab…), preparamos por adelantado un documento de autorización de visado con código QR verificable en el portal del Ministerio del Interior argelino. El visado se estampa a la llegada en el aeropuerto de Argel, sin cita consular. Lo que cuenta es el itinerario, no el pasaporte: esta vía está abierta a viajeros de cualquier nacionalidad, siempre que el programa organizado incluya el Sáhara. El documento cuesta 50 USD; la preparación del expediente sigue siendo gratuita, y el sello de entrada se paga aparte en el aeropuerto de Argel, según la duración de la estancia."
       },
       {
         "h": "Lo que suele hacer falta",
@@ -484,7 +484,7 @@ export const GUIDES_ES: GuideEs[] = [
     "faqs": [
       {
         "q": "¿Cuánto cuesta su asistencia con el visado?",
-        "a": "La carta de invitación cuesta 25 USD, con cualquier programa de al menos 3 días con recogida y traslado al aeropuerto; confirmaciones y lista de documentos no tienen coste. Para la vía sahariana la autorización cuesta 45 USD y el sello de entrada se paga aparte en el aeropuerto, según la duración de la estancia."
+        "a": "La carta de invitación cuesta 25 USD, con cualquier programa de al menos 3 días con recogida y traslado al aeropuerto; confirmaciones y lista de documentos no tienen coste. Para la vía sahariana la autorización cuesta 50 USD y el sello de entrada se paga aparte en el aeropuerto, según la duración de la estancia."
       },
       {
         "q": "¿Cuánto tarda el visado consular?",
@@ -508,14 +508,14 @@ export const GUIDES_ES: GuideEs[] = [
       "p": "Le confirmamos por escrito qué vía le corresponde y le enviamos la lista de documentos."
     },
     "seoTitle": "Asistencia para el visado de Argelia | Algeria Compass",
-    "seoDescription": "Carta de invitación (25 USD) para programas de al menos 3 días con traslados al aeropuerto, y visado a la llegada en Argel para viajes con Sáhara (45 USD)."
+    "seoDescription": "Carta de invitación (25 USD) para programas de al menos 3 días con traslados al aeropuerto, y visado a la llegada en Argel para viajes con Sáhara (50 USD)."
   },
   {
     "slug": "presupuesto-argelia",
     "en": "/blog/algeria-travel-cost/",
     "fr": "/fr/budget-algerie/",
     "eyebrow": "Presupuesto",
-    "h1": "¿Cuánto cuesta un viaje a Argelia?",
+    "h1": "Presupuesto de un viaje a Argelia: los precios, partida a partida",
     "published": "2026-08-01",
     "lead": "Argelia tiene fama de ser difícil de leer en materia de precios, y la causa es una peculiaridad: existe un tipo de cambio oficial y un tipo paralelo muy extendido, y la diferencia entre ambos es grande. Entendido eso, y pagando en efectivo, Argelia resulta un destino asequible en casi todo — con una excepción, el Sáhara guiado.",
     "sections": [

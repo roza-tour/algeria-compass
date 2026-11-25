@@ -3,14 +3,26 @@
 export interface Props {
   authorName: string; authorHref: string;
   reviewerName?: string; reviewerHref?: string;
-  updated?: Date; lastReviewed?: Date;
+  updated?: Date; lastReviewed?: Date; lang?: string;
 }
-const { authorName, authorHref, reviewerName, reviewerHref, updated, lastReviewed } = Astro.props;
-const fmt = (d?: Date) => d ? d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : null;
+const { authorName, authorHref, reviewerName, reviewerHref, updated, lastReviewed, lang = 'en' } = Astro.props;
+// The translated pages used to carry the author, the reviewer and the dates
+// only in their structured data. A reader, and an answer engine deciding whom
+// to quote, saw an unsigned, undated page. Same line, in the page's language.
+const L: Record<string, { by: string; rev: string; last: string; upd: string; loc: string }> = {
+  en: { by: 'Written by', rev: 'Reviewed by', last: 'Last reviewed', upd: 'Updated', loc: 'en-US' },
+  fr: { by: 'Rédigé par', rev: 'Relu par', last: 'Dernière relecture le', upd: 'Mis à jour le', loc: 'fr-FR' },
+  it: { by: 'Scritto da', rev: 'Revisionato da', last: 'Ultima revisione il', upd: 'Aggiornato il', loc: 'it-IT' },
+  es: { by: 'Escrito por', rev: 'Revisado por', last: 'Última revisión el', upd: 'Actualizado el', loc: 'es-ES' },
+  de: { by: 'Verfasst von', rev: 'Geprüft von', last: 'Zuletzt geprüft am', upd: 'Aktualisiert am', loc: 'de-DE' },
+};
+const T = L[lang] || L.en;
+const fmt = (d?: Date) => d ? d.toLocaleDateString(T.loc,{year:'numeric',month:'long',day:'numeric'}) : null;
+const iso = (d?: Date) => d ? d.toISOString().slice(0, 10) : undefined;
 ---
 <div class="byline">
-  <span class="b-item">Written by <a href={authorHref} rel="author">{authorName}</a></span>
-  {reviewerName && <span class="b-item">Reviewed by <a href={reviewerHref}>{reviewerName}</a></span>}
-  {lastReviewed && <span class="b-item">Last reviewed {fmt(lastReviewed)}</span>}
-  {updated && <span class="b-item">Updated {fmt(updated)}</span>}
+  <span class="b-item">{T.by} <a href={authorHref} rel="author">{authorName}</a></span>
+  {reviewerName && <span class="b-item">{T.rev} <a href={reviewerHref}>{reviewerName}</a></span>}
+  {lastReviewed && <span class="b-item">{T.last} <time datetime={iso(lastReviewed)}>{fmt(lastReviewed)}</time></span>}
+  {updated && <span class="b-item">{T.upd} <time datetime={iso(updated)}>{fmt(updated)}</time></span>}
 </div>

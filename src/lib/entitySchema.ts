@@ -28,7 +28,7 @@ const TYPE_FALLBACK: Record<string, string> = {
 export function entityUrl(site: string, e: Entity): string {
   const s = clean(site);
   if (e.contentSlug) return `${s}${COLLECTION_PATH[e.contentSlug.collection] || '/'}${e.contentSlug.slug}/`;
-  // The /provinces/ index carries an anchored directory of all 58 states.
+  // The /provinces/ index carries an anchored directory of all 69 states.
   if (e.type === 'province') return `${s}/provinces/#${e.slug}`;
   return `${s}${TYPE_FALLBACK[e.type] || '/destinations/'}`;
 }
@@ -97,7 +97,7 @@ export function collectionPageNode(site: string, url: string, name: string, desc
   };
 }
 
-// Plain ItemList (e.g. the 58-province directory) referencing entity @ids.
+// Plain ItemList (e.g. the 69-province directory) referencing entity @ids.
 export function itemListNode(site: string, id: string, name: string, members: Entity[]): any {
   const s = clean(site);
   return {

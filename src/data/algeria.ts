@@ -631,7 +631,7 @@ export const entities: Entity[] = [
 "type": "province",
 "slug": "msila",
 "name": "M'Sila",
-"description": "The Hodna plain between the Atlas ranges, holding the UNESCO site of Al Qal'a of Beni Hammad — the ruined 11th-century Hammadid capital — and the oasis town of Bou Saada.",
+"description": "The Hodna plain between the Atlas ranges, holding the UNESCO site of Al Qal'a of Beni Hammad, the ruined 11th-century Hammadid capital. Bou Saâda, long its best-known oasis town, became a state of its own in 2026.",
 "region": "region:steppe",
 "parent": "region:steppe",
 "wilayaNumber": 28,
@@ -1154,6 +1154,186 @@ export const entities: Entity[] = [
 "coordinates": {
 "lat": 19.5667,
 "lng": 5.7667
+}
+},
+{
+"id": "province:aflou",
+"type": "province",
+"slug": "aflou",
+"name": "Aflou",
+"description": "A high-plateau town in the Djebel Amour range of the Saharan Atlas, known for sheep-rearing, cold winters and the woven Djebel Amour carpets. A state since 2026, carved out of Laghouat.",
+"region": "region:steppe",
+"parent": "region:steppe",
+"wilayaNumber": 59,
+"capital": "Aflou",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 34.113,
+"lng": 2.102
+}
+},
+{
+"id": "province:barika",
+"type": "province",
+"slug": "barika",
+"name": "Barika",
+"description": "A market town on the western edge of the Hodna plain, close to the ruins of Roman and early Islamic Tobna. A state since 2026, carved out of Batna.",
+"region": "region:east",
+"parent": "region:east",
+"wilayaNumber": 60,
+"capital": "Barika",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 35.389,
+"lng": 5.366
+}
+},
+{
+"id": "province:el-kantara",
+"type": "province",
+"slug": "el-kantara",
+"name": "El Kantara",
+"description": "The palm-filled gorge known as the gate of the desert, where the Aurès mountains open onto the Sahara, with its Roman bridge and red, white and black villages. A state since 2026, carved out of Biskra.",
+"region": "region:sahara-north",
+"parent": "region:sahara-north",
+"wilayaNumber": 61,
+"capital": "El Kantara",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 35.224,
+"lng": 5.708
+}
+},
+{
+"id": "province:bir-el-ater",
+"type": "province",
+"slug": "bir-el-ater",
+"name": "Bir El Ater",
+"description": "A mining town near the Tunisian border, known for the Djebel Onk phosphate deposits and for the prehistoric Aterian culture named after it. A state since 2026, carved out of Tébessa.",
+"region": "region:east",
+"parent": "region:east",
+"wilayaNumber": 62,
+"capital": "Bir El Ater",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 34.744,
+"lng": 8.06
+}
+},
+{
+"id": "province:el-aricha",
+"type": "province",
+"slug": "el-aricha",
+"name": "El Aricha",
+"description": "A steppe town on the high plains south of Tlemcen, on the alfa-grass plateau towards the Moroccan border. A state since 2026, carved out of Tlemcen.",
+"region": "region:west",
+"parent": "region:west",
+"wilayaNumber": 63,
+"capital": "El Aricha",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 34.223,
+"lng": -1.257
+}
+},
+{
+"id": "province:ksar-chellala",
+"type": "province",
+"slug": "ksar-chellala",
+"name": "Ksar Chellala",
+"description": "A steppe town on the edge of the Sersou plateau, known for its livestock markets and traditional carpets. A state since 2026, carved out of Tiaret.",
+"region": "region:steppe",
+"parent": "region:steppe",
+"wilayaNumber": 64,
+"capital": "Ksar Chellala",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 35.212,
+"lng": 2.319
+}
+},
+{
+"id": "province:ain-oussera",
+"type": "province",
+"slug": "ain-oussera",
+"name": "Aïn Oussera",
+"description": "A high-plains town on the main road from Algiers to the Sahara, in open alfa-grass steppe. A state since 2026, carved out of Djelfa.",
+"region": "region:steppe",
+"parent": "region:steppe",
+"wilayaNumber": 65,
+"capital": "Aïn Oussera",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 35.451,
+"lng": 2.906
+}
+},
+{
+"id": "province:messaad",
+"type": "province",
+"slug": "messaad",
+"name": "Messaad",
+"description": "A town on the southern slope of the Ouled Naïl mountains, known for its wool burnous and for the nearby Roman fort of Castellum Dimmidi. A state since 2026, carved out of Djelfa.",
+"region": "region:steppe",
+"parent": "region:steppe",
+"wilayaNumber": 66,
+"capital": "Messaad",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 34.154,
+"lng": 3.503
+}
+},
+{
+"id": "province:ksar-el-boukhari",
+"type": "province",
+"slug": "ksar-el-boukhari",
+"name": "Ksar El Boukhari",
+"description": "A town on the Chelif where the Tell Atlas meets the high plains, with an old hilltop ksar above the modern town. A state since 2026, carved out of Médéa.",
+"region": "region:tell-center",
+"parent": "region:tell-center",
+"wilayaNumber": 67,
+"capital": "Ksar El Boukhari",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 35.889,
+"lng": 2.749
+}
+},
+{
+"id": "province:bousaada",
+"type": "province",
+"slug": "bousaada",
+"name": "Bou Saâda",
+"description": "The city of happiness: a palm oasis at the edge of the Sahara, with an old ksar, the Moulin Ferrero gorge and the museum of the painter Étienne Dinet. A state since 2026, carved out of M'Sila.",
+"region": "region:steppe",
+"parent": "region:steppe",
+"wilayaNumber": 68,
+"capital": "Bou Saâda",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 35.213,
+"lng": 4.174
+},
+"contentSlug": {
+"collection": "province",
+"slug": "bousaada"
+}
+},
+{
+"id": "province:el-abiodh-sidi-cheikh",
+"type": "province",
+"slug": "el-abiodh-sidi-cheikh",
+"name": "El Abiodh Sidi Cheikh",
+"description": "A pre-Saharan town in the south of the high plains, home of the zaouia of Sidi Cheikh and its yearly pilgrimage gathering. A state since 2026, carved out of El Bayadh.",
+"region": "region:steppe",
+"parent": "region:steppe",
+"wilayaNumber": 69,
+"capital": "El Abiodh Sidi Cheikh",
+"schemaType": "AdministrativeArea",
+"coordinates": {
+"lat": 32.893,
+"lng": 0.548
 }
 },
 {

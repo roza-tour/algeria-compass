@@ -72,6 +72,8 @@ ErrorDocument 404 /404.html
 
   # 2) Legacy asset path: old /images/* → current /assets/img/* (before the slash rule)
   RewriteRule ^images/(.+)$ /assets/img/$1 [R=301,L]
+  # /ru/ has one page and no index: the bare folder answered 403.
+  RewriteRule ^ru/?$ /ru/tur-v-alzhir-s-russkoyazychnym-gidom/ [R=301,L]
 
   # 2b) Removed /clusters/ scaffolding (orphaned duplicate hubs) → 301 to the real page.
   #     Placed BEFORE the trailing-slash rule so both /x and /x/ resolve in ONE hop.
@@ -136,10 +138,10 @@ ErrorDocument 404 /404.html
 
 # Compression (Brotli where available, gzip fallback)
 <IfModule mod_brotli.c>
-  AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml application/xml
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml application/xml text/plain
 </IfModule>
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml application/xml
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml application/xml text/plain
 </IfModule>
 
 # Caching: immutable for fingerprinted assets + images, short for HTML
@@ -183,7 +185,10 @@ ErrorDocument 404 /404.html
   </FilesMatch>
   # Tour text versions are the only lowercase, hyphenated .txt files
   # (robots.txt, llms.txt and the IndexNow key file have no hyphen).
-  <FilesMatch "^[a-z0-9]+(?:-[a-z0-9]+)+\.txt$">
+  # llms-fr.txt, llms-it.txt and the other language indexes are hyphenated
+  # too and were caught by this pattern: they are meant to be read and quoted,
+  # so they are excluded here.
+  <FilesMatch "^(?!llms-)[a-z0-9]+(?:-[a-z0-9]+)+\.txt$">
     Header set X-Robots-Tag "noindex"
   </FilesMatch>
 </IfModule>

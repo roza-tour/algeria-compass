@@ -89,7 +89,9 @@ const others = (selfIdx === -1 ? translated.slice(0, 3) : [1, 2, 3]
   .map(t => ({ href: `/de/reisen/${t.id}/`, title: TOURS_DE[t.id].title, duration: TOURS_DE[t.id].duration }));
 
 const productSchema = {
-  '@type': 'TouristTrip',
+  '@type': ['TouristTrip', 'Product'],
+  sku: tour.id,
+  brand: { '@type': 'Brand', name: 'Algeria Compass' },
   '@id': `${url}#trip`,
   name: fr.title,
   description: fr.overview || fr.hook,

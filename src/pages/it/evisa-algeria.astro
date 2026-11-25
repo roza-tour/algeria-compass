@@ -27,7 +27,7 @@ const description = "Ingresso in Algeria, i fatti: non esiste un e-Visa turistic
 
 const faqs = [
   { q: "Che cos'è l'e-Visa sahariano?", a: "È il documento di autorizzazione al visto che prepariamo per i viaggiatori su un programma sahariano organizzato. In quanto tour operator algerino autorizzato, emettiamo un'autorizzazione con codice QR verificabile sul portale del Ministero dell'Interno algerino. Il visto in sé è concesso dalle autorità algerine — la vignetta/il timbro viene rilasciato all'arrivo; noi curiamo in anticipo tutta la pratica." },
-  { q: "Quanto costa l'e-Visa sahariano?", a: "Il documento di autorizzazione al visto costa 45 USD. La preparazione di tutti i documenti richiesti è completamente gratuita da parte nostra. All'arrivo si paga alle autorità una tassa separata per la vignetta/il timbro del visto — l'importo dipende dalla durata del soggiorno, da 5.000 DA (35 €) per 1–2 giorni a 20.000 DA (140 €) per 8–10 giorni; la tabella completa è più in basso." },
+  { q: "Quanto costa l'e-Visa sahariano?", a: "Il documento di autorizzazione al visto costa 50 USD. La preparazione di tutti i documenti richiesti è completamente gratuita da parte nostra. All'arrivo si paga alle autorità una tassa separata per la vignetta/il timbro del visto — l'importo dipende dalla durata del soggiorno, da 5.000 DA (35 €) per 1–2 giorni a 20.000 DA (140 €) per 8–10 giorni; la tabella completa è più in basso." },
   { q: "Posso ottenere il visto all'arrivo per Djanet e il Tassili n'Ajjer?", a: "Sì — Djanet è la porta d'accesso al Parco Nazionale del Tassili n'Ajjer e al Tadrart Rouge, ed è una delle wilaya del sud previste da questa via. La condizione è che il vostro programma organizzato con un operatore algerino autorizzato includa un soggiorno nel Sahara: prepariamo l'autorizzazione in anticipo e il visto viene apposto all'arrivo all'aeroporto di Algeri. Comunicateci la vostra nazionalità e confermeremo l'idoneità prima della prenotazione." },
   { q: "Dove viene rilasciato il visto — devo atterrare al sud?", a: "No. Arrivate ad Algeri come di consueto e il visto viene rilasciato all'arrivo all'aeroporto di Algeri. Ciò che vi rende idonei è il soggiorno nel Sahara incluso nel programma, non l'aeroporto d'arrivo. Una volta in Algeria prenotiamo noi i voli interni verso il deserto — Djanet–Tiska (DJG) per il Tassili n'Ajjer e il Tadrart Rouge, Tamanrasset (TMR) per l'Hoggar, Ghardaïa Noumérat (GHA) per la valle del M'Zab, Timimoun (TMX) per il Gourara." },
   { q: "Posso visitare anche il nord, o solo il deserto?", a: "Entrambi. Un unico viaggio può combinare Algeri, la costa e le città romane con il Sahara: l'importante è che un soggiorno nel Sahara faccia parte del programma. Costruiamo l'itinerario in modo che sia idoneo." },
@@ -111,8 +111,8 @@ const breadcrumb = {
       </li>
       <li>
         <span class="sev-n">3</span>
-        <div><strong>Emettiamo la vostra autorizzazione — 45 USD</strong>
-        <p>Ricevete un <strong>documento di autorizzazione al visto con codice QR</strong> <strong>verificabile sul portale del Ministero dell'Interno algerino</strong>. Il documento costa <strong>45 USD</strong>.</p></div>
+        <div><strong>Emettiamo la vostra autorizzazione — 50 USD</strong>
+        <p>Ricevete un <strong>documento di autorizzazione al visto con codice QR</strong> <strong>verificabile sul portale del Ministero dell'Interno algerino</strong>. Il documento costa <strong>50 USD</strong>.</p></div>
       </li>
       <li>
         <span class="sev-n">4</span>
@@ -124,14 +124,14 @@ const breadcrumb = {
     <StampFeeTable lang="it" />
 
     <div class="sev-facts">
-      <div class="sev-fact"><span class="sev-fig">45 USD</span><span class="sev-lab">Documento di autorizzazione</span></div>
+      <div class="sev-fact"><span class="sev-fig">50 USD</span><span class="sev-lab">Documento di autorizzazione</span></div>
       <div class="sev-fact"><span class="sev-fig">Gratis</span><span class="sev-lab">Prepariamo noi ogni documento</span></div>
       <div class="sev-fact"><span class="sev-fig">QR verificato</span><span class="sev-lab">Sul portale del Ministero dell'Interno</span></div>
       <div class="sev-fact"><span class="sev-fig">Nord + Sud</span><span class="sev-lab">Qualsiasi programma con un soggiorno nel Sahara</span></div>
     </div>
 
     <div class="sev-note">
-      <p><strong>Una nota onesta:</strong> il timbro del visto all'aeroporto di Algeri è un onere governativo, separato dai 45 USD del nostro documento, e dipende dalla durata del soggiorno, non dal passaporto. Diteci nazionalità e date e vi confermeremo l'idoneità e l'importo esatto prima che vi impegniate.</p>
+      <p><strong>Una nota onesta:</strong> il timbro del visto all'aeroporto di Algeri è un onere governativo, separato dai 50 USD del nostro documento, e dipende dalla durata del soggiorno, non dal passaporto. Diteci nazionalità e date e vi confermeremo l'idoneità e l'importo esatto prima che vi impegniate.</p>
     </div>
 
     <div class="sev-cta">
@@ -142,7 +142,7 @@ const breadcrumb = {
     <div class="sev-faq">
       <h3>e-Visa sahariano — risposte rapide</h3>
       <div class="faq">
-        {faqs.slice(0,7).map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+        {faqs.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </div>
     </div>
   </div></section>

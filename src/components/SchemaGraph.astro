@@ -56,10 +56,14 @@ const org: any = {
   "publishingPrinciples": site + "/editorial/editorial-policy/",
   "actionableFeedbackPolicy": site + "/editorial/corrections-policy/",
   "ethicsPolicy": site + "/editorial/transparency-policy/",
-  "subOrganization": [{ "@id": site + "/#editorial-team" }, { "@id": site + "/#editorial-review" }],
   "contactPoint": { "@type": "ContactPoint", "telephone": CONTACT.phoneE164, "email": CONTACT.email, "contactType": "customer service", "availableLanguage": LANGUAGES.names, "areaServed": "Worldwide" }
 };
 if (SAMEAS.length) org.sameAs = SAMEAS;
+// The editorial team and the review function are named as parts of the
+// organisation only on pages that define them. They used to be referenced on
+// every page, so about 500 pages pointed at a node that was not in their graph.
+const subs = [site + "/#editorial-team", site + "/#editorial-review"].filter(id => nodes.some((n: any) => n && n["@id"] === id));
+if (subs.length) org.subOrganization = subs.map(id => ({ "@id": id }));
 const country = {
   "@type": "Country",
   "@id": site + "/#algeria",
@@ -75,7 +79,7 @@ const website = {
   "alternateName": "Luxury private guided tours across Algeria",
   "description": "Luxury private guided tours across Algeria.",
   "publisher": { "@id": site + "/#organization" },
-  "inLanguage": "en",
+  "inLanguage": ["en", "fr", "it", "es", "de"],
   "potentialAction": {
     "@type": "SearchAction",
     "target": { "@type": "EntryPoint", "urlTemplate": site + "/search/?q={search_term_string}" },

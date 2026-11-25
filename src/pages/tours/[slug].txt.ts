@@ -13,7 +13,7 @@ export const GET: APIRoute = ({ props }) => {
   const L: string[] = [];
   L.push(`# ${t.title}`, '');
   L.push(`> ${t.summary}`, '');
-  L.push(`- Price: from €${c.price.amount.toLocaleString('en-GB')} per ${c.price.per} (private trip or small group)`);
+  L.push(`- Price: from €${c.price.amount.toLocaleString('en-GB')} per ${c.price.per} (private trip for your own party)`);
   L.push(`- Duration: ${t.duration}`);
   L.push(`- Starts: ${t.start}`);
   if (c.best_season) L.push(`- Best season: ${c.best_season}`);

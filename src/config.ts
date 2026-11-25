@@ -74,7 +74,7 @@ export const BOOKING = {
   inviteMinDays: 3,
   // Visa fees (owner-confirmed 2026-10-03, in US dollars as quoted):
   inviteFee: 25,          // invitation letter for the consulate route
-  saharanVisaFee: 45,     // Saharan visa-on-arrival authorisation
+  saharanVisaFee: 50,     // Saharan visa-on-arrival authorisation (45 until the owner raised it, 2026-11-22)
   feeCurrency: 'USD',     // the arrival stamp is a separate fee paid at Algiers airport
   // Deposit methods. The secure payment link is sent once dates are confirmed,
   // so no gateway URL needs to live in the site.

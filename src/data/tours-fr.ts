@@ -3197,7 +3197,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "q": "Faut-il un visa ?",
-        "a": "Oui, et comme ce programme comprend le Sahara, le visa à l'arrivée s'applique : nous déposons votre dossier à l'avance et le visa est délivré à l'arrivée à l'aéroport d'Alger (autorisation 45 USD), pour toutes les nationalités. Nous préparons les documents avec votre réservation ; vérifiez les conditions en vigueur auprès de votre consulat d'Algérie."
+        "a": "Oui, et comme ce programme comprend le Sahara, le visa à l'arrivée s'applique : nous déposons votre dossier à l'avance et le visa est délivré à l'arrivée à l'aéroport d'Alger (autorisation 50 USD), pour toutes les nationalités. Nous préparons les documents avec votre réservation ; vérifiez les conditions en vigueur auprès de votre consulat d'Algérie."
       },
       {
         "q": "Comment est constitué le groupe ?",
@@ -4402,7 +4402,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "q": "Peut-on obtenir le visa à l'arrivée avec ce circuit ?",
-        "a": "Oui. Le programme étant au Sahara, nous préparons l'autorisation (45 dollars) et le visa est délivré à l'arrivée à l'aéroport d'Alger."
+        "a": "Oui. Le programme étant au Sahara, nous préparons l'autorisation (50 dollars) et le visa est délivré à l'arrivée à l'aéroport d'Alger."
       },
       {
         "q": "Fait-il froid à l'Assekrem ?",
@@ -4546,7 +4546,7 @@ export const TOURS_FR: Record<string, TourFr> = {
       },
       {
         "q": "Peut-on obtenir le visa à l'arrivée avec ce circuit ?",
-        "a": "Oui. Taghit est au Sahara : nous préparons l'autorisation (45 dollars) et le visa est délivré à l'arrivée à l'aéroport d'Alger."
+        "a": "Oui. Taghit est au Sahara : nous préparons l'autorisation (50 dollars) et le visa est délivré à l'arrivée à l'aéroport d'Alger."
       },
       {
         "q": "Faut-il monter sur la grande dune ?",

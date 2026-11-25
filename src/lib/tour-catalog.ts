@@ -45,7 +45,7 @@ export function catalogEntry(t: any) {
     duration_days: days,
     nights,
     price: { amount: Number(t.price_eur), currency: 'EUR', per: t.per || 'person', from: !!t.price_from,
-      note: 'Fixed published price for a private trip or small group; changes only for a custom itinerary or extra days, quoted before you commit.' },
+      note: 'Fixed published price for a private trip for your own party, from a couple to a small group of your own; changes only for a custom itinerary or extra days, quoted before you commit.' },
     starts_in: t.start,
     regions: t.wilayas,
     theme: t.theme,

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LocalHomeSections from '../../components/pages/LocalHomeSections.astro';
 import { alternatesFor } from '../../i18n';
 const site = Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompass.com';
 const alternates = alternatesFor(site, { en: '/', fr: '/fr/', it: '/it/', es: '/es/', de: '/de/' });
@@ -77,6 +78,8 @@ const schema = [{
       </p>
     </div>
   </section>
+
+  <LocalHomeSections lang="it" />
 
   <section class="section" style="background:var(--wash)">
     <div class="wrap" style="max-width:820px">

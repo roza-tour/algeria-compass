@@ -16,9 +16,12 @@ const site = (Astro.site?.toString().replace(/\/$/, '') || 'https://algeriacompa
 // FAQ data and as detailed question entries. Emit each question once in the
 // FAQPage mainEntity (first occurrence wins) so the schema carries no duplicate
 // Question nodes. Visible page rendering below is unchanged.
+// Only the categorized questions go in: their answers are printed on this
+// page. The detailed guides are listed here as links, each with its own page
+// and its own markup, so adding their answers here marked up text this page
+// does not show.
 const allQRaw = [
   ...FAQ.flatMap(c => c.items.map(i => ({ q: i.q, a: i.a }))),
-  ...detailed.map(d => ({ q: d.data.question, a: d.data.shortAnswer })),
 ];
 const seenQ = new Set();
 const allQ = allQRaw.filter(x => {
