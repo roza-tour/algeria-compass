@@ -310,8 +310,8 @@ export const QUESTIONS_DE = {
       'Einfach: Algier, Oran, Constantine, die Küste, die Römerstätten, die Kabylei und der M’Zab. Mit Guide und Genehmigung: die tiefe Sahara (Tassili, Tadrart, Hoggar). Eingeschränkt: Teile der Grenze im tiefen Süden.',
       'Führen Sie für Routinekontrollen einen Ausweis mit, kleiden Sie sich an religiösen Orten dezent, fragen Sie, bevor Sie Menschen fotografieren, und prüfen Sie die Hinweise Ihrer Regierung für den tiefen Süden.',
     ],
-    title: 'Ist Algerien sicher? (2026) | Algeria Compass',
-    desc: 'Eine ehrliche Antwort zur Sicherheit in Algerien 2026: wo man leicht reist, wo ein Guide nötig ist und die Regeln des gesunden Menschenverstands.',
+    title: 'Ist Algerien sicher? (2027) | Algeria Compass',
+    desc: 'Eine ehrliche Antwort zur Sicherheit in Algerien 2027: wo man leicht reist, wo ein Guide nötig ist und die Regeln des gesunden Menschenverstands.',
   },
   'is-algeria-worth-visiting': {
     q: 'Lohnt sich eine Reise nach Algerien?',

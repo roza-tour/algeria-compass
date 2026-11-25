@@ -310,8 +310,8 @@ export const QUESTIONS_IT = {
       'Facile: Algeri, Orano, Costantina, la costa, i siti romani, la Cabilia e lo M’Zab. Con guida e permesso: il profondo Sahara (Tassili, Tadrart, Hoggar). Limitato: parte della frontiera del profondo Sud.',
       'Portate un documento per i controlli di routine, vestitevi in modo sobrio nei luoghi religiosi, chiedete prima di fotografare le persone e consultate le indicazioni del vostro governo per il profondo Sud.',
     ],
-    title: 'L’Algeria è sicura? (2026) | Algeria Compass',
-    desc: 'Una risposta onesta sulla sicurezza in Algeria nel 2026: dove si viaggia facilmente, dove serve una guida e le regole di buon senso.',
+    title: 'L’Algeria è sicura? (2027) | Algeria Compass',
+    desc: 'Una risposta onesta sulla sicurezza in Algeria nel 2027: dove si viaggia facilmente, dove serve una guida e le regole di buon senso.',
   },
   'is-algeria-worth-visiting': {
     q: 'Vale la pena visitare l’Algeria?',

@@ -1,5 +1,5 @@
 ---
-title: "Algeria vs Tunisia: Which to Visit? (2026)"
+title: "Algeria vs Tunisia: Which to Visit? (2027)"
 category: "Trip Planning"
 image: "/assets/img/sahara-plateau-sunset.jpg"
 imageAlt: "A Saharan plateau at sunset in southern Algeria, the scale that sets it apart from Tunisia"
@@ -41,7 +41,7 @@ faqs:
   - { q: "Which is easier for a first trip to North Africa?", a: "Tunisia. It is visa-free for many nationalities, has short flights from Europe, more hotels and an established tourist circuit. Algeria needs more planning — a visa in advance and a licensed operator for the deep south." }
   - { q: "Which has a better Sahara experience?", a: "Algeria, for scale and remoteness — the Tassili n'Ajjer and Tadrart are vast, uncrowded and rich in prehistoric rock art. Tunisia's desert around Douz and Tozeur is more accessible and easier to visit briefly." }
 seo:
-  title: "Algeria vs Tunisia: Which Should You Visit? (2026)"
+  title: "Algeria vs Tunisia: Which Should You Visit? (2027)"
   description: "Algeria or Tunisia? An honest comparison — entry, cost, beaches, Roman ruins, Sahara and crowds — to help you choose the right North African trip."
   primaryKeyword: "Algeria vs Tunisia"
   keywords: ["Algeria vs Tunisia","Algeria or Tunisia","Tunisia compared to Algeria","North Africa travel comparison","which to visit Algeria Tunisia"]

@@ -1,5 +1,5 @@
 ---
-title: "Algeria Tours from Australia: Flights, Visa & Planning (2026)"
+title: "Algeria Tours from Australia: Flights, Visa & Planning (2027)"
 category: "Trip Planning"
 image: "/assets/img/tours/djanet-13.jpg"
 imageAlt: "A natural sandstone arch rising above smooth orange sand in the desert around Djanet"

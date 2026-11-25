@@ -95,7 +95,7 @@ export const GUIDES_DE: GuideDe[] = [
       "h": "Wir planen Ihre Reise",
       "p": "Wir sind ein lizenzierter algerischer Reiseveranstalter: private Routen, lokale Guides und Unterstützung beim Visum."
     },
-    "seoTitle": "Algerien Reiseführer 2026 | Algeria Compass",
+    "seoTitle": "Algerien Reiseführer 2027 | Algeria Compass",
     "seoDescription": "Kompletter Algerien-Reiseführer: beste Reisezeit, Visum, Sicherheit, Verkehr, Budget, Küche und Sehenswürdigkeiten. Von einem lizenzierten Veranstalter."
   },
   {
@@ -379,7 +379,7 @@ export const GUIDES_DE: GuideDe[] = [
       "h": "Ihre Wüstenexpedition",
       "p": "Guides, 4×4 und Genehmigungen über uns — für Sie bleibt die Reise."
     },
-    "seoTitle": "Algerische Sahara: Ratgeber 2026 (Djanet, Tassili)",
+    "seoTitle": "Algerische Sahara: Ratgeber 2027 (Djanet, Tassili)",
     "seoDescription": "Ratgeber zur algerischen Sahara: Djanet und das Tassili n'Ajjer, das Hoggar, Timimoun und der Tadrart. Reisezeit, Genehmigungen, 4×4 und Organisation."
   },
   {
@@ -579,7 +579,7 @@ export const GUIDES_DE: GuideDe[] = [
       "h": "Ein klares Angebot, alles inklusive",
       "p": "Nennen Sie uns Ihre Termine — wir kalkulieren eine private Reise ohne Überraschungen vor Ort."
     },
-    "seoTitle": "Algerien: was kostet die Reise? Budget 2026",
+    "seoTitle": "Algerien: was kostet die Reise? Budget 2027",
     "seoDescription": "Ist Algerien teuer? Kosten für Unterkunft, Essen, Verkehr, Guides und Sahara — und der Parallelkurs, der vor Ort alles verändert."
   },
   {
@@ -651,7 +651,7 @@ export const GUIDES_DE: GuideDe[] = [
       "h": "Eine private Route nach Maß",
       "p": "Nennen Sie uns Ihre Termine — wir bauen die Reise um Sie herum, Wüstenetappen und Genehmigungen inbegriffen."
     },
-    "seoTitle": "Algerien Reiseroute: 7, 10 und 14 Tage (2026)",
+    "seoTitle": "Algerien Reiseroute: 7, 10 und 14 Tage (2027)",
     "seoDescription": "Fertige Reiserouten für Algerien — 7, 10 oder 14 Tage: Algier, Küste, römische Städte und Sahara, mit Etappen, Saison und Logistik."
   },
   {
@@ -941,7 +941,7 @@ export const GUIDES_DE: GuideDe[] = [
       "h": "Wir übernehmen die gesamte Logistik",
       "p": "Inlandsflüge, Transfers und die 4×4 der Wüste — organisiert, bevor Sie ankommen."
     },
-    "seoTitle": "Fortbewegung in Algerien: Verkehrsratgeber 2026",
+    "seoTitle": "Fortbewegung in Algerien: Verkehrsratgeber 2027",
     "seoDescription": "Wie man sich in Algerien fortbewegt: Inlandsflüge in den Süden, Bahn und Bus im Norden, Sammeltaxis, Trams und 4×4 für die Sahara."
   },
   {
@@ -1071,7 +1071,7 @@ export const GUIDES_DE: GuideDe[] = [
       "h": "Djanet, Timimoun — oder beides?",
       "p": "Sagen Sie uns, wie Sie reisen möchten, und wir empfehlen Ihnen ehrlich die passende Sahara — Flüge und Reisedaten planen wir für Sie."
     },
-    "seoTitle": "Djanet oder Timimoun? Welche Sahara in Algerien (2026)",
+    "seoTitle": "Djanet oder Timimoun? Welche Sahara in Algerien (2027)",
     "seoDescription": "Djanet oder Timimoun? Ehrlicher Vergleich der zwei großen Sahara-Ziele Algeriens: Landschaft, Felskunst, Komfort, Reisezeit und echte Reisepreise."
   },
   {
@@ -1187,7 +1187,7 @@ export const GUIDES_DE: GuideDe[] = [
       "h": "Welche Djanet-Reise passt zu Ihnen?",
       "p": "Erzählen Sie uns, wie Sie reisen möchten: Wir sagen Ihnen ehrlich, welche der drei Reisen passt — oder verbinden zwei davon zu einer Reise."
     },
-    "seoTitle": "Tadrart Rouge, Ihrir oder Sefar? Welche Djanet-Reise (2026)",
+    "seoTitle": "Tadrart Rouge, Ihrir oder Sefar? Welche Djanet-Reise (2027)",
     "seoDescription": "Drei Wege in die Wüste um Djanet im Vergleich: Dünen und Bögen des Tadrart Rouge, die Oase Ihrir oder das Sefar-Felskunst-Trekking. Aufwand, Nächte, Preise."
   }
 ];

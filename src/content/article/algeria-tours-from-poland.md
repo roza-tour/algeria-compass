@@ -1,5 +1,5 @@
 ---
-title: "Algeria Tours from Poland: Flights, Visa & Planning (2026)"
+title: "Algeria Tours from Poland: Flights, Visa & Planning (2027)"
 category: "Trip Planning"
 image: "/assets/img/tassili-rock-pinnacles.jpg"
 imageAlt: "Eroded sandstone pinnacles on the Tassili n'Ajjer plateau in southern Algeria"

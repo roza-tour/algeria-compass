@@ -1,5 +1,5 @@
 ---
-title: "Algeria Tours from the Netherlands: Flights, Visa & Planning (2026)"
+title: "Algeria Tours from the Netherlands: Flights, Visa & Planning (2027)"
 category: "Trip Planning"
 image: "/assets/img/ghardaia-mzab-panorama.jpg"
 imageAlt: "Panorama of a tiered M'Zab town and its arcaded square, Ghardaïa"

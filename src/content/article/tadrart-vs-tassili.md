@@ -1,5 +1,5 @@
 ---
-title: "Tadrart Rouge, Ihrir or Sefar? Choosing a Djanet Trip (2026)"
+title: "Tadrart Rouge, Ihrir or Sefar? Choosing a Djanet Trip (2027)"
 category: "Sahara Travel"
 image: "/assets/img/tours/djanet-13.jpg"
 imageAlt: "A natural sandstone arch rising above smooth orange sand in the desert around Djanet"
@@ -40,7 +40,7 @@ faqs:
   - { q: "Are flights included on the Djanet trips?", a: "On the three 7-day journeys — Tadrart Rouge, Ihrir and Sefar — yes: the return Air Algérie flight from Algiers to Djanet and every airport transfer are included. The 5-day Djanet Sahara Safari starts and ends in Djanet, so the flight is not included." }
   - { q: "Can you swim at Ihrir?", a: "Sometimes. The pools of Oued Essendilène can be swum in depending on the season — bring something to swim in, and your guide will tell you on the day." }
 seo:
-  title: "Tadrart Rouge, Ihrir or Sefar? Which Djanet Trip (2026)"
+  title: "Tadrart Rouge, Ihrir or Sefar? Which Djanet Trip (2027)"
   description: "Three ways into the desert around Djanet compared — Tadrart Rouge dunes and arches, the Ihrir oasis, or the Sefar rock-art trek. Effort, nights and prices."
   primaryKeyword: "Tadrart Rouge or Tassili"
   keywords: ["Tadrart vs Tassili","Tadrart Rouge tour","Sefar trek","Ihrir oasis","Djanet trip which to choose","Tassili n'Ajjer tour"]

@@ -7,8 +7,8 @@ keyFacts:
   - { label: "Deep Sahara", value: "Guide + permit required" }
   - { label: "Far-south borders", value: "Restricted / off-limits" }
 seo:
-  title: "Is Algeria Safe to Visit? (2026) | Algeria Compass"
-  description: "An honest 2026 answer on safety in Algeria — where travel is easy, where you need a guide, and the common-sense rules."
+  title: "Is Algeria Safe to Visit? (2027) | Algeria Compass"
+  description: "An honest 2027 answer on safety in Algeria — where travel is easy, where you need a guide, and the common-sense rules."
 updated: 2026-06-01
 primaryCluster: "algeria-safety"
 cluster: "algeria-safety"

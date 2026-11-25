@@ -1,5 +1,5 @@
 ---
-title: "Algeria Visa Guide (2026): Types, Documents, Process"
+title: "Algeria Visa Guide (2027): Types, Documents, Process"
 category: "Practical Guide"
 image: "/assets/img/algiers-white-city-aerial.jpg"
 imageAlt: "Aerial view of the white tiered buildings of Algiers above the Mediterranean"
@@ -63,7 +63,7 @@ faqs:
   - { q: "Where should I apply?", a: "At the Algerian consulate or embassy responsible for your country of residence; jurisdictions are by where you live." }
   - { q: "Why are Algeria visa applications refused?", a: "Most refusals are administrative — incomplete documents, missing accommodation proof, insufficient funds or inconsistent travel plans. A complete, consistent file is the best safeguard." }
 seo:
-  title: "Algeria Visa Guide 2026: Types, Documents, Process"
+  title: "Algeria Visa Guide 2027: Types, Documents, Process"
   description: "Who needs an Algeria visa, which type, the documents, fees and processing times, the Sahara-tour exception, and how to avoid refusals."
   primaryKeyword: "Algeria visa"
   keywords: ["Algeria visa","Algeria visa requirements","Algeria tourist visa","do I need a visa for Algeria","Algeria visa documents"]

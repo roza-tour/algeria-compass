@@ -1,5 +1,5 @@
 ---
-title: "Djanet or Timimoun? Choosing Your Algerian Sahara (2026)"
+title: "Djanet or Timimoun? Choosing Your Algerian Sahara (2027)"
 category: "Sahara Travel"
 image: "/assets/img/tours/timimoun-7.jpg"
 imageAlt: "A palm oasis spreading below the crumbling red walls of a ksar in the Gourara around Timimoun"
@@ -42,7 +42,7 @@ faqs:
   - { q: "Do you sleep in tents in Djanet?", a: "On our Djanet trips, yes — most nights are in desert camps or wild bivouac, with tents, mattresses and blankets provided, and some travellers choose to sleep in the open. In Timimoun you stay in a guesthouse every night." }
   - { q: "Can I visit both Djanet and Timimoun on one trip?", a: "Yes, with ten days or more. They are far apart in the Sahara, so the link is by air rather than road; we plan the flights and dates around your trip." }
 seo:
-  title: "Djanet or Timimoun? Which Algerian Sahara to Visit (2026)"
+  title: "Djanet or Timimoun? Which Algerian Sahara to Visit (2027)"
   description: "Djanet or Timimoun? An honest comparison of Algeria's two great Saharan destinations — landscape, rock art, comfort, season and real trip prices."
   primaryKeyword: "Djanet or Timimoun"
   keywords: ["Djanet vs Timimoun","Djanet or Timimoun","Algeria Sahara which to visit","Timimoun tour","Djanet tour","best Sahara trip Algeria"]

@@ -38,7 +38,7 @@ faqs:
   - { q: "What is Yennayer?", a: "Yennayer is the Amazigh (Berber) New Year, marked on 12 January and recognised as a national public holiday in Algeria. It is celebrated with traditional meals and family gatherings, and is especially prominent in Kabylie, the Aurès and the M'Zab." }
   - { q: "Should I avoid visiting Algeria during religious holidays?", a: "Not necessarily. Ramadan and the Eids offer real cultural depth, and tours still run. The practical trade-offs are shifting opening hours, reduced daytime dining during Ramadan, and closures plus busy transport around the Eids. If your itinerary is tight, plan around the Eid days." }
 seo:
-  title: "Ramadan, Eid & Holidays in Algeria (2026)"
+  title: "Ramadan, Eid & Holidays in Algeria (2027)"
   description: "How Algeria's holidays affect travel: Ramadan, the two Eids, Mawlid, Ashura, Yennayer and national days — plus what Christmas and Easter look like there."
   primaryKeyword: "Ramadan in Algeria"
   keywords: ["Ramadan in Algeria","Algeria public holidays","Eid in Algeria","Yennayer","Algeria travel during Ramadan","Christmas in Algeria"]

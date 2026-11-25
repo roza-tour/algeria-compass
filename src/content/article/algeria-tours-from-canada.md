@@ -1,5 +1,5 @@
 ---
-title: "Algeria Tours from Canada: Flights, Visa & Planning (2026)"
+title: "Algeria Tours from Canada: Flights, Visa & Planning (2027)"
 category: "Trip Planning"
 image: "/assets/img/constantine-sidi-mcid-bridge.jpg"
 imageAlt: "The Sidi M'Cid suspension bridge spanning the Rhumel gorge at Constantine"

@@ -95,7 +95,7 @@ export const GUIDES_FR: GuideFr[] = [
       { q: 'Peut-on visiter Djanet et Timimoun lors du même voyage ?', a: "Oui, à partir de dix jours. Elles sont très éloignées l'une de l'autre dans le Sahara : la liaison se fait donc en avion plutôt que par la route. Nous organisons les vols et les dates autour de votre voyage." },
     ],
     cta: { h: 'Djanet, Timimoun… ou les deux ?', p: "Dites-nous vos dates et votre façon de voyager : nous vous dirons franchement quel Sahara vous correspond, et nous construirons le voyage autour de vous." },
-    seoTitle: 'Djanet ou Timimoun ? Quel Sahara algérien choisir (2026)',
+    seoTitle: 'Djanet ou Timimoun ? Quel Sahara algérien choisir (2027)',
     seoDescription: "Djanet ou Timimoun ? Comparatif honnête des deux grandes destinations du Sahara algérien : paysages, art rupestre, confort, saison et vrais prix.",
   },
   {
@@ -161,7 +161,7 @@ export const GUIDES_FR: GuideFr[] = [
       { q: 'Peut-on se baigner à Ihrir ?', a: "Parfois. Selon la saison, on peut se baigner dans les vasques de l'oued Essendilène : prévoyez un maillot, votre guide vous dira sur place si c'est possible." },
     ],
     cta: { h: 'Quel Djanet est fait pour vous ?', p: "Racontez-nous votre façon de voyager et votre niveau de marche : nous vous conseillerons franchement entre la Tadrart, Ihrir et Sefar." },
-    seoTitle: 'Tadrart Rouge, Ihrir ou Sefar ? Quel voyage à Djanet (2026)',
+    seoTitle: 'Tadrart Rouge, Ihrir ou Sefar ? Quel voyage à Djanet (2027)',
     seoDescription: "Trois façons de découvrir le désert autour de Djanet : dunes et arches de la Tadrart, oasis d'Ihrir ou trek de Sefar. Effort, nuits et prix comparés.",
   },
   {

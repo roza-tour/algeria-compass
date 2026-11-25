@@ -18,7 +18,7 @@ seo:
   # broad one. /food/ is the cuisine pillar — 1,286 words against this page's
   # 681 — and both titles previously opened with "Algerian Food ... Couscous",
   # so they were splitting the same search intent between them.
-  title: "What to Eat in Algeria: Dishes to Try (2026)"
+  title: "What to Eat in Algeria: Dishes to Try (2027)"
   description: "What to order in Algeria and where: couscous, chorba, rechta, bourek, mhadjeb and mint tea — the dishes worth seeking out on a trip, and when to eat them."
 published: 2026-05-01
 updated: 2026-05-01

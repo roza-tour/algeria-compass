@@ -1,5 +1,5 @@
 ---
-title: "Luxury Travel in Algeria: What It Actually Means (2026)"
+title: "Luxury Travel in Algeria: What It Actually Means (2027)"
 category: "Travel Guide"
 image: "/assets/img/tours/tlemcen-6.jpg"
 imageAlt: "The long tiled reflecting pool in the courtyard of the restored royal palace at Tlemcen, Algeria"
@@ -65,7 +65,7 @@ faqs:
   - { q: "How far ahead should a luxury trip to Algeria be booked?", a: "Allow two to three months. The visa alone can take from two weeks to over a month depending on your consulate, southern flights are thin and sell out, and Sahara permits take time. Trips do come together faster, but that is the comfortable window." }
   - { q: "How do I tell a serious Algerian operator from a reseller?", a: "Ask three questions: who holds the Algerian operating licence, who physically meets you at the airport, and who applies for your Sahara permits. If the answers point to a third company, you are buying a resold product with a margin on top and less control when something moves." }
 seo:
-  title: "Luxury Travel in Algeria: What It Actually Means (2026)"
+  title: "Luxury Travel in Algeria: What It Actually Means (2027)"
   description: "An honest guide to luxury and private travel in Algeria — five-star hotels, Sahara camps, real costs, empty UNESCO sites, and choosing an operator."
   primaryKeyword: "luxury travel Algeria"
   keywords: ["luxury travel Algeria","luxury Algeria tours","private tours Algeria","Algeria luxury holiday","five star Algeria","high end Algeria travel","private Algeria tour operator"]

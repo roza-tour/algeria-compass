@@ -1,5 +1,5 @@
 ---
-title: "The Complete Algeria Travel Guide (2026)"
+title: "The Complete Algeria Travel Guide (2027)"
 category: "Travel Guide"
 image: "/assets/img/sahara-dunes-tadrart.jpg"
 imageAlt: "Red sandstone formations and dunes of the Tadrart in Algeria's deep Sahara"
@@ -61,7 +61,7 @@ faqs:
   - { q: "Is alcohol available in Algeria?", a: "Algeria is a majority-Muslim country; alcohol is available in some hotels and licensed venues but is not widespread. Dress and behave modestly, especially outside cities." }
   - { q: "Do I need cash or cards?", a: "Carry cash (dinars). ATMs exist in cities but card acceptance is limited; bring some euros to change." }
 seo:
-  title: "The Complete Algeria Travel Guide (2026) | Algeria Compass"
+  title: "The Complete Algeria Travel Guide (2027) | Algeria Compass"
   description: "Africa's largest country, decoded: when to go, visas, safety, transport, budget, food, culture and sample itineraries — a sourced, in-depth guide."
   primaryKeyword: "Algeria travel guide"
   keywords: ["Algeria travel guide","visiting Algeria","Algeria trip planning","things to do in Algeria","Algeria itinerary"]

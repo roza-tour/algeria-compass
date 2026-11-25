@@ -310,8 +310,8 @@ export const QUESTIONS_ES = {
       'Fácil: Argel, Orán, Constantina, la costa, los yacimientos romanos, la Cabilia y el M’Zab. Con guía y permiso: el Sáhara profundo (Tassili, Tadrart, Hoggar). Restringido: parte de la frontera del sur profundo.',
       'Lleve documentación para los controles rutinarios, vista con discreción en lugares religiosos, pregunte antes de fotografiar a alguien y consulte las recomendaciones de su gobierno para el sur profundo.',
     ],
-    title: '¿Es Argelia segura? (2026) | Algeria Compass',
-    desc: 'Una respuesta honesta sobre la seguridad en Argelia en 2026: dónde se viaja con facilidad, dónde hace falta guía y las normas de sentido común.',
+    title: '¿Es Argelia segura? (2027) | Algeria Compass',
+    desc: 'Una respuesta honesta sobre la seguridad en Argelia en 2027: dónde se viaja con facilidad, dónde hace falta guía y las normas de sentido común.',
   },
   'is-algeria-worth-visiting': {
     q: '¿Merece la pena visitar Argelia?',

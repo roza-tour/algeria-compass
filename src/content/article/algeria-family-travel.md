@@ -1,5 +1,5 @@
 ---
-title: "Algeria with Kids: Family Travel Guide (2026)"
+title: "Algeria with Kids: Family Travel Guide (2027)"
 category: "Trip Planning"
 image: "/assets/img/bou-saada-palm-grove.jpg"
 imageAlt: "A palm grove at Bou Saada, an easy oasis stop for families travelling in Algeria"
@@ -39,7 +39,7 @@ faqs:
   - { q: "Is Algerian food suitable for children?", a: "Generally yes. The cuisine is fragrant rather than spicy — couscous, grilled meats, breads, soups and plenty of fresh fruit and pastries suit most children. Use bottled water, and cities have supermarkets for familiar staples." }
   - { q: "Do children need a visa for Algeria?", a: "Children need their own visa on the same basis as adults, with their own passport and application. Requirements vary by consulate and some ask for additional documentation for minors, so start the process early — see our visa guide." }
 seo:
-  title: "Algeria with Kids: Family Travel Guide (2026)"
+  title: "Algeria with Kids: Family Travel Guide (2027)"
   description: "Is Algeria good for families? What works with children — coast, Roman cities, oasis towns — what to skip, and the food, health and transport practicalities."
   primaryKeyword: "Algeria family travel"
   keywords: ["Algeria with kids","Algeria family travel","family holiday Algeria","travelling Algeria with children","Algeria for families"]

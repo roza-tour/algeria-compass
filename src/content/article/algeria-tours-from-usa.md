@@ -1,5 +1,5 @@
 ---
-title: "Algeria Tours from the USA: Flights, Visa & Planning (2026)"
+title: "Algeria Tours from the USA: Flights, Visa & Planning (2027)"
 category: "Trip Planning"
 image: "/assets/img/timgad-trajan-arch.jpg"
 imageAlt: "The Arch of Trajan at the Roman city of Timgad, in Batna state, Algeria"

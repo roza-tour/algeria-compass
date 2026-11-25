@@ -54,7 +54,7 @@ export const GUIDES_IT: GuideIt[] = [
       { q: 'Si può viaggiare in autonomia?', a: "Nel nord sì: città, costa e siti romani si visitano da soli. Il Sahara profondo no — richiede operatore autorizzato, guida e permessi, per ragioni di sicurezza e di ambiente." },
     ],
     cta: { h: 'Progettiamo il vostro viaggio', p: 'Siamo un tour operator algerino autorizzato: itinerari privati, guide locali e assistenza per il visto.' },
-    seoTitle: "Guida di viaggio all'Algeria 2026 | Algeria Compass",
+    seoTitle: "Guida di viaggio all'Algeria 2027 | Algeria Compass",
     seoDescription: "Guida completa di viaggio all'Algeria: quando andare, visto, sicurezza, trasporti, budget, cucina e cosa vedere. A cura di un operatore algerino autorizzato.",
   },
   {
@@ -202,7 +202,7 @@ export const GUIDES_IT: GuideIt[] = [
       { q: 'Che cosa si vede esattamente?', a: "Arte rupestre preistorica del Tassili, gli archi e le dune rosse del Tadrart, l'alba dell'Assekrem nell'Hoggar e le oasi del Gourara attorno a Timimoun." },
     ],
     cta: { h: 'La vostra spedizione nel deserto', p: 'Guide, 4×4 e permessi gestiti da noi — a voi resta solo il viaggio.' },
-    seoTitle: 'Sahara algerino: guida 2026 (Djanet, Tassili)',
+    seoTitle: 'Sahara algerino: guida 2027 (Djanet, Tassili)',
     seoDescription: "Guida al Sahara algerino: Djanet e il Tassili n'Ajjer, l'Hoggar, Timimoun e il Tadrart. Quando andare, permessi, 4×4 e come si organizza una spedizione.",
   },
   {
@@ -366,7 +366,7 @@ export const GUIDES_IT: GuideIt[] = [
       { q: 'Qual è la voce più costosa di un viaggio in Algeria?', a: "Dopo il volo internazionale, il Sahara guidato: guide accreditate, 4×4, permessi e voli interni. La parte settentrionale del viaggio, al confronto, è decisamente economica." },
     ],
     cta: { h: 'Un preventivo chiaro, tutto compreso', p: 'Ditecci le vostre date e mettiamo a preventivo un viaggio privato senza sorprese sul posto.' },
-    seoTitle: 'Quanto costa un viaggio in Algeria? Budget 2026',
+    seoTitle: 'Quanto costa un viaggio in Algeria? Budget 2027',
     seoDescription: "Quanto costa viaggiare in Algeria: budget giornaliero al nord, prezzi degli hotel, contanti e il doppio tasso di cambio che cambia tutto sul posto.",
   },
   {
@@ -409,7 +409,7 @@ export const GUIDES_IT: GuideIt[] = [
       { q: "Serve una guida per un itinerario in Algeria?", a: "Non nel nord, dove si viaggia in autonomia con un po' di pazienza. Il grande sud richiede guida accreditata, 4×4 e permessi, organizzati da un operatore." },
     ],
     cta: { h: 'Un itinerario privato su misura', p: 'Ditecci le vostre date e costruiamo il viaggio attorno a voi.' },
-    seoTitle: 'Itinerario in Algeria: 7, 10 e 14 giorni (2026)',
+    seoTitle: 'Itinerario in Algeria: 7, 10 e 14 giorni (2027)',
     seoDescription: "Itinerari pronti per l'Algeria a 7, 10 e 14 giorni: Algeri, la costa, le città romane e il Sahara, con tratte, stagioni e logistica.",
   },
   {
@@ -550,7 +550,7 @@ export const GUIDES_IT: GuideIt[] = [
       { q: 'Si può noleggiare un auto in Algeria?', a: "Sì, soprattutto in città e negli aeroporti, ed è una scelta sensata per il nord. Per il deserto la guida autonoma non è adatta: servono 4×4, guida accreditata e permessi, organizzati da un operatore." },
     ],
     cta: { h: 'La logistica la gestiamo noi', p: 'Voli interni, trasferimenti e 4×4 del deserto — organizzati per voi, dalla prima tratta all\'ultima.' },
-    seoTitle: 'Muoversi in Algeria: guida ai trasporti 2026',
+    seoTitle: 'Muoversi in Algeria: guida ai trasporti 2027',
     seoDescription: "Come muoversi in Algeria: voli interni verso il sud, treni e autobus al nord, taxi collettivi, tram e 4×4 con guida per il deserto.",
   },
   {
@@ -628,7 +628,7 @@ export const GUIDES_IT: GuideIt[] = [
       { q: 'Si possono visitare Djanet e Timimoun nello stesso viaggio?', a: "Sì, con dieci giorni o più. Sono lontane l'una dall'altra nel Sahara, quindi il collegamento si fa in aereo e non su strada; organizziamo voli e date attorno al vostro viaggio." },
     ],
     cta: { h: 'Djanet, Timimoun o entrambe?', p: "Diteci date e ritmo che preferite: vi consigliamo con franchezza il deserto giusto, o li uniamo in un unico viaggio." },
-    seoTitle: 'Djanet o Timimoun? Quale Sahara algerino scegliere (2026)',
+    seoTitle: 'Djanet o Timimoun? Quale Sahara algerino scegliere (2027)',
     seoDescription: "Djanet o Timimoun? Un confronto onesto fra le due grandi mete del Sahara algerino: paesaggio, arte rupestre, comfort, stagione e prezzi reali.",
   },
   {
@@ -695,7 +695,7 @@ export const GUIDES_IT: GuideIt[] = [
       { q: 'Si può nuotare a Ihrir?', a: "A volte. Nelle pozze dell'Oued Essendilène si può nuotare a seconda della stagione: portate un costume, e la vostra guida vi dirà sul posto." },
     ],
     cta: { h: 'Quale Djanet fa per voi?', p: 'Diteci come vi piace viaggiare: vi indichiamo il circuito giusto, con volo da Algeri e permessi del parco inclusi.' },
-    seoTitle: 'Tadrart Rouge, Ihrir o Sefar? Quale viaggio a Djanet (2026)',
+    seoTitle: 'Tadrart Rouge, Ihrir o Sefar? Quale viaggio a Djanet (2027)',
     seoDescription: "Tre modi di entrare nel deserto di Djanet: dune e archi del Tadrart Rouge, l'oasi di Ihrir o il trekking di Sefar. Fatica, notti e prezzi a confronto.",
   }
 ];

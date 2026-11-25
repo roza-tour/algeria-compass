@@ -1,5 +1,5 @@
 ---
-title: "SIM Cards & Internet in Algeria: Staying Connected (2026)"
+title: "SIM Cards & Internet in Algeria: Staying Connected (2027)"
 category: "Trip Planning"
 image: "/assets/img/setif-tram-centre.jpg"
 imageAlt: "A tram in central Sétif, Algeria, where mobile coverage is strong across the northern cities"
@@ -36,7 +36,7 @@ faqs:
   - { q: "Does eSIM work in Algeria?", a: "Support is limited and depends on your provider and handset. A physical local prepaid SIM remains the reliable default for visitors; check with your operator before relying on eSIM alone." }
   - { q: "How much does mobile data cost in Algeria?", a: "Prepaid data bundles are inexpensive by European or North American standards, and the three operators compete on tourist-friendly packages. Buying locally is far cheaper than international roaming." }
 seo:
-  title: "SIM Cards & Internet in Algeria (2026)"
+  title: "SIM Cards & Internet in Algeria (2027)"
   description: "How to get online in Algeria: local SIM cards, the three networks, data costs, eSIM and roaming, Wi-Fi reality and what works in the Sahara."
   primaryKeyword: "SIM card Algeria"
   keywords: ["SIM card Algeria","internet in Algeria","Algeria mobile data","Algeria wifi","eSIM Algeria","phone in Algeria"]

@@ -1,5 +1,5 @@
 ---
-title: "Algeria Tours from the UK: Flights, Visa & Planning (2026)"
+title: "Algeria Tours from the UK: Flights, Visa & Planning (2027)"
 category: "Trip Planning"
 image: "/assets/img/algiers-white-city-aerial.jpg"
 imageAlt: "Aerial view of the white city of Algiers above its bay"

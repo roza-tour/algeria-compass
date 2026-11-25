@@ -95,7 +95,7 @@ export const GUIDES_ES: GuideEs[] = [
       "h": "Diseñamos su viaje",
       "p": "Somos un operador turístico argelino autorizado: itinerarios privados, guías locales y ayuda con el visado."
     },
-    "seoTitle": "Guía de viaje a Argelia 2026 | Algeria Compass",
+    "seoTitle": "Guía de viaje a Argelia 2027 | Algeria Compass",
     "seoDescription": "Guía completa de viaje a Argelia: cuándo ir, visado, seguridad, transporte, presupuesto, cocina y qué ver. Por un operador argelino autorizado."
   },
   {
@@ -379,7 +379,7 @@ export const GUIDES_ES: GuideEs[] = [
       "h": "Su expedición al desierto",
       "p": "Guías, 4×4 y permisos gestionados por nosotros — a usted solo le queda el viaje."
     },
-    "seoTitle": "Sáhara argelino: guía 2026 (Djanet, Tassili)",
+    "seoTitle": "Sáhara argelino: guía 2027 (Djanet, Tassili)",
     "seoDescription": "Guía del Sáhara argelino: Djanet y el Tassili n'Ajjer, el Hoggar, Timimoun y el Tadrart. Cuándo ir, permisos, 4×4 y cómo se organiza una expedición."
   },
   {
@@ -583,7 +583,7 @@ export const GUIDES_ES: GuideEs[] = [
       "h": "Un presupuesto claro, todo incluido",
       "p": "Díganos sus fechas y cifraremos un viaje privado sin sorpresas sobre el terreno."
     },
-    "seoTitle": "Presupuesto de viaje a Argelia 2026",
+    "seoTitle": "Presupuesto de viaje a Argelia 2027",
     "seoDescription": "¿Es cara Argelia? Desglose de costes: alojamiento, comida, transporte, guías y Sáhara, más el doble tipo de cambio que lo cambia todo sobre el terreno."
   },
   {
@@ -944,7 +944,7 @@ export const GUIDES_ES: GuideEs[] = [
       "h": "Nos ocupamos de toda la logística",
       "p": "Vuelos internos, traslados y 4×4 del desierto — organizados por nosotros de principio a fin."
     },
-    "seoTitle": "Cómo moverse por Argelia: transporte 2026",
+    "seoTitle": "Cómo moverse por Argelia: transporte 2027",
     "seoDescription": "Cómo moverse por Argelia: vuelos internos al sur, tren y autobús en el norte, taxis compartidos, tranvías y 4×4 con guía para el desierto."
   },
   {
@@ -1076,7 +1076,7 @@ export const GUIDES_ES: GuideEs[] = [
       "h": "¿Djanet, Timimoun o los dos?",
       "p": "Cuéntenos sus fechas y cómo le gusta viajar: le diremos con franqueza qué desierto le conviene, o los uniremos en un solo viaje."
     },
-    "seoTitle": "¿Djanet o Timimoun? Qué Sáhara argelino visitar (2026)",
+    "seoTitle": "¿Djanet o Timimoun? Qué Sáhara argelino visitar (2027)",
     "seoDescription": "¿Djanet o Timimoun? Comparación honesta de los dos grandes destinos del Sáhara argelino: paisaje, arte rupestre, comodidad, temporada y precios reales."
   },
   {

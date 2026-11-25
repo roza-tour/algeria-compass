@@ -311,8 +311,8 @@ export const QUESTIONS_FR = {
       'Facile : Alger, Oran, Constantine, la côte, les sites romains, la Kabylie et le M’Zab. Avec guide et permis : le Grand Sud (Tassili, Tadrart, Hoggar). Restreint : une partie de la frontière du Grand Sud.',
       'Ayez une pièce d’identité pour les contrôles de routine, habillez-vous sobrement sur les sites religieux, demandez avant de photographier quelqu’un, et consultez les conseils de votre gouvernement pour le Grand Sud.',
     ],
-    title: 'L’Algérie est-elle sûre ? (2026) | Algeria Compass',
-    desc: 'Une réponse franche sur la sécurité en Algérie en 2026 : où voyager facilement, où un guide est obligatoire, et les règles de bon sens.',
+    title: 'L’Algérie est-elle sûre ? (2027) | Algeria Compass',
+    desc: 'Une réponse franche sur la sécurité en Algérie en 2027 : où voyager facilement, où un guide est obligatoire, et les règles de bon sens.',
   },
   'is-algeria-worth-visiting': {
     q: 'L’Algérie vaut-elle le voyage ?',

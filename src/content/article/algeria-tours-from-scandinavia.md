@@ -1,5 +1,5 @@
 ---
-title: "Algeria Tours from Scandinavia: Flights, Visa & Planning (2026)"
+title: "Algeria Tours from Scandinavia: Flights, Visa & Planning (2027)"
 category: "Trip Planning"
 image: "/assets/img/sahara-camp-sunset.jpg"
 imageAlt: "Desert camp at sunset among rock formations, Algerian Sahara"
