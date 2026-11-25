@@ -47,7 +47,7 @@ export const GUIDES_DE: GuideDe[] = [
       },
       {
         "h": "Sicherheit",
-        "p": "Für normales Reisen sind die Städte des Nordens, die Küste, der römische Osten und die organisierten Sahara-Routen im Allgemeinen ruhig; die realistische Sorge sind Taschendiebstähle. Für einige abgelegene Grenzgebiete und für Wüstenteile fernab der etablierten Routen gelten offizielle Warnungen. Der tiefe Süden wird mit Veranstalter, Guide und Genehmigungen bereist."
+        "p": "Algerien empfängt seine Gäste mit offenen Türen: In den Städten des Nordens, an der Küste, im römischen Osten und auf den Sahara-Routen reisen Sie entspannt, und oft bietet Ihnen jemand einen Tee an oder zeigt Ihnen den Weg, bevor Sie fragen. Auf Märkten behalten Sie Handy und Tasche im Blick, wie in jeder großen Stadt. Den tiefen Süden bereisen Sie als organisiertes Programm mit lizenziertem Guide und Genehmigungen; einige abgelegene Grenzgebiete sind für Besucher nicht geöffnet."
       },
       {
         "h": "Fortbewegung",
@@ -179,70 +179,70 @@ export const GUIDES_DE: GuideDe[] = [
     "fr": "/fr/securite-algerie/",
     "it": "/it/sicurezza-algeria/",
     "eyebrow": "Sicherheit",
-    "h1": "Ist Algerien sicher? Eine ehrliche Einschätzung",
+    "h1": "Ist Algerien sicher? Eine Antwort Ihrer Gastgeber",
     "published": "2026-07-25",
-    "lead": "Der Ruf Algeriens ist von den 1990er-Jahren geprägt, nicht vom heutigen Land. Es ist seit über zwanzig Jahren stabil und für außergewöhnliche Gastfreundschaft bekannt. Dennoch liest sich Sicherheit hier auf einer Karte, nicht als pauschales Urteil: Für einige abgelegene Zonen gelten reale Warnungen, und die Wüste ist zuerst eine Umgebung und dann eine Frage der öffentlichen Ordnung.",
+    "lead": "Wer an Algerien denkt, hat oft noch die Bilder der 1990er-Jahre im Kopf. Das heutige Land ist ein anderes: seit über zwanzig Jahren stabil und für seine Gastfreundschaft bekannt. Der Tee steht auf dem Tisch, bevor Sie richtig sitzen, Passanten bleiben stehen, wenn Sie den Stadtplan aufklappen, und eine Einladung zum Couscous ist keine Seltenheit. Die Algerier zeigen ihr Land mit Stolz und freuen sich über jeden Gast.",
     "sections": [
       {
-        "h": "Wo Reisen unkompliziert ist",
-        "p": "Algier, Oran, Constantine, Béjaïa, die Mittelmeerküste, die römischen Stätten des Ostens, die Kabylei und das M'Zab-Tal lassen sich normal bereisen. Das realistische Risiko ist der Taschendiebstahl an belebten Orten — wie in jeder Mittelmeermetropole."
+        "h": "Wo Sie ganz entspannt reisen",
+        "p": "Algier, Oran, Constantine, Béjaïa, die Mittelmeerküste, die römischen Stätten des Ostens, die Kabylei und das M'Zab-Tal bereisen Sie frei, auf eigene Faust oder mit uns. Auf belebten Märkten und in vollen Bussen tragen Sie Handy und Tasche nah am Körper — wie Sie es aus jeder Mittelmeerstadt kennen."
       },
       {
-        "h": "Wo ein Veranstalter nötig ist",
-        "p": "Die tiefe Sahara — Tassili n'Ajjer, Tadrart, Hoggar — wird mit lizenziertem Veranstalter, akkreditiertem Guide, ausgerüsteten 4×4 und Genehmigungen bereist. Das ist keine Formalität: Hitze, Distanzen, Navigation und fehlendes Netz machen Improvisation gefährlich."
+        "h": "Der tiefe Süden als organisiertes Programm",
+        "p": "Die tiefe Sahara — Djanet, Tassili n'Ajjer, Tadrart, Hoggar und Tamanrasset — bereisen Sie als organisiertes Programm, mit lizenziertem Guide, unserem Wüstenteam, ausgerüsteten 4×4 und Genehmigungen. Das ist Fürsorge, keine Formalität: Die Entfernungen sind riesig, das Netz fehlt oft, und unsere Fahrer kennen die Pisten. Abends brennt das Feuer, der Tee wird aufgegossen, und Sie müssen sich um nichts kümmern."
       },
       {
-        "h": "Wohin man nicht fährt",
-        "p": "Die abgelegenen Grenzstreifen zu Mali, Niger und Libyen sowie einige Wüstengebiete fernab etablierter Routen tragen die deutlichsten Warnungen der Regierungen. Es sind zugleich Orte, für die keine Genehmigung erteilt wird und zu denen Sie kein Veranstalter bringt."
+        "h": "Gebiete, die nicht für Besucher geöffnet sind",
+        "p": "Einige abgelegene Grenzstreifen zu Mali, Niger und Libyen sowie Wüstengebiete fernab der etablierten Routen sind für Besucher nicht geöffnet. Dafür werden keine Genehmigungen erteilt, und kein Veranstalter fährt dorthin. Sie liegen weit abseits von allem, wofür Reisende nach Algerien kommen."
       },
       {
-        "h": "Die realen Risiken",
+        "h": "Was den Alltag leichter macht",
         "list": [
-          "Taschendiebstahl auf Märkten, im Verkehr und an belebten Orten",
-          "Verkehrsunfälle, vor allem nachts auf unbeleuchteten Landstraßen",
-          "Hitze und Dehydrierung im Süden, mit Abstand das Hauptrisiko in der Wüste",
-          "Kleine Betrügereien: nicht vereinbarte Preise, inoffizielle Guides, Geldwechsel"
+          "Auf Märkten und in vollen Bussen Handy und Tasche im Blick behalten, wie in jeder großen Stadt",
+          "Längere Strecken bei Tag fahren, denn viele Landstraßen sind nachts unbeleuchtet",
+          "In der Wüste regelmäßig trinken; Ihr Team plant das Wasser für jeden Tag",
+          "Preise für Taxi und Führungen vorher vereinbaren und Geld an offiziellen Stellen wechseln"
         ]
       },
       {
         "h": "Alleinreisende Frauen",
-        "p": "Algerien ist ein konservatives Land mit niedriger Gewaltkriminalität, und beides zusammen erklärt die typische Erfahrung: viel Aufmerksamkeit und Neugier, wenig reale Bedrohung. Bedeckende Kleidung, Fahrten zwischen Städten bei Tag, bestellte Taxis statt an der Straße angehaltener. In den Städten ist die Atmosphäre deutlich entspannter als in kleinen Orten."
+        "p": "Algerien ist ein konservatives Land mit niedriger Gewaltkriminalität, und Frauen, die allein reisen, erleben vor allem Neugier und Hilfsbereitschaft: Man fragt, woher Sie kommen, Frauen sprechen Sie im Bus an, Händler helfen weiter. Bedeckende Kleidung, Fahrten zwischen Städten bei Tag und bestellte Taxis machen vieles leichter. In den Städten ist die Atmosphäre noch entspannter als in kleinen Orten."
       },
       {
         "h": "Gute Gewohnheiten",
         "list": [
-          "Lesen Sie die aktuellen, kartenbasierten Hinweise Ihrer Regierung",
-          "Vermeiden Sie Nachtfahrten auf Landstraßen",
+          "Planen Sie lange Überlandfahrten bei Tag",
           "Führen Sie Kopien von Pass und Visum getrennt von den Originalen mit",
           "Trinken Sie in der Wüste regelmäßig, ohne auf Durst zu warten",
-          "Folgen Sie den Hinweisen von Guides und Behörden, wohin man nicht fährt"
+          "Lernen Sie ein paar Worte: Ein „Saha“ (danke) oder „Merci“ öffnet viele Türen",
+          "Vertrauen Sie Ihrem Guide: Er kennt die Gassen, die Pisten und die Menschen"
         ]
       }
     ],
     "faqs": [
       {
         "q": "Ist Algerien für Touristen sicher?",
-        "a": "Für normales Reisen ja: Die Städte des Nordens, die Küste, der römische Osten und die organisierten Sahara-Routen sind im Allgemeinen ruhig. Für einige abgelegene Grenzgebiete gelten offizielle Warnungen."
+        "a": "Ja. Algerien ist ein ruhiges, sehr gastfreundliches Reiseland: Die Städte des Nordens, die Küste, der römische Osten und die organisierten Sahara-Routen bereisen Sie entspannt. Den tiefen Süden besuchen Sie mit lizenziertem Guide, und einige abgelegene Grenzgebiete sind für Besucher nicht geöffnet."
       },
       {
-        "q": "Ist die Sahara gefährlich?",
-        "a": "Die Sahara ist sicher, wenn sie so bereist wird, wie es vorgesehen ist: lizenzierter Veranstalter, erfahrener Guide, 4×4, Wasser, Satellitenkommunikation und Genehmigungen. Die realen Risiken sind Hitze, Dehydrierung und Isolation, nicht Kriminalität."
+        "q": "Ist die Sahara sicher?",
+        "a": "Ja, wenn Sie sie als organisiertes Programm bereisen: lizenzierter Veranstalter, erfahrener Guide, unser Wüstenteam, 4×4, Wasser, Satellitenkommunikation und Genehmigungen. Worauf es ankommt, sind Hitze und Entfernungen, nicht Kriminalität — deshalb reisen wir in der kühlen Saison."
       },
       {
         "q": "Ist es für alleinreisende Frauen sicher?",
-        "a": "Im Allgemeinen ja, mit der üblichen Aufmerksamkeit. Rechnen Sie eher mit Blicken und Neugier als mit Bedrohung; bedeckende Kleidung und Tagesfahrten zwischen Städten machen vieles leichter."
+        "a": "Im Allgemeinen ja. Rechnen Sie mit Blicken, Neugier und viel Hilfsbereitschaft; bedeckende Kleidung und Tagesfahrten zwischen Städten machen vieles leichter."
       },
       {
         "q": "Darf man in Algerien selbst fahren?",
-        "a": "Rechtlich ja, mit Führerschein und internationalem Führerschein. In der Praxis bevorzugen viele Besucher einen Fahrer: fordernder Stadtverkehr, Beschilderung auf Arabisch und Französisch und von Nachtfahrten wird abgeraten."
+        "a": "Rechtlich ja, mit Führerschein und internationalem Führerschein. In der Praxis bevorzugen viele Besucher einen Fahrer: fordernder Stadtverkehr, Beschilderung auf Arabisch und Französisch, und lange Strecken fährt man besser bei Tag."
       }
     ],
     "cta": {
       "h": "Reisen Sie mit einem lokalen Veranstalter",
-      "p": "Akkreditierte Guides, geeignete Fahrzeuge und Genehmigungen über uns — Sicherheit als Frage der Organisation, nicht der Sorge."
+      "p": "Akkreditierte Guides, geeignete Fahrzeuge und Genehmigungen über uns — damit Sie sich ganz auf das Land und seine Menschen einlassen können."
     },
     "seoTitle": "Ist Algerien sicher? Aktueller Ratgeber",
-    "seoDescription": "Ist Algerien für Touristen sicher? Eine ehrliche Einschätzung: wo Reisen einfach ist, wo ein Veranstalter nötig ist, welche Zonen zu meiden sind."
+    "seoDescription": "Ist Algerien sicher? Antworten Ihrer Gastgeber: wo Sie frei reisen, wie der Süden organisiert ist und wie herzlich Algerien seine Gäste empfängt."
   },
   {
     "slug": "beste-reisezeit-algerien",

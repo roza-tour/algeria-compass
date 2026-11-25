@@ -204,8 +204,8 @@ export const GUIDES_FR: GuideFr[] = [
       { h: 'Des prix clairs', p: "Tous nos prix sont par personne, publiés sur la page de chaque circuit, et fixes : ils ne changent que si vous demandez un itinéraire sur mesure ou des jours supplémentaires. L'annulation est gratuite jusqu'à 5 jours avant le départ.", links: [
         { href: '/booking-terms/', text: 'Conditions de réservation (en anglais)' },
       ]},
-      { h: 'Sécurité', p: "Le nord de l'Algérie, la vallée du M'Zab et les itinéraires sahariens organisés sont calmes et très accueillants. Consultez les conseils du gouvernement du Canada sur voyage.gc.ca avant de réserver, comme pour toute destination. Une assurance voyage et médicale est obligatoire sur nos circuits sahariens.", links: [
-        { href: '/fr/securite-algerie/', text: "La sécurité en Algérie" },
+      { h: 'Un pays qui vous reçoit', p: "Le nord de l'Algérie, la vallée du M'Zab et les itinéraires sahariens organisés sont calmes et très accueillants, et avec la grande communauté algérienne du Québec, on vous parlera souvent de Montréal autour d'un café. Une assurance voyage et médicale est obligatoire sur nos circuits sahariens.", links: [
+        { href: '/fr/securite-algerie/', text: "Voyager sereinement en Algérie" },
       ]},
       { h: 'Préparer le voyage avec nous', p: "Donnez-nous vos dates et votre façon de voyager, et nous construirons le voyage autour de vous — ou répondrons d'abord à la question du visa, avant tout engagement.", links: [
         { href: '/fr/contact/', text: 'Nous donner vos dates' },
@@ -217,7 +217,7 @@ export const GUIDES_FR: GuideFr[] = [
       { q: "Comment se rendre en Algérie depuis le Canada ?", a: "Montréal est reliée depuis longtemps à Alger par des vols directs — environ sept heures —, grâce à l'importante communauté algérienne du Québec. Depuis Toronto, Vancouver ou Calgary, prévoyez une correspondance à Montréal ou dans une plateforme européenne comme Paris, Francfort ou Istanbul. Vérifiez les horaires en vigueur au moment de réserver." },
       { q: "Quel est le décalage horaire entre le Canada et l'Algérie ?", a: "L'Algérie est à UTC+1 toute l'année, sans heure d'été. Alger a 6 heures d'avance sur Montréal et Toronto en hiver et 5 en été ; 9 heures d'avance sur Vancouver en hiver et 8 en été." },
       { q: "Combien coûte un circuit privé en Algérie ?", a: "Nos circuits privés guidés commencent à 30 € pour une journée à Alger. Ceux que nous suggérons aux voyageurs venant du Canada vont de 492 € à 1 176 € par personne, et la Collection 5 étoiles tout compris commence à 1 615 €. Chaque prix est publié sur la page du circuit." },
-      { q: "L'Algérie est-elle sûre pour les Canadiens ?", a: "Le Nord, la vallée du M'Zab et les itinéraires sahariens organisés sont calmes et très accueillants pour les visiteurs. Les zones frontalières de l'extrême sud sont réglementées, et nous ne parcourons le grand désert qu'avec les permis nécessaires et des guides agréés. Consultez les conseils du gouvernement du Canada sur voyage.gc.ca avant de réserver, comme pour toute destination." },
+      { q: "L'Algérie est-elle sûre pour les Canadiens ?", a: "Oui. Le Nord, la vallée du M'Zab et les itinéraires sahariens organisés sont calmes et très accueillants pour les visiteurs. Le grand désert se découvre en programme organisé, avec les permis nécessaires et des guides agréés, et quelques zones frontalières de l'extrême sud ne sont pas ouvertes aux visiteurs. Écrivez-nous : nous répondons volontiers à toutes vos questions avant que vous réserviez." },
     ],
     cta: { h: 'Partir du Canada, on s’en occupe', p: "Agence algérienne agréée : circuits privés à vos dates, guides francophones et accompagnement pour le visa. Écrivez-nous pour commencer." },
     seoTitle: "Voyage en Algérie depuis le Canada : vols, visa, préparatifs",

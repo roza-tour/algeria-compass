@@ -11,9 +11,9 @@ export interface FaqCategory { id: string; title: string; items: FaqItem[]; }
 
 export const FAQ: FaqCategory[] = [
   { id: 'safety', title: 'Safety', items: [
-    { q: 'Is Algeria safe for tourists?', a: 'Yes for normal tourism in the north and on organised desert trips. Cities are generally calm and welcoming; take the usual precautions you would anywhere. The deep south and border regions are restricted and are visited only with licensed operators and permits.', href: '/questions/is-algeria-safe/' },
-    { q: 'Are there areas to avoid?', a: 'The border zones with Mali, Niger, Libya and parts of the far south outside authorised routes are off-limits to independent travel. Organised desert journeys keep to permitted areas with the required authorisations.' },
-    { q: 'Can I travel independently?', a: 'In the north, yes, with patience and standard care. The Sahara is not for independent travel — it is organised through a licensed Algerian operator with guides, 4x4 and permits.' },
+    { q: 'Is Algeria safe for tourists?', a: 'Yes. The north and the organised desert trips are calm, and Algerians are famously welcoming to guests; in the cities, the only everyday care is keeping your phone close in busy markets. The deep south is travelled with a licensed operator and permits, and a few remote border areas are not open to visitors.', href: '/questions/is-algeria-safe/' },
+    { q: 'Are there areas to avoid?', a: 'Very few. Only the remote border zones with Mali, Niger and Libya, and parts of the far south outside authorised routes, are not open to visitors. Everything travellers come for is open, and organised desert journeys keep to permitted areas with the required authorisations.' },
+    { q: 'Can I travel independently?', a: 'In the north, yes, with a little patience, and people will happily help you find your way. The Sahara is not for independent travel — it is organised through a licensed Algerian operator with guides, 4x4 and permits.' },
   ]},
   { id: 'visa', title: 'Visas & entry', items: [
     { q: 'Do I need a visa for Algeria?', a: 'Most nationalities need a visa arranged in advance at an Algerian consulate, usually supported by an invitation/voucher from a licensed agency. Rules vary by nationality and change over time — always confirm with your consulate.', href: '/questions/do-i-need-a-visa-for-algeria/' },
@@ -22,7 +22,7 @@ export const FAQ: FaqCategory[] = [
   ]},
   { id: 'best-time', title: 'Best time to visit', items: [
     { q: 'When is the best time to visit Algeria?', a: 'Spring (March–May) and autumn (September–November) are best for the north — coast, Roman cities and mountains. The Sahara is a winter destination, best from November to February.', href: '/questions/when-is-the-best-time-to-visit-algeria/' },
-    { q: 'When should I visit the Sahara?', a: 'November to February, when desert temperatures are cool and clear. Summer in the deep south is dangerously hot and not suitable for travel.' },
+    { q: 'When should I visit the Sahara?', a: 'November to February, when desert temperatures are cool and clear. Summer in the deep south is far too hot for travel.' },
     { q: 'Can I travel during Ramadan?', a: 'Yes — it is a special time to visit, though daytime eating options and some opening hours change. We plan itineraries around it so your trip runs smoothly.' },
   ]},
   { id: 'costs', title: 'Costs & budget', items: [
@@ -50,12 +50,12 @@ export const FAQ: FaqCategory[] = [
     { q: 'Is the tap water safe to drink?', a: 'Stick to bottled water, which is cheap and widely available; it is provided on our desert trips.' },
   ]},
   { id: 'women', title: 'Women travellers', items: [
-    { q: 'Is Algeria safe for women travellers?', a: 'Generally yes, with normal precautions. Serious harassment is uncommon, but modest dress and awareness — especially outside the big cities — make for a more comfortable trip. Private, guided travel adds an extra layer of ease.' },
+    { q: 'Is Algeria safe for women travellers?', a: 'Yes. Women travellers are welcomed and often looked after by the families and women they meet, and serious harassment is uncommon. Modest dress, especially outside the big cities, makes the welcome easier, and private, guided travel adds an extra layer of ease.' },
     { q: 'What should women wear?', a: 'Modest, loosely covering clothing is appreciated; carry a scarf for mosques and conservative areas. Beaches and big-city districts are more relaxed, especially in summer.' },
   ]},
   { id: 'sahara-permits', title: 'Sahara & permits', items: [
     { q: 'Do I need a permit for the Sahara?', a: 'Yes — the protected desert zones, including Tassili n\'Ajjer and the Tadrart, require permits and a licensed local guide. We arrange the permits and guiding as part of any desert trip.' },
-    { q: 'Can I explore the desert on my own?', a: 'No — independent deep-desert travel is restricted for safety and conservation. It is done with a licensed operator, 4x4 vehicles and the proper authorisations.' },
+    { q: 'Can I explore the desert on my own?', a: 'No — independent deep-desert travel is not permitted, both to look after travellers and to protect the desert. It is done with a licensed operator, 4x4 vehicles and the proper authorisations.' },
   ]},
   { id: 'photography', title: 'Photography', items: [
     { q: 'Can I take photos freely?', a: 'Landscapes, monuments and ruins are generally fine. Always ask before photographing people, and avoid photographing military and police sites and some government buildings.' },

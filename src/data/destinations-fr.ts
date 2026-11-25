@@ -148,7 +148,7 @@ export const DESTINATIONS_FR: DestFr[] = [
       { label: 'Conseil', value: 'Guide local vivement recommandé' },
     ],
     faqs: [
-      { q: "La Casbah est-elle sûre ?", a: "Oui. C'est un quartier habité et hospitalier ; la difficulté est de s'y orienter, pas de s'y sentir en danger. Comme partout, gardez téléphone et sac discrets." },
+      { q: "La Casbah est-elle sûre ?", a: "Oui. C'est un quartier habité et hospitalier, où l'on vous salue et vous indique volontiers le chemin ; la seule difficulté est de s'orienter dans le dédale. Comme dans toute vieille ville animée, gardez téléphone et sac discrets." },
       { q: "Faut-il un guide pour la Casbah ?", a: "C'est fortement conseillé. Le dédale est réellement impraticable sans repères, et l'essentiel — patios, terrasses, palais — se trouve derrière des portes qu'un guide local peut ouvrir." },
       { q: "Combien de temps prévoir ?", a: "Deux à quatre heures selon le rythme et le nombre de maisons visitées. C'est une visite qui se marche, en montée et en descente." },
       { q: "Que voir d'autre à Alger ?", a: "La Grande Mosquée d'Alger, le Mémorial du Martyr, le musée du Bardo, le Jardin d'Essai du Hamma, la basilique Notre-Dame d'Afrique et les boulevards à arcades du front de mer." },

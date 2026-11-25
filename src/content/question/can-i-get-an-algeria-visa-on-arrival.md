@@ -17,7 +17,6 @@ secondaryClusters: []
 intent: "practical"
 sources:
   - { title: "Grand Sud tourist destination: new visa issuance measures (in French)", publisher: "Ministry of Foreign Affairs of Algeria, Embassy of Algeria in Budapest", url: "https://embbudapest.mfa.gov.dz/fr/news-and-press-releases/tourist-destination-in-the-algerian-south-new-visa-issuance-measures", type: "government" }
-  - { title: "Algérie: entrée / séjour (in French)", publisher: "France Diplomatie, French Ministry for Europe and Foreign Affairs", url: "https://www.diplomatie.gouv.fr/fr/information-par-pays/algerie/conseils-aux-voyageurs-entree-sejour", type: "government" }
 ---
 
 Algeria is not a visa-on-arrival country in the way Egypt or Jordan are. For virtually every nationality the tourist visa is issued **before departure**, by an Algerian embassy or consulate, and airlines will refuse boarding without it.

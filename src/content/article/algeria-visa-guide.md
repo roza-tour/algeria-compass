@@ -83,10 +83,7 @@ relatedClusters: ["algeria-transportation"]
 intent: "practical"
 sources:
   - { title: "Grand Sud tourist destination: new visa issuance measures (in French)", publisher: "Ministry of Foreign Affairs of Algeria, Embassy of Algeria in Budapest", url: "https://embbudapest.mfa.gov.dz/fr/news-and-press-releases/tourist-destination-in-the-algerian-south-new-visa-issuance-measures", type: "government" }
-  - { title: "Algérie: entrée / séjour (in French)", publisher: "France Diplomatie, French Ministry for Europe and Foreign Affairs", url: "https://www.diplomatie.gouv.fr/fr/information-par-pays/algerie/conseils-aux-voyageurs-entree-sejour", type: "government" }
   - { title: "Ministry of Foreign Affairs", publisher: "Republic of Algeria", url: "https://www.mfa.gov.dz", type: "government" }
-  - { title: "Algeria Travel Advisory — Entry/Exit", publisher: "U.S. Department of State", url: "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/algeria-travel-advisory.html", type: "government" }
-  - { title: "Foreign travel advice: Algeria — Entry requirements", publisher: "UK FCDO", url: "https://www.gov.uk/foreign-travel-advice/algeria/entry-requirements", type: "government" }
   - { title: "Algeria", publisher: "Encyclopædia Britannica", url: "https://www.britannica.com/place/Algeria", type: "reference" }
 ---
 ---
@@ -118,7 +115,7 @@ Processing commonly ranges from a few working days to several weeks, depending o
 Independent visa-on-arrival is generally not available for ordinary tourism. The principal exception is an organised tour that includes the Sahara: a licensed agency files your details in advance and the visa is issued on arrival at Algiers airport. Any electronic-visa pilots that appear should be verified against the official Ministry of Foreign Affairs and your consulate before you rely on them.
 
 ## Special regions
-Travel in parts of the deep south and along certain borders is subject to permits and security procedures, normally handled by your tour operator. This is one reason desert travel is organised through licensed agencies rather than undertaken independently — see the [safety guide](/blog/algeria-safety-guide/) for the regional picture.
+Travel in parts of the deep south and along certain borders is subject to permits and local procedures, normally handled by your tour operator. This is one reason desert travel is organised through licensed agencies rather than undertaken independently — see the [safety guide](/blog/algeria-safety-guide/) for the regional picture.
 
 ## Common rejections
 Most refusals are administrative rather than personal: an incomplete file, missing accommodation proof, insufficient demonstrated funds, an inconsistent itinerary, or applying at the wrong consulate. The remedy is simple diligence — follow the checklist exactly, keep your story consistent, and submit early enough to fix any gaps.
@@ -127,7 +124,7 @@ Most refusals are administrative rather than personal: an incomplete file, missi
 Your consulate is the authority, not a travel blog. Use its official website for the current form, document list, fee and submission method, and keep copies of everything you submit. If anything here differs from what your consulate states, the consulate is correct.
 
 ## Special regions and the far-south permit
-Algeria's interior security model is the reason desert tourism is organised rather than independent. Travel deep into the Sahara — the Tassili n'Ajjer around Djanet, the Hoggar around Tamanrasset, and the border-adjacent expanses — typically involves movement permits and the use of accredited local guides, arranged by your agency rather than by you. For the traveller this is mostly invisible: the operator files the paperwork, assigns the guide, and plans the route within permitted areas. The practical takeaway is that you choose your dates and your agency, and the agency choreographs the permissions. If a guide or "fixer" offers to take you into restricted zones without this structure, decline; the rules exist for genuine safety reasons set out in our [safety guide](/blog/algeria-safety-guide/).
+In Algeria, desert tourism is organised rather than independent. Travel deep into the Sahara — the Tassili n'Ajjer around Djanet, the Hoggar around Tamanrasset, and the border-adjacent expanses — typically involves movement permits and the use of accredited local guides, arranged by your agency rather than by you. For the traveller this is mostly invisible: the operator files the paperwork, assigns the guide, and plans the route within permitted areas. The practical takeaway is that you choose your dates and your agency, and the agency choreographs the permissions. If a guide or "fixer" offers to take you into closed zones without this structure, simply decline; the framework is there to look after travellers, as our [safety guide](/blog/algeria-safety-guide/) explains.
 
 ## Minors, dual nationals and residents
 Families travelling with children should expect to provide each minor's passport and photographs, and sometimes a copy of a birth certificate or parental authorisation where only one parent travels; consulates vary, so ask. Dual nationals of Algerian origin are a special case: Algeria may treat a person of Algerian descent as a citizen, which can change documentation and, for some men, national-service considerations — anyone in this situation should clarify their status with the consulate well in advance rather than travelling on assumptions. Legal residents of a third country apply at the Algerian consulate covering that country and should bring proof of their residence status alongside the standard file.
@@ -148,4 +145,4 @@ Keep your passport and visa accessible but secure, and carry a photocopy separat
 The questions below cover the points travellers ask most. For current entry rules and fees, rely on the official sources listed at the foot of this guide, and see our [editorial standards](/editorial/) for how we research and update practical pages like this one.
 
 ## About these sources
-This guide is based on the Algerian Ministry of Foreign Affairs and current US and UK government entry-requirement advice, with country background from Britannica.
+This guide is based on the Algerian Ministry of Foreign Affairs, including its notice on visas for the Grand Sud, and on our own daily work preparing visa files, with country background from Britannica.

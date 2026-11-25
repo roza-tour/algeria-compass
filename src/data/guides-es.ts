@@ -46,8 +46,8 @@ export const GUIDES_ES: GuideEs[] = [
         "p": "Casi todas las nacionalidades necesitan un visado turístico obtenido antes de viajar en un consulado argelino, por lo general con carta de invitación y reservas confirmadas. No existe un e-visa general. La única excepción reconocida son los viajes organizados que incluyen el Sáhara: con un operador autorizado, el visado se emite a la llegada en el aeropuerto de Argel."
       },
       {
-        "h": "Seguridad",
-        "p": "Para el viaje ordinario, las ciudades del norte, la costa, el este romano y los circuitos saharianos organizados son en general tranquilos, con los pequeños hurtos como principal preocupación. Algunas zonas fronterizas remotas y partes del desierto alejadas de las rutas habituales tienen avisos oficiales. El gran sur se recorre con operador, guía y permisos."
+        "h": "Seguridad y hospitalidad",
+        "p": "Las ciudades del norte, la costa, el este romano y los circuitos saharianos organizados se visitan con serenidad, y lo que más se recuerda es la acogida: el café ofrecido en la barra, el transeúnte que en lugar de indicarle el camino le acompaña, la invitación a comer. En los lugares concurridos basta la atención de siempre al móvil y al bolso. El gran sur se recorre con operador, guía y permisos, y algunas zonas fronterizas remotas no están abiertas a los visitantes."
       },
       {
         "h": "Cómo moverse",
@@ -178,71 +178,71 @@ export const GUIDES_ES: GuideEs[] = [
     "en": "/blog/algeria-safety-guide/",
     "fr": "/fr/securite-algerie/",
     "it": "/it/sicurezza-algeria/",
-    "eyebrow": "Seguridad",
-    "h1": "¿Es segura Argelia? Una valoración honesta",
+    "eyebrow": "Seguridad y hospitalidad",
+    "h1": "¿Es segura Argelia? La respuesta de quienes vivimos aquí",
     "published": "2026-07-25",
-    "lead": "La reputación de Argelia está modelada por los años noventa, no por el país de hoy. Lleva más de veinte años estable y es conocida por una hospitalidad fuera de lo común. Dicho esto, aquí la seguridad se lee en un mapa, no en un veredicto único: algunas zonas remotas tienen avisos reales, y el desierto es un entorno antes que una cuestión de orden público.",
+    "lead": "La imagen de Argelia que circula fuera suele haberse quedado en los años noventa. El país de hoy lleva más de veinte años estable, y quien llega descubre sobre todo su hospitalidad: el té ofrecido sin motivo, el transeúnte que le acompaña hasta la puerta correcta, la invitación a compartir el cuscús del viernes. Aquí le contamos cómo se viaja en nuestra tierra, región por región, con la franqueza de quien ha nacido en ella.",
     "sections": [
       {
-        "h": "Dónde el viaje es sencillo",
-        "p": "Argel, Orán, Constantina, Béjaïa, la costa mediterránea, los yacimientos romanos del este, la Cabilia y el valle del M'Zab se visitan con normalidad. El riesgo realista es el hurto en lugares concurridos, como en cualquier capital mediterránea."
+        "h": "Dónde se viaja por libre",
+        "p": "Argel, Orán, Constantina, Béjaïa, la costa mediterránea, los yacimientos romanos del este, la Cabilia y el valle del M'Zab se visitan por libre, como cualquier destino del Mediterráneo. En los mercados y en los transportes llenos basta la misma atención al móvil y al bolso que tendría en Nápoles o en Marsella."
       },
       {
-        "h": "Dónde hace falta un operador",
-        "p": "El Sáhara profundo — Tassili n'Ajjer, Tadrart, Hoggar — se recorre con operador autorizado, guía acreditado, 4×4 equipados y permisos. No es una formalidad: el calor, las distancias, la navegación y la falta de cobertura hacen peligrosa la improvisación."
+        "h": "Dónde le acompaña nuestro equipo",
+        "p": "El Sáhara profundo — Tassili n'Ajjer, Tadrart, Hoggar — se descubre con operador autorizado, guía acreditado, 4×4 equipados y permisos. No es una formalidad: el desierto es inmenso, no hay cobertura y las pistas solo se leen con experiencia. Por eso nos ocupamos nosotros de todo, desde el primer té en el campamento hasta la vuelta."
       },
       {
-        "h": "Dónde no se va",
-        "p": "Las franjas fronterizas remotas con Malí, Níger y Libia, y algunas zonas desérticas alejadas de las rutas establecidas, concentran los avisos más firmes de los gobiernos. Son además lugares para los que no se emite ningún permiso y a los que ningún operador le llevará."
+        "h": "Las zonas no abiertas a los visitantes",
+        "p": "Las franjas fronterizas remotas con Malí, Níger y Libia, y algunas zonas desérticas alejadas de las rutas establecidas, no están abiertas al turismo: allí no se emite ningún permiso y ningún operador organiza viajes. Quedan a cientos de kilómetros de todo lo que se viene a ver."
       },
       {
-        "h": "Los riesgos reales",
+        "h": "Pequeñas atenciones",
         "list": [
-          "Hurtos en mercados, transportes y zonas concurridas",
-          "Accidentes de tráfico, sobre todo de noche en carreteras rurales sin iluminación",
-          "Calor y deshidratación en el sur, con diferencia el principal riesgo en el desierto",
-          "Pequeños timos: precios no acordados, guías no oficiales, cambio de moneda"
+          "Móvil y bolso a mano en mercados, transportes y lugares concurridos",
+          "Nada de conducir de noche por carreteras rurales, a menudo poco iluminadas",
+          "En el sur, agua y sombra: el verdadero dueño del desierto es el sol",
+          "Precios acordados de antemano, guías oficiales y cambio a través del hotel o la agencia"
         ]
       },
       {
         "h": "Mujeres que viajan solas",
-        "p": "Argelia es un país conservador con una baja tasa de delincuencia violenta, y ambas cosas juntas explican la experiencia habitual: mucha atención y curiosidad, poca amenaza real. Ropa cubierta, desplazamientos entre ciudades de día, taxis pedidos en lugar de parados en la calle. En las ciudades el ambiente es bastante más relajado que en los pueblos pequeños."
+        "p": "Argelia es un país tradicional y tranquilo, y eso explica la experiencia habitual de las viajeras: mucha curiosidad, muchas preguntas, atenciones y una gran disposición a ayudar. Ropa cubierta, desplazamientos entre ciudades de día, taxis pedidos en lugar de parados en la calle. En las ciudades el ambiente es más relajado que en los pueblos pequeños, donde una extranjera sola todavía es una novedad."
       },
       {
         "h": "Buenas costumbres",
         "list": [
-          "Lea los avisos actualizados de su gobierno, que se basan en mapas",
-          "Evite conducir de noche por carreteras rurales",
+          "Lleve consigo un documento para los controles rutinarios",
           "Lleve copia del pasaporte y del visado aparte de los originales",
           "En el desierto beba con regularidad, sin esperar a tener sed",
-          "Siga las indicaciones de guías y autoridades sobre dónde no ir"
+          "Escuche los consejos de su guía: conoce el terreno como su propia casa",
+          "Acepte el té cuando se lo ofrezcan: es la forma más bonita de conocerse"
         ]
       }
     ],
     "faqs": [
       {
         "q": "¿Es segura Argelia para los turistas?",
-        "a": "Para el viaje ordinario, sí: las ciudades del norte, la costa, el este romano y los circuitos saharianos organizados son en general tranquilos. Algunas zonas fronterizas remotas tienen avisos oficiales."
+        "a": "Sí: las ciudades del norte, la costa, el este romano y los circuitos saharianos organizados se visitan con serenidad, y con una acogida que sorprende. Solo algunas zonas fronterizas remotas no están abiertas a los visitantes."
       },
       {
-        "q": "¿Es peligroso el Sáhara?",
-        "a": "El Sáhara es seguro si se recorre como debe recorrerse: operador autorizado, guía experto, 4×4, agua, comunicaciones por satélite y permisos. Los riesgos reales son el calor, la deshidratación y el aislamiento, no la delincuencia."
+        "q": "¿Se puede visitar el Sáhara con tranquilidad?",
+        "a": "Sí, si se vive como debe vivirse: operador autorizado, guía experto, 4×4, agua, comunicaciones por satélite y permisos. El desierto pide respeto por el calor y las distancias; quienes lo habitan le reciben con té y con el pan cocido bajo la arena."
       },
       {
         "q": "¿Es segura para mujeres que viajan solas?",
-        "a": "En general sí, con la atención habitual. Espere miradas y curiosidad más que amenazas; la ropa cubierta y los desplazamientos diurnos entre ciudades lo hacen todo más fácil."
+        "a": "En general sí. Espere miradas y curiosidad, a menudo acompañadas de ayuda espontánea; la ropa cubierta y los desplazamientos diurnos entre ciudades lo hacen todo más fácil."
       },
       {
         "q": "¿Se puede conducir en Argelia?",
-        "a": "Legalmente sí, con permiso y carné internacional. En la práctica muchos visitantes prefieren un conductor: tráfico urbano agresivo, señalización en árabe y francés y conducción nocturna desaconsejada."
+        "a": "Legalmente sí, con permiso y carné internacional. En la práctica muchos visitantes prefieren un conductor: el tráfico urbano es intenso, la señalización está en árabe y francés y de noche, fuera de las ciudades, es mejor no conducir."
       }
     ],
     "cta": {
-      "h": "Viaje con un operador local",
-      "p": "Guías acreditados, vehículos adecuados y permisos gestionados por nosotros — la seguridad como cuestión organizativa, no como preocupación."
+      "h": "Viaje con quien le recibe en su casa",
+      "p": "Guías acreditados, vehículos adecuados y permisos gestionados por nosotros: usted piensa en el viaje, del resto nos ocupamos nosotros."
     },
     "seoTitle": "¿Es segura Argelia? Guía actualizada",
-    "seoDescription": "¿Es segura Argelia para los turistas? Una valoración honesta: dónde el viaje es sencillo, dónde hace falta un operador, qué zonas evitar y los riesgos reales."
+    "seoDescription": "¿Es segura Argelia para los turistas? La respuesta de un operador argelino: dónde viajar por libre, dónde le acompaña nuestro equipo y cómo le recibimos."
   },
   {
     "slug": "cuando-viajar-argelia",
@@ -336,7 +336,7 @@ export const GUIDES_ES: GuideEs[] = [
       },
       {
         "h": "Permisos, 4×4 y logística",
-        "p": "No se va por libre. Guía acreditado, 4×4 equipados y permisos son imprescindibles, y no por burocracia: son el sistema de seguridad. Se llega al sur en avión desde Argel y se continúa en 4×4. Agua, combustible y comunicaciones por satélite se calculan por vehículo y por persona."
+        "p": "No se va por libre. Guía acreditado, 4×4 equipados y permisos son imprescindibles, y no por burocracia: son nuestra manera de cuidar de usted. Se llega al sur en avión desde Argel y se continúa en 4×4. Agua, combustible y comunicaciones por satélite se calculan por vehículo y por persona."
       },
       {
         "h": "Dónde se duerme",
@@ -360,7 +360,7 @@ export const GUIDES_ES: GuideEs[] = [
     "faqs": [
       {
         "q": "¿Se puede visitar el Sáhara argelino por libre?",
-        "a": "No. El gran sur exige operador autorizado, guía acreditado, 4×4 y permisos. Es una norma de seguridad antes que administrativa."
+        "a": "No. El gran sur exige operador autorizado, guía acreditado, 4×4 y permisos. Es una norma que protege al viajero y al desierto, antes incluso que administrativa."
       },
       {
         "q": "¿Cómo se llega a Djanet o Tamanrasset?",

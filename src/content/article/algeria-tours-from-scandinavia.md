@@ -17,7 +17,7 @@ faqs:
   - { q: "Do Nordic travellers need a visa for Algeria?", a: "Yes. Visitors from Scandinavia and the Nordic countries need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare for $25 with any programme of at least 3 days that includes airport pickup and drop-off. For organised trips that include the Sahara, our Saharan visa-authorisation ($50) lets the visa be issued on arrival at Algiers airport. Send us your nationality and we confirm which route applies." }
   - { q: "How do I fly to Algeria from the Nordics?", a: "Plan on one connection into Algiers (ALG) from Copenhagen, Stockholm, Oslo or Helsinki — usually through Paris, Frankfurt, Amsterdam or Istanbul. Flying time is around 4 to 5 hours plus the connection. Check current schedules when you book." }
   - { q: "What is the time difference between the Nordics and Algeria?", a: "Algeria runs on UTC+1 all year, with no daylight saving: the same time as Denmark, Sweden and Norway in winter, and one hour behind in summer. Finland is one hour ahead of Algeria in winter and two in summer." }
-  - { q: "Is Algeria safe for Nordic travellers?", a: "The north, the M'Zab Valley and the organised Sahara routes are calm and very welcoming to visitors. The far-south border areas are restricted, and we only travel the deep desert with permits and licensed guides. Check your foreign ministry's travel advice before you book, as you would anywhere." }
+  - { q: "Is Algeria safe for Nordic travellers?", a: "Yes. The north, the M'Zab Valley and the organised Sahara routes are calm and welcoming, and visitors from the Nordic countries are received as honoured guests. In the deep desert we travel with permits and licensed guides, and a few far-south border areas are not open to visitors." }
 seo:
   title: "Algeria Tours from Scandinavia: Flights, Visa & Planning"
   description: "Algeria from the Nordics: flights, visa, time difference, money, best season and private tours with real prices. Licensed Algerian operator."
@@ -61,7 +61,7 @@ For the top end, the [5-Star Collection](/luxury/) is eight days all-inclusive �
 Every price is per person, published on the tour page, and fixed: it changes only if you ask for a custom itinerary or extra days. Cancellation is free up to 5 days before departure — see our [booking terms](/booking-terms/).
 
 ## Safety
-The north of Algeria, the M'Zab Valley and the organised Sahara routes are calm and very welcoming; our [safety guide](/blog/algeria-safety-guide/) sets out the evidence. Check your foreign ministry's travel advice before you book, as you would anywhere. Travel and medical insurance is required on our Sahara tours.
+Winter is the Sahara's season, which makes it a natural escape from the dark Nordic months: bright desert days, quiet evenings around the fire, unhurried meals, and a hospitality that never feels pushy. The north, the M'Zab Valley and the organised Sahara routes are calm and welcoming; the deep south is travelled with permits and a licensed guide, and a few far-south border areas are not open to visitors. Our [safety guide](/blog/algeria-safety-guide/) has the details. Travel and medical insurance is required on our Sahara tours.
 
 ## Plan it with us
 [Tell us your dates](/contact/) and how you like to travel, and we will build the trip around you — or answer the visa question first, before you commit to anything.

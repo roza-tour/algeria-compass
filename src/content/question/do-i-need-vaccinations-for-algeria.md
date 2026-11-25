@@ -1,7 +1,7 @@
 ---
 question: "Do I need vaccinations for Algeria?"
 category: "Planning"
-shortAnswer: "No vaccinations are routinely mandatory for travellers arriving from Europe or North America, though a yellow fever certificate can be required if you arrive from an endemic country. Standard travel advice is to be up to date on routine vaccines. Check with a travel clinic well before you go."
+shortAnswer: "No vaccinations are routinely mandatory for travellers arriving from Europe or North America, though a yellow fever certificate can be required if you arrive from an endemic country. The usual recommendation is simply to be up to date on routine vaccines. Check with a travel clinic well before you go."
 keyFacts:
   - { label: "Mandatory", value: "None for most arrivals" }
   - { label: "Yellow fever", value: "Only if arriving from an endemic country" }

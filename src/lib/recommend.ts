@@ -55,7 +55,7 @@ export function recommend(ctx: RecoContext): Recommendations {
 
   const citationHints: string[] = [];
   if (cluster?.id === 'algeria-unesco') citationHints.push('Cite the UNESCO World Heritage list URL for each site.');
-  if (cluster?.id === 'algeria-safety' || ctx.intent === 'emergency') citationHints.push('Cite a named, dated government travel advisory.');
+  if (cluster?.id === 'algeria-safety' || ctx.intent === 'emergency') citationHints.push('Write from first-hand local experience in a warm host voice; cite Algerian official sources for rules and permits.');
   if (cluster?.id === 'algeria-history') citationHints.push('Cite an encyclopaedic/scholarly source for dates and dynasties.');
   if (cluster?.id === 'algeria-transportation') citationHints.push('Cite operator/official transport pages; stamp lastReviewed.');
   if (!citationHints.length) citationHints.push('Add ≥1 authoritative source; cornerstones ≥3, cited inline.');

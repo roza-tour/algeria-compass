@@ -17,7 +17,7 @@ faqs:
   - { q: "Do Polish travellers need a visa for Algeria?", a: "Yes. Visitors from Poland need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare for $25 with any programme of at least 3 days that includes airport pickup and drop-off. For organised trips that include the Sahara, our Saharan visa-authorisation ($50) lets the visa be issued on arrival at Algiers airport. Send us your nationality and we confirm which route applies." }
   - { q: "How do I fly to Algeria from Poland?", a: "There is usually no direct flight from Poland, so plan on one connection into Algiers (ALG) through Paris, Frankfurt, Rome, Vienna or Istanbul. Total journey time from Warsaw or Kraków is typically 6 to 9 hours. Check current schedules when you book." }
   - { q: "What is the time difference between Poland and Algeria?", a: "Algeria runs on UTC+1 all year, with no daylight saving: the same time as Poland in winter, and one hour behind in summer." }
-  - { q: "Is Algeria safe for Polish travellers?", a: "The north, the M'Zab Valley and the organised Sahara routes are calm and very welcoming to visitors. The far-south border areas are restricted, and we only travel the deep desert with permits and licensed guides. Check the Polish Ministry of Foreign Affairs' travel advice (gov.pl) before you book, as you would anywhere." }
+  - { q: "Is Algeria safe for Polish travellers?", a: "Yes, and Polish travellers are warmly welcomed. The north, the M'Zab Valley and the organised Sahara routes are calm and easy to travel. In the deep desert we travel with permits and licensed guides, and a few far-south border areas are not open to visitors." }
 seo:
   title: "Algeria Tours from Poland: Flights, Visa & Planning"
   description: "Algeria from Poland: flights, visa, time difference, money, best season and private tours with real prices. Licensed Algerian operator."
@@ -59,7 +59,7 @@ The Sahara is travelled from **October to April**. For travellers who like their
 Every price is per person, published on the tour page, and fixed: it changes only if you ask for a custom itinerary or extra days. Cancellation is free up to 5 days before departure — see our [booking terms](/booking-terms/).
 
 ## Safety
-The north of Algeria, the M'Zab Valley and the organised Sahara routes are calm and very welcoming; our [safety guide](/blog/algeria-safety-guide/) sets out the evidence. Check the Polish Ministry of Foreign Affairs' travel advice (gov.pl) before you book, as you would anywhere. Travel and medical insurance is required on our Sahara tours.
+Some older Algerians still remember the Polish engineers, doctors and teachers who worked here in the 1970s and 1980s, and a Polish passport can earn a fond smile. You will be received as a guest: tea poured in a Ghardaïa courtyard, directions given with a walk to the door. The north, the M'Zab Valley and the organised Sahara routes are calm and welcoming; the deep south is travelled with permits and a licensed guide, and a few far-south border areas are not open to visitors. Our [safety guide](/blog/algeria-safety-guide/) covers the rest. Travel and medical insurance is required on our Sahara tours.
 
 ## Plan it with us
 [Tell us your dates](/contact/) and how you like to travel, and we will build the trip around you — or answer the visa question first, before you commit to anything.

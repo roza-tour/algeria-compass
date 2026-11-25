@@ -17,7 +17,7 @@ faqs:
   - { q: "Do Dutch travellers need a visa for Algeria?", a: "Yes. Visitors from the Netherlands need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare for $25 with any programme of at least 3 days that includes airport pickup and drop-off. For organised trips that include the Sahara, our Saharan visa-authorisation ($50) lets the visa be issued on arrival at Algiers airport. Send us your nationality and we confirm which route applies." }
   - { q: "How do I fly to Algeria from the Netherlands?", a: "Algiers is about three hours' flying from Amsterdam. Depending on the season there may be a direct service; otherwise one connection through Paris, Brussels, Frankfurt or Istanbul. Check current schedules when you book." }
   - { q: "What is the time difference between the Netherlands and Algeria?", a: "Algeria runs on UTC+1 all year, with no daylight saving: the same time as the Netherlands in winter, and one hour behind in summer." }
-  - { q: "Is Algeria safe for Dutch travellers?", a: "The north, the M'Zab Valley and the organised Sahara routes are calm and very welcoming to visitors. The far-south border areas are restricted, and we only travel the deep desert with permits and licensed guides. Check the Dutch government's travel advice (Nederland Wereldwijd) before you book, as you would anywhere." }
+  - { q: "Is Algeria safe for Dutch travellers?", a: "Yes. Algeria is calm and hospitable, and Dutch visitors are warmly received. The north, the M'Zab Valley and the organised Sahara routes are easy to travel. In the deep desert we travel with permits and licensed guides, and a few far-south border areas are not open to visitors." }
 seo:
   title: "Algeria Tours from the Netherlands: Flights, Visa & Planning"
   description: "Algeria from the Netherlands: flights, visa, time difference, money, best season and private tours with real prices. Licensed Algerian operator."
@@ -61,7 +61,7 @@ For the top end, the [5-Star Collection](/luxury/) is eight days all-inclusive �
 Every price is per person, published on the tour page, and fixed: it changes only if you ask for a custom itinerary or extra days. Cancellation is free up to 5 days before departure — see our [booking terms](/booking-terms/).
 
 ## Safety
-The north of Algeria, the M'Zab Valley and the organised Sahara routes are calm and very welcoming; our [safety guide](/blog/algeria-safety-guide/) sets out the evidence. Check the Dutch government's travel advice (Nederland Wereldwijd) before you book, as you would anywhere. Travel and medical insurance is required on our Sahara tours.
+A straight answer, then: Algeria is a calm, hospitable country, and people will go out of their way for you, from the taxi driver who phones a friend to find your guesthouse to the family in the M'Zab who invites you in for tea. The north, the M'Zab Valley and the organised Sahara routes are easy and welcoming; the deep south is travelled with permits, a licensed guide and our desert crew, and a few far-south border areas are not open to visitors. Read more in our [safety guide](/blog/algeria-safety-guide/). Travel and medical insurance is required on our Sahara tours.
 
 ## Plan it with us
 [Tell us your dates](/contact/) and how you like to travel, and we will build the trip around you — or answer the visa question first, before you commit to anything.

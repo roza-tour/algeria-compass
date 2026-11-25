@@ -50,4 +50,4 @@ intent: "planning"
 ---
 ---
 
-Built for travellers who want the Sahara at depth, not as a day trip. Small groups, Tuareg guides, and the two greatest landscapes of the Algerian south in one journey.
+Built for travellers who want the Sahara at depth, not as a day trip. A private trip for your own party, Tuareg guides, and the two greatest landscapes of the Algerian south in one journey.

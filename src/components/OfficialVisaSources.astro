@@ -1,4 +1,7 @@
 ---
+// Owner, 2026-11-26: the site speaks for Algeria and does not relay foreign
+// governments' travel advice, so the French Foreign Ministry's advice page that
+// used to be listed here is gone; the Algerian notice is the source.
 // The official texts behind the visa-on-arrival route. Our visa pages stated
 // the rule without pointing at who made it, and an AI answer engine reading
 // them in November 2026 called the route "the operator's claims" that "need
@@ -21,15 +24,14 @@ const CHECKED: Record<string, [string, string]> = {
 };
 const [checkedLabel, checkedLoc] = CHECKED[lang] || CHECKED.en;
 const checkedText = new Date(VISA_CHECKED + 'T12:00:00Z').toLocaleDateString(checkedLoc, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
-type Txt = { h: string; note: string; mfa: string; mfaPub: string; fr: string; frPub: string; kind: string; adv: string; foot: string; inFr: string };
+type Txt = { h: string; note: string; mfa: string; mfaPub: string; kind: string; foot: string; inFr: string };
 const T: Record<string, Txt> = {
   en: {
     h: 'Official sources',
     note: 'The visa on arrival for organised Sahara travel is an official Algerian measure, not an agency arrangement. You can read it at the source:',
     mfa: 'Grand Sud tourist destination: new visa issuance measures',
     mfaPub: 'Ministry of Foreign Affairs of Algeria (Embassy of Algeria in Budapest)', kind: 'official notice',
-    fr: 'Algeria: entry and stay',
-    frPub: 'France Diplomatie, French Ministry for Europe and Foreign Affairs', adv: 'government travel advice', inFr: 'in French',
+    inFr: 'in French',
     foot: 'The notice names the 24 southern wilayas of which a programme must include at least one, among them Djanet, Ghardaïa, Timimoun and Tamanrasset, and states that the visa is issued at the international airports to travellers booked through a licensed agency.',
   },
   fr: {
@@ -37,8 +39,7 @@ const T: Record<string, Txt> = {
     note: "Le visa à l'arrivée pour les voyages organisés au Sahara est une mesure officielle algérienne, et non un arrangement d'agence. Vous pouvez la lire à la source :",
     mfa: 'Destination touristique Grand Sud algérien : nouvelles mesures de délivrance de visas',
     mfaPub: "Ministère des Affaires étrangères d'Algérie (Ambassade d'Algérie à Budapest)", kind: 'communiqué officiel',
-    fr: 'Algérie : entrée et séjour',
-    frPub: "France Diplomatie, ministère de l'Europe et des Affaires étrangères", adv: 'conseils officiels aux voyageurs', inFr: 'en français',
+    inFr: 'en français',
     foot: "Le communiqué cite les 24 wilayas du Sud dont le programme doit comporter au moins une, parmi lesquelles Djanet, Ghardaïa, Timimoun et Tamanrasset, et précise que le visa est délivré dans les aéroports internationaux aux voyageurs inscrits auprès d'une agence agréée.",
   },
   it: {
@@ -46,8 +47,7 @@ const T: Record<string, Txt> = {
     note: "Il visto all'arrivo per i viaggi organizzati nel Sahara è una misura ufficiale algerina, non un accordo d'agenzia. Potete leggerla alla fonte:",
     mfa: 'Destinazione turistica Grande Sud algerino: nuove misure per il rilascio dei visti',
     mfaPub: "Ministero degli Affari Esteri d'Algeria (Ambasciata d'Algeria a Budapest)", kind: 'comunicato ufficiale',
-    fr: 'Algeria: ingresso e soggiorno',
-    frPub: "France Diplomatie, Ministero francese dell'Europa e degli Affari Esteri", adv: 'consigli ufficiali di viaggio', inFr: 'in francese',
+    inFr: 'in francese',
     foot: "Il comunicato elenca le 24 wilaya del Sud di cui il programma deve includerne almeno una, tra cui Djanet, Ghardaïa, Timimoun e Tamanrasset, e precisa che il visto è rilasciato negli aeroporti internazionali ai viaggiatori iscritti presso un'agenzia autorizzata.",
   },
   es: {
@@ -55,8 +55,7 @@ const T: Record<string, Txt> = {
     note: 'El visado a la llegada para los viajes organizados al Sáhara es una medida oficial argelina, no un acuerdo de agencia. Puede leerla en la fuente:',
     mfa: 'Destino turístico Gran Sur argelino: nuevas medidas de expedición de visados',
     mfaPub: 'Ministerio de Asuntos Exteriores de Argelia (Embajada de Argelia en Budapest)', kind: 'comunicado oficial',
-    fr: 'Argelia: entrada y estancia',
-    frPub: 'France Diplomatie, Ministerio francés para Europa y de Asuntos Exteriores', adv: 'consejos oficiales de viaje', inFr: 'en francés',
+    inFr: 'en francés',
     foot: 'El comunicado enumera las 24 wilayas del Sur de las que el programa debe incluir al menos una, entre ellas Djanet, Ghardaïa, Timimoun y Tamanrasset, y precisa que el visado se expide en los aeropuertos internacionales a los viajeros inscritos con una agencia autorizada.',
   },
   de: {
@@ -64,14 +63,12 @@ const T: Record<string, Txt> = {
     note: 'Das Visum bei Ankunft für organisierte Sahara-Reisen ist eine offizielle algerische Regelung und keine Absprache einer Agentur. Sie können sie an der Quelle nachlesen:',
     mfa: 'Reiseziel Großer Süden Algeriens: neue Regelung zur Visaerteilung',
     mfaPub: 'Außenministerium Algeriens (Botschaft Algeriens in Budapest)', kind: 'offizielle Mitteilung',
-    fr: 'Algerien: Einreise und Aufenthalt',
-    frPub: 'France Diplomatie, französisches Ministerium für Europa und auswärtige Angelegenheiten', adv: 'amtliche Reisehinweise', inFr: 'auf Französisch',
+    inFr: 'auf Französisch',
     foot: 'Die Mitteilung nennt die 24 südlichen Wilayas, von denen das Programm mindestens eine enthalten muss, darunter Djanet, Ghardaïa, Timimoun und Tamanrasset, und hält fest, dass das Visum an den internationalen Flughäfen für Reisende ausgestellt wird, die über eine zugelassene Agentur gebucht haben.',
   },
 };
 const t = T[lang] || T.en;
 const MFA = 'https://embbudapest.mfa.gov.dz/fr/news-and-press-releases/tourist-destination-in-the-algerian-south-new-visa-issuance-measures';
-const FRD = 'https://www.diplomatie.gouv.fr/fr/information-par-pays/algerie/conseils-aux-voyageurs-entree-sejour';
 const suffix = lang === 'fr' ? '' : `, ${t.inFr}`;
 ---
 <div class="wrap" style="padding-bottom:2.6rem">
@@ -80,7 +77,6 @@ const suffix = lang === 'fr' ? '' : `, ${t.inFr}`;
     <p class="sources-note">{t.note}</p>
     <ol>
       <li><a href={MFA} target="_blank" rel="noopener" hreflang="fr">{t.mfa}</a><span class="src-pub"> — {t.mfaPub}</span><span class="src-type"> · {t.kind}{suffix}</span></li>
-      <li><a href={FRD} target="_blank" rel="noopener" hreflang="fr">{t.fr}</a><span class="src-pub"> — {t.frPub}</span><span class="src-type"> · {t.adv}{suffix}</span></li>
     </ol>
     <p class="sources-note" style="margin:.7rem 0 0">{t.foot}</p>
     <p class="sources-note" style="margin:.7rem 0 0"><strong>{checkedLabel} <time datetime={VISA_CHECKED}>{checkedText}</time>.</strong></p>

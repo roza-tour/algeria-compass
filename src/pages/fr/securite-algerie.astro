@@ -11,13 +11,13 @@ const alternates = [
   { hreflang: 'de', href: site + '/de/sicherheit-algerien/' },
   { hreflang: 'x-default', href: enUrl },
 ];
-const title = "L'Algérie est-elle sûre ? Guide sécurité 2027";
-const description = "L'Algérie est-elle sûre pour les touristes ? Une évaluation honnête et à jour : le nord et les circuits classiques, le grand sud encadré, les précautions.";
+const title = "L'Algérie est-elle sûre ? Voyager chez nous en 2027";
+const description = "L'Algérie est-elle sûre ? La réponse de ceux qui y vivent : un pays qui reçoit, un nord qui se visite librement, un grand sud découvert avec notre équipe.";
 const faqs = [
-  { q: "L'Algérie est-elle sûre pour les touristes ?", a: "Oui, le nord et les itinéraires touristiques habituels se visitent sereinement avec les précautions de voyage normales. Les grandes villes, les sites romains et la côte accueillent des visiteurs sans difficulté particulière." },
-  { q: "Le Sahara algérien est-il sûr ?", a: "Le désert profond se visite uniquement avec un opérateur agréé, un guide, un 4x4 et des permis. Dans ce cadre encadré, c'est une expérience sûre et bien organisée ; on ne s'y aventure pas seul." },
-  { q: "Y a-t-il des zones à éviter en Algérie ?", a: "Comme partout, certaines régions frontalières reculées sont déconseillées. Les zones touristiques du nord et les circuits sahariens encadrés n'en font pas partie. Suivez les conseils aux voyageurs de votre gouvernement et de votre agence." },
-  { q: "Est-ce sûr pour les femmes qui voyagent ?", a: "Oui, avec les précautions habituelles. Une tenue modeste, surtout hors des grandes villes, et un accompagnement local facilitent le voyage. De nombreuses voyageuses parcourent l'Algérie sans problème." },
+  { q: "L'Algérie est-elle sûre pour les touristes ?", a: "Oui. Le nord et les itinéraires habituels se visitent sereinement, et ce qui marque le plus, c'est l'accueil : le café offert, les passants qui s'arrêtent pour indiquer le chemin, la fierté de faire découvrir le pays. Les grandes villes, les sites romains et la côte reçoivent des visiteurs toute l'année." },
+  { q: "Le Sahara algérien est-il sûr ?", a: "Oui. Le désert profond se découvre en programme organisé, avec un opérateur agréé, un guide, des 4x4 et des permis préparés à l'avance. Ici, on ne part pas seul dans le désert : on part avec ceux qui le connaissent, et le soir on prend le thé autour du feu." },
+  { q: "Y a-t-il des zones où les visiteurs ne vont pas ?", a: "Quelques confins frontaliers très reculés du grand sud ne sont pas ouverts aux visiteurs, et aucun circuit n'y passe. Tout ce pour quoi l'on vient — les villes du nord, la côte, les cités romaines, les oasis et les circuits sahariens organisés — vous attend, et votre agence vous confirme l'itinéraire exact." },
+  { q: "Une femme peut-elle voyager sereinement en Algérie ?", a: "Oui. Les voyageuses nous parlent surtout de l'hospitalité : une aide proposée spontanément, des conversations, parfois une invitation à partager le repas en famille. Une tenue couvrante, surtout hors des grandes villes, et un accompagnement local rendent le voyage encore plus simple." },
 ];
 const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) };
 const articleSchema = {
@@ -28,7 +28,7 @@ const articleSchema = {
   "description": description,
   "inLanguage": "fr",
   "datePublished": "2026-07-22",
-  "dateModified": "2026-07-22",
+  "dateModified": "2026-11-26",
   "url": site + "/fr/securite-algerie/",
   "mainEntityOfPage": { "@type": "WebPage", "@id": site + "/fr/securite-algerie/" },
   "author": { "@id": site + "/team/oussama-ben-yahia/#person" },
@@ -47,47 +47,52 @@ const authorSchema = {
 };
 ---
 <BaseLayout speakable={['h1', '.guide-lead']} title={title} description={description} lang="fr" alternates={alternates} type="article" schema={[articleSchema, authorSchema, faqSchema]} sticky={true}>
-  <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Sécurité'}]} />
+  <Breadcrumbs items={[{name:'Accueil',href:'/fr/'},{name:'Voyager sereinement'}]} />
   <article class="section">
     <div class="wrap" style="max-width:780px">
-      <span class="eyebrow">Sécurité</span>
+      <span class="eyebrow">Voyager sereinement</span>
       <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0">L'Algérie est-elle sûre ?</h1>
-      <p style="color:var(--text-l);font-size:.9rem">Par <a href="/team/oussama-ben-yahia/" rel="author">Oussama Ben Yahia</a> · Algeria Compass · Mis à jour le <time datetime="2026-07-22">22 juillet 2026</time> · <a href={enUrl}>Read in English</a></p>
+      <p style="color:var(--text-l);font-size:.9rem">Par <a href="/team/oussama-ben-yahia/" rel="author">Oussama Ben Yahia</a> · Algeria Compass · Mis à jour le <time datetime="2026-11-26">26 novembre 2026</time> · <a href={enUrl}>Read in English</a></p>
 
       <p class="guide-lead" style="font-size:1.1rem;line-height:1.7;margin-top:1rem">
-        C'est la première question que se posent la plupart des voyageurs — et la réponse honnête est rassurante :
-        le <strong>nord et les itinéraires touristiques classiques</strong> se parcourent sereinement avec les
-        précautions de voyage habituelles. Le <strong>grand sud saharien</strong> se visite dans un cadre encadré,
-        avec un opérateur agréé.
+        C'est souvent la première question qu'on nous pose, et nous y répondons avec le sourire : l'Algérie est un
+        pays où l'on reçoit. Le <strong>nord et les itinéraires classiques</strong> se parcourent sereinement, comme
+        tout beau voyage. Le <strong>grand sud saharien</strong> se découvre en programme organisé, avec un guide
+        agréé et notre équipe du désert.
       </p>
 
-      <h2 style="margin-top:2rem">Le nord et les villes</h2>
-      <p>Alger, Constantine, Oran, Tlemcen, les cités romaines et la côte accueillent des visiteurs sans difficulté
-      particulière. Les précautions sont celles de tout voyage urbain : attention aux effets personnels, transports
-      fiables, bon sens le soir.</p>
+      <h2 style="margin-top:2rem">Le nord, les villes et l'accueil</h2>
+      <p>À Alger, Constantine, Oran, Tlemcen, dans les cités romaines et le long de la côte, les visiteurs étrangers
+      sont encore peu nombreux, et on vous le fait sentir avec chaleur : un « bienvenue » lancé depuis une boutique,
+      un café qu'on refuse de vous laisser payer, quelqu'un qui fait un détour pour vous accompagner jusqu'à votre
+      adresse. Chez nous, l'invité est sacré. Les bons réflexes sont ceux de tout voyage en ville : un œil sur ses
+      affaires, des transports fiables, un taxi le soir.</p>
 
-      <h2 style="margin-top:2rem">Le Sahara : encadré, donc sûr</h2>
-      <p>Le désert profond (Djanet, Tassili, Hoggar) ne se visite <strong>pas en autonomie</strong> : il faut un
-      <strong>guide agréé, un 4x4 et des permis</strong>. Dans ce cadre, c'est une expérience parfaitement organisée
-      et sûre — c'est justement notre métier.</p>
+      <h2 style="margin-top:2rem">Le Sahara, avec ceux qui le connaissent</h2>
+      <p>Le désert profond (Djanet, Tassili, Tadrart, Hoggar, Tamanrasset) se découvre en <strong>programme
+      organisé</strong>, avec un <strong>guide agréé, des 4x4 et des permis</strong> préparés à l'avance. Nos guides
+      et nos chauffeurs du Sud connaissent chaque piste ; le soir, on se retrouve autour du feu pour le thé, sous un
+      ciel immense. Quelques zones frontalières reculées ne sont pas ouvertes aux visiteurs : nos itinéraires vous
+      mènent vers les plus beaux paysages, là où l'on vous attend — c'est notre métier.</p>
 
-      <h2 style="margin-top:2rem">Précautions de bon sens</h2>
+      <h2 style="margin-top:2rem">Quelques conseils d'amis</h2>
       <ul class="prose">
-        <li>Consultez les conseils aux voyageurs de votre gouvernement avant le départ.</li>
-        <li>Réservez le sud avec un opérateur agréé (permis, logistique, guides).</li>
-        <li>Adoptez une tenue modeste, surtout hors des grandes villes.</li>
-        <li>Privilégiez les transports et guides recommandés localement.</li>
+        <li>Confiez le sud à un opérateur agréé : permis, logistique et guides sont préparés pour vous.</li>
+        <li>Une tenue couvrante, surtout hors des grandes villes, est une marque de respect toujours appréciée.</li>
+        <li>Laissez-vous guider par les transports et les guides recommandés sur place.</li>
+        <li>Acceptez le thé quand on vous l'offre : c'est souvent ainsi que commencent les plus belles rencontres.</li>
       </ul>
 
       <h2 style="margin-top:2rem">Voyager au féminin</h2>
-      <p>L'Algérie se visite très bien au féminin avec les précautions habituelles. Une tenue modeste et un
-      accompagnement local rendent le voyage fluide et agréable.</p>
+      <p>L'Algérie se visite très bien au féminin. Les voyageuses nous parlent surtout de la gentillesse rencontrée :
+      des femmes qui engagent la conversation, des familles qui proposent leur aide, parfois une invitation à
+      partager le repas. Une tenue couvrante et un accompagnement local rendent le voyage fluide et agréable.</p>
 
       <h2 style="margin-top:2rem">Questions fréquentes</h2>
       {faqs.map(f => (<div style="margin:.8rem 0"><h3 style="margin:.2rem 0;font-size:1.05rem">{f.q}</h3><p style="color:var(--text-l)">{f.a}</p></div>))}
 
       <div class="card" style="padding:1.2rem;margin-top:2rem;text-align:center">
-        <h2 style="margin:.2rem 0">Voyagez accompagné, en confiance</h2>
+        <h2 style="margin:.2rem 0">Venez, on vous attend</h2>
         <p style="color:var(--text-l)">Guides locaux, logistique et permis gérés de bout en bout.</p>
         <p style="margin-top:.8rem"><a class="btn btn-gold" href="/fr/contact/">Nous contacter</a> <a class="btn" href="/fr/guide-voyage-algerie/">Guide complet</a></p>
       </div>

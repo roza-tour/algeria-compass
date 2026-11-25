@@ -17,7 +17,7 @@ faqs:
   - { q: "Do Australians need a visa for Algeria?", a: "Yes. Visitors from Australia need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare for $25 with any programme of at least 3 days that includes airport pickup and drop-off. For organised trips that include the Sahara, our Saharan visa-authorisation ($50) lets the visa be issued on arrival at Algiers airport. Send us your nationality and we confirm which route applies." }
   - { q: "How do I fly to Algeria from Australia?", a: "There are no direct flights, so plan on one or two connections into Algiers (ALG) — usually through Doha, Dubai or Istanbul. From Sydney or Melbourne the journey is typically 22 to 28 hours; many travellers break it with a stopover. Check current schedules when you book." }
   - { q: "What is the time difference between Australia and Algeria?", a: "Algeria runs on UTC+1 all year, with no daylight saving. Sydney and Melbourne are 9 hours ahead of Algiers in the Australian winter and 10 hours ahead during Australian daylight saving; Perth is 7 hours ahead all year." }
-  - { q: "Is Algeria safe for Australians?", a: "The north, the M'Zab Valley and the organised Sahara routes are calm and very welcoming to visitors. The far-south border areas are restricted, and we only travel the deep desert with permits and licensed guides. Check Smartraveller (smartraveller.gov.au) before you book, as you would anywhere." }
+  - { q: "Is Algeria safe for Australians?", a: "Yes. Australians who make the long journey are received with special warmth. The north, the M'Zab Valley and the organised Sahara routes are calm and welcoming. In the deep desert we travel with permits and licensed guides, and a few far-south border areas are not open to visitors." }
 seo:
   title: "Algeria Tours from Australia: Flights, Visa & Planning"
   description: "Algeria from Australia: flights, visa, time difference, money, best season and private tours with real prices. Licensed Algerian operator."
@@ -61,7 +61,7 @@ For the top end, the [5-Star Collection](/luxury/) is eight days all-inclusive �
 Every price is per person, published on the tour page, and fixed: it changes only if you ask for a custom itinerary or extra days. Cancellation is free up to 5 days before departure — see our [booking terms](/booking-terms/).
 
 ## Safety
-The north of Algeria, the M'Zab Valley and the organised Sahara routes are calm and very welcoming; our [safety guide](/blog/algeria-safety-guide/) sets out the evidence. Check Smartraveller (smartraveller.gov.au) before you book, as you would anywhere. Travel and medical insurance is required on our Sahara tours.
+It is a long way to come, and Algerians know it: someone who has flown halfway round the world to see their country gets an especially warm welcome. If you know the outback, you will recognise the way our desert crew works — unhurried, careful with water, generous around the fire. The north, the M'Zab Valley and the organised Sahara routes are calm and welcoming; the deep south is travelled with permits and a licensed guide, and a few far-south border areas are not open to visitors. See our [safety guide](/blog/algeria-safety-guide/) for the full picture. Travel and medical insurance is required on our Sahara tours.
 
 ## Plan it with us
 [Tell us your dates](/contact/) and how you like to travel, and we will build the trip around you — or answer the visa question first, before you commit to anything.

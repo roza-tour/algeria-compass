@@ -51,7 +51,7 @@ commonMistakes:
   - { mistake: "Underestimating distances", instead: "Fly the long legs instead of long overland days." }
   - { mistake: "Relying on cards for tickets", instead: "Carry cash; many fares are cash-only." }
   - { mistake: "Self-driving into the desert", instead: "Use a licensed operator with 4x4 and permits." }
-  - { mistake: "Driving rural roads at night", instead: "Travel in daylight; hazards rise sharply after dark." }
+  - { mistake: "Driving rural roads at night", instead: "Travel in daylight; rural roads are unlit and busy with animals after dark." }
   - { mistake: "Tight connections", instead: "Build buffer time; schedules can slip." }
 faqs:
   - { q: "What is the best way to get around Algeria?", a: "Fly for long distances (especially to the Sahara), use trains and buses between northern cities, shared taxis for shorter hops, and a guided 4x4 for the desert." }
@@ -81,7 +81,6 @@ intent: "practical"
 sources:
   - { title: "Air Algérie", publisher: "Air Algérie", url: "https://www.airalgerie.dz", type: "transport" }
   - { title: "SNTF — National Railway", publisher: "SNTF (Algeria)", url: "https://www.sntf.dz", type: "transport" }
-  - { title: "Foreign travel advice: Algeria — Getting around", publisher: "UK FCDO", url: "https://www.gov.uk/foreign-travel-advice/algeria/safety-and-security", type: "government" }
   - { title: "Algeria", publisher: "Encyclopædia Britannica", url: "https://www.britannica.com/place/Algeria", type: "reference" }
 ---
 ---
@@ -107,7 +106,7 @@ Many visitors, especially those short on time or wary of driving, hire a private
 Car hire is available in the cities and at airports and suits independent travel in the north, where main roads are good and distances between sights are manageable. Bring the required documents, understand the insurance, and plan fuel stops on longer routes. For the desert, though, self-driving is the wrong tool: the south calls for a licensed operator with a properly equipped 4x4, not a rental saloon.
 
 ## Road conditions
-Algeria's main highways, including the great east–west motorway, are generally good, and the network is extensive. The hazards are behavioural and environmental rather than structural: assertive driving, pedestrians and animals, variable lighting, and long empty stretches in the interior. The firm rule for visitors is to avoid rural roads after dark, when risk rises sharply — a point echoed by government [safety advice](/blog/algeria-safety-guide/). Routine police and gendarmerie checkpoints are normal; keep documents accessible and be patient.
+Algeria's main highways, including the great east–west motorway, are generally good, and the network is extensive. What asks for attention is behavioural and environmental rather than structural: assertive driving, pedestrians and animals, variable lighting, and long empty stretches in the interior. The one firm rule for visitors is to keep rural roads for daylight, since they are unlit and shared with people and animals after dark — see our [safety guide](/blog/algeria-safety-guide/). Routine police and gendarmerie checkpoints are normal; keep documents accessible and be patient.
 
 ## Desert logistics
 The Sahara has its own transport logic, and it is not negotiable: you reach a southern town by air or long overland haul, then travel by guided 4x4 within permitted areas. Licensed operators provide the vehicles, experienced drivers and guides, fuel, water and communications, and they handle the permits that desert travel requires. This is covered in the [Sahara region guide](/regions/sahara/); the takeaway here is simply that desert movement is organised, expedition-style travel, not something to improvise.
@@ -128,4 +127,4 @@ Buy domestic flights through the airline's own channels and aim to ticket well b
 The questions below cover how travellers actually move around Algeria. For live schedules and fares, use the operators' own channels listed below, and see our [editorial standards](/editorial/) for how we keep transport pages current.
 
 ## About these sources
-This guide draws on Air Algérie and SNTF for services, UK government advice for road safety, and Britannica for country background.
+This guide draws on Air Algérie and SNTF for services, our own drivers' daily experience for the roads, and Britannica for country background.

@@ -548,15 +548,15 @@ export const QUESTIONS_ES: Record<string, QuestionI18n> = {
   },
   "is-algeria-safe-for-solo-female-travellers": {
     "q": "¿Es Argelia segura para mujeres que viajan solas?",
-    "a": "En general sí, con la atención habitual. Hay mujeres que viajan solas por Argel, Orán, Constantina y la costa sin incidentes; el país es conservador más que peligroso. Espere atención y preguntas, no amenazas; vista con sobriedad y prefiera los desplazamientos interurbanos de día.",
+    "a": "Sí, y lo que más cuentan las viajeras es la hospitalidad. Hay mujeres que viajan solas por Argel, Orán, Constantina y la costa sin problemas; el país es tradicional, y eso se traduce sobre todo en atenciones. Espere curiosidad, preguntas y ayuda espontánea; vista con sobriedad y prefiera los desplazamientos interurbanos de día.",
     "kf": [
       [
         "Ciudades del norte",
-        "En general seguras con precaución normal"
+        "Acogedoras, con el sentido común de siempre"
       ],
       [
-        "Principal molestia",
-        "Miradas y atención, no delincuencia"
+        "Qué esperar",
+        "Curiosidad, preguntas, ayuda espontánea"
       ],
       [
         "Vestimenta",
@@ -564,25 +564,25 @@ export const QUESTIONS_ES: Record<string, QuestionI18n> = {
       ],
       [
         "Sáhara profundo",
-        "Solo en grupos guiados, para todos"
+        "Con nuestro equipo, como para todos"
       ]
     ]
   },
   "is-algeria-safe": {
     "q": "¿Es seguro visitar Argelia?",
-    "a": "Sí — en 2026 Argelia es en general segura para los turistas. Las grandes ciudades, el norte, el valle del M'Zab y las rutas saharianas organizadas están tranquilos y son muy acogedores. Algunas zonas fronterizas remotas del extremo sur exigen permisos y un guía autorizado, y unas pocas franjas fronterizas están cerradas a los visitantes.",
+    "a": "Sí — en 2026 Argelia es un país tranquilo y acogedor para quien viaja. Las grandes ciudades, el norte, el valle del M'Zab y las rutas saharianas organizadas se visitan con serenidad, y no es raro que le ofrezcan un té antes incluso de preguntarle de dónde viene. El extremo sur se descubre con un guía autorizado y permisos, que organizamos nosotros, y algunas franjas fronterizas remotas no están abiertas a los visitantes.",
     "kf": [
       [
         "Ciudades y norte",
-        "Seguros para el turismo normal"
+        "Tranquilos y acogedores"
       ],
       [
         "Sáhara profundo",
-        "Guía + permiso obligatorios"
+        "Con guía autorizado y permisos"
       ],
       [
-        "Fronteras del extremo sur",
-        "Restringidas / prohibidas"
+        "Fronteras remotas del sur",
+        "No abiertas a los visitantes"
       ]
     ]
   },
@@ -654,18 +654,18 @@ export const QUESTIONS_ES: Record<string, QuestionI18n> = {
   },
   "is-the-algerian-sahara-safe": {
     "q": "¿Es seguro el Sáhara argelino?",
-    "a": "Sí, cuando se recorre como debe hacerse — con un operador autorizado, un guía experimentado, 4x4 en condiciones, agua, comunicaciones y permisos, por rutas autorizadas. Los riesgos reales son el calor, la deshidratación, la orientación y el aislamiento, no la delincuencia. Lo peligroso es el desierto improvisado por libre, y está regulado.",
+    "a": "Sí, y es uno de los viajes más bellos que se pueden hacer — cuando se vive como se debe: con un operador autorizado, un guía que conoce cada pista, 4x4 en condiciones, agua, comunicaciones y permisos, por rutas autorizadas. El desierto pide respeto por el calor, las distancias y el aislamiento; por eso no se improvisa, y el viaje por libre está regulado. Quienes lo habitan le reciben con té y una sonrisa.",
     "kf": [
       [
-        "Riesgos reales",
-        "Calor, deshidratación, orientación, aislamiento"
+        "Lo que pide el desierto",
+        "Respeto por el calor, las distancias, el aislamiento"
       ],
       [
-        "No es el riesgo",
-        "La delincuencia contra los visitantes"
+        "La acogida",
+        "Cálida, en los pueblos y en el campamento"
       ],
       [
-        "Obligatorio",
+        "Cómo se viaja",
         "Operador autorizado, guía, permisos"
       ],
       [
@@ -961,24 +961,24 @@ export const QUESTIONS_ES: Record<string, QuestionI18n> = {
     ]
   },
   "which-parts-of-algeria-should-tourists-avoid": {
-    "q": "¿Qué zonas de Argelia deben evitar los turistas?",
-    "a": "Las áreas con advertencias son las remotas franjas fronterizas con Malí, Níger y Libia, y algunas zonas de desierto lejano fuera de las rutas establecidas. Las ciudades del norte, la costa, el este romano, la Cabilia y los circuitos saharianos organizados no están en esa lista. Consulte el aviso vigente de su gobierno antes de viajar.",
+    "q": "¿Hay zonas de Argelia no abiertas a los turistas?",
+    "a": "Pocas, y muy lejos de todo lo que se viene a ver: las remotas franjas fronterizas con Malí, Níger y Libia y algunas zonas de desierto lejano fuera de las rutas establecidas, donde no se expiden permisos. Las ciudades del norte, la costa, el este romano, la Cabilia y los circuitos saharianos organizados le esperan con los brazos abiertos.",
     "kf": [
       [
-        "Desaconsejado",
+        "No abiertas a los visitantes",
         "Franjas fronterizas con Malí, Níger y Libia"
       ],
       [
-        "Restringido",
-        "Desierto remoto fuera de las rutas establecidas"
+        "Fuera de ruta",
+        "Desierto remoto lejos de las rutas establecidas"
       ],
       [
-        "No restringido",
+        "Abiertas y acogedoras",
         "Norte, costa, este romano, M'Zab"
       ],
       [
-        "Comprobar",
-        "El aviso actualizado de su gobierno"
+        "Sáhara profundo",
+        "Con guía autorizado y permisos"
       ]
     ]
   }

@@ -173,7 +173,7 @@ export const clusters: Cluster[] = [
     id: 'algeria-safety', name: 'Algeria Safety',
     description: 'Honest, current safety guidance for travelling Algeria.',
     purpose: 'Answer the #1 hesitation with calm, sourced facts.',
-    keywords: ['is Algeria safe','Algeria safety','solo travel Algeria','Algeria travel advisory'],
+    keywords: ['is Algeria safe','Algeria safety','solo travel Algeria','Algeria travel safety'],
     primaryIntent: 'decision', intents: ['decision','practical','emergency'],
     audience: 'Anyone deciding whether to go.',
     authorityGoal: 'Most trusted, current safety reference for Algeria.',

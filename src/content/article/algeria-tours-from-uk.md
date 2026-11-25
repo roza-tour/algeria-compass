@@ -17,7 +17,7 @@ faqs:
   - { q: "Do British travellers need a visa for Algeria?", a: "Yes. Visitors from the United Kingdom need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare for $25 with any programme of at least 3 days that includes airport pickup and drop-off. For organised trips that include the Sahara, our Saharan visa-authorisation ($50) lets the visa be issued on arrival at Algiers airport. Send us your nationality and we confirm which route applies." }
   - { q: "How do I fly to Algeria from the UK?", a: "Algiers is only about three hours from London, and direct flights have operated from London for years. From regional airports, connect through Paris, Frankfurt, Amsterdam or Istanbul. Check current schedules when you book — routes and frequencies change by season." }
   - { q: "What is the time difference between the UK and Algeria?", a: "Algeria runs on UTC+1 all year, with no daylight saving. It is one hour ahead of the UK in winter and the same time in summer — no jet lag at all." }
-  - { q: "Is Algeria safe for British travellers?", a: "The north, the M'Zab Valley and the organised Sahara routes are calm and very welcoming to visitors. The far-south border areas are restricted, and we only travel the deep desert with permits and licensed guides. Check the FCDO's Algeria advice at gov.uk/foreign-travel-advice before you book, as you would anywhere." }
+  - { q: "Is Algeria safe for British travellers?", a: "Yes. British visitors are greeted warmly, very often with a question about English football. The north, the M'Zab Valley and the organised Sahara routes are calm and welcoming. The deep desert is travelled with permits and licensed guides, and a few far-south border areas are not open to visitors." }
 seo:
   title: "Algeria Tours from the UK: Flights, Visa & Planning"
   description: "Algeria from the UK: flights, visa, time difference, money, best season and private tours with real prices. Licensed Algerian operator."
@@ -61,7 +61,7 @@ For the top end, the [5-Star Collection](/luxury/) is eight days all-inclusive �
 Every price is per person, published on the tour page, and fixed: it changes only if you ask for a custom itinerary or extra days. Cancellation is free up to 5 days before departure — see our [booking terms](/booking-terms/).
 
 ## Safety
-The north of Algeria, the M'Zab Valley and the organised Sahara routes are calm and very welcoming; our [safety guide](/blog/algeria-safety-guide/) sets out the evidence. Check the FCDO's Algeria advice at gov.uk/foreign-travel-advice before you book, as you would anywhere. Travel and medical insurance is required on our Sahara tours.
+Algerians follow English football closely, so a British accent often opens a conversation about the Premier League, and about Riyad Mahrez's years at Leicester and Manchester City, before you have finished your coffee. That easy friendliness sets the tone of the trip. The north, the M'Zab Valley and the organised Sahara routes are calm and welcoming; the deep desert is travelled with permits, a licensed guide and our desert crew, and a few far-south border areas are closed to visitors. There is more in our [safety guide](/blog/algeria-safety-guide/). Travel and medical insurance is required on our Sahara tours.
 
 ## Plan it with us
 [Tell us your dates](/contact/) and how you like to travel, and we will build the trip around you — or answer the visa question first, before you commit to anything.

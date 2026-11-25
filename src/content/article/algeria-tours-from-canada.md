@@ -17,7 +17,7 @@ faqs:
   - { q: "Do Canadians need a visa for Algeria?", a: "Yes. Visitors from Canada need a visa, arranged before travel at an Algerian embassy or consulate with an invitation letter from a licensed Algerian operator — which we prepare for $25 with any programme of at least 3 days that includes airport pickup and drop-off. For organised trips that include the Sahara, our Saharan visa-authorisation ($50) lets the visa be issued on arrival at Algiers airport. Send us your nationality and we confirm which route applies." }
   - { q: "How do I fly to Algeria from Canada?", a: "Montreal has long had direct flights to Algiers — around seven hours — thanks to the large Algerian community in Quebec. From Toronto, Vancouver or Calgary, connect through Montreal or through a European hub such as Paris, Frankfurt or Istanbul. Check current schedules when you book." }
   - { q: "What is the time difference between Canada and Algeria?", a: "Algeria runs on UTC+1 all year, with no daylight saving. Algiers is 6 hours ahead of Montreal and Toronto in winter and 5 in summer; 9 hours ahead of Vancouver in winter and 8 in summer." }
-  - { q: "Is Algeria safe for Canadians?", a: "The north, the M'Zab Valley and the organised Sahara routes are calm and very welcoming to visitors. The far-south border areas are restricted, and we only travel the deep desert with permits and licensed guides. Check the Government of Canada's advice at travel.gc.ca before you book, as you would anywhere." }
+  - { q: "Is Algeria safe for Canadians?", a: "Yes, and Canadians often find an instant connection, since many Algerian families have relatives in Canada, especially in Montreal. The north, the M'Zab Valley and the organised Sahara routes are calm and welcoming. In the deep desert we travel with permits and licensed guides, and a few far-south border areas are not open to visitors." }
 seo:
   title: "Algeria Tours from Canada: Flights, Visa & Planning"
   description: "Algeria from Canada: flights, visa, time difference, money, best season and private tours with real prices. Licensed Algerian operator."
@@ -61,7 +61,7 @@ For the top end, the [5-Star Collection](/luxury/) is eight days all-inclusive �
 Every price is per person, published on the tour page, and fixed: it changes only if you ask for a custom itinerary or extra days. Cancellation is free up to 5 days before departure — see our [booking terms](/booking-terms/).
 
 ## Safety
-The north of Algeria, the M'Zab Valley and the organised Sahara routes are calm and very welcoming; our [safety guide](/blog/algeria-safety-guide/) sets out the evidence. Check the Government of Canada's advice at travel.gc.ca before you book, as you would anywhere. Travel and medical insurance is required on our Sahara tours.
+Many Algerian families have relatives in Montreal, so Canadians often find themselves comparing Quebec winters over a coffee within minutes of arriving, and French speakers will feel right at home. The north, the M'Zab Valley and the organised Sahara routes are calm and welcoming; in the deep south we travel with permits and a licensed guide, and a few far-south border areas are not open to visitors. Our [safety guide](/blog/algeria-safety-guide/) goes into the details. Travel and medical insurance is required on our Sahara tours.
 
 ## Plan it with us
 [Tell us your dates](/contact/) and how you like to travel, and we will build the trip around you — or answer the visa question first, before you commit to anything.

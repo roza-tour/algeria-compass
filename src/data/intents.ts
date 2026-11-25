@@ -55,7 +55,7 @@ export const intents: Intent[] = [
   { id: 'emergency', name: 'Emergency / Safety', description: 'Time-sensitive safety need.',
     contentTypes: ['article','question'], schema: ['Article','FAQPage'],
     conversion: 'Right answer fast; trust.', aiOpportunities: ['practical-info-box','common-mistakes'],
-    faqStyle: 'Is it safe / what to do if.', linking: 'Link official advisories + safety pillar.', answerStyle: 'Calm, direct, sourced.' },
+    faqStyle: 'Is it safe / what to do if.', linking: 'Link the safety pillar + Algerian official sources.', answerStyle: 'Warm, calm, direct.' },
 ];
 
 export const intentById = (id: IntentId) => intents.find(i => i.id === id);

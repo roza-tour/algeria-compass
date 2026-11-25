@@ -16,7 +16,7 @@ export const PROVINCES_DE = {
       { label: 'Flughafen', value: 'Houari Boumediene (ALG)' }, { label: 'Verkehr', value: 'Metro, Straßenbahn, Seilbahnen, Taxis' }, { label: 'Beste Reisezeit', value: 'Apr.–Juni und Sept.–Nov.' },
     ],
     faqs: [
-      { q: 'Ist die Kasbah von Algier sicher zu besuchen?', a: 'Ja, tagsüber und am besten mit einem örtlichen Guide, der sich im steilen Gassengewirr auskennt, die restaurierten Häuser und Paläste findet und ihre Geschichte erklärt. Treffen Sie die üblichen Vorsichtsmaßnahmen einer Großstadt und tragen Sie gute Schuhe.' },
+      { q: 'Ist die Kasbah von Algier sicher zu besuchen?', a: 'Ja, tagsüber und am besten mit einem örtlichen Guide, der sich im steilen Gassengewirr auskennt, die restaurierten Häuser und Paläste findet und ihre Geschichte erklärt. Behalten Sie Ihre Sachen im Blick wie in jeder Großstadt, tragen Sie gute Schuhe und nehmen Sie den Tee an, wenn man ihn Ihnen anbietet.' },
       { q: 'Wie viele Tage braucht man in Algier?', a: 'Zwei bis drei Tage genügen für die Kasbah, das koloniale Zentrum und die Uferpromenade, die wichtigsten Museen und Monumente sowie einen halben Tag an der Küste oder einen Ausflug zu den römischen Ruinen von Tipasa.' },
       { q: 'Wann ist die beste Reisezeit für Algier?', a: 'Frühling (April–Juni) und Herbst (September–November), mild und hell. Der Sommer ist heiß und lebhaft; der Winter mild, aber regnerischer.' },
     ],

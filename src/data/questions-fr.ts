@@ -108,7 +108,7 @@ export const QUESTIONS_FR: Record<string, QuestionI18n> = {
   },
   "can-i-visit-algeria-without-a-tour-guide": {
     "q": "Peut-on visiter l'Algérie sans guide ?",
-    "a": "Dans le nord, oui — Alger, Oran, Constantine, la côte et les cités romaines se parcourent en indépendant. Le Sahara profond est différent : l'extrême sud se visite avec un opérateur licencié, un guide et des permis, et le voyage indépendant y est restreint pour des raisons de sécurité.",
+    "a": "Dans le nord, oui — Alger, Oran, Constantine, la côte et les cités romaines se parcourent en indépendant. Le Sahara profond se découvre autrement : l'extrême sud se visite en programme organisé, avec un opérateur licencié, un guide et des permis.",
     "kf": [
       [
         "Villes du nord et côte",
@@ -548,15 +548,15 @@ export const QUESTIONS_FR: Record<string, QuestionI18n> = {
   },
   "is-algeria-safe-for-solo-female-travellers": {
     "q": "L'Algérie est-elle sûre pour les femmes voyageant seules ?",
-    "a": "Globalement oui, avec la vigilance habituelle. Des femmes voyagent seules à Alger, Oran, Constantine et sur la côte sans incident ; le pays est conservateur plutôt que dangereux. Attendez-vous à de l'attention et à des questions, pas à une menace ; habillez-vous sobrement et privilégiez les trajets interurbains de jour.",
+    "a": "Oui. Des femmes voyagent seules à Alger, Oran, Constantine et sur la côte, et elles parlent surtout d'hospitalité : aide spontanée, conversations, invitations à prendre le thé. Le pays est conservateur, si bien qu'une voyageuse seule éveille la curiosité ; une tenue sobre et des trajets de jour entre les villes rendent le voyage simple et agréable.",
     "kf": [
       [
         "Villes du nord",
-        "Globalement sûres avec une vigilance normale"
+        "Accueillantes, avec les réflexes habituels"
       ],
       [
-        "Principal désagrément",
-        "Les regards et l'attention, pas la délinquance"
+        "Ce qui frappe",
+        "La curiosité et la gentillesse"
       ],
       [
         "Tenue",
@@ -564,25 +564,25 @@ export const QUESTIONS_FR: Record<string, QuestionI18n> = {
       ],
       [
         "Sahara profond",
-        "En groupe encadré, pour tout le monde"
+        "En programme guidé, pour tous les voyageurs"
       ]
     ]
   },
   "is-algeria-safe": {
     "q": "L'Algérie est-elle sûre à visiter ?",
-    "a": "Oui — l'Algérie est globalement sûre pour les touristes en 2026. Les grandes villes, le nord, la vallée du M'Zab et les itinéraires sahariens organisés sont calmes et très accueillants. Certaines régions frontalières reculées de l'extrême sud exigent des permis et un guide licencié, et quelques zones frontalières sont fermées aux visiteurs.",
+    "a": "Oui — l'Algérie est un pays calme et profondément accueillant, et beaucoup de voyageurs en retiennent avant tout l'hospitalité. Les grandes villes, le nord, la vallée du M'Zab et les itinéraires sahariens organisés se visitent sereinement. L'extrême sud se découvre avec des permis et un guide licencié, et quelques zones frontalières reculées ne sont pas ouvertes aux visiteurs.",
     "kf": [
       [
         "Villes et nord",
-        "Sûrs pour un tourisme normal"
+        "Ouverts et accueillants"
       ],
       [
         "Sahara profond",
-        "Guide + permis obligatoires"
+        "Guide + permis, en programme organisé"
       ],
       [
-        "Frontières de l'extrême sud",
-        "Restreintes / interdites"
+        "Confins frontaliers de l'extrême sud",
+        "Non ouverts aux visiteurs"
       ]
     ]
   },
@@ -610,15 +610,15 @@ export const QUESTIONS_FR: Record<string, QuestionI18n> = {
   },
   "is-algiers-safe-to-walk-around": {
     "q": "Peut-on se promener à pied dans Alger en sécurité ?",
-    "a": "Oui. Le centre d'Alger est une ville animée et faite pour la marche, et les visiteurs s'y déplacent à pied tous les jours. Le vol à la tire dans la foule est le vrai point de vigilance, comme dans n'importe quelle capitale méditerranéenne. Prenez les précautions habituelles avec téléphone et sac, et préférez le taxi tard le soir dans les quartiers calmes.",
+    "a": "Oui. Le centre d'Alger est une ville animée et faite pour la marche, et les visiteurs s'y déplacent à pied tous les jours. Comme dans n'importe quelle capitale méditerranéenne, gardez un œil sur téléphone et sac dans la foule, et préférez le taxi tard le soir dans les quartiers calmes.",
     "kf": [
       [
         "Centre en journée",
         "Agréable et animé"
       ],
       [
-        "Principal risque",
-        "Le vol à la tire dans la foule"
+        "À surveiller",
+        "Téléphone et sac dans la foule"
       ],
       [
         "Tard le soir",
@@ -654,15 +654,15 @@ export const QUESTIONS_FR: Record<string, QuestionI18n> = {
   },
   "is-the-algerian-sahara-safe": {
     "q": "Le Sahara algérien est-il sûr ?",
-    "a": "Oui, lorsqu'il se parcourt comme il doit l'être — avec un opérateur licencié, un guide expérimenté, de vrais 4x4, de l'eau, des moyens de communication et des permis, sur des itinéraires autorisés. Les vrais risques sont la chaleur, la déshydratation, l'orientation et l'isolement, pas la délinquance. C'est le désert improvisé en indépendant qui est dangereux, et il est réglementé.",
+    "a": "Oui, et c'est l'un des plus beaux voyages qui soient, lorsqu'on le vit comme il se doit — avec un opérateur licencié, un guide expérimenté, de vrais 4x4, de l'eau, des moyens de communication et des permis, sur des itinéraires autorisés. Ce que le désert demande, c'est du respect pour la chaleur, les distances et l'isolement ; c'est pourquoi on n'y part pas seul, mais avec ceux qui le connaissent.",
     "kf": [
       [
-        "Vrais risques",
-        "Chaleur, déshydratation, orientation, isolement"
+        "Ce que le désert demande",
+        "Respect de la chaleur, des distances, de l'isolement"
       ],
       [
-        "Ce n'est pas le risque",
-        "La délinquance envers les visiteurs"
+        "L'accueil",
+        "Celui des gens du Sud, sincère et généreux"
       ],
       [
         "Obligatoire",
@@ -961,24 +961,24 @@ export const QUESTIONS_FR: Record<string, QuestionI18n> = {
     ]
   },
   "which-parts-of-algeria-should-tourists-avoid": {
-    "q": "Quelles régions d'Algérie les touristes doivent-ils éviter ?",
-    "a": "Les zones qui font l'objet d'avertissements sont les régions frontalières reculées avec le Mali, le Niger et la Libye, ainsi que certaines zones de désert lointain à l'écart des itinéraires établis. Les villes du nord, la côte, l'est romain, la Kabylie et les circuits sahariens organisés n'y figurent pas. Consultez l'avis en vigueur de votre gouvernement avant de partir.",
+    "q": "Quelles régions d'Algérie ne sont pas ouvertes aux touristes ?",
+    "a": "Seuls quelques confins très reculés de l'extrême sud, le long des frontières avec le Mali, le Niger et la Libye, ne sont pas ouverts aux visiteurs, et le désert lointain à l'écart des itinéraires établis ne se parcourt pas librement. Tout le reste vous attend : les villes du nord, la côte, l'est romain, la Kabylie, le M'Zab et les circuits sahariens organisés.",
     "kf": [
       [
-        "Déconseillé",
-        "Zones frontalières du Mali, du Niger et de la Libye"
+        "Non ouvert aux visiteurs",
+        "Confins frontaliers du Mali, du Niger et de la Libye"
       ],
       [
-        "Restreint",
+        "Hors circuits",
         "Le désert lointain hors des itinéraires établis"
       ],
       [
-        "Non restreint",
+        "Ouvert et accueillant",
         "Le nord, la côte, l'est romain, le M'Zab"
       ],
       [
-        "À vérifier",
-        "L'avis à jour de votre gouvernement"
+        "Sahara profond",
+        "Avec opérateur licencié, guide et permis"
       ]
     ]
   }

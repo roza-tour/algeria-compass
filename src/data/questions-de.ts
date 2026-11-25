@@ -108,7 +108,7 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
   },
   "can-i-visit-algeria-without-a-tour-guide": {
     "q": "Kann man Algerien ohne Reiseführer besuchen?",
-    "a": "Im Norden ja — Algier, Oran, Constantine, die Küste und die römischen Städte lassen sich selbstständig bereisen. Die tiefe Sahara ist anders: Der äußerste Süden wird mit einem lizenzierten Veranstalter, einem Guide und Genehmigungen besucht, individuelles Reisen ist dort aus Sicherheitsgründen eingeschränkt.",
+    "a": "Im Norden ja — Algier, Oran, Constantine, die Küste und die römischen Städte lassen sich selbstständig bereisen. Die tiefe Sahara ist anders: Den äußersten Süden besucht man als organisiertes Programm mit einem lizenzierten Veranstalter, einem Guide und Genehmigungen.",
     "kf": [
       [
         "Nordstädte und Küste",
@@ -548,15 +548,15 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
   },
   "is-algeria-safe-for-solo-female-travellers": {
     "q": "Ist Algerien für allein reisende Frauen sicher?",
-    "a": "Im Großen und Ganzen ja, mit der üblichen Umsicht. Frauen reisen allein in Algier, Oran, Constantine und an der Küste ohne Zwischenfälle; das Land ist konservativ, nicht gefährlich. Rechnen Sie mit Aufmerksamkeit und Fragen, nicht mit Bedrohung; kleiden Sie sich zurückhaltend und bevorzugen Sie Überlandfahrten bei Tag.",
+    "a": "Im Großen und Ganzen ja. Frauen reisen allein in Algier, Oran, Constantine und an der Küste ohne Zwischenfälle und erzählen vor allem von Herzlichkeit. Das Land ist konservativ: Sie begegnen Neugier und Fragen, und sehr oft Hilfsbereitschaft. Kleiden Sie sich zurückhaltend und bevorzugen Sie Überlandfahrten bei Tag.",
     "kf": [
       [
         "Städte im Norden",
-        "Meist sicher bei normaler Vorsicht"
+        "Entspannt, mit der üblichen Großstadt-Aufmerksamkeit"
       ],
       [
-        "Hauptärgernis",
-        "Blicke und Aufmerksamkeit, keine Kriminalität"
+        "Was auffällt",
+        "Blicke und Neugier, wenig Kriminalität"
       ],
       [
         "Kleidung",
@@ -564,25 +564,25 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
       ],
       [
         "Tiefe Sahara",
-        "Nur in geführten Gruppen, für alle"
+        "Organisiertes Programm mit Guide, für alle"
       ]
     ]
   },
   "is-algeria-safe": {
     "q": "Ist Algerien sicher zu bereisen?",
-    "a": "Ja — Algerien ist 2026 für Touristen im Großen und Ganzen sicher. Die großen Städte, der Norden, das M'Zab-Tal und die organisierten Sahara-Routen sind ruhig und sehr gastfreundlich. Einige abgelegene Grenzregionen im äußersten Süden verlangen Genehmigungen und einen lizenzierten Guide, und einige Grenzstreifen sind für Besucher gesperrt.",
+    "a": "Ja — Algerien ist 2026 ein ruhiges und sehr gastfreundliches Reiseland. In den großen Städten, im Norden, im M'Zab-Tal und auf den organisierten Sahara-Routen reisen Sie entspannt. Den äußersten Süden besuchen Sie als organisiertes Programm mit lizenziertem Guide und Genehmigungen, und einige abgelegene Grenzstreifen sind für Besucher nicht geöffnet.",
     "kf": [
       [
         "Städte und Norden",
-        "Sicher für normalen Tourismus"
+        "Entspannt und gastfreundlich"
       ],
       [
         "Tiefe Sahara",
-        "Guide + Genehmigung erforderlich"
+        "Organisiertes Programm mit Guide + Genehmigung"
       ],
       [
         "Grenzen im äußersten Süden",
-        "Eingeschränkt / gesperrt"
+        "Teilweise nicht für Besucher geöffnet"
       ]
     ]
   },
@@ -654,18 +654,18 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
   },
   "is-the-algerian-sahara-safe": {
     "q": "Ist die algerische Sahara sicher?",
-    "a": "Ja, wenn sie so bereist wird, wie es sich gehört — mit lizenziertem Veranstalter, erfahrenem Guide, echten Geländewagen, Wasser, Kommunikationsmitteln und Genehmigungen, auf zugelassenen Routen. Die echten Risiken sind Hitze, Dehydrierung, Orientierung und Abgeschiedenheit, nicht Kriminalität. Gefährlich ist die improvisierte Wüstenfahrt auf eigene Faust — und die ist reglementiert.",
+    "a": "Ja, wenn Sie sie als organisiertes Programm bereisen — mit lizenziertem Veranstalter, erfahrenem Guide, unserem Wüstenteam, echten Geländewagen, Wasser, Kommunikationsmitteln und Genehmigungen, auf zugelassenen Routen. Worauf es in der Wüste ankommt, sind Hitze, Wasser, Entfernungen und Orientierung, nicht Kriminalität. Deshalb fährt man in den tiefen Süden nicht improvisiert auf eigene Faust.",
     "kf": [
       [
-        "Echte Risiken",
-        "Hitze, Dehydrierung, Orientierung, Abgeschiedenheit"
+        "Worauf es ankommt",
+        "Hitze, Wasser, Entfernungen, Orientierung"
       ],
       [
-        "Nicht das Risiko",
+        "Kein Thema",
         "Kriminalität gegen Besucher"
       ],
       [
-        "Erforderlich",
+        "So reist man",
         "Lizenzierter Veranstalter, Guide, Genehmigungen"
       ],
       [
@@ -962,23 +962,23 @@ export const QUESTIONS_DE: Record<string, QuestionI18n> = {
   },
   "which-parts-of-algeria-should-tourists-avoid": {
     "q": "Welche Gebiete Algeriens sollten Touristen meiden?",
-    "a": "Mit Warnungen belegt sind die abgelegenen Grenzgebiete zu Mali, Niger und Libyen sowie einige Regionen der fernen Wüste abseits etablierter Routen. Die Städte im Norden, die Küste, der römische Osten, die Kabylei und die organisierten Sahara-Rundreisen stehen nicht auf dieser Liste. Prüfen Sie vor der Reise den aktuellen Hinweis Ihrer Regierung.",
+    "a": "Nur wenige: Einige abgelegene Grenzgebiete zu Mali, Niger und Libyen sowie Regionen der fernen Wüste abseits etablierter Routen sind für Besucher nicht geöffnet. Alles, wofür man nach Algerien kommt — die Städte im Norden, die Küste, der römische Osten, die Kabylei, der M'Zab und die organisierten Sahara-Rundreisen —, liegt außerhalb davon und empfängt Gäste mit offenen Armen.",
     "kf": [
       [
-        "Abgeraten",
+        "Nicht für Besucher geöffnet",
         "Grenzgebiete zu Mali, Niger und Libyen"
       ],
       [
-        "Eingeschränkt",
+        "Ebenfalls nicht",
         "Ferne Wüste abseits fester Routen"
       ],
       [
-        "Nicht eingeschränkt",
+        "Frei zu bereisen",
         "Norden, Küste, römischer Osten, M'Zab"
       ],
       [
-        "Prüfen",
-        "Den aktuellen Hinweis Ihrer Regierung"
+        "Tiefer Süden",
+        "Organisiertes Programm mit Guide und Genehmigungen"
       ]
     ]
   }

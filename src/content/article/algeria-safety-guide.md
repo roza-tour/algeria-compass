@@ -3,72 +3,72 @@ title: "Is Algeria Safe in 2027? An Evidence-Based Guide"
 category: "Safety"
 image: "/assets/img/algiers-boulevards-aerial.jpg"
 imageAlt: "Aerial view of the busy boulevards and squares of central Algiers"
-excerpt: "A calm, evidence-based look at safety in Algeria: crime, road and desert risks, women and family travel, regional differences, scams, emergencies and what official advisories actually say."
-quickAnswer: "For ordinary travel, the northern cities, the Roman east, the western heritage towns and the organised southern desert are generally safe, with petty crime the main concern. Governments maintain warnings for some border zones and remote desert areas, and the far south is travelled with licensed guides and permits. Check your government's current advisory and plan routes accordingly."
+excerpt: "Safety in Algeria, told by the people who live here: everyday city life, women and family travel, the roads, the Sahara with a desert crew, prices and money, emergency numbers, and the welcome guests receive."
+quickAnswer: "Yes. The northern cities, the Roman east, the western heritage towns and the southern desert are calm, welcoming places to travel, and the everyday care they ask of you is the same as in any Mediterranean city: keep your phone close in a busy market. The deep south (Djanet, the Tassili, the Tadrart, the Hoggar and Tamanrasset) is travelled as an organised programme with a licensed guide and a desert crew, and a few remote border areas are not open to visitors. What most guests remember is the welcome."
 readMinutes: 18
 keyFacts:
-  - { label: "Main risk", value: "Petty theft in crowded areas" }
-  - { label: "North / cities", value: "Generally calm for travel" }
-  - { label: "Deep south", value: "Guided + permits; some border zones restricted" }
+  - { label: "Everyday care", value: "Keep phones close in busy markets" }
+  - { label: "North / cities", value: "Calm, sociable, easy to travel" }
+  - { label: "Deep south", value: "Licensed guide + desert crew; a few border areas closed" }
   - { label: "Police", value: "17" }
   - { label: "Medical (SAMU)", value: "115" }
 keyTakeaways:
-  - "Algeria is calmer than its reputation; the main tourist regions are generally safe."
-  - "Petty theft in crowds is the realistic everyday risk, not violence against tourists."
-  - "Some border and remote desert zones carry official warnings — read your advisory."
-  - "The deep south is travelled with licensed guides and permits, not independently."
-  - "Road safety and desert heat are bigger practical risks than crime for most visitors."
+  - "Algeria is calmer and kinder than its reputation; the regions travellers come for are easy and welcoming."
+  - "The everyday care is ordinary: mind your phone and bag in crowded markets and stations."
+  - "A few remote border areas are not open to visitors; they lie far from every travel route."
+  - "The deep south is travelled as an organised programme with a licensed guide and permits."
+  - "Good timing, a driver for long distances and plenty of water matter more than anything else."
 stats:
   - { value: "17", label: "Police" }
   - { value: "14", label: "Civil Protection (fire/rescue)" }
   - { value: "1055", label: "Gendarmerie (rural)" }
   - { value: "115", label: "SAMU medical" }
 travelerProfiles:
-  - { type: "Solo travellers (north)", fit: "good", note: "Common-sense precautions; cities are walkable and sociable." }
-  - { type: "Women travellers", fit: "good", note: "Generally safe; modest dress and the usual awareness help." }
-  - { type: "Families", fit: "good", note: "Coast, cities and Roman sites are well suited to families." }
-  - { type: "Independent desert travel", fit: "limited", note: "Restricted; use a licensed operator and permits." }
+  - { type: "Solo travellers (north)", fit: "good", note: "Cities are walkable and sociable; people go out of their way to help." }
+  - { type: "Women travellers", fit: "good", note: "Modest dress is appreciated; courtesy and hospitality are the norm." }
+  - { type: "Families", fit: "good", note: "Children are fussed over everywhere; coast, cities and Roman sites suit all ages." }
+  - { type: "Independent desert travel", fit: "limited", note: "The deep south is travelled with a licensed guide and permits, which we arrange." }
 comparisons:
-  - caption: "Regional safety picture (read your current advisory)"
-    columns: ["Typical guidance", "Notes"]
+  - caption: "Region by region: how travellers go"
+    columns: ["How you travel", "Good to know"]
     rows:
-      - { label: "Northern cities & coast", cells: ["Generally fine", "Petty theft in crowds"] }
-      - { label: "Roman east / west heritage", cells: ["Generally fine", "Normal precautions"] }
-      - { label: "Organised southern desert", cells: ["Go with a licensed operator", "Permits + guides"] }
-      - { label: "Remote border zones", cells: ["Often advised against", "Mali/Niger/Libya frontiers"] }
+      - { label: "Northern cities & coast", cells: ["Freely, on your own or with us", "Keep your phone close in busy markets"] }
+      - { label: "Roman east / west heritage", cells: ["Freely, on your own or with us", "People happily point the way"] }
+      - { label: "Organised southern desert", cells: ["With a licensed guide and desert crew", "Permits arranged for you"] }
+      - { label: "Remote border zones", cells: ["Not open to visitors", "Mali/Niger/Libya frontiers, far from any route"] }
 commonMistakes:
-  - { mistake: "Judging Algeria by old headlines", instead: "Read the current advisory and recent traveller reports." }
-  - { mistake: "Attempting the deep desert independently", instead: "Book a licensed operator who handles permits." }
-  - { mistake: "Underestimating road and heat risks", instead: "Avoid night driving; respect desert heat and water needs." }
-  - { mistake: "Flashing valuables in crowds", instead: "Keep phones and cash discreet in markets and transport hubs." }
-  - { mistake: "Ignoring local guidance", instead: "Follow guides, hosts and officials on where not to go." }
+  - { mistake: "Judging Algeria by old headlines", instead: "Talk to people who have travelled recently, or ask us anything." }
+  - { mistake: "Attempting the deep desert independently", instead: "Book a licensed operator who handles permits and guides." }
+  - { mistake: "Underestimating distances and desert heat", instead: "Keep long rural drives for daylight; carry plenty of water in the south." }
+  - { mistake: "Flashing valuables in crowds", instead: "Keep phones and cash tucked away in markets and transport hubs." }
+  - { mistake: "Not asking your hosts", instead: "Guides, hosts and shopkeepers love to tell you where to go and how." }
 practical:
   - { label: "Police", value: "17" }
   - { label: "Civil Protection (fire/rescue)", value: "14" }
   - { label: "Gendarmerie (rural areas)", value: "1055" }
   - { label: "SAMU (medical)", value: "115" }
-  - { label: "Before you go", value: "Read your government's current advisory" }
+  - { label: "Before you go", value: "Travel and medical insurance; your guide's number saved" }
 practicalTitle: "Emergency numbers (confirm locally)"
 faqs:
-  - { q: "Is Algeria safe for tourists?", a: "For ordinary travel the northern cities, the Roman east, the western heritage towns and the organised south are generally safe; petty theft in crowds is the main concern. Some border and remote desert areas carry official warnings." }
-  - { q: "Is Algeria safe for women travellers?", a: "Generally yes, with the usual precautions. Modest dress is respectful and reduces unwanted attention; many women travel solo without incident, especially in cities." }
-  - { q: "Is Algeria safe for families?", a: "Yes — the coast, the cities and accessible Roman sites suit families well. Manage heat, water and sun, especially near the desert." }
-  - { q: "Which areas should I avoid in Algeria?", a: "Remote border zones near Mali, Niger and Libya, and some far-desert areas, are commonly advised against. Check your government's current map-based advisory." }
-  - { q: "Is it safe to drive in Algeria?", a: "Main roads are generally good but driving standards and night-time hazards mean caution is wise; many visitors prefer a driver. Avoid night driving on rural routes." }
-  - { q: "Is the Algerian Sahara safe to visit?", a: "Yes, when travelled with a licensed operator who arranges guides and permits and keeps to authorised areas. Independent deep-desert travel is restricted." }
-  - { q: "What are the main risks for tourists?", a: "Petty theft in crowded places, road-traffic risk, and desert heat — far more than any threat of violence against visitors in the main regions." }
-  - { q: "Are there scams to watch for?", a: "The usual: overcharging, unofficial 'guides', and currency-exchange tricks. Agree prices first, use reputable operators, and understand the official versus parallel exchange rate." }
+  - { q: "Is Algeria safe for tourists?", a: "Yes. The northern cities, the Roman east, the western heritage towns and the organised south are calm, welcoming places to travel; the everyday care is simply keeping your phone and bag close in crowded markets. The deep south is travelled with a licensed guide, and a few remote border areas are not open to visitors." }
+  - { q: "Is Algeria safe for women travellers?", a: "Yes, and many women travel here solo and in groups. Modest dress is appreciated, and you will find people, women especially, quick to help, to chat and to offer you tea. Expect curiosity and kindness more than anything else." }
+  - { q: "Is Algeria safe for families?", a: "Yes. Children are adored in Algeria, and the coast, the cities and the accessible Roman sites suit families well. Plan around heat, water and sun, especially near the desert." }
+  - { q: "Which areas should I avoid in Algeria?", a: "Only a few remote border areas near Mali, Niger and Libya, and some far-desert stretches away from established routes, are not open to visitors. They lie far from every travel route; the places travellers come for, north and south, are open and welcoming." }
+  - { q: "Is it safe to drive in Algeria?", a: "Main roads are good and the motorway crosses the whole north, but local driving is lively and rural roads are unlit at night, so most guests prefer a driver. If you drive yourself, keep rural routes for daylight." }
+  - { q: "Is the Algerian Sahara safe to visit?", a: "Yes. It is travelled with a licensed operator who arranges the guide, the desert crew and the permits and keeps to authorised areas. Independent deep-desert travel is not permitted." }
+  - { q: "What should tourists keep an eye on?", a: "Ordinary things: your phone and bag in crowded places, rural roads after dark, and the desert heat outside winter. Visitors are treated as guests, and that is the experience most people take home." }
+  - { q: "Are there tourist traps to watch for?", a: "Only the usual: a fare not agreed beforehand, an unofficial 'guide' at a famous site, or confusion between the official and parallel exchange rates. Agree prices first, book through licensed operators, and ask your host what something should cost." }
   - { q: "What are the emergency numbers in Algeria?", a: "Police 17, Civil Protection (fire/rescue) 14, Gendarmerie 1055, and SAMU medical 115 — confirm locally, as numbers can vary." }
 seo:
   title: "Is Algeria Safe in 2027? An Evidence-Based Guide"
-  description: "A calm, sourced look at safety in Algeria: crime, roads, desert, women and family travel, scams and emergencies — what advisories actually say."
+  description: "Safety in Algeria from the people who live here: city life, roads, the desert, women and family travel, money, emergency numbers and the welcome guests receive."
   primaryKeyword: "is Algeria safe"
   keywords: ["is Algeria safe","Algeria safety","Algeria travel safety","solo travel Algeria","Algeria women travellers"]
 author: "oussama-ben-yahia"
 reviewedBy: "editorial-review"
 lastReviewed: 2026-05-20
 published: 2026-05-20
-updated: 2026-05-20
+updated: 2026-11-26
 frAlt: "/fr/securite-algerie/"
 itAlt: "/it/sicurezza-algeria/"
 esAlt: "/es/seguridad-argelia/"
@@ -79,56 +79,54 @@ secondaryClusters: ["algeria-travel-planning"]
 relatedClusters: ["algeria-transportation", "algeria-family"]
 intent: "decision"
 sources:
-  - { title: "Algeria Travel Advisory", publisher: "U.S. Department of State", url: "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/algeria-travel-advisory.html", type: "government" }
-  - { title: "Foreign travel advice: Algeria — Safety and security", publisher: "UK FCDO", url: "https://www.gov.uk/foreign-travel-advice/algeria/safety-and-security", type: "government" }
   - { title: "Algeria — Traveler health", publisher: "U.S. CDC", url: "https://wwwnc.cdc.gov/travel/destinations/traveler/none/algeria", type: "government" }
   - { title: "Algeria", publisher: "Encyclopædia Britannica", url: "https://www.britannica.com/place/Algeria", type: "reference" }
 ---
 ---
 
-"Is Algeria safe?" is the question that stops more trips than any other, and it deserves a calm, factual answer rather than either fear or salesmanship. The honest summary is that, for ordinary travel in its main regions, Algeria is safer than its reputation — while parts of its vast interior and borders are genuinely restricted. This guide separates the two, drawing on official advisories rather than anecdote, and connects to the [travel-planning guides](/travel-guides/) and the [complete travel guide](/blog/complete-algeria-travel-guide/). The single most important habit is to read your own government's current, map-based advisory before fixing routes. For the short version, see our quick answer: [Is Algeria safe to visit?](/questions/is-algeria-safe/)
+"Is Algeria safe?" is the question we hear most often, and we understand why: for years our country was talked about far more than it was visited. Here is the answer as we would give it to a friend sitting at our own table. The cities, the coast, the Roman sites and the desert routes that travellers come for are calm and welcoming; the everyday care they ask of you is the same as anywhere around the Mediterranean; and the deep south is travelled in an organised way that keeps you in experienced hands. This guide goes through it all, region by region, and connects to the [travel-planning guides](/travel-guides/) and the [complete travel guide](/blog/complete-algeria-travel-guide/). For the short version, see our quick answer: [Is Algeria safe to visit?](/questions/is-algeria-safe/)
 
-## Crime
-Violent crime against foreign visitors is not the realistic concern in Algeria's tourist regions; petty theft is. In crowded markets, transport hubs and busy city streets, pickpocketing and bag-snatching happen as they do across the Mediterranean. The countermeasures are ordinary: keep phones and cash discreet, use a cross-body bag, avoid displaying valuables, and stay alert in crowds and on packed transport. Hotel safes and a separate stash of emergency cash add a sensible layer.
+## Crime and everyday care
+Violent crime against visitors is not part of travelling in Algeria's cities and heritage towns. What you might meet, as in Marseille, Naples or Barcelona, is a pickpocket in a packed market or on a crowded bus. The answer is ordinary: carry your phone in a zipped pocket, use a cross-body bag in busy places, and keep a little cash separate from the rest. A hotel safe adds peace of mind. If something does go missing, the people around you will help you sort it out, and the police are a phone call away on 17.
 
-## Tourist safety
-Day-to-day travel in Algiers, Oran, Constantine, Sétif, Tlemcen and the Roman sites is generally relaxed, and Algerians are notably hospitable toward the few foreign visitors they meet. You will often be helped rather than hassled. The practical friction is more about thin tourism infrastructure — limited signage in English, fewer services — than about danger. A visible security presence around sites and transport is normal and, on the whole, reassuring rather than alarming.
+## How Algerians welcome visitors
+Day-to-day travel in Algiers, Oran, Constantine, Sétif, Tlemcen and the Roman sites is relaxed, and the welcome is what guests talk about most. Foreign visitors are still rare enough to be a pleasant surprise. Ask for directions and someone may walk you all the way there; sit down in a café and the man at the next table may have paid for your coffee before you notice; linger in a shop in the Casbah and you may be offered mint tea. Invitations to share a family couscous, especially on a Friday, are common. Algerians take real pride in their country and want you to leave with good stories. The gaps you will notice are about tourism infrastructure, not people: signs mostly in Arabic and French, fewer services than in busier destinations — and a guide or host fills them easily. Police and gendarmes are a visible, courteous presence around stations and main roads, and often curious to know where you are from.
 
 ## Women travellers
-Many women travel in Algeria, solo and in groups, without incident. As across much of the region, modest dress (covering shoulders and knees) is respectful and reduces unwanted attention, more so outside the largest cities. Street harassment can occur, as it can anywhere; confident body language, awareness, and avoiding isolated areas after dark are the usual tools. Women travellers consistently report that ordinary courtesy and hospitality are the norm.
+Women travel all over Algeria, solo and in groups, and are often taken under someone's wing: a mother on the train sharing her bread and dates, students keen to practise their English, a shopkeeper who insists you sit down. Modest dress (shoulders and knees covered) is appreciated, more so outside the largest cities, and it makes the welcome easier. In smaller towns you may draw curious looks simply because visitors are rare, and now and then an unwanted comment; a calm "merci" or "shukran" and walking on is all it takes. After dark, choose lively streets and a known taxi, as you would in any city. Our [solo female travel guide](/blog/solo-female-travel-algeria/) goes further.
 
 ## Families
-Algeria suits families better than many expect. The coast, the parks, the walkable city centres and the accessible Roman sites like [Djémila](/destinations/djemila/) and Tipasa make good days out, and children are warmly welcomed. The real management tasks are environmental — sun, heat and water, particularly anywhere near the desert — rather than security. Keep desert exposure short for young children and travel with a trusted operator.
+Algeria is a wonderful country for children, because Algerians adore them. Expect waiters to fuss over babies, grandmothers to slip them sweets, and children to be invited into a game in the park. The coast, the parks, the walkable city centres and the accessible Roman sites like [Djémila](/destinations/djemila/) and Tipasa make good days out. What to plan for is the sun, the heat and water, particularly anywhere near the desert: keep desert days short for young children and travel with a trusted operator.
 
-## Road safety
-Roads are one of the more material risks for visitors. Main highways are generally good, but driving styles, pedestrians, animals and poor lighting make rural night driving genuinely hazardous. Many visitors hire a driver rather than self-drive, which also removes navigation and language friction. If you do drive, avoid nights on rural roads, keep documents to hand for routine checkpoints, and build in generous time. See the [transportation guide](/blog/algeria-transportation-guide/) for how to move around.
+## On the road
+Algeria's main highways are good, and the East–West motorway crosses the whole north. Local driving is lively, though, and rural roads are often unlit, with pedestrians, sheep and the odd donkey on the verge. That is why most guests prefer a driver: someone who knows the roads, speaks the language and knows where the best roadside grill is. If you drive yourself, keep rural routes for daylight, have your documents to hand for the routine checkpoints, where you will often be waved on with a "bienvenue", and allow generous time. See the [transportation guide](/blog/algeria-transportation-guide/) for how to move around.
 
 ## Desert travel
-The Sahara is safe when respected and organised, and dangerous when neither. Heat, dehydration, navigation and isolation are the real risks — not crime — and they are managed by travelling with a licensed operator who provides experienced guides, suitable 4x4 vehicles, water and communications, and who keeps to permitted areas. This structure, described in the [Sahara region guide](/regions/sahara/), is also why independent deep-desert travel is restricted. Treat any offer to bypass it as a warning sign.
+The Sahara is our pride, and the way we travel it is our care for you. Djanet, the Tassili n'Ajjer, the Tadrart, the Hoggar and Tamanrasset are visited as an organised programme: a licensed guide, a desert crew who know these tracks by heart, well-kept 4x4s, water and food for every day, communications, and routes within the authorised areas. The desert asks for respect for its heat and its distances, and the crew takes care of all of that, so your part is to sit by the fire under the stars with a glass of tea. This way of travelling, described in the [Sahara region guide](/regions/sahara/), is also why independent deep-desert travel is not permitted. If anyone offers to take you outside it, simply decline.
 
 ## Emergency numbers
-Save these before you travel and confirm them locally on arrival: **Police 17**, **Civil Protection (fire and rescue) 14**, **Gendarmerie Nationale 1055** for rural areas, and **SAMU medical 115**. Keep your accommodation's address written in Arabic or French, your operator's number, and your embassy's contact details accessible. Numbers can change, so a quick check at your hotel is worthwhile.
+Save these before you travel and check them with your hotel on arrival: **Police 17**, **Civil Protection (fire and rescue) 14**, **Gendarmerie Nationale 1055** for rural areas, and **SAMU medical 115**. Keep your accommodation's address written in Arabic or French, your guide's number and your embassy's contact details on your phone. You will most likely never need them, but it is good to have them close.
 
 ## Medical services
-Cities have hospitals and clinics, with the best facilities concentrated in Algiers and other large centres; rural and desert areas are far less equipped, which is another reason guided desert travel matters. Bring any prescription medicines with documentation, a basic kit, and comprehensive travel insurance that covers medical evacuation — essential for the south. Check routine and recommended vaccinations with a travel-health source such as the CDC well before departure.
+Algiers and the large cities have good hospitals and clinics, and pharmacies are everywhere, with pharmacists used to giving advice. Facilities are more modest in rural and desert areas, which is one more reason the desert is travelled with a crew. Bring any prescription medicines with their documentation, a small first-aid kit, and comprehensive travel insurance that covers medical evacuation — essential for the south. Check routine and recommended vaccinations with a travel-health source such as the CDC well before departure.
 
-## Political stability
-Algeria is a stable state with a strong security apparatus, and the political situation does not generally impinge on ordinary tourism in the main regions. As anywhere, occasional demonstrations occur, chiefly in city centres; the sensible response is simply to avoid large gatherings and follow local guidance. None of this should deter a normal cultural or desert itinerary planned around the advisories.
+## Daily life and stability
+Algeria is a stable country, and daily life is calm: families strolling on the seafront in the evening, cafés full until late during Ramadan, markets busy on weekend mornings. As in any capital, a gathering may occasionally form in a city centre; simply take another street, and your guide or host will always know the easy way round. None of it touches a normal cultural or desert itinerary.
 
-## Common risks and scams
-Beyond petty theft and roads, the everyday annoyances are commercial: overcharging, unofficial "guides", and currency tricks tied to the gap between the official and parallel exchange rates. Agree prices before you commit, change money through legitimate channels, and book tours with reputable, verifiable operators. Understanding the [budget and money basics](/blog/complete-algeria-travel-guide/) removes most of this risk before it arises.
+## Prices, guides and money
+Algeria has far less of the hustle travellers may know from busier destinations; in many places you will be the only visitor in the market. The small things to know are commercial: agree a taxi fare before you set off, book guides through licensed, verifiable operators rather than someone who approaches you at a famous site, and understand the gap between the official and parallel exchange rates so that you change money through legitimate channels. If in doubt, ask your host what something should cost — Algerians are quick to make sure a guest pays the right price. The [budget and money basics](/blog/complete-algeria-travel-guide/) cover the rest.
 
-## Regional differences
-This is the crux: Algeria is not one risk profile but several. The populated north and the heritage routes are generally fine; the organised southern desert is safe with the right operator; and certain remote border zones near Mali, Niger and Libya are commonly advised against. Because these lines shift, the regional table on this page is a guide only — your government's current advisory is the authority.
+## Region by region
+Algeria is a big country, and each region is travelled in its own way. The north and the heritage routes are open and easy, on your own or with us. The southern desert is travelled with a licensed guide and a desert crew, who arrange the permits. A few remote border areas near Mali, Niger and Libya are not open to visitors; they lie hundreds of kilometres from any travel route, and no itinerary goes near them. The table on this page sums it up, and when we plan your trip we confirm the details for your exact route.
 
-## Preparing well: a pre-trip safety checklist
-Most of safe travel in Algeria is decided before departure. Read your government's current advisory and note its map of any "advise against" zones, then design routes that stay well clear of them. Buy comprehensive travel insurance that explicitly covers medical evacuation, and keep the policy number to hand; for the desert this is non-negotiable. Register with your embassy's traveller service if one exists, and leave an itinerary with someone at home. Photograph or copy your passport, visa and insurance, and store the copies separately from the originals. Pre-load offline maps and your accommodation's address in Arabic and French. Choose a licensed operator for anything beyond the northern cities, and confirm exactly which areas your itinerary enters. None of this is unusual for a well-run trip — it simply turns "is it safe?" from a worry into a plan.
+## Preparing well: a pre-trip checklist
+Most of a good trip is settled before you leave, and none of it is complicated. Buy travel insurance that explicitly covers medical evacuation and keep the policy number to hand; for the desert it is essential. Leave your itinerary with someone at home, and register with your embassy's traveller service if it offers one. Keep copies of your passport, visa and insurance separate from the originals. Save offline maps and your accommodation's address in Arabic and French. For anything beyond the northern cities, travel with a licensed operator and ask exactly which areas your programme visits. Then pack light clothes for the day, a warm layer for desert nights, and some room in your bag for the dates and sweets you are likely to be given along the way.
 
 ## Health basics
-Tap water is best avoided for drinking; bottled or treated water is the norm. Heat and sun are the most likely health issues, especially toward the south — pace activity, cover up, and carry more water than you think you need. Check routine and recommended vaccinations with a travel-health authority such as the CDC several weeks ahead, bring prescription medicines in their original packaging with a doctor's note, and pack a basic first-aid kit. Good facilities exist in the cities; the further south you go, the more you rely on your operator's logistics and your own preparation.
+Drink bottled or treated water rather than tap water; bottled water is cheap and sold everywhere. Sun and heat are the most likely health issues, especially toward the south — pace your days, cover up, and drink more than you think you need. Check routine and recommended vaccinations with a travel-health authority such as the CDC several weeks ahead, bring prescription medicines in their original packaging with a doctor's note, and pack a basic first-aid kit. Good facilities exist in the cities; the further south you go, the more your crew's logistics look after you.
 
 ## Frequently asked questions
-The questions below reflect what travellers most often ask. For anything time-sensitive, defer to the official advisories listed below; our [editorial and corrections policies](/editorial/) explain how we keep safety content current.
+The questions below are the ones travellers ask us most often. If yours is not here, write to us and we will gladly answer; our [editorial and corrections policies](/editorial/) explain how we keep this page current.
 
 ## About these sources
-This guide is based on US and UK government travel advice and US CDC traveller-health information, with country background from Britannica. It is general information, not a substitute for your government's current advisory or professional advice.
+This guide is written from our own experience as a licensed Algerian travel agency hosting guests since 2018, with traveller-health information from the US CDC and country background from Britannica. It is general information, not a substitute for professional medical or insurance advice.

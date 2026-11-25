@@ -82,8 +82,6 @@ intent: "planning"
 sources:
   - { title: "Algeria", publisher: "Encyclopædia Britannica", url: "https://www.britannica.com/place/Algeria", type: "reference" }
   - { title: "Algeria — World Heritage", publisher: "UNESCO World Heritage Centre", url: "https://whc.unesco.org/en/statesparties/dz", type: "unesco" }
-  - { title: "Algeria Travel Advisory", publisher: "U.S. Department of State", url: "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/algeria-travel-advisory.html", type: "government" }
-  - { title: "Foreign travel advice: Algeria", publisher: "UK FCDO", url: "https://www.gov.uk/foreign-travel-advice/algeria", type: "government" }
   - { title: "Ministry of Foreign Affairs", publisher: "Republic of Algeria", url: "https://www.mfa.gov.dz", type: "government" }
 ---
 ---
@@ -112,7 +110,7 @@ For travel purposes it helps to think in regions rather than provinces:
 Each region has a guide of its own — for example the [Sahara](/regions/sahara/) and [Roman Algeria](/regions/roman/) — where you can see the connected sites, themes and history.
 
 ## Climate
-Algeria has three climates at once. The coast is Mediterranean: mild wet winters, hot dry summers. The highlands are continental, with cold, sometimes snowy winters and hot summers. The Sahara is arid and extreme — pleasant in winter, dangerously hot from late spring through summer. This is why there is no single "best time" for the whole country; there is a best time for each region, covered in depth in the [best-time pillar](/blog/best-time-to-visit-algeria/).
+Algeria has three climates at once. The coast is Mediterranean: mild wet winters, hot dry summers. The highlands are continental, with cold, sometimes snowy winters and hot summers. The Sahara is arid and extreme — pleasant in winter, fiercely hot from late spring through summer. This is why there is no single "best time" for the whole country; there is a best time for each region, covered in depth in the [best-time pillar](/blog/best-time-to-visit-algeria/).
 
 ## Best time to visit
 As a rule: **spring (March–May)** and **autumn (September–November)** are the best all-round windows, with warm days across the north and comfortable desert conditions at the shoulders. **Winter (November–February)** is the only sensible season for the deep Sahara, when days are clear and cool. **Summer (June–August)** suits the coast for swimming but is too hot for desert travel and uncomfortable inland. Festivals such as the Amazigh new year (Yennayer, January) and the Tuareg Sebeiba in Djanet add reasons to time a trip.
@@ -121,7 +119,7 @@ As a rule: **spring (March–May)** and **autumn (September–November)** are th
 Most nationalities require a visa obtained in advance from an Algerian consulate; a small number are exempt, and organised desert tourism through the far south sometimes uses a simplified entry arranged by a licensed agency. Consulates frequently ask for proof of accommodation or an invitation/voucher from a registered Algerian travel agency. Because rules and any e-visa pilots change, treat this overview as orientation only and read the full [Algeria visa guide](/blog/algeria-visa-guide/), then confirm with the consulate that serves your country.
 
 ## Safety overview
-Algeria is calmer than its reputation suggests. The northern cities, the Roman east, the western heritage towns and the organised south are generally safe for ordinary travel, with petty crime the main concern in crowded areas. However, governments maintain warnings for some border zones and remote desert areas, and independent travel in the far south is restricted. Always read your government's current advisory and our evidence-based [safety pillar](/blog/algeria-safety-guide/) before planning routes.
+Algeria is calmer, and kinder, than its reputation suggests. The northern cities, the Roman east, the western heritage towns and the organised south are easy, welcoming places to travel, and the everyday care is simply keeping your phone and bag close in crowded markets. Visitors are still rare enough to be treated as guests: expect directions that turn into a walk, and a coffee someone else has already paid for. The far south is travelled with a licensed guide and permits, and a few remote border areas are not open to visitors. Our [safety pillar](/blog/algeria-safety-guide/) goes through it region by region.
 
 ## Transportation overview
 Distances are large, so plan transport deliberately. Domestic flights link Algiers, Oran and Constantine with Saharan towns such as Djanet and Tamanrasset. Trains (SNTF) and intercity buses connect the northern cities; shared taxis (*louages*) fill the gaps; and Algiers, Oran and Constantine have modern trams. In the desert, travel means a guided 4x4. The full breakdown — modes, routes, costs and booking — is in the [transportation pillar](/blog/algeria-transportation-guide/).
@@ -154,7 +152,7 @@ Come with patience and flexibility: tourism infrastructure is thin, schedules ca
 The biggest planning errors are trying to see everything at once, underestimating the visa timeline, and treating the Sahara as a casual add-on. Read the blocks below, plan one or two regions well, and let the season decide your route.
 
 ## Frequently asked questions
-The questions below cover visas, safety, timing, budget and logistics. For anything time-sensitive — entry rules, advisories, prices — confirm against the official sources listed at the foot of this guide and our specialist pillars.
+The questions below cover visas, safety, timing, budget and logistics. For anything time-sensitive — entry rules, opening times, prices — confirm against the official sources listed at the foot of this guide and our specialist pillars.
 
 ## About these sources
-This guide draws on UNESCO, Encyclopædia Britannica and current government travel advice; see the sourced list below. Our editorial standards, review process and corrections policy are published on the [editorial pages](/editorial/).
+This guide draws on UNESCO, Encyclopædia Britannica and the Algerian Ministry of Foreign Affairs, together with our own experience on the ground; see the sourced list below. Our editorial standards, review process and corrections policy are published on the [editorial pages](/editorial/).
