@@ -19,7 +19,7 @@ import * as luxFr from '../data/luxury-fr.mjs';
 import * as luxIt from '../data/luxury-it.mjs';
 import * as luxEs from '../data/luxury-es.mjs';
 import * as luxDe from '../data/luxury-de.mjs';
-import { CONTACT, REVIEWS, BOOKING, STAMP_FEES } from '../config';
+import { CONTACT, REVIEWS, BOOKING, STAMP_FEES, PARENT } from '../config';
 
 // /llms.txt — the llmstxt.org discovery file for AI assistants and answer
 // engines (ChatGPT, Claude, Perplexity, Gemini...).
@@ -159,7 +159,8 @@ export const GET: APIRoute = async () => {
 > Contact: ${SITE}/contact/
 
 ## Key facts
-- Business: Algeria Compass, the private and luxury travel branch of Roza Tour, a licensed Algerian tour operator (travel agency), based in ${CONTACT.address.full}.
+- Business: Algeria Compass, the private and luxury travel branch of ${PARENT.name}, a licensed Algerian tour operator (travel agency), based in ${CONTACT.address.full}.
+- Licence holder: ${PARENT.name}, Algerian travel agency licence no. ${PARENT.licence} (Ministry of Tourism and Handicrafts), registered office ${PARENT.address.full}, in business since ${PARENT.since}.
 - Phone / WhatsApp: ${CONTACT.phoneDisplay} · Email: ${CONTACT.email} · Open 24 hours, 7 days.
 - Rating: ${REVIEWS.ratingValue.toFixed(1)} on Google from ${REVIEWS.reviewCount} reviews (${CONTACT.googleProfile}).
 - All tours are private (not shared group departures) with a licensed local guide; dates are chosen by the traveller.

@@ -16,10 +16,14 @@ const org: any = {
   "@type": "TravelAgency",
   "@id": site + "/#organization",
   "name": "Algeria Compass",
-  "description": "Algeria Compass is the branch of Roza Tour, a licensed Algerian tour operator, specialised in luxury private, guided tours across Algeria — Sahara safaris, the UNESCO Casbah of Algiers, Roman cities, the M'Zab Valley and the Kabyle coast.",
+  "description": "Algeria Compass is the branch of Roza Tour, a licensed Algerian tour operator (travel agency licence no. 3049, in business since 2018), specialised in luxury private, guided tours across Algeria — Sahara safaris, the UNESCO Casbah of Algiers, Roman cities, the M'Zab Valley and the Kabyle coast.",
   "slogan": "Luxury private guided tours across Algeria.",
   "url": site + "/",
-  "parentOrganization": { "@type": "TravelAgency", "name": PARENT.name, "url": PARENT.url },
+  "parentOrganization": {
+    "@type": "TravelAgency", "name": PARENT.name, "url": PARENT.url, "foundingDate": String(PARENT.since),
+    "address": { "@type": "PostalAddress", "streetAddress": PARENT.address.street, "addressLocality": PARENT.address.locality, "addressCountry": PARENT.address.countryCode },
+    "identifier": { "@type": "PropertyValue", "name": "Algerian travel agency licence", "value": PARENT.licence }
+  },
   "logo": site + "/assets/img/logo-full.png",
   "image": site + "/assets/img/og-image.png",
   "email": CONTACT.email,

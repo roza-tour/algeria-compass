@@ -30,7 +30,14 @@ export const CONTACT = {
 // private and luxury journeys. Named on the About page, in the footer, in
 // llms.txt and as `parentOrganization` in the structured data, so a reader or
 // an answer engine can tell who holds the licence.
-export const PARENT = { name: 'Roza Tour', url: 'https://rozatour-booking.com/' };
+export const PARENT = {
+  name: 'Roza Tour', url: 'https://rozatour-booking.com/',
+  // Travel agency licence number, registered office (as on the agency's
+  // invoices) and the year the agency started trading: owner, 2026-11-25.
+  licence: '3049',
+  since: 2018,
+  address: { street: 'Cité Unité 02', locality: 'M’sila', country: 'Algeria', countryCode: 'DZ', full: 'Cité Unité 02, M’sila, Algeria' },
+};
 
 // Real Google Business rating (owner-confirmed 2026-06-20). Keep in sync with
 // the Google profile.

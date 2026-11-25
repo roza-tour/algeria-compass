@@ -1,7 +1,7 @@
 ---
 // Unified footer — rebrand dark styling, preserving every existing content link.
 // Language-aware: pass lang="fr" for the French labels (same links/design).
-import { CONTACT } from '../config';
+import { CONTACT, PARENT } from '../config';
 import { asLang, ROUTES, PLAN_PATHS, MOMENTS_PATHS } from '../i18n';
 import { GUIDE_ROUTES } from '../data/localGuides.mjs';
 import { REGION_ROUTES } from '../data/regionI18n.mjs';
@@ -82,6 +82,7 @@ const columns = [
         </picture>
         <p class="f-tagline">{t('Explore Algeria in Elite Luxury', "L'Algérie dans un luxe d'exception", "L'Algeria in un lusso d'eccezione", 'Argelia en un lujo excepcional', 'Algerien in exklusivem Luxus')}</p>
         <p class="f-desc">{t('The branch of Roza Tour, a licensed Algerian tour operator, for private and luxury journeys across Algeria.', 'La branche de Roza Tour, voyagiste algérien agréé, consacrée aux voyages privés et de luxe à travers l’Algérie.', 'Il ramo di Roza Tour, tour operator algerino autorizzato, dedicato ai viaggi privati e di lusso in tutta l’Algeria.', 'La división de Roza Tour, operador turístico argelino autorizado, dedicada a los viajes privados y de lujo por toda Argelia.', 'Der Zweig von Roza Tour, einem lizenzierten algerischen Reiseveranstalter, für private Luxusreisen durch ganz Algerien.')}</p>
+        <p class="f-lic">{t(`Travel agency licence no. ${PARENT.licence} · since ${PARENT.since}`, `Licence d’agence de voyages n° ${PARENT.licence} · depuis ${PARENT.since}`, `Licenza di agenzia di viaggi n. ${PARENT.licence} · dal ${PARENT.since}`, `Licencia de agencia de viajes n.º ${PARENT.licence} · desde ${PARENT.since}`, `Reisebüro-Lizenz Nr. ${PARENT.licence} · seit ${PARENT.since}`)}</p>
         <address class="f-nap">
           {CONTACT.address.full}<br/>
           <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a><br/>
@@ -120,6 +121,7 @@ const columns = [
   /* White at 0.42 over the footer green is 3.9:1 — under AA. axe reports the
      footer as "incomplete" rather than failing because of the SVG background
      pattern, so this one never showed up as a violation. 0.78 gives 10.2:1. */
+  .f-lic{font-size:.8rem;letter-spacing:.02em;color:rgba(255,255,255,.78);margin:-.2rem 0 .8rem;text-align:center}
   .f-nap{font-style:normal;font-size:.86rem;line-height:1.7;color:rgba(255,255,255,.78);margin-bottom:1rem;text-align:center}
   /* The phone and email links sat at the raw 0.76rem line height, well under
      the 24px minimum tap target, and close enough together to mis-tap. Padding

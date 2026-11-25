@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
 import { alternatesFor, routeAlternates } from '../i18n';
+import { CONTACT, PARENT } from '../config';
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const alternates = alternatesFor(site, routeAlternates('about'));
 const aboutSchema = {
@@ -31,9 +32,18 @@ const breadcrumb = { '@type':'BreadcrumbList', itemListElement:[
       <p>Algeria Compass is the branch of Roza Tour, a licensed Algerian tour operator, specialised in private and luxury journeys and dedicated entirely to one country. We design and operate private, guided journeys across Algeria — the largest country in Africa — with licensed local guides, and back every trip with deep, first-hand knowledge of the places we take you.</p>
       <p>We are not a brochure and not a listings site. We map Algeria as a connected whole: all 69 states, the seven UNESCO World Heritage Sites, the Roman cities of the north, the oasis worlds of the M'Zab and the Souf, the Kabyle mountains and the Mediterranean coast — and the food, history, languages and traditions that tie them together, explored in depth in our <a href="/discover/">guide to Algeria</a>.</p>
 
-      <h2>Seven years guiding Algeria</h2>
-      <p>Algeria Compass has worked in Algerian tourism for more than seven years, designing and leading private journeys for international travellers — from first-timers discovering the country to seasoned explorers returning for the deep south. In that time we have guided guests through the Ottoman Casbah of Algiers, the Roman cities of Tipaza, Djémila and Timgad, the Andalusian west and the Kabyle coast, and deep into the Sahara on multi-day desert expeditions around Djanet, Timimoun and the M'Zab Valley.</p>
+      <h2>Guiding Algeria since 2018</h2>
+      <p>Roza Tour, of which Algeria Compass is the private and luxury travel branch, has worked in Algerian tourism since 2018, designing and leading private journeys for international travellers — from first-timers discovering the country to seasoned explorers returning for the deep south. In that time we have guided guests through the Ottoman Casbah of Algiers, the Roman cities of Tipaza, Djémila and Timgad, the Andalusian west and the Kabyle coast, and deep into the Sahara on multi-day desert expeditions around Djanet, Timimoun and the M'Zab Valley.</p>
       <p>Our two strengths sit side by side: running well-organised, genuinely private trips on the ground with licensed local guides, and pairing them with real cultural experiences — artisans, food, music and the everyday hospitality Algeria is known for. Travellers who have journeyed with us rate the experience <strong>5.0 out of 5 on Google</strong>, and the rating on our homepage links straight to those reviews so you can read them yourself.</p>
+
+      <h2 id="company">Company details</h2>
+      <ul>
+        <li><strong>Legal entity:</strong> {PARENT.name}, an Algerian travel agency. Algeria Compass is its branch for private and luxury journeys.</li>
+        <li><strong>Travel agency licence:</strong> no. {PARENT.licence}, issued by the Algerian Ministry of Tourism and Handicrafts.</li>
+        <li><strong>Registered office:</strong> {PARENT.address.full}.</li>
+        <li><strong>Algeria Compass office:</strong> {CONTACT.address.full}.</li>
+        <li><strong>In business since:</strong> {PARENT.since}.</li>
+      </ul>
 
       <h2>Why we exist</h2>
       <p>Reliable, in-depth English-language information about Algeria is scarce and often out of date. Algeria Compass was created to fix that: to build, page by page, a trustworthy reference that treats the country with the seriousness it deserves and helps visitors travel with understanding and respect.</p>
