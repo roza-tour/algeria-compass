@@ -6,14 +6,14 @@
 // gives them as representative samples. Algiers is outside totality (99.8–99.9%).
 // Where the two sources differ (M'Sila 5:11 vs 5:23) the page gives a range.
 // A page eclipse-chasers, astronomy clubs and travel media can link to.
-import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroImg from '../components/HeroImg.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-import InlineTours from '../components/InlineTours.astro';
-import FaqSection from '../components/FaqSection.astro';
-import SourceList from '../components/SourceList.astro';
-import CtaSection from '../components/CtaSection.astro';
-import { PARENT } from '../config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroImg from '../../components/HeroImg.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { ECLIPSE_TOURS } from '../../data/eclipseTours';
+import FaqSection from '../../components/FaqSection.astro';
+import SourceList from '../../components/SourceList.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { PARENT } from '../../config';
 
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 const url = `${site}/eclipse-2027-algeria/`;
@@ -25,7 +25,9 @@ const CITIES = [
   { city: 'Mostaganem', where: 'West coast', dur: '5 min 02 s', note: '' },
   { city: 'Mascara', where: 'West, inland', dur: '5 min 00 s', note: '' },
   { city: 'M’Sila', where: 'Hodna, centre', dur: 'about 5 min 11–23 s', note: 'Home of our parent agency, ' + PARENT.name },
+  { city: 'Bou Saâda', where: 'Oasis, edge of the Sahara', dur: '5 min 17 s', note: 'Totality from about 09:58' },
   { city: 'Batna', where: 'Aurès, east', dur: '5 min 17 s', note: 'A short drive from Roman Timgad' },
+  { city: 'Arris', where: 'Heart of the Aurès', dur: '5 min 30 s', note: 'Among the longest in Algeria' },
   { city: 'Tébessa', where: 'East, near Tunisia', dur: '5 min 12 s', note: '' },
   { city: 'Biskra', where: 'Gateway to the Sahara', dur: '5 min 03 s', note: '' },
   { city: 'Sidi Bel Abbès', where: 'West, inland', dur: '4 min 34 s', note: '' },
@@ -36,7 +38,7 @@ const CITIES = [
 
 const faqs = [
   { q: 'When is the 2027 total solar eclipse in Algeria?', a: 'On Monday 2 August 2027, in the morning. In Oran totality begins at about 09:51 local time and lasts a little over five minutes; further east, in Batna and Tébessa, it comes about ten to fifteen minutes later.' },
-  { q: 'Which Algerian cities will see totality?', a: 'The path crosses northern Algeria from the Moroccan border near Ghazaouet to the Tunisian border near Tébessa. Oran, Mostaganem, Relizane, Tiaret, Mascara, M’Sila, Biskra, Batna and Tébessa are all inside it, with around five minutes of totality. Algiers is just outside and sees a very deep partial eclipse only.' },
+  { q: 'Which Algerian cities will see totality?', a: 'The path crosses northern Algeria from the Moroccan border near Ghazaouet to the Tunisian border near Tébessa. Oran, Mostaganem, Relizane, Tiaret, Mascara, M’Sila, Bou Saâda, Biskra, Batna and Tébessa are all inside it, with around five minutes of totality. Algiers is just outside and sees a very deep partial eclipse only.' },
   { q: 'How long will totality last in Algeria?', a: 'Around five minutes along the centre of the path: 5 min 08 s in Oran, 5 min 17 s in Batna, 5 min 11 s in Relizane. The longest totality of the whole eclipse, about 6 min 23 s, is in Egypt.' },
   { q: 'Is August a good time to travel in Algeria?', a: 'It is the heart of summer, so we plan the days around the heat: early starts, long lunches in the shade, evenings by the sea or in the cool of the mountains. The eclipse itself happens in the morning, before the hottest hours.' },
   { q: 'Do I need a visa for an eclipse trip?', a: 'Most visitors need a visa from an Algerian consulate. We send the invitation and the confirmed programme the consulate asks for, so apply early: summer 2027 will be busy.' },
@@ -46,6 +48,7 @@ const faqs = [
 const sources = [
   { title: 'Solar eclipse of August 2, 2027', publisher: 'Wikipedia', url: 'https://en.wikipedia.org/wiki/Solar_eclipse_of_August_2,_2027', type: 'Reference', note: 'Local times and duration for Oran and M’Sila; overall maximum' },
   { title: '2027 total solar eclipse cities: Algeria', publisher: 'National Eclipse', url: 'https://nationaleclipse.com/cities/lists/2027-total-solar-eclipse-cities.html', type: 'Reference', note: 'Durations for Algerian cities, given as representative samples' },
+  { title: 'Total Solar Eclipse of 2027 August 02: weather prospects', publisher: 'Eclipsophile (Jay Anderson)', url: 'https://eclipsophile.com/tse2027/', type: 'Reference', note: 'Cloud climatology along the track: coast vs high plains and desert' },
   { title: 'Path of the Total Solar Eclipse of 2027 Aug 02', publisher: 'EclipseWise (Fred Espenak)', url: 'https://eclipsewise.com/solar/SEpath/2001-2100/SE2027Aug02Tpath.html', type: 'Reference', note: 'Path width and central-line durations' },
 ];
 
@@ -82,6 +85,7 @@ const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
 
     <h2>Where to watch in Algeria</h2>
     <p>The band of totality is about 250 km wide, so a whole stretch of the country lies inside it: the coast and plains around Oran and Mostaganem, the High Plateaus around Tiaret and M’Sila, and the Aurès mountains around Batna. Durations below are approximate and vary by a few seconds across each town.</p>
+    <p>Weather specialists rate this eclipse among the least cloudy of recent decades. In Algeria, morning cloud is usually light; the coastal plain holds a little more cloud on average than the high plains and the desert edge, which is one reason we love Bou Saâda and the interior for the big morning.</p>
     <div class="ec-table" role="region" aria-label="Totality in Algerian cities" tabindex="0">
       <table>
         <thead><tr><th>City</th><th>Region</th><th>Totality</th><th></th></tr></thead>
@@ -91,16 +95,22 @@ const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
       </table>
     </div>
 
-    <h2>How we would plan it for you</h2>
-    <p>An eclipse is one morning, but the trip around it can be unforgettable. Three ideas, each private and built around your dates:</p>
-    <ul class="ec-list">
-      <li><b>Oran and the west.</b> Watch from the heights above the bay of Oran, then carry on to Mostaganem’s beaches and Andalusian Tlemcen. Hotels in Oran will be the first to fill.</li>
-      <li><b>The Aurès and Roman Timgad.</b> Watch near Batna, with over five minutes of totality, then walk the streets of Timgad and go down to the palm groves of Biskra.</li>
-      <li><b>The Hodna and Bou Saâda.</b> M’Sila is home to our parent agency, {PARENT.name}: watch the eclipse with the people who know every hill around, then spend the evening in the oasis of Bou Saâda.</li>
-    </ul>
-    <p>Bring proper eclipse glasses (ISO 12312-2) for the partial phases, and take them off only during totality itself.</p>
-
-    <InlineTours text="/tours/oran-mostaganem-tlemcen/ /tours/biskra-aures-oases/ /tours/bousaada-desert-tour/" limit={3} />
+    <h2>Our three eclipse journeys</h2>
+    <p>An eclipse is one morning, but the trip around it can be unforgettable. Three private journeys, each built around the best places to watch:</p>
+    <div class="ec-cards">
+      {ECLIPSE_TOURS.map(t => (
+        <a class="ec-card" href={`/eclipse-2027-algeria/${t.slug}/`}>
+          <img src={`/assets/img/tours/${t.hero}`} alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <span class="ec-card-b">
+            <b>{t.title}</b>
+            <span>{t.days} days · {t.dates}</span>
+            <span>Totality: {t.watch.duration}</span>
+            <span class="ec-card-p">From €{t.price} per person →</span>
+          </span>
+        </a>
+      ))}
+    </div>
+    <p>Each journey is private, for your own party, and can be lengthened or joined to the Sahara or another region. We send the invitation letter for your consulate visa. Bring proper eclipse glasses (ISO 12312-2) for the partial phases, and take them off only during totality itself.</p>
   </div></section>
 
   <FaqSection faqs={faqs} />
@@ -114,6 +124,10 @@ const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
   .ec-table table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:520px}
   .ec-table th,.ec-table td{padding:.55rem .7rem;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
   .ec-table th{font-weight:600;color:var(--text-l)}
-  .ec-list{line-height:1.75;padding-left:1.1rem}
-  .ec-list li{margin:.6rem 0}
+  .ec-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:1.2rem 0}
+  .ec-card{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--wash);color:inherit;text-decoration:none}
+  .ec-card img{width:100%;height:160px;object-fit:cover}
+  .ec-card-b{display:flex;flex-direction:column;gap:.25rem;padding:.9rem 1rem 1.1rem;font-size:.93rem;color:var(--text-m)}
+  .ec-card-b b{font-size:1.05rem;color:var(--text)}
+  .ec-card-p{margin-top:.3rem;font-weight:600;color:var(--text)}
 </style>

@@ -1,0 +1,117 @@
+---
+// One page per eclipse journey (data: src/data/eclipseTours.ts). Each has its
+// own URL so eclipse-tour directories can link straight to it.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroImg from '../../components/HeroImg.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import PhotoGallery from '../../components/PhotoGallery.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import CtaSection from '../../components/CtaSection.astro';
+import { ECLIPSE_TOURS, ECLIPSE_DATE, type EclipseTour } from '../../data/eclipseTours';
+import { PHOTO_ALT } from '../../data/tour-photos';
+import { BOOKING } from '../../config';
+
+export function getStaticPaths() {
+  return ECLIPSE_TOURS.map(t => ({ params: { slug: t.slug }, props: { tour: t } }));
+}
+const { tour } = Astro.props as { tour: EclipseTour };
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/eclipse-2027-algeria/${tour.slug}/`;
+const img = (f: string) => `/assets/img/tours/${f}`;
+const others = ECLIPSE_TOURS.filter(t => t.slug !== tour.slug);
+
+const facts = [
+  { label: 'Dates', value: tour.dates },
+  { label: 'Length', value: `${tour.days} days, private` },
+  { label: 'Totality', value: `${tour.watch.duration}, from ${tour.watch.time}` },
+  { label: 'From', value: `€${tour.price} per person, sharing` },
+  { label: 'Starts / ends', value: `${tour.start} / ${tour.end}` },
+  { label: 'Visa', value: 'Consulate visa; we send the invitation' },
+];
+
+const faqs = [
+  { q: 'Is this a group tour?', a: 'No. Like all our trips it is private, for your own party only: your guide, your driver and your pace. Tell us how many you are and we tailor the details.' },
+  { q: 'What if it is cloudy on the morning?', a: 'Long-term satellite records give this eclipse some of the lowest cloud the specialists have measured, and morning cloud in Algeria is usually light. Still, we never leave it to chance: the evening before, we look at the forecast together and choose the spot, with a second one ready a short drive away.' },
+  { q: 'How do we get the visa?', a: 'You apply at an Algerian consulate with the invitation letter and confirmed programme we send you. Apply early: summer 2027 will be busy, and we confirm your booking once the visa is accepted.' },
+  { q: 'Can we change the dates or add days?', a: 'Yes. The eclipse morning is fixed, everything around it can move: arrive earlier, stay longer, add the Sahara or another region. We rebuild the programme and the price around you.' },
+  { q: 'Do you provide eclipse glasses?', a: 'Please bring proper eclipse glasses (ISO 12312-2) for the partial phases; take them off only during totality.' },
+];
+
+const days = tour.itinerary.length;
+const trip = {
+  '@type': 'TouristTrip', '@id': `${url}#trip`, name: `${tour.title} (total solar eclipse, 2 August 2027)`,
+  description: tour.hook, url, touristType: 'Eclipse travellers',
+  itinerary: { '@type': 'ItemList', numberOfItems: days, itemListElement: tour.itinerary.map((d, i) => ({ '@type': 'ListItem', position: i + 1, name: `Day ${i + 1}: ${d.title}` })) },
+  offers: { '@type': 'Offer', price: tour.price, priceCurrency: 'EUR', url, availability: 'https://schema.org/InStock', validThrough: ECLIPSE_DATE },
+  provider: { '@id': `${site}/#organization` },
+};
+const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+  { '@type': 'ListItem', position: 2, name: 'Eclipse 2027 in Algeria', item: `${site}/eclipse-2027-algeria/` },
+  { '@type': 'ListItem', position: 3, name: tour.short, item: url },
+] };
+const gallery = tour.photos.map(p => ({ src: img(`${p}.jpg`), alt: PHOTO_ALT[p] || tour.title }));
+---
+<BaseLayout
+  title={tour.seoTitle}
+  description={tour.seoDesc}
+  image={img(tour.hero)}
+  keywords={['eclipse tour Algeria 2027', `${tour.short} eclipse`, 'total solar eclipse August 2 2027', 'private eclipse tour']}
+  schema={[trip, breadcrumb]}>
+  <section class="hero" style="min-height:46vh">
+    <HeroImg src={img(tour.hero)} alt={PHOTO_ALT[tour.hero.replace('.jpg', '')] || tour.title} />
+    <div class="hero-in wrap">
+      <div class="eyebrow">Total solar eclipse · Monday 2 August 2027</div>
+      <h1>{tour.title}</h1>
+      <p>{tour.hook}</p>
+      <a class="btn btn-gold" href={`/contact/?i=${encodeURIComponent('Eclipse 2027 – ' + tour.short)}`} data-evt="cta_plan">Hold my place →</a>
+    </div>
+  </section>
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Eclipse 2027', href: '/eclipse-2027-algeria/' }, { name: tour.short }]} />
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <KeyFacts facts={facts} />
+
+    <h2>Where we watch the eclipse</h2>
+    <p><b>{tour.watch.place}.</b> Totality lasts {tour.watch.duration} and begins at {tour.watch.time}. {tour.watch.why}</p>
+
+    <h2>Day by day</h2>
+    <ol class="ecd">
+      {tour.itinerary.map((d, i) => (
+        <li><span class="ecd-n">Day {i + 1} · {d.date}</span><b>{d.title}</b><p>{d.body}</p></li>
+      ))}
+    </ol>
+
+    <div class="ec-ie">
+      <div><h3>Included</h3><ul>{tour.includes.map(x => <li>{x}</li>)}</ul></div>
+      <div><h3>Not included</h3><ul>{tour.excludes.map(x => <li>{x}</li>)}</ul></div>
+    </div>
+    <p class="ec-price">From <b>€{tour.price}</b> per person, sharing a double room. We hold your dates for {BOOKING.holdHours} hours at no cost while we confirm, and confirm the booking once your visa is accepted.</p>
+  </div></section>
+
+  <PhotoGallery images={gallery} heading={`${tour.short} in pictures`} />
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <h2>Our other eclipse journeys</h2>
+    <ul class="ec-others">
+      {others.map(o => <li><a href={`/eclipse-2027-algeria/${o.slug}/`}>{o.title}</a> · {o.days} days · {o.watch.duration} · from €{o.price}</li>)}
+    </ul>
+    <p><a href="/eclipse-2027-algeria/">Where to see the 2027 eclipse in Algeria →</a></p>
+  </div></section>
+
+  <FaqSection faqs={faqs} />
+  <CtaSection heading="Hold your place under the eclipse" interest={`Eclipse 2027 – ${tour.short}`} />
+</BaseLayout>
+<style>
+  .ecd{list-style:none;padding:0;margin:1rem 0 1.6rem;counter-reset:none}
+  .ecd li{padding:1rem 0;border-bottom:1px solid var(--border)}
+  .ecd-n{display:block;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-l);margin-bottom:.2rem}
+  .ecd b{font-size:1.08rem}
+  .ecd p{margin:.35rem 0 0;line-height:1.7;color:var(--text-m)}
+  .ec-ie{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem 2rem;margin:1.4rem 0}
+  .ec-ie h3{margin:0 0 .4rem;font-size:1.05rem}
+  .ec-ie ul{margin:0;padding-left:1.1rem;line-height:1.7}
+  .ec-price{padding:1rem 1.2rem;border-radius:14px;background:var(--wash);border:1px solid var(--border)}
+  .ec-others{line-height:1.9;padding-left:1.1rem}
+</style>
