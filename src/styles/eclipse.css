@@ -95,7 +95,8 @@
 .ec-btn-ghost{background:transparent;color:var(--ec-gold)!important;border:1px solid var(--ec-gold);box-shadow:none}
 
 /* guest photos */
-.ec-guests{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.7rem;margin-top:1.2rem}
+.ec-guests{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));grid-auto-flow:dense;gap:.7rem;margin-top:1.2rem}
+.ec-guests figure:first-child{grid-column:span 2;grid-row:span 2}
 .ec-guests figure{margin:0;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--ec-line);aspect-ratio:4/5;background:var(--ec-panel)}
 .ec-guests img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
 .ec-guests figure:hover img{transform:scale(1.06)}

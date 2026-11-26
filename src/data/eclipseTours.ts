@@ -40,7 +40,7 @@ export const ECLIPSE_TOURS: EclipseTour[] = [
   {
     slug: 'oran-and-the-west',
     totalityStart: '2027-08-02T09:51:05+01:00',
-    guestPhotos: [584, 645, 189, 500],
+    guestPhotos: [663, 584, 645, 189, 500],
     seoTitle: 'Eclipse Tour 2027 in Oran, Algeria: 6 Days, Private',
     seoDesc: 'Private 6-day tour for the 2 August 2027 total eclipse: 5 min 08 s of totality over Oran, then Tlemcen and the Mostaganem coast. From €922, visa help.',
     title: 'Eclipse over Oran & the West',
@@ -65,7 +65,7 @@ export const ECLIPSE_TOURS: EclipseTour[] = [
   {
     slug: 'bou-saada-and-the-hodna',
     totalityStart: '2027-08-02T09:57:59+01:00',
-    guestPhotos: [652, 651, 649, 650, 647],
+    guestPhotos: [663, 652, 651, 649, 650, 647],
     seoTitle: 'Eclipse Tour 2027 in Bou Saâda, Algeria: 5 Days, Private',
     seoDesc: 'Watch the 2 August 2027 total eclipse from the oasis of Bou Saâda: 5 min 17 s of totality on the clear high plains, and the Qalaa of Beni Hammad. From €828.',
     title: 'Eclipse in the Oasis: Bou Saâda & the Hodna',
@@ -89,7 +89,7 @@ export const ECLIPSE_TOURS: EclipseTour[] = [
   {
     slug: 'timgad-and-the-aures',
     totalityStart: '2027-08-02T10:01:05+01:00',
-    guestPhotos: [226, 584, 645, 186],
+    guestPhotos: [663, 226, 584, 645, 186],
     seoTitle: 'Eclipse Tour 2027 in the Aurès: Timgad & Biskra, 6 Days',
     seoDesc: 'Over five minutes of totality near Timgad on 2 August 2027, with Djémila, the Aurès mountains and the palm groves of Biskra. Private, from €759, visa help.',
     title: 'Eclipse over the Aurès: Timgad, Djémila & Biskra',

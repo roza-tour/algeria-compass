@@ -1,5 +1,6 @@
 // FR alt text for the moments photographs, keyed by src (see moments.ts).
 export const MOMENTS_FR: Record<string, string> = {
+  '/assets/img/clients/client-663.jpg': "Un voyageur assis en tailleur sur un rocher au bord d'un ruisseau à Bou Saâda, des palmiers et les lettres BOUSAADA sur la colline derrière",
   '/assets/img/clients/client-641.jpg': "Deux voyageurs se photographiant l'un l'autre dans un oued rocheux, sous une ville ocre accrochée à la colline, des palmiers le long de la rive",
   '/assets/img/clients/client-12.jpg': "Un voyageur assis sur une corniche de grès au-dessus d'un vaste plateau désertique de broussailles et d'escarpements lointains",
   '/assets/img/tours/ghardaia-21.jpg': "Un voyageur debout, bras grands ouverts, entre deux quads sur le sable en fin d'après-midi",
