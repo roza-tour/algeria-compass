@@ -13,6 +13,10 @@
 
 export const MOMENTS: { src: string; alt: string }[] = [
   // October 2026 — Constantine, the Casbah, the Béjaïa coast and Bou Saâda (places confirmed by the owner)
+  { src: '/assets/img/clients/client-667.jpg', alt: "Travellers looking around a whitewashed museum room through a hand-plastered arch" },
+  { src: '/assets/img/clients/client-666.jpg', alt: "Travellers on a desert track, one photographing the sandstone towers that rise above the valley" },
+  { src: '/assets/img/clients/client-665.jpg', alt: "Travellers stretching their legs beside the 4x4s in a desert valley, sandstone buttes and a hazy sun behind" },
+  { src: '/assets/img/clients/client-664.jpg', alt: "Travellers and their 4x4 crew stopping in a sandy wadi below sandstone towers in the Algerian Sahara" },
   { src: '/assets/img/clients/client-663.jpg', alt: "A guest sitting cross-legged on a rock beside a stream in Bou Saâda, palms and the BOUSAADA letters on the hill behind" },
   { src: '/assets/img/clients/client-646.jpg', alt: 'Two travellers standing on the patterned carpet of the Emir Abdelkader Mosque in Constantine, its carved arches and chandeliers above' },
   { src: '/assets/img/clients/client-643.jpg', alt: 'A traveller photographing a stone-arched bridge over the Rhumel river below the cliffs of Constantine' },

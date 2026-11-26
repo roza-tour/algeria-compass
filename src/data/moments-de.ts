@@ -1,5 +1,9 @@
 // DE alt text for the moments photographs, keyed by src (see moments.ts).
 export const MOMENTS_DE: Record<string, string> = {
+  '/assets/img/clients/client-667.jpg': "Reisende sehen sich in einem weiß gekalkten Museumsraum um, gesehen durch einen von Hand verputzten Bogen",
+  '/assets/img/clients/client-666.jpg': "Reisende auf einer Wüstenpiste, einer fotografiert die Sandsteintürme über dem Tal",
+  '/assets/img/clients/client-665.jpg': "Reisende vertreten sich die Beine neben den Geländewagen in einem Wüstental, dahinter Sandsteinkuppen und eine dunstige Sonne",
+  '/assets/img/clients/client-664.jpg': "Reisende und ihre 4x4-Crew halten in einem sandigen Wadi unter Sandsteintürmen in der algerischen Sahara",
   '/assets/img/clients/client-663.jpg': "Ein Reisender sitzt im Schneidersitz auf einem Felsen an einem Bach in Bou Saâda, Palmen und der Schriftzug BOUSAADA auf dem Hügel dahinter",
   '/assets/img/clients/client-641.jpg': 'Zwei Reisende fotografieren sich gegenseitig in einem felsigen Wadi unterhalb einer ockerfarbenen Stadt am Hang, Palmen säumen das Ufer',
   '/assets/img/clients/client-12.jpg': 'Reisende auf einem Sandsteinvorsprung über einem weiten Wüstenplateau mit Gestrüpp und fernen Steilhängen',

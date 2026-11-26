@@ -1,5 +1,9 @@
 // ES alt text for the moments photographs, keyed by src (see moments.ts).
 export const MOMENTS_ES: Record<string, string> = {
+  '/assets/img/clients/client-667.jpg': "Viajeros recorren una sala de museo encalada, vista a través de un arco enlucido a mano",
+  '/assets/img/clients/client-666.jpg': "Viajeros en una pista del desierto, uno de ellos fotografía las torres de arenisca que dominan el valle",
+  '/assets/img/clients/client-665.jpg': "Viajeros estiran las piernas junto a los 4x4 en un valle del desierto, con cerros de arenisca y un sol velado detrás",
+  '/assets/img/clients/client-664.jpg': "Viajeros y su equipo de 4x4 hacen una parada en un uadi arenoso bajo torres de arenisca del Sáhara argelino",
   '/assets/img/clients/client-663.jpg': "Un viajero sentado con las piernas cruzadas sobre una roca junto a un arroyo en Bou Saâda, palmeras y las letras BOUSAADA en la colina detrás",
   '/assets/img/clients/client-641.jpg': 'Dos viajeros fotografiándose mutuamente en un uadi rocoso, bajo un pueblo ocre en la ladera y con palmeras en la orilla',
   '/assets/img/clients/client-12.jpg': 'Un viajero sentado en una cornisa de arenisca sobre una amplia meseta desértica de matorral y escarpes lejanos',

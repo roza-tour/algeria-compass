@@ -11,7 +11,7 @@ const {
   count = 16,
 } = Astro.props;
 // Warm, people-first defaults: guides and guests laughing, a dinner, tea, the road.
-const DEFAULTS = [663, 584, 645, 189, 500, 652, 226, 186, 653, 546, 643, 651, 11, 223, 658, 650, 513, 559, 573, 424, 91, 76];
+const DEFAULTS = [663, 664, 665, 666, 584, 645, 189, 500, 652, 667, 226, 186, 653, 643, 651, 11, 223, 658, 650, 513, 559, 573, 424, 91, 76];
 const byNum = new Map(MOMENTS.map(m => [Number(m.src.match(/client-(\d+)/)?.[1]), m]));
 const picks = [...new Set([...prefer, ...DEFAULTS])].map(n => byNum.get(n)).filter(Boolean).slice(0, count) as { src: string; alt: string }[];
 const webp = (s: string) => s.replace(/\.jpg$/, '.sm.webp');
