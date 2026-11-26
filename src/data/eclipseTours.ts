@@ -12,14 +12,17 @@
 //
 // Prices follow the owner's day-rate rule (tour price ÷ days × days):
 //   west  = Oran–Mostaganem–Tlemcen €768 / 5 d × 6 d = €922
-//   hodna = Bou Saâda €288 / 2 d × 5 d              = €720
-//   aures = Biskra & Aurès €330 / 3 d × 6 d          = €660
+//   hodna = Bou Saâda €288 / 2 d × 5 d = €720, +15% (owner, 2026-11-26) = €828
+//   aures = Biskra & Aurès €330 / 3 d × 6 d = €660, +15% (owner)         = €759
+// The owner kept the west at €922 ("its price is good").
 // Photos are all our own (no credit needed).
 
 export interface EclipseTour {
   slug: string; title: string; short: string; hook: string; seoTitle: string; seoDesc: string;
   days: number; dates: string; start: string; end: string; price: number;
   watch: { place: string; time: string; duration: string; why: string };
+  totalityStart: string;   // ISO, local time (UTC+1), at the main viewing site
+  guestPhotos: number[];   // client-N photos from src/data/moments.ts to show first
   hero: string; photos: string[];
   itinerary: { date: string; title: string; body: string }[];
   includes: string[]; excludes: string[];
@@ -30,12 +33,14 @@ export const ECLIPSE_DATE = '2027-08-02';
 
 // Day-rate prices (see header) and lengths, named once.
 const WEST_DAYS = 6, WEST_PRICE_EUR = 922;
-const HODNA_DAYS = 5, HODNA_PRICE_EUR = 720;
-const AURES_DAYS = 6, AURES_PRICE_EUR = 660;
+const HODNA_DAYS = 5, HODNA_PRICE_EUR = 828;
+const AURES_DAYS = 6, AURES_PRICE_EUR = 759;
 
 export const ECLIPSE_TOURS: EclipseTour[] = [
   {
     slug: 'oran-and-the-west',
+    totalityStart: '2027-08-02T09:51:05+01:00',
+    guestPhotos: [584, 645, 189, 500],
     seoTitle: 'Eclipse Tour 2027 in Oran, Algeria: 6 Days, Private',
     seoDesc: 'Private 6-day tour for the 2 August 2027 total eclipse: 5 min 08 s of totality over Oran, then Tlemcen and the Mostaganem coast. From €922, visa help.',
     title: 'Eclipse over Oran & the West',
@@ -59,8 +64,10 @@ export const ECLIPSE_TOURS: EclipseTour[] = [
   },
   {
     slug: 'bou-saada-and-the-hodna',
+    totalityStart: '2027-08-02T09:57:59+01:00',
+    guestPhotos: [652, 651, 649, 650, 647],
     seoTitle: 'Eclipse Tour 2027 in Bou Saâda, Algeria: 5 Days, Private',
-    seoDesc: 'Watch the 2 August 2027 total eclipse from the oasis of Bou Saâda: 5 min 17 s of totality on the clear high plains, and the Qalaa of Beni Hammad. From €720.',
+    seoDesc: 'Watch the 2 August 2027 total eclipse from the oasis of Bou Saâda: 5 min 17 s of totality on the clear high plains, and the Qalaa of Beni Hammad. From €828.',
     title: 'Eclipse in the Oasis: Bou Saâda & the Hodna',
     short: 'Bou Saâda & the Hodna',
     hook: 'Over five minutes of totality above the palm groves of Bou Saâda, at the edge of the Sahara, in the home country of our parent agency.',
@@ -81,8 +88,10 @@ export const ECLIPSE_TOURS: EclipseTour[] = [
   },
   {
     slug: 'timgad-and-the-aures',
+    totalityStart: '2027-08-02T10:01:05+01:00',
+    guestPhotos: [226, 584, 645, 186],
     seoTitle: 'Eclipse Tour 2027 in the Aurès: Timgad & Biskra, 6 Days',
-    seoDesc: 'Over five minutes of totality near Timgad on 2 August 2027, with Djémila, the Aurès mountains and the palm groves of Biskra. Private, from €660, visa help.',
+    seoDesc: 'Over five minutes of totality near Timgad on 2 August 2027, with Djémila, the Aurès mountains and the palm groves of Biskra. Private, from €759, visa help.',
     title: 'Eclipse over the Aurès: Timgad, Djémila & Biskra',
     short: 'Timgad & the Aurès',
     hook: 'Two Roman cities, the Aurès mountains and the palm groves of Biskra, with over five minutes of totality near Timgad.',

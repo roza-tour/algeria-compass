@@ -1,0 +1,38 @@
+---
+// Real photographs of our own guests on our trips (published with their
+// consent; see src/data/moments.ts), so visitors see who they will travel with.
+import { MOMENTS } from '../data/moments';
+
+export interface Props { heading?: string; lead?: string; prefer?: number[]; count?: number }
+const {
+  heading = 'Our guests, on our trips',
+  lead = 'Not stock photos: these are our own travellers and guides, on journeys we ran.',
+  prefer = [],
+  count = 10,
+} = Astro.props;
+// Warm, people-first defaults: guides and guests laughing, a dinner, tea, the road.
+const DEFAULTS = [584, 645, 189, 500, 652, 226, 186, 546, 11, 223];
+const byNum = new Map(MOMENTS.map(m => [Number(m.src.match(/client-(\d+)/)?.[1]), m]));
+const picks = [...new Set([...prefer, ...DEFAULTS])].map(n => byNum.get(n)).filter(Boolean).slice(0, count) as { src: string; alt: string }[];
+const webp = (s: string) => s.replace(/\.jpg$/, '.sm.webp');
+---
+{picks.length > 0 && (
+  <section class="ec-sec ec-reveal" aria-labelledby="ec-guests-h">
+    <div class="wrap">
+      <div class="ec-orn-c"><span></span></div>
+      <h2 id="ec-guests-h" style="text-align:center">{heading}</h2>
+      <p style="text-align:center;max-width:640px;margin:0 auto">{lead}</p>
+      <div class="ec-guests">
+        {picks.map(p => (
+          <figure>
+            <picture>
+              <source srcset={webp(p.src)} type="image/webp" />
+              <img src={p.src} alt={p.alt} loading="lazy" decoding="async" width="400" height="500" />
+            </picture>
+          </figure>
+        ))}
+      </div>
+      <p class="ec-guests-note" style="text-align:center">More in <a href="/moments/">moments from our trips</a>.</p>
+    </div>
+  </section>
+)}

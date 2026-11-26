@@ -7,7 +7,9 @@
 // Where the two sources differ (M'Sila 5:11 vs 5:23) the page gives a range.
 // A page eclipse-chasers, astronomy clubs and travel media can link to.
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import HeroImg from '../../components/HeroImg.astro';
+import EclipseSky from '../../components/EclipseSky.astro';
+import GuestMoments from '../../components/GuestMoments.astro';
+import '../../styles/eclipse.css';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { ECLIPSE_TOURS } from '../../data/eclipseTours';
 import FaqSection from '../../components/FaqSection.astro';
@@ -70,64 +72,65 @@ const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
   image="/assets/img/oran-bay-santa-cruz.jpg"
   keywords={['eclipse 2027 Algeria', 'total solar eclipse August 2 2027', 'eclipse Oran 2027', 'Algeria eclipse tour', 'path of totality Algeria']}
   schema={[page, breadcrumb]}>
-  <section class="hero" style="min-height:46vh">
-    <HeroImg src="/assets/img/oran-bay-santa-cruz.jpg" alt="The bay of Oran below the Santa Cruz fort, inside the 2027 path of totality" />
-    <div class="hero-in wrap">
-      <div class="eyebrow">Monday 2 August 2027</div>
-      <h1>The 2027 Total Solar Eclipse in Algeria</h1>
-      <p>For about five minutes on a summer morning, the sky over Oran, the High Plateaus and the Aurès will go dark. Come and watch it with us.</p>
-    </div>
-  </section>
+<div class="ecx">
+  <EclipseSky
+    eyebrow="Monday 2 August 2027 · Total solar eclipse"
+    title="The 2027 Total Solar Eclipse in Algeria"
+    text="For over five minutes on a summer morning, the sky over Oran, the oasis of Bou Saâda and the Aurès mountains will go dark and the stars will come out. Come and watch it with us."
+    target="2027-08-02T09:51:05+01:00" place="Oran"
+    cta={{ href: '#journeys', label: 'See our 3 eclipse journeys' }}
+    cta2={{ href: '#where', label: 'Where to watch' }} />
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Eclipse 2027 in Algeria' }]} />
 
-  <section class="section"><div class="wrap" style="max-width:820px">
-    <div class="qbox" id="answer"><b>Quick answer</b><p>On Monday 2 August 2027 the path of totality crosses northern Algeria from west to east, from the Moroccan border near Ghazaouet to the Tunisian border near Tébessa. Oran sees 5 min 08 s of totality from about 09:51 local time; Batna, Relizane and M’Sila see a little over five minutes. Algiers is just outside the path and sees only a very deep partial eclipse.</p></div>
+  <section class="ec-sec ec-reveal" style="padding-top:1rem"><div class="wrap ec-narrow">
+    <div class="ec-panel ec-quick" id="answer"><b>Quick answer</b><p>On Monday 2 August 2027 the path of totality crosses northern Algeria from west to east, from the Moroccan border near Ghazaouet to the Tunisian border near Tébessa. Oran sees 5 min 08 s of totality from about 09:51 local time; Bou Saâda and Batna 5 min 17 s, from about 09:58 and 10:01. Algiers is just outside the path and sees only a very deep partial eclipse.</p></div>
+  </div></section>
 
-    <h2>Where to watch in Algeria</h2>
-    <p>The band of totality is about 250 km wide, so a whole stretch of the country lies inside it: the coast and plains around Oran and Mostaganem, the High Plateaus around Tiaret and M’Sila, and the Aurès mountains around Batna. Durations below are approximate and vary by a few seconds across each town.</p>
-    <p>Weather specialists rate this eclipse among the least cloudy of recent decades. In Algeria, morning cloud is usually light; the coastal plain holds a little more cloud on average than the high plains and the desert edge, which is one reason we love Bou Saâda and the interior for the big morning.</p>
-    <div class="ec-table" role="region" aria-label="Totality in Algerian cities" tabindex="0">
-      <table>
-        <thead><tr><th>City</th><th>Region</th><th>Totality</th><th></th></tr></thead>
-        <tbody>
-          {CITIES.map(c => <tr><td><b>{c.city}</b></td><td>{c.where}</td><td>{c.dur}</td><td>{c.note}</td></tr>)}
-        </tbody>
-      </table>
-    </div>
-
-    <h2>Our three eclipse journeys</h2>
-    <p>An eclipse is one morning, but the trip around it can be unforgettable. Three private journeys, each built around the best places to watch:</p>
+  <section class="ec-sec ec-reveal" id="journeys"><div class="wrap">
+    <div class="ec-orn-c"><span></span></div>
+    <h2 style="text-align:center">Our three eclipse journeys</h2>
+    <p style="text-align:center;max-width:680px;margin:0 auto">Private trips for your own party, each built around one of the best places to watch, with a second spot ready in case the morning sky changes.</p>
     <div class="ec-cards">
       {ECLIPSE_TOURS.map(t => (
         <a class="ec-card" href={`/eclipse-2027-algeria/${t.slug}/`}>
+          <span class="ec-badge">{t.days} days</span>
           <img src={`/assets/img/tours/${t.hero}`} alt="" width="640" height="400" loading="lazy" decoding="async" />
           <span class="ec-card-b">
             <b>{t.title}</b>
-            <span>{t.days} days · {t.dates}</span>
-            <span>Totality: {t.watch.duration}</span>
+            <span>{t.dates}</span>
+            <span class="ec-card-t">Totality: {t.watch.duration}</span>
             <span class="ec-card-p">From €{t.price} per person →</span>
           </span>
         </a>
       ))}
     </div>
-    <p>Each journey is private, for your own party, and can be lengthened or joined to the Sahara or another region. We send the invitation letter for your consulate visa. Bring proper eclipse glasses (ISO 12312-2) for the partial phases, and take them off only during totality itself.</p>
+    <p style="text-align:center;color:var(--ec-muted)">Every journey includes your private guide, driver, hotels with breakfast and the eclipse-morning transfer. We send the invitation letter for your consulate visa.</p>
   </div></section>
 
+  <div class="ec-orn" aria-hidden="true"></div>
+
+  <section class="ec-sec ec-reveal" id="where"><div class="wrap ec-narrow">
+    <h2>Where to watch in Algeria</h2>
+    <p>The band of totality is about 250 km wide, so a whole stretch of the country lies inside it: the coast and plains around Oran and Mostaganem, the High Plateaus around Tiaret and M’Sila, the oasis of Bou Saâda and the Aurès mountains around Batna.</p>
+    <p>Weather specialists rate this eclipse among the least cloudy of recent decades. In Algeria, morning cloud is usually light; the coastal plain holds a little more cloud on average than the high plains and the desert edge, which is one reason we love Bou Saâda and the interior for the big morning.</p>
+    <div class="ec-table" role="region" aria-label="Totality in Algerian cities" tabindex="0">
+      <table>
+        <thead><tr><th>City</th><th>Region</th><th>Totality</th><th>Note</th></tr></thead>
+        <tbody>
+          {CITIES.map(c => <tr><td><b>{c.city}</b></td><td>{c.where}</td><td class={/5 min (1[1-9]|[2-5]\d)/.test(c.dur) ? 'ec-long' : ''}>{c.dur}</td><td>{c.note}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--ec-muted);font-size:.93rem">Durations are approximate and vary by a few seconds across each town. Bring proper eclipse glasses (ISO 12312-2) for the partial phases, and take them off only during totality itself.</p>
+  </div></section>
+
+  <GuestMoments prefer={[652, 651, 584, 645]} />
+
+  <div class="ec-orn" aria-hidden="true"></div>
   <FaqSection faqs={faqs} />
-  <section class="section" style="padding-top:0"><div class="wrap" style="max-width:820px">
+  <section class="ec-sec" style="padding-top:0"><div class="wrap ec-narrow">
     <SourceList sources={sources} />
   </div></section>
+</div>
   <CtaSection heading="Hold your place under the eclipse" interest="Eclipse 2027" />
 </BaseLayout>
-<style>
-  .ec-table{overflow-x:auto;margin:1.2rem 0 1.6rem}
-  .ec-table table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:520px}
-  .ec-table th,.ec-table td{padding:.55rem .7rem;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
-  .ec-table th{font-weight:600;color:var(--text-l)}
-  .ec-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:1.2rem 0}
-  .ec-card{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--wash);color:inherit;text-decoration:none}
-  .ec-card img{width:100%;height:160px;object-fit:cover}
-  .ec-card-b{display:flex;flex-direction:column;gap:.25rem;padding:.9rem 1rem 1.1rem;font-size:.93rem;color:var(--text-m)}
-  .ec-card-b b{font-size:1.05rem;color:var(--text)}
-  .ec-card-p{margin-top:.3rem;font-weight:600;color:var(--text)}
-</style>
