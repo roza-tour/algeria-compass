@@ -100,3 +100,4 @@ Oran is **relaxed by Algerian standards**, but modest dress is still respected a
 - Try **calentica** from a street stall at least once.
 - Pair Oran with **Tlemcen** for a strong western-Algeria itinerary.
 - The **tram** is a quick, cheap way along the main corridors.
+- **2 August 2027:** Oran lies inside the path of the total solar eclipse, with about five minutes of totality. See [the 2027 eclipse in Algeria](/eclipse-2027-algeria/).

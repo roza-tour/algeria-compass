@@ -1,0 +1,119 @@
+---
+// Total solar eclipse of Monday 2 August 2027 over northern Algeria.
+// Figures (checked 2026-11-26): Oran times and duration from Wikipedia's
+// "Solar eclipse of August 2, 2027" (local tables) and nationaleclipse.com's
+// Algeria city list; other city durations from nationaleclipse.com, which
+// gives them as representative samples. Algiers is outside totality (99.8–99.9%).
+// Where the two sources differ (M'Sila 5:11 vs 5:23) the page gives a range.
+// A page eclipse-chasers, astronomy clubs and travel media can link to.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroImg from '../components/HeroImg.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import InlineTours from '../components/InlineTours.astro';
+import FaqSection from '../components/FaqSection.astro';
+import SourceList from '../components/SourceList.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { PARENT } from '../config';
+
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const url = `${site}/eclipse-2027-algeria/`;
+
+const CITIES = [
+  { city: 'Oran', where: 'West coast', dur: '5 min 08 s', note: 'Totality from about 09:51 local time' },
+  { city: 'Relizane', where: 'West, inland', dur: '5 min 11 s', note: '' },
+  { city: 'Tiaret', where: 'High Plateaus', dur: '5 min 05 s', note: '' },
+  { city: 'Mostaganem', where: 'West coast', dur: '5 min 02 s', note: '' },
+  { city: 'Mascara', where: 'West, inland', dur: '5 min 00 s', note: '' },
+  { city: 'M’Sila', where: 'Hodna, centre', dur: 'about 5 min 11–23 s', note: 'Home of our parent agency, ' + PARENT.name },
+  { city: 'Batna', where: 'Aurès, east', dur: '5 min 17 s', note: 'A short drive from Roman Timgad' },
+  { city: 'Tébessa', where: 'East, near Tunisia', dur: '5 min 12 s', note: '' },
+  { city: 'Biskra', where: 'Gateway to the Sahara', dur: '5 min 03 s', note: '' },
+  { city: 'Sidi Bel Abbès', where: 'West, inland', dur: '4 min 34 s', note: '' },
+  { city: 'Sétif', where: 'High Plateaus, east', dur: '3 min 23 s', note: '' },
+  { city: 'Tlemcen', where: 'Far west', dur: '3 min 12 s', note: 'Near the edge of the path' },
+  { city: 'Algiers', where: 'Capital', dur: 'No totality', note: 'About 99.9% partial: go into the path' },
+];
+
+const faqs = [
+  { q: 'When is the 2027 total solar eclipse in Algeria?', a: 'On Monday 2 August 2027, in the morning. In Oran totality begins at about 09:51 local time and lasts a little over five minutes; further east, in Batna and Tébessa, it comes about ten to fifteen minutes later.' },
+  { q: 'Which Algerian cities will see totality?', a: 'The path crosses northern Algeria from the Moroccan border near Ghazaouet to the Tunisian border near Tébessa. Oran, Mostaganem, Relizane, Tiaret, Mascara, M’Sila, Biskra, Batna and Tébessa are all inside it, with around five minutes of totality. Algiers is just outside and sees a very deep partial eclipse only.' },
+  { q: 'How long will totality last in Algeria?', a: 'Around five minutes along the centre of the path: 5 min 08 s in Oran, 5 min 17 s in Batna, 5 min 11 s in Relizane. The longest totality of the whole eclipse, about 6 min 23 s, is in Egypt.' },
+  { q: 'Is August a good time to travel in Algeria?', a: 'It is the heart of summer, so we plan the days around the heat: early starts, long lunches in the shade, evenings by the sea or in the cool of the mountains. The eclipse itself happens in the morning, before the hottest hours.' },
+  { q: 'Do I need a visa for an eclipse trip?', a: 'Most visitors need a visa from an Algerian consulate. We send the invitation and the confirmed programme the consulate asks for, so apply early: summer 2027 will be busy.' },
+  { q: 'Should we book early?', a: 'Yes. Hotels in the path, above all in Oran, will fill well before August 2027. Tell us your dates now and we will hold the right places for you.' },
+];
+
+const sources = [
+  { title: 'Solar eclipse of August 2, 2027', publisher: 'Wikipedia', url: 'https://en.wikipedia.org/wiki/Solar_eclipse_of_August_2,_2027', type: 'Reference', note: 'Local times and duration for Oran and M’Sila; overall maximum' },
+  { title: '2027 total solar eclipse cities: Algeria', publisher: 'National Eclipse', url: 'https://nationaleclipse.com/cities/lists/2027-total-solar-eclipse-cities.html', type: 'Reference', note: 'Durations for Algerian cities, given as representative samples' },
+  { title: 'Path of the Total Solar Eclipse of 2027 Aug 02', publisher: 'EclipseWise (Fred Espenak)', url: 'https://eclipsewise.com/solar/SEpath/2001-2100/SE2027Aug02Tpath.html', type: 'Reference', note: 'Path width and central-line durations' },
+];
+
+const page = {
+  '@type': 'WebPage', '@id': `${url}#webpage`, url, inLanguage: 'en',
+  name: 'Total solar eclipse of 2 August 2027 in Algeria',
+  about: { '@type': 'Thing', name: 'Solar eclipse of August 2, 2027', sameAs: 'https://en.wikipedia.org/wiki/Solar_eclipse_of_August_2,_2027' },
+  isPartOf: { '@id': `${site}/#website` }, publisher: { '@id': `${site}/#organization` },
+  dateModified: '2026-11-26',
+};
+const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+  { '@type': 'ListItem', position: 2, name: 'Eclipse 2027 in Algeria', item: url },
+] };
+---
+<BaseLayout
+  title="Total Solar Eclipse 2027 in Algeria: Where to See Totality"
+  description="On 2 August 2027 totality crosses northern Algeria: over five minutes in Oran, Batna and M'Sila. Where to watch, local times, and private eclipse trips."
+  image="/assets/img/oran-bay-santa-cruz.jpg"
+  keywords={['eclipse 2027 Algeria', 'total solar eclipse August 2 2027', 'eclipse Oran 2027', 'Algeria eclipse tour', 'path of totality Algeria']}
+  schema={[page, breadcrumb]}>
+  <section class="hero" style="min-height:46vh">
+    <HeroImg src="/assets/img/oran-bay-santa-cruz.jpg" alt="The bay of Oran below the Santa Cruz fort, inside the 2027 path of totality" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">Monday 2 August 2027</div>
+      <h1>The 2027 Total Solar Eclipse in Algeria</h1>
+      <p>For about five minutes on a summer morning, the sky over Oran, the High Plateaus and the Aurès will go dark. Come and watch it with us.</p>
+    </div>
+  </section>
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Eclipse 2027 in Algeria' }]} />
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <div class="qbox" id="answer"><b>Quick answer</b><p>On Monday 2 August 2027 the path of totality crosses northern Algeria from west to east, from the Moroccan border near Ghazaouet to the Tunisian border near Tébessa. Oran sees 5 min 08 s of totality from about 09:51 local time; Batna, Relizane and M’Sila see a little over five minutes. Algiers is just outside the path and sees only a very deep partial eclipse.</p></div>
+
+    <h2>Where to watch in Algeria</h2>
+    <p>The band of totality is about 250 km wide, so a whole stretch of the country lies inside it: the coast and plains around Oran and Mostaganem, the High Plateaus around Tiaret and M’Sila, and the Aurès mountains around Batna. Durations below are approximate and vary by a few seconds across each town.</p>
+    <div class="ec-table" role="region" aria-label="Totality in Algerian cities" tabindex="0">
+      <table>
+        <thead><tr><th>City</th><th>Region</th><th>Totality</th><th></th></tr></thead>
+        <tbody>
+          {CITIES.map(c => <tr><td><b>{c.city}</b></td><td>{c.where}</td><td>{c.dur}</td><td>{c.note}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How we would plan it for you</h2>
+    <p>An eclipse is one morning, but the trip around it can be unforgettable. Three ideas, each private and built around your dates:</p>
+    <ul class="ec-list">
+      <li><b>Oran and the west.</b> Watch from the heights above the bay of Oran, then carry on to Mostaganem’s beaches and Andalusian Tlemcen. Hotels in Oran will be the first to fill.</li>
+      <li><b>The Aurès and Roman Timgad.</b> Watch near Batna, with over five minutes of totality, then walk the streets of Timgad and go down to the palm groves of Biskra.</li>
+      <li><b>The Hodna and Bou Saâda.</b> M’Sila is home to our parent agency, {PARENT.name}: watch the eclipse with the people who know every hill around, then spend the evening in the oasis of Bou Saâda.</li>
+    </ul>
+    <p>Bring proper eclipse glasses (ISO 12312-2) for the partial phases, and take them off only during totality itself.</p>
+
+    <InlineTours text="/tours/oran-mostaganem-tlemcen/ /tours/biskra-aures-oases/ /tours/bousaada-desert-tour/" limit={3} />
+  </div></section>
+
+  <FaqSection faqs={faqs} />
+  <section class="section" style="padding-top:0"><div class="wrap" style="max-width:820px">
+    <SourceList sources={sources} />
+  </div></section>
+  <CtaSection heading="Hold your place under the eclipse" interest="Eclipse 2027" />
+</BaseLayout>
+<style>
+  .ec-table{overflow-x:auto;margin:1.2rem 0 1.6rem}
+  .ec-table table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:520px}
+  .ec-table th,.ec-table td{padding:.55rem .7rem;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+  .ec-table th{font-weight:600;color:var(--text-l)}
+  .ec-list{line-height:1.75;padding-left:1.1rem}
+  .ec-list li{margin:.6rem 0}
+</style>

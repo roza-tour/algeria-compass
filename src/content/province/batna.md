@@ -72,3 +72,4 @@ Batna has a **domestic airport** and sits on the eastern road and rail corridor;
 - Pair **Timgad** with **Imedghassen** and, if time allows, a drive into the **Aurès**.
 - Bring **sun protection** for exposed Timgad and **layers** for the mountains.
 - Treat the **independence-war history** of the Aurès with respect — it matters deeply here.
+- **2 August 2027:** Batna lies inside the path of the total solar eclipse, with over five minutes of totality. See [the 2027 eclipse in Algeria](/eclipse-2027-algeria/).
