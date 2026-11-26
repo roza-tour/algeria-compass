@@ -55,7 +55,7 @@ export const GET: APIRoute = async () => {
   // EXCLUDED (noindex scaffolding / thin meta pages, kept out of the sitemap):
   //   /search/, /sitemap/, /404/.
   //   (/clusters/ was removed entirely — now 301'd to real pages in .htaccess.)
-  const statics = ['', 'discover/', 'tours/', 'luxury/', 'destinations/', 'provinces/', 'regions/', 'experiences/', 'blog/',
+  const statics = ['', 'discover/', 'tours/', 'sahara-tours/', 'luxury/', 'destinations/', 'provinces/', 'regions/', 'experiences/', 'blog/',
     'questions/', 'culture/', 'history/', 'food/', 'sweets/', 'unesco/', 'travel-guides/', 'moments/', 'partners/', 'plan-your-trip/',
     'visa-support/', 'evisa/', 'booking-terms/', 'privacy/', 'algeria-visa-requirements/',
     'about/', 'contact/', 'editorial/', 'team/', 'reviewers/',

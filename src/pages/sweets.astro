@@ -3,6 +3,7 @@ import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CtaSection from '../components/CtaSection.astro';
+import InlineTours from '../components/InlineTours.astro';
 import { SWEETS } from '../data/sweets.mjs';
 
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
@@ -140,6 +141,7 @@ const itemList = { '@type':'ItemList', '@id':`${site}/sweets/#list`, name:'Alger
       {faqs.map(f => <details><summary set:html={f.q.replace(/\*([^*]+)\*/g,'<em>$1</em>')}></summary><p>{f.a}</p></details>)}
     </div>
     <p class="sx-foot">Hungry yet? Plan a trip that tastes as good as it looks — <a href="/tours/">browse our tours</a> or read <a href="/food/">the full Algerian food story</a>.</p>
+    <InlineTours text="" fallback={['the-soul-of-algeria', 'bousaada-desert-tour', 'djanet-sahara-safari']} />
   </div></section>
 
   <CtaSection heading="Come for the dunes, stay for the dessert" />

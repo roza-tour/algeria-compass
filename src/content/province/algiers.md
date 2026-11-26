@@ -43,8 +43,8 @@ faqs:
   - { q: "Do I need to dress conservatively in Algiers?", a: "Algiers is relatively cosmopolitan, but it's still respectful to dress modestly, especially in the Casbah and at mosques. Ask before photographing residents, particularly in the old city." }
 
 seo:
-  title: "Algiers Travel Guide: The Casbah, Coast & Capital"
-  description: "Plan Algiers, Algeria's white Mediterranean capital: the UNESCO Casbah, colonial boulevards, the Great Mosque, museums, food and day trips."
+  title: "Algiers, Algeria: Things to Do in the Casbah & the White City"
+  description: "Algiers, the white capital on the Mediterranean: the UNESCO Casbah, the boulevards, the Great Mosque, museums, food and day trips. A local's guide."
   primaryKeyword: "Algiers Algeria travel guide"
   keywords: ["Casbah of Algiers","Algiers Algeria","Alger la Blanche","Notre-Dame d'Afrique","Tipaza","things to do in Algiers"]
 updated: 2026-06-03

@@ -30,8 +30,8 @@ faqs:
   - { q: "What are the Chiffa gorges?", a: "A deep, scenic mountain gorge west of Blida on the road toward Médéa, known for its cliffs and the 'Ruisseau des Singes' (Monkey Stream), where Barbary macaques gather beside the road." }
 
 seo:
-  title: "Blida, Algeria: City of Roses & the Chréa Mountains"
-  description: "Blida, the 'City of Roses' near Algiers: the cedar forests and winter snow of Chréa National Park, the Mitidja orchards and the Chiffa gorges."
+  title: "Blida, Algeria: City of Roses, Chréa Snow & the Chiffa Gorges"
+  description: "Blida, the City of Roses an hour from Algiers: cedar forests and winter snow at Chréa, the Mitidja orchards and the Chiffa gorges. What to see, with photos."
   primaryKeyword: "Blida Algeria travel guide"
   keywords: ["Blida", "City of Roses", "Chréa", "Chiffa gorges", "Mitidja", "Atlas mountains Algeria"]
 updated: 2026-06-07

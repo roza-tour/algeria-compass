@@ -43,8 +43,8 @@ faqs:
   - { q: "When is the best time to visit Oran?", a: "April–June and September–October are ideal — warm, clear and good for walking and the coast. Summer is hot and the seafront is busy; winters are mild and a little wet." }
 
 seo:
-  title: "Oran Travel Guide: Santa Cruz, Raï Music & the West Coast"
-  description: "Plan Oran, Algeria's radiant second city: the Santa Cruz fort, the seafront, raï music, Spanish heritage, calentica, the western beaches and a Tlemcen day trip."
+  title: "Oran, Algeria: Things to Do in the City of Raï"
+  description: "Oran, Algeria's radiant second city: the Santa Cruz fort, the seafront, raï music, Spanish heritage, calentica and the western beaches. A local's guide."
   primaryKeyword: "Oran Algeria travel guide"
   keywords: ["Oran Algeria","Santa Cruz Oran","raï music","El Bahia","western Algeria","Tlemcen day trip"]
 updated: 2026-06-03

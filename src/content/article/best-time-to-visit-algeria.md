@@ -65,7 +65,7 @@ faqs:
   - { q: "When is best for photography?", a: "The cool desert months (Nov–Feb) for the Sahara, and the clear shoulder seasons for the north." }
 seo:
   title: "Best Time to Visit Algeria: Month-by-Month Guide"
-  description: "When to visit Algeria, region by region and month by month: coast, cities, mountains and Sahara, with climate tables, seasonal ratings and months to avoid."
+  description: "When to visit Algeria, month by month: the coast, cities and mountains, the Sahara from November to February, Ramadan and festivals, from people who live here."
   primaryKeyword: "best time to visit Algeria"
   keywords: ["best time to visit Algeria","Algeria weather","Algeria Sahara season","Algeria climate","when to go to Algeria"]
 author: "oussama-ben-yahia"

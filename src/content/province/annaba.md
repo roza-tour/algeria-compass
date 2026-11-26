@@ -32,8 +32,8 @@ faqs:
   - { q: "Are there good beaches near Annaba?", a: "Yes — the coast around Annaba and the Edough peninsula has a series of coves and sandy beaches with clear water, popular through the warm months from late spring to early autumn." }
 
 seo:
-  title: "Annaba, Algeria: Hippo Regius, St Augustine & the Coast — Guide"
-  description: "Annaba on Algeria's north-east coast: Roman Hippo Regius and Saint Augustine, the hilltop basilica, and turquoise coves below the Edough."
+  title: "Annaba, Algeria: Hippo Regius, Saint Augustine & Turquoise Coves"
+  description: "Annaba on the north-east coast: Roman Hippo Regius and Saint Augustine, the hilltop basilica and turquoise coves below the Edough. What to see, with photos."
   primaryKeyword: "Annaba Algeria travel guide"
   keywords: ["Annaba", "Hippo Regius", "Saint Augustine basilica", "Annaba beaches", "eastern Algeria"]
 updated: 2026-06-07

@@ -224,7 +224,7 @@ export const PROGRAMMES = [
 // ---- Page copy (EN). {programmes} and {price} are placeholders the component
 // fills; `prog` strings are the per-programme chrome shared by all languages.
 export const LUX_COPY = {
-  seoTitle: 'Luxury Algeria Tours — The 5-Star Collection | Algeria Compass',
+  seoTitle: 'Luxury Algeria Tours 2027: Private 5-Star Journeys',
   seoDescription: 'Three all-inclusive 8-day luxury tours of Algeria: Roman ruins, UNESCO cities and the Sahara. Internal flights, 5-star hotels, private 4WD. From €1,615.',
   keywords: ['Algeria luxury tours', '5-star Algeria', 'private Algeria tours', 'luxury Sahara Algeria', 'luxury Algeria travel', 'Algeria UNESCO tours', 'all-inclusive Algeria tour'],
   ogImage: '/assets/img/tours/djemila-1.jpg',

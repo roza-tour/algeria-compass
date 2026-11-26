@@ -35,8 +35,8 @@ faqs:
   - { q: "Is Batna worth more than a day?", a: "Timgad itself is a half-day, but pairing it with Imedghassen and a drive into the Aurès gorges easily fills a rewarding day or two." }
 
 seo:
-  title: "Batna, Algeria: Timgad & the Aurès Mountains — Travel Guide"
-  description: "Batna, Algeria: the UNESCO Roman city of Timgad, the Imedghassen mausoleum and the Chaoui Aurès mountains — history, culture and how to visit."
+  title: "Batna, Algeria: Timgad, the Aurès & Things to Do"
+  description: "Batna and the Aurès: the UNESCO Roman city of Timgad, the Imedghassen mausoleum and Chaoui mountain villages. What to see and how to visit."
   primaryKeyword: "Batna Algeria travel guide"
   keywords: ["Batna", "Timgad", "Aurès", "Chaoui", "Imedghassen", "Roman Algeria"]
 updated: 2026-06-07

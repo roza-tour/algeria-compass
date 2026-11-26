@@ -34,8 +34,8 @@ faqs:
   - { q: "What is Tigditt?", a: "The historic popular quarter of Mostaganem, with its old streets and traditional houses, at the heart of the city's identity and culture." }
 
 seo:
-  title: "Mostaganem, Algeria: Mediterranean Beaches & Old Town — Guide"
-  description: "Mostaganem, Algeria — a western Mediterranean coast of beaches, an Ottoman port, the Tigditt old town, Bordj Ettork and a rich theatre tradition."
+  title: "Mostaganem, Algeria: Beaches, Old Town & Things to Do"
+  description: "Mostaganem on Algeria's western coast: long beaches, the Tigditt old town, the Ottoman port, Bordj Ettork and a proud theatre tradition. What to see."
   primaryKeyword: "Mostaganem Algeria travel guide"
   keywords: ["Mostaganem", "western Algeria", "Tigditt", "Bordj Ettork", "Algerian beaches"]
 updated: 2026-06-07

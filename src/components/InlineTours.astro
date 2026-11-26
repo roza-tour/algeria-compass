@@ -9,8 +9,8 @@ import { TOURS_ES } from '../data/tours-es';
 import { TOURS_DE } from '../data/tours-de';
 import { ROUTES, asLang } from '../i18n';
 
-interface Props { text: string; lang?: string; limit?: number }
-const { text, limit = 3 } = Astro.props;
+interface Props { text: string; lang?: string; limit?: number; fallback?: string[] }
+const { text, limit = 3, fallback = [] } = Astro.props;
 const lang = asLang(Astro.props.lang);
 const LOCAL: Record<string, any> = { fr: TOURS_FR, it: TOURS_IT, es: TOURS_ES, de: TOURS_DE };
 const C = {
@@ -20,7 +20,7 @@ const C = {
   es: { h: 'Los viajes de esta guía', sub: 'Privados, con un guía local autorizado, en sus fechas.', from: 'desde', per: 'por persona', cta: 'Ver el viaje →' },
   de: { h: 'Reisen zu diesem Ratgeber', sub: 'Privat, mit lizenziertem lokalem Guide, zu Ihren Terminen.', from: 'ab', per: 'pro Person', cta: 'Zur Reise →' },
 }[lang];
-const cards = relatedTours(text, limit)
+const cards = relatedTours(text, limit, fallback)
   .map((t: any) => {
     const loc = lang === 'en' ? null : LOCAL[lang]?.[t.id];
     const translated = !!loc?.full;

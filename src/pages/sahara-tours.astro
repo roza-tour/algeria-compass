@@ -1,0 +1,110 @@
+---
+// Landing page for the booking searches Search Console shows we rank badly
+// for ("algerian sahara itinerary", "sahara algerien", "timimoun tours",
+// "djanet algeria", Aug–Nov 2026): one page that gathers every desert trip,
+// says where each part of the Sahara is, when to go and how a desert journey
+// with us works. Facts only from tours.json and config; warm host's voice.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroImg from '../components/HeroImg.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TourCard from '../components/TourCard.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaSection from '../components/CtaSection.astro';
+import data from '../data/tours.json';
+import { BOOKING } from '../config';
+
+const all = ((data as any).tours || (data as any)) as any[];
+const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
+const IDS = ['djanet-sahara-safari', 'tadrart-rouge-7-days', 'ihrir-oasis-7-days', 'sefar-tassili-trek',
+  'timimoun-desert-escape', 'taghit-saoura-dunes', 'tamanrasset-assekrem-hoggar', 'djanet-ghardaia-desert-2-days',
+  'ghardaia-guided-tour', 'bousaada-desert-tour', 'biskra-aures-oases'];
+const tours = IDS.map(id => all.find(t => t.id === id)).filter(Boolean);
+const fromPrice = Math.min(...tours.map(t => Number(t.price_eur)));
+
+const AREAS = [
+  { name: 'Djanet & the Tassili n’Ajjer', href: '/tours/djanet-sahara-safari/', text: 'Red dunes of the Tadrart, rock art thousands of years old at Sefar, the Ihrir guelta. The Sahara most travellers dream of.' },
+  { name: 'Timimoun & the Gourara', href: '/tours/timimoun-desert-escape/', text: 'The red oasis: ochre ksour, palm gardens watered by foggaras, and the dunes of the Grand Erg Occidental.' },
+  { name: 'Taghit & the Saoura', href: '/tours/taghit-saoura-dunes/', text: 'A village of mud and palm trees at the foot of tall golden dunes, with rock carvings close by.' },
+  { name: 'Tamanrasset & the Hoggar', href: '/tours/tamanrasset-assekrem-hoggar/', text: 'Volcanic peaks, Tuareg country and sunrise at the Assekrem.' },
+  { name: 'Ghardaïa & the M’Zab Valley', href: '/tours/ghardaia-guided-tour/', text: 'Walled towns on the edge of the desert, a UNESCO valley where daily life still keeps its old rhythm.' },
+  { name: 'Bou Saâda & Biskra', href: '/tours/bousaada-desert-tour/', text: 'The gateway oases, close to the north: palm groves, a first night under the stars, the Sahara within a short drive.' },
+];
+
+const fee = BOOKING.saharanVisaFee;
+const faqs = [
+  { q: 'When is the best time for a Sahara tour in Algeria?', a: 'November to February. Days are clear and mild, nights by the fire are cool, and the light on the dunes is at its most beautiful. In summer the deep south is too hot for travel; the gateway oases like Bou Saâda and Biskra are lovely in spring and autumn too.' },
+  { q: 'Are your Sahara tours private?', a: 'Yes. Every desert trip is for your own party only: your guide, your 4x4 and driver, your cook and your camp. Nothing is shared with other travellers.' },
+  { q: 'Do I need a special visa for the Algerian Sahara?', a: `For trips to the south with a licensed agency, we can prepare the Saharan visa authorisation so you collect your visa on arrival. The authorisation costs $${fee}, and the arrival stamp is a separate fee paid at the airport. We send you everything to fill in before you fly.` },
+  { q: 'Can I travel in the deep Sahara on my own?', a: 'The deep south is visited as an organised journey: a licensed guide, permits and a desert crew who know the tracks. That is how we travel too, and it lets you simply enjoy the desert while we take care of the rest.' },
+  { q: 'How many days do I need?', a: 'Two days at Bou Saâda give a first taste of the desert. For Djanet, Timimoun or Taghit, plan five to seven days including the flights from Algiers. Seven days lets you go deeper into the Tadrart or walk up to the Tassili plateau.' },
+];
+
+const itemList = {
+  '@type': 'ItemList', '@id': `${site}/sahara-tours/#trips`, name: 'Private Sahara tours in Algeria',
+  numberOfItems: tours.length,
+  itemListElement: tours.map((t, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'TouristTrip', '@id': `${site}/tours/${t.id}/#trip`, name: t.title, url: `${site}/tours/${t.id}/` } })),
+};
+const breadcrumb = { '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+  { '@type': 'ListItem', position: 2, name: 'Tours', item: `${site}/tours/` },
+  { '@type': 'ListItem', position: 3, name: 'Sahara tours', item: `${site}/sahara-tours/` },
+] };
+---
+<BaseLayout
+  title="Algeria Sahara Tours 2027: Private Desert Trips"
+  description={`Private Sahara tours in Algeria: Djanet and the Tadrart Rouge, the Tassili, Timimoun, Taghit, the Hoggar and the M'Zab. Your own guide and camp, from €${fromPrice}.`}
+  image="/assets/img/tours/djanet-1.jpg"
+  keywords={['Algeria Sahara tours', 'Sahara desert tour Algeria', 'Djanet tours', 'Timimoun tours', 'Tassili tour', 'Algerian Sahara itinerary']}
+  schema={[itemList, breadcrumb]}>
+  <section class="hero" style="min-height:46vh">
+    <HeroImg src="/assets/img/tours/djanet-1.jpg" alt="Red dunes of the Tadrart Rouge near Djanet in the Algerian Sahara" />
+    <div class="hero-in wrap">
+      <div class="eyebrow">{tours.length} private desert journeys</div>
+      <h1>Sahara Tours in Algeria</h1>
+      <p>The largest share of the Sahara of any country, and some of its most beautiful corners. Come and see it with the people who call it home.</p>
+    </div>
+  </section>
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Tours', href: '/tours/' }, { name: 'Sahara tours' }]} />
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <p class="lede">In the desert, nobody travels alone. Your guide, your driver and our cook go with you; tea is poured at every stop, bread is baked in the sand, and in the evening there is a fire and more stars than you have ever seen. Every trip below is private, for your own party, on the dates you choose.</p>
+  </div></section>
+
+  <section class="section" style="padding-top:0"><div class="wrap">
+    <h2>Our Sahara tours</h2>
+    <div class="grid" data-reveal-group>
+      {tours.map((t, i) => <TourCard tour={t} index={i} />)}
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <h2>Where in the Sahara?</h2>
+    <div class="sh-areas">
+      {AREAS.map(a => (
+        <a class="sh-area" href={a.href}><b>{a.name}</b><span>{a.text}</span></a>
+      ))}
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap" style="max-width:820px">
+    <h2>How a desert journey with us works</h2>
+    <ul class="sh-list">
+      <li><b>Your own crew.</b> A licensed guide, a 4x4 with a driver who knows the tracks, and a cook who makes every camp feel like home.</li>
+      <li><b>Permits and paperwork.</b> We arrange the permits for the south and can prepare your Saharan visa authorisation (${fee}), so you collect your visa on arrival.</li>
+      <li><b>Flights from Algiers.</b> Djanet, Timimoun and Tamanrasset are reached by domestic flights, and Taghit through Béchar; we plan the route around them.</li>
+      <li><b>Your dates held for free.</b> We hold your dates for {BOOKING.holdHours} hours while we confirm, and booking {BOOKING.earlyDays} days ahead takes {BOOKING.earlyPct}% off the tour price.</li>
+    </ul>
+    <p>Not sure which desert suits you? Read <a href="/blog/djanet-vs-timimoun/">Djanet or Timimoun</a> and <a href="/blog/best-time-to-visit-algeria/">the best time to visit Algeria</a>, or see <a href="/tours/">all our Algeria tours</a>.</p>
+  </div></section>
+
+  <FaqSection faqs={faqs} />
+  <CtaSection heading="Tell us your dates, we'll prepare the desert" interest="Sahara" />
+</BaseLayout>
+<style>
+  .sh-areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem;margin-top:1.2rem}
+  .sh-area{display:flex;flex-direction:column;gap:.35rem;padding:1.1rem 1.2rem;border:1px solid var(--border);border-radius:14px;background:var(--wash);color:inherit;text-decoration:none}
+  .sh-area b{font-size:1.05rem}
+  .sh-area span{color:var(--text-m);line-height:1.6;font-size:.95rem}
+  .sh-list{line-height:1.75;padding-left:1.1rem}
+  .sh-list li{margin:.6rem 0}
+</style>

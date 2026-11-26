@@ -35,8 +35,8 @@ faqs:
   - { q: "What is the El Hamel zawiya?", a: "A historic Sufi zawiya — a shrine and religious school — near Bou Saada, an important spiritual centre and a striking piece of desert architecture." }
 
 seo:
-  title: "Bou Saada, Algeria: the 'City of Happiness' Oasis — Travel Guide"
-  description: "Bou Saada, Algeria — an oasis town on the Sahara's edge: its palm grove and waterfall, the Ferrero Mill, craft markets and the El Hamel zawiya."
+  title: "Bou Saada (Bousaada), Algeria: The Oasis City of Happiness"
+  description: "Bou Saada on the Sahara's edge: the palm grove and waterfall, the Ferrero Mill, the craft market and the El Hamel zawiya. What to see, with photos."
   primaryKeyword: "Bou Saada Algeria travel guide"
   keywords: ["Bou Saada", "City of Happiness", "M'Sila", "Nasreddine Dinet", "El Hamel", "Algerian oasis"]
 updated: 2026-06-07

@@ -4,6 +4,8 @@
 User-agent: *
 Allow: /
 Disallow: /search
+# visit counter endpoint, not a page (Search Console reported it as a 4xx)
+Disallow: /hit.php
 
 # ---- AI / answer-engine crawlers — explicitly allowed for AEO/GEO ----
 # (we WANT to be readable and citable by AI assistants and answer engines)

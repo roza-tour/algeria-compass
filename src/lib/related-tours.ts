@@ -27,7 +27,7 @@ const PLACE_WORDS: Record<string, string[]> = {
   annaba: ['annaba', 'hippo'],
 };
 
-export function relatedTours(text: string, limit = 3): any[] {
+export function relatedTours(text: string, limit = 3, fallback: string[] = []): any[] {
   const low = text.toLowerCase();
   const picked: string[] = [];
   for (const m of low.matchAll(/\/(?:tours|fr\/circuits|it\/circuiti|es\/circuitos|de\/reisen)\/([a-z0-9-]+)\//g)) {
@@ -52,5 +52,7 @@ export function relatedTours(text: string, limit = 3): any[] {
   const primary = (id: string) => tourList.find(t => t.id === id).wilayas?.[0];
   for (const id of picked) if (out.length < limit && !seen.has(primary(id))) { out.push(id); seen.add(primary(id)); }
   for (const id of [...picked, ...rest]) if (out.length < limit && !out.includes(id)) out.push(id);
+  // A page that names no region gets the house favourites instead of nothing.
+  for (const id of fallback) if (out.length < limit && !out.includes(id) && tourList.some(t => t.id === id)) out.push(id);
   return out.map(id => tourList.find(t => t.id === id));
 }

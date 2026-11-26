@@ -42,8 +42,8 @@ faqs:
   - { q: "Where should I eat near Djémila?", a: "Eating options at the site are simple, so bring water and a snack for the ruins. For a proper meal, eat in Sétif city, which has the state's widest choice of grills, rotisserie and patisseries." }
 
 seo:
-  title: "Sétif & Djémila: Travel Guide to Roman Algeria"
-  description: "Plan Sétif, Algeria: the UNESCO Roman city of Djémila, High Plateaus scenery, Babor cedar forests, history, food, getting around and where to stay."
+  title: "Sétif, Algeria: Djémila Roman City & Things to Do"
+  description: "Sétif and Djémila, the UNESCO Roman city in the mountains: what to see, the High Plateaus, Babor cedar forests, local food and how to visit."
   primaryKeyword: "Sétif Algeria travel guide"
   keywords: ["Djémila","Sétif Algeria","Roman ruins Algeria","Sitifis","Ain El Fouara","Babor"]
 updated: 2026-06-03

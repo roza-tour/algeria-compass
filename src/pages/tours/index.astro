@@ -6,6 +6,8 @@ import TourFilters from '../../components/TourFilters.astro';
 import RecentTours from '../../components/RecentTours.astro';
 import AlgeriaMap from '../../components/AlgeriaMap.astro';
 import { alternatesFor } from '../../i18n';
+import FaqSection from '../../components/FaqSection.astro';
+import { BOOKING, PARENT } from '../../config';
 const tours = ((data as any).tours || (data as any)) as any[];
 const site = (Astro.site?.toString() || 'https://algeriacompass.com').replace(/\/$/, '');
 // Bidirectional hreflang with the French catalogue at /fr/circuits/.
@@ -36,6 +38,16 @@ const catalog = {
     };
   }),
 };
+// Search Console (Aug–Nov 2026): the hub ranked far behind our guides for
+// booking searches. It had one line of text; it now says who runs the trips,
+// how a private tour works, and answers the questions people ask before booking.
+const faqs = [
+  { q: 'Are your Algeria tours private?', a: 'Yes, every one of them. Your guide, your driver and vehicle and your pace are yours alone; we never mix travellers into shared groups.' },
+  { q: 'Can you change an itinerary for us?', a: 'Of course. Each itinerary is a starting point: add days, swap a city, choose other hotels or join two trips together, and we rebuild the programme and the price around you.' },
+  { q: 'Do you help with the visa?', a: `Yes. We send the invitation and the confirmed programme that Algerian consulates ask for. For trips that include the Sahara we can prepare the Saharan visa authorisation ($${BOOKING.saharanVisaFee}), so you collect your visa on arrival.` },
+  { q: 'When is the best time to come?', a: 'Spring and autumn for the north, the coast and the Roman cities; November to February for the Sahara. Winter in the north is mild and green, and we plan around Ramadan and the holidays with you.' },
+  { q: 'How do we book?', a: `Send us your dates and the number of travellers. We hold your dates for ${BOOKING.holdHours} hours at no cost while we confirm, and booking ${BOOKING.earlyDays} days ahead takes ${BOOKING.earlyPct}% off the tour price.` },
+];
 const breadcrumb = {
   '@type': 'BreadcrumbList',
   itemListElement: [
@@ -45,8 +57,8 @@ const breadcrumb = {
 };
 ---
 <BaseLayout
-  title="Algeria Tours & Private Journeys | Algeria Compass"
-  description={`Private, guided Algeria tours — Sahara safaris, the UNESCO Casbah, Roman cities, the M'Zab Valley and the Kabyle coast. ${tours.length} curated itineraries from €30.`}
+  title="Algeria Tours 2027: Private Trips With Your Own Local Guide"
+  description={`Private Algeria tours for your own party: the Sahara at Djanet and Timimoun, the Casbah, Roman Djémila and Timgad, Constantine. ${tours.length} trips from €30.`}
   image="/assets/img/tours/djanet-1.jpg"
   keywords={["Algeria tours","private Algeria tours","Sahara safari","Algeria itineraries","guided tours Algeria","Algeria travel"]}
   alternates={alternates}
@@ -55,10 +67,20 @@ const breadcrumb = {
     <HeroImg src="/assets/img/tours/djanet-1.jpg" alt="Algeria tours" />
     <div class="hero-in wrap">
       <div class="eyebrow"><span data-count>{tours.length}</span> private itineraries</div>
-      <h1>Tours of Algeria</h1>
-      <p>Private, locally-guided journeys across all of Algeria — from the deep Sahara to the Roman north and the Mediterranean coast.</p>
+      <h1>Algeria Tours</h1>
+      <p>Private journeys across all of Algeria, with your own local guide: from the deep Sahara to the Roman north and the Mediterranean coast.</p>
     </div>
   </section>
+
+  <section class="section"><div class="wrap" style="max-width:860px">
+    <p class="lede">Algeria Compass is the private and luxury branch of {PARENT.name}, a licensed Algerian travel agency (licence no. {PARENT.licence}) welcoming guests since {PARENT.since}. Every trip below is private: your guide, your driver, your pace. We plan it with you, take care of hotels, domestic flights, permits and the visa papers, and look after you from the airport to your last glass of mint tea.</p>
+    <p class="th-links">
+      <a class="btn" href="/sahara-tours/">Sahara tours</a>
+      <a class="btn btn-ghost" href="/luxury/">Luxury tours</a>
+      <a class="btn btn-ghost" href="/visa-support/">Visa support</a>
+      <a class="btn btn-ghost" href="/plan-your-trip/">Plan a tailor-made trip</a>
+    </p>
+  </div></section>
 
   <AlgeriaMap lang="en" />
 
@@ -68,4 +90,9 @@ const breadcrumb = {
     <TourFilters rows={tours.map((t) => ({ tour: t }))} />
   </div></section>
 
+  <FaqSection faqs={faqs} />
+
 </BaseLayout>
+<style>
+  .th-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem}
+</style>

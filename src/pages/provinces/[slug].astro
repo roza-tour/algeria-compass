@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import InlineTours from '../../components/InlineTours.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -81,6 +82,7 @@ const schemaNodes = [place, webpage, authorEntity, reviewerEntity];
     <QuickAnswer text={d.quickAnswer} />
     <KeyFacts facts={d.keyFacts} />
     <article class="prose"><Content /></article>
+    <InlineTours text={`${d.name} ${item.slug} ${item.body}`} fallback={['the-soul-of-algeria', 'djanet-sahara-safari', 'algeria-through-time-and-tradition']} />
     <SourceList sources={d.sources} />
     <EditorialMeta sourceCount={d.sources.length} reviewerName={reviewer.name} reviewerHref={reviewer.href} lastReviewed={d.lastReviewed} />
   </div></section>

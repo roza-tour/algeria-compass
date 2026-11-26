@@ -1,5 +1,6 @@
 ---
 import QuestionPhoto from '../QuestionPhoto.astro';
+import InlineTours from '../InlineTours.astro';
 // One travel question in a language other than English. The answer comes from
 // questionI18n.mjs; the author, reviewer and date are the English entry's, so
 // both versions carry the same editorial record.
@@ -74,6 +75,7 @@ const related = [...same, ...rest.slice(start), ...rest.slice(0, start)].slice(0
       <h2>{U.facts}</h2>
       <dl>{t.facts.map(([k, v]: [string, string]) => (<><dt>{k}</dt><dd>{v}</dd></>))}</dl>
     </div>
+    <InlineTours text={t.body.join(' ')} lang={lang} fallback={['the-soul-of-algeria', 'djanet-sahara-safari', 'algeria-through-time-and-tradition']} />
     <SourceList lang={lang} sources={d.sources} />
     <EditorialMeta lang={lang} sourceCount={d.sources.length} reviewerName={reviewer.name} reviewerHref={reviewer.href} lastReviewed={d.lastReviewed} />
     <p class="lq-en"><a href={qHref(slug, 'en')} hreflang="en">{U.readEn} →</a></p>

@@ -1,6 +1,7 @@
 ---
 import QuestionPhoto from '../../components/QuestionPhoto.astro';
 import { getCollection } from 'astro:content';
+import InlineTours from '../../components/InlineTours.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { ogFallback } from '../../lib/og-image';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -78,6 +79,7 @@ const breadcrumb = { "@type":"BreadcrumbList", "@id":`${site}/questions/${item.s
     <QuestionPhoto slug={item.slug} />
     <div class="prose"><Content /></div>
     <KeyFacts facts={d.keyFacts} />
+    <InlineTours text={item.body} fallback={['the-soul-of-algeria', 'djanet-sahara-safari', 'algeria-through-time-and-tradition']} />
     <SourceList sources={d.sources} />
     <EditorialMeta sourceCount={d.sources.length} reviewerName={reviewer.name} reviewerHref={reviewer.href} lastReviewed={d.lastReviewed} />
   </div></article>
