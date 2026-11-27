@@ -1,7 +1,7 @@
 ---
 question: "Is Algeria safe to visit?"
 category: "Safety"
-shortAnswer: "Yes — Algeria is a safe, warm and welcoming country to visit in 2026. The main cities, the north, the M'Zab Valley and the organised Sahara routes are calm and easy to travel. The deep south is travelled with permits and a licensed guide, which we arrange, and a few remote border zones are not open to visitors."
+shortAnswer: "Yes — Algeria is a safe, warm and welcoming country to visit today. The main cities, the north, the M'Zab Valley and the organised Sahara routes are calm and easy to travel. The deep south is travelled with permits and a licensed guide, which we arrange, and a few remote border zones are not open to visitors."
 keyFacts:
   - { label: "Cities & north", value: "Easy and welcoming for travel" }
   - { label: "Deep Sahara", value: "Guide + permit, arranged for you" }

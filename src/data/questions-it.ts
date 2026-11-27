@@ -570,7 +570,7 @@ export const QUESTIONS_IT: Record<string, QuestionI18n> = {
   },
   "is-algeria-safe": {
     "q": "L'Algeria è sicura da visitare?",
-    "a": "Sì — nel 2026 l'Algeria è un paese tranquillo e accogliente per chi viaggia. Le grandi città, il nord, la valle del M'Zab e gli itinerari sahariani organizzati si visitano con serenità, e non è raro che vi offrano un tè prima ancora di chiedervi da dove venite. L'estremo sud si scopre con una guida autorizzata e i permessi, che organizziamo noi, e alcune fasce di frontiera remote non sono aperte ai visitatori.",
+    "a": "Sì — oggi l'Algeria è un paese tranquillo e accogliente per chi viaggia. Le grandi città, il nord, la valle del M'Zab e gli itinerari sahariani organizzati si visitano con serenità, e non è raro che vi offrano un tè prima ancora di chiedervi da dove venite. L'estremo sud si scopre con una guida autorizzata e i permessi, che organizziamo noi, e alcune fasce di frontiera remote non sono aperte ai visitatori.",
     "kf": [
       [
         "Città e nord",

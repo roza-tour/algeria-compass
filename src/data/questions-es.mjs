@@ -303,7 +303,7 @@ export const QUESTIONS_ES = {
   },
   'is-algeria-safe': {
     q: '¿Es Argelia un país seguro para visitar?',
-    a: 'Sí — en 2026 Argelia es un país tranquilo y acogedor para quien viaja. Las grandes ciudades, el norte, el valle del M’Zab y las rutas saharianas organizadas se visitan con serenidad, y no es raro que le ofrezcan un té antes incluso de preguntarle de dónde viene. El sur profundo se descubre con un guía autorizado y permisos, que organizamos nosotros, y algunas zonas fronterizas remotas no están abiertas a los visitantes.',
+    a: 'Sí — hoy Argelia es un país tranquilo y acogedor para quien viaja. Las grandes ciudades, el norte, el valle del M’Zab y las rutas saharianas organizadas se visitan con serenidad, y no es raro que le ofrezcan un té antes incluso de preguntarle de dónde viene. El sur profundo se descubre con un guía autorizado y permisos, que organizamos nosotros, y algunas zonas fronterizas remotas no están abiertas a los visitantes.',
     facts: [['Ciudades y norte', 'Tranquilos y acogedores'], ['Sáhara profundo', 'Con guía autorizado y permisos'], ['Fronteras remotas del sur', 'No abiertas a los visitantes']],
     body: [
       'La imagen que algunos tienen de Argelia se quedó en los años noventa; el país de hoy es otra cosa. Lleva más de veinte años estable, y quien llega lo nota enseguida: el taxista que le deja su número «para lo que haga falta», el vecino de mesa que insiste en invitarle al café, la familia que le invita a cenar tras cinco minutos de charla.',

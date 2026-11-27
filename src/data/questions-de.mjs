@@ -303,7 +303,7 @@ export const QUESTIONS_DE = {
   },
   'is-algeria-safe': {
     q: 'Ist Algerien ein sicheres Reiseland?',
-    a: 'Ja – Algerien ist 2026 ein ruhiges und sehr gastfreundliches Reiseland. In den Großstädten, im Norden, im M’Zab-Tal und auf den organisierten Sahara-Routen reisen Sie entspannt. Den tiefen Süden besuchen Sie als organisiertes Programm mit lizenziertem Guide und Genehmigungen, und einige abgelegene Grenzzonen sind für Besucher nicht geöffnet.',
+    a: 'Ja – Algerien ist heute ein ruhiges und sehr gastfreundliches Reiseland. In den Großstädten, im Norden, im M’Zab-Tal und auf den organisierten Sahara-Routen reisen Sie entspannt. Den tiefen Süden besuchen Sie als organisiertes Programm mit lizenziertem Guide und Genehmigungen, und einige abgelegene Grenzzonen sind für Besucher nicht geöffnet.',
     facts: [['Städte und Norden', 'Entspannt und gastfreundlich'], ['Tiefe Sahara', 'Organisiertes Programm mit Guide + Genehmigung'], ['Grenzen im tiefen Süden', 'Teilweise nicht für Besucher geöffnet']],
     body: [
       'Viele kennen Algerien noch aus den Nachrichten der 1990er-Jahre. Das heutige Land ist seit über zwanzig Jahren stabil, und wer kommt, erlebt vor allem Gastfreundschaft: Man bietet Ihnen Tee oder Kaffee an, Passanten begleiten Sie ein Stück, wenn Sie den Weg suchen, und die Frage „Woher kommen Sie?“ endet nicht selten mit einer Einladung zum Essen.',

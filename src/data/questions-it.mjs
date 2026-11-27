@@ -303,7 +303,7 @@ export const QUESTIONS_IT = {
   },
   'is-algeria-safe': {
     q: 'L’Algeria è un paese sicuro da visitare?',
-    a: 'Sì — nel 2026 l’Algeria è un paese tranquillo e accogliente per chi viaggia. Le grandi città, il Nord, la valle dello M’Zab e gli itinerari sahariani organizzati si visitano con serenità, e non è raro che vi offrano un tè prima ancora di chiedervi da dove venite. Il profondo Sud si scopre con una guida autorizzata e i permessi, che organizziamo noi, e alcune zone di frontiera remote non sono aperte ai visitatori.',
+    a: 'Sì — oggi l’Algeria è un paese tranquillo e accogliente per chi viaggia. Le grandi città, il Nord, la valle dello M’Zab e gli itinerari sahariani organizzati si visitano con serenità, e non è raro che vi offrano un tè prima ancora di chiedervi da dove venite. Il profondo Sud si scopre con una guida autorizzata e i permessi, che organizziamo noi, e alcune zone di frontiera remote non sono aperte ai visitatori.',
     facts: [['Città e Nord', 'Tranquilli e accoglienti'], ['Profondo Sahara', 'Con guida autorizzata e permessi'], ['Frontiere remote del Sud', 'Non aperte ai visitatori']],
     body: [
       'L’immagine che alcuni hanno dell’Algeria è ferma agli anni Novanta; il paese di oggi è un’altra cosa. È stabile da oltre vent’anni, e chi arriva se ne accorge subito: il tassista che vi lascia il suo numero «per qualsiasi cosa», il vicino di tavolo che insiste per offrirvi il caffè, la famiglia che vi invita a cena dopo cinque minuti di chiacchiere.',

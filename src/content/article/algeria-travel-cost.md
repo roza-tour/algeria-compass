@@ -28,7 +28,7 @@ costs:
   - { item: "Local guide / day (north)", budget: "—", mid: "€35–75", high: "€100+" }
   - { item: "Guided Sahara expedition / day", budget: "—", mid: "€130–220", high: "€260+" }
 costCurrency: "EUR, indicative"
-costNote: "Indicative ranges for 2026 planning only. Algeria has an official exchange rate and a widely-used parallel rate, so real costs depend heavily on how and where you change money. Confirm current rates before you travel and carry cash."
+costNote: "Indicative ranges for planning a 2027 trip. Algeria has an official exchange rate and a widely-used parallel rate, so real costs depend heavily on how and where you change money. Confirm current rates before you travel and carry cash."
 travelerProfiles:
   - { type: "Budget travellers (north)", fit: "good", note: "Cheap food and transport make the north very affordable if you skip the desert." }
   - { type: "Mid-range travellers", fit: "great", note: "Comfortable hotels, private transfers and day guides are good value." }
@@ -62,7 +62,7 @@ secondaryClusters: ["algeria-transportation"]
 
 Algeria has a reputation for being hard to read on price, mostly because of one quirk: the country has an **official exchange rate and a widely-used parallel rate**, and the gap between them is large. Understand that, carry cash, and Algeria turns out to be an affordable destination for everything except the deep Sahara.
 
-Here's what a trip actually costs in 2026.
+Here's what a trip actually costs in 2027.
 
 ## The short answer
 
